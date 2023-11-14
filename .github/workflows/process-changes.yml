@@ -1,0 +1,35 @@
+name: Release Changes
+
+environment: release
+
+on: 
+  schedule:
+    # We process changelogs every wednesday at 4AM UTC, to coincide with preview releases when possible
+    - cron: '0 4 * * 3'
+
+runs-on: ubuntu-latest
+
+steps:
+  - uses: actions/checkout@v4
+    with:
+      persist-credentials: false
+  - name: Use Node.js 20.x
+    uses: actions/setup-node@v3
+    with:
+      node-version: '20.x'
+  - run: npm ci
+  - run: npm run build # Fully build the repo so we have artifacts available to create releases
+  
+  - name: Set git credentials
+    run: |
+      git config --global user.name "Raphael Landaverde"
+      git config --global user.email "rlanda@microsoft.com"
+      git remote set-url origin "https://$REPO_PAT@github.com/mojang/minecraft-scripting-libraries"
+    env:
+      REPO_PAT: ${{ secrets.REPO_PAT }}
+  
+  # Pass the token on the command line for publishing
+  - name: Publish
+    run: npm run release -- --token "$NPM_TOKEN" --yes --new
+    env:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -16,7 +16,7 @@
         "test": "turbo run test",
         "lint": "turbo run lint",
         "change": "beachball change",
-        "release": "beachball publish"
+        "release": "beachball publish --access public"
     },
     "keywords": [
         "minecraft",

@@ -1,0 +1,7 @@
+{
+    "name": "@minecraft/api-extractor-base",
+    "private": "true",
+    "version": "0.0.1",
+    "description": "Shared api-extractor configurations",
+    "author": "Raphael Landaverde (rlanda@microsoft.com)"
+}

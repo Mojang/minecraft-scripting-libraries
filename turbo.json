@@ -1,0 +1,35 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "pipeline": {
+        "@minecraft/core-build-tasks#build-tools": {
+            "outputs": ["lib/**", "dist/**"],
+            "outputMode": "errors-only"
+        },
+        "build": {
+            "dependsOn": ["@minecraft/core-build-tasks#build-tools", "^build"],
+            "outputs": ["lib/**", "dist/**"],
+            "inputs": ["src/**/*.ts", "*.json", "*.js"]
+        },
+        "lint": {
+            "dependsOn": ["@minecraft/core-build-tasks#build-tools", "build"],
+            "outputs": [],
+            "inputs": ["src/**/*.ts"]
+        },
+        "test": {
+            "dependsOn": ["@minecraft/core-build-tasks#build-tools", "build", "lint"],
+            "outputs": [],
+            "inputs": ["src/**/*.ts"]
+        },
+        "clean": {
+            "dependsOn": ["@minecraft/core-build-tasks#build-tools"],
+            "outputs": [],
+            "cache": false,
+            "outputMode": "errors-only"
+        },
+        "clean-tools": {
+            "dependsOn": [],
+            "outputs": [],
+            "cache": false
+        }
+    }
+}

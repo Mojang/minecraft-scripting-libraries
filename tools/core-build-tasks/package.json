@@ -5,7 +5,6 @@
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
     "author": "Raphael Landaverde (rlanda@microsoft.com)",
-    "private": true,
     "scripts": {
         "build-tools": "just-scripts build-tools",
         "clean-tools": "just-scripts clean-tools",

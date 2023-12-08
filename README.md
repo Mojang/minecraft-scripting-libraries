@@ -40,6 +40,10 @@ All packages are validated via ESLint with a consistent set of rules as well as 
 
 All packages support testing via `vitest`. Tests are authored with the `.test.ts` suffix and tests can be run with `npm run test`.
 
-# Contributing
+## Contributing
 
-Contributions to these libraries are welcome! These libraries are maintained by Mojang team but we are open to contributions and bug fixes. In general, we consider the backwards compatibility and versioning to be the absolute top priority when making changes to the libraries. Because of this, we strictly adhere to semver for changes, and libraries depend on minecraft modules at specific major versions as well. Any PR submitted to any library **must** contain a change file using the beachball tool to indicate the severity of the change. When a change is submitted, it will automatically update versions and publish to NPM via our pipelines.
+See [Contributing.md](./CONTRIBUTING.md) for details on contributions
+
+## Trademark Notice
+
+Trademarks This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft trademarks or logos is subject to and must follow Microsoft’s Trademark & Brand Guidelines. Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship. Any use of third-party trademarks or logos are subject to those third-party’s policies.

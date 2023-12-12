@@ -9,7 +9,7 @@ A set of free functions and a wrapper class for common vector3 operations. Two d
 ### Pure Functional Style
 
 ```ts
-import { Vector3 } from '@minecraft/server';
+import { Vector3, world } from '@minecraft/server';
 import { MinecraftDimensionTypes } from '@minecraft/vanilla-data';
 import { add, subtract, cross } from '@minecraft/math';
 
@@ -30,8 +30,9 @@ dimension.spawnParticle("minecraft:colored_flame_particle", resultAdd);
 ### Builder Style
 
 ```ts
-import { Vector3 } from '@minecraft/server';
+import { Vector3, world } from '@minecraft/server';
 import { Vector3Builder } from '@minecraft/math';
+import { MinecraftDimensionTypes } from '@minecraft/vanilla-data';
 
 const vectorA: Vector3Builder = new Vector3Builder({x: 1, y: 2, z:3});
 const vectorB: Vector3 = {x: 4, y: 5, z:6};
@@ -43,7 +44,7 @@ vectorA.add(vectorB).subtract(vectorC).cross(vectorB); // Final result {x:4, y:-
 console.log(vectorA.toString()); // Prints out "4, -8, 4"
 
 // Vector3Builder type can directly be used in APIs that accept Vector3
-const = dimension = world.getDimension(MinecraftDimensionTypes.Overworld);
+const dimension = world.getDimension(MinecraftDimensionTypes.Overworld);
 dimension.spawnParticle("minecraft:colored_flame_particle", vectorA);
 ```
 

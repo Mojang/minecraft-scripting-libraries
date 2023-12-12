@@ -1,3 +1,5 @@
+// Copyright (c) Mojang AB.  All rights reserved.
+
 /**
  * Clamps the passed in number to the passed in min and max values.
  *

@@ -1,3 +1,5 @@
+// Copyright (c) Mojang AB.  All rights reserved.
+
 import { TSESLint } from '@typescript-eslint/experimental-utils';
 import * as path from 'path';
 import { describe, it } from 'vitest';

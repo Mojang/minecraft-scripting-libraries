@@ -7,7 +7,7 @@ module.exports = {
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: { project: ['./tsconfig.json'] },
-    plugins: ['@typescript-eslint', 'unicorn', 'minecraft-linting'],
+    plugins: ['header', '@typescript-eslint', 'unicorn', 'minecraft-linting'],
     overrides: [{ files: ['**/*.{ts,tsx,js,jsx}', '*.ts'] }],
     rules: {
         'unicorn/no-abusive-eslint-disable': 'error',
@@ -29,6 +29,7 @@ module.exports = {
         '@typescript-eslint/no-unsafe-assignment': 'error',
         '@typescript-eslint/no-unsafe-member-access': 'error',
         '@typescript-eslint/no-unsafe-call': 'error',
+        'header/header': [2, 'line', ' Copyright (c) Mojang AB.  All rights reserved.', 1],
         'minecraft-linting/avoid-unnecessary-command': 'error',
     },
 };

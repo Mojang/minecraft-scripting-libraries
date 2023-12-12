@@ -1,3 +1,5 @@
+// Copyright (c) Mojang AB.  All rights reserved.
+
 import { Vector3 } from '@minecraft/server';
 import { clamp_number } from '../general/clamp';
 

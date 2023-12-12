@@ -1,3 +1,5 @@
+// Copyright (c) Mojang AB.  All rights reserved.
+
 /**
  * Rule which inspects calls to `runCommand[async]` and recommends using a script API if there
  * is a script API that provides 1:1 functionality parity. This does not necessarily require an

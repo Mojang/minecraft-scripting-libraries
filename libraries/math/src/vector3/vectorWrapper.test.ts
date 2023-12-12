@@ -1,3 +1,5 @@
+// Copyright (c) Mojang AB.  All rights reserved.
+
 import { Vector3 } from '@minecraft/server';
 import { describe, expect, it } from 'vitest';
 import { add, clamp, cross, dot, equals, floor, magnitude, normalize, scale, subtract, toString } from './coreHelpers';

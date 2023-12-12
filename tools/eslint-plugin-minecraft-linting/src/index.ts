@@ -1,3 +1,5 @@
+// Copyright (c) Mojang AB.  All rights reserved.
+
 import AvoidUnnecessaryCommand from './Rules/AvoidUnnecessaryCommand';
 
 module.exports = {

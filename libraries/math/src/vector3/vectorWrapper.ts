@@ -1,7 +1,20 @@
 // Copyright (c) Mojang AB.  All rights reserved.
 
-import { Vector3 } from '@minecraft/server';
-import { add, clamp, cross, dot, equals, floor, magnitude, normalize, scale, subtract, toString } from './coreHelpers';
+import { Vector2, Vector3 } from '@minecraft/server';
+import {
+    add,
+    clamp,
+    cross,
+    dot,
+    equals,
+    floor,
+    magnitude,
+    normalize,
+    scale,
+    subtract,
+    toString,
+    toStringVector2,
+} from './coreHelpers';
 
 /**
  * Vector3 wrapper class which can be used as a Vector3 for APIs on \@minecraft/server which require a Vector,
@@ -138,5 +151,30 @@ export class Vector3Builder implements Vector3 {
      */
     clamp(limits: { min?: Partial<Vector3>; max?: Partial<Vector3> }): this {
         return this.assign(clamp(this, limits));
+    }
+}
+
+/**
+ * Vector2 wrapper class which can be used as a Vector2 for APIs on \@minecraft/server which require a Vector2.
+ * @public
+ */
+export class Vector2Builder implements Vector2 {
+    x: number;
+    y: number;
+
+    constructor(vec: Vector2, arg?: never);
+    constructor(x: number, y: number);
+    constructor(first: number | Vector2, y?: number) {
+        if (typeof first === 'object') {
+            this.x = first.x;
+            this.y = first.y;
+        } else {
+            this.x = first;
+            this.y = y ?? 0;
+        }
+    }
+
+    toString(options?: { decimals?: number; delimiter?: string }): string {
+        return toStringVector2(this, options);
     }
 }

@@ -2,8 +2,21 @@
 
 import { Vector3 } from '@minecraft/server';
 import { describe, expect, it } from 'vitest';
-import { add, clamp, cross, dot, equals, floor, magnitude, normalize, scale, subtract, toString } from './coreHelpers';
-import { Vector3Builder } from './vectorWrapper';
+import {
+    add,
+    clamp,
+    cross,
+    dot,
+    equals,
+    floor,
+    magnitude,
+    normalize,
+    scale,
+    subtract,
+    toString,
+    toStringVector2,
+} from './coreHelpers';
+import { Vector2Builder, Vector3Builder } from './vectorWrapper';
 
 /**
  * Underlying functionality is validated by coreHelpers tests, primary concern here is consistency of results
@@ -147,6 +160,16 @@ describe('Vector3Builder', () => {
     it('should be able to compute a string representation of the vector with the same result as the coreHelpers function', () => {
         const vectorA = new Vector3Builder(1.33, 2.14, 3.55);
         const vectorB = toString(vectorA, { decimals: 1, delimiter: ' ' });
+
+        const result = vectorA.toString({ decimals: 1, delimiter: ' ' });
+        expect(result).toEqual(vectorB);
+    });
+});
+
+describe('Vector2Builder', () => {
+    it('should be able to compute a string representation of the vector with the same result as the coreHelpers function', () => {
+        const vectorA = new Vector2Builder(1.33, 2.14);
+        const vectorB = toStringVector2(vectorA, { decimals: 1, delimiter: ' ' });
 
         const result = vectorA.toString({ decimals: 1, delimiter: ' ' });
         expect(result).toEqual(vectorB);

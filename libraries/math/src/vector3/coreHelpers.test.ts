@@ -1,8 +1,21 @@
 // Copyright (c) Mojang AB.  All rights reserved.
 
-import { Vector3 } from '@minecraft/server';
+import { Vector2, Vector3 } from '@minecraft/server';
 import { describe, expect, it } from 'vitest';
-import { add, clamp, cross, dot, equals, floor, magnitude, normalize, scale, subtract, toString } from './coreHelpers';
+import {
+    add,
+    clamp,
+    cross,
+    dot,
+    equals,
+    floor,
+    magnitude,
+    normalize,
+    scale,
+    subtract,
+    toString,
+    toStringVector2,
+} from './coreHelpers';
 
 describe('Vector3 operations', () => {
     const v1: Vector3 = { x: 1, y: 2, z: 3 };
@@ -107,6 +120,26 @@ describe('Vector3 operations', () => {
         expect(toString(vector, { decimals: 0 })).toBe(expectedString3);
         const expectedString4 = '1.23|2.99|3.00';
         expect(toString(vector, { delimiter: '|' })).toBe(expectedString4);
+    });
+
+    it('converts a vector2 to a string with default options', () => {
+        const vector: Vector2 = { x: 1, y: 2 };
+        const expectedString = '1.00, 2.00';
+        expect(toStringVector2(vector)).toBe(expectedString);
+        expect(toStringVector2(vector, undefined)).toBe(expectedString);
+        expect(toStringVector2(vector, { decimals: undefined, delimiter: undefined })).toBe(expectedString);
+    });
+
+    it('converts a vector2 to a string with overridden options', () => {
+        const vector: Vector2 = { x: 1.23456789, y: 2.99 };
+        const expectedString1 = '1.2346|2.9900'; // toFixed performs rounding
+        expect(toStringVector2(vector, { decimals: 4, delimiter: '|' })).toBe(expectedString1);
+        const expectedString2 = '1|3';
+        expect(toStringVector2(vector, { decimals: 0, delimiter: '|' })).toBe(expectedString2);
+        const expectedString3 = '1, 3';
+        expect(toStringVector2(vector, { decimals: 0 })).toBe(expectedString3);
+        const expectedString4 = '1.23|2.99';
+        expect(toStringVector2(vector, { delimiter: '|' })).toBe(expectedString4);
     });
 
     describe('clamp', () => {

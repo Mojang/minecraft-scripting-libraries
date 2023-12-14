@@ -1,6 +1,6 @@
 // Copyright (c) Mojang AB.  All rights reserved.
 
-import { Vector3 } from '@minecraft/server';
+import { Vector2, Vector3 } from '@minecraft/server';
 import { clamp_number } from '../general/clamp';
 
 /**
@@ -116,6 +116,19 @@ export function floor(v: Vector3): Vector3 {
 export function toString(v: Vector3, options?: { decimals?: number; delimiter?: string }): string {
     const decimals = options?.decimals ?? 2;
     const str: string[] = [v.x.toFixed(decimals), v.y.toFixed(decimals), v.z.toFixed(decimals)];
+    return str.join(options?.delimiter ?? ', ');
+}
+
+/**
+ * toString
+ *
+ * Create a string representation of a vector
+ *
+ * @public
+ */
+export function toStringVector2(v: Vector2, options?: { decimals?: number; delimiter?: string }): string {
+    const decimals = options?.decimals ?? 2;
+    const str: string[] = [v.x.toFixed(decimals), v.y.toFixed(decimals)];
     return str.join(options?.delimiter ?? ', ');
 }
 

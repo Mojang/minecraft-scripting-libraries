@@ -4,6 +4,7 @@
 
 ```ts
 
+import { Vector2 } from '@minecraft/server';
 import { Vector3 } from '@minecraft/server';
 
 // @public
@@ -73,7 +74,28 @@ export function toString(v: Vector3, options?: {
 }): string;
 
 // @public
+export function toStringVector2(v: Vector2, options?: {
+    decimals?: number;
+    delimiter?: string;
+}): string;
+
+// @public
 export const up: Vector3;
+
+// @public
+export class Vector2Builder implements Vector2 {
+    constructor(vec: Vector2, arg?: never);
+    constructor(x: number, y: number);
+    // (undocumented)
+    toString(options?: {
+        decimals?: number;
+        delimiter?: string;
+    }): string;
+    // (undocumented)
+    x: number;
+    // (undocumented)
+    y: number;
+}
 
 // @public
 export class Vector3Builder implements Vector3 {

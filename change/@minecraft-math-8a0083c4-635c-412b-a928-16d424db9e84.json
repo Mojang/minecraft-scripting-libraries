@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Add Vector2 helpers for parity with some helpers used in editor before",
+  "packageName": "@minecraft/math",
+  "email": "rlanda@microsoft.com",
+  "dependentChangeType": "patch"
+}

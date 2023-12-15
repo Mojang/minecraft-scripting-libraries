@@ -1,8 +1,21 @@
 // Copyright (c) Mojang AB.  All rights reserved.
 
-import { Vector3 } from '@minecraft/server';
+import { Vector2, Vector3 } from '@minecraft/server';
 import { describe, expect, it } from 'vitest';
-import { add, clamp, cross, dot, equals, floor, magnitude, normalize, scale, subtract, toString } from './coreHelpers';
+import {
+    add,
+    clamp,
+    cross,
+    dot,
+    equals,
+    floor,
+    magnitude,
+    normalize,
+    scale,
+    subtract,
+    vector3ToString,
+    vector2ToString,
+} from './coreHelpers';
 
 describe('Vector3 operations', () => {
     const v1: Vector3 = { x: 1, y: 2, z: 3 };
@@ -92,21 +105,41 @@ describe('Vector3 operations', () => {
     it('converts a vector to a string with default options', () => {
         const vector: Vector3 = { x: 1, y: 2, z: 3 };
         const expectedString = '1.00, 2.00, 3.00';
-        expect(toString(vector)).toBe(expectedString);
-        expect(toString(vector, undefined)).toBe(expectedString);
-        expect(toString(vector, { decimals: undefined, delimiter: undefined })).toBe(expectedString);
+        expect(vector3ToString(vector)).toBe(expectedString);
+        expect(vector3ToString(vector, undefined)).toBe(expectedString);
+        expect(vector3ToString(vector, { decimals: undefined, delimiter: undefined })).toBe(expectedString);
     });
 
     it('converts a vector to a string with overridden options', () => {
         const vector: Vector3 = { x: 1.23456789, y: 2.99, z: 3 };
         const expectedString1 = '1.2346|2.9900|3.0000'; // toFixed performs rounding
-        expect(toString(vector, { decimals: 4, delimiter: '|' })).toBe(expectedString1);
+        expect(vector3ToString(vector, { decimals: 4, delimiter: '|' })).toBe(expectedString1);
         const expectedString2 = '1|3|3';
-        expect(toString(vector, { decimals: 0, delimiter: '|' })).toBe(expectedString2);
+        expect(vector3ToString(vector, { decimals: 0, delimiter: '|' })).toBe(expectedString2);
         const expectedString3 = '1, 3, 3';
-        expect(toString(vector, { decimals: 0 })).toBe(expectedString3);
+        expect(vector3ToString(vector, { decimals: 0 })).toBe(expectedString3);
         const expectedString4 = '1.23|2.99|3.00';
-        expect(toString(vector, { delimiter: '|' })).toBe(expectedString4);
+        expect(vector3ToString(vector, { delimiter: '|' })).toBe(expectedString4);
+    });
+
+    it('converts a vector2 to a string with default options', () => {
+        const vector: Vector2 = { x: 1, y: 2 };
+        const expectedString = '1.00, 2.00';
+        expect(vector2ToString(vector)).toBe(expectedString);
+        expect(vector2ToString(vector, undefined)).toBe(expectedString);
+        expect(vector2ToString(vector, { decimals: undefined, delimiter: undefined })).toBe(expectedString);
+    });
+
+    it('converts a vector2 to a string with overridden options', () => {
+        const vector: Vector2 = { x: 1.23456789, y: 2.99 };
+        const expectedString1 = '1.2346|2.9900'; // toFixed performs rounding
+        expect(vector2ToString(vector, { decimals: 4, delimiter: '|' })).toBe(expectedString1);
+        const expectedString2 = '1|3';
+        expect(vector2ToString(vector, { decimals: 0, delimiter: '|' })).toBe(expectedString2);
+        const expectedString3 = '1, 3';
+        expect(vector2ToString(vector, { decimals: 0 })).toBe(expectedString3);
+        const expectedString4 = '1.23|2.99';
+        expect(vector2ToString(vector, { delimiter: '|' })).toBe(expectedString4);
     });
 
     describe('clamp', () => {

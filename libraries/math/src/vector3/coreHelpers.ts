@@ -113,7 +113,7 @@ export function floor(v: Vector3): Vector3 {
  *
  * @public
  */
-export function toString(v: Vector3, options?: { decimals?: number; delimiter?: string }): string {
+export function vector3ToString(v: Vector3, options?: { decimals?: number; delimiter?: string }): string {
     const decimals = options?.decimals ?? 2;
     const str: string[] = [v.x.toFixed(decimals), v.y.toFixed(decimals), v.z.toFixed(decimals)];
     return str.join(options?.delimiter ?? ', ');
@@ -126,7 +126,7 @@ export function toString(v: Vector3, options?: { decimals?: number; delimiter?: 
  *
  * @public
  */
-export function toStringVector2(v: Vector2, options?: { decimals?: number; delimiter?: string }): string {
+export function vector2ToString(v: Vector2, options?: { decimals?: number; delimiter?: string }): string {
     const decimals = options?.decimals ?? 2;
     const str: string[] = [v.x.toFixed(decimals), v.y.toFixed(decimals)];
     return str.join(options?.delimiter ?? ', ');

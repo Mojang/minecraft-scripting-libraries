@@ -12,8 +12,8 @@ import {
     normalize,
     scale,
     subtract,
-    toString,
-    toStringVector2,
+    vector3ToString,
+    vector2ToString,
 } from './coreHelpers';
 
 /**
@@ -141,7 +141,7 @@ export class Vector3Builder implements Vector3 {
      * Create a string representation of a vector
      */
     toString(options?: { decimals?: number; delimiter?: string }): string {
-        return toString(this, options);
+        return vector3ToString(this, options);
     }
 
     /**
@@ -175,6 +175,6 @@ export class Vector2Builder implements Vector2 {
     }
 
     toString(options?: { decimals?: number; delimiter?: string }): string {
-        return toStringVector2(this, options);
+        return vector2ToString(this, options);
     }
 }

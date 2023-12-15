@@ -13,8 +13,8 @@ import {
     normalize,
     scale,
     subtract,
-    toString,
-    toStringVector2,
+    vector3ToString,
+    vector2ToString,
 } from './coreHelpers';
 import { Vector2Builder, Vector3Builder } from './vectorWrapper';
 
@@ -159,7 +159,7 @@ describe('Vector3Builder', () => {
 
     it('should be able to compute a string representation of the vector with the same result as the coreHelpers function', () => {
         const vectorA = new Vector3Builder(1.33, 2.14, 3.55);
-        const vectorB = toString(vectorA, { decimals: 1, delimiter: ' ' });
+        const vectorB = vector3ToString(vectorA, { decimals: 1, delimiter: ' ' });
 
         const result = vectorA.toString({ decimals: 1, delimiter: ' ' });
         expect(result).toEqual(vectorB);
@@ -169,7 +169,7 @@ describe('Vector3Builder', () => {
 describe('Vector2Builder', () => {
     it('should be able to compute a string representation of the vector with the same result as the coreHelpers function', () => {
         const vectorA = new Vector2Builder(1.33, 2.14);
-        const vectorB = toStringVector2(vectorA, { decimals: 1, delimiter: ' ' });
+        const vectorB = vector2ToString(vectorA, { decimals: 1, delimiter: ' ' });
 
         const result = vectorA.toString({ decimals: 1, delimiter: ' ' });
         expect(result).toEqual(vectorB);

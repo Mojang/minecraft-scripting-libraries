@@ -3,6 +3,7 @@
     "include": ["src/**/*"],
     "exclude": ["dist", "build", "node_modules"],
     "compilerOptions": {
-        "outDir": "lib"
+        "outDir": "lib",
+        "declarationDir": "temp/types"
     }
 }

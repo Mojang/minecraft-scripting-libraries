@@ -1,6 +1,12 @@
 import { execSync } from 'child_process';
 import { argv, series, task, tscTask } from 'just-scripts';
-import { apiExtractorTask, cleanTask, coreLint, vitestTask } from '@minecraft/core-build-tasks';
+import {
+    DEFAULT_CLEAN_DIRECTORIES,
+    apiExtractorTask,
+    cleanTask,
+    coreLint,
+    vitestTask,
+} from '@minecraft/core-build-tasks';
 
 const isOnlyBuild = argv()._.findIndex(arg => arg === 'test') === -1;
 
@@ -23,4 +29,4 @@ task('vitest', vitestTask());
 task('test', series('api-extractor-validate', 'vitest'));
 
 // Clean
-task('clean', cleanTask([]));
+task('clean', cleanTask(DEFAULT_CLEAN_DIRECTORIES));

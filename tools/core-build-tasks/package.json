@@ -10,6 +10,9 @@
         "clean-tools": "just-scripts clean-tools",
         "test": "just-scripts test"
     },
+    "files": [
+        "lib"
+    ],
     "dependencies": {
         "@rushstack/node-core-library": "^3.59.6",
         "@microsoft/api-extractor": "^7.38.3",

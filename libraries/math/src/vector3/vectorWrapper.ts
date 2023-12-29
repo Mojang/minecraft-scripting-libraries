@@ -1,6 +1,6 @@
 // Copyright (c) Mojang AB.  All rights reserved.
 
-import { Vector2, Vector3 } from '@minecraft/server';
+import type { Vector2, Vector3 } from '@minecraft/server';
 import {
     add,
     clamp,

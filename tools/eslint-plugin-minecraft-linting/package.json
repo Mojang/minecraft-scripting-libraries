@@ -11,6 +11,9 @@
         "test": "just-scripts test",
         "just": "just-scripts"
     },
+    "files": [
+        "lib"
+    ],
     "dependencies": {
         "@minecraft/core-build-tasks": "*",
         "@types/node": "^20.0.0",

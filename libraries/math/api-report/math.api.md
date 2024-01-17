@@ -20,6 +20,9 @@ export function clamp(v: Vector3, limits?: {
 }): Vector3;
 
 // @public
+export function clamp_number(val: number, min: number, max: number): number;
+
+// @public
 export function cross(a: Vector3, b: Vector3): Vector3;
 
 // @public

@@ -1,6 +1,6 @@
 // Copyright (c) Mojang AB.  All rights reserved.
 
-import { Vector3 } from '@minecraft/server';
+import type { Vector3 } from '@minecraft/server';
 import { describe, expect, it } from 'vitest';
 import {
     add,

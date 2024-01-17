@@ -4,6 +4,7 @@
     "exclude": ["dist", "build", "node_modules"],
     "compilerOptions": {
         "outDir": "lib",
+        "declarationDir": "lib",
         "moduleResolution": "Node10",
         "module": "CommonJS",
         "isolatedModules": false

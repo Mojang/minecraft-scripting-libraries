@@ -5,6 +5,6 @@
  *
  * @public
  */
-export function clamp_number(val: number, min: number, max: number): number {
+export function clampNumber(val: number, min: number, max: number): number {
     return Math.min(Math.max(val, min), max);
 }

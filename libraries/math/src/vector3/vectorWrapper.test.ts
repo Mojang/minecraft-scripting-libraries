@@ -2,20 +2,7 @@
 
 import type { Vector3 } from '@minecraft/server';
 import { describe, expect, it } from 'vitest';
-import {
-    add,
-    clamp,
-    cross,
-    dot,
-    equals,
-    floor,
-    magnitude,
-    normalize,
-    scale,
-    subtract,
-    vector3ToString,
-    vector2ToString,
-} from './coreHelpers';
+import { Vector2Utils, Vector3Utils } from './coreHelpers';
 import { Vector2Builder, Vector3Builder } from './vectorWrapper';
 
 /**
@@ -46,14 +33,14 @@ describe('Vector3Builder', () => {
         const vectorB = new Vector3Builder(1, 2, 3);
         const vectorC = new Vector3Builder(4, 5, 6);
 
-        expect(vectorA.equals(vectorB)).toBe(equals(vectorA, vectorB));
-        expect(vectorA.equals(vectorC)).toBe(equals(vectorA, vectorC));
+        expect(vectorA.equals(vectorB)).toBe(Vector3Utils.equals(vectorA, vectorB));
+        expect(vectorA.equals(vectorC)).toBe(Vector3Utils.equals(vectorA, vectorC));
     });
 
     it('should be able to add a vector3 with the same result as the coreHelpers function', () => {
         const vectorA = new Vector3Builder(1, 2, 3);
         const vectorB = new Vector3Builder(4, 5, 6);
-        const vectorC = add(vectorA, vectorB);
+        const vectorC = Vector3Utils.add(vectorA, vectorB);
 
         const result = vectorA.add(vectorB);
         expect(result).toEqual(vectorC);
@@ -69,7 +56,7 @@ describe('Vector3Builder', () => {
     it('should be able to subtract a vector3 with the same result as the coreHelpers function', () => {
         const vectorA = new Vector3Builder(5, 7, 9);
         const vectorB = new Vector3Builder(4, 5, 6);
-        const vectorC = subtract(vectorA, vectorB);
+        const vectorC = Vector3Utils.subtract(vectorA, vectorB);
 
         const result = vectorA.subtract(vectorB);
         expect(result).toEqual(vectorC);
@@ -84,7 +71,7 @@ describe('Vector3Builder', () => {
 
     it('should be able to scale a vector3 with the same result as the coreHelpers function', () => {
         const vectorA = new Vector3Builder(1, 2, 3);
-        const vectorB = scale(vectorA, 3);
+        const vectorB = Vector3Utils.scale(vectorA, 3);
 
         const result = vectorA.scale(3);
         expect(result).toEqual(vectorB);
@@ -99,7 +86,7 @@ describe('Vector3Builder', () => {
     it('should be able to compute the dot product with the same result as the coreHelpers function', () => {
         const vectorA = new Vector3Builder(1, 2, 3);
         const vectorB = new Vector3Builder(4, 5, 6);
-        const dotProduct = dot(vectorA, vectorB);
+        const dotProduct = Vector3Utils.dot(vectorA, vectorB);
 
         const result = vectorA.dot(vectorB);
         expect(result).toEqual(dotProduct);
@@ -108,7 +95,7 @@ describe('Vector3Builder', () => {
     it('should be able to compute the cross product with the same result as the coreHelpers function', () => {
         const vectorA = new Vector3Builder(1, 2, 3);
         const vectorB = new Vector3Builder(4, 5, 6);
-        const vectorC = cross(vectorA, vectorB);
+        const vectorC = Vector3Utils.cross(vectorA, vectorB);
 
         const result = vectorA.cross(vectorB);
         expect(result).toEqual(vectorC);
@@ -123,14 +110,14 @@ describe('Vector3Builder', () => {
 
     it('should be able to compute the magnitude with the same result as the coreHelpers function', () => {
         const vectorA = new Vector3Builder(1, 2, 3);
-        const mag = magnitude(vectorA);
+        const mag = Vector3Utils.magnitude(vectorA);
 
         expect(vectorA.magnitude()).toEqual(mag);
     });
 
     it('should be able to normalize the vector with the same result as the coreHelpers function', () => {
         const vectorA = new Vector3Builder(1, 2, 3);
-        const vectorB = normalize(vectorA);
+        const vectorB = Vector3Utils.normalize(vectorA);
 
         const result = vectorA.normalize();
         expect(result).toEqual(vectorB);
@@ -139,7 +126,7 @@ describe('Vector3Builder', () => {
 
     it('should be able to compute the floor of the vector with the same result as the coreHelpers function', () => {
         const vectorA = new Vector3Builder(1.33, 2.14, 3.55);
-        const vectorB = floor(vectorA);
+        const vectorB = Vector3Utils.floor(vectorA);
 
         const result = vectorA.floor();
         expect(result).toEqual(vectorB);
@@ -150,7 +137,7 @@ describe('Vector3Builder', () => {
         const vectorA = new Vector3Builder(1, 2, 3);
         const minVec: Partial<Vector3> = { x: 0, y: 1.5 };
         const maxVec: Partial<Vector3> = { x: 2, z: 2.5 };
-        const vectorB = clamp(vectorA, { min: minVec, max: maxVec });
+        const vectorB = Vector3Utils.clamp(vectorA, { min: minVec, max: maxVec });
 
         const result = vectorA.clamp({ min: minVec, max: maxVec });
         expect(result).toEqual(vectorB);
@@ -159,7 +146,7 @@ describe('Vector3Builder', () => {
 
     it('should be able to compute a string representation of the vector with the same result as the coreHelpers function', () => {
         const vectorA = new Vector3Builder(1.33, 2.14, 3.55);
-        const vectorB = vector3ToString(vectorA, { decimals: 1, delimiter: ' ' });
+        const vectorB = Vector3Utils.toString(vectorA, { decimals: 1, delimiter: ' ' });
 
         const result = vectorA.toString({ decimals: 1, delimiter: ' ' });
         expect(result).toEqual(vectorB);
@@ -169,7 +156,7 @@ describe('Vector3Builder', () => {
 describe('Vector2Builder', () => {
     it('should be able to compute a string representation of the vector with the same result as the coreHelpers function', () => {
         const vectorA = new Vector2Builder(1.33, 2.14);
-        const vectorB = vector2ToString(vectorA, { decimals: 1, delimiter: ' ' });
+        const vectorB = Vector2Utils.toString(vectorA, { decimals: 1, delimiter: ' ' });
 
         const result = vectorA.toString({ decimals: 1, delimiter: ' ' });
         expect(result).toEqual(vectorB);

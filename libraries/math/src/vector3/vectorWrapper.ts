@@ -1,20 +1,7 @@
 // Copyright (c) Mojang AB.  All rights reserved.
 
 import type { Vector2, Vector3 } from '@minecraft/server';
-import {
-    add,
-    clamp,
-    cross,
-    dot,
-    equals,
-    floor,
-    magnitude,
-    normalize,
-    scale,
-    subtract,
-    vector3ToString,
-    vector2ToString,
-} from './coreHelpers';
+import { Vector2Utils, Vector3Utils } from './coreHelpers';
 
 /**
  * Vector3 wrapper class which can be used as a Vector3 for APIs on \@minecraft/server which require a Vector,
@@ -61,7 +48,7 @@ export class Vector3Builder implements Vector3 {
      * Check the equality of two vectors
      */
     equals(v: Vector3): boolean {
-        return equals(this, v);
+        return Vector3Utils.equals(this, v);
     }
 
     /**
@@ -70,7 +57,7 @@ export class Vector3Builder implements Vector3 {
      * Adds the vector v to this, returning itself.
      */
     add(v: Vector3): this {
-        return this.assign(add(this, v));
+        return this.assign(Vector3Utils.add(this, v));
     }
 
     /**
@@ -79,7 +66,7 @@ export class Vector3Builder implements Vector3 {
      * Subtracts the vector v from this, returning itself.
      */
     subtract(v: Vector3): this {
-        return this.assign(subtract(this, v));
+        return this.assign(Vector3Utils.subtract(this, v));
     }
 
     /** scale
@@ -87,7 +74,7 @@ export class Vector3Builder implements Vector3 {
      * Scales this by the passed in value, returning itself.
      */
     scale(val: number): this {
-        return this.assign(scale(this, val));
+        return this.assign(Vector3Utils.scale(this, val));
     }
 
     /**
@@ -96,7 +83,7 @@ export class Vector3Builder implements Vector3 {
      * Computes the dot product of this and the passed in vector.
      */
     dot(vec: Vector3): number {
-        return dot(this, vec);
+        return Vector3Utils.dot(this, vec);
     }
 
     /**
@@ -105,7 +92,7 @@ export class Vector3Builder implements Vector3 {
      * Computes the cross product of this and the passed in vector, returning itself.
      */
     cross(vec: Vector3): this {
-        return this.assign(cross(this, vec));
+        return this.assign(Vector3Utils.cross(this, vec));
     }
 
     /**
@@ -114,7 +101,7 @@ export class Vector3Builder implements Vector3 {
      * The magnitude of the vector
      */
     magnitude(): number {
-        return magnitude(this);
+        return Vector3Utils.magnitude(this);
     }
 
     /**
@@ -123,7 +110,7 @@ export class Vector3Builder implements Vector3 {
      * Normalizes this vector, returning itself.
      */
     normalize(): this {
-        return this.assign(normalize(this));
+        return this.assign(Vector3Utils.normalize(this));
     }
 
     /**
@@ -132,7 +119,7 @@ export class Vector3Builder implements Vector3 {
      * Floor the components of a vector to produce a new vector
      */
     floor(): this {
-        return this.assign(floor(this));
+        return this.assign(Vector3Utils.floor(this));
     }
 
     /**
@@ -141,7 +128,7 @@ export class Vector3Builder implements Vector3 {
      * Create a string representation of a vector
      */
     toString(options?: { decimals?: number; delimiter?: string }): string {
-        return vector3ToString(this, options);
+        return Vector3Utils.toString(this, options);
     }
 
     /**
@@ -150,7 +137,7 @@ export class Vector3Builder implements Vector3 {
      * Clamps the components of a vector to limits to produce a new vector
      */
     clamp(limits: { min?: Partial<Vector3>; max?: Partial<Vector3> }): this {
-        return this.assign(clamp(this, limits));
+        return this.assign(Vector3Utils.clamp(this, limits));
     }
 }
 
@@ -175,6 +162,6 @@ export class Vector2Builder implements Vector2 {
     }
 
     toString(options?: { decimals?: number; delimiter?: string }): string {
-        return vector2ToString(this, options);
+        return Vector2Utils.toString(this, options);
     }
 }

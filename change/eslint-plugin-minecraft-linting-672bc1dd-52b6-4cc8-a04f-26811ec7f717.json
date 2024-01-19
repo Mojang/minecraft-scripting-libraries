@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Start from a 0 version so it bumps to a 1.0.0 version",
+  "packageName": "eslint-plugin-minecraft-linting",
+  "email": "rlanda@microsoft.com",
+  "dependentChangeType": "patch"
+}

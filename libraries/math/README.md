@@ -4,21 +4,21 @@ A set of utilities and functions for common math operations. Major pieces are co
 
 ## Vector3
 
-A set of free functions and a wrapper class for common vector3 operations. Two distinct patterns are supported, a more pure computational approach operating on the Vector3 interface with no mutation, and a separate wrapper object oriented approach following a "builder" pattern. It is mostly preference whether you prefer the more "mutation" heavy pattern or the functional pattern, so it depends on the structure of your code. Under the covers, the same helpers are used.
+A set of utility functions and a wrapper class for common vector3 operations. Two distinct patterns are supported, a more pure computational approach operating on the Vector3 interface with no mutation, and a separate wrapper object oriented approach following a "builder" pattern. It is mostly preference whether you prefer the more "mutation" heavy pattern or the functional pattern, it depends on the structure of your code. Under the covers, the same helpers are used.
 
 ### Pure Functional Style
 
 ```ts
 import { Vector3, world } from '@minecraft/server';
 import { MinecraftDimensionTypes } from '@minecraft/vanilla-data';
-import { add, subtract, cross } from '@minecraft/math';
+import { Vector3Utils } from '@minecraft/math';
 
 const vectorA: Vector3 = {x: 1, y: 2, z:3};
 const vectorB: Vector3 = {x: 4, y: 5, z:6};
 
-const resultAdd = add(vectorA, vectorB); // {x:5, y:7, z:9}
-const resultSubtract = subtract(vectorA, vectorB); // {x:-3, y:-3, z:-3}
-const resultAdd = cross(vectorA, vectorB); // {x:-3, y:6, z:-3}
+const resultAdd = Vector3Utils.add(vectorA, vectorB); // {x:5, y:7, z:9}
+const resultSubtract = Vector3Utils.subtract(vectorA, vectorB); // {x:-3, y:-3, z:-3}
+const resultAdd = Vector3Utils.cross(vectorA, vectorB); // {x:-3, y:6, z:-3}
 
 console.log(toString(vectorA)); // Prints out "1, 2, 3"
 
@@ -53,4 +53,4 @@ dimension.spawnParticle("minecraft:colored_flame_particle", vectorA);
 @minecraft/math is published to NPM and follows standard semver semantics. To use it in your project, there are two main options:
 
 1. Download `@minecraft/math` from NPM by doing `npm install @minecraft/math` within your scripts pack. By using `@minecraft/math`, you will need to do some sort of bundling to merge the library into your packs code. We recommend using [esbuild](https://esbuild.github.io/getting-started/#your-first-bundle) for simplicity.
-2. This repository publishes releases for `@minecraft/math`, and on each release we attach a pre-bundled copy of the `@minecraft/math` module. Feel free to take this JS bundle and integrate into your projects as it contains all dependencies coupled together, and this pattern does not require bundling.
+2. This repository publishes releases for `@minecraft/math`, and on each release we attach a pre-bundled copy of the `@minecraft/math` module. Feel free to take this JS bundle and integrate into your projects as it contains all dependencies coupled together, and this pattern does not require bundling within your own project.

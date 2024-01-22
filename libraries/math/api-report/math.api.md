@@ -4,74 +4,11 @@
 
 ```ts
 
-import { Vector2 } from '@minecraft/server';
-import { Vector3 } from '@minecraft/server';
+import type { Vector2 } from '@minecraft/server';
+import type { Vector3 } from '@minecraft/server';
 
 // @public
-export function add(v1: Vector3, v2: Vector3): Vector3;
-
-// @public
-export const back: Vector3;
-
-// @public
-export function clamp(v: Vector3, limits?: {
-    min?: Partial<Vector3>;
-    max?: Partial<Vector3>;
-}): Vector3;
-
-// @public
-export function clamp_number(val: number, min: number, max: number): number;
-
-// @public
-export function cross(a: Vector3, b: Vector3): Vector3;
-
-// @public
-export function dot(a: Vector3, b: Vector3): number;
-
-// @public
-export const down: Vector3;
-
-// @public
-export const east: Vector3;
-
-// @public
-export function equals(v1: Vector3, v2: Vector3): boolean;
-
-// @public
-export function floor(v: Vector3): Vector3;
-
-// @public
-export const forward: Vector3;
-
-// @public
-export const left: Vector3;
-
-// @public
-export function magnitude(v: Vector3): number;
-
-// @public
-export function normalize(v: Vector3): Vector3;
-
-// @public
-export const north: Vector3;
-
-// @public
-export const one: Vector3;
-
-// @public
-export const right: Vector3;
-
-// @public
-export function scale(v1: Vector3, scale: number): Vector3;
-
-// @public
-export const south: Vector3;
-
-// @public
-export function subtract(v1: Vector3, v2: Vector3): Vector3;
-
-// @public
-export const up: Vector3;
+export function clampNumber(val: number, min: number, max: number): number;
 
 // @public
 export class Vector2Builder implements Vector2 {
@@ -89,10 +26,48 @@ export class Vector2Builder implements Vector2 {
 }
 
 // @public
-export function vector2ToString(v: Vector2, options?: {
-    decimals?: number;
-    delimiter?: string;
-}): string;
+export class Vector2Utils {
+    static toString(v: Vector2, options?: {
+        decimals?: number;
+        delimiter?: string;
+    }): string;
+}
+
+// @public
+export const VECTOR3_BACK: Vector3;
+
+// @public
+export const VECTOR3_DOWN: Vector3;
+
+// @public
+export const VECTOR3_EAST: Vector3;
+
+// @public
+export const VECTOR3_FORWARD: Vector3;
+
+// @public
+export const VECTOR3_LEFT: Vector3;
+
+// @public
+export const VECTOR3_NORTH: Vector3;
+
+// @public
+export const VECTOR3_ONE: Vector3;
+
+// @public
+export const VECTOR3_RIGHT: Vector3;
+
+// @public
+export const VECTOR3_SOUTH: Vector3;
+
+// @public
+export const VECTOR3_UP: Vector3;
+
+// @public
+export const VECTOR3_WEST: Vector3;
+
+// @public
+export const VECTOR3_ZERO: Vector3;
 
 // @public
 export class Vector3Builder implements Vector3 {
@@ -125,16 +100,25 @@ export class Vector3Builder implements Vector3 {
 }
 
 // @public
-export function vector3ToString(v: Vector3, options?: {
-    decimals?: number;
-    delimiter?: string;
-}): string;
-
-// @public
-export const west: Vector3;
-
-// @public
-export const zero: Vector3;
+export class Vector3Utils {
+    static add(v1: Vector3, v2: Vector3): Vector3;
+    static clamp(v: Vector3, limits?: {
+        min?: Partial<Vector3>;
+        max?: Partial<Vector3>;
+    }): Vector3;
+    static cross(a: Vector3, b: Vector3): Vector3;
+    static dot(a: Vector3, b: Vector3): number;
+    static equals(v1: Vector3, v2: Vector3): boolean;
+    static floor(v: Vector3): Vector3;
+    static magnitude(v: Vector3): number;
+    static normalize(v: Vector3): Vector3;
+    static scale(v1: Vector3, scale: number): Vector3;
+    static subtract(v1: Vector3, v2: Vector3): Vector3;
+    static toString(v: Vector3, options?: {
+        decimals?: number;
+        delimiter?: string;
+    }): string;
+}
 
 // (No @packageDocumentation comment for this package)
 

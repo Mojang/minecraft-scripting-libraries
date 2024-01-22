@@ -16,3 +16,7 @@ or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any addi
 ## Specific Guidelines
 
 Contributions to these libraries are welcome! These libraries are maintained by Mojang but we are open to contributions and bug fixes. In general, we consider the backwards compatibility and versioning to be the absolute top priority when making changes to the libraries. Because of this, we strictly adhere to semver for changes, and libraries depend on minecraft modules at specific major versions as well. Any PR submitted to any library **must** contain a change file using the beachball tool to indicate the severity of the change. When a change is submitted, it will automatically update versions and publish to NPM via our pipelines.
+
+### Naming
+
+We generally follow the naming conventiosn specified by the [google style guide](https://google.github.io/styleguide/jsguide.html#naming). There is other general good practice within the style guide as well, though generally the vast majority of our style is enforced via a combination of ESLint and prettier enforcement at PR time.

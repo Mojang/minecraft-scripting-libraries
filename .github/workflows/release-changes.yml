@@ -1,14 +1,14 @@
 name: Release Changes
 
-environment: release
-
 on: 
   push:
     branches:
       - main
+      - rlanda/*
 
 jobs:
   build:
+    environment: release
     runs-on: ubuntu-latest
 
     steps:

@@ -35,16 +35,3 @@ jobs:
         run: npm run release -- --token "$NPM_TOKEN" --yes --new
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Publish Releases
-        uses: ncipollo/release-action@v1
-        with:
-          artifacts: "dist/**/*"
-          token: ${{ secrets.REPO_PAT }}
-          prerelease: false
-          draft: false
-          releaseName: ${{ github.event.head_commit.message }}
-          releaseNotes: ${{ github.event.head_commit.message }}
-          releaseNotesFile: "CHANGELOG.md"
-          tag: ${{ github.ref }}
-          overwrite: true

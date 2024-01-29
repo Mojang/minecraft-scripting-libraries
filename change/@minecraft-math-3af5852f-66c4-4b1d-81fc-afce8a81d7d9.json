@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Minor README clean up",
+  "packageName": "@minecraft/math",
+  "email": "rlanda@microsoft.com",
+  "dependentChangeType": "patch"
+}

@@ -50,7 +50,6 @@ dimension.spawnParticle("minecraft:colored_flame_particle", vectorA);
 
 ## How to use @minecraft/math in your project
 
-@minecraft/math is published to NPM and follows standard semver semantics. To use it in your project, there are two main options:
+@minecraft/math is published to NPM and follows standard semver semantics. To use it in your project,
 
-1. Download `@minecraft/math` from NPM by doing `npm install @minecraft/math` within your scripts pack. By using `@minecraft/math`, you will need to do some sort of bundling to merge the library into your packs code. We recommend using [esbuild](https://esbuild.github.io/getting-started/#your-first-bundle) for simplicity.
-2. This repository publishes releases for `@minecraft/math`, and on each release we attach a pre-bundled copy of the `@minecraft/math` module. Feel free to take this JS bundle and integrate into your projects as it contains all dependencies coupled together, and this pattern does not require bundling within your own project.
+- Download `@minecraft/math` from NPM by doing `npm install @minecraft/math` within your scripts pack. By using `@minecraft/math`, you will need to do some sort of bundling to merge the library into your packs code. We recommend using [esbuild](https://esbuild.github.io/getting-started/#your-first-bundle) for simplicity.

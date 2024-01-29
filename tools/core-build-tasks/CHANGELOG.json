@@ -2,6 +2,21 @@
   "name": "@minecraft/core-build-tasks",
   "entries": [
     {
+      "date": "Mon, 29 Jan 2024 19:08:51 GMT",
+      "version": "1.0.1",
+      "tag": "@minecraft/core-build-tasks_v1.0.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "rlanda@microsoft.com",
+            "package": "@minecraft/core-build-tasks",
+            "commit": "4685c0cbe1a9d0c9d84e61f66a6cde577042ec2d",
+            "comment": "README fixes"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 29 Jan 2024 18:22:45 GMT",
       "version": "1.0.0",
       "tag": "@minecraft/core-build-tasks_v1.0.0",

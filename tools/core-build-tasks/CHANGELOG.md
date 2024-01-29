@@ -1,8 +1,16 @@
 # Change Log - @minecraft/core-build-tasks
 
-This log was last generated on Mon, 29 Jan 2024 18:22:45 GMT and should not be manually modified.
+This log was last generated on Mon, 29 Jan 2024 19:08:51 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.0.1
+
+Mon, 29 Jan 2024 19:08:51 GMT
+
+### Patches
+
+- README fixes (rlanda@microsoft.com)
 
 ## 1.0.0
 

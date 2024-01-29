@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "README fixes",
+  "packageName": "@minecraft/core-build-tasks",
+  "email": "rlanda@microsoft.com",
+  "dependentChangeType": "patch"
+}

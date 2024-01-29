@@ -34,7 +34,7 @@ This will build all packages in this repository in the right order using `turbo`
 
 ## Linting
 
-All packages are validated via ESLint with a consistent set of rules as well as enforces styling through prettier. To explicitly run linting, use `npm run lint`, and some changes can be fixed automatically with `npm run lint -- --fix`.
+All packages are validated via ESLint with a consistent set of rules as well as enforces styling through prettier. To explicitly run linting, use `npm run lint`, and some changes can be fixed automatically with `npm run lint -- --fix`
 
 ## Testing
 

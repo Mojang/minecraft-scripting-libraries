@@ -1,0 +1,28 @@
+{
+  "name": "@minecraft/core-build-tasks",
+  "entries": [
+    {
+      "date": "Mon, 29 Jan 2024 18:22:45 GMT",
+      "version": "1.0.0",
+      "tag": "@minecraft/core-build-tasks_v1.0.0",
+      "comments": {
+        "patch": [
+          {
+            "author": "rlanda@microsoft.com",
+            "package": "@minecraft/core-build-tasks",
+            "commit": "019bdc8a1ba57bcdc289a978dd49c959728cbe9e",
+            "comment": "Trim down package contents for publish. Ensure right exports. Fixing version specifications."
+          }
+        ],
+        "major": [
+          {
+            "author": "rlanda@microsoft.com",
+            "package": "@minecraft/core-build-tasks",
+            "commit": "019bdc8a1ba57bcdc289a978dd49c959728cbe9e",
+            "comment": "Initial implementation of a @minecraft/math library with support for two paradigms. Added test and lint support, and also migrated lint rule for command suggestions to this repo. Started the creation of shared build tools."
+          }
+        ]
+      }
+    }
+  ]
+}

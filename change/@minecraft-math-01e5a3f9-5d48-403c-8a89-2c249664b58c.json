@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Trim down package contents for publish. Ensure right exports. Fixing version specifications.",
-  "packageName": "@minecraft/math",
-  "email": "rlanda@microsoft.com",
-  "dependentChangeType": "patch"
-}

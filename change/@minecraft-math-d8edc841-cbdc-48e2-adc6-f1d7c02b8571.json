@@ -1,7 +1,0 @@
-{
-  "type": "major",
-  "comment": "Switch to a couple of classes with static methods to remove ambiguity with shortly named methods",
-  "packageName": "@minecraft/math",
-  "email": "rlanda@microsoft.com",
-  "dependentChangeType": "patch"
-}

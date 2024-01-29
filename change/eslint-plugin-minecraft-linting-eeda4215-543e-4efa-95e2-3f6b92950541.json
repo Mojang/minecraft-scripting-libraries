@@ -1,7 +1,0 @@
-{
-  "type": "major",
-  "comment": "Initial implementation of a @minecraft/math library with support for two paradigms. Added test and lint support, and also migrated lint rule for command suggestions to this repo. Started the creation of shared build tools.",
-  "packageName": "eslint-plugin-minecraft-linting",
-  "email": "rlanda@microsoft.com",
-  "dependentChangeType": "patch"
-}

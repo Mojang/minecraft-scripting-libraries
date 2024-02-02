@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Minor adjustment to dependencies, making @minecraft/server a peer instead of direct dependency",
+  "packageName": "@minecraft/math",
+  "email": "rlanda@microsoft.com",
+  "dependentChangeType": "patch"
+}

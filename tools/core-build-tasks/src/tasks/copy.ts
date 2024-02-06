@@ -21,7 +21,7 @@ export type CopyTaskParameters = {
     /**
      * The paths to copy to resource packs directory in the game.
      */
-    copyToResourcePacks: string[];
+    copyToResourcePacks?: string[];
 };
 
 function copyFilesToOutputPath(originPaths: string[], outputPath: string) {
@@ -72,6 +72,11 @@ export function copyTask(params: CopyTaskParameters) {
             params.copyToScripts,
             path.join(deploymentPath, BehaviorPacksPath, projectName, 'scripts'),
         );
-        copyFilesToOutputPath(params.copyToResourcePacks, path.join(deploymentPath, ResourcePacksPath, projectName));
+        if (params.copyToResourcePacks) {
+            copyFilesToOutputPath(
+                params.copyToResourcePacks,
+                path.join(deploymentPath, ResourcePacksPath, projectName),
+            );
+        }
     };
 }

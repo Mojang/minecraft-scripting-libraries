@@ -53,7 +53,7 @@ export async function generateContentsJson(params: GenerateContentsJsonParameter
         for (const entry of folderItems) {
             const stats = await FileSystem.getLinkStatisticsAsync(entry);
             if (stats.isFile()) {
-                const relativePath = path.relative(rootPath, entry).replace('\\', '/');
+                const relativePath = path.relative(rootPath, entry).replace(/\\/g, '/');
                 resultEntries.push({ path: relativePath });
             } else if (stats.isDirectory()) {
                 const subContentsData = await generateContentsCallback(rootPath, entry);

@@ -1,7 +1,7 @@
 // Copyright (c) Mojang AB.  All rights reserved.
 
 import { FileSystem } from '@rushstack/node-core-library';
-import path, * as Path from 'path';
+import path from 'path';
 import { getOrThrowFromProcess } from './helpers/getOrThrowFromProcess';
 import { getGameDeploymentRootPaths } from './helpers/getGameDeploymentRootPaths';
 import { MinecraftProduct } from '../platforms/MinecraftProduct';
@@ -25,9 +25,9 @@ export type CopyTaskParameters = {
 };
 
 function copyFilesToOutputPath(originPaths: string[], outputPath: string) {
-    const destinationPath = Path.resolve(outputPath);
+    const destinationPath = path.resolve(outputPath);
     for (const originPath of originPaths) {
-        const inputPath = Path.resolve(originPath);
+        const inputPath = path.resolve(originPath);
         const pathStats = FileSystem.getLinkStatistics(inputPath);
         if (pathStats.isDirectory()) {
             console.log(`Copying folder ${inputPath} to ${destinationPath}`);
@@ -36,8 +36,8 @@ function copyFilesToOutputPath(originPaths: string[], outputPath: string) {
                 destinationPath: destinationPath,
             });
         } else {
-            const filename = Path.parse(inputPath).base;
-            const destinationFilePath = Path.resolve(destinationPath, filename);
+            const filename = path.parse(inputPath).base;
+            const destinationFilePath = path.resolve(destinationPath, filename);
             console.log(`Copying file ${inputPath} to ${destinationPath}`);
             FileSystem.copyFiles({
                 sourcePath: inputPath,
@@ -70,12 +70,12 @@ export function copyTask(params: CopyTaskParameters) {
         copyFilesToOutputPath(params.copyToBehaviorPacks, path.join(deploymentPath, BehaviorPacksPath, projectName));
         copyFilesToOutputPath(
             params.copyToScripts,
-            path.join(deploymentPath, BehaviorPacksPath, projectName, 'scripts'),
+            path.join(deploymentPath, BehaviorPacksPath, projectName, 'scripts')
         );
         if (params.copyToResourcePacks) {
             copyFilesToOutputPath(
                 params.copyToResourcePacks,
-                path.join(deploymentPath, ResourcePacksPath, projectName),
+                path.join(deploymentPath, ResourcePacksPath, projectName)
             );
         }
     };

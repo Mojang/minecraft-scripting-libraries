@@ -7,3 +7,4 @@ export * from './coreLint';
 export { generateContentsJsonTask } from './generateContentsJson';
 export * from './helpers';
 export * from './vitest';
+export * from './zip';

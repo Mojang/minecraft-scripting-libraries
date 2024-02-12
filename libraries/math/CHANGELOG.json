@@ -2,6 +2,21 @@
   "name": "@minecraft/math",
   "entries": [
     {
+      "date": "Fri, 02 Feb 2024 22:14:47 GMT",
+      "version": "1.1.0",
+      "tag": "@minecraft/math_v1.1.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "rlanda@microsoft.com",
+            "package": "@minecraft/math",
+            "commit": "2228e72b6e2a00a017ddc554970d97a3bab2a337",
+            "comment": "Minor adjustment to dependencies, making @minecraft/server a peer instead of direct dependency"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 29 Jan 2024 18:22:45 GMT",
       "version": "1.0.0",
       "tag": "@minecraft/math_v1.0.0",

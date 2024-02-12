@@ -1,8 +1,16 @@
 # Change Log - @minecraft/math
 
-This log was last generated on Mon, 29 Jan 2024 18:22:45 GMT and should not be manually modified.
+This log was last generated on Fri, 02 Feb 2024 22:14:47 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.1.0
+
+Fri, 02 Feb 2024 22:14:47 GMT
+
+### Minor changes
+
+- Minor adjustment to dependencies, making @minecraft/server a peer instead of direct dependency (rlanda@microsoft.com)
 
 ## 1.0.0
 

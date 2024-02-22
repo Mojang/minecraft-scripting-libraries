@@ -6,8 +6,5 @@ export * from './copy';
 export * from './coreLint';
 export * from './helpers';
 export * from './vitest';
-export * from './world';
+export * from './updateWorld';
 export * from './zip';
-
-export { generateContentsJsonTask } from './generateContentsJson';
-export type { GenerateContentsJsonParameters } from './generateContentsJson';

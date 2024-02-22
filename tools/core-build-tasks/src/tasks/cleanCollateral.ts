@@ -5,12 +5,12 @@ import * as Path from 'path';
 import rimraf from 'rimraf';
 import { getOrThrowFromProcess } from './helpers/getOrThrowFromProcess';
 
-export type CleanCollateralTaskParams = {
-    /**
-     * Paths to cleanup.
-     */
-    pathsToClean: string[];
-};
+export const STANDARD_CLEAN_PATHS = [
+    'LOCALAPPDATA/Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/PROJECT_NAME',
+    'LOCALAPPDATA/Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang/development_resource_packs/PROJECT_NAME',
+    'LOCALAPPDATA/Packages/Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/PROJECT_NAME',
+    'LOCALAPPDATA/Packages/Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_resource_packs/PROJECT_NAME',
+];
 
 /**
  * Cleans the specified outputs. Outputs could be either folders or files. Has support for the following variable replacements
@@ -20,7 +20,7 @@ export type CleanCollateralTaskParams = {
  * This constant is replaced at task execution with a value provided by the process environment.
  *
  */
-export function cleanCollateralTask(params: CleanCollateralTaskParams) {
+export function cleanCollateralTask(pathsToClean: string[]) {
     return () => {
         const projectName = getOrThrowFromProcess('PROJECT_NAME');
 
@@ -36,13 +36,13 @@ export function cleanCollateralTask(params: CleanCollateralTaskParams) {
         let localAppData = process.env.LOCALAPPDATA;
         if (!localAppData) {
             console.warn(
-                'Proceeding without LOCALAPPDATA on this platform. File copy will fail if LOCALAPPDATA is required.',
+                'Proceeding without LOCALAPPDATA on this platform. File copy will fail if LOCALAPPDATA is required.'
             );
             localAppData = errorToken;
         }
 
         // For each output path, replace tokens with env values
-        for (const cleanPathRaw of params.pathsToClean) {
+        for (const cleanPathRaw of pathsToClean) {
             const cleanPath = cleanPathRaw
                 .replace('LOCALAPPDATA', localAppData)
                 .replace('APPDATA', appData)
@@ -50,7 +50,7 @@ export function cleanCollateralTask(params: CleanCollateralTaskParams) {
 
             if (cleanPath.includes(errorToken)) {
                 console.warn(
-                    `Skipping clean of ${cleanPath} on current platform due to APPDATA or LOCALAPPDATA being missing.`,
+                    `Skipping clean of ${cleanPath} on current platform due to APPDATA or LOCALAPPDATA being missing.`
                 );
                 continue;
             }

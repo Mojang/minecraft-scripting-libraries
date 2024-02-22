@@ -1,6 +1,6 @@
 {
   "name": "@minecraft/core-build-tasks",
-  "version": "1.0.1-patch-30",
+  "version": "1.0.2",
   "description": "Common build tasks used for minecraft-scripting-libraries",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -16,6 +16,7 @@
   "dependencies": {
     "@rushstack/node-core-library": "^3.59.6",
     "@microsoft/api-extractor": "^7.38.3",
+    "esbuild": "^0.20.1",
     "dotenv": "^16.0.2",
     "prettier": "^2.8.2",
     "rimraf": "^3.0.2",

@@ -16,6 +16,7 @@ export type CopyTaskParameters = {
     copyToBehaviorPacks: string[];
     /**
      * The paths to copy to the scripts directory in the game.
+     * This is copied after copyToBehaviorPacks.
      */
     copyToScripts: string[];
     /**

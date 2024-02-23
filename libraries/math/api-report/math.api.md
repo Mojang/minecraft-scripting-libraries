@@ -80,12 +80,15 @@ export class Vector3Builder implements Vector3 {
         max?: Partial<Vector3>;
     }): this;
     cross(vec: Vector3): this;
+    distance(vec: Vector3): number;
     dot(vec: Vector3): number;
     equals(v: Vector3): boolean;
     floor(): this;
+    lerp(vec: Vector3, t: number): this;
     magnitude(): number;
     normalize(): this;
     scale(val: number): this;
+    slerp(vec: Vector3, t: number): this;
     subtract(v: Vector3): this;
     toString(options?: {
         decimals?: number;
@@ -107,12 +110,15 @@ export class Vector3Utils {
         max?: Partial<Vector3>;
     }): Vector3;
     static cross(a: Vector3, b: Vector3): Vector3;
+    static distance(a: Vector3, b: Vector3): number;
     static dot(a: Vector3, b: Vector3): number;
     static equals(v1: Vector3, v2: Vector3): boolean;
     static floor(v: Vector3): Vector3;
+    static lerp(a: Vector3, b: Vector3, t: number): Vector3;
     static magnitude(v: Vector3): number;
     static normalize(v: Vector3): Vector3;
     static scale(v1: Vector3, scale: number): Vector3;
+    static slerp(a: Vector3, b: Vector3, t: number): Vector3;
     static subtract(v1: Vector3, v2: Vector3): Vector3;
     static toString(v: Vector3, options?: {
         decimals?: number;

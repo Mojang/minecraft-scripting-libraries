@@ -115,6 +115,13 @@ describe('Vector3Builder', () => {
         expect(vectorA.magnitude()).toEqual(mag);
     });
 
+    it('should be able to compute the distance between two vectors with the same result as the coreHelpers function', () => {
+        const vectorA = new Vector3Builder(1, 2, 3);
+        const mag = Vector3Utils.magnitude(vectorA);
+
+        expect(vectorA.magnitude()).toEqual(mag);
+    });
+
     it('should be able to normalize the vector with the same result as the coreHelpers function', () => {
         const vectorA = new Vector3Builder(1, 2, 3);
         const vectorB = Vector3Utils.normalize(vectorA);
@@ -150,6 +157,26 @@ describe('Vector3Builder', () => {
 
         const result = vectorA.toString({ decimals: 1, delimiter: ' ' });
         expect(result).toEqual(vectorB);
+    });
+
+    it('should be able compute the lerp halfway between two vectors with the same result as the coreHelpers function', () => {
+        const vectorA = new Vector3Builder(5, 6, 3);
+        const vectorB = new Vector3Builder(4, 2, 6);
+        const ratio: number = 0.4;
+        const resultA = Vector3Utils.lerp(vectorA, vectorB, ratio);
+
+        const resultB = vectorA.lerp(vectorB, ratio);
+        expect(resultA).toEqual(resultB);
+    });
+    
+    it('should be able compute the slerp halfway between two vectors with the same result as the coreHelpers function', () => {
+        const vectorA = new Vector3Builder(5, 6, 3);
+        const vectorB = new Vector3Builder(4, 2, 6);
+        const ratio: number = 0.4;
+        const resultA = Vector3Utils.slerp(vectorA, vectorB, ratio);
+
+        const resultB = vectorA.slerp(vectorB, ratio);
+        expect(resultA).toEqual(resultB);
     });
 });
 

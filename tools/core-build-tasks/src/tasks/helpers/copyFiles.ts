@@ -1,4 +1,5 @@
-// Copyright (c) Mojang AB.  All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
 
 import { FileSystem } from '@rushstack/node-core-library';
 import path from 'path';

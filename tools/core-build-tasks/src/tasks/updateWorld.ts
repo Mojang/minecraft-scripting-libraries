@@ -1,4 +1,5 @@
-// Copyright (c) Mojang AB.  All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
 
 import { TaskFunction, condition, series, task } from 'just-scripts';
 import { cleanTask } from './clean';

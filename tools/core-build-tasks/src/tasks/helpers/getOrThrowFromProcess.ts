@@ -1,4 +1,5 @@
-// Copyright (c) Mojang AB.  All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
 
 /**
  * Checks process.env for the desired key and returns the value if it exists, otherwise throws an error. Generic parameter

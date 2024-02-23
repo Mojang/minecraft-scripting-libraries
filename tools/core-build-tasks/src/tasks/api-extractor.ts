@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
 import { Extractor, ExtractorConfig, ExtractorResult } from '@microsoft/api-extractor';
 
 /**

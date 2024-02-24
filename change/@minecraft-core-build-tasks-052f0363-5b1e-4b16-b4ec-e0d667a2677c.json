@@ -1,6 +1,6 @@
 {
   "type": "minor",
-  "comment": "Adding new tasks: bundle, cleanCollateral, copy, updateWorld, mcaddon",
+  "comment": "Adding new tasks: bundle, cleanCollateral, copy, updateWorld, mcaddon, watch",
   "packageName": "@minecraft/core-build-tasks",
   "email": "frgarc@microsoft.com",
   "dependentChangeType": "patch"

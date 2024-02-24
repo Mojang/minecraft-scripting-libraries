@@ -10,4 +10,5 @@ export * from './coreLint';
 export * from './helpers';
 export * from './vitest';
 export * from './updateWorld';
+export * from './watch';
 export * from './zip';

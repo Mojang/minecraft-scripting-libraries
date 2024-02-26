@@ -117,9 +117,10 @@ describe('Vector3Builder', () => {
 
     it('should be able to compute the distance between two vectors with the same result as the coreHelpers function', () => {
         const vectorA = new Vector3Builder(1, 2, 3);
-        const mag = Vector3Utils.magnitude(vectorA);
+        const vectorB = new Vector3Builder(4, 5, 6);
+        const mag = Vector3Utils.distance(vectorA, vectorB);
 
-        expect(vectorA.magnitude()).toEqual(mag);
+        expect(vectorA.distance(vectorB)).toEqual(mag);
     });
 
     it('should be able to normalize the vector with the same result as the coreHelpers function', () => {

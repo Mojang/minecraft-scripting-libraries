@@ -1,7 +1,0 @@
-{
-  "type": "none",
-  "comment": "- Updating headers at math library",
-  "packageName": "@minecraft/math",
-  "email": "frgarc@microsoft.com",
-  "dependentChangeType": "none"
-}

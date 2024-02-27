@@ -2,6 +2,21 @@
   "name": "@minecraft/math",
   "entries": [
     {
+      "date": "Tue, 27 Feb 2024 00:08:06 GMT",
+      "version": "1.1.1",
+      "tag": "@minecraft/math_v1.1.1",
+      "comments": {
+        "none": [
+          {
+            "author": "frgarc@microsoft.com",
+            "package": "@minecraft/math",
+            "commit": "c1fb5000f9b01b0a625ff06b48e78672bdfc2aaa",
+            "comment": "- Updating headers at math library"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 02 Feb 2024 22:14:47 GMT",
       "version": "1.1.0",
       "tag": "@minecraft/math_v1.1.0",

@@ -1,8 +1,16 @@
 # Change Log - eslint-plugin-minecraft-linting
 
-This log was last generated on Mon, 29 Jan 2024 18:22:45 GMT and should not be manually modified.
+This log was last generated on Tue, 27 Feb 2024 00:08:06 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.1.0
+
+Tue, 27 Feb 2024 00:08:06 GMT
+
+### Minor changes
+
+- Adding header dependency. (frgarc@microsoft.com)
 
 ## 1.0.0
 

@@ -2,6 +2,21 @@
   "name": "eslint-plugin-minecraft-linting",
   "entries": [
     {
+      "date": "Tue, 27 Feb 2024 00:08:06 GMT",
+      "version": "1.1.0",
+      "tag": "eslint-plugin-minecraft-linting_v1.1.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "frgarc@microsoft.com",
+            "package": "eslint-plugin-minecraft-linting",
+            "commit": "c1fb5000f9b01b0a625ff06b48e78672bdfc2aaa",
+            "comment": "Adding header dependency."
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 29 Jan 2024 18:22:45 GMT",
       "version": "1.0.0",
       "tag": "eslint-plugin-minecraft-linting_v1.0.0",

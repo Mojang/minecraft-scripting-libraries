@@ -1,2 +1,3 @@
-// Copyright (c) Mojang AB.  All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
 // This file must remain for the test compilation to work successfully

@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Adding header dependency.",
+  "packageName": "eslint-plugin-minecraft-linting",
+  "email": "frgarc@microsoft.com",
+  "dependentChangeType": "patch"
+}

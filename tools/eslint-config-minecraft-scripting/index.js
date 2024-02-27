@@ -29,7 +29,7 @@ module.exports = {
         '@typescript-eslint/no-unsafe-assignment': 'error',
         '@typescript-eslint/no-unsafe-member-access': 'error',
         '@typescript-eslint/no-unsafe-call': 'error',
-        'header/header': [2, 'line', ' Copyright (c) Mojang AB.  All rights reserved.', 1],
+        'header/header': [2, 'line', [' Copyright (c) Microsoft Corporation.', ` Licensed under the MIT License.`], 1],
         'minecraft-linting/avoid-unnecessary-command': 'error',
     },
 };

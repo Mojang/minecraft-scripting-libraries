@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Added distance, lerp and slerp functions",
-  "packageName": "@minecraft/math",
-  "email": "alexander.denford@skyboxlabs.com",
-  "dependentChangeType": "patch"
-}

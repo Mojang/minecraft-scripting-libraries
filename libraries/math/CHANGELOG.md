@@ -1,8 +1,16 @@
 # Change Log - @minecraft/math
 
-This log was last generated on Fri, 02 Feb 2024 22:14:47 GMT and should not be manually modified.
+This log was last generated on Tue, 27 Feb 2024 19:46:08 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.3.0
+
+Tue, 27 Feb 2024 19:46:08 GMT
+
+### Minor changes
+
+- Added distance, lerp and slerp functions (alexander.denford@skyboxlabs.com)
 
 ## 1.1.0
 

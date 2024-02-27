@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
 import { existsSync } from 'fs';
 import type { TaskFunction } from 'just-scripts';
 import { condition, eslintTask, prettierCheckTask, prettierTask, series, task } from 'just-scripts';
@@ -20,6 +23,6 @@ export function coreLint(files: string[], fix?: boolean): TaskFunction {
         'verify-lint',
         'eslint',
         condition('prettier-check', () => !fix),
-        condition('prettier-fix', () => !!fix),
+        condition('prettier-fix', () => !!fix)
     );
 }

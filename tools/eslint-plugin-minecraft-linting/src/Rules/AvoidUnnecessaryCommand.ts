@@ -1,4 +1,5 @@
-// Copyright (c) Mojang AB.  All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
 
 /**
  * Rule which inspects calls to `runCommand[async]` and recommends using a script API if there

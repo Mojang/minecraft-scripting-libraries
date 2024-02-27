@@ -1,4 +1,5 @@
-// Copyright (c) Mojang AB.  All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
 
 /**
  * Clamps the passed in number to the passed in min and max values.

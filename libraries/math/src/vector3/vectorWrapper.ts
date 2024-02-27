@@ -1,4 +1,5 @@
-// Copyright (c) Mojang AB.  All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
 
 import type { Vector2, Vector3 } from '@minecraft/server';
 import { Vector2Utils, Vector3Utils } from './coreHelpers';

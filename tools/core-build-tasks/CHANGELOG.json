@@ -2,6 +2,21 @@
   "name": "@minecraft/core-build-tasks",
   "entries": [
     {
+      "date": "Tue, 27 Feb 2024 00:08:06 GMT",
+      "version": "1.1.0",
+      "tag": "@minecraft/core-build-tasks_v1.1.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "frgarc@microsoft.com",
+            "package": "@minecraft/core-build-tasks",
+            "commit": "c1fb5000f9b01b0a625ff06b48e78672bdfc2aaa",
+            "comment": "Adding new tasks: bundle, cleanCollateral, copy, updateWorld, mcaddon, watch"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 29 Jan 2024 19:08:51 GMT",
       "version": "1.0.1",
       "tag": "@minecraft/core-build-tasks_v1.0.1",

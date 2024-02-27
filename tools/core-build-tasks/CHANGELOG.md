@@ -1,8 +1,16 @@
 # Change Log - @minecraft/core-build-tasks
 
-This log was last generated on Mon, 29 Jan 2024 19:08:51 GMT and should not be manually modified.
+This log was last generated on Tue, 27 Feb 2024 00:08:06 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.1.0
+
+Tue, 27 Feb 2024 00:08:06 GMT
+
+### Minor changes
+
+- Adding new tasks: bundle, cleanCollateral, copy, updateWorld, mcaddon, watch (frgarc@microsoft.com)
 
 ## 1.0.1
 

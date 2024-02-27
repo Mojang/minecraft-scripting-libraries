@@ -1,4 +1,5 @@
-// Copyright (c) Mojang AB.  All rights reserved.
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
 
 import type { Vector3 } from '@minecraft/server';
 import { describe, expect, it } from 'vitest';

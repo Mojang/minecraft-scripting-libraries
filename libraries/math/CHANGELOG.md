@@ -1,8 +1,16 @@
 # Change Log - @minecraft/math
 
-This log was last generated on Tue, 27 Feb 2024 19:46:08 GMT and should not be manually modified.
+This log was last generated on Tue, 27 Feb 2024 20:03:57 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.3.1
+
+Tue, 27 Feb 2024 20:03:57 GMT
+
+### Patches
+
+- Added repo link and contributors section to package.json (jashir@mojang.com)
 
 ## 1.3.0
 

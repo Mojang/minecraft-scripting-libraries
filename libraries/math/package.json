@@ -1,6 +1,6 @@
 {
   "name": "@minecraft/math",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "author": "Raphael Landaverde (rlanda@microsoft.com)",
   "contributors": [
     {
@@ -11,7 +11,7 @@
   "description": "Math utilities for use with minecraft scripting modules",
   "main": "lib/index.js",
   "types": "lib/types/math-public.d.ts",
-    "repository": {
+  "repository": {
     "type": "git",
     "url": "https://github.com/Mojang/minecraft-scripting-libraries.git"
   },

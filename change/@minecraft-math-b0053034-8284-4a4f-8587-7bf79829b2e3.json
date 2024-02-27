@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Added repo link and contributors section to package.json",
+  "packageName": "@minecraft/math",
+  "email": "jashir@mojang.com",
+  "dependentChangeType": "patch"
+}

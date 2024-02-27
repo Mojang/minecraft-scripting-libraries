@@ -71,6 +71,11 @@ describe('Vector3 operations', () => {
         expect(result).toBeCloseTo(3.74, 2);
     });
 
+    it('calculates the distance between two vectors', () => {
+        const result: number = Vector3Utils.distance(v1, v2);
+        expect(result).toBeCloseTo(5.2, 2);
+    });
+
     it('computes the floor of the vector', () => {
         const input: Vector3 = { x: 1.33, y: 2.14, z: 3.55 };
         const expected: Vector3 = { x: 1, y: 2, z: 3 };
@@ -169,5 +174,19 @@ describe('Vector3 operations', () => {
             const result: Vector3 = Vector3Utils.clamp(vLarge, { min: minVec, max: maxVec });
             expect(result).toEqual({ x: 2, y: 1e6, z: 2.5 });
         });
+    });
+
+    it('calculates the lerp halfway between two vectors', () => {
+        const result: Vector3 = Vector3Utils.lerp(v1, v2, 0.5);
+        expect(result).toEqual({ x: 2.5, y: 3.5, z: 4.5});
+    });
+  
+    it('calculates the slerp halfway between two vectors', () => {
+        const vecA: Vector3 = { x: 1, y: 0, z: 0 };
+        const vecB: Vector3 = { x: 0, y: -1, z: 0 };
+        const result: Vector3 = Vector3Utils.slerp(vecA, vecB, 0.5);
+        expect(result.x).toBeCloseTo(0.7071, 3);
+        expect(result.y).toBeCloseTo(-0.7071, 3);
+        expect(result.z).toBeCloseTo(0);
     });
 });

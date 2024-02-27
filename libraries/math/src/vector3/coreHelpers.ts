@@ -77,6 +77,15 @@ export class Vector3Utils {
     }
 
     /**
+     * distance
+     *
+     * Calculate the distance between two vectors
+     */
+    static distance(a: Vector3, b: Vector3): number {
+        return Vector3Utils.magnitude(Vector3Utils.subtract(a, b));
+    }
+
+    /**
      * normalize
      *
      * Takes a vector 3 and normalizes it to a unit vector
@@ -123,6 +132,32 @@ export class Vector3Utils {
             y: clampNumber(v.y, limits?.min?.y ?? Number.MIN_SAFE_INTEGER, limits?.max?.y ?? Number.MAX_SAFE_INTEGER),
             z: clampNumber(v.z, limits?.min?.z ?? Number.MIN_SAFE_INTEGER, limits?.max?.z ?? Number.MAX_SAFE_INTEGER),
         };
+    }
+
+    /**
+     * lerp
+     *
+     * Constructs a new vector using linear interpolation on each component from two vectors.
+     */
+    static lerp(a: Vector3, b: Vector3, t: number): Vector3 {
+        return {
+            x: a.x + (b.x - a.x) * t,
+            y: a.y + (b.y - a.y) * t,
+            z: a.z + (b.z - a.z) * t,
+        };
+    }
+
+    /**
+     * slerp
+     *
+     * Constructs a new vector using spherical linear interpolation on each component from two vectors.
+     */
+    static slerp(a: Vector3, b: Vector3, t: number): Vector3 {
+        const theta = Math.acos(Vector3Utils.dot(a, b));
+		const sinTheta = Math.sin(theta);
+		const ta = Math.sin((1.0 - t) * theta) / sinTheta;
+		const tb = Math.sin(t * theta) / sinTheta;
+		return Vector3Utils.add(Vector3Utils.scale(a, ta), Vector3Utils.scale(b, tb));
     }
 }
 
@@ -244,3 +279,4 @@ export const VECTOR3_NORTH: Vector3 = { x: 0, y: 0, z: 1 };
  * @public
  */
 export const VECTOR3_SOUTH: Vector3 = { x: 0, y: 0, z: -1 };
+

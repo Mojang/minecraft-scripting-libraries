@@ -106,6 +106,15 @@ export class Vector3Builder implements Vector3 {
     }
 
     /**
+     * distance
+     *
+     * Calculate the distance between two vectors
+     */
+    distance(vec: Vector3): number {
+        return Vector3Utils.distance(this, vec);
+    }
+
+    /**
      * normalize
      *
      * Normalizes this vector, returning itself.
@@ -139,6 +148,25 @@ export class Vector3Builder implements Vector3 {
      */
     clamp(limits: { min?: Partial<Vector3>; max?: Partial<Vector3> }): this {
         return this.assign(Vector3Utils.clamp(this, limits));
+    }
+
+    
+    /**
+     * lerp
+     *
+     * Constructs a new vector using linear interpolation on each component from two vectors.
+     */
+    lerp(vec: Vector3, t: number): this {
+        return this.assign(Vector3Utils.lerp(this, vec, t));
+    }
+
+    /**
+     * slerp
+     *
+     * Constructs a new vector using spherical linear interpolation on each component from two vectors.
+     */
+    slerp(vec: Vector3, t: number): this { 
+        return this.assign(Vector3Utils.slerp(this, vec, t));
     }
 }
 

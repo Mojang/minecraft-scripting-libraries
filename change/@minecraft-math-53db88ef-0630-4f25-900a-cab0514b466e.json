@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Using flat config",
+  "packageName": "@minecraft/math",
+  "email": "frgarc@microsoft.com",
+  "dependentChangeType": "patch"
+}

@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Support for ESLint Flat Config",
+  "packageName": "@minecraft/core-build-tasks",
+  "email": "frgarc@microsoft.com",
+  "dependentChangeType": "patch"
+}

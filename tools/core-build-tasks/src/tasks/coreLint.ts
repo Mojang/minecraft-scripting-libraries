@@ -7,7 +7,7 @@ import { TaskFunction, condition, logger, prettierCheckTask, prettierTask, serie
 import path from 'path';
 import process from 'process';
 
-const LEGACY_CONFIG_FILES = ['.eslintrc'];
+const LEGACY_CONFIG_FILES = ['.eslintrc.js'];
 const FLAT_CONFIG_FILES = ['eslint.config.js', 'eslint.config.mjs', 'eslint.config.cjs'];
 const POSSIBLE_CONFIG_FILES = [...LEGACY_CONFIG_FILES, ...FLAT_CONFIG_FILES];
 

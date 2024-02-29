@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Support for ESLint Flat Config",
-  "packageName": "eslint-plugin-minecraft-linting",
-  "email": "frgarc@microsoft.com",
-  "dependentChangeType": "patch"
-}

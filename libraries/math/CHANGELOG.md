@@ -1,8 +1,16 @@
 # Change Log - @minecraft/math
 
-This log was last generated on Tue, 27 Feb 2024 20:03:57 GMT and should not be manually modified.
+This log was last generated on Thu, 29 Feb 2024 20:11:07 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.3.2
+
+Thu, 29 Feb 2024 20:11:07 GMT
+
+### Patches
+
+- Using flat config (frgarc@microsoft.com)
 
 ## 1.3.1
 

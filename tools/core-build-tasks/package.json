@@ -1,6 +1,6 @@
 {
   "name": "@minecraft/core-build-tasks",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Common build tasks used for minecraft-scripting-libraries",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

@@ -1,8 +1,16 @@
 # Change Log - eslint-plugin-minecraft-linting
 
-This log was last generated on Tue, 27 Feb 2024 00:08:06 GMT and should not be manually modified.
+This log was last generated on Thu, 29 Feb 2024 20:11:07 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.1.1
+
+Thu, 29 Feb 2024 20:11:07 GMT
+
+### Patches
+
+- Support for ESLint Flat Config (frgarc@microsoft.com)
 
 ## 1.1.0
 

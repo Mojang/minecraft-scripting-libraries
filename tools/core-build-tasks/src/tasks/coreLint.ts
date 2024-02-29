@@ -7,7 +7,9 @@ import { TaskFunction, condition, logger, prettierCheckTask, prettierTask, serie
 import path from 'path';
 import process from 'process';
 
-const POSSIBLE_CONFIG_FILES = ['.eslintrc.js', 'eslint.config.js', 'eslint.config.mjs', 'eslint.config.cjs'];
+const LEGACY_CONFIG_FILES = ['.eslintrc'];
+const FLAT_CONFIG_FILES = ['eslint.config.js', 'eslint.config.mjs', 'eslint.config.cjs'];
+const POSSIBLE_CONFIG_FILES = [...LEGACY_CONFIG_FILES, ...FLAT_CONFIG_FILES];
 
 function getConfigFilePath(): string | undefined {
     for (const file of POSSIBLE_CONFIG_FILES) {
@@ -20,13 +22,24 @@ function getConfigFilePath(): string | undefined {
     return undefined;
 }
 
-export function eslintTask(files: string[], fix?: boolean): TaskFunction {
+function eslintTask(files: string[], fix?: boolean): TaskFunction {
     return () => {
-        const cmd = ['eslint', ...files, '--config', getConfigFilePath(), ...(fix ? ['--fix'] : []), '--color'].join(
-            ' '
-        );
-        logger.info(`Running command: ${cmd}`);
-        return execSync(cmd, { stdio: 'inherit' });
+        const configFilePath = getConfigFilePath();
+        if (configFilePath) {
+            // Setting ESLINT_USE_FLAT_CONFIG environment variable to indicate if the config file is flat or not.
+            // ESLint is not able to determine the type in all the cases, so we need to help it.
+            process.env['ESLINT_USE_FLAT_CONFIG'] = FLAT_CONFIG_FILES.some(file => configFilePath.endsWith(file))
+                ? 'true'
+                : 'false';
+            const cmd = ['eslint', ...files, '--config', configFilePath, ...(fix ? ['--fix'] : []), '--color'].join(
+                ' '
+            );
+            logger.info(`Running command: ${cmd}`);
+            return execSync(cmd, { stdio: 'inherit' });
+        }
+
+        // no-op if the config file does not exist.
+        return Promise.resolve();
     };
 }
 

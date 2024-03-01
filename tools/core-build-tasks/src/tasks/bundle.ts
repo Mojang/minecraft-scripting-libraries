@@ -21,10 +21,10 @@ export type BundleTaskParameters = {
     /** The output file for the bundle. Documentation: https://esbuild.github.io/api/#outfile */
     outfile: string;
 
-    /** Flag to specify to generate a source map file.*/
-    sourcemap?: boolean;
+    /** Flag to specify to generate a source map file. Documentation: https://esbuild.github.io/api/#sourcemap*/
+    sourcemap?: boolean | 'linked' | 'inline' | 'external' | 'both';
 
-    /** The output path for the source map file. Ignored if sourcemap is false. */
+    /** The output path for the source map file. Ignored if sourcemap is false or 'inline'. */
     outputSourcemapPath?: string;
 };
 
@@ -34,9 +34,20 @@ export type PostProcessOutputFilesResult = {
     generatedFiles: Record<string, string>;
 };
 
+function isRequiredToMakeAnyFileChange(
+    sourcemap: boolean | 'linked' | 'inline' | 'external' | 'both' | undefined
+): boolean {
+    return sourcemap === true || sourcemap === 'linked' || sourcemap === 'external' || sourcemap === 'both';
+}
+
+function isRequiredToLinkJsFile(sourcemap: boolean | 'linked' | 'inline' | 'external' | 'both' | undefined): boolean {
+    return sourcemap === true || sourcemap === 'linked';
+}
+
 function linkSourceMaps(
     sourceMapDirectory: string,
     outputDirectory: string,
+    options: BundleTaskParameters,
     outputFiles: OutputFile[]
 ): Record<string, string> {
     const generatedFiles: Record<string, string> = {};
@@ -51,13 +62,15 @@ function linkSourceMaps(
                 .relative(sourceMapDirectory, path.join(outputDirectory, parsedPath.name))
                 .replace(/\\/g, '/');
             generatedFiles[sourceMapFilePath] = JSON.stringify(sourceMapContent);
-        } else {
+        } else if (isRequiredToLinkJsFile(options.sourcemap)) {
             // Link to the source map file.
             const dir = path.parse(element.path).dir;
             const targetSourceMap = path
                 .join(path.relative(dir, sourceMapDirectory), path.parse(element.path).base)
                 .replace(/\\/g, '/');
             generatedFiles[element.path] = element.text + `\n//# sourceMappingURL=${targetSourceMap}${MAP_EXTENSION}\n`;
+        } else {
+            generatedFiles[element.path] = element.text;
         }
     }
 
@@ -85,25 +98,27 @@ export function postProcessOutputFiles(
 
     const outputDirectory = path.parse(options.outfile).dir;
     const sourceMapDirectory = path.resolve(options.outputSourcemapPath ?? outputDirectory);
-    const generatedFiles = linkSourceMaps(sourceMapDirectory, outputDirectory, buildResult.outputFiles);
+    const generatedFiles = linkSourceMaps(sourceMapDirectory, outputDirectory, options, buildResult.outputFiles);
     return { sourceMapDirectory, outputDirectory, generatedFiles: generatedFiles };
 }
 
 export function bundleTask(options: BundleTaskParameters): ReturnType<typeof parallel> {
     return () => {
+        const isRequiredToMakeChanges = isRequiredToMakeAnyFileChange(options.sourcemap);
+        const isRequiredToLinkJs = isRequiredToLinkJsFile(options.sourcemap);
         const buildResult: BuildResult = esbuild.buildSync({
             entryPoints: [options.entryPoint],
             bundle: true,
             format: 'esm',
             minifyWhitespace: options.minifyWhitespace,
             outfile: options.outfile,
-            sourcemap: options.sourcemap ? 'external' : false,
+            sourcemap: isRequiredToLinkJs ? 'external' : options.sourcemap,
             external: options.external,
-            write: !options.sourcemap,
+            write: !isRequiredToMakeChanges,
         });
 
         if (buildResult.errors.length === 0) {
-            if (options.sourcemap) {
+            if (isRequiredToMakeChanges) {
                 if (!buildResult.outputFiles) {
                     process.exitCode = 1;
                     return Promise.reject(

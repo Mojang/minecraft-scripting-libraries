@@ -2,6 +2,21 @@
   "name": "@minecraft/core-build-tasks",
   "entries": [
     {
+      "date": "Fri, 01 Mar 2024 22:57:50 GMT",
+      "version": "1.1.2",
+      "tag": "@minecraft/core-build-tasks_v1.1.2",
+      "comments": {
+        "patch": [
+          {
+            "author": "frgarc@microsoft.com",
+            "package": "@minecraft/core-build-tasks",
+            "commit": "7ff14879535d14eca032d3dd51df457e9e0b03f2",
+            "comment": "Support for source map files creation at different path"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 29 Feb 2024 20:11:07 GMT",
       "version": "1.1.1",
       "tag": "@minecraft/core-build-tasks_v1.1.1",

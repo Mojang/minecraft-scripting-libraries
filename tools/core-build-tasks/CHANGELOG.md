@@ -1,8 +1,16 @@
 # Change Log - @minecraft/core-build-tasks
 
-This log was last generated on Thu, 29 Feb 2024 20:11:07 GMT and should not be manually modified.
+This log was last generated on Fri, 01 Mar 2024 22:57:50 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.1.2
+
+Fri, 01 Mar 2024 22:57:50 GMT
+
+### Patches
+
+- Support for source map files creation at different path (frgarc@microsoft.com)
 
 ## 1.1.1
 

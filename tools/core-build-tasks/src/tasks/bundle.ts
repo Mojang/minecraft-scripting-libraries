@@ -37,7 +37,7 @@ export type PostProcessOutputFilesResult = {
 function isRequiredToMakeAnyFileChange(
     sourcemap: boolean | 'linked' | 'inline' | 'external' | 'both' | undefined
 ): boolean {
-    return sourcemap === true || sourcemap === 'linked' || sourcemap === 'external' || sourcemap === 'both';
+    return sourcemap !== false && sourcemap !== 'inline';
 }
 
 function isRequiredToLinkJsFile(sourcemap: boolean | 'linked' | 'inline' | 'external' | 'both' | undefined): boolean {

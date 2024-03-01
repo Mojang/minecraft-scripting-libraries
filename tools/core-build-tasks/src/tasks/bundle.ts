@@ -24,22 +24,22 @@ export type BundleTaskParameters = {
     /** Flag to specify to generate a source map file.*/
     sourcemap?: boolean;
 
-    /** The output path for the source map file. Only when sourcemap option is set to true. */
+    /** The output path for the source map file. Ignored if sourcemap is false. */
     outputSourcemapPath?: string;
 };
 
 export type PostProcessOutputFilesResult = {
     sourceMapDirectory: string;
     outputDirectory: string;
-    generatedFiles: { [key: string]: string };
+    generatedFiles: Record<string, string>;
 };
 
 function linkSourceMaps(
     sourceMapDirectory: string,
     outputDirectory: string,
     outputFiles: OutputFile[]
-): { [key: string]: string } {
-    const generatedFiles: { [key: string]: string } = {};
+): Record<string, string> {
+    const generatedFiles: Record<string, string> = {};
     for (const element of outputFiles) {
         if (element.path.endsWith(MAP_EXTENSION)) {
             const parsedPath = path.parse(element.path);
@@ -102,11 +102,15 @@ export function bundleTask(options: BundleTaskParameters): ReturnType<typeof par
             write: !options.sourcemap,
         });
 
-        if (buildResult.errors.length == 0) {
+        if (buildResult.errors.length === 0) {
             if (options.sourcemap) {
                 if (!buildResult.outputFiles) {
                     process.exitCode = 1;
-                    return Promise.reject(new Error('Output files are not generated'));
+                    return Promise.reject(
+                        new Error(
+                            'No output files were generated, check that your entrypoint file is configured correctly.'
+                        )
+                    );
                 }
 
                 const result = postProcessOutputFiles(options, buildResult);

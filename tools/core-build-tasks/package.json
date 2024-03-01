@@ -5,6 +5,12 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "author": "Raphael Landaverde (rlanda@microsoft.com)",
+  "contributors": [
+    {
+      "name": "Francisco Alejandro Garcia Cebada",
+      "email": "frgarc@mojang.com"
+    }
+  ],
   "scripts": {
     "build-tools": "just-scripts build-tools",
     "clean-tools": "just-scripts clean-tools",

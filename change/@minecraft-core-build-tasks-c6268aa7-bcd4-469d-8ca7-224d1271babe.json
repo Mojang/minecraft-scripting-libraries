@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Support for source map files creation at different path",
+  "packageName": "@minecraft/core-build-tasks",
+  "email": "frgarc@microsoft.com",
+  "dependentChangeType": "patch"
+}

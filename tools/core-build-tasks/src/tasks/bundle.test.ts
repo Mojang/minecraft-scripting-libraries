@@ -34,12 +34,12 @@ function _createParameters(
             warnings: [],
             metafile: { inputs: {}, outputs: {} },
             mangleCache: {},
-        } as BuildResult<BuildOptions>,
+        },
     };
 }
 
 describe('postProcessOutputFiles with source map files at different path', () => {
-    it('Dictionary populated correctly', async () => {
+    it('Dictionary populated correctly', () => {
         const debugPath = path.resolve('./dist/debug');
         const outputFile = path.resolve('./dist/scripts/main.js');
         const parameters = _createParameters(outputFile, debugPath);
@@ -69,7 +69,7 @@ describe('postProcessOutputFiles with source map files at different path', () =>
 });
 
 describe('postProcessOutputFiles with source map files at same path', () => {
-    it('Dictionary populated correctly using undefined', async () => {
+    it('Dictionary populated correctly using undefined', () => {
         const debugPath = undefined;
         const outputFile = path.resolve('./dist/scripts/main.js');
         const parameters = _createParameters(outputFile, debugPath);
@@ -96,7 +96,7 @@ describe('postProcessOutputFiles with source map files at same path', () => {
             expect(sourceMap.file).toBe(expectedSourceMapFile);
         }
     });
-    it('Dictionary populated correctly using same path explicitly', async () => {
+    it('Dictionary populated correctly using same path explicitly', () => {
         const debugPath = path.resolve('./dist/scripts');
         const outputFile = path.resolve('./dist/scripts/main.js');
         const parameters = _createParameters(outputFile, debugPath);
@@ -126,7 +126,7 @@ describe('postProcessOutputFiles with source map files at same path', () => {
 });
 
 describe('postProcessOutputFiles with no files', () => {
-    it('Returns undefined', async () => {
+    it('Returns undefined', () => {
         const outputFile = path.resolve('./dist/scripts/main.js');
         const parameters = _createParameters(outputFile, undefined);
         parameters.buildResult.outputFiles = undefined;

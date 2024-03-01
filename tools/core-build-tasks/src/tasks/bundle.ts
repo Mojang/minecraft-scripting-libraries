@@ -28,13 +28,19 @@ export type BundleTaskParameters = {
     outputSourcemapPath?: string;
 };
 
+export type PostProcessOutputFilesResult = {
+    sourceMapDirectory: string;
+    outputDirectory: string;
+    generatedFiles: { [key: string]: string };
+};
+
 function linkSourceMaps(
     sourceMapDirectory: string,
     outputDirectory: string,
     outputFiles: OutputFile[]
-): Map<string, string> {
-    const generatedFiles = new Map<string, string>();
-    outputFiles.forEach(element => {
+): { [key: string]: string } {
+    const generatedFiles: { [key: string]: string } = {};
+    for (const element of outputFiles) {
         if (element.path.endsWith(MAP_EXTENSION)) {
             const parsedPath = path.parse(element.path);
             const sourceMapFilePath = path.join(sourceMapDirectory, parsedPath.base);
@@ -44,32 +50,43 @@ function linkSourceMaps(
             sourceMapContent.file = path
                 .relative(sourceMapDirectory, path.join(outputDirectory, parsedPath.name))
                 .replace(/\\/g, '/');
-            generatedFiles.set(sourceMapFilePath, JSON.stringify(sourceMapContent));
+            generatedFiles[sourceMapFilePath] = JSON.stringify(sourceMapContent);
         } else {
             // Link to the source map file.
             const dir = path.parse(element.path).dir;
             const targetSourceMap = path
                 .join(path.relative(dir, sourceMapDirectory), path.parse(element.path).base)
                 .replace(/\\/g, '/');
-            generatedFiles.set(
-                element.path,
-                element.text + `\n//# sourceMappingURL=${targetSourceMap}${MAP_EXTENSION}\n`
-            );
+            generatedFiles[element.path] = element.text + `\n//# sourceMappingURL=${targetSourceMap}${MAP_EXTENSION}\n`;
         }
-    });
+    }
 
     return generatedFiles;
 }
 
-function writeFiles(sourceMapDirectory: string, outputDirectory: string, generatedFiles: Map<string, string>) {
-    fs.mkdirSync(outputDirectory, { recursive: true });
-    if (sourceMapDirectory !== outputDirectory) {
-        fs.mkdirSync(sourceMapDirectory, { recursive: true });
+function writeFiles(postProcessOutputFilesResult: PostProcessOutputFilesResult) {
+    fs.mkdirSync(postProcessOutputFilesResult.outputDirectory, { recursive: true });
+    if (postProcessOutputFilesResult.sourceMapDirectory !== postProcessOutputFilesResult.outputDirectory) {
+        fs.mkdirSync(postProcessOutputFilesResult.sourceMapDirectory, { recursive: true });
     }
 
-    for (const [path, content] of generatedFiles.entries()) {
-        fs.writeFileSync(path, content);
+    for (const path of Object.keys(postProcessOutputFilesResult.generatedFiles)) {
+        fs.writeFileSync(path, postProcessOutputFilesResult.generatedFiles[path]);
     }
+}
+
+export function postProcessOutputFiles(
+    options: BundleTaskParameters,
+    buildResult: BuildResult
+): PostProcessOutputFilesResult | undefined {
+    if (!buildResult.outputFiles) {
+        return undefined;
+    }
+
+    const outputDirectory = path.parse(options.outfile).dir;
+    const sourceMapDirectory = path.resolve(options.outputSourcemapPath ?? outputDirectory);
+    const generatedFiles = linkSourceMaps(sourceMapDirectory, outputDirectory, buildResult.outputFiles);
+    return { sourceMapDirectory, outputDirectory, generatedFiles: generatedFiles };
 }
 
 export function bundleTask(options: BundleTaskParameters): ReturnType<typeof parallel> {
@@ -92,10 +109,10 @@ export function bundleTask(options: BundleTaskParameters): ReturnType<typeof par
                     return Promise.reject(new Error('Output files are not generated'));
                 }
 
-                const outputDirectory = path.parse(options.outfile).dir;
-                const sourceMapDirectory = path.resolve(options.outputSourcemapPath ?? outputDirectory);
-                const generatedFiles = linkSourceMaps(sourceMapDirectory, outputDirectory, buildResult.outputFiles);
-                writeFiles(sourceMapDirectory, outputDirectory, generatedFiles);
+                const result = postProcessOutputFiles(options, buildResult);
+                if (result) {
+                    writeFiles(result);
+                }
             }
 
             process.exitCode = 0;

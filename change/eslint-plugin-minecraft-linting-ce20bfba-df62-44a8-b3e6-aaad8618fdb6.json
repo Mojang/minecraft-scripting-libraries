@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Update setBlock to setblock",
+  "packageName": "eslint-plugin-minecraft-linting",
+  "email": "thomas@gamemodeone.com",
+  "dependentChangeType": "patch"
+}

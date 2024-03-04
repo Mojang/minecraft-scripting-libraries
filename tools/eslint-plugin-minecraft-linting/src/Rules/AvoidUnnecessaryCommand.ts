@@ -33,7 +33,7 @@ function isApiRecommendation(recommendation: ScriptRecommendation): recommendati
 
 const ScriptRecommendations: Map<string, ApiScriptRecommendation | ClassScriptRecommendation> = new Map([
     [
-        '/setBlock',
+        '/setblock',
         {
             module: '@minecraft/server',
             message:

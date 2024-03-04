@@ -1,8 +1,16 @@
 # Change Log - eslint-plugin-minecraft-linting
 
-This log was last generated on Thu, 29 Feb 2024 20:11:07 GMT and should not be manually modified.
+This log was last generated on Mon, 04 Mar 2024 21:54:24 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.1.3
+
+Mon, 04 Mar 2024 21:54:24 GMT
+
+### Patches
+
+- Change setBlock command suggestion to use command casing convention. (thomas@gamemodeone.com)
 
 ## 1.1.1
 

@@ -28,7 +28,6 @@
     "prettier": "^2.8.2",
     "rimraf": "^3.0.2",
     "vitest": "^0.34.6",
-    "webpack": "^5.86.0",
     "zip-lib": "^0.7.3"
   },
   "devDependencies": {
@@ -36,6 +35,7 @@
     "@types/rimraf": "^3.0.2",
     "ts-node": "^10.9.1",
     "tsconfig": "*",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "webpack": "^5.86.0"
   }
 }

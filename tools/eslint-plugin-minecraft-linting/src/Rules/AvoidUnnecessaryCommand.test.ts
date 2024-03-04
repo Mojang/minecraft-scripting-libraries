@@ -52,12 +52,12 @@ describe('AvoidUnnecessaryCommand', () => {
             invalid: [
                 // Basic string cases
                 {
-                    code: `player.runCommand('/setBlock ~ ~ ~ grass');`,
+                    code: `player.runCommand('/setblock ~ ~ ~ grass');`,
                     errors: [
                         {
                             messageId: 'replaceWithScriptMethod',
                             data: {
-                                command: '/setBlock',
+                                command: '/setblock',
                                 module: '@minecraft/server',
                                 api: 'Block.setPermutation',
                                 message:

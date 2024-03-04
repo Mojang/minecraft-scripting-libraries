@@ -1,6 +1,6 @@
 {
   "type": "patch",
-  "comment": "Update setBlock to setblock",
+  "comment": "Change setBlock command suggestion to use command casing convention.",
   "packageName": "eslint-plugin-minecraft-linting",
   "email": "thomas@gamemodeone.com",
   "dependentChangeType": "patch"

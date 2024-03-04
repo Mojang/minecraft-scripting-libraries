@@ -1,8 +1,16 @@
 # Change Log - @minecraft/core-build-tasks
 
-This log was last generated on Fri, 01 Mar 2024 22:57:50 GMT and should not be manually modified.
+This log was last generated on Mon, 04 Mar 2024 21:57:32 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.1.3
+
+Mon, 04 Mar 2024 21:57:32 GMT
+
+### Patches
+
+- - Moving webpack to dev dependencies (frgarc@microsoft.com)
 
 ## 1.1.2
 

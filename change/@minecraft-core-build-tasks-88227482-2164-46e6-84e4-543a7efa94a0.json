@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "- Moving webpack to dev dependencies",
-  "packageName": "@minecraft/core-build-tasks",
-  "email": "frgarc@microsoft.com",
-  "dependentChangeType": "patch"
-}

@@ -324,15 +324,11 @@ const AvoidUnnecessaryCommand = ESLintUtils.RuleCreator(() => 'https://microsoft
     defaultOptions: [],
     create(context, _options): TSESLint.RuleListener {
         return {
-            ExpressionStatement(node) {
-                if (node.expression.type !== AST_NODE_TYPES.CallExpression) {
-                    // Not a call expression, ignore
-                    return;
-                }
+            CallExpression(node) {
 
                 // Identify if this is a call to runCommand or runCommandAsync, which occurs either
                 // off of the exported module object, or through any cached function reference
-                const invokedCallee = node.expression.callee;
+                const invokedCallee = node.callee;
                 switch (invokedCallee.type) {
                     case AST_NODE_TYPES.MemberExpression: {
                         // Member expression has an object and property, we just care about the property
@@ -352,7 +348,7 @@ const AvoidUnnecessaryCommand = ESLintUtils.RuleCreator(() => 'https://microsoft
                             return;
                         }
 
-                        const commandArgs = node.expression.arguments;
+                        const commandArgs = node.arguments;
                         if (commandArgs.length !== 1) {
                             // We only support a single argument for now, so ignore or treat this as a build error
                             return;
@@ -463,9 +459,13 @@ const AvoidUnnecessaryCommand = ESLintUtils.RuleCreator(() => 'https://microsoft
                         }
 
                         if (commandString) {
+                            if (!commandString.startsWith('/')) {
+                                commandString = '/' + commandString;
+                            }
+
                             // We have a command string we can reason about, extract the command name
                             const commandName = commandString.split(' ')[0];
-                            if (!commandName || !commandName.startsWith('/')) {
+                            if (!commandName) {
                                 // Unable to extract a command name, so ignore
                                 return;
                             }

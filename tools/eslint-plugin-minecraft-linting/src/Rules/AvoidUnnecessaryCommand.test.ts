@@ -566,6 +566,51 @@ describe('AvoidUnnecessaryCommand', () => {
                         },
                     ],
                 },
+                {
+                    code: `player.runCommandAsync('setworldspawn 0 0 0');`,
+                    errors: [
+                        {
+                            messageId: 'replaceWithScriptMethod',
+                            data: {
+                                command: '/setworldspawn',
+                                module: '@minecraft/server',
+                                api: 'World.setDefaultSpawnLocation',
+                                message:
+                                    'See https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/world#setdefaultspawnlocation for more information.',
+                            },
+                        },
+                    ],
+                },
+                {
+                    code: `await player.runCommandAsync('/setworldspawn 0 0 0');`,
+                    errors: [
+                        {
+                            messageId: 'replaceWithScriptMethod',
+                            data: {
+                                command: '/setworldspawn',
+                                module: '@minecraft/server',
+                                api: 'World.setDefaultSpawnLocation',
+                                message:
+                                    'See https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/world#setdefaultspawnlocation for more information.',
+                            },
+                        },
+                    ],
+                },
+                {
+                    code: `const p = player.runCommandAsync('/setworldspawn 0 0 0');`,
+                    errors: [
+                        {
+                            messageId: 'replaceWithScriptMethod',
+                            data: {
+                                command: '/setworldspawn',
+                                module: '@minecraft/server',
+                                api: 'World.setDefaultSpawnLocation',
+                                message:
+                                    'See https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/world#setdefaultspawnlocation for more information.',
+                            },
+                        },
+                    ],
+                },
             ],
         });
     });

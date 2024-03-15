@@ -2,6 +2,21 @@
   "name": "eslint-plugin-minecraft-linting",
   "entries": [
     {
+      "date": "Fri, 15 Mar 2024 18:37:13 GMT",
+      "version": "1.2.0",
+      "tag": "eslint-plugin-minecraft-linting_v1.2.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "mike.demone@skyboxlabs.com",
+            "package": "eslint-plugin-minecraft-linting",
+            "commit": "311653b163adee10c6c7f257193517ac64f76844",
+            "comment": "Update avoid unnecessary command to scan commands with slashes and to scan all call expressions"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 04 Mar 2024 21:54:24 GMT",
       "version": "1.1.3",
       "tag": "eslint-plugin-minecraft-linting_v1.1.3",

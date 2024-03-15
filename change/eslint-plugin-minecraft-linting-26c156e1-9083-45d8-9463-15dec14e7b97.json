@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Update avoid unnecessary command to scan commands with slashes and to scan all call expressions",
-  "packageName": "eslint-plugin-minecraft-linting",
-  "email": "mike.demone@skyboxlabs.com",
-  "dependentChangeType": "patch"
-}

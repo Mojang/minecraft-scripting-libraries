@@ -1,8 +1,16 @@
 # Change Log - eslint-plugin-minecraft-linting
 
-This log was last generated on Mon, 04 Mar 2024 21:54:24 GMT and should not be manually modified.
+This log was last generated on Fri, 15 Mar 2024 18:37:13 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.2.0
+
+Fri, 15 Mar 2024 18:37:13 GMT
+
+### Minor changes
+
+- Update avoid unnecessary command to scan commands with slashes and to scan all call expressions (mike.demone@skyboxlabs.com)
 
 ## 1.1.3
 

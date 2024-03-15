@@ -7,7 +7,7 @@
  * API to directly match, but could be a class of APIs that have equivalent functionality.
  */
 
-import { AST_NODE_TYPES, ESLintUtils, TSESLint } from '@typescript-eslint/experimental-utils';
+import { AST_NODE_TYPES, ESLintUtils, TSESLint } from '@typescript-eslint/utils';
 
 export type ScriptRecommendation = {
     module: string;
@@ -305,7 +305,7 @@ const AvoidUnnecessaryCommand = ESLintUtils.RuleCreator(() => 'https://microsoft
         docs: {
             description:
                 'Recommends using a script API if there is a script API (or APIs) that provide 1:1 functionality parity with a command that is used.',
-            recommended: 'error',
+            recommended: 'recommended',
         },
         messages: {
             replaceWithScriptMethod:
@@ -325,7 +325,6 @@ const AvoidUnnecessaryCommand = ESLintUtils.RuleCreator(() => 'https://microsoft
     create(context, _options): TSESLint.RuleListener {
         return {
             CallExpression(node) {
-
                 // Identify if this is a call to runCommand or runCommandAsync, which occurs either
                 // off of the exported module object, or through any cached function reference
                 const invokedCallee = node.callee;

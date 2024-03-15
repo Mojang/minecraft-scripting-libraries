@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-import { TSESLint } from '@typescript-eslint/experimental-utils';
+import { TSESLint } from '@typescript-eslint/utils';
 import * as path from 'path';
 import { describe, it } from 'vitest';
 import AvoidUnnecessaryCommand from './AvoidUnnecessaryCommand';

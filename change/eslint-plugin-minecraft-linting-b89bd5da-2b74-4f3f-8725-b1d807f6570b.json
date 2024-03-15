@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Clean up dependencies so they don't bring in as much bulk",
+  "packageName": "eslint-plugin-minecraft-linting",
+  "email": "rlanda@microsoft.com",
+  "dependentChangeType": "patch"
+}

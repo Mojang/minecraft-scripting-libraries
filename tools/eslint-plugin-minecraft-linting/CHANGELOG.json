@@ -2,6 +2,21 @@
   "name": "eslint-plugin-minecraft-linting",
   "entries": [
     {
+      "date": "Fri, 15 Mar 2024 22:07:18 GMT",
+      "version": "1.2.1",
+      "tag": "eslint-plugin-minecraft-linting_v1.2.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "rlanda@microsoft.com",
+            "package": "eslint-plugin-minecraft-linting",
+            "commit": "f84faf66d0aa4ba8dcd2875bd556392fb10fce69",
+            "comment": "Clean up dependencies so they don't bring in as much bulk"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 15 Mar 2024 18:37:13 GMT",
       "version": "1.2.0",
       "tag": "eslint-plugin-minecraft-linting_v1.2.0",

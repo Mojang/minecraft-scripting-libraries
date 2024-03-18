@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Added repo link to package.json",
+  "packageName": "@minecraft/core-build-tasks",
+  "email": "thomas@gamemodeone.com",
+  "dependentChangeType": "patch"
+}

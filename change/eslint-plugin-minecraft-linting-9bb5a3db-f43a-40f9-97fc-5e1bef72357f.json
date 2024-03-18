@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Added repo link to package.json",
+  "packageName": "eslint-plugin-minecraft-linting",
+  "email": "thomas@gamemodeone.com",
+  "dependentChangeType": "patch"
+}

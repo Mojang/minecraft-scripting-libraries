@@ -4,6 +4,11 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mojang/minecraft-scripting-libraries.git",
+    "directory": "tools/eslint-plugin-minecraft-linting"
+  },
   "scripts": {
     "build": "just-scripts build",
     "lint": "just-scripts lint",

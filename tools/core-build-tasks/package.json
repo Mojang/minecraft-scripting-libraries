@@ -11,6 +11,11 @@
       "email": "frgarc@mojang.com"
     }
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mojang/minecraft-scripting-libraries.git",
+    "directory": "tools/core-build-tasks"
+  },
   "scripts": {
     "build-tools": "just-scripts build-tools",
     "clean-tools": "just-scripts clean-tools",

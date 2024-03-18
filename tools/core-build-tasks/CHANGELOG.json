@@ -2,6 +2,27 @@
   "name": "@minecraft/core-build-tasks",
   "entries": [
     {
+      "date": "Mon, 18 Mar 2024 23:32:29 GMT",
+      "version": "1.1.4",
+      "tag": "@minecraft/core-build-tasks_v1.1.4",
+      "comments": {
+        "patch": [
+          {
+            "author": "thomas@gamemodeone.com",
+            "package": "@minecraft/core-build-tasks",
+            "commit": "5187ed5b3382e15c6362f76fc91142125cf3b345",
+            "comment": "Add support for spaces in the path to the eslint config file"
+          },
+          {
+            "author": "thomas@gamemodeone.com",
+            "package": "@minecraft/core-build-tasks",
+            "commit": "5187ed5b3382e15c6362f76fc91142125cf3b345",
+            "comment": "Added repo link to package.json"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 04 Mar 2024 21:57:32 GMT",
       "version": "1.1.3",
       "tag": "@minecraft/core-build-tasks_v1.1.3",

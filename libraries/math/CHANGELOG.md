@@ -1,8 +1,16 @@
 # Change Log - @minecraft/math
 
-This log was last generated on Thu, 29 Feb 2024 20:11:07 GMT and should not be manually modified.
+This log was last generated on Mon, 18 Mar 2024 23:32:29 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.3.5
+
+Mon, 18 Mar 2024 23:32:29 GMT
+
+### Patches
+
+- Added monorepo support to package.json (thomas@gamemodeone.com)
 
 ## 1.3.2
 

@@ -2,6 +2,21 @@
   "name": "eslint-plugin-minecraft-linting",
   "entries": [
     {
+      "date": "Mon, 18 Mar 2024 23:32:29 GMT",
+      "version": "1.2.2",
+      "tag": "eslint-plugin-minecraft-linting_v1.2.2",
+      "comments": {
+        "patch": [
+          {
+            "author": "thomas@gamemodeone.com",
+            "package": "eslint-plugin-minecraft-linting",
+            "commit": "5187ed5b3382e15c6362f76fc91142125cf3b345",
+            "comment": "Added repo link to package.json"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 15 Mar 2024 22:07:18 GMT",
       "version": "1.2.1",
       "tag": "eslint-plugin-minecraft-linting_v1.2.1",

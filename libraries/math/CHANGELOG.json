@@ -2,6 +2,21 @@
   "name": "@minecraft/math",
   "entries": [
     {
+      "date": "Mon, 18 Mar 2024 23:32:29 GMT",
+      "version": "1.3.5",
+      "tag": "@minecraft/math_v1.3.5",
+      "comments": {
+        "patch": [
+          {
+            "author": "thomas@gamemodeone.com",
+            "package": "@minecraft/math",
+            "commit": "5187ed5b3382e15c6362f76fc91142125cf3b345",
+            "comment": "Added monorepo support to package.json"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 29 Feb 2024 20:11:07 GMT",
       "version": "1.3.2",
       "tag": "@minecraft/math_v1.3.2",

@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Added monorepo support to package.json",
-  "packageName": "@minecraft/math",
-  "email": "thomas@gamemodeone.com",
-  "dependentChangeType": "patch"
-}

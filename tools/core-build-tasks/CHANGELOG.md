@@ -1,8 +1,17 @@
 # Change Log - @minecraft/core-build-tasks
 
-This log was last generated on Mon, 04 Mar 2024 21:57:32 GMT and should not be manually modified.
+This log was last generated on Mon, 18 Mar 2024 23:32:29 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.1.4
+
+Mon, 18 Mar 2024 23:32:29 GMT
+
+### Patches
+
+- Add support for spaces in the path to the eslint config file (thomas@gamemodeone.com)
+- Added repo link to package.json (thomas@gamemodeone.com)
 
 ## 1.1.3
 

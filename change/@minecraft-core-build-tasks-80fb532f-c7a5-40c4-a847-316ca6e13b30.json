@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Add support for spaces in the path to the eslint config file",
+  "packageName": "@minecraft/core-build-tasks",
+  "email": "thomas@gamemodeone.com",
+  "dependentChangeType": "patch"
+}

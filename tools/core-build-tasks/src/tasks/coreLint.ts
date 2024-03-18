@@ -31,7 +31,7 @@ function eslintTask(files: string[], fix?: boolean): TaskFunction {
             process.env['ESLINT_USE_FLAT_CONFIG'] = FLAT_CONFIG_FILES.some(file => configFilePath.endsWith(file))
                 ? 'true'
                 : 'false';
-            const cmd = ['eslint', ...files, '--config', configFilePath, ...(fix ? ['--fix'] : []), '--color'].join(
+            const cmd = ['eslint', ...files, '--config', `"${configFilePath}"`, ...(fix ? ['--fix'] : []), '--color'].join(
                 ' '
             );
             logger.info(`Running command: ${cmd}`);

@@ -69,6 +69,15 @@ const ScriptRecommendations: Map<string, ApiScriptRecommendation | ClassScriptRe
         },
     ],
     [
+        '/inputpermission',
+        {
+            module: '@minecraft/server',
+            message:
+                'See https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/player#inputpermissions for more information.',
+            api: 'Player.inputPermissions'
+        }
+    ],
+    [
         '/replaceitem',
         {
             module: '@minecraft/server',

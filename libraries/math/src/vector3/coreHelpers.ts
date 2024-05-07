@@ -125,7 +125,7 @@ export class Vector3Utils {
         limits?: {
             min?: Partial<Vector3>;
             max?: Partial<Vector3>;
-        },
+        }
     ): Vector3 {
         return {
             x: clampNumber(v.x, limits?.min?.x ?? Number.MIN_SAFE_INTEGER, limits?.max?.x ?? Number.MAX_SAFE_INTEGER),
@@ -154,10 +154,10 @@ export class Vector3Utils {
      */
     static slerp(a: Vector3, b: Vector3, t: number): Vector3 {
         const theta = Math.acos(Vector3Utils.dot(a, b));
-		const sinTheta = Math.sin(theta);
-		const ta = Math.sin((1.0 - t) * theta) / sinTheta;
-		const tb = Math.sin(t * theta) / sinTheta;
-		return Vector3Utils.add(Vector3Utils.scale(a, ta), Vector3Utils.scale(b, tb));
+        const sinTheta = Math.sin(theta);
+        const ta = Math.sin((1.0 - t) * theta) / sinTheta;
+        const tb = Math.sin(t * theta) / sinTheta;
+        return Vector3Utils.add(Vector3Utils.scale(a, ta), Vector3Utils.scale(b, tb));
     }
 }
 
@@ -279,4 +279,3 @@ export const VECTOR3_NORTH: Vector3 = { x: 0, y: 0, z: 1 };
  * @public
  */
 export const VECTOR3_SOUTH: Vector3 = { x: 0, y: 0, z: -1 };
-

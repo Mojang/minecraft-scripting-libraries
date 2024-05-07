@@ -170,7 +170,7 @@ describe('Vector3Builder', () => {
         const resultB = vectorA.lerp(vectorB, ratio);
         expect(resultA).toEqual(resultB);
     });
-    
+
     it('should be able compute the slerp halfway between two vectors with the same result as the coreHelpers function', () => {
         const vectorA = new Vector3Builder(5, 6, 3);
         const vectorB = new Vector3Builder(4, 2, 6);

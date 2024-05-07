@@ -1,0 +1,7 @@
+{
+  "type": "none",
+  "comment": "- Adding basic linting to core-build-tasks",
+  "packageName": "@minecraft/core-build-tasks",
+  "email": "frgarc@microsoft.com",
+  "dependentChangeType": "none"
+}

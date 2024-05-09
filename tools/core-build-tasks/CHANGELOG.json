@@ -2,6 +2,21 @@
   "name": "@minecraft/core-build-tasks",
   "entries": [
     {
+      "date": "Thu, 09 May 2024 22:54:01 GMT",
+      "version": "1.1.4",
+      "tag": "@minecraft/core-build-tasks_v1.1.4",
+      "comments": {
+        "none": [
+          {
+            "author": "frgarc@microsoft.com",
+            "package": "@minecraft/core-build-tasks",
+            "commit": "75c0d9f3bc2ab86da6d1e12567303ce664c0758a",
+            "comment": "- Adding basic linting to core-build-tasks"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 18 Mar 2024 23:32:29 GMT",
       "version": "1.1.4",
       "tag": "@minecraft/core-build-tasks_v1.1.4",

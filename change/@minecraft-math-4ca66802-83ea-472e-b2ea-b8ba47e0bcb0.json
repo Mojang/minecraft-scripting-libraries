@@ -1,7 +1,0 @@
-{
-  "type": "none",
-  "comment": "Enabling prettier check",
-  "packageName": "@minecraft/math",
-  "email": "frgarc@microsoft.com",
-  "dependentChangeType": "none"
-}

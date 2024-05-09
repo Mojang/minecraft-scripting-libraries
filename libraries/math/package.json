@@ -36,6 +36,7 @@
     "@minecraft/core-build-tasks": "*",
     "@minecraft/tsconfig": "*",
     "just-scripts": "^2.2.1",
+    "prettier": "^2.8.2",
     "vitest": "^0.34.6"
   }
 }

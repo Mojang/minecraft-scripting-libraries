@@ -19,6 +19,7 @@
   "scripts": {
     "build-tools": "just-scripts build-tools",
     "clean-tools": "just-scripts clean-tools",
+    "lint": "just-scripts lint",
     "test": "just-scripts test"
   },
   "files": [
@@ -38,6 +39,8 @@
   "devDependencies": {
     "@types/node": "^14.0.0 || ^16.0.0 || ^18.0.0",
     "@types/rimraf": "^3.0.2",
+    "@typescript-eslint/parser": "^7.2.0",
+    "eslint": "^8.53.0",
     "ts-node": "^10.9.1",
     "tsconfig": "*",
     "typescript": "^5.2.2",

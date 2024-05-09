@@ -37,7 +37,7 @@ export function getTargetWorldPath(): string {
     }
 
     const projectName = getOrThrowFromProcess('PROJECT_NAME');
-    const worldsFolderName = product == MinecraftProduct.Custom ? 'worlds' : 'minecraftWorlds';
-    const activeWorldFolderName = product == MinecraftProduct.Custom ? 'Bedrock level' : `${projectName}world`;
+    const worldsFolderName = product === MinecraftProduct.Custom ? 'worlds' : 'minecraftWorlds';
+    const activeWorldFolderName = product === MinecraftProduct.Custom ? 'Bedrock level' : `${projectName}world`;
     return path.join(deploymentPath, worldsFolderName, activeWorldFolderName);
 }

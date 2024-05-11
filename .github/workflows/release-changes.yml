@@ -8,7 +8,9 @@ on:
 jobs:
   build:
     environment: release
-    runs-on: ubuntu-latest
+    runs-on:
+      - self-hosted
+      - 1ES.Pool=MC-Runner-1ES-Linux
 
     steps:
       - uses: actions/checkout@v4

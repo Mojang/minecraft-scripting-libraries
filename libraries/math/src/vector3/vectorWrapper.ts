@@ -150,7 +150,6 @@ export class Vector3Builder implements Vector3 {
         return this.assign(Vector3Utils.clamp(this, limits));
     }
 
-    
     /**
      * lerp
      *
@@ -165,7 +164,7 @@ export class Vector3Builder implements Vector3 {
      *
      * Constructs a new vector using spherical linear interpolation on each component from two vectors.
      */
-    slerp(vec: Vector3, t: number): this { 
+    slerp(vec: Vector3, t: number): this {
         return this.assign(Vector3Utils.slerp(this, vec, t));
     }
 }

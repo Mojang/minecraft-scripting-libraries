@@ -1,0 +1,11 @@
+{
+    "eslint.experimental.useFlatConfig": true,
+    "eslint.workingDirectories": [
+        {
+            "pattern": "./libraries/*/"
+        },
+        {
+            "pattern": "./tools/*/"
+        }
+    ]
+}

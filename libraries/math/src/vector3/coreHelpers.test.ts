@@ -178,9 +178,9 @@ describe('Vector3 operations', () => {
 
     it('calculates the lerp halfway between two vectors', () => {
         const result: Vector3 = Vector3Utils.lerp(v1, v2, 0.5);
-        expect(result).toEqual({ x: 2.5, y: 3.5, z: 4.5});
+        expect(result).toEqual({ x: 2.5, y: 3.5, z: 4.5 });
     });
-  
+
     it('calculates the slerp halfway between two vectors', () => {
         const vecA: Vector3 = { x: 1, y: 0, z: 0 };
         const vecB: Vector3 = { x: 0, y: -1, z: 0 };

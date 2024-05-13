@@ -1,6 +1,10 @@
-import { task, tscTask } from 'just-scripts';
+import { argv, task, tscTask } from 'just-scripts';
 import { cleanTask } from './src/tasks/clean';
+import { coreLint } from './src/tasks/coreLint';
 import { vitestTask } from './src/tasks/vitest';
+
+// Lint
+task('lint', coreLint(['src/**/*.ts'], argv().fix));
 
 // Build
 task('build-tools', tscTask());

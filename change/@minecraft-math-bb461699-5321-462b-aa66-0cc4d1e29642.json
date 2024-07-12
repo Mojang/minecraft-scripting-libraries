@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Update @minecraft/math pre-bundled output to be ES modules based",
+  "packageName": "@minecraft/math",
+  "email": "rlanda@microsoft.com",
+  "dependentChangeType": "patch"
+}

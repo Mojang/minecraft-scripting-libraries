@@ -12,6 +12,7 @@ module.exports = {
         version,
     },
     rules: {
+        // eslint-disable-next-line @typescript-eslint/naming-convention
         'avoid-unnecessary-command': AvoidUnnecessaryCommand,
     },
 };

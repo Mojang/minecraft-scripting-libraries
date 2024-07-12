@@ -36,6 +36,7 @@ export default [
             'unicorn/no-null': ['error', { checkStrictEquality: true }],
             '@typescript-eslint/no-empty-function': 'off',
             'no-unused-vars': 'off',
+            '@typescript-eslint/naming-convention': 'error',
             '@typescript-eslint/no-explicit-any': 'error',
             '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
             '@typescript-eslint/no-unused-vars': [

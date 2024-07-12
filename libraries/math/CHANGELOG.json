@@ -2,6 +2,21 @@
   "name": "@minecraft/math",
   "entries": [
     {
+      "date": "Fri, 12 Jul 2024 19:33:22 GMT",
+      "version": "1.4.0",
+      "tag": "@minecraft/math_v1.4.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "rlanda@microsoft.com",
+            "package": "@minecraft/math",
+            "commit": "26f07ac9dd67033555a51c9ae3d4ac207608fc0b",
+            "comment": "Update @minecraft/math pre-bundled output to be ES modules based"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 09 May 2024 22:54:01 GMT",
       "version": "1.3.5",
       "tag": "@minecraft/math_v1.3.5",

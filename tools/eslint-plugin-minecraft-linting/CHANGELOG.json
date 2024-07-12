@@ -2,6 +2,21 @@
   "name": "eslint-plugin-minecraft-linting",
   "entries": [
     {
+      "date": "Fri, 12 Jul 2024 19:33:22 GMT",
+      "version": "1.2.2",
+      "tag": "eslint-plugin-minecraft-linting_v1.2.2",
+      "comments": {
+        "none": [
+          {
+            "author": "rlanda@microsoft.com",
+            "package": "eslint-plugin-minecraft-linting",
+            "commit": "26f07ac9dd67033555a51c9ae3d4ac207608fc0b",
+            "comment": "Integrate naming convention rule and force bundler to use ESM by adjusting TSConfig"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 18 Mar 2024 23:32:29 GMT",
       "version": "1.2.2",
       "tag": "eslint-plugin-minecraft-linting_v1.2.2",

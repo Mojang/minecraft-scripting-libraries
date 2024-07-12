@@ -1,0 +1,7 @@
+{
+  "type": "none",
+  "comment": "Integrate naming convention rule and force bundler to use ESM by adjusting TSConfig",
+  "packageName": "eslint-plugin-minecraft-linting",
+  "email": "rlanda@microsoft.com",
+  "dependentChangeType": "none"
+}

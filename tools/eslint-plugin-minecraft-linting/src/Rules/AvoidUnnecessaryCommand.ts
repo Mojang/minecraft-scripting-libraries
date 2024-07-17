@@ -31,7 +31,7 @@ function isApiRecommendation(recommendation: ScriptRecommendation): recommendati
 
 // function is
 
-const ScriptRecommendations: Map<string, ApiScriptRecommendation | ClassScriptRecommendation> = new Map([
+const SCRIPT_RECOMMENDATION: Map<string, ApiScriptRecommendation | ClassScriptRecommendation> = new Map([
     [
         '/setblock',
         {
@@ -304,7 +304,7 @@ const ScriptRecommendations: Map<string, ApiScriptRecommendation | ClassScriptRe
     ],
 ]);
 
-const AvoidUnnecessaryCommand = ESLintUtils.RuleCreator(() => 'https://microsoft.com/')<
+const AVOID_UNNECESSARY_COMMAND = ESLintUtils.RuleCreator(() => 'https://microsoft.com/')<
     [],
     'replaceWithScriptMethod' | 'replaceWithScriptFunctionality'
 >({
@@ -333,6 +333,7 @@ const AvoidUnnecessaryCommand = ESLintUtils.RuleCreator(() => 'https://microsoft
     defaultOptions: [],
     create(context, _options): TSESLint.RuleListener {
         return {
+            // eslint-disable-next-line @typescript-eslint/naming-convention
             CallExpression(node) {
                 // Identify if this is a call to runCommand or runCommandAsync, which occurs either
                 // off of the exported module object, or through any cached function reference
@@ -480,7 +481,7 @@ const AvoidUnnecessaryCommand = ESLintUtils.RuleCreator(() => 'https://microsoft
 
                             // Now check if there is a script API that provides the same functionality
                             // by checking our list of recommendations
-                            const recommendation = ScriptRecommendations.get(commandName);
+                            const recommendation = SCRIPT_RECOMMENDATION.get(commandName);
                             if (recommendation) {
                                 // We have a recommendation, so log the appropriate error
                                 if (isClassRecommendation(recommendation)) {
@@ -524,4 +525,4 @@ const AvoidUnnecessaryCommand = ESLintUtils.RuleCreator(() => 'https://microsoft
     },
 });
 
-export default AvoidUnnecessaryCommand;
+export default AVOID_UNNECESSARY_COMMAND;

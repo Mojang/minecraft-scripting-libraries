@@ -5,13 +5,32 @@ import * as fs from 'fs';
 import * as Path from 'path';
 import rimraf from 'rimraf';
 import { getOrThrowFromProcess } from './helpers/getOrThrowFromProcess';
+import { getGameDeploymentRootPaths } from './helpers/getGameDeploymentRootPaths';
 
+/** @deprecated Use {@link getStandardCleanPaths} instead of {@link STANDARD_CLEAN_PATHS} */
 export const STANDARD_CLEAN_PATHS = [
     'LOCALAPPDATA/Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/PROJECT_NAME',
     'LOCALAPPDATA/Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang/development_resource_packs/PROJECT_NAME',
     'LOCALAPPDATA/Packages/Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_behavior_packs/PROJECT_NAME',
     'LOCALAPPDATA/Packages/Microsoft.MinecraftWindowsBeta_8wekyb3d8bbwe/LocalState/games/com.mojang/development_resource_packs/PROJECT_NAME',
 ];
+
+export function getStandardCleanPaths() {
+    const projectName = getOrThrowFromProcess('PROJECT_NAME');
+    const results = Object.values(getGameDeploymentRootPaths())
+        .filter(rootPath => rootPath !== undefined)
+        .flatMap(rootPath => [
+            Path.resolve(rootPath, 'development_behavior_packs', projectName),
+            Path.resolve(rootPath, 'development_resource_packs', projectName),
+        ]);
+
+    if (results.length === 0) {
+        // Fallback logic
+        return STANDARD_CLEAN_PATHS;
+    }
+
+    return results;
+}
 
 /**
  * Cleans the specified outputs. Outputs could be either folders or files. Has support for the following variable replacements

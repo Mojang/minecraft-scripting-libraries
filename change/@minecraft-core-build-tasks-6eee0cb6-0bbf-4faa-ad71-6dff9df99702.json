@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Bump esbuild version to 0.23.1",
+  "packageName": "@minecraft/core-build-tasks",
+  "email": "jake@xbox.com",
+  "dependentChangeType": "patch"
+}

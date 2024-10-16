@@ -8,10 +8,11 @@
         "@typescript-eslint/eslint-plugin": "^7.2.0",
         "@typescript-eslint/parser": "^7.2.0",
         "eslint": "^8.53.0",
+        "eslint-config-prettier": "^9.0.0",
         "eslint-plugin-header": "^3.1.1",
         "eslint-plugin-minecraft-linting": "*",
-        "eslint-config-prettier": "^9.0.0",
-        "eslint-plugin-unicorn": "^42.0.0"
+        "eslint-plugin-unicorn": "^42.0.0",
+        "eslint-plugin-deprecation": "^3.0.0"
     },
     "publishConfig": {
         "access": "public"

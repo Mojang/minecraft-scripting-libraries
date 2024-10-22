@@ -1,8 +1,16 @@
 # Change Log - eslint-plugin-minecraft-linting
 
-This log was last generated on Mon, 18 Mar 2024 23:32:29 GMT and should not be manually modified.
+This log was last generated on Tue, 22 Oct 2024 22:51:12 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.2.3
+
+Tue, 22 Oct 2024 22:51:12 GMT
+
+### Patches
+
+- Adding lint rule for /inputpermission (niamh.cuileann@skyboxlabs.com)
 
 ## 1.2.2
 

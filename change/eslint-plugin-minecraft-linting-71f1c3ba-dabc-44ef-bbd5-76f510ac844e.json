@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Adding lint rule for /inputpermission",
-  "packageName": "eslint-plugin-minecraft-linting",
-  "email": "niamh.cuileann@skyboxlabs.com",
-  "dependentChangeType": "patch"
-}

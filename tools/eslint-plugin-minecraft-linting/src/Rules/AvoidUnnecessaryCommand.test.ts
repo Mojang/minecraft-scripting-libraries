@@ -611,6 +611,21 @@ describe('AvoidUnnecessaryCommand', () => {
                         },
                     ],
                 },
+                {
+                    code: `const p = player.runCommandAsync('/inputpermission query @s movement enabled');`,
+                    errors: [
+                        {
+                            messageId: 'replaceWithScriptMethod',
+                            data: {
+                                command: '/inputpermission',
+                                module: '@minecraft/server',
+                                api: 'Player.inputPermissions',
+                                message:
+                                    'See https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/player#inputpermissions for more information.',
+                            }
+                        }
+                    ]
+                }
             ],
         });
     });

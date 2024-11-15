@@ -159,6 +159,66 @@ export class Vector3Utils {
         const tb = Math.sin(t * theta) / sinTheta;
         return Vector3Utils.add(Vector3Utils.scale(a, ta), Vector3Utils.scale(b, tb));
     }
+    /**
+     * multiply
+     * 
+     * Multiplies two vectors together
+     */
+    static multiply(a: Vector3, b: Vector3): Vector3 {
+        return { 
+            x: a.x * b.x, 
+            y: a.y * b.y, 
+            z: a.z * b.z 
+        };
+    }
+
+    /**
+     * rotateX
+     * 
+     * Rotates the vector around the x axis
+     * @param a Angle in radians
+     */
+    static rotateX(v: Vector3, a: number): Vector3 {
+        let cos = Math.cos(a);
+        let sin = Math.sin(a);
+        return {
+            x: v.x,
+            y: v.y * cos + v.z * sin,
+            z: v.z * cos - v.y * sin
+        }
+    }
+
+    /**
+     * rotateY
+     * 
+     * Rotates the vector around the y axis
+     * @param a Angle in radians
+     */
+    static rotateY(v: Vector3, a: number): Vector3 {
+        let cos = Math.cos(a);
+        let sin = Math.sin(a);
+        return {
+            x: v.x * cos + v.z * sin,
+            y: v.y,
+            z: v.z * cos - v.x * sin
+        }
+    }
+
+    /**
+     * rotateZ
+     * 
+     * Rotates the vector around the z axis
+     * @param a Angle in radians
+     */
+    static rotateZ(v: Vector3, a: number): Vector3 {
+        let cos = Math.cos(a);
+        let sin = Math.sin(a);
+        return {
+            x: v.x * cos + v.y * sin,
+            y: v.y * cos - v.x * sin,
+            z: v.z
+        }
+    }
 }
 
 /**

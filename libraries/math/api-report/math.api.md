@@ -116,7 +116,11 @@ export class Vector3Utils {
     static floor(v: Vector3): Vector3;
     static lerp(a: Vector3, b: Vector3, t: number): Vector3;
     static magnitude(v: Vector3): number;
+    static multiply(a: Vector3, b: Vector3): Vector3;
     static normalize(v: Vector3): Vector3;
+    static rotateX(v: Vector3, a: number): Vector3;
+    static rotateY(v: Vector3, a: number): Vector3;
+    static rotateZ(v: Vector3, a: number): Vector3;
     static scale(v1: Vector3, scale: number): Vector3;
     static slerp(a: Vector3, b: Vector3, t: number): Vector3;
     static subtract(v1: Vector3, v2: Vector3): Vector3;

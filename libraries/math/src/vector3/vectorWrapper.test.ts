@@ -180,6 +180,46 @@ describe('Vector3Builder', () => {
         const resultB = vectorA.slerp(vectorB, ratio);
         expect(resultA).toEqual(resultB);
     });
+
+    it('should be able to multiply with the same result as the coreHelpers function', () => {
+        const vectorA = new Vector3Builder(5, 6, 3);
+        const vectorB = new Vector3Builder(4, 2, 6);
+
+        const resultA = Vector3Utils.multiply(vectorA, vectorB);
+
+        const resultB = vectorA.multiply(vectorB);
+        expect(resultA).toEqual(resultB);
+    });
+
+    it('should be able to rotate over x with the same result as the coreHelpers function', () => {
+        const vectorA = new Vector3Builder(5, 6, 3);
+        const angle = Math.PI / 2;
+
+        const resultA = Vector3Utils.rotateX(vectorA, angle);
+
+        const resultB = vectorA.rotateX(angle);
+        expect(resultA).toEqual(resultB);
+    });
+
+    it('should be able to rotate over y with the same result as the coreHelpers function', () => {
+        const vectorA = new Vector3Builder(5, 6, 3);
+        const angle = Math.PI / 2;
+
+        const resultA = Vector3Utils.rotateY(vectorA, angle);
+
+        const resultB = vectorA.rotateY(angle);
+        expect(resultA).toEqual(resultB);
+    });
+    
+    it('should be able to rotate over z with the same result as the coreHelpers function', () => {
+        const vectorA = new Vector3Builder(5, 6, 3);
+        const angle = Math.PI / 2;
+
+        const resultA = Vector3Utils.rotateZ(vectorA, angle);
+
+        const resultB = vectorA.rotateZ(angle);
+        expect(resultA).toEqual(resultB);
+    });
 });
 
 describe('Vector2Builder', () => {

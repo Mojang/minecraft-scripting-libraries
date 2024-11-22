@@ -170,7 +170,7 @@ export class Vector3Builder implements Vector3 {
 
     /**
      * multiply
-     * 
+     *
      * Multiplies two vectors together
      */
     multiply(vec: Vector3): Vector3 {
@@ -179,32 +179,32 @@ export class Vector3Builder implements Vector3 {
 
     /**
      * rotateX
-     * 
-     * Rotates the vector around the x axis
-     * @param a Angle in radians
+     *
+     * Rotates the vector around the x axis counterclockwise (left hand rule)
+     * @param a - Angle in radians
      */
     rotateX(a: number): Vector3 {
-        return this.assign(Vector3Utils.rotateX(this, a))
+        return this.assign(Vector3Utils.rotateX(this, a));
     }
 
     /**
      * rotateY
-     * 
-     * Rotates the vector around the y axis
-     * @param a Angle in radians
+     *
+     * Rotates the vector around the y axis counterclockwise (left hand rule)
+     * @param a - Angle in radians
      */
     rotateY(a: number): Vector3 {
-        return this.assign(Vector3Utils.rotateY(this, a))
+        return this.assign(Vector3Utils.rotateY(this, a));
     }
 
     /**
      * rotateZ
-     * 
-     * Rotates the vector around the z axis
-     * @param a Angle in radians
+     *
+     * Rotates the vector around the z axis counterclockwise (left hand rule)
+     * @param a - Angle in radians
      */
     rotateZ(a: number): Vector3 {
-        return this.assign(Vector3Utils.rotateZ(this, a))
+        return this.assign(Vector3Utils.rotateZ(this, a));
     }
 }
 

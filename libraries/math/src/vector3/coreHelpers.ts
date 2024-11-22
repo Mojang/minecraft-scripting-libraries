@@ -161,63 +161,64 @@ export class Vector3Utils {
     }
     /**
      * multiply
-     * 
-     * Multiplies two vectors together
+     *
+     * Element-wise multiplication of two vectors together.
+     * Not to be confused with {@link Vector3Utils.dot} product or {@link Vector3Utils.cross} product
      */
     static multiply(a: Vector3, b: Vector3): Vector3 {
-        return { 
-            x: a.x * b.x, 
-            y: a.y * b.y, 
-            z: a.z * b.z 
+        return {
+            x: a.x * b.x,
+            y: a.y * b.y,
+            z: a.z * b.z,
         };
     }
 
     /**
      * rotateX
-     * 
-     * Rotates the vector around the x axis
-     * @param a Angle in radians
+     *
+     * Rotates the vector around the x axis counterclockwise (left hand rule)
+     * @param a - Angle in radians
      */
     static rotateX(v: Vector3, a: number): Vector3 {
         let cos = Math.cos(a);
         let sin = Math.sin(a);
         return {
             x: v.x,
-            y: v.y * cos + v.z * sin,
-            z: v.z * cos - v.y * sin
-        }
+            y: v.y * cos - v.z * sin,
+            z: v.z * cos + v.y * sin,
+        };
     }
 
     /**
      * rotateY
-     * 
-     * Rotates the vector around the y axis
-     * @param a Angle in radians
+     *
+     * Rotates the vector around the y axis counterclockwise (left hand rule)
+     * @param a - Angle in radians
      */
     static rotateY(v: Vector3, a: number): Vector3 {
         let cos = Math.cos(a);
         let sin = Math.sin(a);
         return {
-            x: v.x * cos + v.z * sin,
+            x: v.x * cos - v.z * sin,
             y: v.y,
-            z: v.z * cos - v.x * sin
-        }
+            z: v.z * cos + v.x * sin,
+        };
     }
 
     /**
      * rotateZ
-     * 
-     * Rotates the vector around the z axis
-     * @param a Angle in radians
+     *
+     * Rotates the vector around the z axis counterclockwise (left hand rule)
+     * @param a - Angle in radians
      */
     static rotateZ(v: Vector3, a: number): Vector3 {
         let cos = Math.cos(a);
         let sin = Math.sin(a);
         return {
-            x: v.x * cos + v.y * sin,
-            y: v.y * cos - v.x * sin,
-            z: v.z
-        }
+            x: v.x * cos - v.y * sin,
+            y: v.y * cos + v.x * sin,
+            z: v.z,
+        };
     }
 }
 

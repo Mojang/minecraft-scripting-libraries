@@ -3,7 +3,7 @@
 
 import { Vector2, Vector3 } from '@minecraft/server';
 import { describe, expect, it } from 'vitest';
-import { Vector2Utils, VECTOR3_ONE, Vector3Utils } from './coreHelpers';
+import { Vector2Utils, VECTOR3_LEFT, VECTOR3_UP, Vector3Utils } from './coreHelpers';
 
 describe('Vector3 operations', () => {
     const v1: Vector3 = { x: 1, y: 2, z: 3 };
@@ -192,27 +192,29 @@ describe('Vector3 operations', () => {
 
     it('calculates two vectors multiplied together', () => {
         const result: Vector3 = Vector3Utils.multiply(v1, v2);
-        expect(result).toEqual({ x: 4, y: 10, z: 18});
+        expect(result).toEqual({ x: 4, y: 10, z: 18 });
     });
 
-    it(`calculates a vector rotated along the x axis`, () => {
-        const result = Vector3Utils.rotateX(VECTOR3_ONE, Math.PI / 2);
-        expect(result.x).toBeCloseTo(1);
-        expect(result.y).toBeCloseTo(1);
-        expect(result.z).toBeCloseTo(-1);
-    });
+    describe('Vector3 rotation functions', () => {
+        it(`calculates a vector rotated along the x axis`, () => {
+            const result = Vector3Utils.rotateX(VECTOR3_UP, Math.PI / 2);
+            expect(result.x).toBeCloseTo(0);
+            expect(result.y).toBeCloseTo(0);
+            expect(result.z).toBeCloseTo(1);
+        });
 
-    it(`calculates a vector rotated along the y axis`, () => {
-        const result = Vector3Utils.rotateY(VECTOR3_ONE, Math.PI / 4);
-        expect(result.x).toBeCloseTo(Math.sqrt(2));
-        expect(result.y).toBeCloseTo(1);
-        expect(result.z).toBeCloseTo(0);
-    });
+        it(`calculates a vector rotated along the y axis`, () => {
+            const result = Vector3Utils.rotateY(VECTOR3_LEFT, Math.PI / 2);
+            expect(result.x).toBeCloseTo(0);
+            expect(result.y).toBeCloseTo(0);
+            expect(result.z).toBeCloseTo(-1);
+        });
 
-    it(`calculates a vector rotated along the z axis`, () => {
-        const result = Vector3Utils.rotateZ(VECTOR3_ONE, (3 * Math.PI) / 4);
-        expect(result.x).toBeCloseTo(0);
-        expect(result.y).toBeCloseTo(-Math.sqrt(2));
-        expect(result.z).toBeCloseTo(1);
+        it(`calculates a vector rotated along the z axis`, () => {
+            const result = Vector3Utils.rotateZ(VECTOR3_UP, Math.PI / 2);
+            expect(result.x).toBeCloseTo(-1);
+            expect(result.y).toBeCloseTo(0);
+            expect(result.z).toBeCloseTo(0);
+        });
     });
 });

@@ -210,7 +210,7 @@ describe('Vector3Builder', () => {
         const resultB = vectorA.rotateY(angle);
         expect(resultA).toEqual(resultB);
     });
-    
+
     it('should be able to rotate over z with the same result as the coreHelpers function', () => {
         const vectorA = new Vector3Builder(5, 6, 3);
         const angle = Math.PI / 2;

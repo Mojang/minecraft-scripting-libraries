@@ -86,11 +86,11 @@ export class Vector3Builder implements Vector3 {
     floor(): this;
     lerp(vec: Vector3, t: number): this;
     magnitude(): number;
-    multiply(vec: Vector3): Vector3;
+    multiply(vec: Vector3): this;
     normalize(): this;
-    rotateX(a: number): Vector3;
-    rotateY(a: number): Vector3;
-    rotateZ(a: number): Vector3;
+    rotateX(a: number): this;
+    rotateY(a: number): this;
+    rotateZ(a: number): this;
     scale(val: number): this;
     slerp(vec: Vector3, t: number): this;
     subtract(v: Vector3): this;

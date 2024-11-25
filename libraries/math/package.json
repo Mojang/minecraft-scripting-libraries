@@ -29,10 +29,10 @@
     "api-report"
   ],
   "peerDependencies": {
-    "@minecraft/server": "^1.6.0"
+    "@minecraft/server": "^1.15.0"
   },
   "devDependencies": {
-    "@minecraft/server": "^1.6.0",
+    "@minecraft/server": "^1.15.0",
     "@minecraft/core-build-tasks": "*",
     "@minecraft/tsconfig": "*",
     "just-scripts": "^2.3.2",

@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "build(dependabot): bump just-scripts from 2.2.1 to 2.3.2",
+  "packageName": "eslint-plugin-minecraft-linting",
+  "email": "rlanda@microsoft.com",
+  "dependentChangeType": "patch"
+}

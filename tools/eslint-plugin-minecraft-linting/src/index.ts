@@ -3,7 +3,7 @@
 
 import AvoidUnnecessaryCommand from './Rules/AvoidUnnecessaryCommand';
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-var-requires
+// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
 const { name, version }: { name: string; version: string } = require('../package.json');
 
 module.exports = {

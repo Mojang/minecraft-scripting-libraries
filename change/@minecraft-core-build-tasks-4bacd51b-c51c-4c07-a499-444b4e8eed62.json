@@ -1,7 +1,0 @@
-{
-  "type": "none",
-  "comment": "Sync packages after failed publish",
-  "packageName": "@minecraft/core-build-tasks",
-  "email": "rlanda@microsoft.com",
-  "dependentChangeType": "none"
-}

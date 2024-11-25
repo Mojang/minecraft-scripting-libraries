@@ -2,6 +2,29 @@
   "name": "@minecraft/math",
   "entries": [
     {
+      "date": "Mon, 25 Nov 2024 23:28:43 GMT",
+      "version": "1.4.2",
+      "tag": "@minecraft/math_v1.4.2",
+      "comments": {
+        "none": [
+          {
+            "author": "rlanda@microsoft.com",
+            "package": "@minecraft/math",
+            "commit": "85b9345de0665a5179eea162ec53c219e9ca3bc9",
+            "comment": "Sync packages after failed publish"
+          }
+        ],
+        "patch": [
+          {
+            "author": "rlanda@microsoft.com",
+            "package": "@minecraft/math",
+            "commit": "85b9345de0665a5179eea162ec53c219e9ca3bc9",
+            "comment": "build(dependabot): bump just-scripts from 2.2.1 to 2.3.2"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 12 Jul 2024 19:33:22 GMT",
       "version": "1.4.0",
       "tag": "@minecraft/math_v1.4.0",

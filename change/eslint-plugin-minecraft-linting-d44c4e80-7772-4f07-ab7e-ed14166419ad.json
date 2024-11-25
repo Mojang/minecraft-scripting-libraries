@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "build(dependabot): bump @typescript-eslint/eslint-plugin",
-  "packageName": "eslint-plugin-minecraft-linting",
-  "email": "rlanda@microsoft.com",
-  "dependentChangeType": "patch"
-}

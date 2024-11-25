@@ -1,8 +1,16 @@
 # Change Log - @minecraft/core-build-tasks
 
-This log was last generated on Mon, 18 Mar 2024 23:32:29 GMT and should not be manually modified.
+This log was last generated on Mon, 25 Nov 2024 23:28:43 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.1.6
+
+Mon, 25 Nov 2024 23:28:43 GMT
+
+### Patches
+
+- build(dependabot): bump just-scripts from 2.2.1 to 2.3.2 (rlanda@microsoft.com)
 
 ## 1.1.4
 

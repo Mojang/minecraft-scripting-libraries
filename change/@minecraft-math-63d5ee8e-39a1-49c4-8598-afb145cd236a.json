@@ -1,7 +1,0 @@
-{
-  "type": "none",
-  "comment": "Sync packages after failed publish",
-  "packageName": "@minecraft/math",
-  "email": "rlanda@microsoft.com",
-  "dependentChangeType": "none"
-}

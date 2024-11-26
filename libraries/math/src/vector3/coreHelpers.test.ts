@@ -207,7 +207,7 @@ describe('Vector3 operations', () => {
             const result = Vector3Utils.rotateY(VECTOR3_LEFT, Math.PI / 2);
             expect(result.x).toBeCloseTo(0);
             expect(result.y).toBeCloseTo(0);
-            expect(result.z).toBeCloseTo(-1);
+            expect(result.z).toBeCloseTo(1);
         });
 
         it(`calculates a vector rotated along the z axis`, () => {

@@ -159,6 +159,7 @@ export class Vector3Utils {
         const tb = Math.sin(t * theta) / sinTheta;
         return Vector3Utils.add(Vector3Utils.scale(a, ta), Vector3Utils.scale(b, tb));
     }
+
     /**
      * multiply
      *
@@ -199,9 +200,9 @@ export class Vector3Utils {
         let cos = Math.cos(a);
         let sin = Math.sin(a);
         return {
-            x: v.x * cos - v.z * sin,
+            x: v.x * cos + v.z * sin,
             y: v.y,
-            z: v.z * cos + v.x * sin,
+            z: v.z * cos - v.x * sin,
         };
     }
 

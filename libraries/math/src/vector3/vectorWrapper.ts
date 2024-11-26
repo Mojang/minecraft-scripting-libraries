@@ -171,7 +171,8 @@ export class Vector3Builder implements Vector3 {
     /**
      * multiply
      *
-     * Multiplies two vectors together
+     * Element-wise multiplication of two vectors together.
+     * Not to be confused with {@link Vector3Builder.dot} product or {@link Vector3Builder.cross} product
      */
     multiply(vec: Vector3): this {
         return this.assign(Vector3Utils.multiply(this, vec));

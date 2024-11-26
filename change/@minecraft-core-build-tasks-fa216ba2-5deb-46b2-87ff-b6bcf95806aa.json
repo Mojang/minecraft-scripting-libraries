@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "build(dependabot): bump dotenv from 16.4.1 to 16.4.5",
-  "packageName": "@minecraft/core-build-tasks",
-  "email": "rlanda@microsoft.com",
-  "dependentChangeType": "patch"
-}

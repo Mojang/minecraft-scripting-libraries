@@ -2,6 +2,29 @@
   "name": "@minecraft/math",
   "entries": [
     {
+      "date": "Tue, 26 Nov 2024 21:33:22 GMT",
+      "version": "1.5.0",
+      "tag": "@minecraft/math_v1.5.0",
+      "comments": {
+        "patch": [
+          {
+            "author": "rlanda@microsoft.com",
+            "package": "@minecraft/math",
+            "commit": "9d6cb505cd0dc9faf8ea80ed3660a84c92c914fd",
+            "comment": "build(dependabot): bump @minecraft/server from 1.6.0 to 1.15.0"
+          }
+        ],
+        "minor": [
+          {
+            "author": "aiaub1212@gmail.com",
+            "package": "@minecraft/math",
+            "commit": "9d6cb505cd0dc9faf8ea80ed3660a84c92c914fd",
+            "comment": "Implimented multiply, rotateX, rotateY, and rotateZ as new vectormath operations"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 25 Nov 2024 23:28:43 GMT",
       "version": "1.4.2",
       "tag": "@minecraft/math_v1.4.2",

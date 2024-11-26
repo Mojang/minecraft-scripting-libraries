@@ -1,8 +1,20 @@
 # Change Log - @minecraft/math
 
-This log was last generated on Mon, 25 Nov 2024 23:28:43 GMT and should not be manually modified.
+This log was last generated on Tue, 26 Nov 2024 21:33:22 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.5.0
+
+Tue, 26 Nov 2024 21:33:22 GMT
+
+### Minor changes
+
+- Implimented multiply, rotateX, rotateY, and rotateZ as new vectormath operations (aiaub1212@gmail.com)
+
+### Patches
+
+- build(dependabot): bump @minecraft/server from 1.6.0 to 1.15.0 (rlanda@microsoft.com)
 
 ## 1.4.2
 

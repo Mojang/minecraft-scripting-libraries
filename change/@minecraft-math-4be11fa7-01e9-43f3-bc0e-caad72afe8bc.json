@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "build(dependabot): bump @minecraft/server from 1.6.0 to 1.15.0",
+  "packageName": "@minecraft/math",
+  "email": "rlanda@microsoft.com",
+  "dependentChangeType": "patch"
+}

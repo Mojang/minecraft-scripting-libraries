@@ -167,6 +167,46 @@ export class Vector3Builder implements Vector3 {
     slerp(vec: Vector3, t: number): this {
         return this.assign(Vector3Utils.slerp(this, vec, t));
     }
+
+    /**
+     * multiply
+     *
+     * Element-wise multiplication of two vectors together.
+     * Not to be confused with {@link Vector3Builder.dot} product or {@link Vector3Builder.cross} product
+     */
+    multiply(vec: Vector3): this {
+        return this.assign(Vector3Utils.multiply(this, vec));
+    }
+
+    /**
+     * rotateX
+     *
+     * Rotates the vector around the x axis counterclockwise (left hand rule)
+     * @param a - Angle in radians
+     */
+    rotateX(a: number): this {
+        return this.assign(Vector3Utils.rotateX(this, a));
+    }
+
+    /**
+     * rotateY
+     *
+     * Rotates the vector around the y axis counterclockwise (left hand rule)
+     * @param a - Angle in radians
+     */
+    rotateY(a: number): this {
+        return this.assign(Vector3Utils.rotateY(this, a));
+    }
+
+    /**
+     * rotateZ
+     *
+     * Rotates the vector around the z axis counterclockwise (left hand rule)
+     * @param a - Angle in radians
+     */
+    rotateZ(a: number): this {
+        return this.assign(Vector3Utils.rotateZ(this, a));
+    }
 }
 
 /**

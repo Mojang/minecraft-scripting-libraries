@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Implimented multiply, rotateX, rotateY, and rotateZ as new vectormath operations",
+  "packageName": "@minecraft/math",
+  "email": "aiaub1212@gmail.com",
+  "dependentChangeType": "patch"
+}

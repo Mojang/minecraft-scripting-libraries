@@ -1,6 +1,6 @@
 {
   "name": "@minecraft/math",
-  "version": "1.4.0",
+  "version": "1.4.2",
   "author": "Raphael Landaverde (rlanda@microsoft.com)",
   "contributors": [
     {
@@ -35,7 +35,7 @@
     "@minecraft/server": "^1.6.0",
     "@minecraft/core-build-tasks": "*",
     "@minecraft/tsconfig": "*",
-    "just-scripts": "^2.2.1",
+    "just-scripts": "^2.3.2",
     "prettier": "^2.8.2",
     "vitest": "^0.34.6"
   }

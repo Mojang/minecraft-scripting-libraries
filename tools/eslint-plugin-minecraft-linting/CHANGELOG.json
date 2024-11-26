@@ -2,6 +2,27 @@
   "name": "eslint-plugin-minecraft-linting",
   "entries": [
     {
+      "date": "Mon, 25 Nov 2024 23:28:43 GMT",
+      "version": "1.2.4",
+      "tag": "eslint-plugin-minecraft-linting_v1.2.4",
+      "comments": {
+        "patch": [
+          {
+            "author": "rlanda@microsoft.com",
+            "package": "eslint-plugin-minecraft-linting",
+            "commit": "85b9345de0665a5179eea162ec53c219e9ca3bc9",
+            "comment": "build(dependabot): bump just-scripts from 2.2.1 to 2.3.2"
+          },
+          {
+            "author": "rlanda@microsoft.com",
+            "package": "eslint-plugin-minecraft-linting",
+            "commit": "85b9345de0665a5179eea162ec53c219e9ca3bc9",
+            "comment": "build(dependabot): bump @typescript-eslint/eslint-plugin"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 22 Oct 2024 22:51:12 GMT",
       "version": "1.2.3",
       "tag": "eslint-plugin-minecraft-linting_v1.2.3",

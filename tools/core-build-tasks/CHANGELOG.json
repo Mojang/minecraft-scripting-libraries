@@ -2,6 +2,29 @@
   "name": "@minecraft/core-build-tasks",
   "entries": [
     {
+      "date": "Mon, 25 Nov 2024 23:28:43 GMT",
+      "version": "1.1.6",
+      "tag": "@minecraft/core-build-tasks_v1.1.6",
+      "comments": {
+        "none": [
+          {
+            "author": "rlanda@microsoft.com",
+            "package": "@minecraft/core-build-tasks",
+            "commit": "85b9345de0665a5179eea162ec53c219e9ca3bc9",
+            "comment": "Sync packages after failed publish"
+          }
+        ],
+        "patch": [
+          {
+            "author": "rlanda@microsoft.com",
+            "package": "@minecraft/core-build-tasks",
+            "commit": "85b9345de0665a5179eea162ec53c219e9ca3bc9",
+            "comment": "build(dependabot): bump just-scripts from 2.2.1 to 2.3.2"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 09 May 2024 22:54:01 GMT",
       "version": "1.1.4",
       "tag": "@minecraft/core-build-tasks_v1.1.4",

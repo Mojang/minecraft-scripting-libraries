@@ -1,8 +1,17 @@
 # Change Log - eslint-plugin-minecraft-linting
 
-This log was last generated on Tue, 22 Oct 2024 22:51:12 GMT and should not be manually modified.
+This log was last generated on Mon, 25 Nov 2024 23:28:43 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.2.4
+
+Mon, 25 Nov 2024 23:28:43 GMT
+
+### Patches
+
+- build(dependabot): bump just-scripts from 2.2.1 to 2.3.2 (rlanda@microsoft.com)
+- build(dependabot): bump @typescript-eslint/eslint-plugin (rlanda@microsoft.com)
 
 ## 1.2.3
 

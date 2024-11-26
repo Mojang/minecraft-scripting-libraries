@@ -1,8 +1,16 @@
 # Change Log - @minecraft/math
 
-This log was last generated on Fri, 12 Jul 2024 19:33:22 GMT and should not be manually modified.
+This log was last generated on Mon, 25 Nov 2024 23:28:43 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.4.2
+
+Mon, 25 Nov 2024 23:28:43 GMT
+
+### Patches
+
+- build(dependabot): bump just-scripts from 2.2.1 to 2.3.2 (rlanda@microsoft.com)
 
 ## 1.4.0
 

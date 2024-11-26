@@ -74,8 +74,8 @@ const SCRIPT_RECOMMENDATION: Map<string, ApiScriptRecommendation | ClassScriptRe
             module: '@minecraft/server',
             message:
                 'See https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/player#inputpermissions for more information.',
-            api: 'Player.inputPermissions'
-        }
+            api: 'Player.inputPermissions',
+        },
     ],
     [
         '/replaceitem',
@@ -424,7 +424,7 @@ const AVOID_UNNECESSARY_COMMAND = ESLintUtils.RuleCreator(() => 'https://microso
                                     // We use an arrow function because TSESLint uses it's own version of the types
                                     // so we need to use the proper inferred types.
                                     const identifierName = templateOrIdentifier.name;
-                                    const scope = context.getScope();
+                                    const scope = context.sourceCode.getScope(node);
 
                                     let constValue = undefined;
                                     let currentScope: typeof scope | null = scope;

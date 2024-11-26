@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-minecraft-linting",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "license": "MIT",
@@ -22,13 +22,13 @@
   "devDependencies": {
     "@minecraft/core-build-tasks": "*",
     "@types/node": "^20.0.0",
-    "just-scripts": "^2.2.1",
+    "just-scripts": "^2.3.2",
     "tsconfig": "*"
   },
   "dependencies": {
     "@typescript-eslint/utils": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
-    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/eslint-plugin": "^8.16.0",
     "eslint": "^8.53.0"
   },
   "publishConfig": {

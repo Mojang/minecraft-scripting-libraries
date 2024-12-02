@@ -5,7 +5,7 @@
     "compilerOptions": {
         "outDir": "lib",
         "declarationDir": "temp/types",
-        "module": "NodeNext",
-        "moduleResolution": "nodenext"
+        "module": "Node16",
+        "moduleResolution": "node16"
     }
 }

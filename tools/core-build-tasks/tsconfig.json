@@ -4,7 +4,7 @@
     "exclude": ["dist", "build", "node_modules"],
     "compilerOptions": {
         "outDir": "lib",
-        "module": "NodeNext",
-        "moduleResolution": "nodenext"
+        "module": "Node16",
+        "moduleResolution": "node16"
     }
 }

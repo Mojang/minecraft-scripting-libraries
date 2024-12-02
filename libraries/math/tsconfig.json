@@ -4,6 +4,8 @@
     "exclude": ["dist", "build", "node_modules"],
     "compilerOptions": {
         "outDir": "lib",
-        "declarationDir": "temp/types"
+        "declarationDir": "temp/types",
+        "module": "NodeNext",
+        "moduleResolution": "nodenext"
     }
 }

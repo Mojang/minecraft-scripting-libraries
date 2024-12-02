@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Tweak tsconfig so it's friendly to commonjs alongside ESM",
+  "packageName": "@minecraft/core-build-tasks",
+  "email": "rlanda@microsoft.com",
+  "dependentChangeType": "patch"
+}

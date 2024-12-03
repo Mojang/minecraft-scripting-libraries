@@ -1,8 +1,16 @@
 # Change Log - @minecraft/math
 
-This log was last generated on Tue, 26 Nov 2024 21:33:22 GMT and should not be manually modified.
+This log was last generated on Tue, 03 Dec 2024 15:02:46 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.5.1
+
+Tue, 03 Dec 2024 15:02:46 GMT
+
+### Patches
+
+- Tweak tsconfig so it's friendly to commonjs alongside ESM (rlanda@microsoft.com)
 
 ## 1.5.0
 

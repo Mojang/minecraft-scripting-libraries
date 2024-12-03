@@ -2,6 +2,21 @@
   "name": "@minecraft/core-build-tasks",
   "entries": [
     {
+      "date": "Tue, 03 Dec 2024 15:02:46 GMT",
+      "version": "1.2.0",
+      "tag": "@minecraft/core-build-tasks_v1.2.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "rlanda@microsoft.com",
+            "package": "@minecraft/core-build-tasks",
+            "commit": "29d380a45b7db2e742f3a87002c3671f3e89f9b7",
+            "comment": "Tweak tsconfig so it's friendly to commonjs alongside ESM"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 26 Nov 2024 21:33:22 GMT",
       "version": "1.1.7",
       "tag": "@minecraft/core-build-tasks_v1.1.7",

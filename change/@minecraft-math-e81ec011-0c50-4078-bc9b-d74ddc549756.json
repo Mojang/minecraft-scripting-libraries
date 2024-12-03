@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Tweak tsconfig so it's friendly to commonjs alongside ESM",
-  "packageName": "@minecraft/math",
-  "email": "rlanda@microsoft.com",
-  "dependentChangeType": "patch"
-}

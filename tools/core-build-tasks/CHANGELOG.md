@@ -1,8 +1,16 @@
 # Change Log - @minecraft/core-build-tasks
 
-This log was last generated on Tue, 26 Nov 2024 21:33:22 GMT and should not be manually modified.
+This log was last generated on Tue, 03 Dec 2024 15:02:46 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.2.0
+
+Tue, 03 Dec 2024 15:02:46 GMT
+
+### Minor changes
+
+- Tweak tsconfig so it's friendly to commonjs alongside ESM (rlanda@microsoft.com)
 
 ## 1.1.7
 

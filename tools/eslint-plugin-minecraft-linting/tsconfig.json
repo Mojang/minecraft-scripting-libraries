@@ -5,8 +5,6 @@
     "compilerOptions": {
         "outDir": "lib",
         "declarationDir": "lib",
-        "moduleResolution": "Node10",
-        "module": "CommonJS",
         "isolatedModules": false
     }
 }

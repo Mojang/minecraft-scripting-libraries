@@ -4,8 +4,6 @@
     "exclude": ["dist", "build", "node_modules"],
     "compilerOptions": {
         "outDir": "lib",
-        "declarationDir": "temp/types",
-        "module": "Node16",
-        "moduleResolution": "node16"
+        "declarationDir": "temp/types"
     }
 }

@@ -2,7 +2,7 @@
 // Licensed under the MIT License.
 
 import type { Vector2, Vector3 } from '@minecraft/server';
-import { Vector2Utils, Vector3Utils } from './coreHelpers';
+import { Vector2Utils, Vector3Utils } from './coreHelpers.js';
 
 /**
  * Vector3 wrapper class which can be used as a Vector3 for APIs on \@minecraft/server which require a Vector,

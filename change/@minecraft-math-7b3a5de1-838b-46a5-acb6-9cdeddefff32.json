@@ -1,0 +1,7 @@
+{
+  "type": "major",
+  "comment": "Switch to ESM exclusively",
+  "packageName": "@minecraft/math",
+  "email": "rlanda@microsoft.com",
+  "dependentChangeType": "patch"
+}

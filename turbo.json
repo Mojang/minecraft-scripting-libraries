@@ -2,18 +2,18 @@
     "$schema": "https://turbo.build/schema.json",
     "pipeline": {
         "@minecraft/core-build-tasks#build-tools": {
-            "outputs": ["lib/**", "dist/**"],
+            "outputs": ["lib/**", "lib-cjs/**", "dist/**"],
             "outputMode": "errors-only"
         },
         "build": {
             "dependsOn": ["@minecraft/core-build-tasks#build-tools", "^build"],
-            "outputs": ["lib/**", "dist/**"],
+            "outputs": ["lib/**", "lib-cjs/**", "dist/**"],
             "inputs": ["src/**/*.ts", "*.json", "*.js"]
         },
         "lint": {
             "dependsOn": ["@minecraft/core-build-tasks#build-tools", "build"],
             "outputs": [],
-            "inputs": ["src/**/*.ts"]
+            "inputs": ["src/**/*.ts", "*.json"]
         },
         "test": {
             "dependsOn": ["@minecraft/core-build-tasks#build-tools", "build", "lint"],

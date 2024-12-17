@@ -4,6 +4,9 @@ on:
   pull_request:
     branches:
       - main
+  push:
+    branches:
+      - rlanda/testPipeline
 
 jobs:
   build:
@@ -17,3 +20,5 @@ jobs:
           node-version: 20
       - run: npm ci
       - run: npm run test
+        env:
+            TEST_VAR: 'CheckVarFromJust'

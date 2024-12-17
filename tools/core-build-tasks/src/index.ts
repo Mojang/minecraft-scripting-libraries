@@ -1,6 +1,6 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-export * from './platforms';
+export * from './platforms/index';
 export * from './setupEnvironment';
-export * from './tasks';
+export * from './tasks/index';

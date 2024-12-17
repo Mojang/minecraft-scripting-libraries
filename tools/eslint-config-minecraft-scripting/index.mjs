@@ -6,7 +6,9 @@ import header from 'eslint-plugin-header';
 import minecraftLinting from 'eslint-plugin-minecraft-linting';
 import tsEslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
-import deprecation from 'eslint-plugin-deprecation';
+
+// Workaround for eslint-plugin-header not properly adhering to ESLint v9 requirements
+header.rules.header.meta.schema = false;
 
 export default [
     eslintConfigPrettier,
@@ -29,7 +31,6 @@ export default [
             '@typescript-eslint': tsEslint,
             unicorn: eslintPluginUnicorn,
             'minecraft-linting': minecraftLinting,
-            deprecation,
         },
         rules: {
             ...tsEslint.configs['eslint-recommended'].rules,
@@ -61,7 +62,6 @@ export default [
                 1,
             ],
             'minecraft-linting/avoid-unnecessary-command': 'error',
-            'deprecation/deprecation': 'warn',
         },
     },
 ];

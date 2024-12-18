@@ -18,7 +18,7 @@ task('typescript', tscTask());
 task('api-extractor-local', apiExtractorTask('./api-extractor.json', isOnlyBuild /* localBuild */));
 task('bundle', () => {
     execSync(
-        'npx esbuild ./lib/index.js --bundle --outfile=dist/minecraft-math.js --format=esm --sourcemap --external:@minecraft/server',
+        'npx esbuild ./lib/index.js --bundle --outfile=dist/minecraft-math.js --format=esm --sourcemap --external:@minecraft/server'
     );
 });
 task('build', series('typescript', 'api-extractor-local', 'bundle'));

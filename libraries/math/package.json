@@ -36,7 +36,7 @@
         "@minecraft/server": "^1.15.0",
         "@minecraft/core-build-tasks": "*",
         "@minecraft/tsconfig": "*",
-        "just-scripts": "^2.3.2",
+        "just-scripts": "^2.3.3",
         "prettier": "^2.8.2",
         "vitest": "^0.34.6"
     }

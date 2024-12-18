@@ -18,10 +18,10 @@
         "directory": "tools/core-build-tasks"
     },
     "scripts": {
-        "build-tools": "just-scripts build-tools",
-        "clean-tools": "just-scripts clean-tools",
-        "lint": "just-scripts lint",
-        "test": "just-scripts test"
+        "build-tools": "tsc",
+        "clean-tools": "just clean-tools",
+        "lint": "just lint",
+        "test": "just test"
     },
     "files": [
         "lib"
@@ -31,7 +31,7 @@
         "@microsoft/api-extractor": "^7.38.3",
         "esbuild": "^0.20.1",
         "dotenv": "^16.4.5",
-        "just-scripts": "^2.3.2",
+        "just-scripts": "^2.3.3",
         "prettier": "^2.8.2",
         "rimraf": "^3.0.2",
         "vitest": "^0.34.6",
@@ -40,8 +40,8 @@
     "devDependencies": {
         "@types/node": "^14.0.0 || ^16.0.0 || ^18.0.0",
         "@types/rimraf": "^3.0.2",
-        "@typescript-eslint/parser": "^7.2.0",
-        "eslint": "^8.53.0",
+        "@typescript-eslint/parser": "^8.18.1",
+        "eslint": "^9.17.0",
         "ts-node": "^10.9.1",
         "tsconfig": "*",
         "typescript": "^5.2.2",

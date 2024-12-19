@@ -3,9 +3,9 @@
     "include": ["src/**/*"],
     "exclude": ["dist", "build", "node_modules"],
     "compilerOptions": {
-        "outDir": "lib",
-        "declarationDir": "temp/types",
-        "module": "node16",
-        "moduleResolution": "node16"
+        "declaration": false,
+        "outDir": "lib-cjs",
+        "module": "CommonJS",
+        "moduleResolution": "node10"
     }
 }

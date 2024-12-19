@@ -1,11 +1,6 @@
 {
     "$schema": "https://json.schemastore.org/tsconfig",
     "display": "Default",
-    "ts-node": {
-        "moduleTypes": {
-            "just.config.ts": "cjs"
-        }
-    },
     "compilerOptions": {
         "composite": false,
         "declaration": true,
@@ -20,9 +15,7 @@
         "strict": true,
         "sourceMap": true,
         "lib": ["ES2023"],
-        "target": "ES2022",
-        "module": "node16",
-        "moduleResolution": "bundler"
+        "target": "ES2022"
     },
     "exclude": ["node_modules"]
 }

@@ -7,7 +7,7 @@ export * from './clean';
 export * from './cleanCollateral';
 export * from './copy';
 export * from './coreLint';
-export * from './helpers';
+export * from './helpers/index';
 export * from './vitest';
 export * from './updateWorld';
 export * from './watch';

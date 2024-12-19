@@ -3,7 +3,7 @@
 
 import { Vector2, Vector3 } from '@minecraft/server';
 import { describe, expect, it } from 'vitest';
-import { Vector2Utils, VECTOR3_LEFT, VECTOR3_UP, Vector3Utils } from './coreHelpers';
+import { Vector2Utils, VECTOR3_LEFT, VECTOR3_UP, Vector3Utils } from './coreHelpers.js';
 
 describe('Vector3 operations', () => {
     const v1: Vector3 = { x: 1, y: 2, z: 3 };

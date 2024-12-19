@@ -4,7 +4,7 @@
 import { TSESLint } from '@typescript-eslint/utils';
 import * as path from 'path';
 import { describe, it } from 'vitest';
-import AvoidUnnecessaryCommand from './AvoidUnnecessaryCommand';
+import AvoidUnnecessaryCommand from './AvoidUnnecessaryCommand.js';
 
 describe('AvoidUnnecessaryCommand', () => {
     it('Passes TSESList.RuleTester', () => {
@@ -622,10 +622,10 @@ describe('AvoidUnnecessaryCommand', () => {
                                 api: 'Player.inputPermissions',
                                 message:
                                     'See https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/server/player#inputpermissions for more information.',
-                            }
-                        }
-                    ]
-                }
+                            },
+                        },
+                    ],
+                },
             ],
         });
     });

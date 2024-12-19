@@ -9,7 +9,9 @@
         }
     ],
     "description": "Math utilities for use with minecraft scripting modules",
-    "main": "lib/index.js",
+    "exports": {
+        "import": "./lib/index.js"
+    },
     "type": "module",
     "types": "lib/types/math-public.d.ts",
     "repository": {

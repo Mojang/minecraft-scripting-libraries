@@ -6,13 +6,13 @@ import header from 'eslint-plugin-header';
 import minecraftLinting from 'eslint-plugin-minecraft-linting';
 import tsEslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
-import importPlugin from 'eslint-plugin-import';
-import nodePlugin from 'eslint-plugin-node';
+
+// Workaround for eslint-plugin-header not properly adhering to ESLint v9 requirements
+header.rules.header.meta.schema = false;
 
 export default [
     eslintConfigPrettier,
     eslint.configs.recommended,
-    importPlugin.flatConfigs.recommended,
     {
         files: ['**/*.{ts,tsx,js,jsx}', '*.ts'],
         languageOptions: {
@@ -31,8 +31,6 @@ export default [
             '@typescript-eslint': tsEslint,
             unicorn: eslintPluginUnicorn,
             'minecraft-linting': minecraftLinting,
-            importPlugin,
-            nodePlugin,
         },
         rules: {
             ...tsEslint.configs['eslint-recommended'].rules,
@@ -64,13 +62,6 @@ export default [
                 1,
             ],
             'minecraft-linting/avoid-unnecessary-command': 'error',
-            'import/extensions': ['error', { js: 'ignorePackages', ts: 'ignorePackages' }],
-            'node/file-extension-in-import': [
-                'error',
-                {
-                    tryExtensions: ['.js', '.json', '.node'],
-                },
-            ],
         },
     },
 ];

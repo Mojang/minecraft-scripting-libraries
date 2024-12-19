@@ -2,8 +2,10 @@
     "name": "@minecraft/core-build-tasks",
     "version": "1.2.0",
     "description": "Common build tasks used for minecraft-scripting-libraries",
-    "main": "lib/index.js",
-    "type": "module",
+    "exports": {
+        "import": "./lib/index.js",
+        "require": "./lib-cjs/index.js"
+    },
     "types": "lib/index.d.ts",
     "author": "Raphael Landaverde (rlanda@microsoft.com)",
     "contributors": [
@@ -18,7 +20,7 @@
         "directory": "tools/core-build-tasks"
     },
     "scripts": {
-        "build-tools": "tsc",
+        "build-tools": "tsc --project tsconfig.cjs.json && tsc --project tsconfig.esm.json",
         "clean-tools": "just clean-tools",
         "lint": "just lint",
         "test": "just test"

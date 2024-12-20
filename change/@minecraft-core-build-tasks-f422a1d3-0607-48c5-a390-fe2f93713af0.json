@@ -1,0 +1,7 @@
+{
+  "type": "major",
+  "comment": "Export both ESM and CJS, but exclusively use CJS for just task configuration",
+  "packageName": "@minecraft/core-build-tasks",
+  "email": "rlanda@microsoft.com",
+  "dependentChangeType": "patch"
+}

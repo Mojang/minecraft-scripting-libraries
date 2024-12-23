@@ -50,7 +50,7 @@ describe('postProcessOutputFiles with source map files at different path', () =>
         const expectedOutputFilePath = outputFile;
         const expectedSourceMapFilePath = path.resolve('./dist/debug/main.js.map');
         const expectedSourceMappingURL = '\n//# sourceMappingURL=../debug/main.js.map\n';
-        const expectedSourceMapFile = '../scripts/main';
+        const expectedSourceMapFile = '../scripts/main.js';
 
         const result = postProcessOutputFiles(parameters.options, parameters.buildResult);
 
@@ -78,7 +78,7 @@ describe('postProcessOutputFiles with source map files at different path', () =>
         const expectedOutputFilePath = outputFile;
         const expectedSourceMapFilePath = path.resolve('./dist/debug/main.js.map');
         const expectedSourceMappingURL = '\n//# sourceMappingURL=../debug/main.js.map\n';
-        const expectedSourceMapFile = '../scripts/main';
+        const expectedSourceMapFile = '../scripts/main.js';
 
         const result = postProcessOutputFiles(parameters.options, parameters.buildResult);
 
@@ -106,7 +106,7 @@ describe('postProcessOutputFiles with source map files at different path', () =>
         const expectedOutputFilePath = outputFile;
         const expectedSourceMapFilePath = path.resolve('./dist/debug/main.js.map');
         const expectedSourceMappingURL = '';
-        const expectedSourceMapFile = '../scripts/main';
+        const expectedSourceMapFile = '../scripts/main.js';
 
         const result = postProcessOutputFiles(parameters.options, parameters.buildResult);
 
@@ -134,7 +134,7 @@ describe('postProcessOutputFiles with source map files at different path', () =>
         const expectedOutputFilePath = outputFile;
         const expectedSourceMapFilePath = path.resolve('./dist/debug/main.js.map');
         const expectedSourceMappingURL = '';
-        const expectedSourceMapFile = '../scripts/main';
+        const expectedSourceMapFile = '../scripts/main.js';
 
         const result = postProcessOutputFiles(parameters.options, parameters.buildResult);
 
@@ -162,7 +162,7 @@ describe('postProcessOutputFiles with source map files at different path', () =>
         const expectedOutputFilePath = outputFile;
         const expectedSourceMapFilePath = path.resolve('./dist/debug/main.js.map');
         const expectedSourceMappingURL = '';
-        const expectedSourceMapFile = '../scripts/main';
+        const expectedSourceMapFile = '../scripts/main.js';
 
         const result = postProcessOutputFiles(parameters.options, parameters.buildResult);
 
@@ -193,7 +193,7 @@ describe('postProcessOutputFiles with source map files at same path', () => {
         const expectedOutputFilePath = outputFile;
         const expectedSourceMapFilePath = path.resolve('./dist/scripts/main.js.map');
         const expectedSourceMappingURL = '\n//# sourceMappingURL=main.js.map\n';
-        const expectedSourceMapFile = 'main';
+        const expectedSourceMapFile = 'main.js';
 
         const result = postProcessOutputFiles(parameters.options, parameters.buildResult);
 
@@ -221,7 +221,7 @@ describe('postProcessOutputFiles with source map files at same path', () => {
         const expectedOutputFilePath = outputFile;
         const expectedSourceMapFilePath = path.resolve('./dist/scripts/main.js.map');
         const expectedSourceMappingURL = '\n//# sourceMappingURL=main.js.map\n';
-        const expectedSourceMapFile = 'main';
+        const expectedSourceMapFile = 'main.js';
 
         const result = postProcessOutputFiles(parameters.options, parameters.buildResult);
 
@@ -249,7 +249,7 @@ describe('postProcessOutputFiles with source map files at same path', () => {
         const expectedOutputFilePath = outputFile;
         const expectedSourceMapFilePath = path.resolve('./dist/scripts/main.js.map');
         const expectedSourceMappingURL = '\n//# sourceMappingURL=main.js.map\n';
-        const expectedSourceMapFile = 'main';
+        const expectedSourceMapFile = 'main.js';
 
         const result = postProcessOutputFiles(parameters.options, parameters.buildResult);
 
@@ -277,7 +277,7 @@ describe('postProcessOutputFiles with source map files at same path', () => {
         const expectedOutputFilePath = outputFile;
         const expectedSourceMapFilePath = path.resolve('./dist/scripts/main.js.map');
         const expectedSourceMappingURL = '';
-        const expectedSourceMapFile = 'main';
+        const expectedSourceMapFile = 'main.js';
 
         const result = postProcessOutputFiles(parameters.options, parameters.buildResult);
 
@@ -305,7 +305,7 @@ describe('postProcessOutputFiles with source map files at same path', () => {
         const expectedOutputFilePath = outputFile;
         const expectedSourceMapFilePath = path.resolve('./dist/scripts/main.js.map');
         const expectedSourceMappingURL = '';
-        const expectedSourceMapFile = 'main';
+        const expectedSourceMapFile = 'main.js';
 
         const result = postProcessOutputFiles(parameters.options, parameters.buildResult);
 
@@ -333,7 +333,7 @@ describe('postProcessOutputFiles with source map files at same path', () => {
         const expectedOutputFilePath = outputFile;
         const expectedSourceMapFilePath = path.resolve('./dist/scripts/main.js.map');
         const expectedSourceMappingURL = '';
-        const expectedSourceMapFile = 'main';
+        const expectedSourceMapFile = 'main.js';
 
         const result = postProcessOutputFiles(parameters.options, parameters.buildResult);
 

@@ -1,19 +1,29 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-import { TSESLint } from '@typescript-eslint/utils';
+import { RuleTester } from '@typescript-eslint/rule-tester';
 import * as path from 'path';
-import { describe, it } from 'vitest';
+import { describe, it, afterAll } from 'vitest';
 import AvoidUnnecessaryCommand from './AvoidUnnecessaryCommand.js';
+import globals from 'globals';
+
+// RuleTester needs some global setup to integrate with test runners
+RuleTester.afterAll = afterAll;
+RuleTester.describe = describe;
+RuleTester.it = it;
+RuleTester.itOnly = it;
 
 describe('AvoidUnnecessaryCommand', () => {
     it('Passes TSESList.RuleTester', () => {
-        const ruleTester = new TSESLint.RuleTester({
-            parser: require.resolve('@typescript-eslint/parser'),
-            parserOptions: {
-                sourceType: 'module',
-                tsconfigRootDir: path.join(__dirname, './TestProject'),
-                project: path.join(__dirname, '../../tsconfig.json'),
+        const ruleTester = new RuleTester({
+            languageOptions: {
+                parserOptions: {
+                    ecmaVersion: 'latest',
+                    project: path.join(__dirname, '../../tsconfig.json'),
+                },
+                globals: {
+                    ...globals.node,
+                },
             },
         });
 

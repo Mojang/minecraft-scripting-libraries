@@ -18,6 +18,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+      - name: GH Release
+        uses: softprops/action-gh-release@v2.2.0
       - run: npm ci
       - run: npm run test # Fully build the repo so we have artifacts available to create releases, include tests so we don't ship in a broken state
       

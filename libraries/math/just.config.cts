@@ -23,6 +23,11 @@ task('bundle', () => {
 });
 task('build', series('typescript', 'api-extractor-local', 'bundle'));
 
+// Post-build test to confirm environment variable propagates through various build scripts
+task('postbuild', () => {
+    console.log(`The environment variable TEST_VAR is set to: ${process.env.TEST_VAR}`);
+});
+
 // Test
 task('api-extractor-validate', apiExtractorTask('./api-extractor.json', isOnlyBuild /* localBuild */));
 task('vitest', vitestTask());

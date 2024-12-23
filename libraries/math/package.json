@@ -21,6 +21,7 @@
     },
     "scripts": {
         "build": "just build",
+        "postbuild": "just postbuild",
         "lint": "just lint",
         "test": "just test",
         "clean": "just clean"

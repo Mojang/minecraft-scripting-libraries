@@ -1,6 +1,6 @@
 {
   "name": "@minecraft/core-build-tasks",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Common build tasks used for minecraft-scripting-libraries",
   "main": "lib/index.js",
   "exports": {

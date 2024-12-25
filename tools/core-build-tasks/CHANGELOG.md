@@ -1,8 +1,16 @@
 # Change Log - @minecraft/core-build-tasks
 
-This log was last generated on Tue, 03 Dec 2024 15:02:46 GMT and should not be manually modified.
+This log was last generated on Wed, 25 Dec 2024 16:02:44 GMT and should not be manually modified.
 
 <!-- Start content -->
+
+## 1.2.1
+
+Wed, 25 Dec 2024 16:02:44 GMT
+
+### Patches
+
+- Fix: Make cleanTask synchronous This is to prevent it removing files when you 'copyFiles' to the same path directly after. This happens when using 'updateWorldTask' 'cleanCollateralTask' also is synchronous (maescool@gmail.com)
 
 ## 1.2.0
 

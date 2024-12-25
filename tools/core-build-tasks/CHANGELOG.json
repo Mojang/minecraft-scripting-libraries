@@ -2,6 +2,21 @@
   "name": "@minecraft/core-build-tasks",
   "entries": [
     {
+      "date": "Wed, 25 Dec 2024 16:02:44 GMT",
+      "version": "1.2.1",
+      "tag": "@minecraft/core-build-tasks_v1.2.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "maescool@gmail.com",
+            "package": "@minecraft/core-build-tasks",
+            "commit": "acd85662a8c51479fef9c02e6a527ad8e1eece88",
+            "comment": "Fix: Make cleanTask synchronous This is to prevent it removing files when you 'copyFiles' to the same path directly after. This happens when using 'updateWorldTask' 'cleanCollateralTask' also is synchronous"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 03 Dec 2024 15:02:46 GMT",
       "version": "1.2.0",
       "tag": "@minecraft/core-build-tasks_v1.2.0",

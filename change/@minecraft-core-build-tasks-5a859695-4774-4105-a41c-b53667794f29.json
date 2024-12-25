@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Fix: Make cleanTask synchronous This is to prevent it removing files when you 'copyFiles' to the same path directly after. This happens when using 'updateWorldTask' 'cleanCollateralTask' also is synchronous",
+  "packageName": "@minecraft/core-build-tasks",
+  "email": "maescool@gmail.com",
+  "dependentChangeType": "patch"
+}

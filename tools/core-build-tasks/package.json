@@ -43,7 +43,7 @@
     "zip-lib": "^0.7.3"
   },
   "devDependencies": {
-    "@types/node": "^14.0.0 || ^16.0.0 || ^18.0.0",
+    "@types/node": "^22.10.1",
     "@types/rimraf": "^3.0.2",
     "@typescript-eslint/parser": "^7.2.0",
     "eslint": "^8.53.0",

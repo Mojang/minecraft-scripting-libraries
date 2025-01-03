@@ -1,6 +1,6 @@
 # Minecraft Types ESLint Plugin
 
-This package contains rules that comprise best practice for authoring minecraft script. Rules may encompass suggestions (use this API instead of this command!) or errors against anti-patterns to avoid any pitfalls. 
+This package contains rules that comprise best practice for authoring minecraft script. Rules may encompass suggestions (use this API instead of this command!) or errors against anti-patterns to avoid any pitfalls.
 
 ## Authoring New Rules
 

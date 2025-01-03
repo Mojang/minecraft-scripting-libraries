@@ -3,8 +3,8 @@
 
 import type { Vector3 } from '@minecraft/server';
 import { describe, expect, it } from 'vitest';
-import { Vector2Utils, Vector3Utils } from './coreHelpers';
-import { Vector2Builder, Vector3Builder } from './vectorWrapper';
+import { Vector2Utils, Vector3Utils } from './coreHelpers.js';
+import { Vector2Builder, Vector3Builder } from './vectorWrapper.js';
 
 /**
  * Underlying functionality is validated by coreHelpers tests, primary concern here is consistency of results

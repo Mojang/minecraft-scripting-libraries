@@ -1,6 +1,8 @@
 .turbo
 lib
+lib-cjs
 dist
 temp
 node_modules
 *.tgz
+*.zip

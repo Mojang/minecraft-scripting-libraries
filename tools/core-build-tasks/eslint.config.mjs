@@ -8,7 +8,7 @@ export default [
             parser: tsParser,
             parserOptions: {
                 ecmaVersion: 'latest',
-                project: './tsconfig.json',
+                project: './tsconfig.esm.json',
             },
             globals: {
                 ...globals.node,

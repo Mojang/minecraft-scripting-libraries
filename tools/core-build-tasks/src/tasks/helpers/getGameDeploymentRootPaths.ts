@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-import { MinecraftProduct } from '../../platforms';
+import { MinecraftProduct } from '../../platforms/index';
 import path, { resolve } from 'path';
 import { getOrThrowFromProcess } from './getOrThrowFromProcess';
 

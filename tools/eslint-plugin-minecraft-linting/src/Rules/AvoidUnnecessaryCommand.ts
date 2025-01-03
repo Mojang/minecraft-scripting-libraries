@@ -314,7 +314,6 @@ const AVOID_UNNECESSARY_COMMAND = ESLintUtils.RuleCreator(() => 'https://microso
         docs: {
             description:
                 'Recommends using a script API if there is a script API (or APIs) that provide 1:1 functionality parity with a command that is used.',
-            recommended: 'recommended',
         },
         messages: {
             replaceWithScriptMethod:
@@ -435,8 +434,6 @@ const AVOID_UNNECESSARY_COMMAND = ESLintUtils.RuleCreator(() => 'https://microso
                                         for (const variable of variables) {
                                             if (
                                                 variable.name === identifierName &&
-                                                // We can't import the types for this, so we have to do a string comparison
-                                                // eslint-disable-next-line @typescript-eslint/no-unsafe-enum-comparison
                                                 variable.defs[0].type === 'Variable'
                                             ) {
                                                 // constValue = variable.defs[0].node.init.value;

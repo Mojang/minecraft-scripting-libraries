@@ -3,7 +3,7 @@
 
 import { FileSystem } from '@rushstack/node-core-library';
 import path from 'path';
-import { CopyTaskParameters } from '.';
+import { CopyTaskParameters } from './copy';
 import { Zip } from 'zip-lib';
 import { TaskFunction, parallel, series, task } from 'just-scripts';
 

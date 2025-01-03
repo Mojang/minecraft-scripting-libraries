@@ -1,5 +1,5 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-export * from './coreHelpers';
-export * from './vectorWrapper';
+export * from './coreHelpers.js';
+export * from './vectorWrapper.js';

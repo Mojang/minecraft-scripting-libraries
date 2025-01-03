@@ -1,15 +1,11 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-import AvoidUnnecessaryCommand from './Rules/AvoidUnnecessaryCommand';
-
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
-const { name, version }: { name: string; version: string } = require('../package.json');
+import AvoidUnnecessaryCommand from './Rules/AvoidUnnecessaryCommand.js';
 
 module.exports = {
     meta: {
-        name,
-        version,
+        name: 'eslint-plugin-minecraft-linting',
     },
     rules: {
         // eslint-disable-next-line @typescript-eslint/naming-convention

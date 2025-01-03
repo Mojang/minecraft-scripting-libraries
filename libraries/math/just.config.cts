@@ -5,8 +5,11 @@ import {
     apiExtractorTask,
     cleanTask,
     coreLint,
+    publishReleaseTask,
     vitestTask,
 } from '@minecraft/core-build-tasks';
+import { copyFileSync, createWriteStream, readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 
 const isOnlyBuild = argv()._.findIndex(arg => arg === 'test') === -1;
 
@@ -20,13 +23,16 @@ task('bundle', () => {
     execSync(
         'npx esbuild ./lib/index.js --bundle --outfile=dist/minecraft-math.js --format=esm --sourcemap --external:@minecraft/server'
     );
+    // Copy over type definitions and rename
+    const officialTypes = JSON.parse(readFileSync('./package.json', 'utf-8'))['types'];
+    if (!officialTypes) {
+        // Has the package.json been restructured?
+        throw new Error('The package.json file does not contain a "types" field. Unable to copy types to bundle.');
+    }
+    const officialTypesPath = resolve(officialTypes);
+    copyFileSync(officialTypesPath, './dist/minecraft-math.d.ts');
 });
 task('build', series('typescript', 'api-extractor-local', 'bundle'));
-
-// Post-build test to confirm environment variable propagates through various build scripts
-task('postbuild', () => {
-    console.log(`The environment variable TEST_VAR is set to: ${process.env.TEST_VAR}`);
-});
 
 // Test
 task('api-extractor-validate', apiExtractorTask('./api-extractor.json', isOnlyBuild /* localBuild */));
@@ -35,3 +41,12 @@ task('test', series('api-extractor-validate', 'vitest'));
 
 // Clean
 task('clean', cleanTask(DEFAULT_CLEAN_DIRECTORIES));
+
+// Post-publish
+task('postpublish', () => {
+    return publishReleaseTask({
+        repoOwner: 'Mojang',
+        repoName: 'minecraft-scripting-libraries',
+        message: 'See attached zip for pre-built minecraft-math bundle with type declarations.',
+    });
+});

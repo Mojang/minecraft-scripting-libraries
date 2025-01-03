@@ -3,9 +3,7 @@
 // is just a direct invocation of tsc and doesn't use just
 
 import { argv, task } from 'just-scripts';
-import { cleanTask } from './lib/tasks/clean';
-import { coreLint } from './lib/tasks/coreLint';
-import { vitestTask } from './lib/tasks/vitest';
+import { coreLint, cleanTask, vitestTask } from './lib';
 
 // Lint
 task('lint', coreLint(['src/**/*.ts'], argv().fix));
@@ -15,4 +13,4 @@ task('test', vitestTask());
 
 // Cleans the actual code that is used for build. After running this, build-tools is needed
 // to run any command in the workspace
-task('clean-tools', cleanTask(['lib', 'publish']));
+task('clean-tools', cleanTask(['lib', 'lib-cjs', 'publish']));

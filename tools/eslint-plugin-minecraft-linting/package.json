@@ -2,7 +2,7 @@
     "name": "eslint-plugin-minecraft-linting",
     "version": "1.2.7",
     "main": "./lib/index.js",
-    "types": "lib/index.d.ts",
+    "types": "./lib/index.d.ts",
     "license": "MIT",
     "repository": {
         "type": "git",

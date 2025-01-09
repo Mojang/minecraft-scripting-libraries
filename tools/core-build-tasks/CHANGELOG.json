@@ -2,6 +2,21 @@
   "name": "@minecraft/core-build-tasks",
   "entries": [
     {
+      "date": "Thu, 09 Jan 2025 19:53:24 GMT",
+      "version": "3.0.1",
+      "tag": "@minecraft/core-build-tasks_v3.0.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "rlanda@microsoft.com",
+            "package": "@minecraft/core-build-tasks",
+            "commit": "331b29c12a12be91d7702b3b38e78308b2fc30c3",
+            "comment": "Accidentally made the release a draft by default, fixed that"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 09 Jan 2025 19:25:04 GMT",
       "version": "3.0.0",
       "tag": "@minecraft/core-build-tasks_v3.0.0",

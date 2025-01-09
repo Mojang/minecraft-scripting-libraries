@@ -1,8 +1,16 @@
 # Change Log - @minecraft/core-build-tasks
 
-<!-- This log was last generated on Thu, 09 Jan 2025 19:25:04 GMT and should not be manually modified. -->
+<!-- This log was last generated on Thu, 09 Jan 2025 19:53:24 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 3.0.1
+
+Thu, 09 Jan 2025 19:53:24 GMT
+
+### Patches
+
+- Accidentally made the release a draft by default, fixed that (rlanda@microsoft.com)
 
 ## 3.0.0
 

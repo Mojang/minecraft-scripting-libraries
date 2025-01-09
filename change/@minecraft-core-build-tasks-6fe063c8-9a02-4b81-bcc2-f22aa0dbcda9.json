@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Accidentally made the release a draft by default, fixed that",
-  "packageName": "@minecraft/core-build-tasks",
-  "email": "rlanda@microsoft.com",
-  "dependentChangeType": "patch"
-}

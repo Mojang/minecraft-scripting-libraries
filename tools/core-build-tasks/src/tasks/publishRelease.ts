@@ -72,7 +72,7 @@ export function publishReleaseTask(config: PublishReleaseTaskConfig) {
             tag_name: tagName,
             name: `${name} ${publishedVersion}`,
             body,
-            draft: true,
+            draft: false,
             prerelease: false,
             generate_release_notes: false,
             headers: {

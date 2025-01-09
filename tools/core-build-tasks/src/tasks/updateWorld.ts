@@ -3,7 +3,7 @@
 
 import { TaskFunction, condition, series, task } from 'just-scripts';
 import { cleanTask } from './clean';
-import { copyFiles, getTargetWorldPath } from './helpers';
+import { copyFiles, getTargetWorldPath } from './helpers/index';
 import { FileSystem } from '@rushstack/node-core-library';
 import path from 'path';
 

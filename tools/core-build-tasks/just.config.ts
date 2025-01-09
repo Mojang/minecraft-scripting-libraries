@@ -1,17 +1,16 @@
-import { argv, task, tscTask } from 'just-scripts';
-import { cleanTask } from './src/tasks/clean';
-import { coreLint } from './src/tasks/coreLint';
-import { vitestTask } from './src/tasks/vitest';
+// Core Build Tasks just configuration is special in that it depends on the pre-build tasks in the src
+// directory. Thus, for this case we allow imports from the lib directory, because the build-tools script
+// is just a direct invocation of tsc and doesn't use just
+
+import { argv, task } from 'just-scripts';
+import { coreLint, cleanTask, vitestTask } from './lib';
 
 // Lint
 task('lint', coreLint(['src/**/*.ts'], argv().fix));
-
-// Build
-task('build-tools', tscTask());
 
 // Test
 task('test', vitestTask());
 
 // Cleans the actual code that is used for build. After running this, build-tools is needed
 // to run any command in the workspace
-task('clean-tools', cleanTask(['lib', 'publish']));
+task('clean-tools', cleanTask(['lib', 'lib-cjs', 'publish']));

@@ -35,3 +35,4 @@ jobs:
         run: npm run release -- --token "$NPM_TOKEN" --yes --new
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          REPO_PAT: ${{ secrets.REPO_PAT }}

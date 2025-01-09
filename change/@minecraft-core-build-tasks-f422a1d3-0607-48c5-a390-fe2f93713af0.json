@@ -1,0 +1,7 @@
+{
+    "type": "major",
+    "comment": "Export both ESM and CJS, but exclusively use CJS for just task configuration. Pre-bundle most dependencies to deal with ESM exclusive dependencies.\nTo leverage the new tasks, use a `just.config.cts` file to rely on CommonJS imports.",
+    "packageName": "@minecraft/core-build-tasks",
+    "email": "rlanda@microsoft.com",
+    "dependentChangeType": "patch"
+}

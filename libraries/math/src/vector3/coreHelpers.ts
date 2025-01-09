@@ -2,7 +2,7 @@
 // Licensed under the MIT License.
 
 import type { Vector2, Vector3 } from '@minecraft/server';
-import { clampNumber } from '../general/clamp';
+import { clampNumber } from '../general/clamp.js';
 
 /**
  * Utilities operating on Vector3 objects. All methods are static and do not modify the input objects.

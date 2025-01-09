@@ -3,9 +3,9 @@
     "include": ["src/**/*"],
     "exclude": ["dist", "build", "node_modules"],
     "compilerOptions": {
+        "emitDeclarationOnly": true,
         "outDir": "lib",
-        "declarationDir": "temp/types",
-        "module": "node16",
-        "moduleResolution": "node16"
+        "module": "ESNext",
+        "moduleResolution": "bundler"
     }
 }

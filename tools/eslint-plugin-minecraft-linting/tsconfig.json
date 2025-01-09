@@ -5,8 +5,9 @@
     "compilerOptions": {
         "outDir": "lib",
         "declarationDir": "lib",
-        "moduleResolution": "Node10",
-        "module": "CommonJS",
-        "isolatedModules": false
+        "isolatedModules": false,
+        // This will output CommonJS for this package, which is friendlier for ESLint configs
+        "module": "Node16",
+        "moduleResolution": "Node16"
     }
 }

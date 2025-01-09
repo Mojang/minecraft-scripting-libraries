@@ -1,42 +1,46 @@
 {
-  "name": "@minecraft/math",
-  "version": "1.5.2",
-  "author": "Raphael Landaverde (rlanda@microsoft.com)",
-  "contributors": [
-    {
-      "name": "Jake Shirley",
-      "email": "jashir@mojang.com"
+    "name": "@minecraft/math",
+    "version": "1.5.2",
+    "author": "Raphael Landaverde (rlanda@microsoft.com)",
+    "contributors": [
+        {
+            "name": "Jake Shirley",
+            "email": "jashir@mojang.com"
+        }
+    ],
+    "description": "Math utilities for use with minecraft scripting modules",
+    "exports": {
+        "import": "./lib/index.js"
+    },
+    "type": "module",
+    "types": "./lib/types/math-public.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Mojang/minecraft-scripting-libraries.git",
+        "directory": "libraries/math"
+    },
+    "scripts": {
+        "build": "just build",
+        "lint": "just lint",
+        "test": "just test",
+        "clean": "just clean",
+        "postpublish": "just postpublish"
+    },
+    "license": "MIT",
+    "files": [
+        "dist",
+        "lib",
+        "api-report"
+    ],
+    "peerDependencies": {
+        "@minecraft/server": "^1.15.0"
+    },
+    "devDependencies": {
+        "@minecraft/server": "^1.15.0",
+        "@minecraft/core-build-tasks": "*",
+        "@minecraft/tsconfig": "*",
+        "just-scripts": "^2.3.3",
+        "prettier": "^2.8.2",
+        "vitest": "^0.34.6"
     }
-  ],
-  "description": "Math utilities for use with minecraft scripting modules",
-  "main": "lib/index.js",
-  "types": "lib/types/math-public.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Mojang/minecraft-scripting-libraries.git",
-    "directory": "libraries/math"
-  },
-  "scripts": {
-    "build": "just build",
-    "lint": "just lint",
-    "test": "just test",
-    "clean": "just clean"
-  },
-  "license": "MIT",
-  "files": [
-    "dist",
-    "lib",
-    "api-report"
-  ],
-  "peerDependencies": {
-    "@minecraft/server": "^1.15.0"
-  },
-  "devDependencies": {
-    "@minecraft/server": "^1.15.0",
-    "@minecraft/core-build-tasks": "*",
-    "@minecraft/tsconfig": "*",
-    "just-scripts": "^2.3.2",
-    "prettier": "^2.8.2",
-    "vitest": "^0.34.6"
-  }
 }

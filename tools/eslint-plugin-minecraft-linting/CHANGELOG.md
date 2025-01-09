@@ -1,8 +1,16 @@
 # Change Log - eslint-plugin-minecraft-linting
 
-This log was last generated on Mon, 25 Nov 2024 23:28:43 GMT and should not be manually modified.
+<!-- This log was last generated on Thu, 09 Jan 2025 19:25:04 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.0.0
+
+Thu, 09 Jan 2025 19:25:04 GMT
+
+### Major changes
+
+- Switch to CJS exclusively, and update to ESLint 9 (rlanda@microsoft.com)
 
 ## 1.2.4
 

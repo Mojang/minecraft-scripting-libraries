@@ -1,8 +1,16 @@
 # Change Log - @minecraft/math
 
-This log was last generated on Tue, 03 Dec 2024 15:02:46 GMT and should not be manually modified.
+<!-- This log was last generated on Thu, 09 Jan 2025 19:25:04 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.0.0
+
+Thu, 09 Jan 2025 19:25:04 GMT
+
+### Major changes
+
+- Switch to ESM exclusively. Publish release with artifacts. (rlanda@microsoft.com)
 
 ## 1.5.1
 

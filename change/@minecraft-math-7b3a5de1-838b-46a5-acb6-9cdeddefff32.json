@@ -1,7 +1,0 @@
-{
-    "type": "major",
-    "comment": "Switch to ESM exclusively. Publish release with artifacts.",
-    "packageName": "@minecraft/math",
-    "email": "rlanda@microsoft.com",
-    "dependentChangeType": "major"
-}

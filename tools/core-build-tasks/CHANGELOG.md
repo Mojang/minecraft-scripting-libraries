@@ -1,8 +1,17 @@
 # Change Log - @minecraft/core-build-tasks
 
-This log was last generated on Wed, 25 Dec 2024 16:02:44 GMT and should not be manually modified.
+<!-- This log was last generated on Thu, 09 Jan 2025 19:25:04 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 3.0.0
+
+Thu, 09 Jan 2025 19:25:04 GMT
+
+### Major changes
+
+- Export both ESM and CJS, but exclusively use CJS for just task configuration. Pre-bundle most dependencies to deal with ESM exclusive dependencies.
+To leverage the new tasks, use a `just.config.cts` file to rely on CommonJS imports. (rlanda@microsoft.com)
 
 ## 1.2.1
 

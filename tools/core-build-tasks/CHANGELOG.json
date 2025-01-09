@@ -2,6 +2,21 @@
   "name": "@minecraft/core-build-tasks",
   "entries": [
     {
+      "date": "Thu, 09 Jan 2025 19:25:04 GMT",
+      "version": "3.0.0",
+      "tag": "@minecraft/core-build-tasks_v3.0.0",
+      "comments": {
+        "major": [
+          {
+            "author": "rlanda@microsoft.com",
+            "package": "@minecraft/core-build-tasks",
+            "commit": "55a4e19212d882da876f3ed1918198c2ba2868b9",
+            "comment": "Export both ESM and CJS, but exclusively use CJS for just task configuration. Pre-bundle most dependencies to deal with ESM exclusive dependencies.\nTo leverage the new tasks, use a `just.config.cts` file to rely on CommonJS imports."
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 25 Dec 2024 16:02:44 GMT",
       "version": "1.2.1",
       "tag": "@minecraft/core-build-tasks_v1.2.1",

@@ -2,6 +2,21 @@
   "name": "@minecraft/math",
   "entries": [
     {
+      "date": "Thu, 09 Jan 2025 19:25:04 GMT",
+      "version": "2.0.0",
+      "tag": "@minecraft/math_v2.0.0",
+      "comments": {
+        "major": [
+          {
+            "author": "rlanda@microsoft.com",
+            "package": "@minecraft/math",
+            "commit": "55a4e19212d882da876f3ed1918198c2ba2868b9",
+            "comment": "Switch to ESM exclusively. Publish release with artifacts."
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 03 Dec 2024 15:02:46 GMT",
       "version": "1.5.1",
       "tag": "@minecraft/math_v1.5.1",

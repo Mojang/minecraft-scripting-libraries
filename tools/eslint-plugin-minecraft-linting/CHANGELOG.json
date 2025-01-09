@@ -2,6 +2,21 @@
   "name": "eslint-plugin-minecraft-linting",
   "entries": [
     {
+      "date": "Thu, 09 Jan 2025 19:25:04 GMT",
+      "version": "2.0.0",
+      "tag": "eslint-plugin-minecraft-linting_v2.0.0",
+      "comments": {
+        "major": [
+          {
+            "author": "rlanda@microsoft.com",
+            "package": "eslint-plugin-minecraft-linting",
+            "commit": "55a4e19212d882da876f3ed1918198c2ba2868b9",
+            "comment": "Switch to CJS exclusively, and update to ESLint 9"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 25 Nov 2024 23:28:43 GMT",
       "version": "1.2.4",
       "tag": "eslint-plugin-minecraft-linting_v1.2.4",

@@ -1,7 +1,0 @@
-{
-    "type": "major",
-    "comment": "Switch to CJS exclusively, and update to ESLint 9",
-    "packageName": "eslint-plugin-minecraft-linting",
-    "email": "rlanda@microsoft.com",
-    "dependentChangeType": "major"
-}

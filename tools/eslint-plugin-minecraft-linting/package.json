@@ -29,7 +29,7 @@
     "@typescript-eslint/eslint-plugin": "^8.18.1",
     "@typescript-eslint/parser": "^8.18.1",
     "@typescript-eslint/rule-tester": "^8.18.1",
-    "@typescript-eslint/utils": "^8.18.1",
+    "@typescript-eslint/utils": "^8.22.0",
     "eslint": "^9.17.0"
   },
   "publishConfig": {

@@ -125,7 +125,7 @@ export class Vector3Utils {
         limits?: {
             min?: Partial<Vector3>;
             max?: Partial<Vector3>;
-        }
+        },
     ): Vector3 {
         return {
             x: clampNumber(v.x, limits?.min?.x ?? Number.MIN_SAFE_INTEGER, limits?.max?.x ?? Number.MAX_SAFE_INTEGER),
@@ -341,3 +341,19 @@ export const VECTOR3_NORTH: Vector3 = { x: 0, y: 0, z: 1 };
  * @public
  */
 export const VECTOR3_SOUTH: Vector3 = { x: 0, y: 0, z: -1 };
+/**
+ * half
+ *
+ * A unit vector representing the value of 0.5 in all directions (0.5,0.5,0.5)
+ *
+ * @public
+ */
+export const VECTOR3_HALF: Vector3 = { x: 0.5, y: 0.5, z: 0.5 };
+/**
+ * negative
+ *
+ * A unit vector representing the value of -1 in all directions (-1,-1,-1)
+ *
+ * @public
+ */
+export const VECTOR3_NEGATIVE_ONE: Vector3 = { x: -1, y: -1, z: -1 };

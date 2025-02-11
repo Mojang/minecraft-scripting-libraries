@@ -125,7 +125,7 @@ export class Vector3Utils {
         limits?: {
             min?: Partial<Vector3>;
             max?: Partial<Vector3>;
-        },
+        }
     ): Vector3 {
         return {
             x: clampNumber(v.x, limits?.min?.x ?? Number.MIN_SAFE_INTEGER, limits?.max?.x ?? Number.MAX_SAFE_INTEGER),

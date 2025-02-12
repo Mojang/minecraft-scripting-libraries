@@ -1,8 +1,16 @@
 # Change Log - @minecraft/math
 
-<!-- This log was last generated on Thu, 09 Jan 2025 19:25:04 GMT and should not be manually modified. -->
+<!-- This log was last generated on Wed, 12 Feb 2025 23:03:05 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.1.0
+
+Wed, 12 Feb 2025 23:03:05 GMT
+
+### Minor changes
+
+- Added constants VECTOR3_HALF and VECTOR3_NEGATIVE_ONE (alexander.denford@skyboxlabs.com)
 
 ## 2.0.0
 

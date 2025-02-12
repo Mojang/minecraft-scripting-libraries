@@ -2,6 +2,21 @@
   "name": "@minecraft/math",
   "entries": [
     {
+      "date": "Wed, 12 Feb 2025 23:03:05 GMT",
+      "version": "2.1.0",
+      "tag": "@minecraft/math_v2.1.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "alexander.denford@skyboxlabs.com",
+            "package": "@minecraft/math",
+            "commit": "b56d6fed1cf9c84c5dfae3f50714de3dca091c28",
+            "comment": "Added constants VECTOR3_HALF and VECTOR3_NEGATIVE_ONE"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 09 Jan 2025 19:25:04 GMT",
       "version": "2.0.0",
       "tag": "@minecraft/math_v2.0.0",

@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Added constants VECTOR3_HALF and VECTOR3_NEGATIVE_ONE",
+  "packageName": "@minecraft/math",
+  "email": "alexander.denford@skyboxlabs.com",
+  "dependentChangeType": "patch"
+}

@@ -46,7 +46,13 @@ export const VECTOR3_EAST: Vector3;
 export const VECTOR3_FORWARD: Vector3;
 
 // @public
+export const VECTOR3_HALF: Vector3;
+
+// @public
 export const VECTOR3_LEFT: Vector3;
+
+// @public
+export const VECTOR3_NEGATIVE_ONE: Vector3;
 
 // @public
 export const VECTOR3_NORTH: Vector3;

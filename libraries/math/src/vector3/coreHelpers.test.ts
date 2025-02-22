@@ -217,4 +217,50 @@ describe('Vector3 operations', () => {
             expect(result.z).toBeCloseTo(0);
         });
     });
+
+    describe('Vector3 add partial', () => {
+        it(`add a single axis`, () => {
+            const result = Vector3Utils.add(VECTOR3_UP, { z: 4 });
+            expect(result.x).toBeCloseTo(0);
+            expect(result.y).toBeCloseTo(1);
+            expect(result.z).toBeCloseTo(4);
+        });
+
+        it(`add two axis`, () => {
+            const result = Vector3Utils.add(VECTOR3_UP, { z: 7, x: 2 });
+            expect(result.x).toBeCloseTo(2);
+            expect(result.y).toBeCloseTo(1);
+            expect(result.z).toBeCloseTo(7);
+        });
+
+        it(`add all three axis`, () => {
+            const result = Vector3Utils.add(VECTOR3_UP, { x: 8, y: 2, z: 3 });
+            expect(result.x).toBeCloseTo(8);
+            expect(result.y).toBeCloseTo(3);
+            expect(result.z).toBeCloseTo(3);
+        });
+    });
+
+    describe('Vector3 subtract partial', () => {
+        it(`subtract a single axis`, () => {
+            const result = Vector3Utils.subtract(VECTOR3_UP, { z: 4 });
+            expect(result.x).toBeCloseTo(0);
+            expect(result.y).toBeCloseTo(1);
+            expect(result.z).toBeCloseTo(-4);
+        });
+
+        it(`subtract two axis`, () => {
+            const result = Vector3Utils.subtract(VECTOR3_UP, { z: 7, x: 2 });
+            expect(result.x).toBeCloseTo(-2);
+            expect(result.y).toBeCloseTo(1);
+            expect(result.z).toBeCloseTo(-7);
+        });
+
+        it(`subtract all three axis`, () => {
+            const result = Vector3Utils.subtract(VECTOR3_UP, { x: 8, y: 2, z: 3 });
+            expect(result.x).toBeCloseTo(-8);
+            expect(result.y).toBeCloseTo(-1);
+            expect(result.z).toBeCloseTo(-3);
+        });
+    });
 });

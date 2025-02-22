@@ -57,7 +57,7 @@ export class Vector3Builder implements Vector3 {
      *
      * Adds the vector v to this, returning itself.
      */
-    add(v: Vector3): this {
+    add(v: Partial<Vector3>): this {
         return this.assign(Vector3Utils.add(this, v));
     }
 
@@ -66,7 +66,7 @@ export class Vector3Builder implements Vector3 {
      *
      * Subtracts the vector v from this, returning itself.
      */
-    subtract(v: Vector3): this {
+    subtract(v: Partial<Vector3>): this {
         return this.assign(Vector3Utils.subtract(this, v));
     }
 

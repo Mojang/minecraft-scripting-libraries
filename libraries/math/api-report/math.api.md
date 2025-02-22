@@ -79,7 +79,7 @@ export const VECTOR3_ZERO: Vector3;
 export class Vector3Builder implements Vector3 {
     constructor(vec: Vector3, arg?: never, arg2?: never);
     constructor(x: number, y: number, z: number);
-    add(v: Vector3): this;
+    add(v: Partial<Vector3>): this;
     assign(vec: Vector3): this;
     clamp(limits: {
         min?: Partial<Vector3>;
@@ -99,7 +99,7 @@ export class Vector3Builder implements Vector3 {
     rotateZ(a: number): this;
     scale(val: number): this;
     slerp(vec: Vector3, t: number): this;
-    subtract(v: Vector3): this;
+    subtract(v: Partial<Vector3>): this;
     toString(options?: {
         decimals?: number;
         delimiter?: string;
@@ -114,7 +114,7 @@ export class Vector3Builder implements Vector3 {
 
 // @public
 export class Vector3Utils {
-    static add(v1: Vector3, v2: Vector3): Vector3;
+    static add(v1: Vector3, v2: Partial<Vector3>): Vector3;
     static clamp(v: Vector3, limits?: {
         min?: Partial<Vector3>;
         max?: Partial<Vector3>;
@@ -133,7 +133,7 @@ export class Vector3Utils {
     static rotateZ(v: Vector3, a: number): Vector3;
     static scale(v1: Vector3, scale: number): Vector3;
     static slerp(a: Vector3, b: Vector3, t: number): Vector3;
-    static subtract(v1: Vector3, v2: Vector3): Vector3;
+    static subtract(v1: Vector3, v2: Partial<Vector3>): Vector3;
     static toString(v: Vector3, options?: {
         decimals?: number;
         delimiter?: string;

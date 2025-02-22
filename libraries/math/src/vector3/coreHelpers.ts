@@ -24,8 +24,8 @@ export class Vector3Utils {
      *
      * Add two vectors to produce a new vector
      */
-    static add(v1: Vector3, v2: Vector3): Vector3 {
-        return { x: v1.x + v2.x, y: v1.y + v2.y, z: v1.z + v2.z };
+    static add(v1: Vector3, v2: Partial<Vector3>): Vector3 {
+        return { x: v1.x + (v2.x ?? 0), y: v1.y + (v2.y ?? 0), z: v1.z + (v2.z ?? 0) };
     }
 
     /**
@@ -33,8 +33,8 @@ export class Vector3Utils {
      *
      * Subtract two vectors to produce a new vector (v1-v2)
      */
-    static subtract(v1: Vector3, v2: Vector3): Vector3 {
-        return { x: v1.x - v2.x, y: v1.y - v2.y, z: v1.z - v2.z };
+    static subtract(v1: Vector3, v2: Partial<Vector3>): Vector3 {
+        return { x: v1.x - (v2.x ?? 0), y: v1.y - (v2.y ?? 0), z: v1.z - (v2.z ?? 0) };
     }
 
     /** scale

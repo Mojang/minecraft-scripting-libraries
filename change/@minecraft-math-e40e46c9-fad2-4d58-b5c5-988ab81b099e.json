@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Updated Vector3 add and subtract to support partial right hand values",
+  "packageName": "@minecraft/math",
+  "email": "jake@xbox.com",
+  "dependentChangeType": "patch"
+}

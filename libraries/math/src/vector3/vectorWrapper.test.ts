@@ -54,6 +54,16 @@ describe('Vector3Builder', () => {
         expect(resultTwo).toBe(vectorA); // Referential equality must be preserved
     });
 
+    it('should be able to add a partial vector3 with the same result as the coreHelpers function', () => {
+        const vectorA = new Vector3Builder(1, 2, 3);
+        const vectorB: Partial<Vector3> = { x: 4, z: 6 };
+        const vectorC = Vector3Utils.add(vectorA, vectorB);
+
+        const result = vectorA.add(vectorB);
+        expect(result).toEqual(vectorC);
+        expect(vectorA).toBe(result); // Referential equality must be preserved
+    });
+
     it('should be able to subtract a vector3 with the same result as the coreHelpers function', () => {
         const vectorA = new Vector3Builder(5, 7, 9);
         const vectorB = new Vector3Builder(4, 5, 6);
@@ -68,6 +78,16 @@ describe('Vector3Builder', () => {
         const resultTwo = vectorA.subtract(toSubtract).subtract(toSubtract).subtract(toSubtract);
         expect(resultTwo).toEqual({ x: -2, y: -1, z: 0 });
         expect(resultTwo).toBe(vectorA); // Referential equality must be preserved
+    });
+
+    it('should be able to subtract a partial vector3 with the same result as the coreHelpers function', () => {
+        const vectorA = new Vector3Builder(1, 2, 3);
+        const vectorB: Partial<Vector3> = { x: 4, z: 6 };
+        const vectorC = Vector3Utils.subtract(vectorA, vectorB);
+
+        const result = vectorA.subtract(vectorB);
+        expect(result).toEqual(vectorC);
+        expect(vectorA).toBe(result); // Referential equality must be preserved
     });
 
     it('should be able to scale a vector3 with the same result as the coreHelpers function', () => {

@@ -2,6 +2,21 @@
   "name": "@minecraft/math",
   "entries": [
     {
+      "date": "Fri, 28 Feb 2025 19:18:21 GMT",
+      "version": "2.2.0",
+      "tag": "@minecraft/math_v2.2.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "jake@xbox.com",
+            "package": "@minecraft/math",
+            "commit": "0209c13d28073ce248d74cb3f163c3175d2295b3",
+            "comment": "Updated Vector3 add and subtract to support partial right hand values"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 12 Feb 2025 23:03:05 GMT",
       "version": "2.1.0",
       "tag": "@minecraft/math_v2.1.0",

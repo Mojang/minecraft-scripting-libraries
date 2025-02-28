@@ -1,8 +1,16 @@
 # Change Log - @minecraft/math
 
-<!-- This log was last generated on Wed, 12 Feb 2025 23:03:05 GMT and should not be manually modified. -->
+<!-- This log was last generated on Fri, 28 Feb 2025 19:18:21 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.2.0
+
+Fri, 28 Feb 2025 19:18:21 GMT
+
+### Minor changes
+
+- Updated Vector3 add and subtract to support partial right hand values (jake@xbox.com)
 
 ## 2.1.0
 

@@ -1,6 +1,6 @@
 {
   "type": "patch",
-  "comment": "Upgrade esbuild, typescript, and vitest",
+  "comment": "Upgrade esbuild and vitest",
   "packageName": "@minecraft/core-build-tasks",
   "email": "zachary.campbell@skyboxlabs.com",
   "dependentChangeType": "patch"

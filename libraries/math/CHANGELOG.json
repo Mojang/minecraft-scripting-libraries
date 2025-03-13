@@ -2,6 +2,21 @@
   "name": "@minecraft/math",
   "entries": [
     {
+      "date": "Thu, 13 Mar 2025 18:35:25 GMT",
+      "version": "2.2.1",
+      "tag": "@minecraft/math_v2.2.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "zachary.campbell@skyboxlabs.com",
+            "package": "@minecraft/math",
+            "commit": "e46db082a4c73b06ad40a09e825e03086aa53ff0",
+            "comment": "Upgrade vitest"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 28 Feb 2025 19:18:21 GMT",
       "version": "2.2.0",
       "tag": "@minecraft/math_v2.2.0",

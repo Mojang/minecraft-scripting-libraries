@@ -1,8 +1,16 @@
 # Change Log - @minecraft/math
 
-<!-- This log was last generated on Fri, 28 Feb 2025 19:18:21 GMT and should not be manually modified. -->
+<!-- This log was last generated on Thu, 13 Mar 2025 18:35:25 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.2.1
+
+Thu, 13 Mar 2025 18:35:25 GMT
+
+### Patches
+
+- Upgrade vitest (zachary.campbell@skyboxlabs.com)
 
 ## 2.2.0
 

@@ -2,6 +2,21 @@
   "name": "@minecraft/core-build-tasks",
   "entries": [
     {
+      "date": "Thu, 13 Mar 2025 18:35:25 GMT",
+      "version": "4.0.0",
+      "tag": "@minecraft/core-build-tasks_v4.0.0",
+      "comments": {
+        "major": [
+          {
+            "author": "zachary.campbell@skyboxlabs.com",
+            "package": "@minecraft/core-build-tasks",
+            "commit": "e46db082a4c73b06ad40a09e825e03086aa53ff0",
+            "comment": "Upgrade esbuild and vitest"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 09 Jan 2025 19:53:24 GMT",
       "version": "3.0.1",
       "tag": "@minecraft/core-build-tasks_v3.0.1",

@@ -1,8 +1,16 @@
 # Change Log - @minecraft/core-build-tasks
 
-<!-- This log was last generated on Thu, 09 Jan 2025 19:53:24 GMT and should not be manually modified. -->
+<!-- This log was last generated on Thu, 13 Mar 2025 18:35:25 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 4.0.0
+
+Thu, 13 Mar 2025 18:35:25 GMT
+
+### Major changes
+
+- Upgrade esbuild and vitest (zachary.campbell@skyboxlabs.com)
 
 ## 3.0.1
 

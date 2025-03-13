@@ -36,11 +36,11 @@
     "@minecraft/server": "^1.15.0"
   },
   "devDependencies": {
-    "@minecraft/server": "^1.15.0",
     "@minecraft/core-build-tasks": "*",
+    "@minecraft/server": "^1.15.0",
     "@minecraft/tsconfig": "*",
     "just-scripts": "^2.3.3",
     "prettier": "^2.8.2",
-    "vitest": "^0.34.6"
+    "vitest": "^3.0.8"
   }
 }

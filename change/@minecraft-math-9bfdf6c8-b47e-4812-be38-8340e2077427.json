@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Upgrade vitest",
+  "packageName": "@minecraft/math",
+  "email": "zachary.campbell@skyboxlabs.com",
+  "dependentChangeType": "patch"
+}

@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-import { argv, parallel } from 'just-scripts';
+import { parallel } from 'just-scripts';
 import esbuild, { BuildResult, OutputFile } from 'esbuild';
 import fs from 'fs';
 import path from 'path';

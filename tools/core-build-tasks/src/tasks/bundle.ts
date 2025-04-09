@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-import { parallel } from 'just-scripts';
+import { argv, parallel } from 'just-scripts';
 import esbuild, { BuildResult, OutputFile } from 'esbuild';
 import fs from 'fs';
 import path from 'path';
@@ -26,6 +26,9 @@ export type BundleTaskParameters = {
 
     /** The output path for the source map file. Ignored if sourcemap is false or 'inline'. */
     outputSourcemapPath?: string;
+
+    /** If this is a production build, all statements labelled with "dev:" will be stripped from the build. Useful for stripping out development specific code. */
+    productionBuild?: boolean;
 };
 
 export type PostProcessOutputFilesResult = {
@@ -115,6 +118,7 @@ export function bundleTask(options: BundleTaskParameters): ReturnType<typeof par
             sourcemap: isRequiredToLinkJs ? 'external' : options.sourcemap,
             external: options.external,
             write: !isRequiredToMakeChanges,
+            dropLabels: options.productionBuild ? ['dev'] : undefined
         });
 
         if (buildResult.errors.length === 0) {

@@ -118,7 +118,7 @@ export function bundleTask(options: BundleTaskParameters): ReturnType<typeof par
             sourcemap: isRequiredToLinkJs ? 'external' : options.sourcemap,
             external: options.external,
             write: !isRequiredToMakeChanges,
-            dropLabels: options.productionBuild ? ['dev'] : undefined
+            dropLabels: options.productionBuild ? ['dev'] : undefined,
         });
 
         if (buildResult.errors.length === 0) {

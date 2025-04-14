@@ -26,6 +26,9 @@ export type BundleTaskParameters = {
 
     /** The output path for the source map file. Ignored if sourcemap is false or 'inline'. */
     outputSourcemapPath?: string;
+
+    /** Strip out statements with these labels. Documentation: https://esbuild.github.io/api/#drop-labels */
+    dropLabels?: string[];
 };
 
 export type PostProcessOutputFilesResult = {
@@ -115,6 +118,7 @@ export function bundleTask(options: BundleTaskParameters): ReturnType<typeof par
             sourcemap: isRequiredToLinkJs ? 'external' : options.sourcemap,
             external: options.external,
             write: !isRequiredToMakeChanges,
+            dropLabels: options.dropLabels,
         });
 
         if (buildResult.errors.length === 0) {

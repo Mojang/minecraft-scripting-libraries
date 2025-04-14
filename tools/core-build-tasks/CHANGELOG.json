@@ -2,6 +2,21 @@
   "name": "@minecraft/core-build-tasks",
   "entries": [
     {
+      "date": "Mon, 14 Apr 2025 21:56:03 GMT",
+      "version": "4.1.0",
+      "tag": "@minecraft/core-build-tasks_v4.1.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "mike.demone@skyboxlabs.com",
+            "package": "@minecraft/core-build-tasks",
+            "commit": "7531dce176aacb5148e560e23fc24e133ea243a9",
+            "comment": "Bundle tasks parameters can now take in dropLabels to strip out certain labelled statements."
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 13 Mar 2025 18:35:25 GMT",
       "version": "4.0.0",
       "tag": "@minecraft/core-build-tasks_v4.0.0",

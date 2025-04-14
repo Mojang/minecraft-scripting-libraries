@@ -1,6 +1,6 @@
 {
   "type": "minor",
-  "comment": "Bundle task will now strip out dev labels if its a production build",
+  "comment": "Bundle tasks parameters can now take in dropLabels to strip out certain labelled statements.",
   "packageName": "@minecraft/core-build-tasks",
   "email": "mike.demone@skyboxlabs.com",
   "dependentChangeType": "patch"

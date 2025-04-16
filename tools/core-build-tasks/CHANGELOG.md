@@ -1,8 +1,16 @@
 # Change Log - @minecraft/core-build-tasks
 
-<!-- This log was last generated on Thu, 13 Mar 2025 18:35:25 GMT and should not be manually modified. -->
+<!-- This log was last generated on Mon, 14 Apr 2025 21:56:03 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 4.1.0
+
+Mon, 14 Apr 2025 21:56:03 GMT
+
+### Minor changes
+
+- Bundle tasks parameters can now take in dropLabels to strip out certain labelled statements. (mike.demone@skyboxlabs.com)
 
 ## 4.0.0
 

@@ -40,7 +40,7 @@
     "@minecraft/server": "^1.15.0",
     "@minecraft/tsconfig": "*",
     "just-scripts": "^2.3.3",
-    "prettier": "^2.8.2",
+    "prettier": "^3.5.3",
     "vitest": "^3.0.8"
   }
 }

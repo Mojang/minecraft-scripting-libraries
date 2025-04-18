@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "fix: Wrong type declaration in package.json cause TS7016",
-  "packageName": "@minecraft/math",
-  "email": "duck.duc.vit@gmail.com",
-  "dependentChangeType": "patch"
-}

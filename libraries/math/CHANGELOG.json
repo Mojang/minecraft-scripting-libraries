@@ -2,6 +2,21 @@
   "name": "@minecraft/math",
   "entries": [
     {
+      "date": "Fri, 18 Apr 2025 18:48:51 GMT",
+      "version": "2.2.3",
+      "tag": "@minecraft/math_v2.2.3",
+      "comments": {
+        "patch": [
+          {
+            "author": "duck.duc.vit@gmail.com",
+            "package": "@minecraft/math",
+            "commit": "9918b4f26feb53d3c881d1fb89e099f6c75c42f3",
+            "comment": "fix: Wrong type declaration in package.json cause TS7016"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 13 Mar 2025 18:35:25 GMT",
       "version": "2.2.1",
       "tag": "@minecraft/math_v2.2.1",

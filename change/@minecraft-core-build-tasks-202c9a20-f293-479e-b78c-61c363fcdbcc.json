@@ -1,6 +1,6 @@
 {
-  "type": "patch",
-  "comment": "Upgrade prettier to ^3.5.3",
+  "type": "major",
+  "comment": "Upgrade @rushstack/node-core-library to 5.13.0, prettier to ^3.5.3",
   "packageName": "@minecraft/core-build-tasks",
   "email": "zachary.campbell@skyboxlabs.com",
   "dependentChangeType": "patch"

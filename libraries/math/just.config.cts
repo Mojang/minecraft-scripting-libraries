@@ -36,7 +36,7 @@ task('build', series('typescript', 'api-extractor-local', 'bundle'));
 
 // Test
 task('api-extractor-validate', apiExtractorTask('./api-extractor.json', isOnlyBuild /* localBuild */));
-task('vitest', vitestTask());
+task('vitest', vitestTask({ test: argv().test, update: argv().update }));
 task('test', series('api-extractor-validate', 'vitest'));
 
 // Clean

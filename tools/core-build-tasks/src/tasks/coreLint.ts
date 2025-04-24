@@ -32,6 +32,7 @@ function eslintTask(files: string[], fix?: boolean): TaskFunction {
                 ? 'true'
                 : 'false';
             const cmd = [
+                'npx',
                 'eslint',
                 ...files,
                 '--config',
@@ -50,7 +51,7 @@ function eslintTask(files: string[], fix?: boolean): TaskFunction {
 
 function prettierTask(files: string[], fix?: boolean): TaskFunction {
     return () => {
-        const cmd = ['prettier', fix ? '--write' : '--check', ...files].join(' ');
+        const cmd = ['npx', 'prettier', fix ? '--write' : '--check', ...files].join(' ');
         return execSync(cmd, { stdio: 'inherit' });
     };
 }

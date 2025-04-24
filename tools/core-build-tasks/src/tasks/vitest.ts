@@ -3,8 +3,20 @@
 
 import { execSync } from 'child_process';
 
-export function vitestTask() {
+export interface VitestTaskOptions {
+    test?: string;
+    update?: boolean;
+}
+
+export function vitestTask(options: VitestTaskOptions = {}) {
     return () => {
-        execSync('vitest', { stdio: 'inherit' });
+        const cmd = [
+            'npx',
+            'vitest',
+            // Use --passWithNoTests so that turbo doesn't fail on packages without a matching test
+            ...(options.test ? ['--passWithNoTests', options.test] : []),
+            ...(options.update ? ['--update'] : []),
+        ].join(' ');
+        return execSync(cmd, { stdio: 'inherit' });
     };
 }

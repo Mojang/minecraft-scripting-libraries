@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Upgrade @types/node to ^22.0.0",
+  "packageName": "eslint-plugin-minecraft-linting",
+  "email": "zachary.campbell@skyboxlabs.com",
+  "dependentChangeType": "patch"
+}

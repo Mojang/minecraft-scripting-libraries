@@ -1,8 +1,16 @@
 # Change Log - @minecraft/math
 
-<!-- This log was last generated on Thu, 13 Mar 2025 18:35:25 GMT and should not be manually modified. -->
+<!-- This log was last generated on Fri, 18 Apr 2025 18:48:51 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.2.3
+
+Fri, 18 Apr 2025 18:48:51 GMT
+
+### Patches
+
+- fix: Wrong type declaration in package.json cause TS7016 (duck.duc.vit@gmail.com)
 
 ## 2.2.1
 

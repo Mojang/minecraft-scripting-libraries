@@ -9,7 +9,7 @@ task('typescript', tscTask());
 task('build', series('typescript'));
 
 // Test
-task('vitest', vitestTask());
+task('vitest', vitestTask({ test: argv().test, update: argv().update }));
 task('test', series('vitest'));
 
 // Clean

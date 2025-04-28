@@ -9,7 +9,7 @@ import { coreLint, cleanTask, vitestTask } from './lib';
 task('lint', coreLint(['src/**/*.ts'], argv().fix));
 
 // Test
-task('test', vitestTask());
+task('test', vitestTask({ test: argv().test, update: argv().update }));
 
 // Cleans the actual code that is used for build. After running this, build-tools is needed
 // to run any command in the workspace

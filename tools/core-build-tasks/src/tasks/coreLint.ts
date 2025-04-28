@@ -3,7 +3,7 @@
 
 import { execSync } from 'child_process';
 import { existsSync } from 'fs';
-import { TaskFunction, condition, logger, prettierCheckTask, prettierTask, series, task } from 'just-scripts';
+import { TaskFunction, logger, series, task } from 'just-scripts';
 import path from 'path';
 import process from 'process';
 
@@ -32,6 +32,7 @@ function eslintTask(files: string[], fix?: boolean): TaskFunction {
                 ? 'true'
                 : 'false';
             const cmd = [
+                'npx',
                 'eslint',
                 ...files,
                 '--config',
@@ -48,6 +49,13 @@ function eslintTask(files: string[], fix?: boolean): TaskFunction {
     };
 }
 
+function prettierTask(files: string[], fix?: boolean): TaskFunction {
+    return () => {
+        const cmd = ['npx', 'prettier', fix ? '--write' : '--check', ...files].join(' ');
+        return execSync(cmd, { stdio: 'inherit' });
+    };
+}
+
 export function coreLint(files: string[], fix?: boolean): TaskFunction {
     task('verify-lint', () => {
         // If the process working directory does not have an eslint configuration file, fail the build:
@@ -61,13 +69,7 @@ export function coreLint(files: string[], fix?: boolean): TaskFunction {
         }
     });
     task('eslint', eslintTask(files, fix));
-    task('prettier-fix', prettierTask({ files }));
-    task('prettier-check', prettierCheckTask({ files }));
+    task('prettier', prettierTask(files, fix));
 
-    return series(
-        'verify-lint',
-        'eslint',
-        condition('prettier-check', () => !fix),
-        condition('prettier-fix', () => !!fix)
-    );
+    return series('verify-lint', 'eslint', 'prettier');
 }

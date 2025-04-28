@@ -31,24 +31,24 @@
     "CHANGELOG.*"
   ],
   "dependencies": {
-    "@rushstack/node-core-library": "^3.59.6",
     "@microsoft/api-extractor": "^7.38.3",
-    "esbuild": "^0.25.0",
+    "@rushstack/node-core-library": "^5.13.0",
     "dotenv": "^16.4.5",
-    "just-scripts": "^2.3.3",
-    "prettier": "^2.8.2",
-    "rimraf": "^3.0.2",
+    "esbuild": "^0.25.0",
     "eslint": "^9.17.0",
+    "just-scripts": "^2.3.3",
+    "prettier": "^3.5.3",
+    "rimraf": "^3.0.2",
     "typescript": "^5.7.2",
     "vitest": "^3.0.8",
     "zip-lib": "^0.7.3"
   },
   "devDependencies": {
-    "@types/node": "^14.0.0 || ^16.0.0 || ^18.0.0",
-    "@types/rimraf": "^3.0.2",
-    "@typescript-eslint/parser": "^8.18.1",
     "@octokit/rest": "^21.0.2",
     "@types/archiver": "^6.0.0",
+    "@types/node": "^22.0.0",
+    "@types/rimraf": "^3.0.2",
+    "@typescript-eslint/parser": "^8.18.1",
     "archiver": "^6.0.0",
     "ts-node": "^10.9.1",
     "tsconfig": "*"

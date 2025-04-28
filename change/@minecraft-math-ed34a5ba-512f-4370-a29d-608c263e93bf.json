@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Upgrade prettier to ^3.5.3",
+  "packageName": "@minecraft/math",
+  "email": "zachary.campbell@skyboxlabs.com",
+  "dependentChangeType": "patch"
+}

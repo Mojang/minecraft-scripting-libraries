@@ -2,6 +2,21 @@
   "name": "@minecraft/core-build-tasks",
   "entries": [
     {
+      "date": "Mon, 28 Apr 2025 17:15:23 GMT",
+      "version": "5.0.0",
+      "tag": "@minecraft/core-build-tasks_v5.0.0",
+      "comments": {
+        "major": [
+          {
+            "author": "zachary.campbell@skyboxlabs.com",
+            "package": "@minecraft/core-build-tasks",
+            "commit": "1db2fc3753e95bc595091473d4b79b5e2665d880",
+            "comment": "Upgrade @rushstack/node-core-library to 5.13.0, prettier to ^3.5.3"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 14 Apr 2025 21:56:03 GMT",
       "version": "4.1.0",
       "tag": "@minecraft/core-build-tasks_v4.1.0",

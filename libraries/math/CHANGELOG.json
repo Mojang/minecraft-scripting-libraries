@@ -2,6 +2,21 @@
   "name": "@minecraft/math",
   "entries": [
     {
+      "date": "Mon, 28 Apr 2025 17:15:23 GMT",
+      "version": "2.2.4",
+      "tag": "@minecraft/math_v2.2.4",
+      "comments": {
+        "patch": [
+          {
+            "author": "zachary.campbell@skyboxlabs.com",
+            "package": "@minecraft/math",
+            "commit": "1db2fc3753e95bc595091473d4b79b5e2665d880",
+            "comment": "Upgrade prettier to ^3.5.3"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 18 Apr 2025 18:48:51 GMT",
       "version": "2.2.3",
       "tag": "@minecraft/math_v2.2.3",

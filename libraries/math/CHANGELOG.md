@@ -1,8 +1,16 @@
 # Change Log - @minecraft/math
 
-<!-- This log was last generated on Fri, 18 Apr 2025 18:48:51 GMT and should not be manually modified. -->
+<!-- This log was last generated on Mon, 28 Apr 2025 17:15:23 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.2.4
+
+Mon, 28 Apr 2025 17:15:23 GMT
+
+### Patches
+
+- Upgrade prettier to ^3.5.3 (zachary.campbell@skyboxlabs.com)
 
 ## 2.2.3
 

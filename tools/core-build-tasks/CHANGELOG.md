@@ -1,8 +1,16 @@
 # Change Log - @minecraft/core-build-tasks
 
-<!-- This log was last generated on Mon, 14 Apr 2025 21:56:03 GMT and should not be manually modified. -->
+<!-- This log was last generated on Mon, 28 Apr 2025 17:15:23 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 5.0.0
+
+Mon, 28 Apr 2025 17:15:23 GMT
+
+### Major changes
+
+- Upgrade @rushstack/node-core-library to 5.13.0, prettier to ^3.5.3 (zachary.campbell@skyboxlabs.com)
 
 ## 4.1.0
 

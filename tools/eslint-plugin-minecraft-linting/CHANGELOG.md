@@ -1,8 +1,16 @@
 # Change Log - eslint-plugin-minecraft-linting
 
-<!-- This log was last generated on Thu, 09 Jan 2025 19:25:04 GMT and should not be manually modified. -->
+<!-- This log was last generated on Mon, 28 Apr 2025 17:15:23 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.0.4
+
+Mon, 28 Apr 2025 17:15:23 GMT
+
+### Patches
+
+- Upgrade @types/node to ^22.0.0 (zachary.campbell@skyboxlabs.com)
 
 ## 2.0.0
 

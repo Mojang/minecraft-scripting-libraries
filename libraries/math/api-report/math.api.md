@@ -11,7 +11,11 @@ import type { Vector3 } from '@minecraft/server';
 export function clampNumber(val: number, min: number, max: number): number;
 
 // @public
+export const VECTOR2_ZERO: Vector2;
+
+// @public
 export class Vector2Builder implements Vector2 {
+    constructor(vecStr: string, delim?: string);
     constructor(vec: Vector2, arg?: never);
     constructor(x: number, y: number);
     // (undocumented)
@@ -27,6 +31,7 @@ export class Vector2Builder implements Vector2 {
 
 // @public
 export class Vector2Utils {
+    static fromString(str: string, delimiter?: string): Vector2 | undefined;
     static toString(v: Vector2, options?: {
         decimals?: number;
         delimiter?: string;
@@ -77,6 +82,7 @@ export const VECTOR3_ZERO: Vector3;
 
 // @public
 export class Vector3Builder implements Vector3 {
+    constructor(vecStr: string, delim?: string, arg2?: never);
     constructor(vec: Vector3, arg?: never, arg2?: never);
     constructor(x: number, y: number, z: number);
     add(v: Partial<Vector3>): this;
@@ -124,6 +130,7 @@ export class Vector3Utils {
     static dot(a: Vector3, b: Vector3): number;
     static equals(v1: Vector3, v2: Vector3): boolean;
     static floor(v: Vector3): Vector3;
+    static fromString(str: string, delimiter?: string): Vector3 | undefined;
     static lerp(a: Vector3, b: Vector3, t: number): Vector3;
     static magnitude(v: Vector3): number;
     static multiply(a: Vector3, b: Vector3): Vector3;

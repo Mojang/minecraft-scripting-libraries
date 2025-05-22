@@ -19,16 +19,29 @@ export class Vector3Builder implements Vector3 {
     y: number;
     z: number;
 
+    constructor(vecStr: string, delim?: string, arg2?: never);
     constructor(vec: Vector3, arg?: never, arg2?: never);
     constructor(x: number, y: number, z: number);
-    constructor(first: number | Vector3, y?: number, z?: number) {
+    constructor(first: number | Vector3 | string, second?: number | string, z?: number) {
         if (typeof first === 'object') {
             this.x = first.x;
             this.y = first.y;
             this.z = first.z;
+        } else if (typeof first === 'string') {
+            const parsed = Vector3Utils.fromString(first, (second as string | undefined) ?? ',');
+            if (!parsed) {
+                this.x = 0;
+                this.y = 0;
+                this.z = 0;
+
+                return;
+            }
+            this.x = parsed.x;
+            this.y = parsed.y;
+            this.z = parsed.z;
         } else {
             this.x = first;
-            this.y = y ?? 0;
+            this.y = (second as number) ?? 0;
             this.z = z ?? 0;
         }
     }
@@ -217,15 +230,27 @@ export class Vector2Builder implements Vector2 {
     x: number;
     y: number;
 
+    constructor(vecStr: string, delim?: string);
     constructor(vec: Vector2, arg?: never);
     constructor(x: number, y: number);
-    constructor(first: number | Vector2, y?: number) {
+    constructor(first: number | Vector2 | string, second?: number | string) {
         if (typeof first === 'object') {
             this.x = first.x;
             this.y = first.y;
+        } else if (typeof first === 'string') {
+            const parsed = Vector2Utils.fromString(first, (second as string | undefined) ?? ',');
+            if (!parsed) {
+                this.x = 0;
+                this.y = 0;
+
+                return;
+            }
+
+            this.x = parsed.x;
+            this.y = parsed.y;
         } else {
             this.x = first;
-            this.y = y ?? 0;
+            this.y = (second as number) ?? 0;
         }
     }
 

@@ -370,7 +370,7 @@ export const VECTOR3_HALF: Vector3 = { x: 0.5, y: 0.5, z: 0.5 };
  */
 export const VECTOR3_NEGATIVE_ONE: Vector3 = { x: -1, y: -1, z: -1 };
 /**
- * negative
+ * zero
  *
  * A vector representing the value of 0 in all directions (0,0)
  *

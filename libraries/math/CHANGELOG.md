@@ -1,8 +1,16 @@
 # Change Log - @minecraft/math
 
-<!-- This log was last generated on Mon, 28 Apr 2025 17:15:23 GMT and should not be manually modified. -->
+<!-- This log was last generated on Thu, 22 May 2025 22:35:28 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.2.5
+
+Thu, 22 May 2025 22:35:28 GMT
+
+### Patches
+
+- New fromString method using the same format as toString (rlanda@microsoft.com)
 
 ## 2.2.4
 

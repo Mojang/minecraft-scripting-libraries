@@ -2,6 +2,21 @@
   "name": "@minecraft/math",
   "entries": [
     {
+      "date": "Thu, 22 May 2025 22:35:28 GMT",
+      "version": "2.2.5",
+      "tag": "@minecraft/math_v2.2.5",
+      "comments": {
+        "patch": [
+          {
+            "author": "rlanda@microsoft.com",
+            "package": "@minecraft/math",
+            "commit": "09a7aec946f447b33756ca363ac54afa3a8f0155",
+            "comment": "New fromString method using the same format as toString"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 28 Apr 2025 17:15:23 GMT",
       "version": "2.2.4",
       "tag": "@minecraft/math_v2.2.4",

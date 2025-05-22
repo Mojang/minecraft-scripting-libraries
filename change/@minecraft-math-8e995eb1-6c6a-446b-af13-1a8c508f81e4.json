@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "New fromString method using the same format as toString",
-  "packageName": "@minecraft/math",
-  "email": "rlanda@microsoft.com",
-  "dependentChangeType": "patch"
-}

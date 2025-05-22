@@ -60,11 +60,7 @@ export class Vector3Utils {
      * Calculate the cross product of two vectors. Returns a new vector.
      */
     static cross(a: Vector3, b: Vector3): Vector3 {
-        return {
-            x: a.y * b.z - a.z * b.y,
-            y: a.z * b.x - a.x * b.z,
-            z: a.x * b.y - a.y * b.x,
-        };
+        return { x: a.y * b.z - a.z * b.y, y: a.z * b.x - a.x * b.z, z: a.x * b.y - a.y * b.x };
     }
 
     /**
@@ -116,17 +112,32 @@ export class Vector3Utils {
     }
 
     /**
+     * fromString
+     *
+     * Gets a Vector3 from the string representation produced by {@link Vector3Utils.toString}. If any numeric value is not a number
+     * or the format is invalid, undefined is returned.
+     * @param str - The string to parse
+     * @param delimiter - The delimiter used to separate the components. Defaults to the same as the default for {@link Vector3Utils.toString}
+     */
+    static fromString(str: string, delimiter: string = ','): Vector3 | undefined {
+        const parts = str.split(delimiter);
+        if (parts.length !== 3) {
+            return undefined;
+        }
+
+        const output = parts.map(part => parseFloat(part));
+        if (output.some(part => isNaN(part))) {
+            return undefined;
+        }
+        return { x: output[0], y: output[1], z: output[2] };
+    }
+
+    /**
      * clamp
      *
      * Clamps the components of a vector to limits to produce a new vector
      */
-    static clamp(
-        v: Vector3,
-        limits?: {
-            min?: Partial<Vector3>;
-            max?: Partial<Vector3>;
-        }
-    ): Vector3 {
+    static clamp(v: Vector3, limits?: { min?: Partial<Vector3>; max?: Partial<Vector3> }): Vector3 {
         return {
             x: clampNumber(v.x, limits?.min?.x ?? Number.MIN_SAFE_INTEGER, limits?.max?.x ?? Number.MAX_SAFE_INTEGER),
             y: clampNumber(v.y, limits?.min?.y ?? Number.MIN_SAFE_INTEGER, limits?.max?.y ?? Number.MAX_SAFE_INTEGER),
@@ -140,11 +151,7 @@ export class Vector3Utils {
      * Constructs a new vector using linear interpolation on each component from two vectors.
      */
     static lerp(a: Vector3, b: Vector3, t: number): Vector3 {
-        return {
-            x: a.x + (b.x - a.x) * t,
-            y: a.y + (b.y - a.y) * t,
-            z: a.z + (b.z - a.z) * t,
-        };
+        return { x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t, z: a.z + (b.z - a.z) * t };
     }
 
     /**
@@ -167,11 +174,7 @@ export class Vector3Utils {
      * Not to be confused with {@link Vector3Utils.dot} product or {@link Vector3Utils.cross} product
      */
     static multiply(a: Vector3, b: Vector3): Vector3 {
-        return {
-            x: a.x * b.x,
-            y: a.y * b.y,
-            z: a.z * b.z,
-        };
+        return { x: a.x * b.x, y: a.y * b.y, z: a.z * b.z };
     }
 
     /**
@@ -183,11 +186,7 @@ export class Vector3Utils {
     static rotateX(v: Vector3, a: number): Vector3 {
         let cos = Math.cos(a);
         let sin = Math.sin(a);
-        return {
-            x: v.x,
-            y: v.y * cos - v.z * sin,
-            z: v.z * cos + v.y * sin,
-        };
+        return { x: v.x, y: v.y * cos - v.z * sin, z: v.z * cos + v.y * sin };
     }
 
     /**
@@ -199,11 +198,7 @@ export class Vector3Utils {
     static rotateY(v: Vector3, a: number): Vector3 {
         let cos = Math.cos(a);
         let sin = Math.sin(a);
-        return {
-            x: v.x * cos + v.z * sin,
-            y: v.y,
-            z: v.z * cos - v.x * sin,
-        };
+        return { x: v.x * cos + v.z * sin, y: v.y, z: v.z * cos - v.x * sin };
     }
 
     /**
@@ -215,11 +210,7 @@ export class Vector3Utils {
     static rotateZ(v: Vector3, a: number): Vector3 {
         let cos = Math.cos(a);
         let sin = Math.sin(a);
-        return {
-            x: v.x * cos - v.y * sin,
-            y: v.y * cos + v.x * sin,
-            z: v.z,
-        };
+        return { x: v.x * cos - v.y * sin, y: v.y * cos + v.x * sin, z: v.z };
     }
 }
 
@@ -238,6 +229,27 @@ export class Vector2Utils {
         const decimals = options?.decimals ?? 2;
         const str: string[] = [v.x.toFixed(decimals), v.y.toFixed(decimals)];
         return str.join(options?.delimiter ?? ', ');
+    }
+
+    /**
+     * fromString
+     *
+     * Gets a Vector2 from the string representation produced by {@link Vector3Utils.toString}. If any numeric value is not a number
+     * or the format is invalid, undefined is returned.
+     * @param str - The string to parse
+     * @param delimiter - The delimiter used to separate the components. Defaults to the same as the default for {@link Vector3Utils.toString}
+     */
+    static fromString(str: string, delimiter: string = ','): Vector2 | undefined {
+        const parts = str.split(delimiter);
+        if (parts.length !== 2) {
+            return undefined;
+        }
+
+        const output = parts.map(part => parseFloat(part));
+        if (output.some(part => isNaN(part))) {
+            return undefined;
+        }
+        return { x: output[0], y: output[1] };
     }
 }
 
@@ -357,3 +369,11 @@ export const VECTOR3_HALF: Vector3 = { x: 0.5, y: 0.5, z: 0.5 };
  * @public
  */
 export const VECTOR3_NEGATIVE_ONE: Vector3 = { x: -1, y: -1, z: -1 };
+/**
+ * zero
+ *
+ * A vector representing the value of 0 in all directions (0,0)
+ *
+ * @public
+ */
+export const VECTOR2_ZERO: Vector2 = { x: 0, y: 0 };

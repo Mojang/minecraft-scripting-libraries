@@ -3,7 +3,7 @@
 
 import type { Vector3 } from '@minecraft/server';
 import { describe, expect, it } from 'vitest';
-import { Vector2Utils, Vector3Utils } from './coreHelpers.js';
+import { VECTOR2_ZERO, Vector2Utils, VECTOR3_ZERO, Vector3Utils } from './coreHelpers.js';
 import { Vector2Builder, Vector3Builder } from './vectorWrapper.js';
 
 /**
@@ -181,6 +181,24 @@ describe('Vector3Builder', () => {
         expect(result).toEqual(vectorB);
     });
 
+    it('should be able to compute a string representation of the vector with the same result as the coreHelpers function using a string', () => {
+        const regular = '1.33, 2.14, 3.55';
+        const alternateDelimiter = '1.33+2.14+3.55';
+        const vectorBuilderA = new Vector3Builder(regular);
+        const vectorBuilderB = new Vector3Builder(alternateDelimiter, '+');
+
+        const vectorA = Vector3Utils.fromString(regular);
+        const vectorB = Vector3Utils.fromString(alternateDelimiter, '+');
+
+        expect(vectorBuilderA).toEqual(vectorA);
+        expect(vectorBuilderB).toEqual(vectorB);
+    });
+
+    it('makes a 0 vector for invalid string', () => {
+        const regular = '1.33, sdfg, 3.55';
+        expect(new Vector3Builder(regular)).toEqual(VECTOR3_ZERO);
+    });
+
     it('should be able compute the lerp halfway between two vectors with the same result as the coreHelpers function', () => {
         const vectorA = new Vector3Builder(5, 6, 3);
         const vectorB = new Vector3Builder(4, 2, 6);
@@ -249,5 +267,23 @@ describe('Vector2Builder', () => {
 
         const result = vectorA.toString({ decimals: 1, delimiter: ' ' });
         expect(result).toEqual(vectorB);
+    });
+
+    it('should be able to compute a string representation of the vector with the same result as the coreHelpers function using a string', () => {
+        const regular = '1.33, 2.14';
+        const alternateDelimiter = '1.33+2.14';
+        const vectorBuilderA = new Vector2Builder(regular);
+        const vectorBuilderB = new Vector2Builder(alternateDelimiter, '+');
+
+        const vectorA = Vector2Utils.fromString(regular);
+        const vectorB = Vector2Utils.fromString(alternateDelimiter, '+');
+
+        expect(vectorBuilderA).toEqual(vectorA);
+        expect(vectorBuilderB).toEqual(vectorB);
+    });
+
+    it('makes a 0 vector for invalid string', () => {
+        const regular = '1.33, sdfg';
+        expect(new Vector2Builder(regular)).toEqual(VECTOR2_ZERO);
     });
 });

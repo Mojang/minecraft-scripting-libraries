@@ -1,9 +1,9 @@
 {
     "$schema": "https://turbo.build/schema.json",
-    "pipeline": {
+    "tasks": {
         "@minecraft/core-build-tasks#build-tools": {
             "outputs": ["lib/**", "lib-cjs/**", "dist/**"],
-            "outputMode": "errors-only"
+            "outputLogs": "errors-only"
         },
         "build": {
             "dependsOn": ["@minecraft/core-build-tasks#build-tools", "^build"],
@@ -24,12 +24,9 @@
             "dependsOn": ["@minecraft/core-build-tasks#build-tools"],
             "outputs": [],
             "cache": false,
-            "outputMode": "errors-only"
+            "outputLogs": "errors-only"
         },
-        "clean-tools": {
-            "dependsOn": [],
-            "outputs": [],
-            "cache": false
-        }
-    }
+        "clean-tools": { "dependsOn": [], "outputs": [], "cache": false }
+    },
+    "daemon": false
 }

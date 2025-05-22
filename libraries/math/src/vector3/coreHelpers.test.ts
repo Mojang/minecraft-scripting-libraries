@@ -135,6 +135,50 @@ describe('Vector3 operations', () => {
         expect(Vector2Utils.toString(vector, { delimiter: '|' })).toBe(expectedString4);
     });
 
+    describe('fromString', () => {
+        it('creates a vector3 from a string', () => {
+            const inputString = '1.00, 2.00, 3.00';
+            const expectedVector: Vector3 = { x: 1, y: 2, z: 3 };
+            expect(Vector3Utils.fromString(inputString)).toEqual(expectedVector);
+        });
+
+        it('for a vector3 returns undefined for invalid formatting', () => {
+            const invalidTooManyNumbers = '1.00, 2.00, 3.00, 345, 234234';
+            const invalidIncorrectDelimiter = '1.00+ 2.00+ 3.00+ 345+ 234234';
+            const invalidNonNumericElements = '1.00, wrong, 3.00, 3fgdf7, 234234';
+            expect(Vector3Utils.fromString(invalidTooManyNumbers)).toBeUndefined();
+            expect(Vector3Utils.fromString(invalidIncorrectDelimiter)).toBeUndefined();
+            expect(Vector3Utils.fromString(invalidNonNumericElements)).toBeUndefined();
+        });
+
+        it('creates a vector3 from a string with an overridden delimiter', () => {
+            const inputString = '1.00+ 2.00+ 3.00';
+            const expectedVector: Vector3 = { x: 1, y: 2, z: 3 };
+            expect(Vector3Utils.fromString(inputString, '+')).toEqual(expectedVector);
+        });
+
+        it('creates a vector2 from a string', () => {
+            const inputString = '1.00, 2.00';
+            const expectedVector: Vector2 = { x: 1, y: 2 };
+            expect(Vector2Utils.fromString(inputString)).toEqual(expectedVector);
+        });
+
+        it('for a vector2 returns undefined for invalid formatting', () => {
+            const invalidTooManyNumbers = '1.00, 2.00, 3.00, 345, 234234';
+            const invalidIncorrectDelimiter = '1.00+ 2.00';
+            const invalidNonNumericElements = 'fgdf7, 234234';
+            expect(Vector2Utils.fromString(invalidTooManyNumbers)).toBeUndefined();
+            expect(Vector2Utils.fromString(invalidIncorrectDelimiter)).toBeUndefined();
+            expect(Vector2Utils.fromString(invalidNonNumericElements)).toBeUndefined();
+        });
+
+        it('creates a vector2 from a string with an overridden delimiter', () => {
+            const inputString = '1.00+ 2.00';
+            const expectedVector: Vector2 = { x: 1, y: 2 };
+            expect(Vector2Utils.fromString(inputString, '+')).toEqual(expectedVector);
+        });
+    });
+
     describe('clamp', () => {
         const v: Vector3 = { x: 1, y: 1, z: 3 };
         const minVec: Partial<Vector3> = { x: 0, y: 1.5 };

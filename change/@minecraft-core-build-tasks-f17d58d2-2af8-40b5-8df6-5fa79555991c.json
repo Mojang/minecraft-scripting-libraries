@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Added alias option to BundleTaskParameters",
-  "packageName": "@minecraft/core-build-tasks",
-  "email": "jake@xbox.com",
-  "dependentChangeType": "patch"
-}

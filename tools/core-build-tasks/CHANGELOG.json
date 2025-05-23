@@ -2,6 +2,21 @@
   "name": "@minecraft/core-build-tasks",
   "entries": [
     {
+      "date": "Fri, 23 May 2025 10:43:28 GMT",
+      "version": "5.1.0",
+      "tag": "@minecraft/core-build-tasks_v5.1.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "jake@xbox.com",
+            "package": "@minecraft/core-build-tasks",
+            "commit": "fe26c2ad6702cda34dbb1195a6882df3d27d3ab8",
+            "comment": "Added alias option to BundleTaskParameters"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 28 Apr 2025 17:15:23 GMT",
       "version": "5.0.0",
       "tag": "@minecraft/core-build-tasks_v5.0.0",

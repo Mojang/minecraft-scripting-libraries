@@ -1,8 +1,16 @@
 # Change Log - @minecraft/core-build-tasks
 
-<!-- This log was last generated on Mon, 28 Apr 2025 17:15:23 GMT and should not be manually modified. -->
+<!-- This log was last generated on Fri, 23 May 2025 10:43:28 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 5.1.0
+
+Fri, 23 May 2025 10:43:28 GMT
+
+### Minor changes
+
+- Added alias option to BundleTaskParameters (jake@xbox.com)
 
 ## 5.0.0
 

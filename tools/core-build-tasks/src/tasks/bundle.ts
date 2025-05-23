@@ -29,6 +29,9 @@ export type BundleTaskParameters = {
 
     /** Strip out statements with these labels. Documentation: https://esbuild.github.io/api/#drop-labels */
     dropLabels?: string[];
+
+    /** This feature lets you substitute one package (key) for another (value) when bundling. */
+    alias?: Record<string, string>;
 };
 
 export type PostProcessOutputFilesResult = {
@@ -119,6 +122,7 @@ export function bundleTask(options: BundleTaskParameters): ReturnType<typeof par
             external: options.external,
             write: !isRequiredToMakeChanges,
             dropLabels: options.dropLabels,
+            alias: options.alias,
         });
 
         if (buildResult.errors.length === 0) {

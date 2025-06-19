@@ -3,5 +3,5 @@
   "comment": "Add api-docs-generator and markup-generators-plugin",
   "packageName": "@minecraft/api-docs-generator",
   "email": "zachary.campbell@skyboxlabs.com",
-  "dependentChangeType": "patch"
+  "dependentChangeType": "none"
 }

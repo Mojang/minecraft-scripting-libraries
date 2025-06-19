@@ -3,5 +3,5 @@
   "comment": "Update core-build-tasks publishRelease to support uploading NPM tarballs",
   "packageName": "@minecraft/core-build-tasks",
   "email": "zachary.campbell@skyboxlabs.com",
-  "dependentChangeType": "patch"
+  "dependentChangeType": "none"
 }

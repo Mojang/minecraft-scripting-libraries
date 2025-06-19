@@ -57,7 +57,8 @@
         "run",
         "test",
         "--",
-        "--only"
+        "--only",
+        "--filter=api-docs-generator-test-snapshots..."
       ],
     },
     {
@@ -76,6 +77,7 @@
         "test",
         "--",
         "--only",
+        "--filter=api-docs-generator-test-snapshots...",
         "--",
         "--test",
         "${input:test}"

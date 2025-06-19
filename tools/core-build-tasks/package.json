@@ -4,7 +4,8 @@
   "description": "Common build tasks used for minecraft-scripting-libraries",
   "exports": {
     "import": "./lib/index.js",
-    "require": "./lib-cjs/index.js"
+    "require": "./lib-cjs/index.js",
+    "types": "./lib/index.d.ts"
   },
   "types": "./lib/index.d.ts",
   "author": "Raphael Landaverde (rlanda@microsoft.com)",

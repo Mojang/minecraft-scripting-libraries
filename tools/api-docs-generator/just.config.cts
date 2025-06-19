@@ -6,7 +6,7 @@ import {
     vitestTask,
 } from '@minecraft/core-build-tasks';
 import { execSync } from 'child_process';
-import * as fs from 'fs';
+import fs from 'fs';
 import { argv, series, task, tscTask } from 'just-scripts';
 
 // Build
@@ -37,19 +37,10 @@ task(
 task(
     'postpublish',
     series('package', () => {
-        const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
-        if (!packageJson?.description) {
-            throw new Error('The package.json file does not contain a "description" field. Unable to create release.');
-        }
-        if (!fs.existsSync('./dist') || fs.readdirSync('./dist').length === 0) {
-            throw new Error(
-                'Packages to publish have not been generated, check "./dist" and run "npm run package" first.'
-            );
-        }
         return publishReleaseTask({
             repoOwner: 'Mojang',
             repoName: 'minecraft-scripting-libraries',
-            message: packageJson.description,
+            artifact: { files: ['./dist'], sourceFormat: 'npm-tarball' },
         });
     })
 );

@@ -20,20 +20,15 @@
     "lint": "just lint",
     "test": "just test",
     "package": "just package",
-    "publish-github-releases": "just publish-github-releases"
+    "postpublish": "just postpublish"
   },
   "files": [
     "lib/",
+    "!lib/**/*.{spec,test}.ts",
     "templates/",
     "README.md",
     "CHANGELOG.*"
   ],
-  "beachball": {
-    "ignorePatterns": [
-      "just.config.ts",
-      "vite.config.ts"
-    ]
-  },
   "devDependencies": {
     "@minecraft/api-docs-generator": "^0.0.0",
     "@minecraft/core-build-tasks": "*",
@@ -43,6 +38,7 @@
     "eslint": "^9.17.0",
     "eslint-config-minecraft-scripting": "*",
     "just-scripts": "^2.3.3",
+    "rimraf": "^3.0.2",
     "ts-node": "^10.9.2",
     "vitest": "^3.0.8"
   },

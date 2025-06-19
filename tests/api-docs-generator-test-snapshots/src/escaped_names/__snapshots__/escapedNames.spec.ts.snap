@@ -1,0 +1,68 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Escaped Names > Properly generates documentation for names which need escaping > # Of Files Generated 1`] = `1`;
+
+exports[`Escaped Names > Properly generates documentation for names which need escaping > typescript/escaped-names@1.0.0.d.ts 1`] = `
+"// Type definitions for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+/**
+ * @packageDocumentation
+ *
+ * Manifest Details
+ * \`\`\`json
+ * {
+ *   "module_name": "escaped-names",
+ *   "version": "1.0.0"
+ * }
+ * \`\`\`
+ *
+ */
+export enum EnumWithSpookyMemberNames {
+    'type' = 'Name that is a keyword',
+    '5valueWithNumberStart' = 'Name with a number at the start',
+    'value with spaces' = 'Name with a space in it',
+}
+
+export class ClassWithSpookyMemberNames {
+    private constructor();
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    '5memberWithNumberStart': number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    'member with spaces': number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    'type': number;
+}
+
+export interface IInterfaceWithBadName {
+    foo: number;
+}
+
+export interface InterfaceOKName {
+    foo: number;
+}
+
+export interface InterfaceWithSpookyMemberNames {
+    '5memberWithNumberStart': number;
+    'member with spaces': number;
+    type: number;
+}
+"
+`;

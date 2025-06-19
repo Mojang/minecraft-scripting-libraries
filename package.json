@@ -14,8 +14,11 @@
     "scripts": {
         "build": "turbo run build",
         "test": "turbo run test",
+        "test:update": "turbo run test -- --update",
         "lint": "turbo run lint",
+        "lint:fix": "turbo run lint -- --fix",
         "clean": "turbo run clean",
+        "package": "turbo run package",
         "change": "beachball change",
         "release": "beachball publish --access public"
     },
@@ -31,7 +34,8 @@
     "homepage": "https://github.com/Mojang/minecraft-scripting-libraries#readme",
     "workspaces": [
         "libraries/*",
-        "tools/*"
+        "tools/*",
+        "tests/*"
     ],
     "devDependencies": {
         "@rushstack/node-core-library": "^5.13.0",

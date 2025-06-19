@@ -1,0 +1,68 @@
+{
+  "name": "@minecraft/api-docs-generator",
+  "version": "0.0.0",
+  "description": "Core Minecraft API Docs Generator package for generating API markup and documentation",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "author": "Raphael Landaverde (rlanda@microsoft.com)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mojang/minecraft-scripting-libraries.git",
+    "directory": "tools/api-docs-generator"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "build": "just build",
+    "clean": "just clean",
+    "lint": "just lint",
+    "test": "just test",
+    "package": "just package",
+    "postpublish": "just postpublish"
+  },
+  "bin": {
+    "minecraft-api-docs-generator": "lib/cli.js"
+  },
+  "files": [
+    "lib/",
+    "!lib/test/*",
+    "README.md",
+    "CHANGELOG.*"
+  ],
+  "beachball": {
+    "ignorePatterns": [
+      "just.config.ts",
+      "vite.config.ts"
+    ]
+  },
+  "devDependencies": {
+    "@minecraft/core-build-tasks": "*",
+    "@types/deep-equal": "^1.0.4",
+    "@types/node": "^22.0.0",
+    "@types/semver": "^7.3.12",
+    "@types/terminal-kit": "^2.5.6",
+    "@types/toposort": "^2.0.7",
+    "@types/yargs": "^17.0.32",
+    "eslint": "^9.17.0",
+    "eslint-config-minecraft-scripting": "*",
+    "just-scripts": "^2.3.3",
+    "ts-node": "^10.9.2",
+    "vitest": "^3.0.8"
+  },
+  "dependencies": {
+    "ajv": "^8.12.0",
+    "cosmiconfig": "^9.0.0",
+    "deep-equal": "^2.1.0",
+    "prettier": "^3.5.3",
+    "resolve-from": "^5.0.0",
+    "runtypes": "^6.7.0",
+    "semver": "^7.3.5",
+    "terminal-kit": "^2.5.6",
+    "toposort": "^2.0.2",
+    "typescript": "~5.6.0",
+    "word-wrap": "^1.2.3",
+    "yargs": "^17.0.32"
+  }
+}

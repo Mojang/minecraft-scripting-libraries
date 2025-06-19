@@ -1,0 +1,25 @@
+---
+{{ >default_metadata }}
+title: {{{enum_name}}} Enum
+description: Description and values of the {{{enum_name}}} enum
+---
+# `{{{enum_name}}}` Enum
+{{#enum_description}}
+{{{.}}}
+{{/enum_description}}
+
+## Values
+{{#values}}
+- `{{{value}}}`
+{{#value_description}}
+{{{.}}}
+{{/value_description}}
+{{/values}}
+
+{{#command_references.length}}
+## References
+The following commands reference this enum:
+{{#command_references}}
+- [{{{command_name}}}](../commands/{{{command_name}}}.md)
+{{/command_references}}
+{{/command_references.length}}

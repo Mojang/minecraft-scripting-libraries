@@ -1,0 +1,1 @@
+{{{name}}}{{#details.supported_values.length}}: {{#details.supported_values}}{{> value}}{{^is_last}}|{{/is_last}}{{/details.supported_values}}{{/details.supported_values.length}}{{^details.supported_values.length}}{{#type}}{{#is_optional}}?{{/is_optional}}: {{> type}}{{/type}}{{/details.supported_values.length}}{{^is_last}}, {{/is_last}}

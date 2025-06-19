@@ -1,0 +1,139 @@
+---
+{{ >default_metadata }}
+title: {{{filepath_name}}} Module
+description: Contents of the {{{name}}} module{{#from_module.prior_version}} (Version {{.}}){{/from_module.prior_version}}
+{{#is_prerelease}}
+monikerRange: "=minecraft-bedrock-experimental"
+{{/is_prerelease}}
+---
+# `{{{name}}}` Module{{#from_module.prior_version}} (Version {{.}}){{/from_module.prior_version}}
+{{#module_description_md}}
+
+{{{.}}}
+{{/module_description_md}}
+{{#show_prior_warning}}
+
+> [!IMPORTANT]
+> This documentation is for an older version of this module.{{#prior_link}} Go to the latest documentation [*here*]({{{.}}}).{{/prior_link}}
+{{/show_prior_warning}}
+{{#is_prerelease}}
+
+> [!CAUTION]
+> This module is still in pre-release.  It may change or it may be removed in future releases.
+{{/is_prerelease}}
+{{#display_changelog_in_toc}}{{#changelog.length}}
+
+## [Changelog](changelog.md)
+{{/changelog.length}}{{/display_changelog_in_toc}}
+{{#examples.length}}
+
+{{> examples}}
+{{/examples.length}}
+
+## Manifest Details
+```json
+{
+    "module_name": "{{{name}}}",
+    "version": "{{{manifest_example_version_md}}}"
+}
+```
+{{#available_module_versions.length}}
+{{#is_latest_major}}
+This is version {{{major_version}}}.x.x of this module, which is the latest as of version {{{minecraft_version}}} of Minecraft.
+{{/is_latest_major}}
+
+## Available Versions
+{{#available_module_versions}}
+- `{{{.}}}`
+{{/available_module_versions}}
+{{/available_module_versions.length}}
+{{#previous_module_version_chunks.length}}
+
+### Prior Versions
+
+{{#previous_module_version_chunks}}
+The following API versions are from a major version that is documented here: {{{prior_version_link}}}:
+{{#versions}}
+- `{{{.}}}`
+{{/versions}}
+
+{{/previous_module_version_chunks}}
+{{/previous_module_version_chunks.length}}
+{{#enums.length}}
+
+## Enumerations
+  {{#enums}}
+- [{{enum_name}}]({{enum_name}}.md)
+  {{/enums}}
+{{/enums.length}}
+{{#type_aliases.length}}
+
+# Type Aliases
+  {{#type_aliases}}
+- [{{{name}}}]({{{name}}}.md)
+  {{/type_aliases}}
+{{/type_aliases.length}}
+{{#classes.length}}
+
+## Classes
+  {{#classes}}
+- [{{{name}}}]({{{name}}}.md)
+  {{/classes}}
+{{/classes.length}}
+{{#interfaces.length}}
+
+## Interfaces
+  {{#interfaces}}
+- [{{{name}}}]({{{name}}}.md)
+  {{/interfaces}}
+{{/interfaces.length}}
+{{#errors.length}}
+
+## Errors
+  {{#errors}}
+- [{{{name}}}]({{{name}}}.md)
+  {{/errors}}
+{{/errors.length}}
+{{#functions.length}}
+
+## Functions
+  {{#functions}}
+
+{{> function}}
+  {{/functions}}
+{{/functions.length}}
+{{#constants.length}}
+
+## Constants
+  {{#constants}}
+
+{{> property}}
+  {{/constants}}
+{{/constants.length}}
+{{#objects.length}}
+
+## Objects
+  {{#objects}}
+  
+{{> property}}
+  {{/objects}}
+{{/objects.length}}
+{{#dependencies.length}}
+
+## Dependencies
+  {{#dependencies}}
+- [`{{{name}}}`](../../../{{{from_module.folder_path}}}/{{{filepath_name}}}/{{{bookmark_name}}}.md)
+  {{/dependencies}}
+{{/dependencies.length}}
+{{#peer_dependencies.length}}
+
+## Peer Dependencies
+  {{#peer_dependencies}}
+    {{^is_vanilla_data}}
+- [`{{{name}}}`](../../../{{{from_module.folder_path}}}/{{{filepath_name}}}/{{{bookmark_name}}}.md)
+    {{/is_vanilla_data}}
+    {{#is_vanilla_data}}
+- `{{{name}}}`
+    {{/is_vanilla_data}}
+  {{/peer_dependencies}}
+{{/peer_dependencies.length}}

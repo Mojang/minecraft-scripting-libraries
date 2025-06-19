@@ -1,0 +1,27 @@
+{
+  "name": "test-markup-generator-plugin",
+  "version": "0.0.0",
+  "description": "Example plugin extending @minecraft/api-docs-generator with additional markup generators",
+  "private": true,
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "just-scripts build",
+    "clean": "just-scripts clean",
+    "lint": "just-scripts lint"
+  },
+  "files": [
+    "lib"
+  ],
+  "devDependencies": {
+    "@minecraft/core-build-tasks": "*",
+    "@types/node": "^22.0.0",
+    "eslint-config-minecraft-scripting": "*"
+  },
+  "dependencies": {
+    "@minecraft/api-docs-generator": "*",
+    "mustache": "^4.2.0",
+    "typescript": "~5.6.0"
+  }
+}

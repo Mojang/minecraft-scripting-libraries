@@ -1,0 +1,8 @@
+{
+  "minecraft_version": "1.18.20",
+  "name": "test-module1",
+  "uuid": "b8461301-f3a5-4a4c-95b7-9f91bdfe1eda",
+  "objects": [],
+  "version": "1.0.0",
+  "module_type": "script"
+}

@@ -1,0 +1,32 @@
+{{#ts_has_comments}}
+/**
+  {{#is_prerelease}}
+ * @{{{prerelease}}}
+  {{/is_prerelease}}
+  {{#is_deprecated}}
+ * @deprecated This enum is deprecated and will be removed in {{{deprecated_version}}}.
+    {{#deprecated_description_ts.length}}
+ *
+      {{#deprecated_description_ts}}
+ * {{{.}}}
+      {{/deprecated_description_ts}}
+    {{/deprecated_description_ts.length}}
+    {{#enum_description_ts.length}}
+ *
+    {{/enum_description_ts.length}}
+  {{/is_deprecated}}
+  {{#enum_description_ts}}
+ * {{{.}}}
+  {{/enum_description_ts}}
+ */
+{{/ts_has_comments}}
+{{^is_script_generated}}
+export enum {{{enum_name}}} {
+{{/is_script_generated}}
+{{#is_script_generated}}
+{{{raw_script_text}}} {
+{{/is_script_generated}}
+{{#constants}}
+{{> property}}
+{{/constants}}
+}

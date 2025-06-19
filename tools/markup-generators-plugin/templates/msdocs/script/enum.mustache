@@ -1,0 +1,39 @@
+---
+{{ >default_metadata }}
+title: {{{from_module.filepath_name}}}.{{{enum_name}}} Enumeration
+description: Contents of the {{{from_module.name}}}.{{{name}}} enumeration{{#from_module.prior_version}} (Version {{.}}){{/from_module.prior_version}}.
+{{#is_prerelease}}
+monikerRange: "=minecraft-bedrock-experimental"
+{{/is_prerelease}}
+---
+# {{{enum_name}}} Enumeration{{#from_module.prior_version}} (Version {{.}}){{/from_module.prior_version}}
+{{#show_prior_warning}}
+
+> [!IMPORTANT]
+> This documentation is for an older version of this module.{{#prior_link}} Go to the latest documentation [*here*]({{{.}}}).{{/prior_link}}
+{{/show_prior_warning}}
+{{#is_prerelease}}
+
+> [!CAUTION]
+> This enum is still in pre-release.  Its signature may change or it may be removed in future releases.
+{{/is_prerelease}}
+{{#is_deprecated}}
+
+> [!CAUTION]
+> This enum is deprecated and will be removed in {{{deprecated_version}}}.
+  {{#deprecated_description_md}}
+> 
+> {{{.}}}
+  {{/deprecated_description_md}}
+{{/is_deprecated}}
+{{#enum_description_md}}
+
+{{{.}}}
+{{/enum_description_md}}
+{{#constants.length}}
+
+## Constants
+  {{#constants}}
+{{> property_declaration }}
+  {{/constants}}
+{{/constants.length}}

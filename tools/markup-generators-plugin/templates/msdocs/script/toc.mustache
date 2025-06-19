@@ -1,0 +1,24 @@
+{{#script_modules}}
+  - name: {{{md_toc_name}}}
+    items:
+    - name: {{{md_toc_name}}}
+      href: {{{filepath_name}}}/{{{bookmark_name}}}.md
+{{#display_changelog_in_toc}}
+{{#changelog.length}}
+    - name: {{{md_toc_name}}} Changelog
+      href: {{{filepath_name}}}/changelog.md
+{{/changelog.length}}
+{{/display_changelog_in_toc}}
+{{#enums}}
+    - name: {{{name}}}
+      href: {{{from_module.filepath_name}}}/{{{name}}}.md
+{{/enums}}
+{{#classes}}
+    - name: {{{name}}}
+      href: {{{from_module.filepath_name}}}/{{{name}}}.md
+{{/classes}}
+{{#interfaces}}
+    - name: {{{name}}}
+      href: {{{from_module.filepath_name}}}/{{{name}}}.md
+{{/interfaces}}
+{{/script_modules}}

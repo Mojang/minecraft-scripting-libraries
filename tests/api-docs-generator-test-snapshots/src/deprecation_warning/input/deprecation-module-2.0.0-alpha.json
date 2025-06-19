@@ -1,0 +1,143 @@
+{
+  "classes": [
+    {
+      "base_types": [],
+      "constants": [
+        {
+          "is_read_only": true,
+          "is_static": true,
+          "name": "stableConstant",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean"
+          }
+        }
+      ],
+      "functions": [
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "name": "stableFunction",
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean"
+          }
+        }
+      ],
+      "name": "StableClassWithDeprecatedMembers",
+      "properties": [
+        {
+          "is_read_only": false,
+          "name": "stableProperty",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean"
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "StableClassWithDeprecatedMembers"
+      }
+    }
+  ],
+  "interfaces": [
+    {
+      "name": "StableInterfaceWithDeprecatedProperty",
+      "properties": [
+        {
+          "is_read_only": false,
+          "name": "stableProperty",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean"
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "StableInterfaceWithDeprecatedProperty"
+      }
+    }
+  ],
+  "enums": [
+    {
+      "constants" : [
+         {
+            "is_read_only" : true,
+            "is_static" : true,
+            "name" : "StableVal",
+            "type" : {
+              "is_bind_type" : false,
+              "is_errorable" : false,
+              "name" : "string"
+            },
+            "value" : "stableVal"
+         }
+      ],
+      "name" : "StableEnumWithDeprecatedConstant"
+    }
+  ],
+  "errors": [
+    {
+      "name": "StableErrorWithDeprecatedProperty",
+      "properties": [
+        {
+          "is_read_only": true,
+          "name": "stableProperty",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "optional",
+            "optional_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "string"
+            }
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "StableErrorWithDeprecatedProperty"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "arguments": [],
+      "is_constructor": false,
+      "name": "v2GlobalFunction",
+      "return_type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "boolean"
+      }
+    }
+  ],
+  "objects": [
+    {
+      "is_read_only": true,
+      "is_static": true,
+      "name": "stableObject",
+      "type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "string",
+        "valid_range": null
+      }
+    }
+  ],
+  "minecraft_version": "1.0.0",
+  "name": "deprecation-module",
+  "uuid": "3159eee8-9954-4abe-a405-7ef7267b105a",
+  "version": "2.0.0-alpha",
+  "module_type": "script"
+}

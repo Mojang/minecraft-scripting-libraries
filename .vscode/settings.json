@@ -1,11 +1,22 @@
 {
-    "eslint.experimental.useFlatConfig": true,
-    "eslint.workingDirectories": [
-        {
-            "pattern": "./libraries/*/"
-        },
-        {
-            "pattern": "./tools/*/"
-        }
-    ]
+    "eslint.useFlatConfig": true,
+    "eslint.workingDirectories":  [{"mode": "auto"}],
+    "debug.javascript.terminalOptions": {
+        "skipFiles": ["<node_internals>/**"]
+    },
+    "[javascript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "files.exclude": {
+        ".turbo": true,
+        "dist": true,
+        "lib": true,
+        "lib-cjs": true,
+        "node_modules": true
+    },
 }

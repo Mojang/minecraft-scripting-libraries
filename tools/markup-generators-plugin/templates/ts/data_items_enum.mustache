@@ -1,0 +1,13 @@
+/**
+ * All possible {{display_name}}
+ */
+export enum {{{display_name}}} {
+{{#data_items}}
+  {{standardized_name}} = "{{value}}",
+{{/data_items}}
+}
+
+/**
+ * Union type equivalent of the {{display_name}} enum.
+ */
+export type {{display_name}}Union = keyof typeof {{display_name}};

@@ -1,0 +1,98 @@
+{{#ts_has_comments}}
+/**
+  {{#is_prerelease}}
+ * @{{{prerelease}}}
+  {{/is_prerelease}}
+  {{#is_deprecated}}
+ * @deprecated This function is deprecated and will be removed in {{{deprecated_version}}}.
+    {{#deprecated_description_ts.length}}
+ *
+      {{#deprecated_description_ts}}
+ * {{{.}}}
+      {{/deprecated_description_ts}}
+    {{/deprecated_description_ts.length}}
+    {{#ts_has_remarks}}
+ *
+    {{/ts_has_remarks}}
+  {{/is_deprecated}}
+  {{#ts_has_remarks}}
+ * @remarks
+    {{#function_description_ts.length}}
+      {{#function_description_ts}}
+ * {{{.}}}
+      {{/function_description_ts}}
+ *
+    {{/function_description_ts.length}}
+    {{#call_disallowed_in_read_only}}
+ * This function can't be called in read-only mode.
+ *
+    {{/call_disallowed_in_read_only}}
+    {{#call_allowed_in_early_execution}}
+ * This function can be called in early-execution mode.
+ *
+    {{/call_allowed_in_early_execution}}
+  {{/ts_has_remarks}}
+  {{#arguments}}
+    {{#ts_has_comments}}
+ * @param {{{name}}}
+      {{#argument_description_ts.length}}
+        {{#argument_description_ts}}
+ * {{{.}}}
+        {{/argument_description_ts}}
+      {{/argument_description_ts.length}}
+      {{#has_defaults}}
+        {{#details.default_value}}
+ * Defaults to: {{> value}}
+        {{/details.default_value}}
+      {{/has_defaults}}
+    {{/ts_has_comments}}
+  {{/arguments}}
+  {{#returns_description_ts.length}}
+ * @returns
+    {{#returns_description_ts}}
+ * {{{.}}}
+    {{/returns_description_ts}}
+  {{/returns_description_ts.length}}
+  {{#has_runtime_conditions}}
+ *
+ * Required Experiments:
+    {{#runtime_conditions}} 
+ * - {{.}}
+    {{/runtime_conditions}}
+ *
+  {{/has_runtime_conditions}}
+  {{#throws_description_ts.length}}
+ * @throws
+    {{#throws_description_ts}}
+ * {{{.}}}
+    {{/throws_description_ts}}   
+  {{/throws_description_ts.length}}
+  {{^throws_description_ts}}
+    {{#return_type}}
+      {{#is_errorable}}
+ * @throws This function can throw errors.
+      {{/is_errorable}}
+    {{/return_type}}
+  {{/throws_description_ts}}
+  {{#return_type}}
+    {{#error_types.length}}
+      {{#error_types}}
+{{! Re-assign the mustache delimiters to avoid conflicts with typedoc comments }}
+{{=<% %>=}}
+ *
+ * {@link <%> type%>}
+<%={{ }}=%>
+      {{/error_types}}
+    {{/error_types.length}}
+  {{/return_type}}
+  {{#examples.length}}
+    {{> examples}}
+  {{/examples.length}}
+ */
+{{/ts_has_comments}}
+{{^is_script_generated}}
+{{> function_declaration }};
+{{/is_script_generated}}
+{{#is_script_generated}}
+{{{raw_script_text}}}
+{{/is_script_generated}}

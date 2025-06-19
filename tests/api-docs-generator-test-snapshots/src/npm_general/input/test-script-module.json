@@ -1,0 +1,11 @@
+{
+  "classes": [],
+  "enums": [],
+  "functions": [],
+  "interfaces": [],
+  "minecraft_version": "1.0.0",
+  "name": "@minecraft/example-module",
+  "uuid": "b86c5b14-90c5-4e67-9d3a-39c85d93d85c",
+  "version": "1.0.0-beta",
+  "module_type": "script"
+}

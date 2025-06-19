@@ -1,0 +1,17 @@
+{
+    "default": {
+        "description": "Default description for the module"
+    },
+    "beta": {
+        "description": "The description for the module in beta"
+    },
+    "internal": {
+        "description": "The description for the module in internal"
+    },
+    "1": {
+        "description": "The description for the module in V1 stable"
+    },
+    "2": {
+        "description": "The description for the module in V2 stable"
+    }
+}

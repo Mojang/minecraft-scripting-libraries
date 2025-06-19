@@ -1,0 +1,18 @@
+{
+  "classes": [
+    {
+      "name": "ExampleClassInModule3V1AndV2",
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ExampleClassInModule3V1AndV2",
+        "valid_range": null
+      }
+    }
+  ],
+  "minecraft_version": "1.0.0",
+  "name": "@minecraft/example-module-3",
+  "uuid": "a61fb766-9364-476a-96fd-61cde5178761",
+  "version": "1.0.0",
+  "module_type": "script"
+}

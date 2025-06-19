@@ -1,0 +1,14 @@
+{
+  "data_items": [
+    {
+      "name": "MyNewData_ExampleOne"
+    },
+    {
+      "name": "MyNewData_ExampleTwo"
+    }
+  ],
+  "minecraft_version": "1.19.80",
+  "module_type": "vanilla_data",
+  "vanilla_data_type": "myNewData",
+  "name": "test-mynewdata-module"
+}

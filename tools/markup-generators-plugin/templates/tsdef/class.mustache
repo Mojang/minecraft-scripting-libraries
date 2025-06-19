@@ -1,0 +1,86 @@
+{{#ts_has_comments}}
+/**
+  {{#is_prerelease}}
+ * @{{{prerelease}}}
+  {{/is_prerelease}}
+  {{#is_deprecated}}
+ * @deprecated This {{#is_interface}}interface{{/is_interface}}{{^is_interface}}class{{/is_interface}} is deprecated and will be removed in {{{deprecated_version}}}.
+    {{#deprecated_description_ts.length}}
+ *
+      {{#deprecated_description_ts}}
+ * {{{.}}}
+      {{/deprecated_description_ts}}
+    {{/deprecated_description_ts.length}}
+    {{#class_description_ts.length}}
+ *
+    {{/class_description_ts.length}}
+  {{/is_deprecated}}
+  {{#class_description_ts}}
+ * {{{.}}}
+  {{/class_description_ts}}
+  {{#has_runtime_conditions}}
+ *
+ * Required Experiments:
+  {{#runtime_conditions}} 
+* - {{.}}
+  {{/runtime_conditions}}
+*
+  {{/has_runtime_conditions}}
+  {{#examples.length}}
+{{> examples}}
+  {{/examples.length}}
+ */
+{{/ts_has_comments}}
+{{#base_types.length}}
+// @ts-ignore Class inheritance allowed for native defined classes
+{{/base_types.length}}
+{{^is_script_generated}}
+export {{#is_interface}}interface{{/is_interface}}{{^is_interface}}class{{/is_interface}} {{{class_name}}}{{#base_types.length}} extends {{#base_types}}{{> type}}{{^is_last}}, {{/is_last}}{{/base_types}}{{/base_types.length}}{{#iterator}} implements Iterable<{{> type}}>{{/iterator}} {
+{{/is_script_generated}}
+{{#is_script_generated}}
+{{{raw_script_text}}} {
+{{/is_script_generated}}
+{{^is_script_generated}}
+  {{^has_constructor}}
+    {{^is_interface}}
+  private constructor();
+    {{/is_interface}}
+  {{/has_constructor}}
+{{/is_script_generated}}
+{{#properties}}
+{{> property}}
+{{/properties}}
+{{#has_member_constants}}
+  {{#constants}}
+{{> property}}
+  {{/constants}}
+{{/has_member_constants}}
+{{#has_member_functions}} {{! Constructor, member, and then static methods }}
+  {{#functions}}
+    {{#is_constructor}}
+      {{#arguments.length}}
+{{> function}}
+      {{/arguments.length}}
+      {{^arguments.length}}
+        {{#base_types.length}}
+        {{> function}}
+        {{/base_types.length}}
+      {{/arguments.length}}
+    {{/is_constructor}}
+  {{/functions}}
+  {{#functions}} {{! Members }}
+    {{^is_constructor}}
+      {{^is_static}}
+{{> function}}
+      {{/is_static}}
+    {{/is_constructor}}
+  {{/functions}}
+  {{#functions}} {{! Statics }}
+    {{^is_constructor}}
+      {{#is_static}}
+{{> function}}
+      {{/is_static}}
+    {{/is_constructor}}
+  {{/functions}}
+{{/has_member_functions}}
+}

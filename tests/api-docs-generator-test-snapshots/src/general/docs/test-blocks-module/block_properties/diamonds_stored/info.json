@@ -1,0 +1,70 @@
+{
+  "description": "The amount of diamonds stored in this block's state",
+  "values": [
+    {
+      "name": 0,
+      "description": ""
+    },
+    {
+      "name": 1,
+      "description": ""
+    },
+    {
+      "name": 2,
+      "description": ""
+    },
+    {
+      "name": 3,
+      "description": ""
+    },
+    {
+      "name": 4,
+      "description": ""
+    },
+    {
+      "name": 5,
+      "description": ""
+    },
+    {
+      "name": 6,
+      "description": ""
+    },
+    {
+      "name": 7,
+      "description": ""
+    },
+    {
+      "name": 8,
+      "description": ""
+    },
+    {
+      "name": 9,
+      "description": ""
+    },
+    {
+      "name": 10,
+      "description": ""
+    },
+    {
+      "name": 11,
+      "description": ""
+    },
+    {
+      "name": 12,
+      "description": ""
+    },
+    {
+      "name": 13,
+      "description": ""
+    },
+    {
+      "name": 14,
+      "description": ""
+    },
+    {
+      "name": 15,
+      "description": ""
+    }
+  ],
+  "int_value_display_as_range": true
+}

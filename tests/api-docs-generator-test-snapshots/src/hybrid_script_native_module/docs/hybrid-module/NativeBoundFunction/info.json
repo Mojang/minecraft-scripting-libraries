@@ -1,0 +1,7 @@
+{
+    "description": "A native bound function.",
+    "arguments": {},
+    "returns": {
+        "description": "A boolean value."
+    }
+}

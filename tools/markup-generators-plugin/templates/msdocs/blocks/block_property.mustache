@@ -1,0 +1,26 @@
+---
+{{ >default_metadata }}
+title: {{{property_name}}} Block Property
+description: Description and usage of the {{{property_name}}} block property
+---
+# {{{property_name}}} Block Property
+{{#property_description}}
+{{{.}}}
+
+{{/property_description}}
+{{^int_value_display_as_range}}
+## Values:
+Type: {{{type}}}
+
+{{#values}}
+* {{{value}}}
+{{#value_description}}
+{{{.}}}
+
+{{/value_description}}
+{{/values}}
+{{/int_value_display_as_range}}
+{{#int_value_display_as_range}}
+Value Type: int
+Value Range: {{{min_value}}} - {{{max_value}}}
+{{/int_value_display_as_range}}

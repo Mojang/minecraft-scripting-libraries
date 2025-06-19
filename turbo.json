@@ -1,5 +1,5 @@
 {
-    "$schema": "https://turbo.build/schema.json",
+    "$schema": "https://turbo.build/schema.v2.json",
     "tasks": {
         "@minecraft/core-build-tasks#build-tools": {
             "outputs": ["lib/**", "lib-cjs/**", "dist/**"],
@@ -13,7 +13,7 @@
         "lint": {
             "dependsOn": ["@minecraft/core-build-tasks#build-tools", "build"],
             "outputs": [],
-            "inputs": ["src/**/*.ts", "*.json"]
+            "inputs": ["src/**/*.ts", "*.json", "eslint.config.mjs"]
         },
         "test": {
             "dependsOn": ["@minecraft/core-build-tasks#build-tools", "build", "lint"],
@@ -26,7 +26,11 @@
             "cache": false,
             "outputLogs": "errors-only"
         },
-        "clean-tools": { "dependsOn": [], "outputs": [], "cache": false }
+        "clean-tools": { "dependsOn": [], "outputs": [], "cache": false },
+        "package": {
+            "dependsOn": ["^package"],
+            "outputs": ["dist/**"]
+        }
     },
     "daemon": false
 }

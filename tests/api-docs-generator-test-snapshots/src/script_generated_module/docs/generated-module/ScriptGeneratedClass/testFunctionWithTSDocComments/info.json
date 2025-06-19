@@ -1,0 +1,10 @@
+{
+  "arguments": {
+    "msdocParam": {
+      "description": "This overwrites the TSDoc for msdocParam with an info.json file's description"
+    }
+  },
+  "returns": {
+    "description": "This is a return comment defined in info.json"
+  }
+}

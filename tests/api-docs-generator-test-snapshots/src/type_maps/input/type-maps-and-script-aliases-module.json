@@ -1,0 +1,38 @@
+{
+  "type_aliases": [
+    {
+      "alias_type": "type_map",
+      "mappings": [
+        {
+          "name": "test:FakeMappingOne",
+          "value": "FakeTypeOne"
+        },
+        {
+          "name": "test:FakeMappingTwo",
+          "value": "FakeTypeTwo"
+        }
+      ],
+      "name": "TestTypeMap",
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "TestTypeMap"
+      }
+    },
+    {
+      "is_script_generated": true,
+      "raw_script_text": "export type TestTypeMapUnion = keyof TestTypeMap;",
+      "name": "TestTypeMapUnion",
+      "type": {
+        "name": "keyof TestTypeMap",
+        "is_errorable": false,
+        "is_bind_type": false
+      }
+    }
+  ],
+  "minecraft_version": "1.0.0",
+  "name": "type-maps-and-script-aliases-module",
+  "uuid": "f7c3e85e-5d50-11ee-8c99-0242ac120002",
+  "version": "1.0.0",
+  "module_type": "script"
+}

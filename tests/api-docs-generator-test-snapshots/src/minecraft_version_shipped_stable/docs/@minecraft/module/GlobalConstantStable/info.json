@@ -1,0 +1,11 @@
+{
+    "default": {
+        "description": "The description for GlobalConstantStable by default"
+    },
+    "1": {
+        "description": "The description for GlobalConstantStable in V1 stable"
+    },
+    "2": {
+        "description": "The description for GlobalConstantStable in V2 stable"
+    }
+}

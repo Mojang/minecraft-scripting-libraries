@@ -1,0 +1,132 @@
+{
+  "type_aliases": [
+    {
+      "is_script_generated": true,
+      "raw_tsdoc_text": "/**\n * This doc text is extracted from TSDoc comments\n */\n",
+      "raw_script_text": "export type TypeAliasWithTSDocComments = boolean | string;",
+      "name": "TypeAliasWithTSDocComments",
+      "type": {
+        "name": "boolean | string",
+        "is_errorable": false,
+        "is_bind_type": false
+      }
+    },
+    {
+      "is_script_generated": true,
+      "raw_tsdoc_text": "/**\n * This text will get overwritten by info.json comments\n */\n",
+      "raw_script_text": "export type TypeAliasWithInfoJsonComments = {\n    id: string;\n};",
+      "name": "TypeAliasWithInfoJsonComments",
+      "type": {
+        "name": "{\n    id: string;\n}",
+        "is_errorable": false,
+        "is_bind_type": false
+      }
+    }
+  ],
+  "enums": [
+    {
+      "is_script_generated": true,
+      "raw_tsdoc_text": "/**\n * A script generated enum\n */\n",
+      "raw_script_text": "export declare enum ScriptGeneratedEnum ",
+      "name": "ScriptGeneratedEnum",
+      "constants": [
+        {
+          "is_script_generated": true,
+          "raw_script_text": "First = \"first\"",
+          "is_read_only": true,
+          "is_static": true,
+          "name": "First",
+          "type": {
+            "name": "First",
+            "is_errorable": false,
+            "is_bind_type": false
+          },
+          "value": "first"
+        },
+        {
+          "is_script_generated": true,
+          "raw_script_text": "Second = \"second\"",
+          "is_read_only": true,
+          "is_static": true,
+          "name": "Second",
+          "type": {
+            "name": "Second",
+            "is_errorable": false,
+            "is_bind_type": false
+          },
+          "value": "second"
+        }
+      ]
+    }
+  ],
+  "classes": [
+    {
+      "is_script_generated": true,
+      "raw_tsdoc_text": "/**\n * A script generated class\n */\n",
+      "raw_script_text": "export declare class ScriptGeneratedClass ",
+      "name": "ScriptGeneratedClass",
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ScriptGeneratedClass"
+      },
+      "functions": [
+        {
+          "is_script_generated": true,
+          "raw_tsdoc_text": "/**\n * A script generated function with doc text defined in TSDoc comments\n *\n * @param tsdocParam - Param comment from TSDoc\n *\n * @param msdocParam - This will be overwritten in MSDocs\n *\n * @throws Throws comment in TSDocs\n */\n",
+          "raw_script_text": "testFunctionWithTSDocComments(tsdocParam: number, msdocParam: number): boolean",
+          "name": "testFunctionWithTSDocComments",
+          "is_constructor": false,
+          "is_static": false,
+          "return_type": {
+            "name": "boolean",
+            "is_errorable": false,
+            "is_bind_type": false
+          },
+          "arguments": [
+            {
+              "name": "tsdocParam",
+              "type": {
+                "name": "number",
+                "is_errorable": false,
+                "is_bind_type": false
+              }
+            },
+            {
+              "name": "msdocParam",
+              "type": {
+                "name": "number",
+                "is_errorable": false,
+                "is_bind_type": false
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "is_script_generated": true,
+          "raw_tsdoc_text": "/**\n * A script generated property\n */\n",
+          "raw_script_text": "testProperty: string | undefined;",
+          "name": "testProperty",
+          "type": {
+            "name": "string | undefined",
+            "is_errorable": false,
+            "is_bind_type": false
+          },
+          "is_read_only": false
+        }
+      ],
+      "constants": []
+    }
+  ],
+  "minecraft_version": "1.0.0",
+  "name": "hybrid-module",
+  "uuid": "411a0018-bbd6-43a5-96eb-ce7c4162f493",
+  "version": "1.0.0",
+  "module_type": "script",
+  "parentModule": {
+    "name": "hybrid-module-native",
+    "version": "1.0.0"
+  }
+}

@@ -1,0 +1,41 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build: all",
+            "type": "npm",
+            "script": "build",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "build: api-docs-generator",
+            "type": "npm",
+            "script": "build -- -- --filter=@minecraft/api-docs-generator... --filter=@minecraft/markup-generators-plugin...",
+            "group": {
+                "kind": "build"
+            }
+        },
+        {
+            "label": "test: all",
+            "type": "npm",
+            "script": "test",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "test: api-docs-generator",
+            "type": "npm",
+            "script": "test -- -- --filter=api-docs-generator-test-snapshots...",
+            "group": {
+                "kind": "test"
+            }
+        }
+    ]
+}

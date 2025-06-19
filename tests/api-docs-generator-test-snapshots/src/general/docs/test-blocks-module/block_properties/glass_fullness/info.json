@@ -1,0 +1,22 @@
+{
+  "description": "The fullness of a drinking glass",
+  "values": [
+    {
+      "name": "empty",
+      "description": ""
+    },
+    {
+      "name": "half-empty",
+      "description": ""
+    },
+    {
+      "name": "half-full",
+      "description": ""
+    },
+    {
+      "name": "full",
+      "description": ""
+    }
+  ],
+  "int_value_display_as_range": false
+}

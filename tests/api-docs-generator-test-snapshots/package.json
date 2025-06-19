@@ -1,0 +1,29 @@
+{
+  "name": "api-docs-generator-test-snapshots",
+  "version": "0.0.0",
+  "description": "Test scenarios for @minecraft/api-docs-generator and plugins",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "just-scripts build",
+    "clean": "just-scripts clean",
+    "lint": "just-scripts lint",
+    "test": "just-scripts test"
+  },
+  "devDependencies": {
+    "@minecraft/core-build-tasks": "^5.0.0",
+    "@types/node": "^22.0.0",
+    "eslint": "^9.22.0",
+    "eslint-config-minecraft-scripting": "*",
+    "just-scripts": "^2.3.3",
+    "prettier": "^3.5.3"
+  },
+  "dependencies": {
+    "@minecraft/api-docs-generator": "*",
+    "@minecraft/markup-generators-plugin": "*",
+    "test-markup-generator-plugin": "*",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.6.0",
+    "vitest": "^3.0.8"
+  }
+}

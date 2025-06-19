@@ -1,0 +1,13 @@
+{
+  "description": "A crate that holds only diamonds",
+  "properties": [
+    {
+      "name": "diamonds_stored",
+      "description": "The number of diamonds currently in the crate"
+    },
+    {
+      "name": "is_true",
+      "description": ""
+    }
+  ]
+}

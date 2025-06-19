@@ -1,0 +1,168 @@
+{
+  "classes": [
+    {
+      "name": "ClassWithSpookyMemberNames",
+      "properties": [
+        {
+          "is_read_only": false,
+          "name": "5memberWithNumberStart",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32"
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "member with spaces",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32"
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "type",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32"
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ClassWithSpookyMemberNames",
+        "valid_range": null
+      }
+    }
+  ],
+  "enums": [
+    {
+      "name": "EnumWithSpookyMemberNames",
+      "constants": [
+        {
+          "is_read_only": true,
+          "is_static": true,
+          "name": "5valueWithNumberStart",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "string",
+            "valid_range": null
+          },
+          "value": "Name with a number at the start"
+        },
+        {
+          "is_read_only": true,
+          "is_static": true,
+          "name": "value with spaces",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "string",
+            "valid_range": null
+          },
+          "value": "Name with a space in it"
+        },
+        {
+          "is_read_only": true,
+          "is_static": true,
+          "name": "type",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "string",
+            "valid_range": null
+          },
+          "value": "Name that is a keyword"
+        }
+      ]
+    }
+  ],
+  "functions": [],
+  "interfaces": [
+    {
+      "name": "InterfaceWithSpookyMemberNames",
+      "properties": [
+        {
+          "is_read_only": false,
+          "name": "5memberWithNumberStart",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32"
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "member with spaces",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32"
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "type",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32"
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "InterfaceWithSpookyMemberNames"
+      }
+    },
+    {
+      "name": "IInterfaceWithBadName",
+      "properties": [
+        {
+          "is_read_only": false,
+          "name": "foo",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32"
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "IInterfaceWithBadName"
+      }
+    },
+    {
+      "name": "InterfaceOKName",
+      "properties": [
+        {
+          "is_read_only": false,
+          "name": "foo",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32"
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "InterfaceOKName"
+      }
+    }
+  ],
+  "minecraft_version": "1.0.0",
+  "name": "escaped-names",
+  "uuid": "8616f253-f358-45c2-8e24-eb22fe3a8410",
+  "version": "1.0.0",
+  "module_type": "script"
+}

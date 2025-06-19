@@ -1,0 +1,41 @@
+{
+  "description": [
+    "A fake command for testing documentation generation"
+  ],
+  "overloads": [
+    {
+      "id": 1,
+      "header": "",
+      "description": "Adds an amount to a target"
+    },
+    {
+      "id": 2,
+      "header": "",
+      "description": "Removes an amount from a target"
+    },
+    {
+      "id": 3,
+      "header": "Set based on Position",
+      "description": "Sets an area to a biome centered on a position"
+    },
+    {
+      "id": 4,
+      "header": "Set based on Target",
+      "description": "Sets an area to a biome centered on a target"
+    }
+  ],
+  "arguments": [
+    {
+      "name": "center-position",
+      "description": "The position that the biome will be centered on"
+    },
+    {
+      "name": "center-target",
+      "description": "The target entity that the biome will be centered on"
+    },
+    {
+      "name": "target",
+      "description": "A target entity"
+    }
+  ]
+}

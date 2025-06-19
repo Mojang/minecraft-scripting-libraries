@@ -15,8 +15,19 @@ or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any addi
 
 ## Specific Guidelines
 
-Contributions to these libraries are welcome! These libraries are maintained by Mojang but we are open to contributions and bug fixes. In general, we consider the backwards compatibility and versioning to be the absolute top priority when making changes to the libraries. Because of this, we strictly adhere to semver for changes, and libraries depend on minecraft modules at specific major versions as well. Any PR submitted to any library **must** contain a change file using the beachball tool to indicate the severity of the change. When a change is submitted, it will automatically update versions and publish to NPM via our pipelines.
+Contributions to these libraries are welcome! These libraries are maintained by Mojang but we are open to contributions and bug fixes. In general, we consider the backwards compatibility and versioning to be the absolute top priority when making changes to the libraries. Because of this, we strictly adhere to SemVer for changes, and libraries depend on Minecraft modules at specific major versions as well.
 
-### Naming
+### Use Beachball Versioning
 
-We generally follow the naming conventiosn specified by the [google style guide](https://google.github.io/styleguide/jsguide.html#naming). There is other general good practice within the style guide as well, though generally the vast majority of our style is enforced via a combination of ESLint and prettier enforcement at PR time.
+All PRs submitted for any package **must** contain a change file using the Beachball tool to indicate the severity of the change. When a change is submitted, it will automatically update versions and publish to NPM via our pipelines. Use `npm run change` to generate changefiles with Beachball.
+
+### Use a Consistent Coding Style
+
+- Use ESLint to lint (`npm run lint`)
+- Use Prettier to style
+  - VS Code is set up to format on save
+  - The lint command also runs Prettier and can fix issues: `npm run lint:fix`
+
+#### Naming
+
+We generally follow the naming conventions specified by the [Google Style Guide](https://google.github.io/styleguide/jsguide.html#naming). There are other general good practices within the style guide as well, though generally the vast majority of our style is enforced via a combination of ESLint and Prettier enforcement at PR time.

@@ -1,0 +1,45 @@
+{
+  "classes": [
+    {
+      "base_types": [],
+      "constants": [],
+      "functions": [],
+      "name": "ClassWithCrossModuleProperty",
+      "properties": [
+        {
+          "is_read_only": false,
+          "name": "exampleProperty",
+          "type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "SmallClass",
+            "from_module": {
+              "name": "test-module1",
+              "uuid": "fe0020ab-2aac-482c-8edc-c18622f022ef",
+              "version": "1.0.0"
+            }
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ClassWithCrossModuleProperty",
+        "valid_range": null
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "test-module1",
+      "uuid": "fe0020ab-2aac-482c-8edc-c18622f022ef",
+      "version": "1.0.0"
+    }
+  ],
+  "peer_dependencies": [],
+  "minecraft_version": "1.0.0",
+  "name": "dependant-module",
+  "uuid": "5cdafd7f-ac01-4457-852c-866aac043a6b",
+  "version": "1.0.0",
+  "module_type": "script"
+}

@@ -1,0 +1,325 @@
+{
+  "classes": [
+    {
+      "base_types": [],
+      "constants": [],
+      "functions": [
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "is_static": false,
+          "name": "memberfn_none_privilege",
+          "call_privilege": [
+            {
+              "name": "none"
+            }
+          ],
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean",
+            "valid_range": null
+          }
+        },
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "is_static": false,
+          "name": "memberfn_readonly_privilege",
+          "call_privilege": [
+            {
+              "name": "read_only"
+            }
+          ],
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean",
+            "valid_range": null
+          }
+        },
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "is_static": false,
+          "name": "memberfn_earlyexe_privilege",
+          "call_privilege": [
+            {
+              "name": "early_execution"
+            }
+          ],
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean",
+            "valid_range": null
+          }
+        },
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "is_static": false,
+          "name": "memberfn_both_privileges",
+          "call_privilege": [
+            {
+              "name": "read_only"
+            },
+            {
+              "name": "early_execution"
+            }
+          ],
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean",
+            "valid_range": null
+          }
+        }
+      ],
+      "name": "ExampleClass",
+      "properties": [
+        {
+          "is_read_only": false,
+          "get_privilege": [
+            {
+              "name": "none"
+            }
+          ],
+          "set_privilege": [
+            {
+              "name": "none"
+            }
+          ],
+          "name": "prop_none_privilege",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "number"
+          }
+        },
+        {
+          "is_read_only": false,
+          "get_privilege": [
+            {
+              "name": "read_only"
+            }
+          ],
+          "set_privilege": [
+            {
+              "name": "read_only"
+            }
+          ],
+          "name": "prop_readonly_privilege",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "number"
+          }
+        },
+        {
+          "is_read_only": false,
+          "get_privilege": [
+            {
+              "name": "early_execution"
+            }
+          ],
+          "set_privilege": [
+            {
+              "name": "early_execution"
+            }
+          ],
+          "name": "prop_earlyexe_privilege",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "number"
+          }
+        },
+        {
+          "is_read_only": false,
+          "get_privilege": [
+            {
+              "name": "read_only"
+            },
+            {
+              "name": "early_execution"
+            }
+          ],
+          "set_privilege": [
+            {
+              "name": "read_only"
+            },
+            {
+              "name": "early_execution"
+            }
+          ],
+          "name": "prop_both_privileges",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "number"
+          }
+        },
+        {
+          "is_read_only": false,
+          "get_privilege": [
+            {
+              "name": "read_only"
+            }
+          ],
+          "set_privilege": [
+            {
+              "name": "none"
+            }
+          ],
+          "name": "prop_getreadonly_privileges",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "number"
+          }
+        },
+        {
+          "is_read_only": false,
+          "set_privilege": [
+            {
+              "name": "read_only"
+            }
+          ],
+          "get_privilege": [
+            {
+              "name": "none"
+            }
+          ],
+          "name": "prop_setreadonly_privileges",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "number"
+          }
+        },
+        {
+          "is_read_only": false,
+          "get_privilege": [
+            {
+              "name": "none"
+            }
+          ],
+          "set_privilege": [
+            {
+              "name": "early_execution"
+            }
+          ],
+          "name": "prop_setearlyexe_privileges",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "number"
+          }
+        },
+        {
+          "is_read_only": false,
+          "get_privilege": [
+            {
+              "name": "early_execution"
+            }
+          ],
+          "set_privilege": [
+            {
+              "name": "none"
+            }
+          ],
+          "name": "prop_getearlyexe_privileges",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "number"
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ExampleClass"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "arguments": [],
+      "is_constructor": false,
+      "is_static": false,
+      "name": "fn_none_privilege",
+      "call_privilege": [
+        {
+          "name": "none"
+        }
+      ],
+      "return_type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "boolean",
+        "valid_range": null
+      }
+    },
+    {
+      "arguments": [],
+      "is_constructor": false,
+      "is_static": false,
+      "name": "fn_readonly_privilege",
+      "call_privilege": [
+        {
+          "name": "read_only"
+        }
+      ],
+      "return_type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "boolean",
+        "valid_range": null
+      }
+    },
+    {
+      "arguments": [],
+      "is_constructor": false,
+      "is_static": false,
+      "name": "fn_earlyexe_privilege",
+      "call_privilege": [
+        {
+          "name": "early_execution"
+        }
+      ],
+      "return_type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "boolean",
+        "valid_range": null
+      }
+    },
+    {
+      "arguments": [],
+      "is_constructor": false,
+      "is_static": false,
+      "name": "fn_both_privileges",
+      "call_privilege": [
+        {
+          "name": "read_only"
+        },
+        {
+          "name": "early_execution"
+        }
+      ],
+      "return_type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "boolean",
+        "valid_range": null
+      }
+    }
+  ],
+  "minecraft_version": "1.0.0",
+  "name": "example_module",
+  "uuid": "93faf953-0173-44dc-b542-b48f4fea7c4b",
+  "version": "1.0.0",
+  "module_type": "script"
+}

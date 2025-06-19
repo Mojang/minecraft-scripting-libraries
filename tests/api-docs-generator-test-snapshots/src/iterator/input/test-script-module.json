@@ -1,0 +1,31 @@
+{
+  "classes": [
+    {
+      "base_types": [],
+      "constants": [],
+      "functions": [],
+      "iterator": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "optional",
+        "optional_type": {
+          "is_bind_type": false,
+          "is_errorable": false,
+          "name": "int32"
+        }
+      },
+      "name": "ExampleIterator",
+      "properties": [],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ExampleIterator"
+      }
+    }
+  ],
+  "minecraft_version": "1.0.0",
+  "name": "iterator",
+  "uuid": "499beae0-aed3-4a20-b053-79add7bfdfc2",
+  "version": "1.0.0",
+  "module_type": "script"
+}

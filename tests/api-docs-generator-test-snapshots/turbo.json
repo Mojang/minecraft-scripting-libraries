@@ -1,0 +1,20 @@
+{
+    "extends": ["//"],
+    "tasks": {
+        "build": {
+            "outputs": []
+        },
+        "test": {
+            "inputs": [
+                "src/*.ts",
+                "src/**/*.spec.ts",
+                "src/**/*input*",
+                "src/**/*docs*"
+            ],
+            "outputs": [
+                "src/**/*_output",
+                "src/**/*.run.log"
+            ]
+        }
+    }
+}

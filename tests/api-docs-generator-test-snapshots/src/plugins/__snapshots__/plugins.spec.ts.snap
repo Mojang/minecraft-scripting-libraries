@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Plugins > Dynamically loads markup generator from a plugin module > # Of Files Generated 1`] = `1`;
+
+exports[`Plugins > Dynamically loads markup generator from a plugin module > test-1/test-1.txt 1`] = `
+"Output Message: This string is defined in the config file
+"
+`;

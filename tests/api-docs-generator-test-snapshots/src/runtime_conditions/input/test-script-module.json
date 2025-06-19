@@ -1,0 +1,195 @@
+{
+  "classes": [
+    {
+      "name": "ClassWithRuntimeConditions",
+      "runtime_conditions": [
+        "Runtime Conditions A",
+        "Runtime Conditions B",
+        "Runtime Conditions C"
+      ],
+      "functions": [
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "is_static": false,
+          "runtime_conditions": [
+            "Runtime Conditions A",
+            "Runtime Conditions B",
+            "Runtime Conditions D"
+          ],
+          "name": "FunctionWithRuntimeConditions",
+          "privilege": [
+            {
+              "name": "read_only"
+            }
+          ],
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "undefined"
+          }
+        },
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "is_static": false,
+          "runtime_conditions": [],
+          "name": "FunctionWithRuntimeConditionsEmpty",
+          "privilege": [
+            {
+              "name": "read_only"
+            }
+          ],
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "undefined"
+          }
+        },
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "is_static": false,
+          "name": "FunctionWithNoRuntimeConditions",
+          "privilege": [
+            {
+              "name": "read_only"
+            }
+          ],
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "undefined"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "is_read_only": true,
+          "name": "propA",
+          "type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "propA"
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ClassWithRuntimeConditions",
+        "valid_range": null
+      }
+    },
+    {
+      "name": "ClassWithRuntimeConditionsEmpty",
+      "runtime_conditions": [],
+      "properties": [
+        {
+          "is_read_only": true,
+          "name": "propA",
+          "type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "propA"
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ClassWithRuntimeConditionsEmpty",
+        "valid_range": null
+      }
+    },
+    {
+      "name": "ClassWithNoRuntimeConditions",
+      "properties": [
+        {
+          "is_read_only": true,
+          "name": "propA",
+          "type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "propA"
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ClassWithNoRuntimeConditions",
+        "valid_range": null
+      }
+    }
+  ],
+  "interfaces": [
+    {
+      "name": "InterfaceWithRuntimeConditions",
+      "runtime_conditions": [
+        "Runtime Conditions A",
+        "Runtime Conditions B"
+      ],
+      "properties": [
+        {
+          "is_read_only": true,
+          "name": "propA",
+          "type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "propA"
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "InterfaceWithRuntimeConditions"
+      }
+    },
+    {
+      "name": "InterfaceWithRuntimeConditionsEmpty",
+      "runtime_conditions": [],
+      "properties": [
+        {
+          "is_read_only": true,
+          "name": "propA",
+          "type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "propA"
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "InterfaceWithRuntimeConditionsEmpty"
+      }
+    },
+    {
+      "name": "InterfaceWithNoRuntimeConditions",
+      "properties": [
+        {
+          "is_read_only": true,
+          "name": "propA",
+          "type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "propA"
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "InterfaceWithNoRuntimeConditions"
+      }
+    }
+  ],
+  "minecraft_version": "1.0.0",
+  "name": "runtime-conditions",
+  "uuid": "8616f253-f358-45c2-8e24-eb22fe3a8410",
+  "version": "1.0.0",
+  "module_type": "script"
+}

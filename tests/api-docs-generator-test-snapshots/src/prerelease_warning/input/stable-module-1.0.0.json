@@ -1,0 +1,47 @@
+{
+  "minecraft_version": "1.0.0",
+  "name": "stable-module",
+  "uuid": "2ec8acbf-0aba-43ea-b31e-a29f5d117ba0",
+  "version": "1.0.0",
+  "module_type": "script",
+  "classes": [
+    {
+      "name": "StableClass",
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "StableClass",
+        "valid_range": null
+      }
+    }
+  ],
+  "interfaces": [
+    {
+      "name": "StableInterface",
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "StableInterface"
+      }
+    }
+  ],
+  "enums": [
+    {
+      "constants": [
+        {
+          "is_read_only": true,
+          "is_static": true,
+          "name": "stableVal",
+          "type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": null
+          },
+          "value": 1
+        }
+      ],
+      "name": "StableEnumWithPrereleaseConstants"
+    }
+  ]
+}

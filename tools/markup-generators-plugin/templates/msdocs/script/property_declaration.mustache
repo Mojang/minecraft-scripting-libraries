@@ -1,0 +1,6 @@
+### **{{{name}}}**
+`{{^is_enum}}{{#is_static}}static {{/is_static}}{{#is_read_only}}read-only {{/is_read_only}}{{/is_enum}}{{{name}}}{{#constant_value}} = {{#type}}{{> value}}{{/type}}{{/constant_value}}{{^constant_value}}{{#type.is_optional}}?{{/type.is_optional}}: {{#type}}{{> type}}{{/type}}{{/constant_value}}{{^is_enum}};{{/is_enum}}`
+{{#property_description_md}}
+
+{{{.}}}
+{{/property_description_md}}

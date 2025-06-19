@@ -1,0 +1,250 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Optional Peer Dependency > Properly generates types for module that has an optional types-only peer dependency > # Of Files Generated 1`] = `12`;
+
+exports[`Optional Peer Dependency > Properly generates types for module that has an optional types-only peer dependency > npm/types/dependant-module@1.0.0/README.md 1`] = `
+"# \`dependant-module\`
+
+See full documentation for this module here:
+
+https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/dependant-module/dependant-module"
+`;
+
+exports[`Optional Peer Dependency > Properly generates types for module that has an optional types-only peer dependency > npm/types/dependant-module@1.0.0/index.d.ts 1`] = `
+"// Type definitions for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+/**
+ * @packageDocumentation
+ *
+ * Manifest Details
+ * \`\`\`json
+ * {
+ *   "module_name": "dependant-module",
+ *   "version": "1.0.0"
+ * }
+ * \`\`\`
+ *
+ */
+import * as testmodule from 'test-module';
+// @ts-ignore Optional types-only package, will decay to any if peer-module isn't installed
+import type * as peermodule from 'peer-module';
+export class ClassWithCrossModuleFunction {
+    private constructor();
+    dependentFunction(dependentArgument: peermodule.TypeAliasFromPeerDependency): boolean;
+}
+"
+`;
+
+exports[`Optional Peer Dependency > Properly generates types for module that has an optional types-only peer dependency > npm/types/dependant-module@1.0.0/package.json 1`] = `
+"{
+  "name": "dependant-module",
+  "version": "1.0.0",
+  "description": "",
+  "contributors": [
+    {
+      "name": "Jake Shirley",
+      "email": "jake@xbox.com"
+    },
+    {
+      "name": "Mike Ammerlaan",
+      "email": "mikeam@microsoft.com"
+    }
+  ],
+  "dependencies": {
+    "test-module": "^1.0.0"
+  },
+  "peerDependencies": {
+    "peer-module": "^1.1.0"
+  },
+  "license": "MIT"
+}"
+`;
+
+exports[`Optional Peer Dependency > Properly generates types for module that has an optional types-only peer dependency > npm/types/peer-module@1.1.0/README.md 1`] = `
+"# \`peer-module\`
+
+See full documentation for this module here:
+
+https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/peer-module/peer-module"
+`;
+
+exports[`Optional Peer Dependency > Properly generates types for module that has an optional types-only peer dependency > npm/types/peer-module@1.1.0/index.d.ts 1`] = `
+"// Type definitions for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+/**
+ * @packageDocumentation
+ *
+ * Manifest Details
+ * \`\`\`json
+ * {
+ *   "module_name": "peer-module",
+ *   "version": "1.1.0"
+ * }
+ * \`\`\`
+ *
+ */
+export type TypeAliasFromPeerDependency = boolean | string;
+"
+`;
+
+exports[`Optional Peer Dependency > Properly generates types for module that has an optional types-only peer dependency > npm/types/peer-module@1.1.0/package.json 1`] = `
+"{
+  "name": "peer-module",
+  "version": "1.1.0",
+  "description": "",
+  "contributors": [
+    {
+      "name": "Jake Shirley",
+      "email": "jake@xbox.com"
+    },
+    {
+      "name": "Mike Ammerlaan",
+      "email": "mikeam@microsoft.com"
+    }
+  ],
+  "license": "MIT"
+}"
+`;
+
+exports[`Optional Peer Dependency > Properly generates types for module that has an optional types-only peer dependency > npm/types/test-module@1.0.0/README.md 1`] = `
+"# \`test-module\`
+
+See full documentation for this module here:
+
+https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/test-module/test-module"
+`;
+
+exports[`Optional Peer Dependency > Properly generates types for module that has an optional types-only peer dependency > npm/types/test-module@1.0.0/index.d.ts 1`] = `
+"// Type definitions for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+/**
+ * @packageDocumentation
+ *
+ * Manifest Details
+ * \`\`\`json
+ * {
+ *   "module_name": "test-module",
+ *   "version": "1.0.0"
+ * }
+ * \`\`\`
+ *
+ */
+"
+`;
+
+exports[`Optional Peer Dependency > Properly generates types for module that has an optional types-only peer dependency > npm/types/test-module@1.0.0/package.json 1`] = `
+"{
+  "name": "test-module",
+  "version": "1.0.0",
+  "description": "",
+  "contributors": [
+    {
+      "name": "Jake Shirley",
+      "email": "jake@xbox.com"
+    },
+    {
+      "name": "Mike Ammerlaan",
+      "email": "mikeam@microsoft.com"
+    }
+  ],
+  "license": "MIT"
+}"
+`;
+
+exports[`Optional Peer Dependency > Properly generates types for module that has an optional types-only peer dependency > typescript/dependant-module@1.0.0.d.ts 1`] = `
+"// Type definitions for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+/**
+ * @packageDocumentation
+ *
+ * Manifest Details
+ * \`\`\`json
+ * {
+ *   "module_name": "dependant-module",
+ *   "version": "1.0.0"
+ * }
+ * \`\`\`
+ *
+ */
+import * as testmodule from 'test-module';
+// @ts-ignore Optional types-only package, will decay to any if peer-module isn't installed
+import type * as peermodule from 'peer-module';
+export class ClassWithCrossModuleFunction {
+    private constructor();
+    dependentFunction(dependentArgument: peermodule.TypeAliasFromPeerDependency): boolean;
+}
+"
+`;
+
+exports[`Optional Peer Dependency > Properly generates types for module that has an optional types-only peer dependency > typescript/peer-module@1.1.0.d.ts 1`] = `
+"// Type definitions for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+/**
+ * @packageDocumentation
+ *
+ * Manifest Details
+ * \`\`\`json
+ * {
+ *   "module_name": "peer-module",
+ *   "version": "1.1.0"
+ * }
+ * \`\`\`
+ *
+ */
+export type TypeAliasFromPeerDependency = boolean | string;
+"
+`;
+
+exports[`Optional Peer Dependency > Properly generates types for module that has an optional types-only peer dependency > typescript/test-module@1.0.0.d.ts 1`] = `
+"// Type definitions for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+/**
+ * @packageDocumentation
+ *
+ * Manifest Details
+ * \`\`\`json
+ * {
+ *   "module_name": "test-module",
+ *   "version": "1.0.0"
+ * }
+ * \`\`\`
+ *
+ */
+"
+`;

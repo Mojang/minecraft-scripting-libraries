@@ -1,8 +1,44 @@
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+.pnpm-debug.log*
+
+# local env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# turbo
 .turbo
+
+# git
+*.orig
+
+# build output
+build
+dist
 lib
 lib-cjs
-dist
 temp
-node_modules
+
+# test outputs
+tests/**/*_output/
+*.log
+
+# api-docs-generator output
+out/
+tsconfig*/
+
+# packages
 *.tgz
 *.zip

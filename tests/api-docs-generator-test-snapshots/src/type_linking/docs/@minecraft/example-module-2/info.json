@@ -1,0 +1,16 @@
+{
+  "description": [
+    "This is a description with a ton of links from a dependency module:",
+    "Example module: {@link @minecraft/example-module}",
+    "Example module function: {@link @minecraft/example-module.ExampleFunction}",
+    "Example module constant: {@link @minecraft/example-module.ExampleConstant}",
+    "Example module object: {@link @minecraft/example-module.ExampleObject}",
+    "Example class: {@link @minecraft/example-module.ExampleClass}",
+    "Example class property: {@link @minecraft/example-module.ExampleClass.ExampleProperty}",
+    "Example class method: {@link @minecraft/example-module.ExampleClass.ExampleMethod}",
+    "Example interface: {@link @minecraft/example-module.ExampleInterface}",
+    "Example interface property: {@link @minecraft/example-module.ExampleInterface.ExampleProperty}",
+    "Example enum: {@link @minecraft/example-module.ExampleEnum}",
+    "Example enum value: {@link @minecraft/example-module.ExampleEnum.ExampleValue}"
+  ]
+}

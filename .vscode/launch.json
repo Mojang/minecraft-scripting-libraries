@@ -1,0 +1,117 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "API Docs Generator - Launch",
+      "console": "integratedTerminal",
+      "preLaunchTask": "build: api-docs-generator",
+      "outputCapture": "std",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/core/api-docs-generator/lib/src/cli.js",
+      "args": [
+        "-i",
+        "${input:metadataInputDirectory}",
+        "-o",
+        "${workspaceFolder}/out"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "API Docs Generator - Launch Specific Generators",
+      "console": "integratedTerminal",
+      "preLaunchTask": "build: api-docs-generator",
+      "outputCapture": "std",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/core/api-docs-generator/lib/src/cli.js",
+      "args": [
+        "-i",
+        "${input:metadataInputDirectory}",
+        "-o",
+        "${workspaceFolder}/out",
+        "-g",
+        "${input:generators}"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "API Docs Generator - Run All Tests",
+      "console": "integratedTerminal",
+      "preLaunchTask": "build: api-docs-generator-test-snapshots",
+      "outputCapture": "std",
+      "skipFiles": [
+        "<node_internals>/**",
+      ],
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "test",
+        "--",
+        "--only"
+      ],
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "API Docs Generator - Run Specific Tests",
+      "console": "integratedTerminal",
+      "preLaunchTask": "build: api-docs-generator-test-snapshots",
+      "outputCapture": "std",
+      "skipFiles": [
+        "<node_internals>/**",
+      ],
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run",
+        "test",
+        "--",
+        "--only",
+        "--",
+        "--test",
+        "${input:test}"
+      ],
+    },
+  ],
+  "inputs": [
+    {
+      "id": "metadataInputDirectory",
+      "type": "command",
+      "command": "memento.promptString",
+      "args": {
+        "id": "metadataInputDirectory",
+        "description": "Path to input metadata files",
+        "default": "${workspaceFolder}/../bedrock-samples/metadata"
+      }
+    },
+    {
+      "id": "generators",
+      "type": "command",
+      "command": "memento.promptString",
+      "args": {
+        "id": "generators",
+        "description": "Comma-delimited list of generators to run",
+        "default": "ts,msdocs"
+      }
+    },
+    {
+      "id": "test",
+      "type": "command",
+      "command": "memento.promptString",
+      "args": {
+        "id": "test",
+        "description": "Pattern for test files to run",
+        "default": "general"
+      }
+    }
+  ]
+}

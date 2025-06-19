@@ -21,6 +21,14 @@
             }
         },
         {
+            "label": "build: api-docs-generator-test-snapshots",
+            "type": "npm",
+            "script": "build -- -- --filter=api-docs-generator-test-snapshots...",
+            "group": {
+                "kind": "build"
+            }
+        },
+        {
             "label": "test: all",
             "type": "npm",
             "script": "test",

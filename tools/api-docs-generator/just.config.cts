@@ -8,17 +8,9 @@ import {
 import { execSync } from 'child_process';
 import fs from 'fs';
 import { argv, series, task, tscTask } from 'just-scripts';
-import rimraf from 'rimraf';
 
 // Build
-task(
-    'build',
-    series(tscTask(), () => {
-        if (!argv().dev) {
-            rimraf.sync('./lib/**/*.js.map');
-        }
-    })
-);
+task('build', tscTask());
 
 // Clean
 task('clean', cleanTask(DEFAULT_CLEAN_DIRECTORIES));

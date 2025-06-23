@@ -101,8 +101,8 @@
       "command": "memento.promptString",
       "args": {
         "id": "generators",
-        "description": "Comma-delimited list of generators to run",
-        "default": "ts,msdocs"
+        "description": "List of generators to run",
+        "default": "ts msdocs"
       }
     },
     {

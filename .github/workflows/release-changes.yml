@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: 22
       - run: npm ci
-      - run: npm run test # Fully build the repo so we have artifacts available to create releases, include tests so we don't ship in a broken state
+      - run: npm run test:ci # Fully build the repo so we have artifacts available to create releases, include tests so we don't ship in a broken state
       
       - name: Set git credentials
         run: |

@@ -6,6 +6,5 @@ export default defineConfig({
         exclude: [...configDefaults.exclude, '**/lib/**'],
         passWithNoTests: true,
         watch: false,
-        testTimeout: 15000,
     },
 });

@@ -1,9 +1,9 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-import * as fs from 'fs';
-import * as path from 'path';
-import * as mustache from 'mustache';
+import fs from 'fs';
+import path from 'path';
+import mustache from 'mustache';
 
 import {
     GeneratorContext,
@@ -25,11 +25,6 @@ class TestGeneratorOne implements MarkupGenerator<TestGeneratorOneOptions> {
         outputDirectory: string,
         options: TestGeneratorOneOptions
     ): Promise<void> {
-        if (!context.hasTemplates(...this.templates)) {
-            Logger.warn(`Missing templates required by '${this.name}': [${this.templates.join(', ')}]`);
-            return;
-        }
-
         const { 'test-templates': templates } = context.getTemplates(...this.templates);
         const testTemplateFileData = templates.readFile('test.mustache').toString('utf-8');
         const testProcessedData = mustache.render(testTemplateFileData, {
@@ -72,7 +67,9 @@ class TestGeneratorTwo implements MarkupGenerator {
     readonly outputDirectoryName: string = 'test-2';
 }
 
-export const TestGeneratorsPlugin: Plugin = {
+const TestGeneratorsPlugin: Plugin = {
     generators: [new TestGeneratorOne(), new TestGeneratorTwo()],
     templates: { 'test-templates': path.resolve(__dirname, '..', 'templates') },
 };
+
+export default TestGeneratorsPlugin;

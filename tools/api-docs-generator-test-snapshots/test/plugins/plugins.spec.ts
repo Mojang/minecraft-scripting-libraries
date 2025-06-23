@@ -11,7 +11,6 @@ describe('Plugins', () => {
             testDir: __dirname,
             generators: ['test-1'],
             configPath: path.resolve(__dirname, 'api-docs-generator.config.mjs'),
-            additionalArgs: '--plugin test-markup-generator-plugin',
         });
     });
 });

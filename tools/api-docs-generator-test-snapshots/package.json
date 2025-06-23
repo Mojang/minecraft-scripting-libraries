@@ -4,6 +4,9 @@
   "description": "Test scenarios for @minecraft/api-docs-generator and plugins",
   "private": true,
   "license": "MIT",
+  "exports": {
+    "./plugin": "./lib/plugin.js"
+  },
   "scripts": {
     "build": "just-scripts build",
     "clean": "just-scripts clean",
@@ -21,7 +24,7 @@
   "dependencies": {
     "@minecraft/api-docs-generator": "*",
     "@minecraft/markup-generators-plugin": "*",
-    "test-markup-generator-plugin": "*",
+    "mustache": "^4.2.0",
     "ts-node": "^10.9.2",
     "typescript": "~5.6.0",
     "vitest": "^3.0.8"

@@ -34,8 +34,7 @@
     "homepage": "https://github.com/Mojang/minecraft-scripting-libraries#readme",
     "workspaces": [
         "libraries/*",
-        "tools/*",
-        "tests/*"
+        "tools/*"
     ],
     "devDependencies": {
         "@rushstack/node-core-library": "^5.13.0",

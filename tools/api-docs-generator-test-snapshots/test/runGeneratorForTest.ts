@@ -44,7 +44,7 @@ export function runGeneratorForTest(options: RunGeneratorForTestOptions): void {
 
     const generatorCmd = [
         'node',
-        path.resolve(__dirname, '../../../tools/api-docs-generator/lib/cli.js'),
+        path.resolve(__dirname, '../../api-docs-generator/lib/cli.js'),
         ...(configPath ? ['--config', configPath] : ['--no-config']),
         ...['--input-directory', inDir],
         ...['--output-directory', outDir],

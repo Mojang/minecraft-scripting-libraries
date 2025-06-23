@@ -158,8 +158,7 @@ async function initPlugins(config: ConfigOptions): Promise<InitializedPluginsDat
 
             let importPath = pluginName;
             if (pluginConfig.path) {
-                const relativeStart = config.configPath ? path.dirname(config.configPath) : process.cwd();
-                importPath = resolveFrom(relativeStart, pluginConfig.path);
+                importPath = resolveFrom(process.cwd(), pluginConfig.path);
             }
 
             log.info(`Importing plugin: '${importPath}'`);

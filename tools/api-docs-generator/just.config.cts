@@ -8,6 +8,7 @@ import {
 import { execSync } from 'child_process';
 import fs from 'fs';
 import { argv, series, task, tscTask } from 'just-scripts';
+import path from 'path';
 
 // Build
 task('build', tscTask());
@@ -29,7 +30,7 @@ task(
             fs.rmSync('./dist', { recursive: true, force: true });
         }
         fs.mkdirSync('./dist');
-        execSync('npm pack --pack-destination ./dist');
+        return execSync('npm pack --pack-destination ./dist');
     })
 );
 
@@ -37,10 +38,20 @@ task(
 task(
     'postpublish',
     series('package', () => {
+        if (!fs.existsSync('./dist')) {
+            throw new Error(
+                `NPM tarball package has not not been generated, check './dist' and run 'npm run package' first.`
+            );
+        }
+        const tarballPath = fs.readdirSync('./dist').filter(p => p.endsWith('.tgz'));
+        if (tarballPath.length !== 1) {
+            throw new Error(`Expected one NPM tarball package in './dist', found ${tarballPath.length}.`);
+        }
         return publishReleaseTask({
             repoOwner: 'Mojang',
             repoName: 'minecraft-scripting-libraries',
-            artifact: { files: ['./dist'], sourceFormat: 'npm-tarball' },
+            message: 'Core Minecraft API Docs Generator package for generating API markup and documentation',
+            artifact: { path: path.resolve('./dist', tarballPath[0]), sourceFormat: 'archive' },
         });
     })
 );

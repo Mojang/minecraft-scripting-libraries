@@ -4,7 +4,17 @@
   "description": "Core Minecraft API Docs Generator package for generating API markup and documentation",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "author": "Raphael Landaverde (rlanda@microsoft.com)",
+  "author": "Jake Shirley (jashir@mojang.com)",
+  "contributors": [
+    {
+      "name": "Raphael Landaverde",
+      "email": "rlanda@microsoft.com"
+    },
+    {
+      "name": "Zach Campbell",
+      "email": "zachary.campbell@skyboxlabs.com"
+    }
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",

@@ -50,7 +50,7 @@
     "@types/node": "^22.0.0",
     "@types/rimraf": "^3.0.2",
     "@typescript-eslint/parser": "^8.18.1",
-    "archiver": "^6.0.0",
+    "archiver": "^7.0.1",
     "ts-node": "^10.9.1",
     "tsconfig": "*"
   }

@@ -21,7 +21,7 @@
   ],
   "devDependencies": {
     "@minecraft/core-build-tasks": "*",
-    "@types/node": "^22.0.0",
+    "@types/node": "^24.0.4",
     "just-scripts": "^2.3.3",
     "tsconfig": "*"
   },

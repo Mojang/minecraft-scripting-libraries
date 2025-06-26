@@ -1103,7 +1103,7 @@ function getLatestDependentScriptModules(allModules: MinecraftScriptModule[], mo
             return true;
         }
 
-        for (const dep of moduleJson.dependencies) {
+        for (const dep of moduleJson.dependencies.concat(moduleJson.peer_dependencies)) {
             if (dep.uuid === sm.uuid) {
                 for (const depVersion of dep.versions) {
                     if (semver.major(sm.version) === semver.major(depVersion.version)) {
@@ -1488,17 +1488,15 @@ function markupLatestModules(releases: MinecraftRelease[]) {
                 }
             }
 
-            for (const arr of [scriptModule.dependencies, scriptModule.peer_dependencies]) {
-                for (const dep of arr) {
-                    if (!dep.is_vanilla_data && latestModulesByUUID[dep.uuid]) {
-                        const latestDependentModule = latestModulesByUUID[dep.uuid];
-                        const latestMajor = semver.major(latestDependentModule.version);
+            for (const dep of scriptModule.dependencies.concat(scriptModule.peer_dependencies)) {
+                if (!dep.is_vanilla_data && latestModulesByUUID[dep.uuid]) {
+                    const latestDependentModule = latestModulesByUUID[dep.uuid];
+                    const latestMajor = semver.major(latestDependentModule.version);
 
-                        if (semver.major(dep.from_module.version) === latestMajor) {
-                            dep.is_latest_major = true;
-                        } else {
-                            dep.from_module.prior_version = `${semver.major(dep.from_module.version)}.x.x`;
-                        }
+                    if (semver.major(dep.from_module.version) === latestMajor) {
+                        dep.is_latest_major = true;
+                    } else {
+                        dep.from_module.prior_version = `${semver.major(dep.from_module.version)}.x.x`;
                     }
                 }
             }
@@ -1537,13 +1535,11 @@ function markupNames(releases: MinecraftRelease[]) {
                 scriptModule.filepath_name += `-${semver.major(scriptModule.version)}xx`;
             }
 
-            for (const arr of [scriptModule.dependencies, scriptModule.peer_dependencies]) {
-                for (const dep of arr) {
-                    if (!dep.is_vanilla_data) {
-                        dep.from_module.folder_path = dep.is_latest_major ? 'scriptapi' : 'priorscriptapi';
-                        if (!dep.is_latest_major) {
-                            dep.filepath_name += `-${semver.major(dep.from_module.version)}xx`;
-                        }
+            for (const dep of scriptModule.dependencies.concat(scriptModule.peer_dependencies)) {
+                if (!dep.is_vanilla_data) {
+                    dep.from_module.folder_path = dep.is_latest_major ? 'scriptapi' : 'priorscriptapi';
+                    if (!dep.is_latest_major) {
+                        dep.filepath_name += `-${semver.major(dep.from_module.version)}xx`;
                     }
                 }
             }
@@ -1904,25 +1900,23 @@ function fromExternalModule(releases: MinecraftRelease[]) {
 function addFromModuleToDependencies(releases: MinecraftRelease[]) {
     for (const release of releases) {
         for (const scriptModule of release.script_modules) {
-            for (const arr of [scriptModule.dependencies, scriptModule.peer_dependencies]) {
-                for (const dep of arr) {
-                    const sortedVersions = dep.versions.toSorted(utils.reverseSemVerSortComparer('version'));
-                    const latestVersion = sortedVersions[0].version;
+            for (const dep of scriptModule.dependencies.concat(scriptModule.peer_dependencies)) {
+                const sortedVersions = dep.versions.toSorted(utils.reverseSemVerSortComparer('version'));
+                const latestVersion = sortedVersions[0].version;
 
-                    dep.from_module = {
-                        name: dep.name,
-                        uuid: dep.uuid,
-                        version: latestVersion,
-                    };
+                dep.from_module = {
+                    name: dep.name,
+                    uuid: dep.uuid,
+                    version: latestVersion,
+                };
 
-                    dep.is_vanilla_data = dep.name === '@minecraft/vanilla-data';
-                    for (const version of dep.versions) {
-                        version.version_selector = !dep.is_vanilla_data
-                            ? '^'
-                            : !semver.prerelease(version.version)
-                              ? '>='
-                              : undefined;
-                    }
+                dep.is_vanilla_data = dep.name === '@minecraft/vanilla-data';
+                for (const version of dep.versions) {
+                    version.version_selector = !dep.is_vanilla_data
+                        ? '^'
+                        : !semver.prerelease(version.version)
+                          ? '>='
+                          : undefined;
                 }
             }
         }

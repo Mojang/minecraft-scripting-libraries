@@ -292,9 +292,9 @@ function loadMinecraftReleases(context: GeneratorContext): MinecraftReleasesByVe
             }
 
             if ('$schema' in documentationJsonRaw) {
-                const avj = new Ajv();
+                const ajv = new Ajv();
                 try {
-                    if (avj.validateSchema(documentationJsonRaw)) {
+                    if (ajv.validateSchema(documentationJsonRaw)) {
                         allJsonSchemas[inputFilePath] = documentationJsonRaw as MinecraftSchemaObject;
                     } else {
                         log.warn(`Skipping invalid JSON schema: ${inputFilePath}`);
@@ -405,15 +405,13 @@ function loadMinecraftReleases(context: GeneratorContext): MinecraftReleasesByVe
         allMinecraftReleases[moduleMinecraftVersion].engine_data_modules.push(engineModule);
     }
 
+    const unversionedJsonSchemas: MinecraftJsonSchemaMap = {};
     for (const path in allJsonSchemas) {
         const jsonSchema = allJsonSchemas[path];
-        let schemaMinecraftVersion = jsonSchema['x-minecraft-version'];
+        const schemaMinecraftVersion = jsonSchema['x-minecraft-version'];
         if (!schemaMinecraftVersion) {
-            const earliestAvailable = Object.values(allMinecraftReleases)
-                .sort(utils.semVerSortComparer('minecraft_version'))
-                .at(0);
-
-            schemaMinecraftVersion = earliestAvailable ? earliestAvailable.minecraft_version : '0.0.0';
+            unversionedJsonSchemas[path] = jsonSchema;
+            continue;
         }
 
         if (!allMinecraftReleases[schemaMinecraftVersion]) {
@@ -421,6 +419,23 @@ function loadMinecraftReleases(context: GeneratorContext): MinecraftReleasesByVe
         }
 
         allMinecraftReleases[schemaMinecraftVersion].json_schemas[path] = jsonSchema;
+    }
+
+    const allMinecraftReleaseVersions = Object.keys(allMinecraftReleases);
+    const earliestAvailableMinecraftVersion =
+        allMinecraftReleaseVersions.length > 0
+            ? allMinecraftReleaseVersions.sort((a, b) => semver.compare(a, b)).at(0)
+            : '1.0.0';
+
+    if (!allMinecraftReleases[earliestAvailableMinecraftVersion]) {
+        allMinecraftReleases[earliestAvailableMinecraftVersion] = new MinecraftRelease(
+            earliestAvailableMinecraftVersion
+        );
+    }
+
+    for (const path in unversionedJsonSchemas) {
+        const jsonSchema = unversionedJsonSchemas[path];
+        allMinecraftReleases[earliestAvailableMinecraftVersion].json_schemas[path] = jsonSchema;
     }
 
     if (Object.keys(allMinecraftReleases).length === 0) {

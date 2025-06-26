@@ -14,7 +14,7 @@
     "test": "just-scripts test"
   },
   "devDependencies": {
-    "@minecraft/core-build-tasks": "^5.0.0",
+    "@minecraft/core-build-tasks": "*",
     "@types/node": "^22.0.0",
     "eslint": "^9.22.0",
     "eslint-config-minecraft-scripting": "*",

@@ -1,6 +1,6 @@
 {
   "name": "@minecraft/markup-generators-plugin",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Plugin for @minecraft/api-docs-generator containing core markup generators and template files",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -40,7 +40,7 @@
     "CHANGELOG.*"
   ],
   "devDependencies": {
-    "@minecraft/api-docs-generator": "^0.0.0",
+    "@minecraft/api-docs-generator": "^1.0.0",
     "@minecraft/core-build-tasks": "*",
     "@types/mustache": "^4.2.2",
     "@types/node": "^22.0.0",
@@ -61,6 +61,6 @@
     "typescript": "~5.6.0"
   },
   "peerDependencies": {
-    "@minecraft/api-docs-generator": "^0.0.0"
+    "@minecraft/api-docs-generator": "^1.0.0"
   }
 }

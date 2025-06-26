@@ -1,8 +1,16 @@
 # Change Log - @minecraft/core-build-tasks
 
-<!-- This log was last generated on Fri, 23 May 2025 10:43:28 GMT and should not be manually modified. -->
+<!-- This log was last generated on Thu, 26 Jun 2025 22:33:37 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 5.2.0
+
+Thu, 26 Jun 2025 22:33:37 GMT
+
+### Minor changes
+
+- Update core-build-tasks publishRelease to support uploading NPM tarballs (zachary.campbell@skyboxlabs.com)
 
 ## 5.1.0
 

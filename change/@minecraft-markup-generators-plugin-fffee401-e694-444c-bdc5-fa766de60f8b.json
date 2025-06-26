@@ -1,7 +1,0 @@
-{
-  "type": "major",
-  "comment": "Add api-docs-generator and markup-generators-plugin",
-  "packageName": "@minecraft/markup-generators-plugin",
-  "email": "zachary.campbell@skyboxlabs.com",
-  "dependentChangeType": "none"
-}

@@ -1,0 +1,20 @@
+{
+  "name": "@minecraft/api-docs-generator",
+  "entries": [
+    {
+      "date": "Thu, 26 Jun 2025 22:33:37 GMT",
+      "version": "1.0.0",
+      "tag": "@minecraft/api-docs-generator_v1.0.0",
+      "comments": {
+        "major": [
+          {
+            "author": "zachary.campbell@skyboxlabs.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "6dbbce7231a4daceb4ddbba5681891de7fc481e7",
+            "comment": "Add api-docs-generator and markup-generators-plugin"
+          }
+        ]
+      }
+    }
+  ]
+}

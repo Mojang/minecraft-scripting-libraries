@@ -2,6 +2,21 @@
   "name": "@minecraft/core-build-tasks",
   "entries": [
     {
+      "date": "Thu, 26 Jun 2025 22:33:37 GMT",
+      "version": "5.2.0",
+      "tag": "@minecraft/core-build-tasks_v5.2.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "zachary.campbell@skyboxlabs.com",
+            "package": "@minecraft/core-build-tasks",
+            "commit": "6dbbce7231a4daceb4ddbba5681891de7fc481e7",
+            "comment": "Update core-build-tasks publishRelease to support uploading NPM tarballs"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 23 May 2025 10:43:28 GMT",
       "version": "5.1.0",
       "tag": "@minecraft/core-build-tasks_v5.1.0",

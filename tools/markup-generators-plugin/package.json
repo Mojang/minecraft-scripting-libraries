@@ -43,7 +43,7 @@
     "@minecraft/api-docs-generator": "^1.0.0",
     "@minecraft/core-build-tasks": "*",
     "@types/mustache": "^4.2.2",
-    "@types/node": "^22.0.0",
+    "@types/node": "^24.0.4",
     "@types/semver": "^7.3.12",
     "eslint": "^9.17.0",
     "eslint-config-minecraft-scripting": "*",

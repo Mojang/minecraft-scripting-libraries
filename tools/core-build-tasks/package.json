@@ -47,7 +47,7 @@
   "devDependencies": {
     "@octokit/rest": "^21.0.2",
     "@types/archiver": "^6.0.0",
-    "@types/node": "^22.0.0",
+    "@types/node": "^24.0.4",
     "@types/rimraf": "^3.0.2",
     "@typescript-eslint/parser": "^8.18.1",
     "archiver": "^6.0.0",

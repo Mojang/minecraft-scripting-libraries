@@ -1,0 +1,361 @@
+{
+  "classes": [
+    {
+      "base_types": [],
+      "constants": [],
+      "functions": [
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "name": "exampleMethodThatThrows",
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": true,
+            "name": "string"
+          }
+        },
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "name": "exampleMethodThatThrowsCustomError",
+          "return_type": {
+            "error_types": [
+              {
+                "is_bind_type": true,
+                "is_errorable": false,
+                "name": "ExampleError"
+              }
+            ],
+            "is_bind_type": false,
+            "is_errorable": true,
+            "name": "string"
+          }
+        },
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "name": "exampleMethodThatThrowsTwoErrors",
+          "return_type": {
+            "error_types": [
+              {
+                "is_bind_type": true,
+                "is_errorable": false,
+                "name": "ExampleError"
+              },
+              {
+                "is_bind_type": true,
+                "is_errorable": false,
+                "name": "ExampleError2"
+              }
+            ],
+            "is_bind_type": false,
+            "is_errorable": true,
+            "name": "string"
+          }
+        },
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "privilege": "read_only",
+          "name": "exampleMethodThatThrowsWithReadOnlyPrivilege",
+          "return_type": {
+            "error_types": [
+              {
+                "is_bind_type": true,
+                "is_errorable": false,
+                "name": "ExampleError"
+              }
+            ],
+            "is_bind_type": false,
+            "is_errorable": true,
+            "name": "string"
+          }
+        }
+      ],
+      "name": "ExampleClass",
+      "properties": [
+        {
+          "is_read_only": false,
+          "name": "examplePropertyThatThrows",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": true,
+            "name": "int32"
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "examplePropertyThatThrowsCustomError",
+          "type": {
+            "error_types": [
+              {
+                "is_bind_type": true,
+                "is_errorable": false,
+                "name": "ExampleError"
+              }
+            ],
+            "is_bind_type": false,
+            "is_errorable": true,
+            "name": "int32"
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "examplePropertyThatThrowsTwoErrors",
+          "type": {
+            "error_types": [
+              {
+                "is_bind_type": true,
+                "is_errorable": false,
+                "name": "ExampleError"
+              },
+              {
+                "is_bind_type": true,
+                "is_errorable": false,
+                "name": "ExampleError2"
+              }
+            ],
+            "is_bind_type": false,
+            "is_errorable": true,
+            "name": "int32"
+          }
+        },
+        {
+          "is_read_only": false,
+          "privilege": "read_only",
+          "name": "examplePropertyThatThrowsWithReadOnlyPrivilege",
+          "type": {
+            "error_types": [
+              {
+                "is_bind_type": true,
+                "is_errorable": false,
+                "name": "ExampleError"
+              }
+            ],
+            "is_bind_type": false,
+            "is_errorable": true,
+            "name": "int32"
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "examplePropertyWithCrossModuleError",
+          "type": {
+            "error_types": [
+              {
+                "is_bind_type": true,
+                "is_errorable": false,
+                "name": "CrossModuleExampleError",
+                "from_module": {
+                  "uuid": "7b2f1f00-57ca-446b-9603-4a800f3b936d",
+                  "name": "minecraft/ExampleModule2",
+                  "version": "1.0.0"
+                }
+              }
+            ],
+            "is_bind_type": false,
+            "is_errorable": true,
+            "name": "int32"
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "examplePropertyWithCrossModuleReturnAndError",
+          "type": {
+            "error_types": [
+              {
+                "is_bind_type": true,
+                "is_errorable": false,
+                "name": "ExampleError"
+              }
+            ],
+            "from_module": {
+              "uuid": "7b2f1f00-57ca-446b-9603-4a800f3b936d",
+              "name": "minecraft/ExampleModule2",
+              "version": "1.0.0"
+            },
+            "is_bind_type": false,
+            "is_errorable": true,
+            "name": "CrossModuleReturn"
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ExampleClass"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "arguments": [],
+      "is_constructor": false,
+      "name": "exampleFunctionThatThrows",
+      "return_type": {
+        "is_bind_type": false,
+        "is_errorable": true,
+        "name": "string"
+      }
+    },
+    {
+      "arguments": [],
+      "is_constructor": false,
+      "name": "exampleFunctionThatThrowsCustomError",
+      "return_type": {
+        "error_types": [
+          {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "ExampleError"
+          }
+        ],
+        "is_bind_type": false,
+        "is_errorable": true,
+        "name": "string"
+      }
+    },
+    {
+      "arguments": [],
+      "is_constructor": false,
+      "name": "exampleFunctionThatThrowsTwoErrors",
+      "return_type": {
+        "error_types": [
+          {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "ExampleError"
+          },
+          {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "ExampleError2"
+          }
+        ],
+        "is_bind_type": false,
+        "is_errorable": true,
+        "name": "string"
+      }
+    },
+    {
+      "arguments": [],
+      "is_constructor": false,
+      "name": "exampleFunctionWithCrossModuleError",
+      "return_type": {
+        "error_types": [
+          {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "CrossModuleExampleError",
+            "from_module": {
+              "uuid": "7b2f1f00-57ca-446b-9603-4a800f3b936d",
+              "name": "minecraft/ExampleModule2",
+              "version": "1.0.0"
+            }
+          }
+        ],
+        "is_bind_type": false,
+        "is_errorable": true,
+        "name": "int32"
+      }
+    },
+    {
+      "arguments": [],
+      "is_constructor": false,
+      "name": "exampleFunctionWithCrossModuleReturnAndError",
+      "return_type": {
+        "error_types": [
+          {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "ExampleError"
+          }
+        ],
+        "from_module": {
+          "uuid": "7b2f1f00-57ca-446b-9603-4a800f3b936d",
+          "name": "minecraft/ExampleModule2",
+          "version": "1.0.0"
+        },
+        "is_bind_type": false,
+        "is_errorable": true,
+        "name": "CrossModuleReturn"
+      }
+    }
+  ],
+  "errors": [
+    {
+      "name": "ExampleError",
+      "properties": [
+        {
+          "is_read_only": true,
+          "name": "exampleOptionalProperty",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "optional",
+            "optional_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "string"
+            }
+          }
+        },
+        {
+          "is_read_only": true,
+          "name": "exampleProperty",
+          "type": {
+            "element_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "string"
+            },
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "array"
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ExampleError"
+      }
+    },
+    {
+      "name": "ExampleError2",
+      "properties": [
+        {
+          "is_read_only": true,
+          "name": "exampleProperty",
+          "type": {
+            "element_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "string"
+            },
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "array"
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ExampleError2"
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "7b2f1f00-57ca-446b-9603-4a800f3b936d",
+      "name": "minecraft/ExampleModule2",
+      "version": "1.0.0"
+    }
+  ],
+  "minecraft_version": "1.0.0",
+  "name": "minecraft/ExampleModule",
+  "uuid": "7b2f1f00-57ca-446b-9603-4a800f3b936c",
+  "version": "1.0.0",
+  "module_type": "script"
+}

@@ -1,0 +1,128 @@
+{
+  "classes": [
+    {
+      "base_types": [],
+      "constants": [],
+      "functions": [],
+      "name": "BaseClassWithPrivateConstructor",
+      "properties": [],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "BaseClassWithPrivateConstructor"
+      }
+    },
+    {
+      "base_types": [
+        {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "BaseClassWithPrivateConstructor"
+        }
+      ],
+      "constants": [],
+      "functions": [
+        {
+          "arguments": [],
+          "is_constructor": true,
+          "name": "constructor",
+          "privilege": "read_only",
+          "return_type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "ChildClassOfPrivateConstructor"
+          }
+        }
+      ],
+      "name": "ChildClassOfPrivateConstructor",
+      "properties": [],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ChildClassOfPrivateConstructor"
+      }
+    },
+    {
+      "constants": [],
+      "functions": [
+        {
+          "arguments": [],
+          "is_constructor": true,
+          "name": "constructor",
+          "privilege": "read_only",
+          "return_type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "NonChildClass"
+          }
+        }
+      ],
+      "name": "NonChildClass",
+      "properties": [],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "NonChildClass"
+      }
+    },
+    {
+      "base_types": [],
+      "constants": [],
+      "functions": [
+        {
+          "arguments": [],
+          "is_constructor": true,
+          "name": "constructor",
+          "privilege": "read_only",
+          "return_type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "BaseClassWithPublicConstructor"
+          }
+        }
+      ],
+      "name": "BaseClassWithPublicConstructor",
+      "properties": [],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "BaseClassWithPublicConstructor"
+      }
+    },
+    {
+      "base_types": [
+        {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "BaseClassWithPublicConstructor"
+        }
+      ],
+      "constants": [],
+      "functions": [
+        {
+          "arguments": [],
+          "is_constructor": true,
+          "name": "constructor",
+          "privilege": "read_only",
+          "return_type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "ChildClassOfPublicConstructor"
+          }
+        }
+      ],
+      "name": "ChildClassOfPublicConstructor",
+      "properties": [],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ChildClassOfPublicConstructor"
+      }
+    }
+  ],
+  "minecraft_version": "1.0.0",
+  "name": "example-module",
+  "uuid": "93faf953-0173-44dc-b542-b48f4fea7c4b",
+  "version": "1.0.0",
+  "module_type": "script"
+}

@@ -1,0 +1,113 @@
+{
+  "block_properties": [
+    {
+      "name": "diamonds_stored",
+      "type": "int",
+      "values": [
+        {
+          "value": 0
+        },
+        {
+          "value": 1
+        },
+        {
+          "value": 2
+        },
+        {
+          "value": 3
+        },
+        {
+          "value": 4
+        },
+        {
+          "value": 5
+        },
+        {
+          "value": 6
+        },
+        {
+          "value": 7
+        },
+        {
+          "value": 8
+        },
+        {
+          "value": 9
+        },
+        {
+          "value": 10
+        },
+        {
+          "value": 11
+        },
+        {
+          "value": 12
+        },
+        {
+          "value": 13
+        },
+        {
+          "value": 14
+        },
+        {
+          "value": 15
+        }
+      ]
+    },
+    {
+      "name": "glass_fullness",
+      "type": "string",
+      "values": [
+        {
+          "value": "empty"
+        },
+        {
+          "value": "half-empty"
+        },
+        {
+          "value": "half-full"
+        },
+        {
+          "value": "full"
+        }
+      ]
+    },
+    {
+      "name": "is_true",
+      "type": "bool",
+      "values": [
+        {
+          "value": true
+        },
+        {
+          "value": false
+        }
+      ]
+    }
+  ],
+  "data_items": [
+    {
+      "name": "minecraft:diamond_crate",
+      "properties": [
+        {
+          "name": "diamonds_stored"
+        },
+        {
+          "name": "is_true"
+        }
+      ]
+    },
+    {
+      "name": "customspace:drinking_glass",
+      "properties": [
+        {
+          "name": "glass_fullness"
+        }
+      ]
+    }
+  ],
+  "minecraft_version": "1.18.20",
+  "module_type": "vanilla_data",
+  "vanilla_data_type": "block",
+  "name": "test-blocks-module"
+}

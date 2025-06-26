@@ -1,0 +1,223 @@
+{
+  "classes": [
+    {
+      "base_types": [],
+      "constants": [],
+      "functions": [
+        {
+          "arguments": [],
+          "is_constructor": true,
+          "name": "constructor",
+          "return_type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "ClassWithEmptyConstructor",
+            "valid_range": null
+          }
+        }
+      ],
+      "name": "ClassWithEmptyConstructor",
+      "properties": [
+        {
+          "is_read_only": false,
+          "name": "numberProperty",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": {
+              "max": 2147483647,
+              "min": -2147483648
+            }
+          }
+        },
+        {
+          "is_read_only": true,
+          "name": "readOnlyNumberProperty",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": {
+              "max": 2147483647,
+              "min": -2147483648
+            }
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ClassWithEmptyConstructor",
+        "valid_range": null
+      }
+    },
+    {
+      "base_types": [],
+      "constants": [],
+      "functions": [
+        {
+          "arguments": [
+            {
+              "details": null,
+              "name": "constructorArg",
+              "type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "string"
+              }
+            }
+          ],
+          "is_constructor": true,
+          "name": "constructor",
+          "return_type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "ClassWithExplicitConstructor",
+            "valid_range": null
+          }
+        }
+      ],
+      "name": "ClassWithExplicitConstructor",
+      "properties": [
+        {
+          "is_read_only": false,
+          "name": "numberProperty",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": {
+              "max": 2147483647,
+              "min": -2147483648
+            }
+          }
+        },
+        {
+          "is_read_only": true,
+          "name": "readOnlyNumberProperty",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": {
+              "max": 2147483647,
+              "min": -2147483648
+            }
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ClassWithExplicitConstructor",
+        "valid_range": null
+      }
+    },
+    {
+      "base_types": [],
+      "constants": [],
+      "functions": [],
+      "name": "ClassWithOptionalProperty",
+      "properties": [
+        {
+          "is_read_only": false,
+          "name": "numberProperty",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": {
+              "max": 2147483647,
+              "min": -2147483648
+            }
+          }
+        },
+        {
+          "is_read_only": true,
+          "name": "optionalNumberProperty",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "optional",
+            "optional_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int32",
+              "valid_range": {
+                "max": 2147483647,
+                "min": -2147483648
+              }
+            }
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ClassWithOptionalProperty",
+        "valid_range": null
+      }
+    }
+  ],
+  "constants": [],
+  "dependencies": [],
+  "enums": [],
+  "functions": [
+    {
+      "arguments": [],
+      "is_constructor": false,
+      "name": "ModuleFunction",
+      "return_type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ClassWithConstructor",
+        "valid_range": null
+      }
+    }
+  ],
+  "interfaces": [
+    {
+      "name": "ExampleInterface",
+      "properties": [
+        {
+          "is_read_only": false,
+          "name": "member2",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": {
+              "max": 2147483647,
+              "min": -2147483648
+            }
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "member1",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": {
+              "max": 2147483647,
+              "min": -2147483648
+            }
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ExampleInterface"
+      }
+    }
+  ],
+  "minecraft_version": "1.18.20",
+  "name": "test-module2",
+  "uuid": "9f56871a-9f3a-11ec-b909-0242ac120002",
+  "objects": [],
+  "version": "1.0.0",
+  "module_type": "script"
+}

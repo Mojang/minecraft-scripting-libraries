@@ -1,0 +1,179 @@
+{
+  "commands": [
+    {
+      "aliases": [
+        {
+          "name": "notrealcommand"
+        },
+        {
+          "name": "fakecommand"
+        }
+      ],
+      "description": "Unused description",
+      "name": "testcommand",
+      "overloads": [
+        {
+          "name": "1",
+          "params": [
+            {
+              "is_optional": false,
+              "name": "mode",
+              "type": {
+                "name": "TESTCOMMANDMODEADD"
+              }
+            },
+            {
+              "is_optional": false,
+              "name": "target",
+              "type": {
+                "name": "SELECTION"
+              }
+            },
+            {
+              "is_optional": true,
+              "name": "amount",
+              "type": {
+                "name": "INT"
+              }
+            }
+          ]
+        },
+        {
+          "name": "2",
+          "params": [
+            {
+              "is_optional": false,
+              "name": "mode",
+              "type": {
+                "name": "TESTCOMMANDMODEREMOVE"
+              }
+            },
+            {
+              "is_optional": false,
+              "name": "target",
+              "type": {
+                "name": "SELECTION"
+              }
+            },
+            {
+              "is_optional": true,
+              "name": "amount",
+              "type": {
+                "name": "INT"
+              }
+            }
+          ]
+        },
+        {
+          "name": "3",
+          "params": [
+            {
+              "is_optional": false,
+              "name": "mode",
+              "type": {
+                "name": "TESTCOMMANDMODESET"
+              }
+            },
+            {
+              "is_optional": false,
+              "name": "center",
+              "type": {
+                "name": "POSITION_FLOAT"
+              }
+            },
+            {
+              "is_optional": false,
+              "name": "biome",
+              "type": {
+                "name": "TESTBIOMEENUM"
+              }
+            }
+          ]
+        },
+        {
+          "name": "4",
+          "params": [
+            {
+              "is_optional": false,
+              "name": "mode",
+              "type": {
+                "name": "TESTCOMMANDMODESET"
+              }
+            },
+            {
+              "is_optional": false,
+              "name": "center",
+              "type": {
+                "name": "SELECTION"
+              }
+            },
+            {
+              "is_optional": false,
+              "name": "biome",
+              "type": {
+                "name": "TESTBIOMEENUM"
+              }
+            }
+          ]
+        }
+      ],
+      "permission_level": 0,
+      "requires_cheats": true,
+      "versions": []
+    }
+  ],
+  "command_enums": [
+    {
+      "name": "TestCommandModeAdd",
+      "values": [
+        {
+          "value": "add"
+        }
+      ]
+    },
+    {
+      "name": "TestCommandModeRemove",
+      "values": [
+        {
+          "value": "remove"
+        }
+      ]
+    },
+    {
+      "name": "TestCommandModeSet",
+      "values": [
+        {
+          "value": "set"
+        }
+      ]
+    },
+    {
+      "name": "TestCommandModeRemoveAll",
+      "values": [
+        {
+          "value": "remove-all"
+        }
+      ]
+    },
+    {
+      "name": "TestBiomeEnum",
+      "values": [
+        {
+          "value": "forest"
+        },
+        {
+          "value": "taiga"
+        },
+        {
+          "value": "desert"
+        },
+        {
+          "value": "plains"
+        }
+      ]
+    }
+  ],
+  "minecraft_version": "1.18.20",
+  "name": "test-commands-module",
+  "module_type": "commands"
+}

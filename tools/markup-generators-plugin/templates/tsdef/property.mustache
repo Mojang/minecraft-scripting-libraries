@@ -1,0 +1,99 @@
+{{#ts_has_comments}}
+/**
+  {{#is_prerelease}}
+ * @{{{prerelease}}}
+  {{/is_prerelease}}
+  {{#is_deprecated}}
+ * @deprecated This property is deprecated and will be removed in {{{deprecated_version}}}.
+    {{#deprecated_description_ts.length}}
+ *
+      {{#deprecated_description_ts}}
+ * {{{.}}}
+      {{/deprecated_description_ts}}
+    {{/deprecated_description_ts.length}}
+    {{#ts_has_remarks}}
+ *
+    {{/ts_has_remarks}}
+  {{/is_deprecated}}
+  {{#ts_has_remarks}}
+ * @remarks
+    {{#property_description_ts.length}}
+      {{#property_description_ts}}
+ * {{{.}}}
+      {{/property_description_ts}}
+ *
+    {{/property_description_ts.length}}
+    {{#set_disallowed_in_read_only}}
+      {{#get_disallowed_in_read_only}}
+ * This property can't be used in read-only mode.
+ *
+      {{/get_disallowed_in_read_only}}
+      {{^get_disallowed_in_read_only}}
+ * This property can't be edited in read-only mode.
+ *
+      {{/get_disallowed_in_read_only}}
+    {{/set_disallowed_in_read_only}}
+    {{^set_disallowed_in_read_only}}
+      {{#get_disallowed_in_read_only}}
+ * This property can't be read in read-only mode.
+ *
+      {{/get_disallowed_in_read_only}}
+    {{/set_disallowed_in_read_only}}
+    {{#set_allowed_in_early_execution}}
+      {{#get_allowed_in_early_execution}}
+ * This property can be used in early-execution mode.
+ *
+      {{/get_allowed_in_early_execution}}
+      {{^get_allowed_in_early_execution}}
+ * This property can be edited in early-execution mode.
+ *
+      {{/get_allowed_in_early_execution}}
+    {{/set_allowed_in_early_execution}}
+    {{^set_allowed_in_early_execution}}
+      {{#get_allowed_in_early_execution}}
+ * This property can be read in early-execution mode.
+ *
+      {{/get_allowed_in_early_execution}}
+    {{/set_allowed_in_early_execution}}
+  {{/ts_has_remarks}}
+  {{#has_defaults}}
+    {{#default_value}}
+ * Defaults to: {{> value}}
+ *
+    {{/default_value}}
+  {{/has_defaults}}
+ {{#throws_description_ts.length}}
+ * @throws
+   {{#throws_description_ts}}
+ * {{{.}}}
+   {{/throws_description_ts}}   
+  {{/throws_description_ts.length}}
+    {{^throws_description_ts}}
+        {{#type}}
+            {{#is_errorable}}
+ * @throws This property can throw when used.
+            {{/is_errorable}}
+        {{/type}}
+    {{/throws_description_ts}}
+    {{#type}}
+      {{#error_types.length}}
+        {{#error_types}}
+{{! Re-assign the mustache delimiters to avoid conflicts with typedoc comments }}
+{{=<% %>=}}
+ *
+ * {@link <%> type%>}
+<%={{ }}=%>
+        {{/error_types}}
+      {{/error_types.length}}
+    {{/type}}
+    {{#examples.length}}
+    {{> examples}}
+    {{/examples.length}}
+ */
+{{/ts_has_comments}}
+{{^is_script_generated}}
+{{> property_declaration }}{{^is_enum}};{{/is_enum}}
+{{/is_script_generated}}
+{{#is_script_generated}}
+{{{raw_script_text}}}{{#is_enum}},{{/is_enum}}
+{{/is_script_generated}}

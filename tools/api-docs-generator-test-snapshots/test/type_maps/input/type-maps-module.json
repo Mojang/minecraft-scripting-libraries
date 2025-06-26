@@ -1,0 +1,70 @@
+{
+  "classes": [
+    {
+      "base_types": [],
+      "constants": [],
+      "functions": [],
+      "name": "CustomComponent",
+      "properties": [],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "CustomComponent"
+      }
+    },
+    {
+      "base_types": [],
+      "constants": [],
+      "functions": [],
+      "name": "FakeComponent",
+      "properties": [],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "FakeComponent"
+      }
+    },
+    {
+      "base_types": [],
+      "constants": [],
+      "functions": [],
+      "name": "TestComponent",
+      "properties": [],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "TestComponent"
+      }
+    }
+  ],
+  "type_aliases": [
+    {
+      "alias_type": "type_map",
+      "mappings": [
+        {
+          "name": "fake:fakeComponent",
+          "value": "FakeComponent"
+        },
+        {
+          "name": "custom:customComponent",
+          "value": "CustomComponent"
+        },
+        {
+          "name": "test:testComponent",
+          "value": "TestComponent"
+        }
+      ],
+      "name": "TestComponentTypeMap",
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "TestComponent"
+      }
+    }
+  ],
+  "minecraft_version": "1.0.0",
+  "name": "type-maps-module",
+  "uuid": "4941c7d0-5ccc-11ee-8c99-0242ac120002",
+  "version": "1.0.0",
+  "module_type": "script"
+}

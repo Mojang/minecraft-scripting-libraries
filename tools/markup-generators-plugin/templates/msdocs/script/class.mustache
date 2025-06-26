@@ -1,0 +1,162 @@
+---
+{{ >default_metadata }}
+title: {{{from_module.filepath_name}}}.{{{name}}} {{#is_interface}}Interface{{/is_interface}}{{^is_interface}}Class{{/is_interface}}
+description: Contents of the {{{from_module.name}}}.{{{name}}} class{{#from_module.prior_version}} (Version {{.}}){{/from_module.prior_version}}.
+{{#is_prerelease}}
+monikerRange: "=minecraft-bedrock-experimental"
+{{/is_prerelease}}
+---
+# {{{class_name}}} {{#is_interface}}Interface{{/is_interface}}{{^is_interface}}Class{{/is_interface}}{{#from_module.prior_version}} (Version {{.}}){{/from_module.prior_version}}
+{{#show_prior_warning}}
+
+> [!IMPORTANT]
+> This documentation is for an older version of this module.{{#prior_link}} Go to the latest documentation [*here*]({{{.}}}).{{/prior_link}}
+{{/show_prior_warning}}
+{{#is_prerelease}}
+
+> [!CAUTION]
+> This {{#is_interface}}interface{{/is_interface}}{{^is_interface}}class{{/is_interface}} is still in pre-release.  Its signature may change or it may be removed in future releases.
+{{/is_prerelease}}
+{{#is_deprecated}}
+
+> [!CAUTION]
+> This {{#is_interface}}interface{{/is_interface}}{{^is_interface}}class{{/is_interface}} is deprecated and will be removed in {{{deprecated_version}}}.
+  {{#deprecated_description_md}}
+> 
+> {{{.}}}
+  {{/deprecated_description_md}}
+{{/is_deprecated}}
+{{#has_runtime_conditions}}
+ 
+## Required Experiments
+  {{#runtime_conditions}} 
+- {{.}}
+  {{/runtime_conditions}}
+
+{{/has_runtime_conditions}}
+{{#base_types.length}}
+
+## Extends
+  {{#base_types}}
+- {{> type_with_links}}
+  {{/base_types}}
+{{/base_types.length}}
+{{#iterator}}
+
+## Implements
+- Iterator&lt;{{> type_with_links}}&gt;
+{{/iterator}}
+{{#derived_types.length}}
+
+## Classes that extend {{{class_name}}}
+  {{#derived_types}}
+- {{> type_with_links}}
+  {{/derived_types}}
+{{/derived_types.length}}
+{{#class_description_md}}
+
+{{{.}}}
+{{/class_description_md}}
+{{#properties.length}}
+
+## Properties
+  {{#properties}}
+
+{{> property}}
+  {{/properties}}
+{{/properties.length}}
+{{#has_member_functions}}
+
+## Methods
+{{! Constructor(s), methods, then static functions}}
+  {{#functions}}
+    {{#is_constructor}}
+      {{#stable_only}}
+::: moniker range="=minecraft-bedrock-stable"
+      {{/stable_only}}
+      {{#is_prerelease}}
+::: moniker range="=minecraft-bedrock-experimental"
+      {{/is_prerelease}}
+- [{{{name}}}](#{{bookmark_name}})
+      {{#is_prerelease}}
+::: moniker-end
+      {{/is_prerelease}}    
+      {{#stable_only}}
+::: moniker-end
+      {{/stable_only}}
+    {{/is_constructor}}
+  {{/functions}}
+  {{#functions}}
+    {{^is_constructor}}
+      {{^is_static}}
+        {{#stable_only}}
+::: moniker range="=minecraft-bedrock-stable"
+        {{/stable_only}}
+        {{#is_prerelease}}
+::: moniker range="=minecraft-bedrock-experimental"
+        {{/is_prerelease}}
+- [{{{name}}}](#{{bookmark_name}})
+        {{#is_prerelease}}
+::: moniker-end
+        {{/is_prerelease}}    
+        {{#stable_only}}
+::: moniker-end
+        {{/stable_only}}   
+      {{/is_static}}
+    {{/is_constructor}}
+  {{/functions}}
+  {{#functions}}
+    {{^is_constructor}}
+      {{#is_static}}
+        {{#stable_only}}
+::: moniker range="=minecraft-bedrock-stable"
+        {{/stable_only}}
+        {{#is_prerelease}}
+::: moniker range="=minecraft-bedrock-experimental"
+        {{/is_prerelease}}
+- [{{{name}}}](#{{bookmark_name}})
+        {{#is_prerelease}}
+::: moniker-end
+        {{/is_prerelease}}    
+        {{#stable_only}}
+::: moniker-end
+        {{/stable_only}}   
+      {{/is_static}}
+    {{/is_constructor}}
+  {{/functions}}
+{{! Constructor(s), methods, then static functions}}
+  {{#functions}}
+    {{#is_constructor}}
+
+{{> function}}
+    {{/is_constructor}}
+  {{/functions}}
+  {{#functions}}
+    {{^is_constructor}}
+      {{^is_static}}
+
+{{> function}}
+      {{/is_static}}
+    {{/is_constructor}}
+  {{/functions}}
+  {{#functions}}
+    {{^is_constructor}}
+      {{#is_static}}
+
+{{> function}}
+      {{/is_static}}
+    {{/is_constructor}}
+  {{/functions}} 
+{{/has_member_functions}}
+{{#has_member_constants}}
+
+## Constants
+  {{#constants}}
+
+{{> property}}
+  {{/constants}}
+{{/has_member_constants}}
+{{#examples.length}}
+
+{{> examples}}
+{{/examples.length}}

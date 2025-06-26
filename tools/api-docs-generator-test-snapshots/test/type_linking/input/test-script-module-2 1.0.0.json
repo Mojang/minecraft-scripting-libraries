@@ -1,0 +1,37 @@
+{
+  "classes": [
+    {
+      "name": "ExampleClassFromDifferentModule",
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ExampleClassFromDifferentModule",
+        "valid_range": null
+      },
+      "base_types": [
+        {
+          "from_module": {
+            "name": "@minecraft/example-module",
+            "uuid": "a61fb766-9364-476a-96fd-61cde517876e",
+            "version": "1.0.0"
+          },
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "ExampleClassWithCrossModuleInheritence"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "@minecraft/example-module",
+      "uuid": "a61fb766-9364-476a-96fd-61cde517876e",
+      "version": "1.0.0"
+    }
+  ],
+  "minecraft_version": "1.0.0",
+  "name": "@minecraft/example-module-2",
+  "uuid": "096b3e2d-aa51-4b23-b2e4-4577d0767a3c",
+  "version": "1.0.0",
+  "module_type": "script"
+}

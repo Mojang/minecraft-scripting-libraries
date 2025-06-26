@@ -1,0 +1,27 @@
+{
+  "errors": [
+    {
+      "name": "CrossModuleExampleError",
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "CrossModuleExampleError"
+      }
+    }
+  ],
+  "classes": [
+    {
+      "name": "CrossModuleReturn",
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "CrossModuleReturn"
+      }
+    }
+  ],
+  "minecraft_version": "1.0.0",
+  "name": "minecraft/ExampleModule2",
+  "uuid": "7b2f1f00-57ca-446b-9603-4a800f3b936d",
+  "version": "1.0.0",
+  "module_type": "script"
+}

@@ -1,0 +1,81 @@
+{{#is_prerelease}}
+::: moniker range="=minecraft-bedrock-experimental"
+{{/is_prerelease}}
+{{> property_declaration }}
+
+Type: {{#type}}{{> type_with_links}}{{/type}}
+{{#is_prerelease}}
+
+> [!CAUTION]
+> This property is still in pre-release.  Its signature may change or it may be removed in future releases.
+{{/is_prerelease}}
+{{#is_deprecated}}
+
+> [!CAUTION]
+> This property is deprecated and will be removed in {{{deprecated_version}}}.
+  {{#deprecated_description_md}}
+> 
+> {{{.}}}
+  {{/deprecated_description_md}}
+{{/is_deprecated}}
+{{#msdocs_has_comments}}
+
+Notes:
+  {{#has_defaults}}
+    {{#default_value}}
+  - This property defaults to `{{> value}}` when undefined.
+    {{/default_value}}
+  {{/has_defaults}}
+  {{#set_disallowed_in_read_only}}
+    {{#get_disallowed_in_read_only}}
+  - This property can't be used in read-only mode.
+    {{/get_disallowed_in_read_only}}
+    {{^get_disallowed_in_read_only}}
+  - This property can't be edited in read-only mode.
+    {{/get_disallowed_in_read_only}}
+  {{/set_disallowed_in_read_only}}
+  {{^set_disallowed_in_read_only}}
+    {{#get_disallowed_in_read_only}}
+  - This property can't be read in read-only mode.
+    {{/get_disallowed_in_read_only}}
+  {{/set_disallowed_in_read_only}}
+  {{#set_allowed_in_early_execution}}
+    {{#get_allowed_in_early_execution}}
+  - This property can be used in early-execution mode.
+    {{/get_allowed_in_early_execution}}
+    {{^get_allowed_in_early_execution}}
+  - This property can be edited in early-execution mode.
+    {{/get_allowed_in_early_execution}}
+  {{/set_allowed_in_early_execution}}
+  {{^set_allowed_in_early_execution}}
+    {{#get_allowed_in_early_execution}}
+  - This property can be read in early-execution mode.
+    {{/get_allowed_in_early_execution}}
+  {{/set_allowed_in_early_execution}}
+  {{#type}}
+    {{#error_types.length}}
+  - This property can throw errors when used.
+    - Throws {{#error_types}}{{> type_with_links}}{{^is_last}}, {{/is_last}}{{/error_types}}
+    {{/error_types.length}}
+    {{^error_types.length}}
+      {{#throws_description_md.length}}
+  - This property can throw errors when used.
+        {{#throws_description_md}}
+    - {{{.}}}
+        {{/throws_description_md}}
+      {{/throws_description_md.length}}
+      {{^throws_description_md.length}}
+        {{#is_errorable}}
+  - This property can throw errors when used.
+        {{/is_errorable}}
+      {{/throws_description_md.length}}
+    {{/error_types.length}}
+  {{/type}}
+{{/msdocs_has_comments}}
+{{#examples.length}}
+
+{{> examples}}
+{{/examples.length}}
+{{#is_prerelease}}
+::: moniker-end
+{{/is_prerelease}}

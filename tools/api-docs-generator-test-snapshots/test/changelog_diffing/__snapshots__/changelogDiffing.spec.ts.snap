@@ -1,0 +1,4799 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > # Of Files Generated 1`] = `52`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > changelog/dependant-module.json 1`] = `
+"[
+  {
+    "version": "3.0.0",
+    "dependencies": [
+      {
+        "name": "test-module1",
+        "uuid": "fe0020ab-2aac-482c-8edc-c18622f022ef",
+        "versions": []
+      }
+    ],
+    "peer_dependencies": [
+      {
+        "name": "peer-module",
+        "types_only": true,
+        "versions": []
+      }
+    ],
+    "classes": [
+      {
+        "base_types": [],
+        "constants": [],
+        "functions": [],
+        "name": "ClassWithCrossModuleProperty",
+        "properties": [
+          {
+            "is_read_only": false,
+            "name": "exampleProperty",
+            "type": {
+              "is_bind_type": true,
+              "is_errorable": false,
+              "name": "SmallClass",
+              "from_module": {
+                "name": "test-module1",
+                "uuid": "fe0020ab-2aac-482c-8edc-c18622f022ef",
+                "version": "2.0.0"
+              }
+            },
+            "get_privilege": [],
+            "set_privilege": []
+          }
+        ],
+        "type": {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "ClassWithCrossModuleProperty",
+          "valid_range": null
+        }
+      }
+    ],
+    "interfaces": [],
+    "errors": [],
+    "objects": [],
+    "functions": [],
+    "constants": [],
+    "enums": [],
+    "type_aliases": []
+  },
+  {
+    "version": "2.0.0",
+    "dependencies": [
+      {
+        "name": "test-module1",
+        "uuid": "fe0020ab-2aac-482c-8edc-c18622f022ef",
+        "versions": [
+          {
+            "version": "2.0.0",
+            "$added": true
+          },
+          {
+            "version": "1.0.0",
+            "$removed": true
+          }
+        ]
+      }
+    ],
+    "peer_dependencies": [
+      {
+        "name": "peer-module",
+        "$added": true,
+        "types_only": true,
+        "versions": [
+          {
+            "version": "1.0.0"
+          }
+        ]
+      }
+    ],
+    "classes": [
+      {
+        "base_types": [],
+        "constants": [],
+        "functions": [],
+        "name": "ClassWithCrossModuleProperty",
+        "properties": [
+          {
+            "is_read_only": false,
+            "name": "exampleProperty",
+            "type": {
+              "is_bind_type": true,
+              "is_errorable": false,
+              "name": "SmallClass",
+              "from_module": {
+                "name": "test-module1",
+                "uuid": "fe0020ab-2aac-482c-8edc-c18622f022ef",
+                "version": "2.0.0"
+              }
+            },
+            "get_privilege": [],
+            "set_privilege": []
+          }
+        ],
+        "type": {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "ClassWithCrossModuleProperty",
+          "valid_range": null
+        }
+      }
+    ],
+    "interfaces": [],
+    "errors": [],
+    "objects": [],
+    "functions": [],
+    "constants": [],
+    "enums": [],
+    "type_aliases": []
+  },
+  {
+    "version": "1.0.0",
+    "$added": true,
+    "classes": [
+      {
+        "base_types": [],
+        "constants": [],
+        "functions": [],
+        "name": "ClassWithCrossModuleProperty",
+        "properties": [
+          {
+            "is_read_only": false,
+            "name": "exampleProperty",
+            "type": {
+              "is_bind_type": true,
+              "is_errorable": false,
+              "name": "SmallClass",
+              "from_module": {
+                "name": "test-module1",
+                "uuid": "fe0020ab-2aac-482c-8edc-c18622f022ef",
+                "version": "1.0.0"
+              }
+            }
+          }
+        ],
+        "type": {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "ClassWithCrossModuleProperty",
+          "valid_range": null
+        }
+      }
+    ],
+    "dependencies": [
+      {
+        "name": "test-module1",
+        "uuid": "fe0020ab-2aac-482c-8edc-c18622f022ef",
+        "versions": [
+          {
+            "version": "1.0.0"
+          }
+        ]
+      }
+    ],
+    "peer_dependencies": [],
+    "minecraft_version": "1.0.0",
+    "name": "dependant-module",
+    "uuid": "5cdafd7f-ac01-4457-852c-866aac043a6b",
+    "module_type": "script"
+  }
+]"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > changelog/peer-module.json 1`] = `
+"[
+  {
+    "version": "1.0.0",
+    "$added": true,
+    "type_aliases": [
+      {
+        "is_script_generated": true,
+        "raw_script_text": "export type TypeAliasFromPeerDependency = boolean | string;",
+        "name": "TypeAliasFromPeerDependency",
+        "type": {
+          "name": "boolean | string",
+          "is_errorable": false,
+          "is_bind_type": false
+        }
+      }
+    ],
+    "dependencies": [],
+    "minecraft_version": "1.0.0",
+    "name": "peer-module",
+    "uuid": "26147db3-b527-44d7-afad-5b775b35c434",
+    "module_type": "script"
+  }
+]"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > changelog/test-module1.json 1`] = `
+"[
+  {
+    "version": "2.0.0",
+    "dependencies": [],
+    "peer_dependencies": [],
+    "classes": [
+      {
+        "base_types": [],
+        "constants": [],
+        "functions": [],
+        "name": "SmallClass",
+        "properties": [
+          {
+            "is_read_only": false,
+            "name": "exampleProperty",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": true,
+              "name": "string",
+              "valid_range": null
+            },
+            "get_privilege": [],
+            "set_privilege": []
+          }
+        ],
+        "type": {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "SmallClass",
+          "valid_range": null
+        }
+      },
+      {
+        "base_types": [
+          {
+            "name": "SmallClass",
+            "$removed": true,
+            "is_bind_type": true,
+            "is_errorable": false,
+            "valid_range": null
+          }
+        ],
+        "constants": [],
+        "functions": [],
+        "name": "ClassWithRemovedBaseClass",
+        "properties": [],
+        "type": {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "ClassWithRemovedBaseClass",
+          "valid_range": null
+        }
+      },
+      {
+        "base_types": [
+          {
+            "name": "SmallClass",
+            "$added": true,
+            "is_bind_type": true,
+            "is_errorable": false,
+            "valid_range": null
+          }
+        ],
+        "constants": [],
+        "functions": [],
+        "name": "ClassWithAddedBaseClass",
+        "properties": [],
+        "type": {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "ClassWithAddedBaseClass",
+          "valid_range": null
+        }
+      },
+      {
+        "base_types": [],
+        "constants": [],
+        "functions": [],
+        "iterator": {
+          "is_bind_type": false,
+          "is_errorable": false,
+          "name": "string",
+          "valid_range": null
+        },
+        "name": "EntityIterator",
+        "properties": [],
+        "type": {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "ExampleIterator",
+          "valid_range": null
+        }
+      },
+      {
+        "base_types": [],
+        "constants": [
+          {
+            "is_read_only": true,
+            "is_static": true,
+            "name": "ClassConstantExample",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int32",
+              "valid_range": {
+                "max": 2147483647,
+                "min": -2147483648
+              }
+            },
+            "value": {
+              "$old": 1337,
+              "$new": 1338,
+              "$changed": true
+            }
+          }
+        ],
+        "functions": [
+          {
+            "arguments": [
+              {
+                "name": "addedArg",
+                "$added": true,
+                "details": null,
+                "type": {
+                  "is_bind_type": false,
+                  "is_errorable": false,
+                  "name": "string",
+                  "valid_range": null
+                }
+              }
+            ],
+            "is_constructor": false,
+            "is_static": false,
+            "name": "testMethodWithAddedArgument",
+            "return_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "boolean",
+              "valid_range": null
+            },
+            "call_privilege": []
+          },
+          {
+            "arguments": [
+              {
+                "name": "removedArg",
+                "$removed": true,
+                "details": null,
+                "type": {
+                  "is_bind_type": false,
+                  "is_errorable": false,
+                  "name": "string",
+                  "valid_range": null
+                }
+              }
+            ],
+            "is_constructor": false,
+            "is_static": false,
+            "name": "testMethodWithRemovedArgument",
+            "return_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "boolean",
+              "valid_range": null
+            },
+            "call_privilege": []
+          },
+          {
+            "arguments": [
+              {
+                "details": null,
+                "name": "arg",
+                "type": {
+                  "$old": {
+                    "is_bind_type": false,
+                    "is_errorable": false,
+                    "name": "string",
+                    "valid_range": null
+                  },
+                  "$new": {
+                    "is_bind_type": false,
+                    "is_errorable": false,
+                    "name": "int32",
+                    "valid_range": null
+                  },
+                  "$changed": true
+                }
+              }
+            ],
+            "is_constructor": false,
+            "is_static": false,
+            "name": "testMethodWithChangedArgumentType",
+            "return_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "boolean",
+              "valid_range": null
+            },
+            "call_privilege": []
+          },
+          {
+            "arguments": [],
+            "is_constructor": false,
+            "is_static": false,
+            "name": "testMethodWithChangedReturnType",
+            "return_type": {
+              "$old": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "boolean",
+                "valid_range": null
+              },
+              "$new": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "string",
+                "valid_range": null
+              },
+              "$changed": true
+            },
+            "call_privilege": []
+          },
+          {
+            "arguments": [],
+            "is_constructor": false,
+            "is_static": false,
+            "name": "testMethodWithAddedErrorable",
+            "return_type": {
+              "$old": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "boolean",
+                "valid_range": null
+              },
+              "$new": {
+                "is_bind_type": false,
+                "is_errorable": true,
+                "name": "boolean",
+                "valid_range": null
+              },
+              "$changed": true
+            },
+            "call_privilege": []
+          },
+          {
+            "arguments": [],
+            "is_constructor": false,
+            "is_static": false,
+            "name": "testMethodWithRemovedErrorable",
+            "return_type": {
+              "$old": {
+                "is_bind_type": false,
+                "is_errorable": true,
+                "name": "boolean",
+                "valid_range": null
+              },
+              "$new": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "boolean",
+                "valid_range": null
+              },
+              "$changed": true
+            },
+            "call_privilege": []
+          },
+          {
+            "arguments": [],
+            "is_constructor": false,
+            "is_static": false,
+            "name": "testMethod",
+            "return_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "boolean",
+              "valid_range": null
+            },
+            "call_privilege": []
+          }
+        ],
+        "name": "ExampleClass1",
+        "properties": [
+          {
+            "is_read_only": false,
+            "name": "propertyWithChangedType",
+            "type": {
+              "$old": {
+                "is_bind_type": false,
+                "is_errorable": true,
+                "name": "string",
+                "valid_range": null
+              },
+              "$new": {
+                "is_bind_type": false,
+                "is_errorable": true,
+                "name": "boolean",
+                "valid_range": null
+              },
+              "$changed": true
+            },
+            "get_privilege": [],
+            "set_privilege": []
+          },
+          {
+            "is_read_only": false,
+            "name": "stringPropertyErrorable",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": true,
+              "name": "string",
+              "valid_range": null
+            },
+            "get_privilege": [],
+            "set_privilege": []
+          },
+          {
+            "is_read_only": {
+              "$old": true,
+              "$new": false,
+              "$changed": true
+            },
+            "name": "propertyWithReadOnlyChanging",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "string",
+              "valid_range": null
+            },
+            "get_privilege": [],
+            "set_privilege": []
+          },
+          {
+            "is_read_only": true,
+            "name": "stringPropertyReadOnly",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "string",
+              "valid_range": null
+            },
+            "get_privilege": [],
+            "set_privilege": []
+          },
+          {
+            "is_read_only": false,
+            "name": "stringProperty",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "string",
+              "valid_range": null
+            },
+            "get_privilege": [],
+            "set_privilege": []
+          },
+          {
+            "is_read_only": false,
+            "name": "int8Property",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int8",
+              "valid_range": null
+            },
+            "get_privilege": [],
+            "set_privilege": []
+          },
+          {
+            "is_read_only": false,
+            "name": "uint8Property",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "uint8",
+              "valid_range": null
+            },
+            "get_privilege": [],
+            "set_privilege": []
+          },
+          {
+            "is_read_only": false,
+            "name": "int16Property",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int16",
+              "valid_range": null
+            },
+            "get_privilege": [],
+            "set_privilege": []
+          },
+          {
+            "is_read_only": false,
+            "name": "uint16Property",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "uint16",
+              "valid_range": null
+            },
+            "get_privilege": [],
+            "set_privilege": []
+          },
+          {
+            "is_read_only": false,
+            "name": "int32Property",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int16",
+              "valid_range": null
+            },
+            "get_privilege": [],
+            "set_privilege": []
+          },
+          {
+            "is_read_only": false,
+            "name": "uint32Property",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "uint32",
+              "valid_range": null
+            },
+            "get_privilege": [],
+            "set_privilege": []
+          },
+          {
+            "is_read_only": false,
+            "name": "int64Property",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int64",
+              "valid_range": null
+            },
+            "get_privilege": [],
+            "set_privilege": []
+          },
+          {
+            "is_read_only": false,
+            "name": "uint64Property",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "uint64",
+              "valid_range": null
+            },
+            "get_privilege": [],
+            "set_privilege": []
+          },
+          {
+            "is_read_only": false,
+            "name": "floatProperty",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "float",
+              "valid_range": null
+            },
+            "get_privilege": [],
+            "set_privilege": []
+          },
+          {
+            "is_read_only": false,
+            "name": "boolProperty",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "boolean",
+              "valid_range": null
+            },
+            "get_privilege": [],
+            "set_privilege": []
+          }
+        ],
+        "type": {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "ExampleClass1",
+          "valid_range": null
+        }
+      },
+      {
+        "base_types": [],
+        "constants": [],
+        "functions": [
+          {
+            "arguments": [],
+            "is_constructor": true,
+            "name": "constructor",
+            "return_type": {
+              "is_bind_type": true,
+              "is_errorable": false,
+              "name": "ClassWithConstructor",
+              "valid_range": null
+            },
+            "call_privilege": []
+          },
+          {
+            "name": "testFunction",
+            "$added": true,
+            "arguments": [
+              {
+                "name": "argument1",
+                "type": {
+                  "is_bind_type": false,
+                  "is_errorable": false,
+                  "name": "string",
+                  "valid_range": {
+                    "max": 2147483647,
+                    "min": -2147483648
+                  }
+                }
+              },
+              {
+                "name": "argument2",
+                "type": {
+                  "is_bind_type": false,
+                  "is_errorable": false,
+                  "name": "string"
+                }
+              }
+            ],
+            "is_constructor": false,
+            "return_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int32",
+              "valid_range": null
+            }
+          }
+        ],
+        "name": "ClassWithConstructor",
+        "properties": [
+          {
+            "is_read_only": false,
+            "name": "x",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int32",
+              "valid_range": {
+                "max": 2147483647,
+                "min": -2147483648
+              }
+            },
+            "get_privilege": [],
+            "set_privilege": []
+          },
+          {
+            "is_read_only": false,
+            "name": "y",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int32",
+              "valid_range": {
+                "max": 2147483647,
+                "min": -2147483648
+              }
+            },
+            "get_privilege": [],
+            "set_privilege": []
+          },
+          {
+            "is_read_only": false,
+            "name": "z",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int32",
+              "valid_range": {
+                "max": 2147483647,
+                "min": -2147483648
+              }
+            },
+            "get_privilege": [],
+            "set_privilege": []
+          },
+          {
+            "name": "w",
+            "$added": true,
+            "is_read_only": false,
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int32",
+              "valid_range": {
+                "max": 2147483647,
+                "min": -2147483648
+              }
+            }
+          }
+        ],
+        "type": {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "ClassWithConstructor",
+          "valid_range": null
+        }
+      }
+    ],
+    "interfaces": [
+      {
+        "name": "AddedInterface",
+        "$added": true,
+        "properties": [
+          {
+            "is_read_only": false,
+            "name": "member",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int32",
+              "valid_range": {
+                "max": 2147483647,
+                "min": -2147483648
+              }
+            }
+          }
+        ],
+        "type": {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "AddedInterface"
+        }
+      },
+      {
+        "name": "ExampleInterface",
+        "properties": [
+          {
+            "name": "addedMember",
+            "$added": true,
+            "is_read_only": false,
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int32",
+              "valid_range": {
+                "max": 2147483647,
+                "min": -2147483648
+              }
+            }
+          },
+          {
+            "name": "removedMember",
+            "$removed": true,
+            "is_read_only": false,
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int32",
+              "valid_range": {
+                "max": 2147483647,
+                "min": -2147483648
+              }
+            }
+          }
+        ],
+        "type": {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "ExampleInterface"
+        }
+      },
+      {
+        "name": "RemovedInterface",
+        "$removed": true,
+        "properties": [
+          {
+            "is_read_only": false,
+            "name": "member",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int32",
+              "valid_range": {
+                "max": 2147483647,
+                "min": -2147483648
+              }
+            }
+          }
+        ],
+        "type": {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "RemovedInterface"
+        }
+      }
+    ],
+    "errors": [],
+    "objects": [
+      {
+        "is_read_only": true,
+        "is_static": true,
+        "name": "objectWithChangedType",
+        "type": {
+          "$old": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean",
+            "valid_range": null
+          },
+          "$new": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "string",
+            "valid_range": null
+          },
+          "$changed": true
+        }
+      }
+    ],
+    "functions": [
+      {
+        "arguments": [
+          {
+            "name": "addedArg",
+            "$added": true,
+            "details": null,
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "string",
+              "valid_range": null
+            }
+          }
+        ],
+        "is_constructor": false,
+        "is_static": false,
+        "name": "testFunctionWithAddedArgument",
+        "return_type": {
+          "is_bind_type": false,
+          "is_errorable": false,
+          "name": "boolean",
+          "valid_range": null
+        },
+        "call_privilege": []
+      },
+      {
+        "arguments": [
+          {
+            "name": "removedArg",
+            "$removed": true,
+            "details": null,
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "string",
+              "valid_range": null
+            }
+          }
+        ],
+        "is_constructor": false,
+        "is_static": false,
+        "name": "testFunctionWithRemovedArgument",
+        "return_type": {
+          "is_bind_type": false,
+          "is_errorable": false,
+          "name": "boolean",
+          "valid_range": null
+        },
+        "call_privilege": []
+      },
+      {
+        "name": "testGlobalFunction",
+        "$added": true,
+        "arguments": [
+          {
+            "name": "argument1",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "string",
+              "valid_range": {
+                "max": 2147483647,
+                "min": -2147483648
+              }
+            }
+          }
+        ],
+        "is_constructor": false,
+        "return_type": {
+          "is_bind_type": false,
+          "is_errorable": false,
+          "name": "int32",
+          "valid_range": null
+        }
+      },
+      {
+        "arguments": [
+          {
+            "details": null,
+            "name": "arg",
+            "type": {
+              "$old": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "string",
+                "valid_range": null
+              },
+              "$new": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "int32",
+                "valid_range": null
+              },
+              "$changed": true
+            }
+          }
+        ],
+        "is_constructor": false,
+        "is_static": false,
+        "name": "testFunctionWithChangedArgumentType",
+        "return_type": {
+          "is_bind_type": false,
+          "is_errorable": false,
+          "name": "boolean",
+          "valid_range": null
+        },
+        "call_privilege": []
+      },
+      {
+        "arguments": [],
+        "is_constructor": false,
+        "is_static": false,
+        "name": "testFunctionWithAddedErrorable",
+        "return_type": {
+          "$old": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean",
+            "valid_range": null
+          },
+          "$new": {
+            "is_bind_type": false,
+            "is_errorable": true,
+            "name": "boolean",
+            "valid_range": null
+          },
+          "$changed": true
+        },
+        "call_privilege": []
+      },
+      {
+        "arguments": [],
+        "is_constructor": false,
+        "is_static": false,
+        "name": "testFunctionWithRemovedErrorable",
+        "return_type": {
+          "$old": {
+            "is_bind_type": false,
+            "is_errorable": true,
+            "name": "boolean",
+            "valid_range": null
+          },
+          "$new": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean",
+            "valid_range": null
+          },
+          "$changed": true
+        },
+        "call_privilege": []
+      }
+    ],
+    "constants": [
+      {
+        "is_read_only": true,
+        "is_static": true,
+        "name": "ConstantExample",
+        "type": {
+          "is_bind_type": false,
+          "is_errorable": false,
+          "name": "int32",
+          "valid_range": {
+            "max": 2147483647,
+            "min": -2147483648
+          }
+        },
+        "value": {
+          "$old": 20,
+          "$new": 25,
+          "$changed": true
+        }
+      }
+    ],
+    "enums": [
+      {
+        "constants": [
+          {
+            "name": "addedEnumValue",
+            "$added": true,
+            "is_read_only": true,
+            "is_static": true,
+            "type": {
+              "is_bind_type": true,
+              "is_errorable": false,
+              "name": "NumberEnum1",
+              "valid_range": null
+            },
+            "value": 11
+          },
+          {
+            "is_read_only": true,
+            "is_static": true,
+            "name": "changingEnumValue",
+            "type": {
+              "is_bind_type": true,
+              "is_errorable": false,
+              "name": "NumberEnum1",
+              "valid_range": null
+            },
+            "value": {
+              "$old": 5,
+              "$new": 6,
+              "$changed": true
+            }
+          },
+          {
+            "is_read_only": true,
+            "is_static": true,
+            "name": "changingEnumValueType",
+            "type": {
+              "is_bind_type": true,
+              "is_errorable": false,
+              "name": "string",
+              "valid_range": null
+            },
+            "value": {
+              "$old": 5,
+              "$new": "foobar",
+              "$changed": true
+            }
+          },
+          {
+            "name": "removedEnumValue",
+            "$removed": true,
+            "is_read_only": true,
+            "is_static": true,
+            "type": {
+              "is_bind_type": true,
+              "is_errorable": false,
+              "name": "NumberEnum1",
+              "valid_range": null
+            },
+            "value": 10
+          }
+        ],
+        "name": "TestEnum"
+      },
+      {
+        "name": "AddedEnum",
+        "$added": true,
+        "constants": [
+          {
+            "is_read_only": true,
+            "is_static": true,
+            "name": "val2",
+            "type": {
+              "is_bind_type": true,
+              "is_errorable": false,
+              "name": "int32",
+              "valid_range": null
+            },
+            "value": 0
+          },
+          {
+            "is_read_only": true,
+            "is_static": true,
+            "name": "val1",
+            "type": {
+              "is_bind_type": true,
+              "is_errorable": false,
+              "name": "int32",
+              "valid_range": null
+            },
+            "value": 1
+          }
+        ]
+      }
+    ],
+    "type_aliases": [
+      {
+        "alias_type": "type_map",
+        "mappings": [
+          {
+            "name": "test:Null",
+            "value": {
+              "$old": "FakeTypeNull",
+              "$new": "undefined",
+              "$changed": true
+            }
+          },
+          {
+            "name": "test:Three",
+            "$added": true,
+            "value": "FakeTypeThree"
+          },
+          {
+            "name": "test:Two",
+            "$removed": true,
+            "value": "FakeTypeTwo"
+          }
+        ],
+        "name": "ChangedTypeMap",
+        "type": {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "ChangedTypeMap"
+        }
+      },
+      {
+        "is_script_generated": true,
+        "raw_script_text": "export type ChangedType = (boolean | string | undefined)[];",
+        "name": "ChangedType",
+        "type": {
+          "$old": {
+            "name": "boolean[] | string[] | undefined",
+            "is_errorable": false,
+            "is_bind_type": false
+          },
+          "$new": {
+            "name": "(boolean | string | undefined)[]",
+            "is_errorable": false,
+            "is_bind_type": false
+          },
+          "$changed": true
+        },
+        "mappings": []
+      },
+      {
+        "name": "AddedType",
+        "$added": true,
+        "is_script_generated": true,
+        "raw_script_text": "export type AddedType<T> = keyof T;",
+        "type": {
+          "name": "keyof T",
+          "is_errorable": false,
+          "is_bind_type": false
+        }
+      },
+      {
+        "name": "RemovedType",
+        "$removed": true,
+        "is_script_generated": true,
+        "raw_script_text": "export type RemovedType<T> = Record<string, T>;",
+        "type": {
+          "name": "Record<string, T>",
+          "is_errorable": false,
+          "is_bind_type": false
+        }
+      }
+    ]
+  },
+  {
+    "version": "1.0.0",
+    "$added": true,
+    "interfaces": [
+      {
+        "name": "RemovedInterface",
+        "properties": [
+          {
+            "is_read_only": false,
+            "name": "member",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int32",
+              "valid_range": {
+                "max": 2147483647,
+                "min": -2147483648
+              }
+            }
+          }
+        ],
+        "type": {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "RemovedInterface"
+        }
+      },
+      {
+        "name": "ExampleInterface",
+        "properties": [
+          {
+            "is_read_only": false,
+            "name": "removedMember",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int32",
+              "valid_range": {
+                "max": 2147483647,
+                "min": -2147483648
+              }
+            }
+          }
+        ],
+        "type": {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "ExampleInterface"
+        }
+      }
+    ],
+    "classes": [
+      {
+        "base_types": [],
+        "constants": [],
+        "functions": [],
+        "name": "SmallClass",
+        "properties": [
+          {
+            "is_read_only": false,
+            "name": "exampleProperty",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": true,
+              "name": "string",
+              "valid_range": null
+            }
+          }
+        ],
+        "type": {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "SmallClass",
+          "valid_range": null
+        }
+      },
+      {
+        "base_types": [
+          {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "SmallClass",
+            "valid_range": null
+          }
+        ],
+        "constants": [],
+        "functions": [],
+        "name": "ClassWithRemovedBaseClass",
+        "properties": [],
+        "type": {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "ClassWithRemovedBaseClass",
+          "valid_range": null
+        }
+      },
+      {
+        "base_types": [],
+        "constants": [],
+        "functions": [],
+        "name": "ClassWithAddedBaseClass",
+        "properties": [],
+        "type": {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "ClassWithAddedBaseClass",
+          "valid_range": null
+        }
+      },
+      {
+        "base_types": [],
+        "constants": [],
+        "functions": [],
+        "iterator": {
+          "is_bind_type": false,
+          "is_errorable": false,
+          "name": "string",
+          "valid_range": null
+        },
+        "name": "EntityIterator",
+        "properties": [],
+        "type": {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "ExampleIterator",
+          "valid_range": null
+        }
+      },
+      {
+        "base_types": [],
+        "constants": [
+          {
+            "is_read_only": true,
+            "is_static": true,
+            "name": "ClassConstantExample",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int32",
+              "valid_range": {
+                "max": 2147483647,
+                "min": -2147483648
+              }
+            },
+            "value": 1337
+          }
+        ],
+        "functions": [
+          {
+            "arguments": [
+              {
+                "details": null,
+                "name": "removedArg",
+                "type": {
+                  "is_bind_type": false,
+                  "is_errorable": false,
+                  "name": "string",
+                  "valid_range": null
+                }
+              }
+            ],
+            "is_constructor": false,
+            "is_static": false,
+            "name": "testMethodWithRemovedArgument",
+            "return_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "boolean",
+              "valid_range": null
+            }
+          },
+          {
+            "arguments": [
+              {
+                "details": null,
+                "name": "arg",
+                "type": {
+                  "is_bind_type": false,
+                  "is_errorable": false,
+                  "name": "string",
+                  "valid_range": null
+                }
+              }
+            ],
+            "is_constructor": false,
+            "is_static": false,
+            "name": "testMethodWithChangedArgumentType",
+            "return_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "boolean",
+              "valid_range": null
+            }
+          },
+          {
+            "arguments": [],
+            "is_constructor": false,
+            "is_static": false,
+            "name": "testMethodWithChangedReturnType",
+            "return_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "boolean",
+              "valid_range": null
+            }
+          },
+          {
+            "arguments": [],
+            "is_constructor": false,
+            "is_static": false,
+            "name": "testMethodWithAddedArgument",
+            "return_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "boolean",
+              "valid_range": null
+            }
+          },
+          {
+            "arguments": [],
+            "is_constructor": false,
+            "is_static": false,
+            "name": "testMethodWithAddedErrorable",
+            "return_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "boolean",
+              "valid_range": null
+            }
+          },
+          {
+            "arguments": [],
+            "is_constructor": false,
+            "is_static": false,
+            "name": "testMethodWithRemovedErrorable",
+            "return_type": {
+              "is_bind_type": false,
+              "is_errorable": true,
+              "name": "boolean",
+              "valid_range": null
+            }
+          },
+          {
+            "arguments": [
+              {
+                "details": null,
+                "name": "stringArgument",
+                "type": {
+                  "is_bind_type": false,
+                  "is_errorable": false,
+                  "name": "string",
+                  "valid_range": null
+                }
+              },
+              {
+                "details": {
+                  "default_value": "null"
+                },
+                "name": "stringArgumentOptional",
+                "type": {
+                  "is_bind_type": false,
+                  "is_errorable": false,
+                  "name": "optional",
+                  "optional_type": {
+                    "is_bind_type": false,
+                    "is_errorable": false,
+                    "name": "string",
+                    "valid_range": null
+                  },
+                  "valid_range": null
+                }
+              }
+            ],
+            "is_constructor": false,
+            "is_static": false,
+            "name": "testMethod",
+            "return_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "boolean",
+              "valid_range": null
+            }
+          }
+        ],
+        "name": "ExampleClass1",
+        "properties": [
+          {
+            "is_read_only": false,
+            "name": "propertyWithChangedType",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": true,
+              "name": "string",
+              "valid_range": null
+            }
+          },
+          {
+            "is_read_only": false,
+            "name": "stringPropertyErrorable",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": true,
+              "name": "string",
+              "valid_range": null
+            }
+          },
+          {
+            "is_read_only": true,
+            "name": "propertyWithReadOnlyChanging",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "string",
+              "valid_range": null
+            }
+          },
+          {
+            "is_read_only": true,
+            "name": "stringPropertyReadOnly",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "string",
+              "valid_range": null
+            }
+          },
+          {
+            "is_read_only": false,
+            "name": "stringProperty",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "string",
+              "valid_range": null
+            }
+          },
+          {
+            "is_read_only": false,
+            "name": "int8Property",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int8",
+              "valid_range": null
+            }
+          },
+          {
+            "is_read_only": false,
+            "name": "uint8Property",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "uint8",
+              "valid_range": null
+            }
+          },
+          {
+            "is_read_only": false,
+            "name": "int16Property",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int16",
+              "valid_range": null
+            }
+          },
+          {
+            "is_read_only": false,
+            "name": "uint16Property",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "uint16",
+              "valid_range": null
+            }
+          },
+          {
+            "is_read_only": false,
+            "name": "int32Property",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int16",
+              "valid_range": null
+            }
+          },
+          {
+            "is_read_only": false,
+            "name": "uint32Property",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "uint32",
+              "valid_range": null
+            }
+          },
+          {
+            "is_read_only": false,
+            "name": "int64Property",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int64",
+              "valid_range": null
+            }
+          },
+          {
+            "is_read_only": false,
+            "name": "uint64Property",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "uint64",
+              "valid_range": null
+            }
+          },
+          {
+            "is_read_only": false,
+            "name": "floatProperty",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "float",
+              "valid_range": null
+            }
+          },
+          {
+            "is_read_only": false,
+            "name": "boolProperty",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "boolean",
+              "valid_range": null
+            }
+          }
+        ],
+        "type": {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "ExampleClass1",
+          "valid_range": null
+        }
+      },
+      {
+        "base_types": [],
+        "constants": [],
+        "functions": [
+          {
+            "arguments": [
+              {
+                "details": {
+                  "max_value": 2147483647,
+                  "min_value": -2147483648
+                },
+                "name": "x",
+                "type": {
+                  "is_bind_type": false,
+                  "is_errorable": false,
+                  "name": "int32",
+                  "valid_range": {
+                    "max": 2147483647,
+                    "min": -2147483648
+                  }
+                }
+              },
+              {
+                "details": {
+                  "max_value": 2147483647,
+                  "min_value": -2147483648
+                },
+                "name": "y",
+                "type": {
+                  "is_bind_type": false,
+                  "is_errorable": false,
+                  "name": "int32",
+                  "valid_range": {
+                    "max": 2147483647,
+                    "min": -2147483648
+                  }
+                }
+              },
+              {
+                "details": {
+                  "max_value": 2147483647,
+                  "min_value": -2147483648
+                },
+                "name": "z",
+                "type": {
+                  "is_bind_type": false,
+                  "is_errorable": false,
+                  "name": "int32",
+                  "valid_range": {
+                    "max": 2147483647,
+                    "min": -2147483648
+                  }
+                }
+              }
+            ],
+            "is_constructor": true,
+            "name": "constructor",
+            "return_type": {
+              "is_bind_type": true,
+              "is_errorable": false,
+              "name": "ClassWithConstructor",
+              "valid_range": null
+            }
+          }
+        ],
+        "name": "ClassWithConstructor",
+        "properties": [
+          {
+            "is_read_only": false,
+            "name": "x",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int32",
+              "valid_range": {
+                "max": 2147483647,
+                "min": -2147483648
+              }
+            }
+          },
+          {
+            "is_read_only": false,
+            "name": "y",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int32",
+              "valid_range": {
+                "max": 2147483647,
+                "min": -2147483648
+              }
+            }
+          },
+          {
+            "is_read_only": false,
+            "name": "z",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int32",
+              "valid_range": {
+                "max": 2147483647,
+                "min": -2147483648
+              }
+            }
+          }
+        ],
+        "type": {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "ClassWithConstructor",
+          "valid_range": null
+        }
+      }
+    ],
+    "constants": [
+      {
+        "is_read_only": true,
+        "is_static": true,
+        "name": "ConstantExample",
+        "type": {
+          "is_bind_type": false,
+          "is_errorable": false,
+          "name": "int32",
+          "valid_range": {
+            "max": 2147483647,
+            "min": -2147483648
+          }
+        },
+        "value": 20
+      }
+    ],
+    "dependencies": [],
+    "enums": [
+      {
+        "constants": [
+          {
+            "is_read_only": true,
+            "is_static": true,
+            "name": "numberValueZero",
+            "type": {
+              "is_bind_type": true,
+              "is_errorable": false,
+              "name": "NumberEnum1",
+              "valid_range": null
+            },
+            "value": 0
+          },
+          {
+            "is_read_only": true,
+            "is_static": true,
+            "name": "numberValueOne",
+            "type": {
+              "is_bind_type": true,
+              "is_errorable": false,
+              "name": "NumberEnum1",
+              "valid_range": null
+            },
+            "value": 1
+          },
+          {
+            "is_read_only": true,
+            "is_static": true,
+            "name": "removedEnumValue",
+            "type": {
+              "is_bind_type": true,
+              "is_errorable": false,
+              "name": "NumberEnum1",
+              "valid_range": null
+            },
+            "value": 10
+          },
+          {
+            "is_read_only": true,
+            "is_static": true,
+            "name": "changingEnumValue",
+            "type": {
+              "is_bind_type": true,
+              "is_errorable": false,
+              "name": "NumberEnum1",
+              "valid_range": null
+            },
+            "value": 5
+          },
+          {
+            "is_read_only": true,
+            "is_static": true,
+            "name": "changingEnumValueType",
+            "type": {
+              "is_bind_type": true,
+              "is_errorable": false,
+              "name": "NumberEnum1",
+              "valid_range": null
+            },
+            "value": 5
+          }
+        ],
+        "name": "TestEnum"
+      }
+    ],
+    "functions": [
+      {
+        "arguments": [],
+        "is_constructor": false,
+        "is_static": false,
+        "name": "testFunctionWithAddedArgument",
+        "return_type": {
+          "is_bind_type": false,
+          "is_errorable": false,
+          "name": "boolean",
+          "valid_range": null
+        }
+      },
+      {
+        "arguments": [
+          {
+            "details": null,
+            "name": "removedArg",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "string",
+              "valid_range": null
+            }
+          }
+        ],
+        "is_constructor": false,
+        "is_static": false,
+        "name": "testFunctionWithRemovedArgument",
+        "return_type": {
+          "is_bind_type": false,
+          "is_errorable": false,
+          "name": "boolean",
+          "valid_range": null
+        }
+      },
+      {
+        "arguments": [
+          {
+            "details": null,
+            "name": "arg",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "string",
+              "valid_range": null
+            }
+          }
+        ],
+        "is_constructor": false,
+        "is_static": false,
+        "name": "testFunctionWithChangedArgumentType",
+        "return_type": {
+          "is_bind_type": false,
+          "is_errorable": false,
+          "name": "boolean",
+          "valid_range": null
+        }
+      },
+      {
+        "arguments": [],
+        "is_constructor": false,
+        "is_static": false,
+        "name": "testFunctionWithAddedErrorable",
+        "return_type": {
+          "is_bind_type": false,
+          "is_errorable": false,
+          "name": "boolean",
+          "valid_range": null
+        }
+      },
+      {
+        "arguments": [],
+        "is_constructor": false,
+        "is_static": false,
+        "name": "testFunctionWithRemovedErrorable",
+        "return_type": {
+          "is_bind_type": false,
+          "is_errorable": true,
+          "name": "boolean",
+          "valid_range": null
+        }
+      }
+    ],
+    "minecraft_version": "1.0.0",
+    "name": "test-module1",
+    "uuid": "fe0020ab-2aac-482c-8edc-c18622f022ef",
+    "objects": [
+      {
+        "is_read_only": true,
+        "is_static": true,
+        "name": "globalObject",
+        "type": {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "ExampleClass1",
+          "valid_range": null
+        }
+      },
+      {
+        "is_read_only": true,
+        "is_static": true,
+        "name": "objectWithChangedType",
+        "type": {
+          "is_bind_type": false,
+          "is_errorable": false,
+          "name": "boolean",
+          "valid_range": null
+        }
+      }
+    ],
+    "type_aliases": [
+      {
+        "alias_type": "type_map",
+        "mappings": [
+          {
+            "name": "test:Null",
+            "value": "FakeTypeNull"
+          },
+          {
+            "name": "test:One",
+            "value": "FakeTypeOne"
+          },
+          {
+            "name": "test:Two",
+            "value": "FakeTypeTwo"
+          }
+        ],
+        "name": "ChangedTypeMap",
+        "type": {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "ChangedTypeMap"
+        }
+      },
+      {
+        "is_script_generated": true,
+        "raw_script_text": "export type RemovedType<T> = Record<string, T>;",
+        "name": "RemovedType",
+        "type": {
+          "name": "Record<string, T>",
+          "is_errorable": false,
+          "is_bind_type": false
+        }
+      },
+      {
+        "is_script_generated": true,
+        "raw_script_text": "export type ChangedType = boolean[] | string[] | undefined;",
+        "name": "ChangedType",
+        "type": {
+          "name": "boolean[] | string[] | undefined",
+          "is_errorable": false,
+          "is_bind_type": false
+        }
+      }
+    ],
+    "module_type": "script"
+  }
+]"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/priorscriptapi/TOC.yml 1`] = `
+"  - name: dependant-module 2.x.x
+    items:
+    - name: dependant-module 2.x.x
+      href: dependant-module-2xx/dependant-module.md
+    - name: ClassWithCrossModuleProperty
+      href: dependant-module-2xx/ClassWithCrossModuleProperty.md
+  - name: dependant-module 1.x.x
+    items:
+    - name: dependant-module 1.x.x
+      href: dependant-module-1xx/dependant-module.md
+    - name: ClassWithCrossModuleProperty
+      href: dependant-module-1xx/ClassWithCrossModuleProperty.md
+  - name: test-module1 1.x.x
+    items:
+    - name: test-module1 1.x.x
+      href: test-module1-1xx/test-module1.md
+    - name: TestEnum
+      href: test-module1-1xx/TestEnum.md
+    - name: ClassWithAddedBaseClass
+      href: test-module1-1xx/ClassWithAddedBaseClass.md
+    - name: ClassWithConstructor
+      href: test-module1-1xx/ClassWithConstructor.md
+    - name: ClassWithRemovedBaseClass
+      href: test-module1-1xx/ClassWithRemovedBaseClass.md
+    - name: EntityIterator
+      href: test-module1-1xx/EntityIterator.md
+    - name: ExampleClass1
+      href: test-module1-1xx/ExampleClass1.md
+    - name: SmallClass
+      href: test-module1-1xx/SmallClass.md
+    - name: ExampleInterface
+      href: test-module1-1xx/ExampleInterface.md
+    - name: RemovedInterface
+      href: test-module1-1xx/RemovedInterface.md
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/priorscriptapi/dependant-module-1xx/ClassWithCrossModuleProperty.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: dependant-module-1xx.ClassWithCrossModuleProperty Class
+description: Contents of the dependant-module.ClassWithCrossModuleProperty class (Version 1.x.x).
+---
+# ClassWithCrossModuleProperty Class (Version 1.x.x)
+
+> [!IMPORTANT]
+> This documentation is for an older version of this module. Go to the latest documentation [*here*](../../../scriptapi/dependant-module/ClassWithCrossModuleProperty.md).
+
+## Properties
+
+### **exampleProperty**
+\`exampleProperty: testmodule1.SmallClass;\`
+
+Type: [*test-module1.SmallClass*](../../../priorscriptapi/test-module1-1xx/SmallClass.md)
+
+Notes:
+  - This property can't be used in read-only mode.
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/priorscriptapi/dependant-module-1xx/dependant-module.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: dependant-module-1xx Module
+description: Contents of the dependant-module module (Version 1.x.x)
+---
+# \`dependant-module\` Module (Version 1.x.x)
+
+> [!IMPORTANT]
+> This documentation is for an older version of this module. Go to the latest documentation [*here*](../../../scriptapi/dependant-module/dependant-module.md).
+
+## Manifest Details
+\`\`\`json
+{
+    "module_name": "dependant-module",
+    "version": "1.0.0"
+}
+\`\`\`
+
+## Available Versions
+- \`1.0.0\`
+
+## Classes
+- [ClassWithCrossModuleProperty](ClassWithCrossModuleProperty.md)
+
+## Dependencies
+- [\`test-module1\`](../../../priorscriptapi/test-module1-1xx/test-module1.md)
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/priorscriptapi/dependant-module-2xx/ClassWithCrossModuleProperty.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: dependant-module-2xx.ClassWithCrossModuleProperty Class
+description: Contents of the dependant-module.ClassWithCrossModuleProperty class (Version 2.x.x).
+---
+# ClassWithCrossModuleProperty Class (Version 2.x.x)
+
+> [!IMPORTANT]
+> This documentation is for an older version of this module. Go to the latest documentation [*here*](../../../scriptapi/dependant-module/ClassWithCrossModuleProperty.md).
+
+## Properties
+
+### **exampleProperty**
+\`exampleProperty: testmodule1.SmallClass;\`
+
+Type: [*test-module1.SmallClass*](../../../scriptapi/test-module1/SmallClass.md)
+
+Notes:
+  - This property can't be used in read-only mode.
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/priorscriptapi/dependant-module-2xx/dependant-module.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: dependant-module-2xx Module
+description: Contents of the dependant-module module (Version 2.x.x)
+---
+# \`dependant-module\` Module (Version 2.x.x)
+
+> [!IMPORTANT]
+> This documentation is for an older version of this module. Go to the latest documentation [*here*](../../../scriptapi/dependant-module/dependant-module.md).
+
+## Manifest Details
+\`\`\`json
+{
+    "module_name": "dependant-module",
+    "version": "2.0.0"
+}
+\`\`\`
+
+## Available Versions
+- \`2.0.0\`
+
+## Classes
+- [ClassWithCrossModuleProperty](ClassWithCrossModuleProperty.md)
+
+## Dependencies
+- [\`test-module1\`](../../../scriptapi/test-module1/test-module1.md)
+
+## Peer Dependencies
+- [\`peer-module\`](../../../priorscriptapi/peer-module-1xx/peer-module.md)
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/priorscriptapi/test-module1-1xx/ChangedType.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1-1xx.ChangedType Type Alias
+description: Contents of the test-module1.ChangedType type alias (Version 1.x.x).
+---
+# ChangedType Type Alias (Version 1.x.x)
+
+> [!IMPORTANT]
+> This documentation is for an older version of this module. Go to the latest documentation [*here*](../../../scriptapi/test-module1/ChangedType.md).
+
+## Declaration
+\`export type ChangedType = boolean[] | string[] | undefined;\`
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/priorscriptapi/test-module1-1xx/ChangedTypeMap.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1-1xx.ChangedTypeMap Type Alias
+description: Contents of the test-module1.ChangedTypeMap type alias (Version 1.x.x).
+---
+# ChangedTypeMap Type Alias (Version 1.x.x)
+
+> [!IMPORTANT]
+> This documentation is for an older version of this module. Go to the latest documentation [*here*](../../../scriptapi/test-module1/ChangedTypeMap.md).
+
+## Declaration
+\`\`\`ts
+type ChangedTypeMap = {
+  'Null': FakeTypeNull;
+  'One': FakeTypeOne;
+  'test:Null': FakeTypeNull;
+  'test:One': FakeTypeOne;
+  'test:Two': FakeTypeTwo;
+  'Two': FakeTypeTwo;
+};
+\`\`\`
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/priorscriptapi/test-module1-1xx/ClassWithAddedBaseClass.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1-1xx.ClassWithAddedBaseClass Class
+description: Contents of the test-module1.ClassWithAddedBaseClass class (Version 1.x.x).
+---
+# ClassWithAddedBaseClass Class (Version 1.x.x)
+
+> [!IMPORTANT]
+> This documentation is for an older version of this module. Go to the latest documentation [*here*](../../../scriptapi/test-module1/ClassWithAddedBaseClass.md).
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/priorscriptapi/test-module1-1xx/ClassWithConstructor.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1-1xx.ClassWithConstructor Class
+description: Contents of the test-module1.ClassWithConstructor class (Version 1.x.x).
+---
+# ClassWithConstructor Class (Version 1.x.x)
+
+> [!IMPORTANT]
+> This documentation is for an older version of this module. Go to the latest documentation [*here*](../../../scriptapi/test-module1/ClassWithConstructor.md).
+
+## Properties
+
+### **x**
+\`x: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **y**
+\`y: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **z**
+\`z: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+## Methods
+- [constructor](#constructor)
+
+### **constructor**
+\`
+new ClassWithConstructor(x: number, y: number, z: number)
+\`
+
+#### **Parameters**
+- **x**: *number*
+- **y**: *number*
+- **z**: *number*
+
+**Returns** [*ClassWithConstructor*](ClassWithConstructor.md)
+  
+Notes:
+- This function can't be called in read-only mode.
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/priorscriptapi/test-module1-1xx/ClassWithRemovedBaseClass.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1-1xx.ClassWithRemovedBaseClass Class
+description: Contents of the test-module1.ClassWithRemovedBaseClass class (Version 1.x.x).
+---
+# ClassWithRemovedBaseClass Class (Version 1.x.x)
+
+> [!IMPORTANT]
+> This documentation is for an older version of this module. Go to the latest documentation [*here*](../../../scriptapi/test-module1/ClassWithRemovedBaseClass.md).
+
+## Extends
+- [*SmallClass*](SmallClass.md)
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/priorscriptapi/test-module1-1xx/EntityIterator.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1-1xx.EntityIterator Class
+description: Contents of the test-module1.EntityIterator class (Version 1.x.x).
+---
+# EntityIterator Class (Version 1.x.x)
+
+> [!IMPORTANT]
+> This documentation is for an older version of this module. Go to the latest documentation [*here*](../../../scriptapi/test-module1/EntityIterator.md).
+
+## Implements
+- Iterator&lt;*string*&gt;
+
+## Methods
+- [[Symbol.iterator]](#[symbol.iterator])
+- [next](#next)
+
+### **[Symbol.iterator]**
+\`
+[Symbol.iterator](): Iterator<string>
+\`
+
+**Returns** Iterator&lt;*string*&gt;
+  
+Notes:
+- This function can't be called in read-only mode.
+
+### **next**
+\`
+next(): IteratorResult<string>
+\`
+
+**Returns** IteratorResult&lt;*string*&gt;
+  
+Notes:
+- This function can't be called in read-only mode.
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/priorscriptapi/test-module1-1xx/ExampleClass1.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1-1xx.ExampleClass1 Class
+description: Contents of the test-module1.ExampleClass1 class (Version 1.x.x).
+---
+# ExampleClass1 Class (Version 1.x.x)
+
+> [!IMPORTANT]
+> This documentation is for an older version of this module. Go to the latest documentation [*here*](../../../scriptapi/test-module1/ExampleClass1.md).
+
+## Properties
+
+### **boolProperty**
+\`boolProperty: boolean;\`
+
+Type: *boolean*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **floatProperty**
+\`floatProperty: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **int16Property**
+\`int16Property: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **int32Property**
+\`int32Property: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **int64Property**
+\`int64Property: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **int8Property**
+\`int8Property: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **propertyWithChangedType**
+\`propertyWithChangedType: string;\`
+
+Type: *string*
+
+Notes:
+  - This property can't be used in read-only mode.
+  - This property can throw errors when used.
+
+### **propertyWithReadOnlyChanging**
+\`read-only propertyWithReadOnlyChanging: string;\`
+
+Type: *string*
+
+### **stringProperty**
+\`stringProperty: string;\`
+
+Type: *string*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **stringPropertyErrorable**
+\`stringPropertyErrorable: string;\`
+
+Type: *string*
+
+Notes:
+  - This property can't be used in read-only mode.
+  - This property can throw errors when used.
+
+### **stringPropertyReadOnly**
+\`read-only stringPropertyReadOnly: string;\`
+
+Type: *string*
+
+### **uint16Property**
+\`uint16Property: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **uint32Property**
+\`uint32Property: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **uint64Property**
+\`uint64Property: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **uint8Property**
+\`uint8Property: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+## Methods
+- [testMethod](#testmethod)
+- [testMethodWithAddedArgument](#testmethodwithaddedargument)
+- [testMethodWithAddedErrorable](#testmethodwithaddederrorable)
+- [testMethodWithChangedArgumentType](#testmethodwithchangedargumenttype)
+- [testMethodWithChangedReturnType](#testmethodwithchangedreturntype)
+- [testMethodWithRemovedArgument](#testmethodwithremovedargument)
+- [testMethodWithRemovedErrorable](#testmethodwithremovederrorable)
+
+### **testMethod**
+\`
+testMethod(stringArgument: string, stringArgumentOptional?: string): boolean
+\`
+
+#### **Parameters**
+- **stringArgument**: *string*
+- **stringArgumentOptional**?: *string* = \`null\`
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in read-only mode.
+
+### **testMethodWithAddedArgument**
+\`
+testMethodWithAddedArgument(): boolean
+\`
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in read-only mode.
+
+### **testMethodWithAddedErrorable**
+\`
+testMethodWithAddedErrorable(): boolean
+\`
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in read-only mode.
+
+### **testMethodWithChangedArgumentType**
+\`
+testMethodWithChangedArgumentType(arg: string): boolean
+\`
+
+#### **Parameters**
+- **arg**: *string*
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in read-only mode.
+
+### **testMethodWithChangedReturnType**
+\`
+testMethodWithChangedReturnType(): boolean
+\`
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in read-only mode.
+
+### **testMethodWithRemovedArgument**
+\`
+testMethodWithRemovedArgument(removedArg: string): boolean
+\`
+
+#### **Parameters**
+- **removedArg**: *string*
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in read-only mode.
+
+### **testMethodWithRemovedErrorable**
+\`
+testMethodWithRemovedErrorable(): boolean
+\`
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in read-only mode.
+- This function can throw errors.
+
+## Constants
+
+### **ClassConstantExample**
+\`static read-only ClassConstantExample = 1337;\`
+
+Type: *number*
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/priorscriptapi/test-module1-1xx/ExampleInterface.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1-1xx.ExampleInterface Interface
+description: Contents of the test-module1.ExampleInterface class (Version 1.x.x).
+---
+# ExampleInterface Interface (Version 1.x.x)
+
+> [!IMPORTANT]
+> This documentation is for an older version of this module. Go to the latest documentation [*here*](../../../scriptapi/test-module1/ExampleInterface.md).
+
+## Properties
+
+### **removedMember**
+\`removedMember: number;\`
+
+Type: *number*
+
+> [!CAUTION]
+> This property is deprecated and will be removed in 2.0.0.
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/priorscriptapi/test-module1-1xx/RemovedInterface.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1-1xx.RemovedInterface Interface
+description: Contents of the test-module1.RemovedInterface class (Version 1.x.x).
+---
+# RemovedInterface Interface (Version 1.x.x)
+
+> [!IMPORTANT]
+> This documentation is for an older version of this module.
+
+> [!CAUTION]
+> This interface is deprecated and will be removed in 2.0.0.
+
+## Properties
+
+### **member**
+\`member: number;\`
+
+Type: *number*
+
+> [!CAUTION]
+> This property is deprecated and will be removed in 2.0.0.
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/priorscriptapi/test-module1-1xx/RemovedType.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1-1xx.RemovedType Type Alias
+description: Contents of the test-module1.RemovedType type alias (Version 1.x.x).
+---
+# RemovedType Type Alias (Version 1.x.x)
+
+> [!IMPORTANT]
+> This documentation is for an older version of this module.
+
+> [!CAUTION]
+> This alias is deprecated and will be removed in 2.0.0.
+
+## Declaration
+\`export type RemovedType<T> = Record<string, T>;\`
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/priorscriptapi/test-module1-1xx/SmallClass.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1-1xx.SmallClass Class
+description: Contents of the test-module1.SmallClass class (Version 1.x.x).
+---
+# SmallClass Class (Version 1.x.x)
+
+> [!IMPORTANT]
+> This documentation is for an older version of this module. Go to the latest documentation [*here*](../../../scriptapi/test-module1/SmallClass.md).
+
+## Classes that extend SmallClass
+- [*ClassWithRemovedBaseClass*](ClassWithRemovedBaseClass.md)
+
+## Properties
+
+### **exampleProperty**
+\`exampleProperty: string;\`
+
+Type: *string*
+
+Notes:
+  - This property can't be used in read-only mode.
+  - This property can throw errors when used.
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/priorscriptapi/test-module1-1xx/TestEnum.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1-1xx.TestEnum Enumeration
+description: Contents of the test-module1.TestEnum enumeration (Version 1.x.x).
+---
+# TestEnum Enumeration (Version 1.x.x)
+
+> [!IMPORTANT]
+> This documentation is for an older version of this module. Go to the latest documentation [*here*](../../../scriptapi/test-module1/TestEnum.md).
+
+## Constants
+### **numberValueZero**
+\`numberValueZero = 0\`
+### **numberValueOne**
+\`numberValueOne = 1\`
+### **changingEnumValue**
+\`changingEnumValue = 5\`
+### **changingEnumValueType**
+\`changingEnumValueType = 5\`
+### **removedEnumValue**
+\`removedEnumValue = 10\`
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/priorscriptapi/test-module1-1xx/test-module1.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1-1xx Module
+description: Contents of the test-module1 module (Version 1.x.x)
+---
+# \`test-module1\` Module (Version 1.x.x)
+
+Test module to make sure generators don't regress!
+
+> [!IMPORTANT]
+> This documentation is for an older version of this module. Go to the latest documentation [*here*](../../../scriptapi/test-module1/test-module1.md).
+
+#### Examples
+
+##### ***example1.js***
+
+\`\`\`typescript
+// An example for testing!
+const foo = "bar";
+const baz = \`Foo is "\${foo}"\`;
+\`\`\`
+
+(preview) Work with this sample on the [MCTools.dev](https://mctools.dev/?open=gp/example1.js) code sandbox.
+
+## Manifest Details
+\`\`\`json
+{
+    "module_name": "test-module1",
+    "version": "1.0.0"
+}
+\`\`\`
+
+## Available Versions
+- \`1.0.0\`
+
+## Enumerations
+- [TestEnum](TestEnum.md)
+
+# Type Aliases
+- [ChangedType](ChangedType.md)
+- [ChangedTypeMap](ChangedTypeMap.md)
+- [RemovedType](RemovedType.md)
+
+## Classes
+- [ClassWithAddedBaseClass](ClassWithAddedBaseClass.md)
+- [ClassWithConstructor](ClassWithConstructor.md)
+- [ClassWithRemovedBaseClass](ClassWithRemovedBaseClass.md)
+- [EntityIterator](EntityIterator.md)
+- [ExampleClass1](ExampleClass1.md)
+- [SmallClass](SmallClass.md)
+
+## Interfaces
+- [ExampleInterface](ExampleInterface.md)
+- [RemovedInterface](RemovedInterface.md)
+
+## Functions
+
+### **testFunctionWithAddedArgument**
+\`
+testFunctionWithAddedArgument(): boolean
+\`
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in read-only mode.
+
+### **testFunctionWithAddedErrorable**
+\`
+testFunctionWithAddedErrorable(): boolean
+\`
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in read-only mode.
+
+### **testFunctionWithChangedArgumentType**
+\`
+testFunctionWithChangedArgumentType(arg: string): boolean
+\`
+
+#### **Parameters**
+- **arg**: *string*
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in read-only mode.
+
+### **testFunctionWithRemovedArgument**
+\`
+testFunctionWithRemovedArgument(removedArg: string): boolean
+\`
+
+#### **Parameters**
+- **removedArg**: *string*
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in read-only mode.
+
+### **testFunctionWithRemovedErrorable**
+\`
+testFunctionWithRemovedErrorable(): boolean
+\`
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in read-only mode.
+- This function can throw errors.
+
+## Constants
+
+### **ConstantExample**
+\`static read-only ConstantExample = 20;\`
+
+A constant on the module that's value never changes
+
+Type: *number*
+
+## Objects
+  
+### **globalObject**
+\`static read-only globalObject: ExampleClass1;\`
+
+Type: [*ExampleClass1*](ExampleClass1.md)
+  
+### **objectWithChangedType**
+\`static read-only objectWithChangedType: boolean;\`
+
+Type: *boolean*
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/scriptapi/TOC.yml 1`] = `
+"  - name: dependant-module
+    items:
+    - name: dependant-module
+      href: dependant-module/dependant-module.md
+    - name: dependant-module Changelog
+      href: dependant-module/changelog.md
+    - name: ClassWithCrossModuleProperty
+      href: dependant-module/ClassWithCrossModuleProperty.md
+  - name: peer-module
+    items:
+    - name: peer-module
+      href: peer-module/peer-module.md
+    - name: peer-module Changelog
+      href: peer-module/changelog.md
+  - name: test-module1
+    items:
+    - name: test-module1
+      href: test-module1/test-module1.md
+    - name: test-module1 Changelog
+      href: test-module1/changelog.md
+    - name: AddedEnum
+      href: test-module1/AddedEnum.md
+    - name: TestEnum
+      href: test-module1/TestEnum.md
+    - name: ClassWithAddedBaseClass
+      href: test-module1/ClassWithAddedBaseClass.md
+    - name: ClassWithConstructor
+      href: test-module1/ClassWithConstructor.md
+    - name: ClassWithRemovedBaseClass
+      href: test-module1/ClassWithRemovedBaseClass.md
+    - name: EntityIterator
+      href: test-module1/EntityIterator.md
+    - name: ExampleClass1
+      href: test-module1/ExampleClass1.md
+    - name: SmallClass
+      href: test-module1/SmallClass.md
+    - name: AddedInterface
+      href: test-module1/AddedInterface.md
+    - name: ExampleInterface
+      href: test-module1/ExampleInterface.md
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/scriptapi/dependant-module/ClassWithCrossModuleProperty.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: dependant-module.ClassWithCrossModuleProperty Class
+description: Contents of the dependant-module.ClassWithCrossModuleProperty class.
+---
+# ClassWithCrossModuleProperty Class
+
+## Properties
+
+### **exampleProperty**
+\`exampleProperty: testmodule1.SmallClass;\`
+
+Type: [*test-module1.SmallClass*](../../../scriptapi/test-module1/SmallClass.md)
+
+Notes:
+  - This property can't be used in read-only mode.
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/scriptapi/dependant-module/changelog.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: dependant-module Changelog
+description: Changelog of the \`dependant-module\` module
+---
+# \`dependant-module\` Changelog
+
+## Version Changes
+- [3.0.0](#300)
+- [2.0.0](#200)
+- [1.0.0](#100)
+
+## 3.0.0
+## 2.0.0
+#### Added module dependency \`test-module1@2.0.0\` 
+#### Removed module dependency \`test-module1@1.0.0\` 
+#### Added module peer dependency *\`peer-module\`*
+## 1.0.0
+#### Added \`dependant-module\` Module
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/scriptapi/dependant-module/dependant-module.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: dependant-module Module
+description: Contents of the dependant-module module
+---
+# \`dependant-module\` Module
+
+## [Changelog](changelog.md)
+
+## Manifest Details
+\`\`\`json
+{
+    "module_name": "dependant-module",
+    "version": "3.0.0"
+}
+\`\`\`
+This is version 3.x.x of this module, which is the latest as of version 1.0.0 of Minecraft.
+
+## Available Versions
+- \`3.0.0\`
+
+### Prior Versions
+
+The following API versions are from a major version that is documented here: [*dependant-module*](../../../priorscriptapi/dependant-module-2xx/dependant-module.md):
+- \`2.0.0\`
+
+The following API versions are from a major version that is documented here: [*dependant-module*](../../../priorscriptapi/dependant-module-1xx/dependant-module.md):
+- \`1.0.0\`
+
+
+## Classes
+- [ClassWithCrossModuleProperty](ClassWithCrossModuleProperty.md)
+
+## Dependencies
+- [\`test-module1\`](../../../scriptapi/test-module1/test-module1.md)
+
+## Peer Dependencies
+- [\`peer-module\`](../../../priorscriptapi/peer-module-1xx/peer-module.md)
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/scriptapi/peer-module/TypeAliasFromPeerDependency.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: peer-module.TypeAliasFromPeerDependency Type Alias
+description: Contents of the peer-module.TypeAliasFromPeerDependency type alias.
+---
+# TypeAliasFromPeerDependency Type Alias
+
+## Declaration
+\`export type TypeAliasFromPeerDependency = boolean | string;\`
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/scriptapi/peer-module/changelog.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: peer-module Changelog
+description: Changelog of the \`peer-module\` module
+---
+# \`peer-module\` Changelog
+
+## Version Changes
+- [1.0.0](#100)
+
+## 1.0.0
+#### Added \`peer-module\` Module
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/scriptapi/peer-module/peer-module.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: peer-module Module
+description: Contents of the peer-module module
+---
+# \`peer-module\` Module
+
+## [Changelog](changelog.md)
+
+## Manifest Details
+\`\`\`json
+{
+    "module_name": "peer-module",
+    "version": "1.0.0"
+}
+\`\`\`
+This is version 1.x.x of this module, which is the latest as of version 1.0.0 of Minecraft.
+
+## Available Versions
+- \`1.0.0\`
+
+# Type Aliases
+- [TypeAliasFromPeerDependency](TypeAliasFromPeerDependency.md)
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/scriptapi/test-module1/AddedEnum.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1.AddedEnum Enumeration
+description: Contents of the test-module1.AddedEnum enumeration.
+---
+# AddedEnum Enumeration
+
+## Constants
+### **val2**
+\`val2 = 0\`
+### **val1**
+\`val1 = 1\`
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/scriptapi/test-module1/AddedInterface.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1.AddedInterface Interface
+description: Contents of the test-module1.AddedInterface class.
+---
+# AddedInterface Interface
+
+## Properties
+
+### **member**
+\`member: number;\`
+
+Type: *number*
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/scriptapi/test-module1/AddedType.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1.AddedType Type Alias
+description: Contents of the test-module1.AddedType type alias.
+---
+# AddedType Type Alias
+
+## Declaration
+\`export type AddedType<T> = keyof T;\`
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/scriptapi/test-module1/ChangedType.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1.ChangedType Type Alias
+description: Contents of the test-module1.ChangedType type alias.
+---
+# ChangedType Type Alias
+
+## Declaration
+\`export type ChangedType = (boolean | string | undefined)[];\`
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/scriptapi/test-module1/ChangedTypeMap.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1.ChangedTypeMap Type Alias
+description: Contents of the test-module1.ChangedTypeMap type alias.
+---
+# ChangedTypeMap Type Alias
+
+## Declaration
+\`\`\`ts
+type ChangedTypeMap = {
+  'Null': undefined;
+  'One': FakeTypeOne;
+  'test:Null': undefined;
+  'test:One': FakeTypeOne;
+  'test:Three': FakeTypeThree;
+  'Three': FakeTypeThree;
+};
+\`\`\`
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/scriptapi/test-module1/ClassWithAddedBaseClass.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1.ClassWithAddedBaseClass Class
+description: Contents of the test-module1.ClassWithAddedBaseClass class.
+---
+# ClassWithAddedBaseClass Class
+
+## Extends
+- [*SmallClass*](SmallClass.md)
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/scriptapi/test-module1/ClassWithConstructor.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1.ClassWithConstructor Class
+description: Contents of the test-module1.ClassWithConstructor class.
+---
+# ClassWithConstructor Class
+
+## Properties
+
+### **w**
+\`w: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **x**
+\`x: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **y**
+\`y: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **z**
+\`z: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+## Methods
+- [constructor](#constructor)
+- [testFunction](#testfunction)
+
+### **constructor**
+\`
+new ClassWithConstructor(x: number, y: number, z: number)
+\`
+
+#### **Parameters**
+- **x**: *number*
+- **y**: *number*
+- **z**: *number*
+
+**Returns** [*ClassWithConstructor*](ClassWithConstructor.md)
+  
+Notes:
+- This function can't be called in read-only mode.
+
+### **testFunction**
+\`
+testFunction(argument1: string, argument2: string): number
+\`
+
+#### **Parameters**
+- **argument1**: *string*
+- **argument2**: *string*
+
+**Returns** *number*
+  
+Notes:
+- This function can't be called in read-only mode.
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/scriptapi/test-module1/ClassWithRemovedBaseClass.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1.ClassWithRemovedBaseClass Class
+description: Contents of the test-module1.ClassWithRemovedBaseClass class.
+---
+# ClassWithRemovedBaseClass Class
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/scriptapi/test-module1/EntityIterator.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1.EntityIterator Class
+description: Contents of the test-module1.EntityIterator class.
+---
+# EntityIterator Class
+
+## Implements
+- Iterator&lt;*string*&gt;
+
+## Methods
+- [[Symbol.iterator]](#[symbol.iterator])
+- [next](#next)
+
+### **[Symbol.iterator]**
+\`
+[Symbol.iterator](): Iterator<string>
+\`
+
+**Returns** Iterator&lt;*string*&gt;
+  
+Notes:
+- This function can't be called in read-only mode.
+
+### **next**
+\`
+next(): IteratorResult<string>
+\`
+
+**Returns** IteratorResult&lt;*string*&gt;
+  
+Notes:
+- This function can't be called in read-only mode.
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/scriptapi/test-module1/ExampleClass1.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1.ExampleClass1 Class
+description: Contents of the test-module1.ExampleClass1 class.
+---
+# ExampleClass1 Class
+
+## Properties
+
+### **boolProperty**
+\`boolProperty: boolean;\`
+
+Type: *boolean*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **floatProperty**
+\`floatProperty: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **int16Property**
+\`int16Property: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **int32Property**
+\`int32Property: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **int64Property**
+\`int64Property: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **int8Property**
+\`int8Property: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **propertyWithChangedType**
+\`propertyWithChangedType: boolean;\`
+
+Type: *boolean*
+
+Notes:
+  - This property can't be used in read-only mode.
+  - This property can throw errors when used.
+
+### **propertyWithReadOnlyChanging**
+\`propertyWithReadOnlyChanging: string;\`
+
+Type: *string*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **stringProperty**
+\`stringProperty: string;\`
+
+Type: *string*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **stringPropertyErrorable**
+\`stringPropertyErrorable: string;\`
+
+Type: *string*
+
+Notes:
+  - This property can't be used in read-only mode.
+  - This property can throw errors when used.
+
+### **stringPropertyReadOnly**
+\`read-only stringPropertyReadOnly: string;\`
+
+Type: *string*
+
+### **uint16Property**
+\`uint16Property: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **uint32Property**
+\`uint32Property: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **uint64Property**
+\`uint64Property: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **uint8Property**
+\`uint8Property: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+## Methods
+- [testMethod](#testmethod)
+- [testMethodWithAddedArgument](#testmethodwithaddedargument)
+- [testMethodWithAddedErrorable](#testmethodwithaddederrorable)
+- [testMethodWithChangedArgumentType](#testmethodwithchangedargumenttype)
+- [testMethodWithChangedReturnType](#testmethodwithchangedreturntype)
+- [testMethodWithRemovedArgument](#testmethodwithremovedargument)
+- [testMethodWithRemovedErrorable](#testmethodwithremovederrorable)
+
+### **testMethod**
+\`
+testMethod(stringArgument: string, stringArgumentOptional?: string): boolean
+\`
+
+#### **Parameters**
+- **stringArgument**: *string*
+- **stringArgumentOptional**?: *string* = \`null\`
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in read-only mode.
+
+### **testMethodWithAddedArgument**
+\`
+testMethodWithAddedArgument(addedArg: string): boolean
+\`
+
+#### **Parameters**
+- **addedArg**: *string*
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in read-only mode.
+
+### **testMethodWithAddedErrorable**
+\`
+testMethodWithAddedErrorable(): boolean
+\`
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in read-only mode.
+- This function can throw errors.
+
+### **testMethodWithChangedArgumentType**
+\`
+testMethodWithChangedArgumentType(arg: number): boolean
+\`
+
+#### **Parameters**
+- **arg**: *number*
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in read-only mode.
+
+### **testMethodWithChangedReturnType**
+\`
+testMethodWithChangedReturnType(): string
+\`
+
+**Returns** *string*
+  
+Notes:
+- This function can't be called in read-only mode.
+
+### **testMethodWithRemovedArgument**
+\`
+testMethodWithRemovedArgument(): boolean
+\`
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in read-only mode.
+
+### **testMethodWithRemovedErrorable**
+\`
+testMethodWithRemovedErrorable(): boolean
+\`
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in read-only mode.
+
+## Constants
+
+### **ClassConstantExample**
+\`static read-only ClassConstantExample = 1338;\`
+
+Type: *number*
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/scriptapi/test-module1/ExampleInterface.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1.ExampleInterface Interface
+description: Contents of the test-module1.ExampleInterface class.
+---
+# ExampleInterface Interface
+
+## Properties
+
+### **addedMember**
+\`addedMember: number;\`
+
+Type: *number*
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/scriptapi/test-module1/SmallClass.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1.SmallClass Class
+description: Contents of the test-module1.SmallClass class.
+---
+# SmallClass Class
+
+## Classes that extend SmallClass
+- [*ClassWithAddedBaseClass*](ClassWithAddedBaseClass.md)
+
+## Properties
+
+### **exampleProperty**
+\`exampleProperty: string;\`
+
+Type: *string*
+
+Notes:
+  - This property can't be used in read-only mode.
+  - This property can throw errors when used.
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/scriptapi/test-module1/TestEnum.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1.TestEnum Enumeration
+description: Contents of the test-module1.TestEnum enumeration.
+---
+# TestEnum Enumeration
+
+## Constants
+### **numberValueZero**
+\`numberValueZero = 0\`
+### **numberValueOne**
+\`numberValueOne = 1\`
+### **changingEnumValue**
+\`changingEnumValue = 6\`
+### **addedEnumValue**
+\`addedEnumValue = 11\`
+### **changingEnumValueType**
+\`changingEnumValueType = "foobar"\`
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/scriptapi/test-module1/changelog.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1 Changelog
+description: Changelog of the \`test-module1\` module
+---
+# \`test-module1\` Changelog
+
+## Version Changes
+- [2.0.0](#200)
+- [1.0.0](#100)
+
+## 2.0.0
+#### Changed *[\`ClassWithAddedBaseClass\`](ClassWithAddedBaseClass.md)*
+- Added base class [*SmallClass*](SmallClass.md)
+#### Changed *[\`ClassWithConstructor\`](ClassWithConstructor.md)*
+- Added property *[\`w\`](ClassWithConstructor.md#w)*
+- Added function *[\`testFunction\`](ClassWithConstructor.md#testfunction)*
+#### Changed *[\`ClassWithRemovedBaseClass\`](ClassWithRemovedBaseClass.md)*
+- Removed base class *SmallClass*
+#### Changed *[\`ExampleClass1\`](ExampleClass1.md)*
+- Changed type for *[\`propertyWithChangedType\`](ExampleClass1.md#propertywithchangedtype)* from *string* (throws exceptions) to *boolean* (throws exceptions)
+- Changed read-only flag for *[\`propertyWithReadOnlyChanging\`](ExampleClass1.md#propertywithreadonlychanging)* from \`true\` to \`false\`
+- Changed constant *[\`ClassConstantExample\`](ExampleClass1.md#classconstantexample)* from \`1337\` to \`1338\`
+- Changed function *[\`testMethodWithAddedArgument\`](ExampleClass1.md#testmethodwithaddedargument)*
+  - Added argument \`addedArg\`
+- Changed function *[\`testMethodWithAddedErrorable\`](ExampleClass1.md#testmethodwithaddederrorable)*
+  - Changed return type from *boolean* to *boolean* (throws exceptions)
+- Changed function *[\`testMethodWithChangedArgumentType\`](ExampleClass1.md#testmethodwithchangedargumenttype)*
+  - Changed argument \`arg\` type from *string* to *number*
+- Changed function *[\`testMethodWithChangedReturnType\`](ExampleClass1.md#testmethodwithchangedreturntype)*
+  - Changed return type from *boolean* to *string*
+- Changed function *[\`testMethodWithRemovedArgument\`](ExampleClass1.md#testmethodwithremovedargument)*
+  - Removed argument \`removedArg\`
+- Changed function *[\`testMethodWithRemovedErrorable\`](ExampleClass1.md#testmethodwithremovederrorable)*
+  - Changed return type from *boolean* (throws exceptions) to *boolean*
+#### Changed function \`testFunctionWithAddedArgument\`
+- Added argument \`addedArg\`
+#### Changed function \`testFunctionWithAddedErrorable\`
+- Changed return type from *boolean* to *boolean* (throws exceptions)
+#### Changed function \`testFunctionWithChangedArgumentType\`
+- Changed argument \`arg\` type from *string* to *number*
+#### Changed function \`testFunctionWithRemovedArgument\`
+- Removed argument \`removedArg\`
+#### Changed function \`testFunctionWithRemovedErrorable\`
+- Changed return type from *boolean* (throws exceptions) to *boolean*
+#### Added function \`testGlobalFunction\`
+#### Added enum [\`AddedEnum\`](AddedEnum.md)
+#### Changed enum [\`TestEnum\`](TestEnum.md)
+- Added value \`addedEnumValue\`
+- Changed value \`changingEnumValue\` from \`5\` to \`6\`
+- Changed value \`changingEnumValueType\` from \`5\` to \`foobar\`
+- Removed value \`removedEnumValue\`
+#### Changed type for \`objectWithChangedType\` from *boolean* to *string*
+#### Changed constant \`ConstantExample\` value fron \`20\` to \`25\`  
+## 1.0.0
+#### Added \`test-module1\` Module
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > msdocs/scriptapi/test-module1/test-module1.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: test-module1 Module
+description: Contents of the test-module1 module
+---
+# \`test-module1\` Module
+
+Test module to make sure generators don't regress!
+
+## [Changelog](changelog.md)
+
+#### Examples
+
+##### ***example1.js***
+
+\`\`\`typescript
+// An example for testing!
+const foo = "bar";
+const baz = \`Foo is "\${foo}"\`;
+\`\`\`
+
+(preview) Work with this sample on the [MCTools.dev](https://mctools.dev/?open=gp/example1.js) code sandbox.
+
+## Manifest Details
+\`\`\`json
+{
+    "module_name": "test-module1",
+    "version": "2.0.0"
+}
+\`\`\`
+This is version 2.x.x of this module, which is the latest as of version 1.0.0 of Minecraft.
+
+## Available Versions
+- \`2.0.0\`
+
+### Prior Versions
+
+The following API versions are from a major version that is documented here: [*test-module1*](../../../priorscriptapi/test-module1-1xx/test-module1.md):
+- \`1.0.0\`
+
+
+## Enumerations
+- [AddedEnum](AddedEnum.md)
+- [TestEnum](TestEnum.md)
+
+# Type Aliases
+- [AddedType](AddedType.md)
+- [ChangedType](ChangedType.md)
+- [ChangedTypeMap](ChangedTypeMap.md)
+
+## Classes
+- [ClassWithAddedBaseClass](ClassWithAddedBaseClass.md)
+- [ClassWithConstructor](ClassWithConstructor.md)
+- [ClassWithRemovedBaseClass](ClassWithRemovedBaseClass.md)
+- [EntityIterator](EntityIterator.md)
+- [ExampleClass1](ExampleClass1.md)
+- [SmallClass](SmallClass.md)
+
+## Interfaces
+- [AddedInterface](AddedInterface.md)
+- [ExampleInterface](ExampleInterface.md)
+
+## Functions
+
+### **testFunctionWithAddedArgument**
+\`
+testFunctionWithAddedArgument(addedArg: string): boolean
+\`
+
+#### **Parameters**
+- **addedArg**: *string*
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in read-only mode.
+
+### **testFunctionWithAddedErrorable**
+\`
+testFunctionWithAddedErrorable(): boolean
+\`
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in read-only mode.
+- This function can throw errors.
+
+### **testFunctionWithChangedArgumentType**
+\`
+testFunctionWithChangedArgumentType(arg: number): boolean
+\`
+
+#### **Parameters**
+- **arg**: *number*
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in read-only mode.
+
+### **testFunctionWithRemovedArgument**
+\`
+testFunctionWithRemovedArgument(): boolean
+\`
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in read-only mode.
+
+### **testFunctionWithRemovedErrorable**
+\`
+testFunctionWithRemovedErrorable(): boolean
+\`
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in read-only mode.
+
+### **testGlobalFunction**
+\`
+testGlobalFunction(argument1: string): number
+\`
+
+#### **Parameters**
+- **argument1**: *string*
+
+**Returns** *number*
+  
+Notes:
+- This function can't be called in read-only mode.
+
+## Constants
+
+### **ConstantExample**
+\`static read-only ConstantExample = 25;\`
+
+A constant on the module that's value never changes
+
+Type: *number*
+
+## Objects
+  
+### **globalObject**
+\`static read-only globalObject: ExampleClass1;\`
+
+Type: [*ExampleClass1*](ExampleClass1.md)
+  
+### **objectWithChangedType**
+\`static read-only objectWithChangedType: string;\`
+
+Type: *string*
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > txt/dependant-module.txt 1`] = `
+"\`dependant-module\`
+
+== Change Log ==
+=== 3.0.0 ===
+
+=== 2.0.0 ===
+
+=== 1.0.0 ===
+- Added \`dependant-module\` module
+
+== /Change Log =="
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > txt/peer-module.txt 1`] = `
+"\`peer-module\`
+
+== Change Log ==
+=== 1.0.0 ===
+- Added \`peer-module\` module
+
+== /Change Log =="
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > txt/test-module1.txt 1`] = `
+"\`test-module1\`
+
+== Change Log ==
+=== 2.0.0 ===
+- Changed class \`ClassWithAddedBaseClass\`
+    - Added base class \`*SmallClass*\`
+- Changed class \`ClassWithConstructor\`
+    - Added property \`w\`
+    - Added function \`testFunction\`
+- Changed class \`ClassWithRemovedBaseClass\`
+    - Removed base class \`*SmallClass*\`
+- Changed class \`ExampleClass1\`
+    - Changed type for \`propertyWithChangedType\` from \`*string*\` (throws exceptions) to \`*boolean*\` (throws exceptions)
+    - Changed read-only flag for \`propertyWithReadOnlyChanging\` from \`true\` to \`false\`
+    - Changed constant \`ClassConstantExample\` value from \`1337\` to \`1338\` 
+    - Changed function \`testMethodWithAddedArgument\`
+      - Added argument \`addedArg\`
+    - Changed function \`testMethodWithAddedErrorable\`
+      - Changed return type from \`*boolean*\` to \`*boolean*\` (throws exceptions)
+    - Changed function \`testMethodWithChangedArgumentType\`
+      - Changed argument \`arg\` type from \`*string*\` to \`*number*\`
+    - Changed function \`testMethodWithChangedReturnType\`
+      - Changed return type from \`*boolean*\` to \`*string*\`
+    - Changed function \`testMethodWithRemovedArgument\`
+      - Removed argument \`removedArg\`
+    - Changed function \`testMethodWithRemovedErrorable\`
+      - Changed return type from \`*boolean*\` (throws exceptions) to \`*boolean*\`
+- Added interface \`AddedInterface\`
+  \`\`\`ts
+  export interface AddedInterface {
+    member: number;
+  }
+
+  \`\`\`
+- Changed interface \`ExampleInterface\`
+    - Added property \`addedMember\`
+      \`\`\`ts
+      addedMember: number
+      \`\`\`
+    - Removed property \`removedMember\`
+- Removed interface \`RemovedInterface\`
+- Changed function \`testFunctionWithAddedArgument\`
+  - Added argument \`addedArg\`
+- Changed function \`testFunctionWithAddedErrorable\`
+  - Changed return type from \`*boolean*\` to \`*boolean*\` (throws exceptions)
+- Changed function \`testFunctionWithChangedArgumentType\`
+  - Changed argument \`arg\` type from \`*string*\` to \`*number*\`
+- Changed function \`testFunctionWithRemovedArgument\`
+  - Removed argument \`removedArg\`
+- Changed function \`testFunctionWithRemovedErrorable\`
+  - Changed return type from \`*boolean*\` (throws exceptions) to \`*boolean*\`
+- Added function \`testGlobalFunction\`
+- Added enum \`AddedEnum\`
+- Changed type for object \`objectWithChangedType\` from \`*boolean*\` to \`*string*\`
+- Changed constant \`ConstantExample\` value from \`20\` to \`25\`
+- Added type alias \`AddedType\`
+  \`\`\`ts
+  export type AddedType<T> = keyof T;
+  \`\`\`
+- Changed type alias \`ChangedType\` from:
+  \`\`\`ts
+  boolean[] | string[] | undefined
+  \`\`\`
+  to: 
+  \`\`\`ts
+  (boolean | string | undefined)[]
+  \`\`\`
+- Changed type map \`ChangedTypeMap\`
+  - Changed mapping \`Null\` from \`FakeTypeNull\` to \`undefined\`
+  - Changed mapping \`test:Null\` from \`FakeTypeNull\` to \`undefined\`
+  - Added mapping \`'test:Three': 'FakeTypeThree'\`
+  - Removed mapping \`'test:Two': 'FakeTypeTwo'\`
+  - Added mapping \`'Three': 'FakeTypeThree'\`
+  - Removed mapping \`'Two': 'FakeTypeTwo'\`
+- Removed type alias \`RemovedType\`
+
+=== 1.0.0 ===
+- Added \`test-module1\` module
+
+== /Change Log =="
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > typescript/dependant-module@1.0.0.d.ts 1`] = `
+"// Type definitions for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+/**
+ * @packageDocumentation
+ *
+ * Manifest Details
+ * \`\`\`json
+ * {
+ *   "module_name": "dependant-module",
+ *   "version": "1.0.0"
+ * }
+ * \`\`\`
+ *
+ */
+import * as testmodule1 from 'test-module1';
+export class ClassWithCrossModuleProperty {
+    private constructor();
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    exampleProperty: testmodule1.SmallClass;
+}
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > typescript/dependant-module@2.0.0.d.ts 1`] = `
+"// Type definitions for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+/**
+ * @packageDocumentation
+ *
+ * Manifest Details
+ * \`\`\`json
+ * {
+ *   "module_name": "dependant-module",
+ *   "version": "2.0.0"
+ * }
+ * \`\`\`
+ *
+ */
+import * as testmodule1 from 'test-module1';
+// @ts-ignore Optional types-only package, will decay to any if peer-module isn't installed
+import type * as peermodule from 'peer-module';
+export class ClassWithCrossModuleProperty {
+    private constructor();
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    exampleProperty: testmodule1.SmallClass;
+}
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > typescript/dependant-module@3.0.0.d.ts 1`] = `
+"// Type definitions for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+/**
+ * @packageDocumentation
+ *
+ * Manifest Details
+ * \`\`\`json
+ * {
+ *   "module_name": "dependant-module",
+ *   "version": "3.0.0"
+ * }
+ * \`\`\`
+ *
+ */
+import * as testmodule1 from 'test-module1';
+// @ts-ignore Optional types-only package, will decay to any if peer-module isn't installed
+import type * as peermodule from 'peer-module';
+export class ClassWithCrossModuleProperty {
+    private constructor();
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    exampleProperty: testmodule1.SmallClass;
+}
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > typescript/peer-module@1.0.0.d.ts 1`] = `
+"// Type definitions for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+/**
+ * @packageDocumentation
+ *
+ * Manifest Details
+ * \`\`\`json
+ * {
+ *   "module_name": "peer-module",
+ *   "version": "1.0.0"
+ * }
+ * \`\`\`
+ *
+ */
+export type TypeAliasFromPeerDependency = boolean | string;
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > typescript/test-module1@1.0.0.d.ts 1`] = `
+"// Type definitions for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+/**
+ * @packageDocumentation
+ * Test module to make sure generators don't regress!
+ * @example example1.js
+ * \`\`\`typescript
+ * // An example for testing!
+ * const foo = "bar";
+ * const baz = \`Foo is "\${foo}"\`;
+ * \`\`\`
+ *
+ * Manifest Details
+ * \`\`\`json
+ * {
+ *   "module_name": "test-module1",
+ *   "version": "1.0.0"
+ * }
+ * \`\`\`
+ *
+ */
+export enum TestEnum {
+    numberValueZero = 0,
+    numberValueOne = 1,
+    changingEnumValue = 5,
+    changingEnumValueType = 5,
+    /**
+     * @deprecated This property is deprecated and will be removed in 2.0.0.
+     */
+    removedEnumValue = 10,
+}
+
+export type ChangedType = boolean[] | string[] | undefined;
+
+export type ChangedTypeMap = {
+    Null: FakeTypeNull;
+    One: FakeTypeOne;
+    'test:Null': FakeTypeNull;
+    'test:One': FakeTypeOne;
+    'test:Two': FakeTypeTwo;
+    Two: FakeTypeTwo;
+};
+
+/**
+ * @deprecated This type is deprecated and will be removed in 2.0.0.
+ */
+export type RemovedType<T> = Record<string, T>;
+
+export class ClassWithAddedBaseClass {
+    private constructor();
+}
+
+export class ClassWithConstructor {
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    x: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    y: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    z: number;
+    /**
+     * @remarks
+     * This function can't be called in read-only mode.
+     *
+     */
+    constructor(x: number, y: number, z: number);
+}
+
+// @ts-ignore Class inheritance allowed for native defined classes
+export class ClassWithRemovedBaseClass extends SmallClass {
+    private constructor();
+}
+
+export class EntityIterator implements Iterable<string> {
+    private constructor();
+    /**
+     * @remarks
+     * This function can't be called in read-only mode.
+     *
+     */
+    [Symbol.iterator](): Iterator<string>;
+    /**
+     * @remarks
+     * This function can't be called in read-only mode.
+     *
+     */
+    next(): IteratorResult<string>;
+}
+
+export class ExampleClass1 {
+    private constructor();
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    boolProperty: boolean;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    floatProperty: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    int16Property: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    int32Property: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    int64Property: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    int8Property: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     * @throws This property can throw when used.
+     */
+    propertyWithChangedType: string;
+    readonly propertyWithReadOnlyChanging: string;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    stringProperty: string;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     * @throws This property can throw when used.
+     */
+    stringPropertyErrorable: string;
+    readonly stringPropertyReadOnly: string;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    uint16Property: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    uint32Property: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    uint64Property: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    uint8Property: number;
+    static readonly ClassConstantExample = 1337;
+    /**
+     * @remarks
+     * This function can't be called in read-only mode.
+     *
+     */
+    testMethod(stringArgument: string, stringArgumentOptional?: string): boolean;
+    /**
+     * @remarks
+     * This function can't be called in read-only mode.
+     *
+     */
+    testMethodWithAddedArgument(): boolean;
+    /**
+     * @remarks
+     * This function can't be called in read-only mode.
+     *
+     */
+    testMethodWithAddedErrorable(): boolean;
+    /**
+     * @remarks
+     * This function can't be called in read-only mode.
+     *
+     */
+    testMethodWithChangedArgumentType(arg: string): boolean;
+    /**
+     * @remarks
+     * This function can't be called in read-only mode.
+     *
+     */
+    testMethodWithChangedReturnType(): boolean;
+    /**
+     * @remarks
+     * This function can't be called in read-only mode.
+     *
+     */
+    testMethodWithRemovedArgument(removedArg: string): boolean;
+    /**
+     * @remarks
+     * This function can't be called in read-only mode.
+     *
+     * @throws This function can throw errors.
+     */
+    testMethodWithRemovedErrorable(): boolean;
+}
+
+export class SmallClass {
+    private constructor();
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     * @throws This property can throw when used.
+     */
+    exampleProperty: string;
+}
+
+export interface ExampleInterface {
+    /**
+     * @deprecated This property is deprecated and will be removed in 2.0.0.
+     */
+    removedMember: number;
+}
+
+/**
+ * @deprecated This interface is deprecated and will be removed in 2.0.0.
+ */
+export interface RemovedInterface {
+    member: number;
+}
+
+/**
+ * @remarks
+ * This function can't be called in read-only mode.
+ *
+ */
+export function testFunctionWithAddedArgument(): boolean;
+/**
+ * @remarks
+ * This function can't be called in read-only mode.
+ *
+ */
+export function testFunctionWithAddedErrorable(): boolean;
+/**
+ * @remarks
+ * This function can't be called in read-only mode.
+ *
+ */
+export function testFunctionWithChangedArgumentType(arg: string): boolean;
+/**
+ * @remarks
+ * This function can't be called in read-only mode.
+ *
+ */
+export function testFunctionWithRemovedArgument(removedArg: string): boolean;
+/**
+ * @remarks
+ * This function can't be called in read-only mode.
+ *
+ * @throws This function can throw errors.
+ */
+export function testFunctionWithRemovedErrorable(): boolean;
+/**
+ * @remarks
+ * A constant on the module that's value never changes
+ *
+ */
+export const ConstantExample = 20;
+export const globalObject: ExampleClass1;
+export const objectWithChangedType: boolean;
+"
+`;
+
+exports[`Changelog Diffing > Generates correct output for changelog diffs > typescript/test-module1@2.0.0.d.ts 1`] = `
+"// Type definitions for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+/**
+ * @packageDocumentation
+ * Test module to make sure generators don't regress!
+ * @example example1.js
+ * \`\`\`typescript
+ * // An example for testing!
+ * const foo = "bar";
+ * const baz = \`Foo is "\${foo}"\`;
+ * \`\`\`
+ *
+ * Manifest Details
+ * \`\`\`json
+ * {
+ *   "module_name": "test-module1",
+ *   "version": "2.0.0"
+ * }
+ * \`\`\`
+ *
+ */
+export enum AddedEnum {
+    val2 = 0,
+    val1 = 1,
+}
+
+export enum TestEnum {
+    numberValueZero = 0,
+    numberValueOne = 1,
+    changingEnumValue = 6,
+    addedEnumValue = 11,
+    changingEnumValueType = 'foobar',
+}
+
+export type AddedType<T> = keyof T;
+
+export type ChangedType = (boolean | string | undefined)[];
+
+export type ChangedTypeMap = {
+    Null: undefined;
+    One: FakeTypeOne;
+    'test:Null': undefined;
+    'test:One': FakeTypeOne;
+    'test:Three': FakeTypeThree;
+    Three: FakeTypeThree;
+};
+
+// @ts-ignore Class inheritance allowed for native defined classes
+export class ClassWithAddedBaseClass extends SmallClass {
+    private constructor();
+}
+
+export class ClassWithConstructor {
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    w: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    x: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    y: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    z: number;
+    /**
+     * @remarks
+     * This function can't be called in read-only mode.
+     *
+     */
+    constructor(x: number, y: number, z: number);
+    /**
+     * @remarks
+     * This function can't be called in read-only mode.
+     *
+     */
+    testFunction(argument1: string, argument2: string): number;
+}
+
+export class ClassWithRemovedBaseClass {
+    private constructor();
+}
+
+export class EntityIterator implements Iterable<string> {
+    private constructor();
+    /**
+     * @remarks
+     * This function can't be called in read-only mode.
+     *
+     */
+    [Symbol.iterator](): Iterator<string>;
+    /**
+     * @remarks
+     * This function can't be called in read-only mode.
+     *
+     */
+    next(): IteratorResult<string>;
+}
+
+export class ExampleClass1 {
+    private constructor();
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    boolProperty: boolean;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    floatProperty: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    int16Property: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    int32Property: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    int64Property: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    int8Property: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     * @throws This property can throw when used.
+     */
+    propertyWithChangedType: boolean;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    propertyWithReadOnlyChanging: string;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    stringProperty: string;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     * @throws This property can throw when used.
+     */
+    stringPropertyErrorable: string;
+    readonly stringPropertyReadOnly: string;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    uint16Property: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    uint32Property: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    uint64Property: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    uint8Property: number;
+    static readonly ClassConstantExample = 1338;
+    /**
+     * @remarks
+     * This function can't be called in read-only mode.
+     *
+     */
+    testMethod(stringArgument: string, stringArgumentOptional?: string): boolean;
+    /**
+     * @remarks
+     * This function can't be called in read-only mode.
+     *
+     */
+    testMethodWithAddedArgument(addedArg: string): boolean;
+    /**
+     * @remarks
+     * This function can't be called in read-only mode.
+     *
+     * @throws This function can throw errors.
+     */
+    testMethodWithAddedErrorable(): boolean;
+    /**
+     * @remarks
+     * This function can't be called in read-only mode.
+     *
+     */
+    testMethodWithChangedArgumentType(arg: number): boolean;
+    /**
+     * @remarks
+     * This function can't be called in read-only mode.
+     *
+     */
+    testMethodWithChangedReturnType(): string;
+    /**
+     * @remarks
+     * This function can't be called in read-only mode.
+     *
+     */
+    testMethodWithRemovedArgument(): boolean;
+    /**
+     * @remarks
+     * This function can't be called in read-only mode.
+     *
+     */
+    testMethodWithRemovedErrorable(): boolean;
+}
+
+export class SmallClass {
+    private constructor();
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     * @throws This property can throw when used.
+     */
+    exampleProperty: string;
+}
+
+export interface AddedInterface {
+    member: number;
+}
+
+export interface ExampleInterface {
+    addedMember: number;
+}
+
+/**
+ * @remarks
+ * This function can't be called in read-only mode.
+ *
+ */
+export function testFunctionWithAddedArgument(addedArg: string): boolean;
+/**
+ * @remarks
+ * This function can't be called in read-only mode.
+ *
+ * @throws This function can throw errors.
+ */
+export function testFunctionWithAddedErrorable(): boolean;
+/**
+ * @remarks
+ * This function can't be called in read-only mode.
+ *
+ */
+export function testFunctionWithChangedArgumentType(arg: number): boolean;
+/**
+ * @remarks
+ * This function can't be called in read-only mode.
+ *
+ */
+export function testFunctionWithRemovedArgument(): boolean;
+/**
+ * @remarks
+ * This function can't be called in read-only mode.
+ *
+ */
+export function testFunctionWithRemovedErrorable(): boolean;
+/**
+ * @remarks
+ * This function can't be called in read-only mode.
+ *
+ */
+export function testGlobalFunction(argument1: string): number;
+/**
+ * @remarks
+ * A constant on the module that's value never changes
+ *
+ */
+export const ConstantExample = 25;
+export const globalObject: ExampleClass1;
+export const objectWithChangedType: string;
+"
+`;

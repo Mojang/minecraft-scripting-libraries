@@ -1,0 +1,63 @@
+{{> module_header}}
+/**
+  {{#version_is_prerelease}}
+ * @{{{module_prerelease_tag}}}
+  {{/version_is_prerelease}}
+ * @packageDocumentation
+  {{#module_description_ts}}
+ * {{{.}}}
+  {{/module_description_ts}}
+  {{#examples.length}}
+  {{> examples}}
+  {{/examples.length}}
+ *
+ * Manifest Details
+ * ```json
+ * {
+ *   "module_name": "{{{name}}}",
+ *   "version": "{{{manifest_example_version_ts}}}"
+ * }
+ * ```
+ *
+ */
+{{#dependencies}}
+import * as {{{variable_name}}} from "{{{name}}}";
+{{/dependencies}}
+{{#peer_dependencies}}
+  {{^types_only}}
+import * as {{{variable_name}}} from "{{{name}}}";
+  {{/types_only}}
+  {{#types_only}} {{! Add ts-ignore to allow optional peer dependencies that decay to any }}
+// @ts-ignore Optional types-only package, will decay to any if {{{name}}} isn't installed
+import type * as {{{variable_name}}} from "{{{name}}}";
+  {{/types_only}}
+{{/peer_dependencies}}
+{{#enums}}
+{{> enum}}
+
+{{/enums}}
+{{#type_aliases}}
+{{> type_alias}}
+
+{{/type_aliases}}
+{{#classes}}
+{{> class}}
+
+{{/classes}}
+{{#interfaces}}
+{{> class}}
+
+{{/interfaces}}
+{{#errors}}
+{{> class}}
+
+{{/errors}}
+{{#functions}}
+{{> function}}
+{{/functions}}
+{{#constants}}
+{{> property}}
+{{/constants}}
+{{#objects}}
+{{> property}}
+{{/objects}}

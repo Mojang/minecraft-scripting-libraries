@@ -1,0 +1,227 @@
+{
+  "classes": [
+    {
+      "base_types": [],
+      "constants": [],
+      "functions": [
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "name": "methodThatReturnsOptional",
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "optional",
+            "optional_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "boolean"
+            }
+          }
+        },
+        {
+          "arguments": [
+            {
+              "details": null,
+              "name": "arg1",
+              "type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "optional",
+                "optional_type": {
+                  "is_bind_type": false,
+                  "is_errorable": false,
+                  "name": "boolean"
+                }
+              }
+            },
+            {
+              "details": null,
+              "name": "arg2",
+              "type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "optional",
+                "optional_type": {
+                  "is_bind_type": false,
+                  "is_errorable": false,
+                  "name": "string"
+                }
+              }
+            }
+          ],
+          "is_constructor": false,
+          "name": "methodThatTakesOptionals",
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "void"
+          }
+        },
+        {
+          "arguments": [
+            {
+              "details": {
+                "default_value": 1,
+                "max_value": 255,
+                "min_value": 1
+              },
+              "name": "defaultIs1",
+              "type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "int32",
+                "valid_range": {
+                  "max": 2147483647,
+                  "min": -2147483648
+                }
+              }
+            },
+            {
+              "details": {
+                "default_value": 0
+              },
+              "name": "defaultIs0",
+              "type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "int32",
+                "valid_range": {
+                  "max": 2147483647,
+                  "min": -2147483648
+                }
+              }
+            },
+            {
+              "details": {
+                "default_value": false
+              },
+              "name": "defaultIsFalse",
+              "type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "boolean"
+              }
+            },
+            {
+              "details": {
+                "default_value": "String"
+              },
+              "name": "defaultIsString",
+              "type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "string"
+              }
+            },
+            {
+              "details": {
+                "default_value": [
+                  1,
+                  2,
+                  3
+                ]
+              },
+              "name": "defaultIsArray",
+              "type": {
+                "element_type": {
+                  "is_bind_type": false,
+                  "is_errorable": false,
+                  "name": "number"
+                },
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "array"
+              }
+            }
+          ],
+          "is_constructor": false,
+          "name": "methodWithDefaultValuesAreOptional",
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "void"
+          }
+        }
+      ],
+      "name": "ClassWithOptionals",
+      "properties": [
+        {
+          "is_read_only": false,
+          "name": "optionalProperty",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "optional",
+            "optional_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "boolean"
+            }
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ClassWithOptionals"
+      }
+    }
+  ],
+  "interfaces": [
+    {
+      "name": "InterfaceWithOptionalProperty",
+      "properties": [
+        {
+          "is_read_only": false,
+          "name": "optionalProperty",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "optional",
+            "optional_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "boolean"
+            }
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "InterfaceWithOptionalProperty"
+      }
+    },
+    {
+      "name": "InterfaceWithDefaultProperty",
+      "properties": [
+        {
+          "default_value": "String",
+          "is_read_only": false,
+          "name": "defaultProperty",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "optional",
+            "optional_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "string"
+            }
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "InterfaceWithDefaultProperty"
+      }
+    }
+  ],
+  "minecraft_version": "1.0.0",
+  "name": "optionals-module",
+  "uuid": "d79b396f-dc7a-46e0-97c5-a14434ab8dcd",
+  "version": "1.0.0",
+  "module_type": "script"
+}

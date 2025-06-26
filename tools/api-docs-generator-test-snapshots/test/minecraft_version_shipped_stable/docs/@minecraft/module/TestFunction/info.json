@@ -1,0 +1,24 @@
+{
+    "default": {
+        "description": "Test function woot woot!",
+        "arguments": {
+            "arg": {
+                "description": "default arg description!."
+            }
+        },
+        "returns": {
+            "description": "Returns default stuff."
+        }
+    },
+    "1": {
+        "description": "V1 Test function woot woot!",
+        "arguments": {
+            "arg": {
+                "description": "Whatever happened in v1"
+            }
+        },
+        "returns": {
+            "description": "Returns V1."
+        }
+    }
+}

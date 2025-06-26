@@ -1,0 +1,54 @@
+{
+  "constants": [
+    {
+      "is_read_only": true,
+      "is_static": true,
+      "name": "GlobalConstantStable",
+      "type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "int32"
+      },
+      "value": 8
+    },
+    {
+      "is_read_only": true,
+      "is_static": true,
+      "name": "GlobalConstantRemovedInV2",
+      "type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "int32"
+      },
+      "value": 8
+    }
+  ],
+  "functions": [
+    {
+      "arguments": [
+        {
+          "details": null,
+          "name": "arg",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "string"
+          }
+        }
+      ],
+      "is_constructor": false,
+      "name": "TestFunction",
+      "privilege": "read_only",
+      "return_type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "int32"
+      }
+    }
+  ],
+  "minecraft_version": "1.0.0",
+  "name": "@minecraft/module",
+  "uuid": "a05a18e6-279a-4d87-862d-2a85442a2aed",
+  "version": "1.0.0",
+  "module_type": "script"
+}

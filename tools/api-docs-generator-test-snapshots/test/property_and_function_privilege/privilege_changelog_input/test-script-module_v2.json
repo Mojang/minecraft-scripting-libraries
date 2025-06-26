@@ -1,0 +1,486 @@
+{
+    "minecraft_version": "1.0.0",
+    "name": "test-module1",
+    "uuid": "fe0020ab-2aac-482c-8edc-c18622f022ef",
+    "version": "2.0.0",
+    "module_type": "script",
+    "classes": [
+        {
+            "name": "ClassWithNoPrivileges",
+            "type": {
+                "is_bind_type": true,
+                "is_errorable": false,
+                "name": "ClassWithNoPrivileges"
+            },
+            "functions": [
+                {
+                    "name": "class_func",
+                    "is_constructor": false,
+                    "return_type": {
+                        "is_errorable": false,
+                        "is_bind_type": true,
+                        "name": "class_func"
+                    },
+                    "arguments": []
+                }
+            ],
+            "properties": [
+                {
+                    "name": "class_prop",
+                    "is_read_only": false,
+                    "type": {
+                        "is_errorable": false,
+                        "is_bind_type": true,
+                        "name": "class_prop"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "ClassAddsFirstPrivilege",
+            "type": {
+                "is_bind_type": true,
+                "is_errorable": false,
+                "name": "ClassAddsFirstPrivilege"
+            },
+            "functions": [
+                {
+                    "name": "class_func",
+                    "is_constructor": false,
+                    "return_type": {
+                        "is_errorable": false,
+                        "is_bind_type": true,
+                        "name": "class_func"
+                    },
+                    "arguments": [],
+                    "call_privilege": [
+                        {
+                            "name": "read_only"
+                        }
+                    ]
+                }
+            ],
+            "properties": [
+                {
+                    "name": "class_prop",
+                    "is_read_only": false,
+                    "type": {
+                        "is_errorable": false,
+                        "is_bind_type": true,
+                        "name": "class_prop"
+                    },
+                    "set_privilege": [
+                        {
+                            "name": "read_only"
+                        }
+                    ],
+                    "get_privilege": [
+                        {
+                            "name": "read_only"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "ClassWithReadOnlyNoChange",
+            "type": {
+                "is_bind_type": true,
+                "is_errorable": false,
+                "name": "ClassWithReadOnlyNoChange"
+            },
+            "functions": [
+                {
+                    "name": "class_func",
+                    "is_constructor": false,
+                    "return_type": {
+                        "is_errorable": false,
+                        "is_bind_type": true,
+                        "name": "class_func"
+                    },
+                    "arguments": [],
+                    "call_privilege": [
+                        {
+                            "name": "read_only"
+                        }
+                    ]
+                }
+            ],
+            "properties": [
+                {
+                    "name": "class_prop",
+                    "is_read_only": false,
+                    "type": {
+                        "is_errorable": false,
+                        "is_bind_type": true,
+                        "name": "class_prop"
+                    },
+                    "set_privilege": [
+                        {
+                            "name": "read_only"
+                        }
+                    ],
+                    "get_privilege": [
+                        {
+                            "name": "read_only"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "ClassWithReadOnlyAddSecond",
+            "type": {
+                "is_bind_type": true,
+                "is_errorable": false,
+                "name": "ClassWithReadOnlyAddSecond"
+            },
+            "functions": [
+                {
+                    "name": "class_func",
+                    "is_constructor": false,
+                    "return_type": {
+                        "is_errorable": false,
+                        "is_bind_type": true,
+                        "name": "class_func"
+                    },
+                    "arguments": [],
+                    "call_privilege": [
+                        {
+                            "name": "read_only"
+                        },
+                        {
+                            "name": "early_execution"
+                        }
+                    ]
+                }
+            ],
+            "properties": [
+                {
+                    "name": "class_prop",
+                    "is_read_only": false,
+                    "type": {
+                        "is_errorable": false,
+                        "is_bind_type": true,
+                        "name": "class_prop"
+                    },
+                    "set_privilege": [
+                        {
+                            "name": "read_only"
+                        },
+                        {
+                            "name": "early_execution"
+                        }
+                    ],
+                    "get_privilege": [
+                        {
+                            "name": "read_only"
+                        },
+                        {
+                            "name": "early_execution"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "ClassWithTwoPrivilegesNoChange",
+            "type": {
+                "is_bind_type": true,
+                "is_errorable": false,
+                "name": "ClassWithTwoPrivilegesNoChange"
+            },
+            "functions": [
+                {
+                    "name": "class_func",
+                    "is_constructor": false,
+                    "return_type": {
+                        "is_errorable": false,
+                        "is_bind_type": true,
+                        "name": "class_func"
+                    },
+                    "arguments": [],
+                    "call_privilege": [
+                        {
+                            "name": "read_only"
+                        },
+                        {
+                            "name": "early_execution"
+                        }
+                    ]
+                }
+            ],
+            "properties": [
+                {
+                    "name": "class_prop",
+                    "is_read_only": false,
+                    "type": {
+                        "is_errorable": false,
+                        "is_bind_type": true,
+                        "name": "class_prop"
+                    },
+                    "set_privilege": [
+                        {
+                            "name": "read_only"
+                        },
+                        {
+                            "name": "early_execution"
+                        }
+                    ],
+                    "get_privilege": [
+                        {
+                            "name": "read_only"
+                        },
+                        {
+                            "name": "early_execution"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "ClassWithTwoPrivilegesRemoveOne",
+            "type": {
+                "is_bind_type": true,
+                "is_errorable": false,
+                "name": "ClassWithTwoPrivilegesRemoveOne"
+            },
+            "functions": [
+                {
+                    "name": "class_func",
+                    "is_constructor": false,
+                    "return_type": {
+                        "is_errorable": false,
+                        "is_bind_type": true,
+                        "name": "class_func"
+                    },
+                    "arguments": [],
+                    "call_privilege": [
+                        {
+                            "name": "early_execution"
+                        }
+                    ]
+                }
+            ],
+            "properties": [
+                {
+                    "name": "class_prop",
+                    "is_read_only": false,
+                    "type": {
+                        "is_errorable": false,
+                        "is_bind_type": true,
+                        "name": "class_prop"
+                    },
+                    "set_privilege": [
+                        {
+                            "name": "early_execution"
+                        }
+                    ],
+                    "get_privilege": [
+                        {
+                            "name": "early_execution"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "ClassWithOnePrivilegeRemoved",
+            "type": {
+                "is_bind_type": true,
+                "is_errorable": false,
+                "name": "ClassWithOnePrivilegeRemoved"
+            },
+            "functions": [
+                {
+                    "name": "class_func",
+                    "is_constructor": false,
+                    "return_type": {
+                        "is_errorable": false,
+                        "is_bind_type": true,
+                        "name": "class_func"
+                    },
+                    "arguments": []
+                }
+            ],
+            "properties": [
+                {
+                    "name": "class_prop",
+                    "is_read_only": false,
+                    "type": {
+                        "is_errorable": false,
+                        "is_bind_type": true,
+                        "name": "class_prop"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "ClassPropGetAdded",
+            "type": {
+                "is_bind_type": true,
+                "is_errorable": false,
+                "name": "ClassPropGetAdded"
+            },
+            "properties": [
+                {
+                    "name": "class_prop",
+                    "is_read_only": false,
+                    "type": {
+                        "is_errorable": false,
+                        "is_bind_type": true,
+                        "name": "class_prop"
+                    },
+                    "set_privilege": [
+                        {
+                            "name": "none"
+                        }
+                    ],
+                    "get_privilege": [
+                        {
+                            "name": "read_only"
+                        },
+                        {
+                            "name": "early_execution"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "ClassPropSetAdded",
+            "type": {
+                "is_bind_type": true,
+                "is_errorable": false,
+                "name": "ClassPropSetAdded"
+            },
+            "properties": [
+                {
+                    "name": "class_prop",
+                    "is_read_only": false,
+                    "type": {
+                        "is_errorable": false,
+                        "is_bind_type": true,
+                        "name": "class_prop"
+                    },
+                    "get_privilege": [
+                        {
+                            "name": "none"
+                        }
+                    ],
+                    "set_privilege": [
+                        {
+                            "name": "read_only"
+                        },
+                        {
+                            "name": "early_execution"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "functions": [
+        {
+            "name": "FuncWithNoPrivileges",
+            "is_constructor": false,
+            "return_type": {
+                "is_errorable": false,
+                "is_bind_type": true,
+                "name": "FuncWithNoPrivileges"
+            },
+            "arguments": []
+        },
+        {
+            "name": "FuncAddsFirstPrivilege",
+            "is_constructor": false,
+            "return_type": {
+                "is_errorable": false,
+                "is_bind_type": true,
+                "name": "FuncAddsFirstPrivilege"
+            },
+            "arguments": [],
+            "call_privilege": [
+                {
+                    "name": "read_only"
+                }
+            ]
+        },
+        {
+            "name": "FuncWithReadOnlyNoChange",
+            "is_constructor": false,
+            "return_type": {
+                "is_errorable": false,
+                "is_bind_type": true,
+                "name": "FuncWithReadOnlyNoChange"
+            },
+            "arguments": [],
+            "call_privilege": [
+                {
+                    "name": "read_only"
+                }
+            ]
+        },
+        {
+            "name": "FuncWithReadOnlyAddSecond",
+            "is_constructor": false,
+            "return_type": {
+                "is_errorable": false,
+                "is_bind_type": true,
+                "name": "FuncWithReadOnlyAddSecond"
+            },
+            "arguments": [],
+            "call_privilege": [
+                {
+                    "name": "read_only"
+                },
+                {
+                    "name": "early_execution"
+                }
+            ]
+        },
+        {
+            "name": "FuncWithTwoPrivilegesNoChange",
+            "is_constructor": false,
+            "return_type": {
+                "is_errorable": false,
+                "is_bind_type": true,
+                "name": "FuncWithTwoPrivilegesNoChange"
+            },
+            "arguments": [],
+            "call_privilege": [
+                {
+                    "name": "read_only"
+                },
+                {
+                    "name": "early_execution"
+                }
+            ]
+        },
+        {
+            "name": "FuncWithTwoPrivilegesRemoveOne",
+            "is_constructor": false,
+            "return_type": {
+                "is_errorable": false,
+                "is_bind_type": true,
+                "name": "FuncWithTwoPrivilegesRemoveOne"
+            },
+            "arguments": [],
+            "call_privilege": [
+                {
+                    "name": "early_execution"
+                }
+            ]
+        },
+        {
+            "name": "FuncWithOnePrivilegeRemoved",
+            "is_constructor": false,
+            "return_type": {
+                "is_errorable": false,
+                "is_bind_type": true,
+                "name": "FuncWithOnePrivilegeRemoved"
+            },
+            "arguments": []
+        }
+    ]
+}

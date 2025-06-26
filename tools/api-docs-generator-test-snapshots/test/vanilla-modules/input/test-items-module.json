@@ -1,0 +1,24 @@
+{
+  "data_items": [
+    {
+      "name": "minecraft:acacia_boat"
+    },
+    {
+      "name": "minecraft:acacia_button"
+    },
+    {
+      "name": "minecraft:acacia_chest_boat"
+    },
+    {
+      "name": "minecraft:acacia_door"
+    },
+    {
+      "name": "BowInfinity",
+      "value": "infinity"
+    }
+  ],
+  "minecraft_version": "1.19.80",
+  "module_type": "vanilla_data",
+  "vanilla_data_type": "item",
+  "name": "test-item-module"
+}

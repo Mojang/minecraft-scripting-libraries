@@ -14,7 +14,10 @@
     "scripts": {
         "build": "turbo run build",
         "test": "turbo run test",
+        "test:ci": "turbo run test --concurrency=50%",
+        "test:update": "turbo run test -- --update",
         "lint": "turbo run lint",
+        "lint:fix": "turbo run lint -- --fix",
         "clean": "turbo run clean",
         "change": "beachball change",
         "release": "beachball publish --access public"

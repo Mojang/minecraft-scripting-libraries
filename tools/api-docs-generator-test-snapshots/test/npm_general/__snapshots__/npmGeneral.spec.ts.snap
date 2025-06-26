@@ -1,0 +1,82 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NPM General > Properly generates documentation for the NPM > # Of Files Generated 1`] = `4`;
+
+exports[`NPM General > Properly generates documentation for the NPM > npm/types/@minecraft/example-module@1.0.0-beta/README.md 1`] = `
+"# \`@minecraft/example-module\`
+
+## **NOTE: This version of this module is still in pre-release.  It may change or it may be removed in future releases.**
+
+See full documentation for this module here:
+
+https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/example-module/minecraft-example-module"
+`;
+
+exports[`NPM General > Properly generates documentation for the NPM > npm/types/@minecraft/example-module@1.0.0-beta/index.d.ts 1`] = `
+"// Type definitions for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+/**
+ * @beta
+ * @packageDocumentation
+ *
+ * Manifest Details
+ * \`\`\`json
+ * {
+ *   "module_name": "@minecraft/example-module",
+ *   "version": "1.0.0-beta"
+ * }
+ * \`\`\`
+ *
+ */
+"
+`;
+
+exports[`NPM General > Properly generates documentation for the NPM > npm/types/@minecraft/example-module@1.0.0-beta/package.json 1`] = `
+"{
+  "name": "@minecraft/example-module",
+  "version": "1.0.0-beta",
+  "description": "",
+  "contributors": [
+    {
+      "name": "Jake Shirley",
+      "email": "jake@xbox.com"
+    },
+    {
+      "name": "Mike Ammerlaan",
+      "email": "mikeam@microsoft.com"
+    }
+  ],
+  "license": "MIT"
+}"
+`;
+
+exports[`NPM General > Properly generates documentation for the NPM > typescript/@minecraft/example-module@1.0.0-beta.d.ts 1`] = `
+"// Type definitions for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+/**
+ * @beta
+ * @packageDocumentation
+ *
+ * Manifest Details
+ * \`\`\`json
+ * {
+ *   "module_name": "@minecraft/example-module",
+ *   "version": "1.0.0-beta"
+ * }
+ * \`\`\`
+ *
+ */
+"
+`;

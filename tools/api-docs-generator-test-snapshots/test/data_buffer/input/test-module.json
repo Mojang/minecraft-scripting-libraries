@@ -1,0 +1,161 @@
+{
+  "classes": [
+    {
+      "base_types": [],
+      "constants": [],
+      "name": "ExampleClass",
+      "properties": [
+        {
+          "is_read_only": false,
+          "name": "uint8DataBufferProperty",
+          "type": {
+            "data_buffer_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "uint8"
+            },
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "data_buffer"
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "int8DataBufferProperty",
+          "type": {
+            "data_buffer_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int8"
+            },
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "data_buffer"
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "uint16DataBufferProperty",
+          "type": {
+            "data_buffer_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "uint16"
+            },
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "data_buffer"
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "int16DataBufferProperty",
+          "type": {
+            "data_buffer_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int16"
+            },
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "data_buffer"
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "uint32DataBufferProperty",
+          "type": {
+            "data_buffer_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "uint32"
+            },
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "data_buffer"
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "int32DataBufferProperty",
+          "type": {
+            "data_buffer_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int32"
+            },
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "data_buffer"
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "uint64DataBufferProperty",
+          "type": {
+            "data_buffer_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "uint64"
+            },
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "data_buffer"
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "int64DataBufferProperty",
+          "type": {
+            "data_buffer_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "int64"
+            },
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "data_buffer"
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "floatDataBufferProperty",
+          "type": {
+            "data_buffer_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "float"
+            },
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "data_buffer"
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "doubleDataBufferProperty",
+          "type": {
+            "data_buffer_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "double"
+            },
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "data_buffer"
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ExampleClass"
+      }
+    }
+  ],
+  "minecraft_version": "1.0.0",
+  "name": "data-buffer-module",
+  "uuid": "a634a222-992b-4224-8efe-a961e5076bb7",
+  "version": "1.0.0",
+  "module_type": "script"
+}

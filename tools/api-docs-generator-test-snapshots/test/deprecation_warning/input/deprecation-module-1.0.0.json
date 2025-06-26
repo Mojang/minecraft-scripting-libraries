@@ -1,0 +1,310 @@
+{
+  "classes": [
+    {
+      "base_types": [],
+      "constants": [
+        {
+          "is_read_only": true,
+          "is_static": true,
+          "name": "stableConstant",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean"
+          }
+        },
+        {
+          "is_read_only": true,
+          "is_static": true,
+          "name": "deprecatedConstant",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean"
+          }
+        }
+      ],
+      "functions": [
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "name": "stableFunction",
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean"
+          }
+        },
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "name": "deprecatedFunction",
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean"
+          }
+        }
+      ],
+      "name": "StableClassWithDeprecatedMembers",
+      "properties": [
+        {
+          "is_read_only": false,
+          "name": "stableProperty",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean"
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "deprecatedProperty",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean"
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "StableClassWithDeprecatedMembers"
+      }
+    },
+    {
+      "base_types": [],
+      "constants": [],
+      "functions": [],
+      "name": "DeprecatedClass",
+      "properties": [],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "DeprecatedClass"
+      }
+    }
+  ],
+  "interfaces": [
+    {
+      "name": "StableInterfaceWithDeprecatedProperty",
+      "properties": [
+        {
+          "is_read_only": false,
+          "name": "stableProperty",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean"
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "deprecatedProperty",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean"
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "StableInterfaceWithDeprecatedProperty"
+      }
+    },
+    {
+      "name": "DeprecatedInterface",
+      "properties": [],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "DeprecatedInterface"
+      }
+    }
+  ],
+  "enums": [
+    {
+      "constants" : [
+         {
+            "is_read_only" : true,
+            "is_static" : true,
+            "name" : "StableVal",
+            "type" : {
+              "is_bind_type" : false,
+              "is_errorable" : false,
+              "name" : "string"
+            },
+            "value" : "stableVal"
+         },
+         {
+            "is_read_only" : true,
+            "is_static" : true,
+            "name" : "DeprecatedVal",
+            "type" : {
+              "is_bind_type" : false,
+              "is_errorable" : false,
+              "name" : "string"
+            },
+            "value" : "deprecatedVal"
+         }
+      ],
+      "name" : "StableEnumWithDeprecatedConstant"
+    },
+    {
+      "constants" : [
+         {
+            "is_read_only" : true,
+            "is_static" : true,
+            "name" : "One",
+            "type" : {
+               "is_bind_type" : true,
+               "is_errorable" : false,
+               "name" : "DeprecatedEnum"
+            },
+            "value" : 1
+         },
+         {
+            "is_read_only" : true,
+            "is_static" : true,
+            "name" : "Two",
+            "type" : {
+               "is_bind_type" : true,
+               "is_errorable" : false,
+               "name" : "DeprecatedEnum"
+            },
+            "value" : 0
+         },
+         {
+            "is_read_only" : true,
+            "is_static" : true,
+            "name" : "Three",
+            "type" : {
+               "is_bind_type" : true,
+               "is_errorable" : false,
+               "name" : "DeprecatedEnum"
+            },
+            "value" : 2
+         }
+      ],
+      "name" : "DeprecatedEnum"
+    }
+  ],
+  "errors": [
+    {
+      "name": "StableErrorWithDeprecatedProperty",
+      "properties": [
+        {
+          "is_read_only": true,
+          "name": "stableProperty",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "optional",
+            "optional_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "string"
+            }
+          }
+        },
+        {
+          "is_read_only": true,
+          "name": "deprecatedProperty",
+          "type": {
+            "element_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "string"
+            },
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "array"
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "StableErrorWithDeprecatedProperty"
+      }
+    },
+    {
+      "name": "DeprecatedError",
+      "properties": [
+        {
+          "is_read_only": true,
+          "name": "exampleProperty",
+          "type": {
+            "element_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "string"
+            },
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "array"
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "DeprecatedError"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "arguments": [],
+      "is_constructor": false,
+      "name": "stableGlobalFunction",
+      "return_type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "boolean"
+      }
+    },
+    {
+      "arguments": [],
+      "is_constructor": false,
+      "name": "deprecatedGlobalFunction",
+      "return_type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "boolean"
+      }
+    }
+  ],
+  "objects": [
+    {
+      "is_read_only": true,
+      "is_static": true,
+      "name": "stableObject",
+      "type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "string",
+        "valid_range": null
+      }
+    },
+    {
+      "is_read_only": true,
+      "is_static": true,
+      "name": "deprecatedObject",
+      "type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "string",
+        "valid_range": null
+      }
+    }
+  ],
+  "minecraft_version": "1.0.0",
+  "name": "deprecation-module",
+  "uuid": "3159eee8-9954-4abe-a405-7ef7267b105a",
+  "version": "1.0.0",
+  "module_type": "script"
+}

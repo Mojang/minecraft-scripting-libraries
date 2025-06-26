@@ -1,0 +1,9 @@
+{
+  "description": "",
+  "properties": [
+    {
+      "name": "glass_fullness",
+      "description": ""
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+    "dependencies": [],
+    "peer_dependencies": [],
+    "minecraft_version": "1.0.0",
+    "name": "test-module",
+    "uuid": "9f56871a-9f3a-11ec-b909-0242ac120002",
+    "version": "1.0.0",
+    "module_type": "script"
+}

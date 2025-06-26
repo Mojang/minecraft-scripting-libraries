@@ -1,0 +1,7 @@
+{
+  "type": "none",
+  "comment": "Increase test timeouts",
+  "packageName": "eslint-plugin-minecraft-linting",
+  "email": "zachary.campbell@skyboxlabs.com",
+  "dependentChangeType": "none"
+}

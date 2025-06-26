@@ -1,0 +1,899 @@
+{
+  "interfaces": [
+    {
+      "name": "AddedInterface",
+      "properties": [
+        {
+          "is_read_only": false,
+          "name": "member",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": {
+              "max": 2147483647,
+              "min": -2147483648
+            }
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "AddedInterface"
+      }
+    },
+    {
+      "name": "ExampleInterface",
+      "properties": [
+        {
+          "is_read_only": false,
+          "name": "addedMember",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": {
+              "max": 2147483647,
+              "min": -2147483648
+            }
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ExampleInterface"
+      }
+    }
+  ],
+  "classes": [
+    {
+      "base_types": [],
+      "constants": [],
+      "functions": [],
+      "name": "SmallClass",
+      "properties": [
+        {
+          "is_read_only": false,
+          "name": "exampleProperty",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": true,
+            "name": "string",
+            "valid_range": null
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "SmallClass",
+        "valid_range": null
+      }
+    },
+    {
+      "base_types": [],
+      "constants": [],
+      "functions": [],
+      "name": "ClassWithRemovedBaseClass",
+      "properties": [],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ClassWithRemovedBaseClass",
+        "valid_range": null
+      }
+    },
+    {
+      "base_types": [
+        {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "SmallClass",
+          "valid_range": null
+        }
+      ],
+      "constants": [],
+      "functions": [],
+      "name": "ClassWithAddedBaseClass",
+      "properties": [],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ClassWithAddedBaseClass",
+        "valid_range": null
+      }
+    },
+    {
+      "base_types": [],
+      "constants": [],
+      "functions": [],
+      "iterator": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "string",
+        "valid_range": null
+      },
+      "name": "EntityIterator",
+      "properties": [],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ExampleIterator",
+        "valid_range": null
+      }
+    },
+    {
+      "base_types": [],
+      "constants": [
+        {
+          "is_read_only": true,
+          "is_static": true,
+          "name": "ClassConstantExample",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": {
+              "max": 2147483647,
+              "min": -2147483648
+            }
+          },
+          "value": 1338
+        }
+      ],
+      "functions": [
+        {
+          "arguments": [
+            {
+              "details": null,
+              "name": "addedArg",
+              "type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "string",
+                "valid_range": null
+              }
+            }
+          ],
+          "is_constructor": false,
+          "is_static": false,
+          "name": "testMethodWithAddedArgument",
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean",
+            "valid_range": null
+          }
+        },
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "is_static": false,
+          "name": "testMethodWithRemovedArgument",
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean",
+            "valid_range": null
+          }
+        },
+        {
+          "arguments": [
+            {
+              "details": null,
+              "name": "arg",
+              "type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "int32",
+                "valid_range": null
+              }
+            }
+          ],
+          "is_constructor": false,
+          "is_static": false,
+          "name": "testMethodWithChangedArgumentType",
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean",
+            "valid_range": null
+          }
+        },
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "is_static": false,
+          "name": "testMethodWithChangedReturnType",
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "string",
+            "valid_range": null
+          }
+        },
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "is_static": false,
+          "name": "testMethodWithAddedErrorable",
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": true,
+            "name": "boolean",
+            "valid_range": null
+          }
+        },
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "is_static": false,
+          "name": "testMethodWithRemovedErrorable",
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean",
+            "valid_range": null
+          }
+        },
+        {
+          "arguments": [
+            {
+              "details": null,
+              "name": "stringArgument",
+              "type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "string",
+                "valid_range": null
+              }
+            },
+            {
+              "details": {
+                "default_value": "null"
+              },
+              "name": "stringArgumentOptional",
+              "type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "optional",
+                "optional_type": {
+                  "is_bind_type": false,
+                  "is_errorable": false,
+                  "name": "string",
+                  "valid_range": null
+                },
+                "valid_range": null
+              }
+            }
+          ],
+          "is_constructor": false,
+          "is_static": false,
+          "name": "testMethod",
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean",
+            "valid_range": null
+          }
+        }
+      ],
+      "name": "ExampleClass1",
+      "properties": [
+        {
+          "is_read_only": false,
+          "name": "propertyWithChangedType",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": true,
+            "name": "boolean",
+            "valid_range": null
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "stringPropertyErrorable",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": true,
+            "name": "string",
+            "valid_range": null
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "propertyWithReadOnlyChanging",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "string",
+            "valid_range": null
+          }
+        },
+        {
+          "is_read_only": true,
+          "name": "stringPropertyReadOnly",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "string",
+            "valid_range": null
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "stringProperty",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "string",
+            "valid_range": null
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "int8Property",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int8",
+            "valid_range": null
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "uint8Property",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "uint8",
+            "valid_range": null
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "int16Property",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int16",
+            "valid_range": null
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "uint16Property",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "uint16",
+            "valid_range": null
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "int32Property",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int16",
+            "valid_range": null
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "uint32Property",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "uint32",
+            "valid_range": null
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "int64Property",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int64",
+            "valid_range": null
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "uint64Property",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "uint64",
+            "valid_range": null
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "floatProperty",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "float",
+            "valid_range": null
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "boolProperty",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean",
+            "valid_range": null
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ExampleClass1",
+        "valid_range": null
+      }
+    },
+    {
+      "base_types": [],
+      "constants": [],
+      "functions": [
+        {
+          "arguments": [
+            {
+              "details": {
+                "max_value": 2147483647,
+                "min_value": -2147483648
+              },
+              "name": "x",
+              "type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "int32",
+                "valid_range": {
+                  "max": 2147483647,
+                  "min": -2147483648
+                }
+              }
+            },
+            {
+              "details": {
+                "max_value": 2147483647,
+                "min_value": -2147483648
+              },
+              "name": "y",
+              "type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "int32",
+                "valid_range": {
+                  "max": 2147483647,
+                  "min": -2147483648
+                }
+              }
+            },
+            {
+              "details": {
+                "max_value": 2147483647,
+                "min_value": -2147483648
+              },
+              "name": "z",
+              "type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "int32",
+                "valid_range": {
+                  "max": 2147483647,
+                  "min": -2147483648
+                }
+              }
+            }
+          ],
+          "is_constructor": true,
+          "name": "constructor",
+          "return_type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "ClassWithConstructor",
+            "valid_range": null
+          }
+        },
+        {
+          "arguments": [
+            {
+              "name": "argument1",
+              "type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "string",
+                "valid_range": {
+                  "max": 2147483647,
+                  "min": -2147483648
+                }
+              }
+            },
+            {
+              "name": "argument2",
+              "type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "string"
+              }
+            }
+          ],
+          "is_constructor": false,
+          "name": "testFunction",
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": null
+          }
+        }
+      ],
+      "name": "ClassWithConstructor",
+      "properties": [
+        {
+          "is_read_only": false,
+          "name": "x",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": {
+              "max": 2147483647,
+              "min": -2147483648
+            }
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "y",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": {
+              "max": 2147483647,
+              "min": -2147483648
+            }
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "z",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": {
+              "max": 2147483647,
+              "min": -2147483648
+            }
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "w",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": {
+              "max": 2147483647,
+              "min": -2147483648
+            }
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ClassWithConstructor",
+        "valid_range": null
+      }
+    }
+  ],
+  "constants": [
+    {
+      "is_read_only": true,
+      "is_static": true,
+      "name": "ConstantExample",
+      "type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "int32",
+        "valid_range": {
+          "max": 2147483647,
+          "min": -2147483648
+        }
+      },
+      "value": 25
+    }
+  ],
+  "dependencies": [],
+  "enums": [
+    {
+      "constants": [
+        {
+          "is_read_only": true,
+          "is_static": true,
+          "name": "numberValueZero",
+          "type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "NumberEnum1",
+            "valid_range": null
+          },
+          "value": 0
+        },
+        {
+          "is_read_only": true,
+          "is_static": true,
+          "name": "numberValueOne",
+          "type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "NumberEnum1",
+            "valid_range": null
+          },
+          "value": 1
+        },
+        {
+          "is_read_only": true,
+          "is_static": true,
+          "name": "addedEnumValue",
+          "type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "NumberEnum1",
+            "valid_range": null
+          },
+          "value": 11
+        },
+        {
+          "is_read_only": true,
+          "is_static": true,
+          "name": "changingEnumValue",
+          "type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "NumberEnum1",
+            "valid_range": null
+          },
+          "value": 6
+        },
+        {
+          "is_read_only": true,
+          "is_static": true,
+          "name": "changingEnumValueType",
+          "type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "string",
+            "valid_range": null
+          },
+          "value": "foobar"
+        }
+      ],
+      "name": "TestEnum"
+    },
+    {
+      "constants": [
+        {
+          "is_read_only": true,
+          "is_static": true,
+          "name": "val2",
+          "type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": null
+          },
+          "value": 0
+        },
+        {
+          "is_read_only": true,
+          "is_static": true,
+          "name": "val1",
+          "type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": null
+          },
+          "value": 1
+        }
+      ],
+      "name": "AddedEnum"
+    }
+  ],
+  "functions": [
+    {
+      "arguments": [
+        {
+          "details": null,
+          "name": "addedArg",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "string",
+            "valid_range": null
+          }
+        }
+      ],
+      "is_constructor": false,
+      "is_static": false,
+      "name": "testFunctionWithAddedArgument",
+      "return_type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "boolean",
+        "valid_range": null
+      }
+    },
+    {
+      "arguments": [],
+      "is_constructor": false,
+      "is_static": false,
+      "name": "testFunctionWithRemovedArgument",
+      "return_type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "boolean",
+        "valid_range": null
+      }
+    },
+    {
+      "arguments": [
+        {
+          "name": "argument1",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "string",
+            "valid_range": {
+              "max": 2147483647,
+              "min": -2147483648
+            }
+          }
+        }
+      ],
+      "is_constructor": false,
+      "name": "testGlobalFunction",
+      "return_type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "int32",
+        "valid_range": null
+      }
+    },
+    {
+      "arguments": [
+        {
+          "details": null,
+          "name": "arg",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": null
+          }
+        }
+      ],
+      "is_constructor": false,
+      "is_static": false,
+      "name": "testFunctionWithChangedArgumentType",
+      "return_type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "boolean",
+        "valid_range": null
+      }
+    },
+    {
+      "arguments": [],
+      "is_constructor": false,
+      "is_static": false,
+      "name": "testFunctionWithAddedErrorable",
+      "return_type": {
+        "is_bind_type": false,
+        "is_errorable": true,
+        "name": "boolean",
+        "valid_range": null
+      }
+    },
+    {
+      "arguments": [],
+      "is_constructor": false,
+      "is_static": false,
+      "name": "testFunctionWithRemovedErrorable",
+      "return_type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "boolean",
+        "valid_range": null
+      }
+    }
+  ],
+  "minecraft_version": "1.0.0",
+  "name": "test-module1",
+  "uuid": "fe0020ab-2aac-482c-8edc-c18622f022ef",
+  "objects": [
+    {
+      "is_read_only": true,
+      "is_static": true,
+      "name": "globalObject",
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ExampleClass1",
+        "valid_range": null
+      }
+    },
+    {
+      "is_read_only": true,
+      "is_static": true,
+      "name": "objectWithChangedType",
+      "type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "string",
+        "valid_range": null
+      }
+    }
+  ],
+  "type_aliases": [
+    {
+      "alias_type": "type_map",
+      "mappings": [
+        {
+          "name": "test:Null",
+          "value": "undefined"
+        },
+        {
+          "name": "test:One",
+          "value": "FakeTypeOne"
+        },
+        {
+          "name": "test:Three",
+          "value": "FakeTypeThree"
+        }
+      ],
+      "name": "ChangedTypeMap",
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ChangedTypeMap"
+      }
+    },
+    {
+      "is_script_generated": true,
+      "raw_script_text": "export type ChangedType = (boolean | string | undefined)[];",
+      "name": "ChangedType",
+      "type": {
+        "name": "(boolean | string | undefined)[]",
+        "is_errorable": false,
+        "is_bind_type": false
+      }
+    },
+    {
+      "is_script_generated": true,
+      "raw_script_text": "export type AddedType<T> = keyof T;",
+      "name": "AddedType",
+      "type": {
+        "name": "keyof T",
+        "is_errorable": false,
+        "is_bind_type": false
+      }
+    }
+  ],
+  "version": "2.0.0",
+  "module_type": "script"
+}

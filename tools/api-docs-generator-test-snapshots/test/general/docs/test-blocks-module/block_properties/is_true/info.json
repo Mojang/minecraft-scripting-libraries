@@ -1,0 +1,14 @@
+{
+  "description": "Whether the state isn't false",
+  "values": [
+    {
+      "name": true,
+      "description": ""
+    },
+    {
+      "name": false,
+      "description": ""
+    }
+  ],
+  "int_value_display_as_range": false
+}

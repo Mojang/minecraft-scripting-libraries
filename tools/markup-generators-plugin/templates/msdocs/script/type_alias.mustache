@@ -1,0 +1,56 @@
+---
+{{ >default_metadata }}
+title: {{{from_module.filepath_name}}}.{{alias_name}} Type Alias
+description: Contents of the {{{from_module.name}}}.{{{name}}} type alias{{#from_module.prior_version}} (Version {{.}}){{/from_module.prior_version}}.
+{{#is_prerelease}}
+monikerRange: "=minecraft-bedrock-experimental"
+{{/is_prerelease}}
+---
+# {{{name}}} Type Alias{{#from_module.prior_version}} (Version {{.}}){{/from_module.prior_version}}
+{{> header}}
+{{#show_prior_warning}}
+
+> [!IMPORTANT]
+> This documentation is for an older version of this module.{{#prior_link}} Go to the latest documentation [*here*]({{{.}}}).{{/prior_link}}
+{{/show_prior_warning}}
+{{#is_prerelease}}
+
+> [!CAUTION]
+> This alias is still in pre-release.  Its signature may change or it may be removed in future releases.
+{{/is_prerelease}}
+{{#is_deprecated}}
+
+> [!CAUTION]
+> This alias is deprecated and will be removed in {{{deprecated_version}}}.
+  {{#deprecated_description_md}}
+> 
+> {{{.}}}
+  {{/deprecated_description_md}}
+{{/is_deprecated}}
+{{#alias_description_md}}
+
+{{{.}}}
+{{/alias_description_md}}
+
+## Declaration
+{{#is_script_generated}}
+`{{{raw_script_text}}}`
+{{/is_script_generated}}
+{{^is_script_generated}}
+{{#is_type_map}}
+```ts
+type {{{alias_name}}} = {
+{{#mappings}}
+  '{{{name}}}': {{{value}}};
+{{/mappings}}
+};
+```
+{{/is_type_map}}
+{{^is_type_map}}
+THIS WILL TRIGGER AN ERROR. ONLY TYPE MAP ALIASES SUPPORTED FOR NATIVE METADATA.
+{{/is_type_map}}
+{{/is_script_generated}}
+{{#examples.length}}
+
+{{> examples}}
+{{/examples.length}}

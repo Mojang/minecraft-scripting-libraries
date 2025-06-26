@@ -1,0 +1,66 @@
+{
+  "name": "@minecraft/markup-generators-plugin",
+  "version": "0.0.0",
+  "description": "Plugin for @minecraft/api-docs-generator containing core markup generators and template files",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "author": "Jake Shirley (jashir@mojang.com)",
+  "contributors": [
+    {
+      "name": "Raphael Landaverde",
+      "email": "rlanda@microsoft.com"
+    },
+    {
+      "name": "Zach Campbell",
+      "email": "zachary.campbell@skyboxlabs.com"
+    }
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mojang/minecraft-scripting-libraries.git",
+    "directory": "tools/markup-generators-plugin"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "build": "just build",
+    "clean": "just clean",
+    "lint": "just lint",
+    "test": "just test",
+    "package": "just package",
+    "postpublish": "just postpublish"
+  },
+  "files": [
+    "lib/",
+    "!lib/**/*.{spec,test}.ts",
+    "templates/",
+    "README.md",
+    "CHANGELOG.*"
+  ],
+  "devDependencies": {
+    "@minecraft/api-docs-generator": "^0.0.0",
+    "@minecraft/core-build-tasks": "*",
+    "@types/mustache": "^4.2.2",
+    "@types/node": "^22.0.0",
+    "@types/semver": "^7.3.12",
+    "eslint": "^9.17.0",
+    "eslint-config-minecraft-scripting": "*",
+    "just-scripts": "^2.3.3",
+    "ts-node": "^10.9.2",
+    "vitest": "^3.0.8"
+  },
+  "dependencies": {
+    "@rushstack/node-core-library": "^5.13.0",
+    "esbuild": "^0.25.0",
+    "mustache": "^4.2.0",
+    "prettier": "^3.5.3",
+    "semver": "^7.3.5",
+    "typedoc": "~0.26.11",
+    "typescript": "~5.6.0"
+  },
+  "peerDependencies": {
+    "@minecraft/api-docs-generator": "^0.0.0"
+  }
+}

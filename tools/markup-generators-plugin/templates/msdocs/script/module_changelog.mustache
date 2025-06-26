@@ -1,0 +1,235 @@
+---
+{{ >default_metadata }}
+title: {{{filepath_name}}} Changelog
+description: Changelog of the `{{{name}}}` module
+---
+# `{{{name}}}` Changelog
+
+{{#changelog.length}}
+## Version Changes
+{{#changelog}}
+- [{{{version}}}](#{{{version_bookmark_name}}})
+{{/changelog}}
+
+{{#changelog}}
+## {{{version}}}
+  {{#$added}}
+#### Added `{{{name}}}` Module
+  {{/$added}}
+  {{#dependencies}}
+    {{#$added}}
+#### Added module dependency *`{{{name}}}`*
+    {{/$added}}
+    {{#$removed}}
+#### Removed module dependency *`{{{name}}}`*
+    {{/$removed}}
+    {{#has_changes}}{{^$added}}{{^$removed}}
+      {{#versions}}
+        {{#$added}}
+#### Added module dependency `{{{name}}}@{{version}}` 
+        {{/$added}}
+        {{#$removed}}
+#### Removed module dependency `{{{name}}}@{{version}}` 
+        {{/$removed}}
+      {{/versions}}
+      {{#types_only}}
+        {{#$changed}}
+#### Changed module dependency `{{{name}}}` types-only from `{{$old}}` to `{{$new}}`
+        {{/$changed}}
+      {{/types_only}}
+    {{/$removed}}{{/$added}}{{/has_changes}}
+  {{/dependencies}}
+  {{#peer_dependencies}}
+    {{#$added}}
+#### Added module peer dependency *`{{{name}}}`*
+    {{/$added}}
+    {{#$removed}}
+#### Removed module peer dependency *`{{{name}}}`*
+    {{/$removed}}
+    {{#has_changes}}{{^$added}}{{^$removed}}
+      {{#versions}}
+        {{#$added}}
+#### Added module peer dependency `{{{name}}}@{{version}}`
+        {{/$added}}
+        {{#$removed}}
+#### Removed module peer dependency `{{{name}}}@{{version}}`
+        {{/$removed}}
+      {{/versions}}
+      {{#types_only}}
+        {{#$changed}}
+#### Changed module peer dependency `{{{name}}}` types-only from `{{$old}}` to `{{$new}}`
+        {{/$changed}}
+      {{/types_only}}
+    {{/$removed}}{{/$added}}{{/has_changes}}
+  {{/peer_dependencies}}
+  {{#classes}}
+    {{#$added}}
+#### Added *[`{{{name}}}`]({{class_name}}.md)*
+    {{/$added}}
+    {{#$removed}}
+#### Removed *{{{name}}}*
+    {{/$removed}}
+    {{#has_changes}}{{^$added}}{{^$removed}}
+#### Changed *[`{{{name}}}`]({{class_name}}.md)*
+    {{#base_types}}
+     {{#$added}}
+- Added base class {{> type_with_links}}
+      {{/$added}}
+      {{#$removed}}
+- Removed base class *{{{name}}}*
+      {{/$removed}}
+    {{/base_types}}
+    {{#properties}}
+      {{#$added}}
+- Added property *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
+      {{/$added}}
+      {{#$removed}}
+- Removed property *{{{name}}}*
+      {{/$removed}}
+      {{#is_read_only}}
+        {{#$changed}}
+- Changed read-only flag for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* from `{{{$old}}}` to `{{{$new}}}`
+        {{/$changed}}
+      {{/is_read_only}}
+      {{#type}}
+        {{#$changed}}
+- Changed type for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* from {{#$old.type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$old.type}} to {{#$new.type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$new.type}}
+        {{/$changed}}
+      {{/type}}
+    {{/properties}}
+    {{#has_member_constants}}
+      {{#constants}}
+        {{#$added}}
+- Added constant *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
+        {{/$added}}
+        {{#$removed}}
+- Removed constant *{{{name}}}*
+        {{/$removed}}
+        {{#value}}{{^$added}}{{^$removed}}
+          {{#$changed}}
+- Changed constant *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* from `{{{$old}}}` to `{{{$new}}}`
+          {{/$changed}}
+        {{/$removed}}{{/$added}}{{/value}}
+      {{/constants}}
+    {{/has_member_constants}}
+    {{#has_member_functions}}
+      {{#functions}}
+        {{#$added}}
+- Added function *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
+        {{/$added}}
+        {{#$removed}}
+- Removed function *{{{name}}}*
+        {{/$removed}}
+        {{#has_changes}}{{^$added}}{{^$removed}}
+- Changed function *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
+          {{#return_type}}
+            {{#$changed}}
+  - Changed return type from {{#$old.return_type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$old.return_type}} to {{#$new.return_type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$new.return_type}}
+            {{/$changed}}
+          {{/return_type}}
+          {{#arguments}}
+            {{#$added}}
+  - Added argument `{{{name}}}`
+            {{/$added}}
+            {{#$removed}}
+  - Removed argument `{{{name}}}`
+            {{/$removed}}
+            {{^$added}}{{^$removed}}
+              {{#type}}
+                {{#$changed}}
+  - Changed argument `{{{name}}}` type from {{#$old.type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$old.type}} to {{#$new.type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$new.type}}
+                {{/$changed}}
+              {{/type}}
+            {{/$removed}}{{/$added}}
+          {{/arguments}}
+        {{/$removed}}{{/$added}}{{/has_changes}}
+      {{/functions}}
+    {{/has_member_functions}}
+    {{/$removed}}{{/$added}}{{/has_changes}}
+  {{/classes}}
+  {{#functions}}
+    {{#$added}}
+#### Added function `{{{name}}}`
+    {{/$added}}
+    {{#$removed}}
+#### Removed function `{{{name}}}`
+    {{/$removed}}
+    {{#has_changes}}{{^$added}}{{^$removed}}
+#### Changed function `{{{name}}}`
+      {{#return_type}}
+        {{#$changed}}
+- Changed return type from {{#$old.return_type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$old.return_type}} to {{#$new.return_type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$new.return_type}}
+        {{/$changed}}
+      {{/return_type}}
+      {{#arguments}}
+        {{#$added}}
+- Added argument `{{{name}}}`
+        {{/$added}}
+        {{#$removed}}
+- Removed argument `{{{name}}}`
+        {{/$removed}}
+        {{^$added}}{{^$removed}}
+          {{#type}}
+            {{#$changed}}
+- Changed argument `{{{name}}}` type from {{#$old.type}}{{> type_with_links}}{{/$old.type}} to {{#$new.type}}{{> type_with_links}}{{/$new.type}}
+            {{/$changed}}
+          {{/type}}
+        {{/$removed}}{{/$added}}
+      {{/arguments}}
+    {{/$removed}}{{/$added}}{{/has_changes}}
+  {{/functions}}
+  {{#enums}}
+    {{#$added}}
+#### Added enum [`{{{name}}}`]({{{name}}}.md)
+    {{/$added}}
+    {{#$removed}}
+#### Removed enum `{{{name}}}`
+    {{/$removed}}
+    {{#has_changes}}{{^$added}}{{^$removed}}
+#### Changed enum [`{{{name}}}`]({{{name}}}.md)
+    {{#constants}}
+      {{#$added}}
+- Added value `{{{name}}}`
+      {{/$added}}
+      {{#$removed}}
+- Removed value `{{{name}}}`
+      {{/$removed}}
+      {{#value}}
+      {{#$changed}}
+- Changed value `{{{name}}}` from `{{{$old}}}` to `{{{$new}}}`
+        {{/$changed}}
+      {{/value}}
+    {{/constants}}
+  {{/$removed}}{{/$added}}{{/has_changes}}
+  {{/enums}}
+  {{#objects}}
+    {{#$added}}
+#### Added object `{{{name}}}`
+    {{/$added}}
+    {{#$removed}}
+#### Removed object `{{{name}}}`
+    {{/$removed}}
+    {{#type}}
+      {{#$changed}}
+#### Changed type for `{{{name}}}` from {{#$old.type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$old.type}} to {{#$new.type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$new.type}}
+      {{/$changed}}
+    {{/type}}
+  {{/objects}}
+  {{#constants}}
+    {{#$added}}
+#### Added constant `{{{name}}}`
+    {{/$added}}
+    {{#$removed}}
+#### Removed constant `{{{name}}}`
+    {{/$removed}}
+    {{#value}}
+      {{#$changed}}
+#### Changed constant `{{{name}}}` value fron `{{{$old}}}` to `{{{$new}}}`  
+      {{/$changed}}
+    {{/value}}
+  {{/constants}}
+{{/changelog}}
+{{/changelog.length}}
+{{^changelog.length}}
+No changes available.
+{{/changelog.length}}

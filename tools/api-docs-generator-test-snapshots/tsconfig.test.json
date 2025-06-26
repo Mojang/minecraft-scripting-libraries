@@ -1,0 +1,30 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "compilerOptions": {
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "target": "esnext",
+        "moduleResolution": "node",
+        "noEmit": true,
+        "allowJs": true,
+        "noImplicitAny": true,
+        "paths": {
+            "rollup/parseAst": [
+                "../../node_modules/rollup/dist/parseAst"
+            ]
+        }
+    },
+    "lib": [
+        "esnext"
+    ],
+    "include": [
+        "test/*.ts",
+        "test/**/*.spec.ts"
+    ],
+    "exclude": [
+        "build",
+        "dist",
+        "lib",
+        "node_modules"
+    ],
+}

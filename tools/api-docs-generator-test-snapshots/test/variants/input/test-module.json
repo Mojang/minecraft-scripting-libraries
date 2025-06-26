@@ -1,0 +1,201 @@
+{
+  "classes": [
+    {
+      "base_types": [],
+      "constants": [],
+      "functions": [
+        {
+          "arguments": [
+            {
+              "details": null,
+              "name": "arg1",
+              "type": {
+                "closure_type": {
+                  "argument_types": [
+                    {
+                      "is_bind_type": false,
+                      "is_errorable": false,
+                      "name": "int32"
+                    }
+                  ],
+                  "return_type": {
+                    "is_bind_type": false,
+                    "is_errorable": false,
+                    "name": "variant",
+                    "variant_types": [
+                      {
+                        "closure_type": {
+                          "argument_types": [
+                            {
+                              "is_bind_type": false,
+                              "is_errorable": false,
+                              "name": "int32"
+                            }
+                          ],
+                          "return_type": {
+                            "is_bind_type": false,
+                            "is_errorable": false,
+                            "name": "variant",
+                            "variant_types": [
+                              {
+                                "is_bind_type": false,
+                                "is_errorable": false,
+                                "name": "int32"
+                              },
+                              {
+                                "is_bind_type": false,
+                                "is_errorable": false,
+                                "name": "string"
+                              }
+                            ]
+                          }
+                        },
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "closure"
+                      },
+                      {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "string"
+                      }
+                    ]
+                  }
+                },
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "closure"
+              }
+            },
+            {
+              "details": null,
+              "name": "arg2",
+              "type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "int32"
+              }
+            }
+          ],
+          "is_constructor": false,
+          "name": "exampleMethod",
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "undefined",
+            "valid_range": null
+          }
+        }
+      ],
+      "name": "ExampleClass",
+      "properties": [
+        {
+          "is_read_only": false,
+          "name": "propertyFunctionThatReturnsVariant",
+          "type": {
+            "closure_type": {
+              "argument_types": [
+                {
+                  "is_bind_type": false,
+                  "is_errorable": false,
+                  "name": "int32"
+                }
+              ],
+              "return_type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "variant",
+                "variant_types": [
+                  {
+                    "is_bind_type": false,
+                    "is_errorable": false,
+                    "name": "int32"
+                  },
+                  {
+                    "is_bind_type": false,
+                    "is_errorable": false,
+                    "name": "string"
+                  }
+                ]
+              }
+            },
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "closure"
+          }
+        },
+        {
+          "is_read_only": false,
+          "name": "propertyFunctionThatReturnsVariantWithClosureThatReturnsVariant",
+          "type": {
+            "closure_type": {
+              "argument_types": [
+                {
+                  "is_bind_type": false,
+                  "is_errorable": false,
+                  "name": "int32"
+                }
+              ],
+              "return_type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "variant",
+                "variant_types": [
+                  {
+                    "closure_type": {
+                      "argument_types": [
+                        {
+                          "is_bind_type": false,
+                          "is_errorable": false,
+                          "name": "int32"
+                        }
+                      ],
+                      "return_type": {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "variant",
+                        "variant_types": [
+                          {
+                            "is_bind_type": false,
+                            "is_errorable": false,
+                            "name": "int32"
+                          },
+                          {
+                            "is_bind_type": false,
+                            "is_errorable": false,
+                            "name": "string"
+                          }
+                        ]
+                      }
+                    },
+                    "is_bind_type": false,
+                    "is_errorable": false,
+                    "name": "closure"
+                  },
+                  {
+                    "is_bind_type": false,
+                    "is_errorable": false,
+                    "name": "string"
+                  }
+                ]
+              }
+            },
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "closure"
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ExampleClass"
+      }
+    }
+  ],
+  "minecraft_version": "1.0.0",
+  "name": "variants-module",
+  "uuid": "a634a222-992b-4224-8efe-a961e5076bb7",
+  "version": "1.0.0",
+  "module_type": "script"
+}

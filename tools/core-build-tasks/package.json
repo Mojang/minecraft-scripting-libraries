@@ -3,6 +3,7 @@
   "version": "5.1.0",
   "description": "Common build tasks used for minecraft-scripting-libraries",
   "exports": {
+    "types": "./lib/index.d.ts",
     "import": "./lib/index.js",
     "require": "./lib-cjs/index.js"
   },

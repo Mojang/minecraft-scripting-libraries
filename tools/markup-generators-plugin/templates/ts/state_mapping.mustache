@@ -1,0 +1,50 @@
+{{#has_properties}}
+{{! The superset of all states in a single struct. }}
+
+/**
+ * All supported states and their types for {{display_name}}
+ */
+export type {{display_type}}StateSuperset = {
+  {{#data_properties}}
+  ["{{name}}"]?: {{property_type}};
+  {{/data_properties}}
+};
+
+{{! This will create the specific state type for each data item. }}
+{{#data_items}}
+{{#state_union}}
+/**
+ * States specific to {{standardized_name}}
+ */
+export type {{standardized_name}}States = Pick<{{display_type}}StateSuperset, {{{state_union}}}>;
+
+{{/state_union}}
+{{/data_items}}
+
+{{! Creates a union of all the state objects. State union key is used to determine if state object was created. }}
+/**
+ * Union of all types for {{display_type}} states
+ */
+export type {{display_type}}States =
+{{#data_items}}
+{{#state_union}}
+| {{standardized_name}}States
+{{/state_union}}
+{{/data_items}}
+;
+
+{{! Mapping of Block name to it's property types. }}
+/**
+  * Mapping of each {{display_type}} name to it's states
+  */
+export type {{display_type}}StateMapping = {
+  {{#data_items}}
+  {{#state_union}}
+  '{{no_namespace_name}}': {{standardized_name}}States;
+    {{#namespace}}
+  '{{namespace}}:{{no_namespace_name}}': {{standardized_name}}States;
+    {{/namespace}}
+  {{/state_union}}
+  {{/data_items}}
+};
+{{/has_properties}}

@@ -1,0 +1,21 @@
+{
+  "type_aliases": [
+    {
+      "is_script_generated": true,
+      "raw_tsdoc_text": "/**\n * This doc text is extracted from TSDoc comments\n */\n",
+      "raw_script_text": "export type TypeAliasWithTSDocComments = boolean | string;",
+      "name": "TypeAliasWithTSDocComments",
+      "type": {
+        "name": "boolean | string",
+        "is_errorable": false,
+        "is_bind_type": false
+      }
+    }
+  ],
+  "minecraft_version": "1.0.0",
+  "name": "hybrid-module",
+  "uuid": "411a0018-bbd6-43a5-96eb-ce7c4162f493",
+  "version": "0.1.0",
+  "module_type": "script",
+  "parentModule": "hybrid-module-native"
+}

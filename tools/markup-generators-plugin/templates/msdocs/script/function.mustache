@@ -1,0 +1,95 @@
+{{#stable_only}}
+::: moniker range="=minecraft-bedrock-stable"
+{{/stable_only}}
+{{#is_prerelease}}
+::: moniker range="=minecraft-bedrock-experimental"
+{{/is_prerelease}}
+### **{{{name}}}**
+`
+{{> function_declaration}}
+
+`
+{{#function_description_md}}
+
+{{{.}}}
+{{/function_description_md}}
+{{#arguments.length}}
+
+#### **Parameters**
+  {{#arguments}}
+- **{{{name}}}**{{#type}}{{#is_optional}}?{{/is_optional}}: {{> type_with_links}}{{/type}}{{#details.default_value}} = `{{> value}}`{{/details.default_value}}
+    {{#details.supported_values.length}}
+
+  Supported values: [{{#details.supported_values}}{{> value}}{{^is_last}}, {{/is_last}}{{/details.supported_values}}]
+    {{/details.supported_values.length}}
+    {{#argument_description_md}}
+  
+  {{{.}}}
+    {{/argument_description_md}}
+  {{/arguments}}
+{{/arguments.length}}
+{{#return_type}}
+{{^is_undefined}}
+
+**Returns** {{> type_with_links}}{{#is_optional}} | *undefined*{{/is_optional}}{{#returns_description_md}} - {{{returns_description_md}}}{{/returns_description_md}}
+{{/is_undefined}}
+  {{#is_prerelease}}
+
+> [!CAUTION]
+> This function is still in pre-release.  Its signature may change or it may be removed in future releases.
+  {{/is_prerelease}}
+  {{#is_deprecated}}
+
+> [!CAUTION]
+> This function is deprecated and will be removed in {{{deprecated_version}}}.
+    {{#deprecated_description_md}}
+> 
+> {{{.}}}
+    {{/deprecated_description_md}}
+  {{/is_deprecated}}
+{{#has_runtime_conditions}}
+ 
+#### Required Experiments
+  {{#runtime_conditions}} 
+- {{.}}
+  {{/runtime_conditions}}
+
+{{/has_runtime_conditions}}
+  {{#msdocs_has_comments}}
+  
+Notes:
+    {{#call_disallowed_in_read_only}}
+- This function can't be called in read-only mode.
+    {{/call_disallowed_in_read_only}}
+    {{#call_allowed_in_early_execution}}
+- This function can be called in early-execution mode.
+    {{/call_allowed_in_early_execution}}
+    {{#error_types.length}}
+- This function can throw errors.
+  - Throws {{#error_types}}{{> type_with_links}}{{^is_last}}, {{/is_last}}{{/error_types}}
+    {{/error_types.length}}
+    {{^error_types.length}}
+      {{#throws_description_md.length}}
+- This function can throw errors.
+        {{#throws_description_md}}
+  - {{{.}}}
+        {{/throws_description_md}}
+      {{/throws_description_md.length}}
+      {{^throws_description_md.length}}
+        {{#is_errorable}}
+- This function can throw errors.
+        {{/is_errorable}}
+      {{/throws_description_md.length}}
+    {{/error_types.length}}
+  {{/msdocs_has_comments}}
+{{/return_type}}
+{{#examples.length}}
+
+{{> examples}}
+{{/examples.length}}
+{{#is_prerelease}}
+::: moniker-end
+{{/is_prerelease}}
+{{#stable_only}}
+::: moniker-end
+{{/stable_only}}

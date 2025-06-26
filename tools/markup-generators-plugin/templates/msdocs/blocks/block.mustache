@@ -1,0 +1,18 @@
+---
+{{ >default_metadata }}
+title: {{{block_name}}} Block
+description: Description of the {{{block_name}}} block
+---
+# {{{block_name}}} Block
+{{#block_description}}
+{{{.}}}
+
+{{/block_description}}
+## Properties:
+{{#properties}}
+* {{{name}}}
+{{#property_description}}
+{{{.}}}
+
+{{/property_description}}
+{{/properties}}

@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "attilabuti.mustache-syntax-vscode",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "shd101wyy.markdown-preview-enhanced",
+        "spadin.memento-inputs"
+    ]
+}

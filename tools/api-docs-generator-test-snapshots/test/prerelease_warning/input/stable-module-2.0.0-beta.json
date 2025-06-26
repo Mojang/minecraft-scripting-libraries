@@ -1,0 +1,189 @@
+{
+  "minecraft_version": "1.0.0",
+  "name": "stable-module",
+  "uuid": "2ec8acbf-0aba-43ea-b31e-a29f5d117ba0",
+  "version": "2.0.0-beta",
+  "module_type": "script",
+  "interfaces": [
+    {
+      "name": "PrereleaseInterface",
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "PrereleaseInterface"
+      }
+    },
+    {
+      "name": "StableInterface",
+      "properties": [
+        {
+          "is_read_only": false,
+          "name": "prereleaseMember",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": {
+              "max": 2147483647,
+              "min": -2147483648
+            }
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "StableInterface"
+      }
+    }
+  ],
+  "classes": [
+    {
+      "name": "PrereleaseClass",
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "PrereleaseClass",
+        "valid_range": null
+      }
+    },
+    {
+      "functions": [
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "name": "prereleaseMethod",
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": null
+          }
+        }
+      ],
+      "name": "StableClass",
+      "properties": [
+        {
+          "is_read_only": false,
+          "name": "prereleaseProperty",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": {
+              "max": 2147483647,
+              "min": -2147483648
+            }
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "StableClass",
+        "valid_range": null
+      }
+    }
+  ],
+  "constants": [
+    {
+      "is_read_only": true,
+      "is_static": true,
+      "name": "prereleaseConstant",
+      "type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "int32"
+      },
+      "value": 1
+    }
+  ],
+  "dependencies": [],
+  "enums": [
+    {
+      "constants": [
+        {
+          "is_read_only": true,
+          "is_static": true,
+          "name": "stableVal",
+          "type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": null
+          },
+          "value": 1
+        },
+        {
+          "is_read_only": true,
+          "is_static": true,
+          "name": "prereleaseVal",
+          "type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": null
+          },
+          "value": 2
+        }
+      ],
+      "name": "StableEnumWithPrereleaseConstants"
+    },
+    {
+      "constants": [
+        {
+          "is_read_only": true,
+          "is_static": true,
+          "name": "val1",
+          "type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": null
+          },
+          "value": 1
+        },
+        {
+          "is_read_only": true,
+          "is_static": true,
+          "name": "val2",
+          "type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "int32",
+            "valid_range": null
+          },
+          "value": 2
+        }
+      ],
+      "name": "PrereleaseEnum"
+    }
+  ],
+  "functions": [
+    {
+      "arguments": [],
+      "is_constructor": false,
+      "is_static": false,
+      "name": "prereleaseFunction",
+      "return_type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "boolean",
+        "valid_range": null
+      }
+    }
+  ],
+  "objects": [
+    {
+      "is_read_only": true,
+      "is_static": true,
+      "name": "prereleaseObject",
+      "type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "string",
+        "valid_range": null
+      }
+    }
+  ]
+}

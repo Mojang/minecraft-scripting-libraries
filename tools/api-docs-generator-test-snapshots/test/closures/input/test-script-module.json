@@ -1,0 +1,171 @@
+{
+  "classes": [
+    {
+      "base_types": [],
+      "constants": [],
+      "functions": [
+        {
+          "arguments": [
+            {
+              "details": {
+                "default_value": "null"
+              },
+              "name": "onChange",
+              "type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "optional",
+                "optional_type": {
+                  "closure_type": {
+                    "argument_types": [
+                      {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "variant",
+                        "variant_types": [
+                          {
+                            "is_bind_type": false,
+                            "is_errorable": false,
+                            "name": "boolean"
+                          },
+                          {
+                            "is_bind_type": false,
+                            "is_errorable": false,
+                            "name": "float",
+                            "valid_range": {
+                              "max": 2147483647,
+                              "min": -2147483648
+                            }
+                          }
+                        ]
+                      }
+                    ],
+                    "return_type": {
+                      "is_bind_type": false,
+                      "is_errorable": true,
+                      "name": "undefined"
+                    }
+                  },
+                  "is_bind_type": false,
+                  "is_errorable": false,
+                  "name": "closure"
+                }
+              }
+            }
+          ],
+          "is_constructor": true,
+          "name": "constructor",
+          "privilege": "read_only",
+          "return_type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "ExampleClass"
+          }
+        },
+        {
+          "arguments": [
+            {
+              "details": {
+                "default_value": "null"
+              },
+              "name": "callback",
+              "type": {
+                "closure_type": {
+                  "argument_types": [
+                    {
+                      "is_bind_type": false,
+                      "is_errorable": false,
+                      "name": "boolean"
+                    },
+                    {
+                      "is_bind_type": false,
+                      "is_errorable": false,
+                      "name": "float",
+                      "valid_range": {
+                        "max": 2147483647,
+                        "min": -2147483648
+                      }
+                    }
+                  ],
+                  "return_type": {
+                    "is_bind_type": false,
+                    "is_errorable": true,
+                    "name": "undefined"
+                  }
+                },
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "closure"
+              }
+            }
+          ],
+          "is_constructor": false,
+          "name": "methodWithMultiArgClosure",
+          "privilege": "read_only",
+          "return_type": {
+            "is_bind_type": true,
+            "is_errorable": false,
+            "name": "ExampleClass"
+          }
+        }
+      ],
+      "name": "ExampleClass",
+      "properties": [
+        {
+          "is_read_only": true,
+          "name": "closureWithVariantArg",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "optional",
+            "optional_type": {
+              "closure_type": {
+                "argument_types": [
+                  {
+                    "is_bind_type": false,
+                    "is_errorable": false,
+                    "name": "variant",
+                    "variant_types": [
+                      {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "boolean"
+                      },
+                      {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "float",
+                        "valid_range": {
+                          "max": 2147483647,
+                          "min": -2147483648
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "return_type": {
+                  "is_bind_type": false,
+                  "is_errorable": true,
+                  "name": "undefined"
+                }
+              },
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "closure"
+            }
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ExampleClass"
+      }
+    }
+  ],
+  "minecraft_version": "1.0.0",
+  "name": "closure-tests",
+  "uuid": "93faf953-0173-44dc-b542-b48f4fea7c4b",
+  "version": "1.0.0",
+  "module_type": "script"
+}

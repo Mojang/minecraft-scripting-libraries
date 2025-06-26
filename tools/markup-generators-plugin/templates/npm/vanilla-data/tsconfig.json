@@ -1,0 +1,18 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "Default",
+    "compilerOptions": {
+        "module": "ES2022",
+        "lib": ["es6"],
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "esModuleInterop": true,
+        "target": "esnext",
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "outDir": "lib",
+        "skipLibCheck": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["lib", "dist", "node_modules"]
+}

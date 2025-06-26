@@ -1,0 +1,741 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for all vanilla modules > # Of Files Generated 1`] = `15`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for all vanilla modules > npm/@minecraft/vanilla-data/.npmignore 1`] = `"src"`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for all vanilla modules > npm/@minecraft/vanilla-data/README.md 1`] = `
+"# @minecraft/vanilla-data
+
+This module contains type definitions and enumarations for vanilla content within the game, such as Blocks, Items, Entities, and more. This module is versioned accordingly with Minecraft release and preview versions, and contain the up to date types available in the game."
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for all vanilla modules > npm/@minecraft/vanilla-data/lib/index.d.ts 1`] = `
+"export * from './test-blocks-module';
+export * from './test-item-module';
+export * from './test-mynewdata-module';
+"
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for all vanilla modules > npm/@minecraft/vanilla-data/lib/index.js 1`] = `
+"// Vanilla Data for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+var MinecraftBlockTypes=(MinecraftBlockTypes2=>{MinecraftBlockTypes2["DiamondCrate"]="minecraft:diamond_crate";MinecraftBlockTypes2["DrinkingGlass"]="customspace:drinking_glass";return MinecraftBlockTypes2})(MinecraftBlockTypes||{});var MinecraftItemTypes=(MinecraftItemTypes2=>{MinecraftItemTypes2["AcaciaBoat"]="minecraft:acacia_boat";MinecraftItemTypes2["AcaciaButton"]="minecraft:acacia_button";MinecraftItemTypes2["AcaciaChestBoat"]="minecraft:acacia_chest_boat";MinecraftItemTypes2["AcaciaDoor"]="minecraft:acacia_door";MinecraftItemTypes2["BowInfinity"]="infinity";return MinecraftItemTypes2})(MinecraftItemTypes||{});var MinecraftMyNewDataTypes=(MinecraftMyNewDataTypes2=>{MinecraftMyNewDataTypes2["MyNewDataExampleOne"]="MyNewData_ExampleOne";MinecraftMyNewDataTypes2["MyNewDataExampleTwo"]="MyNewData_ExampleTwo";return MinecraftMyNewDataTypes2})(MinecraftMyNewDataTypes||{});export{MinecraftBlockTypes,MinecraftItemTypes,MinecraftMyNewDataTypes};
+"
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for all vanilla modules > npm/@minecraft/vanilla-data/lib/test-blocks-module.d.ts 1`] = `
+"/**
+ * All possible MinecraftBlockTypes
+ */
+export declare enum MinecraftBlockTypes {
+    DiamondCrate = "minecraft:diamond_crate",
+    DrinkingGlass = "customspace:drinking_glass"
+}
+/**
+ * Union type equivalent of the MinecraftBlockTypes enum.
+ */
+export type MinecraftBlockTypesUnion = keyof typeof MinecraftBlockTypes;
+/**
+ * All supported states and their types for MinecraftBlockTypes
+ */
+export type BlockStateSuperset = {
+    ['diamonds_stored']?: number;
+    ['glass_fullness']?: string;
+    ['is_true']?: boolean;
+};
+/**
+ * States specific to DiamondCrate
+ */
+export type DiamondCrateStates = Pick<BlockStateSuperset, 'diamonds_stored' | 'is_true'>;
+/**
+ * States specific to DrinkingGlass
+ */
+export type DrinkingGlassStates = Pick<BlockStateSuperset, 'glass_fullness'>;
+/**
+ * Union of all types for Block states
+ */
+export type BlockStates = DiamondCrateStates | DrinkingGlassStates;
+/**
+ * Mapping of each Block name to it's states
+ */
+export type BlockStateMapping = {
+    diamond_crate: DiamondCrateStates;
+    'minecraft:diamond_crate': DiamondCrateStates;
+    drinking_glass: DrinkingGlassStates;
+    'customspace:drinking_glass': DrinkingGlassStates;
+};
+"
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for all vanilla modules > npm/@minecraft/vanilla-data/lib/test-item-module.d.ts 1`] = `
+"/**
+ * All possible MinecraftItemTypes
+ */
+export declare enum MinecraftItemTypes {
+    AcaciaBoat = "minecraft:acacia_boat",
+    AcaciaButton = "minecraft:acacia_button",
+    AcaciaChestBoat = "minecraft:acacia_chest_boat",
+    AcaciaDoor = "minecraft:acacia_door",
+    BowInfinity = "infinity"
+}
+/**
+ * Union type equivalent of the MinecraftItemTypes enum.
+ */
+export type MinecraftItemTypesUnion = keyof typeof MinecraftItemTypes;
+"
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for all vanilla modules > npm/@minecraft/vanilla-data/lib/test-mynewdata-module.d.ts 1`] = `
+"/**
+ * All possible MinecraftMyNewDataTypes
+ */
+export declare enum MinecraftMyNewDataTypes {
+    MyNewDataExampleOne = "MyNewData_ExampleOne",
+    MyNewDataExampleTwo = "MyNewData_ExampleTwo"
+}
+/**
+ * Union type equivalent of the MinecraftMyNewDataTypes enum.
+ */
+export type MinecraftMyNewDataTypesUnion = keyof typeof MinecraftMyNewDataTypes;
+"
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for all vanilla modules > npm/@minecraft/vanilla-data/package.json 1`] = `
+"{
+    "name": "@minecraft/vanilla-data",
+    "version": "1.19.80",
+    "description": "Contains types for Minecraft Vanilla Content",
+    "exports": "./lib/index.js",
+    "types": "./lib/index.d.ts",
+    "contributors": [
+        {
+            "name": "Jake Shirley",
+            "email": "jake@xbox.com"
+        },
+        {
+            "name": "Mike Ammerlaan",
+            "email": "mikeam@microsoft.com"
+        },
+        {
+            "name": "Raphael Landaverde",
+            "email": "rlandav@microsoft.com"
+        }
+    ],
+    "license": "MIT"
+}"
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for all vanilla modules > npm/@minecraft/vanilla-data/src/index.ts 1`] = `
+"export * from './test-blocks-module';
+export * from './test-item-module';
+export * from './test-mynewdata-module';
+"
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for all vanilla modules > npm/@minecraft/vanilla-data/src/test-blocks-module.ts 1`] = `
+"// Vanilla Data for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+
+/**
+ * All possible MinecraftBlockTypes
+ */
+export enum MinecraftBlockTypes {
+    DiamondCrate = 'minecraft:diamond_crate',
+    DrinkingGlass = 'customspace:drinking_glass',
+}
+
+/**
+ * Union type equivalent of the MinecraftBlockTypes enum.
+ */
+export type MinecraftBlockTypesUnion = keyof typeof MinecraftBlockTypes;
+
+/**
+ * All supported states and their types for MinecraftBlockTypes
+ */
+export type BlockStateSuperset = {
+    ['diamonds_stored']?: number;
+    ['glass_fullness']?: string;
+    ['is_true']?: boolean;
+};
+
+/**
+ * States specific to DiamondCrate
+ */
+export type DiamondCrateStates = Pick<BlockStateSuperset, 'diamonds_stored' | 'is_true'>;
+
+/**
+ * States specific to DrinkingGlass
+ */
+export type DrinkingGlassStates = Pick<BlockStateSuperset, 'glass_fullness'>;
+
+/**
+ * Union of all types for Block states
+ */
+export type BlockStates = DiamondCrateStates | DrinkingGlassStates;
+
+/**
+ * Mapping of each Block name to it's states
+ */
+export type BlockStateMapping = {
+    diamond_crate: DiamondCrateStates;
+    'minecraft:diamond_crate': DiamondCrateStates;
+    drinking_glass: DrinkingGlassStates;
+    'customspace:drinking_glass': DrinkingGlassStates;
+};
+"
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for all vanilla modules > npm/@minecraft/vanilla-data/src/test-item-module.ts 1`] = `
+"// Vanilla Data for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+
+/**
+ * All possible MinecraftItemTypes
+ */
+export enum MinecraftItemTypes {
+    AcaciaBoat = 'minecraft:acacia_boat',
+    AcaciaButton = 'minecraft:acacia_button',
+    AcaciaChestBoat = 'minecraft:acacia_chest_boat',
+    AcaciaDoor = 'minecraft:acacia_door',
+    BowInfinity = 'infinity',
+}
+
+/**
+ * Union type equivalent of the MinecraftItemTypes enum.
+ */
+export type MinecraftItemTypesUnion = keyof typeof MinecraftItemTypes;
+"
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for all vanilla modules > npm/@minecraft/vanilla-data/src/test-mynewdata-module.ts 1`] = `
+"// Vanilla Data for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+
+/**
+ * All possible MinecraftMyNewDataTypes
+ */
+export enum MinecraftMyNewDataTypes {
+    MyNewDataExampleOne = 'MyNewData_ExampleOne',
+    MyNewDataExampleTwo = 'MyNewData_ExampleTwo',
+}
+
+/**
+ * Union type equivalent of the MinecraftMyNewDataTypes enum.
+ */
+export type MinecraftMyNewDataTypesUnion = keyof typeof MinecraftMyNewDataTypes;
+"
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for all vanilla modules > ts-source/1.19.80/test-blocks-module.ts 1`] = `
+"// Vanilla Data for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+
+/**
+ * All possible MinecraftBlockTypes
+ */
+export enum MinecraftBlockTypes {
+    DiamondCrate = 'minecraft:diamond_crate',
+    DrinkingGlass = 'customspace:drinking_glass',
+}
+
+/**
+ * Union type equivalent of the MinecraftBlockTypes enum.
+ */
+export type MinecraftBlockTypesUnion = keyof typeof MinecraftBlockTypes;
+
+/**
+ * All supported states and their types for MinecraftBlockTypes
+ */
+export type BlockStateSuperset = {
+    ['diamonds_stored']?: number;
+    ['glass_fullness']?: string;
+    ['is_true']?: boolean;
+};
+
+/**
+ * States specific to DiamondCrate
+ */
+export type DiamondCrateStates = Pick<BlockStateSuperset, 'diamonds_stored' | 'is_true'>;
+
+/**
+ * States specific to DrinkingGlass
+ */
+export type DrinkingGlassStates = Pick<BlockStateSuperset, 'glass_fullness'>;
+
+/**
+ * Union of all types for Block states
+ */
+export type BlockStates = DiamondCrateStates | DrinkingGlassStates;
+
+/**
+ * Mapping of each Block name to it's states
+ */
+export type BlockStateMapping = {
+    diamond_crate: DiamondCrateStates;
+    'minecraft:diamond_crate': DiamondCrateStates;
+    drinking_glass: DrinkingGlassStates;
+    'customspace:drinking_glass': DrinkingGlassStates;
+};
+"
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for all vanilla modules > ts-source/1.19.80/test-item-module.ts 1`] = `
+"// Vanilla Data for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+
+/**
+ * All possible MinecraftItemTypes
+ */
+export enum MinecraftItemTypes {
+    AcaciaBoat = 'minecraft:acacia_boat',
+    AcaciaButton = 'minecraft:acacia_button',
+    AcaciaChestBoat = 'minecraft:acacia_chest_boat',
+    AcaciaDoor = 'minecraft:acacia_door',
+    BowInfinity = 'infinity',
+}
+
+/**
+ * Union type equivalent of the MinecraftItemTypes enum.
+ */
+export type MinecraftItemTypesUnion = keyof typeof MinecraftItemTypes;
+"
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for all vanilla modules > ts-source/1.19.80/test-mynewdata-module.ts 1`] = `
+"// Vanilla Data for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+
+/**
+ * All possible MinecraftMyNewDataTypes
+ */
+export enum MinecraftMyNewDataTypes {
+    MyNewDataExampleOne = 'MyNewData_ExampleOne',
+    MyNewDataExampleTwo = 'MyNewData_ExampleTwo',
+}
+
+/**
+ * Union type equivalent of the MinecraftMyNewDataTypes enum.
+ */
+export type MinecraftMyNewDataTypesUnion = keyof typeof MinecraftMyNewDataTypes;
+"
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for vanilla modules in a pre-release version > # Of Files Generated 1`] = `15`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for vanilla modules in a pre-release version > npm/@minecraft/vanilla-data/.npmignore 1`] = `"src"`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for vanilla modules in a pre-release version > npm/@minecraft/vanilla-data/README.md 1`] = `
+"# @minecraft/vanilla-data
+
+This module contains type definitions and enumarations for vanilla content within the game, such as Blocks, Items, Entities, and more. This module is versioned accordingly with Minecraft release and preview versions, and contain the up to date types available in the game."
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for vanilla modules in a pre-release version > npm/@minecraft/vanilla-data/lib/index.d.ts 1`] = `
+"export * from './test-blocks-module';
+export * from './test-item-module';
+export * from './test-mynewdata-module';
+"
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for vanilla modules in a pre-release version > npm/@minecraft/vanilla-data/lib/index.js 1`] = `
+"// Vanilla Data for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+var MinecraftBlockTypes=(MinecraftBlockTypes2=>{MinecraftBlockTypes2["DiamondCrate"]="minecraft:diamond_crate";MinecraftBlockTypes2["DrinkingGlass"]="customspace:drinking_glass";return MinecraftBlockTypes2})(MinecraftBlockTypes||{});var MinecraftItemTypes=(MinecraftItemTypes2=>{MinecraftItemTypes2["AcaciaBoat"]="minecraft:acacia_boat";MinecraftItemTypes2["AcaciaButton"]="minecraft:acacia_button";MinecraftItemTypes2["AcaciaChestBoat"]="minecraft:acacia_chest_boat";MinecraftItemTypes2["AcaciaDoor"]="minecraft:acacia_door";MinecraftItemTypes2["BowInfinity"]="infinity";return MinecraftItemTypes2})(MinecraftItemTypes||{});var MinecraftMyNewDataTypes=(MinecraftMyNewDataTypes2=>{MinecraftMyNewDataTypes2["MyNewDataExampleOne"]="MyNewData_ExampleOne";MinecraftMyNewDataTypes2["MyNewDataExampleTwo"]="MyNewData_ExampleTwo";return MinecraftMyNewDataTypes2})(MinecraftMyNewDataTypes||{});export{MinecraftBlockTypes,MinecraftItemTypes,MinecraftMyNewDataTypes};
+"
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for vanilla modules in a pre-release version > npm/@minecraft/vanilla-data/lib/test-blocks-module.d.ts 1`] = `
+"/**
+ * All possible MinecraftBlockTypes
+ */
+export declare enum MinecraftBlockTypes {
+    DiamondCrate = "minecraft:diamond_crate",
+    DrinkingGlass = "customspace:drinking_glass"
+}
+/**
+ * Union type equivalent of the MinecraftBlockTypes enum.
+ */
+export type MinecraftBlockTypesUnion = keyof typeof MinecraftBlockTypes;
+/**
+ * All supported states and their types for MinecraftBlockTypes
+ */
+export type BlockStateSuperset = {
+    ['diamonds_stored']?: number;
+    ['glass_fullness']?: string;
+    ['is_true']?: boolean;
+};
+/**
+ * States specific to DiamondCrate
+ */
+export type DiamondCrateStates = Pick<BlockStateSuperset, 'diamonds_stored' | 'is_true'>;
+/**
+ * States specific to DrinkingGlass
+ */
+export type DrinkingGlassStates = Pick<BlockStateSuperset, 'glass_fullness'>;
+/**
+ * Union of all types for Block states
+ */
+export type BlockStates = DiamondCrateStates | DrinkingGlassStates;
+/**
+ * Mapping of each Block name to it's states
+ */
+export type BlockStateMapping = {
+    diamond_crate: DiamondCrateStates;
+    'minecraft:diamond_crate': DiamondCrateStates;
+    drinking_glass: DrinkingGlassStates;
+    'customspace:drinking_glass': DrinkingGlassStates;
+};
+"
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for vanilla modules in a pre-release version > npm/@minecraft/vanilla-data/lib/test-item-module.d.ts 1`] = `
+"/**
+ * All possible MinecraftItemTypes
+ */
+export declare enum MinecraftItemTypes {
+    AcaciaBoat = "minecraft:acacia_boat",
+    AcaciaButton = "minecraft:acacia_button",
+    AcaciaChestBoat = "minecraft:acacia_chest_boat",
+    AcaciaDoor = "minecraft:acacia_door",
+    BowInfinity = "infinity"
+}
+/**
+ * Union type equivalent of the MinecraftItemTypes enum.
+ */
+export type MinecraftItemTypesUnion = keyof typeof MinecraftItemTypes;
+"
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for vanilla modules in a pre-release version > npm/@minecraft/vanilla-data/lib/test-mynewdata-module.d.ts 1`] = `
+"/**
+ * All possible MinecraftMyNewDataTypes
+ */
+export declare enum MinecraftMyNewDataTypes {
+    MyNewDataExampleOne = "MyNewData_ExampleOne",
+    MyNewDataExampleTwo = "MyNewData_ExampleTwo"
+}
+/**
+ * Union type equivalent of the MinecraftMyNewDataTypes enum.
+ */
+export type MinecraftMyNewDataTypesUnion = keyof typeof MinecraftMyNewDataTypes;
+"
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for vanilla modules in a pre-release version > npm/@minecraft/vanilla-data/package.json 1`] = `
+"{
+    "name": "@minecraft/vanilla-data",
+    "version": "1.19.80-preview.5",
+    "description": "Contains types for Minecraft Vanilla Content",
+    "exports": "./lib/index.js",
+    "types": "./lib/index.d.ts",
+    "contributors": [
+        {
+            "name": "Jake Shirley",
+            "email": "jake@xbox.com"
+        },
+        {
+            "name": "Mike Ammerlaan",
+            "email": "mikeam@microsoft.com"
+        },
+        {
+            "name": "Raphael Landaverde",
+            "email": "rlandav@microsoft.com"
+        }
+    ],
+    "license": "MIT"
+}"
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for vanilla modules in a pre-release version > npm/@minecraft/vanilla-data/src/index.ts 1`] = `
+"export * from './test-blocks-module';
+export * from './test-item-module';
+export * from './test-mynewdata-module';
+"
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for vanilla modules in a pre-release version > npm/@minecraft/vanilla-data/src/test-blocks-module.ts 1`] = `
+"// Vanilla Data for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+
+/**
+ * All possible MinecraftBlockTypes
+ */
+export enum MinecraftBlockTypes {
+    DiamondCrate = 'minecraft:diamond_crate',
+    DrinkingGlass = 'customspace:drinking_glass',
+}
+
+/**
+ * Union type equivalent of the MinecraftBlockTypes enum.
+ */
+export type MinecraftBlockTypesUnion = keyof typeof MinecraftBlockTypes;
+
+/**
+ * All supported states and their types for MinecraftBlockTypes
+ */
+export type BlockStateSuperset = {
+    ['diamonds_stored']?: number;
+    ['glass_fullness']?: string;
+    ['is_true']?: boolean;
+};
+
+/**
+ * States specific to DiamondCrate
+ */
+export type DiamondCrateStates = Pick<BlockStateSuperset, 'diamonds_stored' | 'is_true'>;
+
+/**
+ * States specific to DrinkingGlass
+ */
+export type DrinkingGlassStates = Pick<BlockStateSuperset, 'glass_fullness'>;
+
+/**
+ * Union of all types for Block states
+ */
+export type BlockStates = DiamondCrateStates | DrinkingGlassStates;
+
+/**
+ * Mapping of each Block name to it's states
+ */
+export type BlockStateMapping = {
+    diamond_crate: DiamondCrateStates;
+    'minecraft:diamond_crate': DiamondCrateStates;
+    drinking_glass: DrinkingGlassStates;
+    'customspace:drinking_glass': DrinkingGlassStates;
+};
+"
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for vanilla modules in a pre-release version > npm/@minecraft/vanilla-data/src/test-item-module.ts 1`] = `
+"// Vanilla Data for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+
+/**
+ * All possible MinecraftItemTypes
+ */
+export enum MinecraftItemTypes {
+    AcaciaBoat = 'minecraft:acacia_boat',
+    AcaciaButton = 'minecraft:acacia_button',
+    AcaciaChestBoat = 'minecraft:acacia_chest_boat',
+    AcaciaDoor = 'minecraft:acacia_door',
+    BowInfinity = 'infinity',
+}
+
+/**
+ * Union type equivalent of the MinecraftItemTypes enum.
+ */
+export type MinecraftItemTypesUnion = keyof typeof MinecraftItemTypes;
+"
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for vanilla modules in a pre-release version > npm/@minecraft/vanilla-data/src/test-mynewdata-module.ts 1`] = `
+"// Vanilla Data for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+
+/**
+ * All possible MinecraftMyNewDataTypes
+ */
+export enum MinecraftMyNewDataTypes {
+    MyNewDataExampleOne = 'MyNewData_ExampleOne',
+    MyNewDataExampleTwo = 'MyNewData_ExampleTwo',
+}
+
+/**
+ * Union type equivalent of the MinecraftMyNewDataTypes enum.
+ */
+export type MinecraftMyNewDataTypesUnion = keyof typeof MinecraftMyNewDataTypes;
+"
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for vanilla modules in a pre-release version > ts-source/1.19.80-preview.5/test-blocks-module.ts 1`] = `
+"// Vanilla Data for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+
+/**
+ * All possible MinecraftBlockTypes
+ */
+export enum MinecraftBlockTypes {
+    DiamondCrate = 'minecraft:diamond_crate',
+    DrinkingGlass = 'customspace:drinking_glass',
+}
+
+/**
+ * Union type equivalent of the MinecraftBlockTypes enum.
+ */
+export type MinecraftBlockTypesUnion = keyof typeof MinecraftBlockTypes;
+
+/**
+ * All supported states and their types for MinecraftBlockTypes
+ */
+export type BlockStateSuperset = {
+    ['diamonds_stored']?: number;
+    ['glass_fullness']?: string;
+    ['is_true']?: boolean;
+};
+
+/**
+ * States specific to DiamondCrate
+ */
+export type DiamondCrateStates = Pick<BlockStateSuperset, 'diamonds_stored' | 'is_true'>;
+
+/**
+ * States specific to DrinkingGlass
+ */
+export type DrinkingGlassStates = Pick<BlockStateSuperset, 'glass_fullness'>;
+
+/**
+ * Union of all types for Block states
+ */
+export type BlockStates = DiamondCrateStates | DrinkingGlassStates;
+
+/**
+ * Mapping of each Block name to it's states
+ */
+export type BlockStateMapping = {
+    diamond_crate: DiamondCrateStates;
+    'minecraft:diamond_crate': DiamondCrateStates;
+    drinking_glass: DrinkingGlassStates;
+    'customspace:drinking_glass': DrinkingGlassStates;
+};
+"
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for vanilla modules in a pre-release version > ts-source/1.19.80-preview.5/test-item-module.ts 1`] = `
+"// Vanilla Data for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+
+/**
+ * All possible MinecraftItemTypes
+ */
+export enum MinecraftItemTypes {
+    AcaciaBoat = 'minecraft:acacia_boat',
+    AcaciaButton = 'minecraft:acacia_button',
+    AcaciaChestBoat = 'minecraft:acacia_chest_boat',
+    AcaciaDoor = 'minecraft:acacia_door',
+    BowInfinity = 'infinity',
+}
+
+/**
+ * Union type equivalent of the MinecraftItemTypes enum.
+ */
+export type MinecraftItemTypesUnion = keyof typeof MinecraftItemTypes;
+"
+`;
+
+exports[`Vanilla Modules > Generates correct typescript source and npm modules for vanilla modules in a pre-release version > ts-source/1.19.80-preview.5/test-mynewdata-module.ts 1`] = `
+"// Vanilla Data for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+
+/**
+ * All possible MinecraftMyNewDataTypes
+ */
+export enum MinecraftMyNewDataTypes {
+    MyNewDataExampleOne = 'MyNewData_ExampleOne',
+    MyNewDataExampleTwo = 'MyNewData_ExampleTwo',
+}
+
+/**
+ * Union type equivalent of the MinecraftMyNewDataTypes enum.
+ */
+export type MinecraftMyNewDataTypesUnion = keyof typeof MinecraftMyNewDataTypes;
+"
+`;

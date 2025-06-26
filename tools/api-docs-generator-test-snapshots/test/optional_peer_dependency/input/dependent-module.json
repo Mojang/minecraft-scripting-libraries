@@ -1,0 +1,61 @@
+{
+  "classes": [
+    {
+      "base_types": [],
+      "constants": [],
+      "functions": [
+        {
+          "is_script_generated": true,
+          "raw_script_text": "dependentFunction(dependentArgument: peermodule.TypeAliasFromPeerDependency): boolean;",
+          "name": "dependentFunction",
+          "privilege": [
+            {
+              "name": "read_only"
+            }
+          ],
+          "is_constructor": false,
+          "return_type": {
+            "name": "boolean",
+            "is_errorable": false,
+            "is_bind_type": false
+          },
+          "arguments": [
+            {
+              "name": "dependentArgument",
+              "type": {
+                "name": "peermodule.TypeAliasFromPeerDependency",
+                "is_errorable": false,
+                "is_bind_type": false
+              }
+            }
+          ]
+        }
+      ],
+      "name": "ClassWithCrossModuleFunction",
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ClassWithCrossModuleFunction",
+        "valid_range": null
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "test-module",
+      "version": "1.0.0"
+    }
+  ],
+  "peer_dependencies": [
+    {
+      "name": "peer-module",
+      "version": "1.1.0",
+      "types_only": true
+    }
+  ],
+  "minecraft_version": "1.0.0",
+  "name": "dependant-module",
+  "uuid": "31725336-5233-4e3e-89dc-e24796019bb4",
+  "version": "1.0.0",
+  "module_type": "script"
+}

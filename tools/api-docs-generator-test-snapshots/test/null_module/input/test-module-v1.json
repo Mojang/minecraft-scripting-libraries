@@ -1,0 +1,17 @@
+{
+  "classes": null,
+  "interfaces": null,
+  "enums": null,
+  "errors": null,
+  "constants": null,
+  "functions": null,
+  "objects": null,
+  "type_aliases": null,
+  "dependencies": null,
+  "peer_dependencies": null,
+  "minecraft_version": "1.0.0",
+  "name": "test-module",
+  "uuid": "9f56871a-9f3a-11ec-b909-0242ac120002",
+  "version": "1.0.0",
+  "module_type": "script"
+}

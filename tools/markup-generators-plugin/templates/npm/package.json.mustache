@@ -1,0 +1,30 @@
+{
+  "name": "{{{name}}}",
+  "version": "{{{version}}}",
+  "description": "{{{description}}}",
+  "contributors": [
+    {
+      "name": "Jake Shirley",
+      "email": "jake@xbox.com"
+    },
+    {
+      "name": "Mike Ammerlaan",
+      "email": "mikeam@microsoft.com"
+    }
+  ],
+{{#dependencies.length}}
+  "dependencies": {
+  {{#dependencies}}
+    "{{{name}}}": "{{#versions}}{{#version_selector}}{{{.}}}{{/version_selector}}{{{version}}}{{^is_last}} || {{/is_last}}{{/versions}}"{{^is_last}},{{/is_last}}
+  {{/dependencies}}
+  },
+{{/dependencies.length}}
+{{#peer_dependencies.length}}
+  "peerDependencies": {
+  {{#peer_dependencies}}
+    "{{{name}}}": "{{#versions}}{{#version_selector}}{{{.}}}{{/version_selector}}{{{version}}}{{^is_last}} || {{/is_last}}{{/versions}}"{{^is_last}},{{/is_last}}
+  {{/peer_dependencies}}
+  },
+{{/peer_dependencies.length}}
+  "license": "MIT"
+}

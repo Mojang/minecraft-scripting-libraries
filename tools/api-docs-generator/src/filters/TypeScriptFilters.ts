@@ -22,6 +22,7 @@ const typescriptTypeMappings: Record<string, string> = {
     uint64: 'number',
     float: 'number',
     double: 'number',
+    error: 'unknown', // You can throw anything in JavaScript, so the type is unknown
 };
 
 /**

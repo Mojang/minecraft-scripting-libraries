@@ -2,6 +2,21 @@
   "name": "@minecraft/math",
   "entries": [
     {
+      "date": "Mon, 30 Jun 2025 16:30:31 GMT",
+      "version": "2.2.7",
+      "tag": "@minecraft/math_v2.2.7",
+      "comments": {
+        "patch": [
+          {
+            "author": "69014593+FrederoxDev@users.noreply.github.com",
+            "package": "@minecraft/math",
+            "commit": "2ae2b2ac21ac69da91ac9d3970be3168b9462338",
+            "comment": "Bump @minecraft/server in package.json to allow 2.x.x"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 22 May 2025 22:35:28 GMT",
       "version": "2.2.5",
       "tag": "@minecraft/math_v2.2.5",

@@ -1,8 +1,16 @@
 # Change Log - @minecraft/math
 
-<!-- This log was last generated on Thu, 22 May 2025 22:35:28 GMT and should not be manually modified. -->
+<!-- This log was last generated on Mon, 30 Jun 2025 16:30:31 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.2.7
+
+Mon, 30 Jun 2025 16:30:31 GMT
+
+### Patches
+
+- Bump @minecraft/server in package.json to allow 2.x.x (69014593+FrederoxDev@users.noreply.github.com)
 
 ## 2.2.5
 

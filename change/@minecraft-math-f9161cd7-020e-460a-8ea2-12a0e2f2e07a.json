@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Bump @minecraft/server in package.json to allow 2.x.x",
-  "packageName": "@minecraft/math",
-  "email": "69014593+FrederoxDev@users.noreply.github.com",
-  "dependentChangeType": "patch"
-}

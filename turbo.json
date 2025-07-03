@@ -6,6 +6,7 @@
             "outputLogs": "errors-only"
         },
         "eslint-plugin-minecraft-linting#build": {
+            "dependsOn": ["@minecraft/core-build-tasks#build-tools"],
             "outputs": ["lib/**"]
         },
         "build": {

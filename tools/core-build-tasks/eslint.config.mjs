@@ -1,21 +1,6 @@
-import globals from 'globals';
-import tsParser from '@typescript-eslint/parser';
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
 
-export default [
-    {
-        files: ['**/*.{ts,tsx,js,jsx}', '*.ts'],
-        languageOptions: {
-            parser: tsParser,
-            parserOptions: {
-                ecmaVersion: 'latest',
-                project: './tsconfig.esm.json',
-            },
-            globals: {
-                ...globals.node,
-            },
-        },
-        rules: {
-            eqeqeq: ['error', 'always'],
-        },
-    },
-];
+import configMinecraftScripting from 'eslint-config-minecraft-scripting';
+
+export default [...configMinecraftScripting];

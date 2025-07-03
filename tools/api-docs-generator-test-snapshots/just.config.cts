@@ -1,9 +1,12 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
 import { cleanTask, coreLint, DEFAULT_CLEAN_DIRECTORIES, vitestTask } from '@minecraft/core-build-tasks';
 import { argv, series, task, tscTask } from 'just-scripts';
 
 // Build
 task('build-plugin', tscTask({ project: './tsconfig.plugin.json' }));
-task('build-snapshots', tscTask({ project: './tsconfig.tests.json' }));
+task('build-snapshots', tscTask({ project: './tsconfig.json' }));
 task('build', series('build-plugin', 'build-snapshots'));
 
 // Clean

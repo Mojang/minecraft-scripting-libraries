@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
 /// <reference types="vitest" />
 import { configDefaults, defineConfig } from 'vitest/config';
 

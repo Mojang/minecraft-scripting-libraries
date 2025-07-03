@@ -22,7 +22,7 @@ function getConfigFilePath(): string | undefined {
     return undefined;
 }
 
-function eslintTask(files: string[], fix?: boolean): TaskFunction {
+function eslintTask(fix?: boolean): TaskFunction {
     return () => {
         const configFilePath = getConfigFilePath();
         if (configFilePath) {
@@ -34,7 +34,7 @@ function eslintTask(files: string[], fix?: boolean): TaskFunction {
             const cmd = [
                 'npx',
                 'eslint',
-                ...files,
+                '.',
                 '--config',
                 `"${configFilePath}"`,
                 ...(fix ? ['--fix'] : []),
@@ -68,7 +68,7 @@ export function coreLint(files: string[], fix?: boolean): TaskFunction {
             );
         }
     });
-    task('eslint', eslintTask(files, fix));
+    task('eslint', eslintTask(fix));
     task('prettier', prettierTask(files, fix));
 
     return series('verify-lint', 'eslint', 'prettier');

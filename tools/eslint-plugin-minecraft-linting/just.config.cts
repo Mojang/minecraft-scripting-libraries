@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
 import { cleanTask, coreLint, DEFAULT_CLEAN_DIRECTORIES, vitestTask } from '@minecraft/core-build-tasks';
 import { argv, series, task, tscTask } from 'just-scripts';
 

@@ -8,7 +8,6 @@ module.exports = {
         name: 'eslint-plugin-minecraft-linting',
     },
     rules: {
-        // eslint-disable-next-line @typescript-eslint/naming-convention
         'avoid-unnecessary-command': AvoidUnnecessaryCommand,
     },
 };

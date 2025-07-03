@@ -61,7 +61,7 @@ function linkSourceMaps(
         if (element.path.endsWith(MAP_EXTENSION)) {
             const parsedPath = path.parse(element.path);
             const sourceMapFilePath = path.join(sourceMapDirectory, parsedPath.base);
-            const sourceMapContent = JSON.parse(element.text);
+            const sourceMapContent = JSON.parse(element.text) as { file: string };
 
             // Add JS file location.
             sourceMapContent.file = path

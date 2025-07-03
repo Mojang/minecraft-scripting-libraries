@@ -1,7 +1,9 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
 // Core Build Tasks just configuration is special in that it depends on the pre-build tasks in the src
 // directory. Thus, for this case we allow imports from the lib directory, because the build-tools script
 // is just a direct invocation of tsc and doesn't use just
-
 import { argv, task } from 'just-scripts';
 import { coreLint, cleanTask, vitestTask } from './lib';
 

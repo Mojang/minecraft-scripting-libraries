@@ -19,7 +19,8 @@
     ],
     "include": [
         "test/*.ts",
-        "test/**/*.spec.ts"
+        "test/**/*.spec.ts",
+        "test/**/*.test.ts"
     ],
     "exclude": [
         "build",

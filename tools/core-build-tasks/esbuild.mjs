@@ -1,5 +1,7 @@
-// Core build tasks build is separate from just to minimize dependencies
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
 
+// Core build tasks build is separate from just to minimize dependencies
 import { buildSync } from 'esbuild';
 import { execSync } from 'node:child_process';
 
@@ -31,17 +33,19 @@ const commonOptions = {
     external: externalDependencies,
     platform: 'node',
 };
-let result = buildSync({
+
+buildSync({
     ...commonOptions,
+    format: 'cjs',
     tsconfig: './tsconfig.cjs.json',
     outdir: 'lib-cjs',
-    format: 'cjs',
     write: true,
 });
-result = buildSync({
+
+buildSync({
     ...commonOptions,
     format: 'esm',
-    tsconfig: './tsconfig.esm.json',
+    tsconfig: './tsconfig.json',
     outdir: 'lib',
     write: true,
 });

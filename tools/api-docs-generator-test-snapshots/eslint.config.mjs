@@ -1,11 +1,18 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
 import configMinecraftScripting from 'eslint-config-minecraft-scripting';
 
 export default [
     ...configMinecraftScripting,
     {
+        ignores: ['test/**/*.{js,mjs}', 'test/**/docs', 'test/**/*_output'],
+    },
+    {
+        files: ['test/**', 'plugin/**'],
         languageOptions: {
             parserOptions: {
-                project: ['./tsconfig.test.json', './tsconfig.plugin.json'],
+                project: ['./tsconfig.json', './tsconfig.plugin.json'],
             },
         },
         rules: {

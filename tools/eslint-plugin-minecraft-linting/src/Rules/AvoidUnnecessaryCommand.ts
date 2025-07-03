@@ -332,7 +332,6 @@ const AVOID_UNNECESSARY_COMMAND = ESLintUtils.RuleCreator(() => 'https://microso
     defaultOptions: [],
     create(context, _options): TSESLint.RuleListener {
         return {
-            // eslint-disable-next-line @typescript-eslint/naming-convention
             CallExpression(node) {
                 // Identify if this is a call to runCommand or runCommandAsync, which occurs either
                 // off of the exported module object, or through any cached function reference

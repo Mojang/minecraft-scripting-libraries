@@ -2,32 +2,46 @@
 // Licensed under the MIT License.
 
 import { argv, series, task, watch, logger, TaskFunction, undertaker, option } from 'just-scripts';
+import Undertaker from 'undertaker';
 
 const WATCH_TASK_NAME = 'watch-task';
 
+type WatchArgs = {
+    watch?: boolean;
+};
+
+type UndertakerArgs = {
+    name: string;
+};
+
 option('watch');
 
+function executeTask(taskFunction: Undertaker.TaskFunction) {
+    void taskFunction.call(undefined, () => {});
+}
+
 /**
- * If command line parameter `option` is present, watch for changes in the specified files and run the specified task.
+ * If command line parameter `watch` is present, it watches for changes in the specified files and run the specified task.
  * Otherwise, just run the task.
  * @param globs The file globs to watch.
  * @param taskFunction The task to run when changes are detected.
  */
 export function watchTask(globs: string | string[], taskFunction: TaskFunction): TaskFunction {
     return () => {
-        if (!argv().watch) {
+        const watchArgs = argv() as WatchArgs;
+        if (!watchArgs.watch) {
             return taskFunction;
         }
 
         let taskInProgress = true;
         let pendingWork = false;
 
-        const onFinished = (args: any) => {
+        const onFinished = (args: UndertakerArgs) => {
             if (args.name === WATCH_TASK_NAME) {
                 if (pendingWork) {
                     logger.info('Processing pending changes...');
                     pendingWork = false;
-                    (origTask as any).call();
+                    executeTask(origTask);
                 } else {
                     logger.info('Waiting for new changes...');
                     taskInProgress = false;
@@ -35,29 +49,29 @@ export function watchTask(globs: string | string[], taskFunction: TaskFunction):
             }
         };
 
-        undertaker.on('start', function (args: any) {
+        undertaker.on('start', function (args: UndertakerArgs) {
             if (args.name === WATCH_TASK_NAME) {
                 taskInProgress = true;
             }
         });
 
-        undertaker.on('stop', function (args: any) {
+        undertaker.on('stop', function (args: UndertakerArgs) {
             onFinished(args);
         });
 
-        undertaker.on('error', function (args: any) {
+        undertaker.on('error', function (args: UndertakerArgs) {
             onFinished(args);
         });
 
         task(WATCH_TASK_NAME, series(taskFunction));
-        let origTask = series(WATCH_TASK_NAME);
+        const origTask = series(WATCH_TASK_NAME);
 
         // Start execution.
-        (origTask as any).call();
+        executeTask(origTask);
 
         watch(globs, () => {
             if (!taskInProgress) {
-                (origTask as any).call();
+                executeTask(origTask);
             } else {
                 pendingWork = true;
             }

@@ -4,7 +4,7 @@
 import { RuleTester } from '@typescript-eslint/rule-tester';
 import * as path from 'path';
 import { describe, it, afterAll } from 'vitest';
-import AvoidUnnecessaryCommand from './AvoidUnnecessaryCommand.js';
+import AvoidUnnecessaryCommand from './AvoidUnnecessaryCommand';
 
 // RuleTester needs some global setup to integrate with test runners
 RuleTester.afterAll = afterAll;

@@ -1,7 +1,7 @@
 {
   "type": "minor",
-  "comment": "Update coreLint task to run on whole working directory",
+  "comment": "Update coreLint task to run on whole working directory, linting fixes",
   "packageName": "@minecraft/core-build-tasks",
   "email": "zachary.campbell@skyboxlabs.com",
-  "dependentChangeType": "patch"
+  "dependentChangeType": "none"
 }

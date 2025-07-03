@@ -1,6 +1,6 @@
 {
   "type": "none",
-  "comment": "Update eslint config to lint config files",
+  "comment": "Linting fixes",
   "packageName": "@minecraft/api-docs-generator",
   "email": "zachary.campbell@skyboxlabs.com",
   "dependentChangeType": "none"

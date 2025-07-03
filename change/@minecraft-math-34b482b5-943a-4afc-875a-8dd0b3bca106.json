@@ -1,0 +1,7 @@
+{
+  "type": "none",
+  "comment": "Update eslint config to lint config files",
+  "packageName": "@minecraft/math",
+  "email": "zachary.campbell@skyboxlabs.com",
+  "dependentChangeType": "none"
+}

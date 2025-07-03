@@ -5,13 +5,16 @@
             "outputs": ["lib/**", "lib-cjs/**", "dist/**"],
             "outputLogs": "errors-only"
         },
+        "eslint-plugin-minecraft-linting#build": {
+            "outputs": ["lib/**"]
+        },
         "build": {
             "dependsOn": ["@minecraft/core-build-tasks#build-tools", "^build"],
             "outputs": ["lib/**", "lib-cjs/**", "dist/**"],
             "inputs": ["src/**/*.ts", "*.json", "*.js"]
         },
         "lint": {
-            "dependsOn": ["@minecraft/core-build-tasks#build-tools", "build"],
+            "dependsOn": ["@minecraft/core-build-tasks#build-tools", "eslint-plugin-minecraft-linting#build", "build"],
             "outputs": [],
             "inputs": ["src/**/*.ts", "*.json", "eslint.config.mjs"]
         },

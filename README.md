@@ -40,6 +40,8 @@ All packages are validated via ESLint with a consistent set of rules as well as 
 
 All packages support testing via `vitest`. Tests are authored with the `.test.ts` suffix and tests can be run with `npm run test`.
 
+Snapshot tests will fail if the number of files generated or the contents of the files change. If snapshot changes are expected, you can update them by running: `npm run test:update`
+
 ## Contributing
 
 See [Contributing.md](./CONTRIBUTING.md) for details on contributions

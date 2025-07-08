@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Added support for Error types as function arguments to the TypeScript generator.  They will be typed as 'unknown'",
+  "packageName": "@minecraft/api-docs-generator",
+  "email": "jake@xbox.com",
+  "dependentChangeType": "patch"
+}

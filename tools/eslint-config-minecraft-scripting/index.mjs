@@ -68,9 +68,9 @@ export default tsEslint.config(
             'unicorn/no-null': ['error', { checkStrictEquality: true }],
         },
     },
-    // Disable type checked rules for config files
+    // Disable type checked rules for workspace root JS and config files
     {
-        files: ['*.{ts,js,cts,cjs,mts,mjs}'],
+        files: ['*.{js,cjs,mjs}', '*.config.{ts,cts,mts}'],
         extends: [tsEslint.configs.disableTypeChecked],
     }
 );

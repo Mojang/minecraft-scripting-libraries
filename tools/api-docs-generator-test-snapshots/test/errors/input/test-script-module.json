@@ -4,6 +4,25 @@
       "base_types": [],
       "constants": [],
       "functions": [
+         {
+          "arguments": [
+            {
+              "name": "errorParam",
+              "type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "error"
+              }
+            }
+          ],
+          "is_constructor": false,
+          "name": "exampleMethodThatTakesErrorParam",
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "string"
+          }
+        },
         {
           "arguments": [],
           "is_constructor": false,

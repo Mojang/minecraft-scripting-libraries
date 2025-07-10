@@ -91,10 +91,24 @@ Notes:
     - Throws [*ExampleError*](ExampleError.md)
 
 ## Methods
+- [exampleMethodThatTakesErrorParam](#examplemethodthattakeserrorparam)
 - [exampleMethodThatThrows](#examplemethodthatthrows)
 - [exampleMethodThatThrowsCustomError](#examplemethodthatthrowscustomerror)
 - [exampleMethodThatThrowsTwoErrors](#examplemethodthatthrowstwoerrors)
 - [exampleMethodThatThrowsWithReadOnlyPrivilege](#examplemethodthatthrowswithreadonlyprivilege)
+
+### **exampleMethodThatTakesErrorParam**
+\`
+exampleMethodThatTakesErrorParam(errorParam: unknown): string
+\`
+
+#### **Parameters**
+- **errorParam**: *unknown*
+
+**Returns** *string*
+  
+Notes:
+- This function can't be called in read-only mode.
 
 ### **exampleMethodThatThrows**
 \`
@@ -432,6 +446,12 @@ export class ExampleClass {
      * {@link ExampleError}
      */
     examplePropertyWithCrossModuleReturnAndError: minecraftexamplemodule2.CrossModuleReturn;
+    /**
+     * @remarks
+     * This function can't be called in read-only mode.
+     *
+     */
+    exampleMethodThatTakesErrorParam(errorParam: unknown): string;
     /**
      * @remarks
      * This function can't be called in read-only mode.

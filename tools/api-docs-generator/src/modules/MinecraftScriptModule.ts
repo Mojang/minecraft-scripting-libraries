@@ -552,6 +552,7 @@ export const MinecraftScriptModuleRecord = Intersect(
         module_type: Literal('script'),
         uuid: String,
         parentModule: Optional(Union(String, MinecraftParentModuleRecord).Or(Null)),
+        base_module: Optional(MinecraftParentModuleRecord),
         dependencies: Optional(Array(MinecraftModuleDependencyRecord).Or(Null)),
         peer_dependencies: Optional(Array(MinecraftModuleDependencyRecord).Or(Null)),
     }),

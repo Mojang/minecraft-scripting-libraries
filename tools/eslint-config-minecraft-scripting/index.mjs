@@ -70,7 +70,7 @@ export default tsEslint.config(
     },
     // Disable type checked rules for workspace root JS and config files
     {
-        files: ['*.{js,cjs,mjs}', '*.config.{ts,cts,mts}'],
+        files: ['**/*.{js,cjs,mjs}', '*.config.{ts,cts,mts}'],
         extends: [tsEslint.configs.disableTypeChecked],
     }
 );

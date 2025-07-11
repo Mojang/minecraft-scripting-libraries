@@ -71,24 +71,22 @@ export class MinecraftRelease {
     copy(): MinecraftRelease {
         const result = new MinecraftRelease(this.minecraft_version);
 
-        /* eslint-disable @typescript-eslint/no-unsafe-assignment */
         for (const module of this.script_modules) {
-            result.script_modules.push(JSON.parse(JSON.stringify(module)));
+            result.script_modules.push(JSON.parse(JSON.stringify(module)) as MinecraftScriptModule);
         }
         for (const module of this.command_modules) {
-            result.command_modules.push(JSON.parse(JSON.stringify(module)));
+            result.command_modules.push(JSON.parse(JSON.stringify(module)) as MinecraftCommandModule);
         }
         for (const module of this.block_modules) {
-            result.block_modules.push(JSON.parse(JSON.stringify(module)));
+            result.block_modules.push(JSON.parse(JSON.stringify(module)) as MinecraftBlockModule);
         }
         for (const module of this.vanilla_data_modules) {
-            result.vanilla_data_modules.push(JSON.parse(JSON.stringify(module)));
+            result.vanilla_data_modules.push(JSON.parse(JSON.stringify(module)) as MinecraftVanillaDataModule);
         }
         for (const module of this.engine_data_modules) {
-            result.engine_data_modules.push(JSON.parse(JSON.stringify(module)));
+            result.engine_data_modules.push(JSON.parse(JSON.stringify(module)) as MinecraftEngineDataModule);
         }
-        result.json_schemas = JSON.parse(JSON.stringify(this.json_schemas));
-        /* eslint-enable @typescript-eslint/no-unsafe-assignment */
+        result.json_schemas = JSON.parse(JSON.stringify(this.json_schemas)) as MinecraftJsonSchemaMap;
 
         return result;
     }

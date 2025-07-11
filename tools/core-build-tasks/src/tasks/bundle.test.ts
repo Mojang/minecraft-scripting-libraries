@@ -62,7 +62,7 @@ describe('postProcessOutputFiles with source map files at different path', () =>
             expect(result.generatedFiles[expectedOutputFilePath]).toBeDefined();
             expect(result.generatedFiles[expectedOutputFilePath]).toBe(expectedSourceMappingURL);
             expect(result.generatedFiles[expectedSourceMapFilePath]).toBeDefined();
-            const sourceMap = JSON.parse(result.generatedFiles[expectedSourceMapFilePath]);
+            const sourceMap = JSON.parse(result.generatedFiles[expectedSourceMapFilePath]) as { file: string };
             expect(sourceMap).toBeDefined();
             expect(sourceMap.file).toBeDefined();
             expect(sourceMap.file).toBe(expectedSourceMapFile);
@@ -90,7 +90,7 @@ describe('postProcessOutputFiles with source map files at different path', () =>
             expect(result.generatedFiles[expectedOutputFilePath]).toBeDefined();
             expect(result.generatedFiles[expectedOutputFilePath]).toBe(expectedSourceMappingURL);
             expect(result.generatedFiles[expectedSourceMapFilePath]).toBeDefined();
-            const sourceMap = JSON.parse(result.generatedFiles[expectedSourceMapFilePath]);
+            const sourceMap = JSON.parse(result.generatedFiles[expectedSourceMapFilePath]) as { file: string };
             expect(sourceMap).toBeDefined();
             expect(sourceMap.file).toBeDefined();
             expect(sourceMap.file).toBe(expectedSourceMapFile);
@@ -118,7 +118,7 @@ describe('postProcessOutputFiles with source map files at different path', () =>
             expect(result.generatedFiles[expectedOutputFilePath]).toBeDefined();
             expect(result.generatedFiles[expectedOutputFilePath]).toBe(expectedSourceMappingURL);
             expect(result.generatedFiles[expectedSourceMapFilePath]).toBeDefined();
-            const sourceMap = JSON.parse(result.generatedFiles[expectedSourceMapFilePath]);
+            const sourceMap = JSON.parse(result.generatedFiles[expectedSourceMapFilePath]) as { file: string };
             expect(sourceMap).toBeDefined();
             expect(sourceMap.file).toBeDefined();
             expect(sourceMap.file).toBe(expectedSourceMapFile);
@@ -146,7 +146,7 @@ describe('postProcessOutputFiles with source map files at different path', () =>
             expect(result.generatedFiles[expectedOutputFilePath]).toBeDefined();
             expect(result.generatedFiles[expectedOutputFilePath]).toBe(expectedSourceMappingURL);
             expect(result.generatedFiles[expectedSourceMapFilePath]).toBeDefined();
-            const sourceMap = JSON.parse(result.generatedFiles[expectedSourceMapFilePath]);
+            const sourceMap = JSON.parse(result.generatedFiles[expectedSourceMapFilePath]) as { file: string };
             expect(sourceMap).toBeDefined();
             expect(sourceMap.file).toBeDefined();
             expect(sourceMap.file).toBe(expectedSourceMapFile);
@@ -174,7 +174,7 @@ describe('postProcessOutputFiles with source map files at different path', () =>
             expect(result.generatedFiles[expectedOutputFilePath]).toBeDefined();
             expect(result.generatedFiles[expectedOutputFilePath]).toBe(expectedSourceMappingURL);
             expect(result.generatedFiles[expectedSourceMapFilePath]).toBeDefined();
-            const sourceMap = JSON.parse(result.generatedFiles[expectedSourceMapFilePath]);
+            const sourceMap = JSON.parse(result.generatedFiles[expectedSourceMapFilePath]) as { file: string };
             expect(sourceMap).toBeDefined();
             expect(sourceMap.file).toBeDefined();
             expect(sourceMap.file).toBe(expectedSourceMapFile);
@@ -205,7 +205,7 @@ describe('postProcessOutputFiles with source map files at same path', () => {
             expect(result.generatedFiles[expectedOutputFilePath]).toBeDefined();
             expect(result.generatedFiles[expectedOutputFilePath]).toBe(expectedSourceMappingURL);
             expect(result.generatedFiles[expectedSourceMapFilePath]).toBeDefined();
-            const sourceMap = JSON.parse(result.generatedFiles[expectedSourceMapFilePath]);
+            const sourceMap = JSON.parse(result.generatedFiles[expectedSourceMapFilePath]) as { file: string };
             expect(sourceMap).toBeDefined();
             expect(sourceMap.file).toBeDefined();
             expect(sourceMap.file).toBe(expectedSourceMapFile);
@@ -233,7 +233,7 @@ describe('postProcessOutputFiles with source map files at same path', () => {
             expect(result.generatedFiles[expectedOutputFilePath]).toBeDefined();
             expect(result.generatedFiles[expectedOutputFilePath]).toBe(expectedSourceMappingURL);
             expect(result.generatedFiles[expectedSourceMapFilePath]).toBeDefined();
-            const sourceMap = JSON.parse(result.generatedFiles[expectedSourceMapFilePath]);
+            const sourceMap = JSON.parse(result.generatedFiles[expectedSourceMapFilePath]) as { file: string };
             expect(sourceMap).toBeDefined();
             expect(sourceMap.file).toBeDefined();
             expect(sourceMap.file).toBe(expectedSourceMapFile);
@@ -261,7 +261,7 @@ describe('postProcessOutputFiles with source map files at same path', () => {
             expect(result.generatedFiles[expectedOutputFilePath]).toBeDefined();
             expect(result.generatedFiles[expectedOutputFilePath]).toBe(expectedSourceMappingURL);
             expect(result.generatedFiles[expectedSourceMapFilePath]).toBeDefined();
-            const sourceMap = JSON.parse(result.generatedFiles[expectedSourceMapFilePath]);
+            const sourceMap = JSON.parse(result.generatedFiles[expectedSourceMapFilePath]) as { file: string };
             expect(sourceMap).toBeDefined();
             expect(sourceMap.file).toBeDefined();
             expect(sourceMap.file).toBe(expectedSourceMapFile);
@@ -289,7 +289,7 @@ describe('postProcessOutputFiles with source map files at same path', () => {
             expect(result.generatedFiles[expectedOutputFilePath]).toBeDefined();
             expect(result.generatedFiles[expectedOutputFilePath]).toBe(expectedSourceMappingURL);
             expect(result.generatedFiles[expectedSourceMapFilePath]).toBeDefined();
-            const sourceMap = JSON.parse(result.generatedFiles[expectedSourceMapFilePath]);
+            const sourceMap = JSON.parse(result.generatedFiles[expectedSourceMapFilePath]) as { file: string };
             expect(sourceMap).toBeDefined();
             expect(sourceMap.file).toBeDefined();
             expect(sourceMap.file).toBe(expectedSourceMapFile);
@@ -317,7 +317,7 @@ describe('postProcessOutputFiles with source map files at same path', () => {
             expect(result.generatedFiles[expectedOutputFilePath]).toBeDefined();
             expect(result.generatedFiles[expectedOutputFilePath]).toBe(expectedSourceMappingURL);
             expect(result.generatedFiles[expectedSourceMapFilePath]).toBeDefined();
-            const sourceMap = JSON.parse(result.generatedFiles[expectedSourceMapFilePath]);
+            const sourceMap = JSON.parse(result.generatedFiles[expectedSourceMapFilePath]) as { file: string };
             expect(sourceMap).toBeDefined();
             expect(sourceMap.file).toBeDefined();
             expect(sourceMap.file).toBe(expectedSourceMapFile);
@@ -345,7 +345,7 @@ describe('postProcessOutputFiles with source map files at same path', () => {
             expect(result.generatedFiles[expectedOutputFilePath]).toBeDefined();
             expect(result.generatedFiles[expectedOutputFilePath]).toBe(expectedSourceMappingURL);
             expect(result.generatedFiles[expectedSourceMapFilePath]).toBeDefined();
-            const sourceMap = JSON.parse(result.generatedFiles[expectedSourceMapFilePath]);
+            const sourceMap = JSON.parse(result.generatedFiles[expectedSourceMapFilePath]) as { file: string };
             expect(sourceMap).toBeDefined();
             expect(sourceMap.file).toBeDefined();
             expect(sourceMap.file).toBe(expectedSourceMapFile);

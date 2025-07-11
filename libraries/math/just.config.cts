@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
 import { execSync } from 'child_process';
 import { argv, series, task, tscTask } from 'just-scripts';
 import {
@@ -8,7 +11,7 @@ import {
     publishReleaseTask,
     vitestTask,
 } from '@minecraft/core-build-tasks';
-import { copyFileSync, createWriteStream, readFileSync } from 'node:fs';
+import { copyFileSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const isOnlyBuild = argv()._.findIndex(arg => arg === 'test') === -1;

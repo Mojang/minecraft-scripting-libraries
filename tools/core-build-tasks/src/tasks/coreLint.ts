@@ -54,7 +54,7 @@ function eslintTask(fix?: boolean): TaskFunction {
 function prettierTask(files?: string[], fix?: boolean): TaskFunction {
     return () => {
         if (!files || files.length === 0) {
-            // No-op if no files specified for prettier
+            // No-op if no files specified for prettier.
             return Promise.resolve();
         }
 

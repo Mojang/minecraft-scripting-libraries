@@ -89,8 +89,8 @@ const makeScriptDependentModule = (version: string): MinecraftScriptModule => {
     };
 };
 
-describe('Common Filters', () => {
-    it('generate_available_module_lists does not crash on missing modules', () => {
+describe('generate_available_module_lists', () => {
+    it('does not crash on missing modules', () => {
         const release = new MinecraftRelease('0.1.0');
 
         const latest = makeScriptModule('3.2.0-beta');
@@ -102,7 +102,7 @@ describe('Common Filters', () => {
         expect(module.previous_module_version_chunks[0].versions).toEqual(['1.1.0', '1.0.0']);
     });
 
-    it('generate_available_module_lists does not crash on one beta module', () => {
+    it('does not crash on one beta module', () => {
         const release = new MinecraftRelease('0.1.0');
 
         const latest = makeScriptModule('3.2.0-beta');
@@ -114,7 +114,7 @@ describe('Common Filters', () => {
         expect(module.previous_module_version_chunks.length).toBe(0);
     });
 
-    it('generate_available_module_lists does not crash on one stable module', () => {
+    it('does not crash on one stable module', () => {
         const release = new MinecraftRelease('0.1.0');
 
         const latest = makeScriptModule('1.0.0');
@@ -125,8 +125,10 @@ describe('Common Filters', () => {
         const module = release.script_modules.find(module => module.version === '1.0.0');
         expect(module.previous_module_version_chunks.length).toBe(0);
     });
+});
 
-    it('upgrade_from_module_to_base does not upgrade from_module to base if depending on parent', () => {
+describe('upgrade_from_module_to_base', () => {
+    it('does not upgrade from_module to base if depending on parent', () => {
         const release = new MinecraftRelease('0.1.0');
         const server = makeScriptModule('1.0.0');
         const latestServer = makeScriptModule('1.1.0');
@@ -190,7 +192,7 @@ describe('Common Filters', () => {
         ).toBe('@minecraft/server-bindings');
     });
 
-    it('upgrade_from_module_to_base successfully upgrades from_module to base', () => {
+    it('successfully upgrades from_module to base if module depends on base', () => {
         const release = new MinecraftRelease('0.1.0');
         const server = makeScriptModule('1.0.0');
         const latestServer = makeScriptModule('1.1.0');

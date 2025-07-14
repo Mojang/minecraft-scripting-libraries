@@ -3255,39 +3255,6 @@ function addRuntimeConditionsFlag(releases: MinecraftRelease[]) {
     }
 }
 
-function upgradeDependenciesToBaseModule(releases: MinecraftRelease[]) {
-    for (const release of releases) {
-        const scriptModules = getLatestScriptModules(release.script_modules);
-        const uuidToLatestBase = Object.fromEntries(
-            scriptModules.map(m => {
-                if (!m.base_module) {
-                    return [m.uuid, undefined];
-                }
-                return [m.uuid, scriptModules.find(m1 => m1.name === m.base_module.name)];
-            })
-        );
-        for (const scriptModule of release.script_modules) {
-            if (!scriptModule.dependencies) {
-                continue;
-            }
-
-            scriptModule.dependencies.forEach(dep => {
-                if (!dep.uuid) {
-                    return;
-                }
-
-                if (!uuidToLatestBase[dep.uuid]) {
-                    return;
-                }
-
-                const base = uuidToLatestBase[dep.uuid];
-                dep.name = base.name;
-                dep.uuid = base.uuid;
-            });
-        }
-    }
-}
-
 function upgradeFromModuleToBaseModule(releases: MinecraftRelease[]) {
     for (const release of releases) {
         const scriptModules = getLatestScriptModules(release.script_modules);
@@ -3309,6 +3276,10 @@ function upgradeFromModuleToBaseModule(releases: MinecraftRelease[]) {
                     }
                     if (uuidToLatestBase[jsonObject.from_module.uuid]) {
                         const base = uuidToLatestBase[jsonObject.from_module.uuid];
+                        if (scriptModule.dependencies.every(d => d.uuid !== base.uuid)) {
+                            // Only change dependency if we rely on base module
+                            return;
+                        }
                         jsonObject.from_module.name = base.name;
                         jsonObject.from_module.uuid = base.uuid;
                     }
@@ -3325,7 +3296,6 @@ export const CommonFilters: FilterGroup = {
         ['default_module_categories', defaultModuleCategories], // No dependencies
         ['link_derived_types', linkDerivedTypes], // No dependencies
         ['upgrade_from_module_to_base', upgradeFromModuleToBaseModule], // No dependencies
-        ['upgrade_dependencies_to_base_module', upgradeDependenciesToBaseModule], // No dependencies
         ['add_from_module_to_root', addFromModuleToRoot], // No dependencies
         ['external_module_flag', fromExternalModule], // Depends on link_derived_types, add_from_module_to_root
         ['add_from_module_to_dependencies', addFromModuleToDependencies], // Run after upgrade_from_module_to_base for perf

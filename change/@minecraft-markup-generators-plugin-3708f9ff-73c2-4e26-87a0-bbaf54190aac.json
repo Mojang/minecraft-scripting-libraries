@@ -1,7 +1,0 @@
-{
-  "type": "none",
-  "comment": "Linting fixes",
-  "packageName": "@minecraft/markup-generators-plugin",
-  "email": "zachary.campbell@skyboxlabs.com",
-  "dependentChangeType": "none"
-}

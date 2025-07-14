@@ -2,6 +2,29 @@
   "name": "@minecraft/api-docs-generator",
   "entries": [
     {
+      "date": "Mon, 14 Jul 2025 15:34:00 GMT",
+      "version": "1.1.0",
+      "tag": "@minecraft/api-docs-generator_v1.1.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "jake@xbox.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "5f36c265c76bb8453750ab544b06327632e2a3ba",
+            "comment": "Added support for Error types as function arguments to the TypeScript generator.  They will be typed as 'unknown'"
+          }
+        ],
+        "none": [
+          {
+            "author": "zachary.campbell@skyboxlabs.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "5f36c265c76bb8453750ab544b06327632e2a3ba",
+            "comment": "Linting fixes"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 26 Jun 2025 22:33:37 GMT",
       "version": "1.0.0",
       "tag": "@minecraft/api-docs-generator_v1.0.0",

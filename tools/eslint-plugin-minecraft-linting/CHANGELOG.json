@@ -2,6 +2,21 @@
   "name": "eslint-plugin-minecraft-linting",
   "entries": [
     {
+      "date": "Mon, 14 Jul 2025 15:34:00 GMT",
+      "version": "2.0.6",
+      "tag": "eslint-plugin-minecraft-linting_v2.0.6",
+      "comments": {
+        "patch": [
+          {
+            "author": "zachary.campbell@skyboxlabs.com",
+            "package": "eslint-plugin-minecraft-linting",
+            "commit": "5f36c265c76bb8453750ab544b06327632e2a3ba",
+            "comment": "Update dependencies"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 26 Jun 2025 22:33:37 GMT",
       "version": "2.0.5",
       "tag": "eslint-plugin-minecraft-linting_v2.0.5",

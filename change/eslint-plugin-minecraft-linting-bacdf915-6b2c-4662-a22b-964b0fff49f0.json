@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Update dependencies",
-  "packageName": "eslint-plugin-minecraft-linting",
-  "email": "zachary.campbell@skyboxlabs.com",
-  "dependentChangeType": "none"
-}

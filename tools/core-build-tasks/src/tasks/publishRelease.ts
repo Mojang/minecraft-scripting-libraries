@@ -68,7 +68,7 @@ async function createFilesArtifactZip(artifact: FilesArtifact, releaseTag: strin
     try {
         const archive = archiver('zip', { zlib: { level: 9 } });
         archive.on('error', err => {
-            throw new Error(`Failed to create archive for release: ${err}`);
+            throw new Error(`Failed to create archive for release: ${err.message}`);
         });
 
         archive.pipe(output);
@@ -127,9 +127,14 @@ async function uploadArtifact(
         },
     });
     if (response.status !== 201) {
+        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
         throw new Error(`Failed to create release. Status: ${response.status}`);
     }
 }
+
+type BeachballChangelog = {
+    entries: { comments: { [version: string]: { author: string; commit: string; comment: string }[] } }[];
+};
 
 export function publishReleaseTask(config: PublishReleaseTaskConfig): TaskFunction {
     return async () => {
@@ -156,7 +161,7 @@ export function publishReleaseTask(config: PublishReleaseTaskConfig): TaskFuncti
         // To get the body of the release, read in the CHANGELOG.json file, read the "entries" array, get the first entry, go to the comments object,
         // then collect the "body" field of each comment. Join all of these together with a newline character. There is a comments key for each type
         // of release "major", "minor", "patch", "none"
-        const changelog = JSON.parse(fs.readFileSync('./CHANGELOG.json', 'utf-8'));
+        const changelog = JSON.parse(fs.readFileSync('./CHANGELOG.json', 'utf-8')) as BeachballChangelog;
         const firstEntry = changelog['entries'][0];
         if (!firstEntry) {
             throw new Error(
@@ -164,11 +169,10 @@ export function publishReleaseTask(config: PublishReleaseTaskConfig): TaskFuncti
             );
         }
 
-        const comments: { [version: string]: { author: string; commit: string; comment: string }[] } =
-            firstEntry['comments'];
+        const comments = firstEntry['comments'];
         let body: string = `${message}\n\n# Changes\n\n`;
         for (const [key, value] of Object.entries(comments)) {
-            // Key is the version type, value is an array of entries
+            // Key is the version type, value is an array of comments
             body += `## ${key[0].toUpperCase()}${key.slice(1)}\n\n${value
                 .map(entry => `- ${entry.author} (${entry.commit}):\n${entry.comment}`)
                 .join('\n')}\n\n`;
@@ -192,6 +196,7 @@ export function publishReleaseTask(config: PublishReleaseTaskConfig): TaskFuncti
         });
 
         if (response.status !== 201) {
+            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
             throw new Error(`Failed to create release. Status: ${response.status}`);
         }
         const releaseId = response.data.id;

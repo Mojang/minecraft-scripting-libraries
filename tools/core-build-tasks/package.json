@@ -1,6 +1,6 @@
 {
   "name": "@minecraft/core-build-tasks",
-  "version": "5.2.0",
+  "version": "5.3.0",
   "description": "Common build tasks used for minecraft-scripting-libraries",
   "exports": {
     "types": "./lib/index.d.ts",
@@ -49,7 +49,6 @@
     "@types/archiver": "^6.0.0",
     "@types/node": "^22.0.0",
     "@types/rimraf": "^3.0.2",
-    "@typescript-eslint/parser": "^8.18.1",
     "archiver": "^6.0.0",
     "ts-node": "^10.9.1",
     "tsconfig": "*"

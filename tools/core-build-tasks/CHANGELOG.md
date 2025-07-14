@@ -1,8 +1,16 @@
 # Change Log - @minecraft/core-build-tasks
 
-<!-- This log was last generated on Thu, 26 Jun 2025 22:33:37 GMT and should not be manually modified. -->
+<!-- This log was last generated on Mon, 14 Jul 2025 15:34:00 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 5.3.0
+
+Mon, 14 Jul 2025 15:34:00 GMT
+
+### Minor changes
+
+- Update coreLint task to run on whole working directory, linting fixes (zachary.campbell@skyboxlabs.com)
 
 ## 5.2.0
 

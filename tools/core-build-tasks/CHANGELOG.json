@@ -2,6 +2,21 @@
   "name": "@minecraft/core-build-tasks",
   "entries": [
     {
+      "date": "Mon, 14 Jul 2025 15:34:00 GMT",
+      "version": "5.3.0",
+      "tag": "@minecraft/core-build-tasks_v5.3.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "zachary.campbell@skyboxlabs.com",
+            "package": "@minecraft/core-build-tasks",
+            "commit": "5f36c265c76bb8453750ab544b06327632e2a3ba",
+            "comment": "Update coreLint task to run on whole working directory, linting fixes"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 26 Jun 2025 22:33:37 GMT",
       "version": "5.2.0",
       "tag": "@minecraft/core-build-tasks_v5.2.0",

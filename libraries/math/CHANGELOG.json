@@ -2,6 +2,21 @@
   "name": "@minecraft/math",
   "entries": [
     {
+      "date": "Mon, 14 Jul 2025 15:34:00 GMT",
+      "version": "2.2.7",
+      "tag": "@minecraft/math_v2.2.7",
+      "comments": {
+        "none": [
+          {
+            "author": "zachary.campbell@skyboxlabs.com",
+            "package": "@minecraft/math",
+            "commit": "5f36c265c76bb8453750ab544b06327632e2a3ba",
+            "comment": "Linting fixes"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 30 Jun 2025 16:30:31 GMT",
       "version": "2.2.7",
       "tag": "@minecraft/math_v2.2.7",

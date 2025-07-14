@@ -2,6 +2,27 @@
   "name": "@minecraft/markup-generators-plugin",
   "entries": [
     {
+      "date": "Mon, 14 Jul 2025 15:34:00 GMT",
+      "version": "1.0.0",
+      "tag": "@minecraft/markup-generators-plugin_v1.0.0",
+      "comments": {
+        "none": [
+          {
+            "author": "zachary.campbell@skyboxlabs.com",
+            "package": "@minecraft/markup-generators-plugin",
+            "commit": "5f36c265c76bb8453750ab544b06327632e2a3ba",
+            "comment": "Linting fixes"
+          },
+          {
+            "author": "beachball",
+            "package": "@minecraft/markup-generators-plugin",
+            "comment": "Bump @minecraft/api-docs-generator to v1.1.0",
+            "commit": "not available"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 26 Jun 2025 22:33:37 GMT",
       "version": "1.0.0",
       "tag": "@minecraft/markup-generators-plugin_v1.0.0",

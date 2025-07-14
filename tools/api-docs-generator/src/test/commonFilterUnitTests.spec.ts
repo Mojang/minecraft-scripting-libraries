@@ -14,7 +14,7 @@ function callFilter(name: string, releases: MinecraftRelease[]) {
             return;
         }
     }
-    throw `Could not find filter ${name}`;
+    throw new Error(`Could not find filter ${name}`);
 }
 
 const SERVER_UUID = '1234';

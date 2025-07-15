@@ -173,7 +173,7 @@ function mergeScriptModule(base: MinecraftScriptModule, parent: MinecraftScriptM
 /**
  * Merges each script module that specifies a 'parentModule' with it's parent, returning the list of all modules after merging.
  *
- * If 'includeParentModules' is true, parent modules will be generated on their own in addition to the merged modules.
+ * If 'includeBaseModules' is true, base modules will be generated on their own in addition to the merged modules.
  */
 export function getMergedScriptModules(
     includeBaseModules: boolean,

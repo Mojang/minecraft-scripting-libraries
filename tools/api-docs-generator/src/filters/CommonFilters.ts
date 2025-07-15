@@ -52,6 +52,7 @@ import {
     MinecraftError,
     MinecraftFunction,
     MinecraftInterface,
+    MinecraftModuleDependency,
     MinecraftModuleDescription,
     MinecraftObject,
     MinecraftProperty,
@@ -3276,7 +3277,11 @@ function upgradeFromModuleToBaseModule(releases: MinecraftRelease[]) {
                     }
                     if (uuidToLatestBase[jsonObject.from_module.uuid]) {
                         const base = uuidToLatestBase[jsonObject.from_module.uuid];
-                        if (scriptModule.dependencies.every(d => d.uuid !== base.uuid)) {
+                        const dependencies: MinecraftModuleDependency[] = scriptModule.dependencies.concat(
+                            scriptModule.peer_dependencies ?? []
+                        );
+
+                        if (dependencies.every(d => d.uuid !== base.uuid)) {
                             // Only change dependency if we rely on base module
                             return;
                         }

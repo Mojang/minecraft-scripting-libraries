@@ -52,6 +52,7 @@ import {
     MinecraftError,
     MinecraftFunction,
     MinecraftInterface,
+    MinecraftModuleDependency,
     MinecraftModuleDescription,
     MinecraftObject,
     MinecraftProperty,
@@ -3255,15 +3256,54 @@ function addRuntimeConditionsFlag(releases: MinecraftRelease[]) {
     }
 }
 
+function upgradeFromModuleToBaseModule(releases: MinecraftRelease[]) {
+    for (const release of releases) {
+        const scriptModules = getLatestScriptModules(release.script_modules);
+        const uuidToLatestBase = Object.fromEntries(
+            scriptModules.map(m => {
+                if (!m.base_module) {
+                    return [m.uuid, undefined];
+                }
+                return [m.uuid, scriptModules.find(m1 => m1.name === m.base_module.name)];
+            })
+        );
+        for (const scriptModule of release.script_modules) {
+            utils.scanObjectForMemberWithName(
+                scriptModule,
+                'from_module',
+                (jsonObject: Record<string, MinecraftModuleDescription>) => {
+                    if (jsonObject.from_module.uuid === scriptModule.uuid) {
+                        return;
+                    }
+                    if (uuidToLatestBase[jsonObject.from_module.uuid]) {
+                        const base = uuidToLatestBase[jsonObject.from_module.uuid];
+                        const dependencies: MinecraftModuleDependency[] = scriptModule.dependencies.concat(
+                            scriptModule.peer_dependencies ?? []
+                        );
+
+                        if (dependencies.every(d => d.uuid !== base.uuid)) {
+                            // Only change dependency if we rely on base module
+                            return;
+                        }
+                        jsonObject.from_module.name = base.name;
+                        jsonObject.from_module.uuid = base.uuid;
+                    }
+                }
+            );
+        }
+    }
+}
+
 export const CommonFilters: FilterGroup = {
     id: 'common',
     filters: [
         ['mark_prerelease_modules', markModulesWithPrerelease], // No dependencies
         ['default_module_categories', defaultModuleCategories], // No dependencies
         ['link_derived_types', linkDerivedTypes], // No dependencies
+        ['upgrade_from_module_to_base', upgradeFromModuleToBaseModule], // No dependencies
         ['add_from_module_to_root', addFromModuleToRoot], // No dependencies
         ['external_module_flag', fromExternalModule], // Depends on link_derived_types, add_from_module_to_root
-        ['add_from_module_to_dependencies', addFromModuleToDependencies], // No dependencies
+        ['add_from_module_to_dependencies', addFromModuleToDependencies], // Run after upgrade_from_module_to_base for perf
         ['set_from_module_to_dependent_modules', setFromModuleToDependentModules], // No dependencies
         ['markup_latest_modules', markupLatestModules], // Depends on add_from_module_to_root, add_from_module_to_dependencies, set_from_module_to_dependent_modules
         ['markup_names', markupNames], // Depends on add_from_module_to_dependencies, markup_latest_modules

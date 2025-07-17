@@ -58,34 +58,19 @@ exports[`Only Generate Latest Script Module Versions > Generates correct output 
   },
   {
     "version": "1.1.0",
-    "dependencies": [],
-    "peer_dependencies": [],
-    "classes": [],
-    "interfaces": [],
-    "errors": [],
-    "objects": [],
-    "functions": [],
+    "$added": true,
     "constants": [
       {
-        "name": "GlobalConstantV110",
-        "$added": true,
         "is_read_only": true,
         "is_static": true,
+        "name": "GlobalConstantV110",
         "type": {
           "is_bind_type": false,
           "is_errorable": false,
           "name": "int32"
         },
         "value": 8
-      }
-    ],
-    "enums": [],
-    "type_aliases": []
-  },
-  {
-    "version": "1.0.0",
-    "$added": true,
-    "constants": [
+      },
       {
         "is_read_only": true,
         "is_static": true,
@@ -186,15 +171,12 @@ description: Changelog of the \`test-module\` module
 - [2.1.0-beta](#210-beta)
 - [2.0.0](#200)
 - [1.1.0](#110)
-- [1.0.0](#100)
 
 ## 2.1.0-beta
 #### Added constant \`GlobalConstantV210Beta\`
 ## 2.0.0
 #### Added constant \`GlobalConstantV200\`
 ## 1.1.0
-#### Added constant \`GlobalConstantV110\`
-## 1.0.0
 #### Added \`test-module\` Module
 "
 `;
@@ -282,9 +264,6 @@ exports[`Only Generate Latest Script Module Versions > Generates correct output 
 - Added constant \`GlobalConstantV200\`
 
 === 1.1.0 ===
-- Added constant \`GlobalConstantV110\`
-
-=== 1.0.0 ===
 - Added \`test-module\` module
 
 == /Change Log =="

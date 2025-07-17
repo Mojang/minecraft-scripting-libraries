@@ -173,10 +173,10 @@ function mergeScriptModule(base: MinecraftScriptModule, parent: MinecraftScriptM
 /**
  * Merges each script module that specifies a 'parentModule' with it's parent, returning the list of all modules after merging.
  *
- * If 'includeParentModules' is true, parent modules will be generated on their own in addition to the merged modules.
+ * If 'includeBaseModules' is true, base modules will be generated on their own in addition to the merged modules.
  */
-function getMergedScriptModules(
-    context: GeneratorContext,
+export function getMergedScriptModules(
+    includeBaseModules: boolean,
     scriptModules: MinecraftScriptModule[]
 ): MinecraftScriptModule[] {
     const standardModules = new Map<string, MinecraftScriptModule>();
@@ -221,8 +221,13 @@ function getMergedScriptModules(
             `Merging parent module '${parentName}@${parentVersion}' into '${moduleToParent.name}@${moduleToParent.version}'.`
         );
         const mergedModule = mergeScriptModule(moduleToParent, parent);
+        mergedModule.parentModule = moduleToParent.parentModule;
+        parent.base_module = {
+            name: moduleToParent.name,
+            version: moduleToParent.version,
+        };
 
-        if (!context.includeBaseModules) {
+        if (!includeBaseModules) {
             standardModules.delete(`${parentName}_${parentVersion}_${minecraftVersion}`);
         }
 
@@ -352,7 +357,7 @@ function loadMinecraftReleases(context: GeneratorContext): MinecraftReleasesByVe
 
     const scriptModulesToProcess = context.skipMerging
         ? allScriptModules
-        : getMergedScriptModules(context, allScriptModules);
+        : getMergedScriptModules(context.includeBaseModules, allScriptModules);
 
     for (const scriptModule of scriptModulesToProcess) {
         const moduleMinecraftVersion = scriptModule.minecraft_version;
@@ -607,12 +612,12 @@ export async function generate(options: GenerateOptions) {
         utils.reverseSemVerSortComparer('minecraft_version')
     );
 
+    filterIncludedModules(context, sortedMinecraftReleases);
+
     if (context.changelogStrategy.shouldGenerateChangelogs(sortedMinecraftReleases)) {
         const changelogGenerator = new ChangelogGenerator(context.changelogStrategy);
         changelogGenerator.generateChangelogs(sortedMinecraftReleases);
     }
-
-    filterIncludedModules(context, sortedMinecraftReleases);
 
     const filteredMinecraftReleases = markupFilters(context, sortedMinecraftReleases);
 

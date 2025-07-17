@@ -1,8 +1,16 @@
 # Change Log - @minecraft/api-docs-generator
 
-<!-- This log was last generated on Mon, 14 Jul 2025 15:34:00 GMT and should not be manually modified. -->
+<!-- This log was last generated on Thu, 17 Jul 2025 16:45:56 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 1.2.0
+
+Thu, 17 Jul 2025 16:45:56 GMT
+
+### Minor changes
+
+- Set all APIs from_module to the from_module's base module and all dependencies to the dependency's base module. (mike.demone@skyboxlabs.com)
 
 ## 1.1.0
 

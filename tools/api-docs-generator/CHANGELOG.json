@@ -2,6 +2,21 @@
   "name": "@minecraft/api-docs-generator",
   "entries": [
     {
+      "date": "Thu, 17 Jul 2025 16:45:56 GMT",
+      "version": "1.2.0",
+      "tag": "@minecraft/api-docs-generator_v1.2.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "mike.demone@skyboxlabs.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "362497d78a2d5188148eb616137aee0ae59414ff",
+            "comment": "Set all APIs from_module to the from_module's base module and all dependencies to the dependency's base module."
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 14 Jul 2025 15:34:00 GMT",
       "version": "1.1.0",
       "tag": "@minecraft/api-docs-generator_v1.1.0",

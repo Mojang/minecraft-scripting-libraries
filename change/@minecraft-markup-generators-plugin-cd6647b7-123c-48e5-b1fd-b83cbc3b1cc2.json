@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Fix tsdef generator and msdocs generator to properly recognize void vs undefined",
+  "packageName": "@minecraft/markup-generators-plugin",
+  "email": "mike.demone@skyboxlabs.com",
+  "dependentChangeType": "patch"
+}

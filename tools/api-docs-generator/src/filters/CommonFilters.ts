@@ -1638,7 +1638,8 @@ function typeAliasMarkup(releases: MinecraftRelease[]) {
  * Adds 'is_<type>' flags to APIs based on the type field.
  */
 function typeFlags(releases: MinecraftRelease[]) {
-    const fixType = (typeJson: MinecraftType) => {
+    const fixType = (typeJson: MinecraftType, propertyName: string) => {
+        typeJson.is_void_return = typeJson.is_void_return ?? false;
         typeJson.is_string = typeJson.is_string ?? false;
         typeJson.is_undefined = typeJson.is_undefined ?? false;
         typeJson.is_any = typeJson.is_any ?? false;
@@ -1657,7 +1658,11 @@ function typeFlags(releases: MinecraftRelease[]) {
         if (typeJson.name === 'string') {
             typeJson.is_string = true;
         } else if (typeJson.name === 'undefined') {
-            typeJson.is_undefined = true;
+            if (propertyName === 'return_type') {
+                typeJson.is_void_return = true;
+            } else {
+                typeJson.is_undefined = true;
+            }
         } else if (typeJson.name === 'any') {
             typeJson.is_any = true;
         } else if (typeJson.name === 'closure') {
@@ -1692,9 +1697,9 @@ function typeFlags(releases: MinecraftRelease[]) {
                 (jsonObject: Record<string, MinecraftType | MinecraftType[]>, propertyName: string) => {
                     const typeJson = jsonObject[propertyName];
                     if (Array.isArray(typeJson)) {
-                        typeJson.forEach(fixType);
+                        typeJson.forEach(t => fixType(t, propertyName));
                     } else {
-                        fixType(typeJson);
+                        fixType(typeJson, propertyName);
                     }
                 }
             );

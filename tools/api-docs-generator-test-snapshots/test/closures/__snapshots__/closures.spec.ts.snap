@@ -29,7 +29,12 @@ description: Contents of the closure-tests.ExampleClass class.
 ### **closureWithVariantArg**
 \`read-only closureWithVariantArg?: (arg0: boolean | number) => void;\`
 
-Type: (arg0: *boolean* | *number*) => *void*
+Type: (arg0: *boolean* | *number*) => void
+
+### **closureWithVariantUndefinedArg**
+\`read-only closureWithVariantUndefinedArg: (arg0: undefined | number) => number | undefined;\`
+
+Type: (arg0: *undefined* | *number*) => *number | undefined*
 
 ## Methods
 - [constructor](#constructor)
@@ -41,7 +46,7 @@ new ExampleClass(onChange?: (arg0: boolean | number) => void)
 \`
 
 #### **Parameters**
-- **onChange**?: (arg0: *boolean* | *number*) => *void* = \`null\`
+- **onChange**?: (arg0: *boolean* | *number*) => void = \`null\`
 
 **Returns** [*ExampleClass*](ExampleClass.md)
 
@@ -51,7 +56,7 @@ methodWithMultiArgClosure(callback?: (arg0: boolean, arg1: number) => void): Exa
 \`
 
 #### **Parameters**
-- **callback**?: (arg0: *boolean*, arg1: *number*) => *void* = \`null\`
+- **callback**?: (arg0: *boolean*, arg1: *number*) => void = \`null\`
 
 **Returns** [*ExampleClass*](ExampleClass.md)
 "
@@ -109,6 +114,7 @@ exports[`Closures > Generates correct output closures > typescript/closure-tests
  */
 export class ExampleClass {
     readonly closureWithVariantArg?: (arg0: boolean | number) => void;
+    readonly closureWithVariantUndefinedArg: (arg0: undefined | number) => number | undefined;
     constructor(onChange?: (arg0: boolean | number) => void);
     methodWithMultiArgClosure(callback?: (arg0: boolean, arg1: number) => void): ExampleClass;
 }

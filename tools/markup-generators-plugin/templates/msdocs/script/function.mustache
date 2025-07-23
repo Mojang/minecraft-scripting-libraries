@@ -29,10 +29,10 @@
   {{/arguments}}
 {{/arguments.length}}
 {{#return_type}}
-{{^is_undefined}}
+{{^is_void_return}}
 
 **Returns** {{> type_with_links}}{{#is_optional}} | *undefined*{{/is_optional}}{{#returns_description_md}} - {{{returns_description_md}}}{{/returns_description_md}}
-{{/is_undefined}}
+{{/is_void_return}}
   {{#is_prerelease}}
 
 > [!CAUTION]

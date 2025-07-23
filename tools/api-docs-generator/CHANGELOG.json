@@ -2,6 +2,21 @@
   "name": "@minecraft/api-docs-generator",
   "entries": [
     {
+      "date": "Wed, 23 Jul 2025 19:09:54 GMT",
+      "version": "1.2.1",
+      "tag": "@minecraft/api-docs-generator_v1.2.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "mike.demone@skyboxlabs.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "a06c2f79d499a70a5250db98ed237da34b8f67e8",
+            "comment": "Mark up void return types with 'is_void_return' and remove 'is_undefined' from them."
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 17 Jul 2025 16:45:56 GMT",
       "version": "1.2.0",
       "tag": "@minecraft/api-docs-generator_v1.2.0",

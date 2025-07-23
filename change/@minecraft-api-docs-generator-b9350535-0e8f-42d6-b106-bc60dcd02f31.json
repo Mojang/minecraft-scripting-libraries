@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Mark up void return types with 'is_void_return' and remove 'is_undefined' from them.",
-  "packageName": "@minecraft/api-docs-generator",
-  "email": "mike.demone@skyboxlabs.com",
-  "dependentChangeType": "patch"
-}

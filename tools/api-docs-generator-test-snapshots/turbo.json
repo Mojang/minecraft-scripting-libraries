@@ -6,8 +6,8 @@
                 "plugin/*.ts",
                 "test/*.ts",
                 "test/**/*.spec.ts",
-                "test/**/*input*",
-                "test/**/*docs*"
+                "test/**/*input*/**",
+                "test/**/*docs*/**"
             ],
             "outputs": [
                 "test/**/*output",

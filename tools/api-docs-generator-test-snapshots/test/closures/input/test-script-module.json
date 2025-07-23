@@ -169,16 +169,16 @@
                     {
                       "is_bind_type": false,
                       "is_errorable": false,
-                      "name": "undefined"
-                    },
-                    {
-                      "is_bind_type": false,
-                      "is_errorable": false,
                       "name": "float",
                       "valid_range": {
                         "max": 2147483647,
                         "min": -2147483648
                       }
+                    },
+                    {
+                      "is_bind_type": false,
+                      "is_errorable": false,
+                      "name": "undefined"
                     }
                   ]
                 }

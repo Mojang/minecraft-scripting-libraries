@@ -29,7 +29,7 @@ description: Contents of the closure-tests.ExampleClass class.
 ### **closureWithVariantArg**
 \`read-only closureWithVariantArg?: (arg0: boolean | number) => void;\`
 
-Type: (arg0: *boolean* | *number*) => void
+Type: (arg0: *boolean* | *number*) => *void*
 
 ### **closureWithVariantUndefinedArg**
 \`read-only closureWithVariantUndefinedArg: (arg0: undefined | number) => number | undefined;\`
@@ -46,7 +46,7 @@ new ExampleClass(onChange?: (arg0: boolean | number) => void)
 \`
 
 #### **Parameters**
-- **onChange**?: (arg0: *boolean* | *number*) => void = \`null\`
+- **onChange**?: (arg0: *boolean* | *number*) => *void* = \`null\`
 
 **Returns** [*ExampleClass*](ExampleClass.md)
 
@@ -56,7 +56,7 @@ methodWithMultiArgClosure(callback?: (arg0: boolean, arg1: number) => void): Exa
 \`
 
 #### **Parameters**
-- **callback**?: (arg0: *boolean*, arg1: *number*) => void = \`null\`
+- **callback**?: (arg0: *boolean*, arg1: *number*) => *void* = \`null\`
 
 **Returns** [*ExampleClass*](ExampleClass.md)
 "

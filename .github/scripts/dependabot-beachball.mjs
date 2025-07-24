@@ -21,8 +21,6 @@ function determineChangeType(commitMessage) {
     // Search for keywords to determine change type. This is best effort and intended to be reviewed at PR time.
     if (/breaking|major/i.test(commitMessage)) {
         return 'major';
-    } else if (/feat|feature|minor/i.test(commitMessage)) {
-        return 'minor';
     } else {
         return 'patch';
     }

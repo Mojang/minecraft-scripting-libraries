@@ -33,7 +33,7 @@
   ],
   "dependencies": {
     "@microsoft/api-extractor": "^7.38.3",
-    "@rushstack/node-core-library": "^5.13.0",
+    "@rushstack/node-core-library": "^5.14.0",
     "dotenv": "^16.4.5",
     "esbuild": "^0.25.0",
     "eslint": "^9.17.0",

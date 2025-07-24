@@ -37,7 +37,7 @@
         "tools/*"
     ],
     "devDependencies": {
-        "@rushstack/node-core-library": "^5.13.0",
+        "@rushstack/node-core-library": "^5.14.0",
         "@types/glob": "^8.0.0",
         "@types/node": "^22.0.0",
         "beachball": "^2.39.0",

@@ -11,7 +11,8 @@
     "build": "just-scripts build",
     "clean": "just-scripts clean",
     "lint": "just-scripts lint",
-    "test": "just-scripts test"
+    "test": "just-scripts test",
+    "test:update": "just-scripts test --update"
   },
   "devDependencies": {
     "@minecraft/core-build-tasks": "*",

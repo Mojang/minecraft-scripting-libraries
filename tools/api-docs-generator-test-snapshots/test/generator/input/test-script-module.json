@@ -31,6 +31,32 @@
                 "is_errorable": false,
                 "name": "generator"
               }
+            },
+                        {
+              "details": null,
+              "name": "generatorWithVoids",
+              "type": {
+                "generator_type": {
+                  "next_type": {
+                    "is_bind_type": false,
+                    "is_errorable": false,
+                    "name": "undefined"
+                  },
+                  "return_type": {
+                    "is_bind_type": false,
+                    "is_errorable": false,
+                    "name": "undefined"
+                  },
+                  "yield_type": {
+                    "is_bind_type": false,
+                    "is_errorable": false,
+                    "name": "undefined"
+                  }
+                },
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "generator"
+              }
             }
           ],
           "is_constructor": false,

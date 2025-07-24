@@ -52,7 +52,7 @@
     "vitest": "^3.0.8"
   },
   "dependencies": {
-    "@rushstack/node-core-library": "^5.13.0",
+    "@rushstack/node-core-library": "^5.14.0",
     "esbuild": "^0.25.0",
     "mustache": "^4.2.0",
     "prettier": "^3.5.3",

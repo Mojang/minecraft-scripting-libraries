@@ -1,8 +1,17 @@
 # Change Log - @minecraft/core-build-tasks
 
-<!-- This log was last generated on Mon, 14 Jul 2025 15:34:00 GMT and should not be manually modified. -->
+<!-- This log was last generated on Thu, 24 Jul 2025 18:29:00 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 5.3.1
+
+Thu, 24 Jul 2025 18:29:00 GMT
+
+### Patches
+
+- build(dependabot): bump archiver from 6.0.2 to 7.0.1 (mc-npm@microsoft.com)
+- build(dependabot): bump @rushstack/node-core-library (mc-npm@microsoft.com)
 
 ## 5.3.0
 

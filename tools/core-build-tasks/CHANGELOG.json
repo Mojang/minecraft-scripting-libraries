@@ -2,6 +2,27 @@
   "name": "@minecraft/core-build-tasks",
   "entries": [
     {
+      "date": "Thu, 24 Jul 2025 18:29:00 GMT",
+      "version": "5.3.1",
+      "tag": "@minecraft/core-build-tasks_v5.3.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "mc-npm@microsoft.com",
+            "package": "@minecraft/core-build-tasks",
+            "commit": "ff9116108983e669dbcf12faddb833f04247f48e",
+            "comment": "build(dependabot): bump archiver from 6.0.2 to 7.0.1"
+          },
+          {
+            "author": "mc-npm@microsoft.com",
+            "package": "@minecraft/core-build-tasks",
+            "commit": "ff9116108983e669dbcf12faddb833f04247f48e",
+            "comment": "build(dependabot): bump @rushstack/node-core-library"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 14 Jul 2025 15:34:00 GMT",
       "version": "5.3.0",
       "tag": "@minecraft/core-build-tasks_v5.3.0",

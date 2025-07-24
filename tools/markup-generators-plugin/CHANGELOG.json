@@ -2,6 +2,27 @@
   "name": "@minecraft/markup-generators-plugin",
   "entries": [
     {
+      "date": "Thu, 24 Jul 2025 18:29:00 GMT",
+      "version": "1.0.3",
+      "tag": "@minecraft/markup-generators-plugin_v1.0.3",
+      "comments": {
+        "patch": [
+          {
+            "author": "mc-npm@microsoft.com",
+            "package": "@minecraft/markup-generators-plugin",
+            "commit": "ff9116108983e669dbcf12faddb833f04247f48e",
+            "comment": "build(dependabot): bump @rushstack/node-core-library"
+          },
+          {
+            "author": "beachball",
+            "package": "@minecraft/markup-generators-plugin",
+            "comment": "Bump @minecraft/api-docs-generator to v1.2.2",
+            "commit": "not available"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 23 Jul 2025 19:09:54 GMT",
       "version": "1.0.2",
       "tag": "@minecraft/markup-generators-plugin_v1.0.2",

@@ -1,8 +1,17 @@
 # Change Log - @minecraft/markup-generators-plugin
 
-<!-- This log was last generated on Wed, 23 Jul 2025 19:09:54 GMT and should not be manually modified. -->
+<!-- This log was last generated on Thu, 24 Jul 2025 18:29:00 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 1.0.3
+
+Thu, 24 Jul 2025 18:29:00 GMT
+
+### Patches
+
+- build(dependabot): bump @rushstack/node-core-library (mc-npm@microsoft.com)
+- Bump @minecraft/api-docs-generator to v1.2.2
 
 ## 1.0.2
 

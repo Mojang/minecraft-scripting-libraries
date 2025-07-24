@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "build(dependabot): bump archiver from 6.0.2 to 7.0.1",
+  "packageName": "@minecraft/core-build-tasks",
+  "email": "mc-npm@microsoft.com",
+  "dependentChangeType": "patch"
+}

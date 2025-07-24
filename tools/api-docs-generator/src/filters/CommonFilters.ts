@@ -1658,7 +1658,13 @@ function typeFlags(releases: MinecraftRelease[]) {
         if (typeJson.name === 'string') {
             typeJson.is_string = true;
         } else if (typeJson.name === 'undefined') {
-            if (propertyName === 'return_type') {
+            if (
+                propertyName === 'return_type' ||
+                propertyName === 'promise_type' ||
+                propertyName === 'generator_type' ||
+                propertyName === 'yield_type' ||
+                propertyName === 'next_type'
+            ) {
                 typeJson.is_void_return = true;
             } else {
                 typeJson.is_undefined = true;

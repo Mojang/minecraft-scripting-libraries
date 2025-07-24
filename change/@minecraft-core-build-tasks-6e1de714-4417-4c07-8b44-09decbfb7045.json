@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "build(dependabot): bump @rushstack/node-core-library",
+  "packageName": "@minecraft/core-build-tasks",
+  "email": "mc-npm@microsoft.com",
+  "dependentChangeType": "patch"
+}

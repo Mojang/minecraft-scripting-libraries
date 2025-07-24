@@ -1,0 +1,24 @@
+name: Dependabot Beachball Change Files
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  dependabot-beachball:
+    runs-on: ubuntu-latest
+    if: github.event.sender.login == 'dependabot[bot]'
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js 22.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm ci
+
+      - name: Run dependabot beachball automation
+        run: node .github/scripts/dependabot-beachball.mjs

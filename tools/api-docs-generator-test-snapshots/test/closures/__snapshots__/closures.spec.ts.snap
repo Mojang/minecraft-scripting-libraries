@@ -31,6 +31,11 @@ description: Contents of the closure-tests.ExampleClass class.
 
 Type: (arg0: *boolean* | *number*) => *void*
 
+### **closureWithVariantUndefinedArg**
+\`read-only closureWithVariantUndefinedArg: (arg0: number | undefined) => number | undefined;\`
+
+Type: (arg0: *number* | *undefined*) => *number | undefined*
+
 ## Methods
 - [constructor](#constructor)
 - [methodWithMultiArgClosure](#methodwithmultiargclosure)
@@ -109,6 +114,7 @@ exports[`Closures > Generates correct output closures > typescript/closure-tests
  */
 export class ExampleClass {
     readonly closureWithVariantArg?: (arg0: boolean | number) => void;
+    readonly closureWithVariantUndefinedArg: (arg0: number | undefined) => number | undefined;
     constructor(onChange?: (arg0: boolean | number) => void);
     methodWithMultiArgClosure(callback?: (arg0: boolean, arg1: number) => void): ExampleClass;
 }

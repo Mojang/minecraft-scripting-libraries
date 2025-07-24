@@ -208,6 +208,7 @@ type MinecraftTypeHelper = {
 
     // Runtime Markup
     original_name?: string;
+    is_void_return?: boolean;
     is_string?: boolean;
     is_undefined?: boolean;
     is_any?: boolean;

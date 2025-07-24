@@ -1,8 +1,16 @@
 # Change Log - @minecraft/api-docs-generator
 
-<!-- This log was last generated on Thu, 17 Jul 2025 16:45:56 GMT and should not be manually modified. -->
+<!-- This log was last generated on Wed, 23 Jul 2025 19:09:54 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 1.2.1
+
+Wed, 23 Jul 2025 19:09:54 GMT
+
+### Patches
+
+- Mark up void return types with 'is_void_return' and remove 'is_undefined' from them. (mike.demone@skyboxlabs.com)
 
 ## 1.2.0
 

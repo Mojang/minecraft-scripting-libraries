@@ -2,6 +2,27 @@
   "name": "@minecraft/markup-generators-plugin",
   "entries": [
     {
+      "date": "Wed, 23 Jul 2025 19:09:54 GMT",
+      "version": "1.0.2",
+      "tag": "@minecraft/markup-generators-plugin_v1.0.2",
+      "comments": {
+        "patch": [
+          {
+            "author": "mike.demone@skyboxlabs.com",
+            "package": "@minecraft/markup-generators-plugin",
+            "commit": "a06c2f79d499a70a5250db98ed237da34b8f67e8",
+            "comment": "Fix tsdef generator and msdocs generator to properly recognize void vs undefined"
+          },
+          {
+            "author": "beachball",
+            "package": "@minecraft/markup-generators-plugin",
+            "comment": "Bump @minecraft/api-docs-generator to v1.2.1",
+            "commit": "not available"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 17 Jul 2025 16:45:56 GMT",
       "version": "1.0.1",
       "tag": "@minecraft/markup-generators-plugin_v1.0.1",

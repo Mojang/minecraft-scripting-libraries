@@ -1,8 +1,16 @@
 # Change Log - @minecraft/api-docs-generator
 
-<!-- This log was last generated on Wed, 23 Jul 2025 19:09:54 GMT and should not be manually modified. -->
+<!-- This log was last generated on Thu, 24 Jul 2025 21:03:05 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 1.2.3
+
+Thu, 24 Jul 2025 21:03:05 GMT
+
+### Patches
+
+- Fix support for Promise<void> and Generator<void, void, void> (mike.demone@skyboxlabs.com)
 
 ## 1.2.1
 

@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Fix support for Promise<void> and Generator<void, void, void>",
-  "packageName": "@minecraft/api-docs-generator",
-  "email": "mike.demone@skyboxlabs.com",
-  "dependentChangeType": "patch"
-}

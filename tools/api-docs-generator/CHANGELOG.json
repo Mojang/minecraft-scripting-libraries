@@ -2,6 +2,21 @@
   "name": "@minecraft/api-docs-generator",
   "entries": [
     {
+      "date": "Thu, 24 Jul 2025 21:03:05 GMT",
+      "version": "1.2.3",
+      "tag": "@minecraft/api-docs-generator_v1.2.3",
+      "comments": {
+        "patch": [
+          {
+            "author": "mike.demone@skyboxlabs.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "d7824753e220a75cb532a2ba1099de103626fa8a",
+            "comment": "Fix support for Promise<void> and Generator<void, void, void>"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 23 Jul 2025 19:09:54 GMT",
       "version": "1.2.1",
       "tag": "@minecraft/api-docs-generator_v1.2.1",

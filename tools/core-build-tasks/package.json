@@ -37,7 +37,7 @@
     "dotenv": "^16.4.5",
     "esbuild": "^0.25.0",
     "eslint": "^9.17.0",
-    "just-scripts": "^2.3.3",
+    "just-scripts": "^2.4.1",
     "prettier": "^3.5.3",
     "rimraf": "^3.0.2",
     "typescript": "^5.7.2",

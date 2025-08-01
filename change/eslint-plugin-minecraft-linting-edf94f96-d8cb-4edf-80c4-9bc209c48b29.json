@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "build(dependabot): bump @typescript-eslint/utils from 8.18.1 to 8.38.0",
+  "packageName": "eslint-plugin-minecraft-linting",
+  "email": "mc-npm@microsoft.com",
+  "dependentChangeType": "patch"
+}

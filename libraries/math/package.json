@@ -40,7 +40,7 @@
     "@minecraft/core-build-tasks": "*",
     "@minecraft/server": "^2.0.0",
     "@minecraft/tsconfig": "*",
-    "just-scripts": "^2.3.3",
+    "just-scripts": "^2.4.1",
     "prettier": "^3.5.3",
     "vitest": "^3.0.8"
   }

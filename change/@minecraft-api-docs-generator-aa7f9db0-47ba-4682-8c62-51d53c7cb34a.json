@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "build(dependabot): bump yargs from 17.7.2 to 18.0.0",
+  "packageName": "@minecraft/api-docs-generator",
+  "email": "mc-npm@microsoft.com",
+  "dependentChangeType": "patch"
+}

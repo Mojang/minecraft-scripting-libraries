@@ -7,6 +7,10 @@ exports[`Optionals > Properly generates documentation for modules which contain 
     items:
     - name: type-maps-and-script-aliases-module
       href: type-maps-and-script-aliases-module/type-maps-and-script-aliases-module.md
+    - name: TestTypeMap
+      href: type-maps-and-script-aliases-module/TestTypeMap.md
+    - name: TestTypeMapUnion
+      href: type-maps-and-script-aliases-module/TestTypeMapUnion.md
   - name: type-maps-module
     items:
     - name: type-maps-module
@@ -17,6 +21,8 @@ exports[`Optionals > Properly generates documentation for modules which contain 
       href: type-maps-module/FakeComponent.md
     - name: TestComponent
       href: type-maps-module/TestComponent.md
+    - name: TestComponentTypeMap
+      href: type-maps-module/TestComponentTypeMap.md
 "
 `;
 

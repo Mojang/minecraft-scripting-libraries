@@ -13,6 +13,10 @@ exports[`Script Generated Modules > Properly generates documentation for modules
       href: generated-module/ScriptGeneratedEnum.md
     - name: ScriptGeneratedClass
       href: generated-module/ScriptGeneratedClass.md
+    - name: TypeAliasWithInfoJsonComments
+      href: generated-module/TypeAliasWithInfoJsonComments.md
+    - name: TypeAliasWithTSDocComments
+      href: generated-module/TypeAliasWithTSDocComments.md
 "
 `;
 

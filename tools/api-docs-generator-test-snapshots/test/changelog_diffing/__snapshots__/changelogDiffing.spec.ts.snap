@@ -2107,6 +2107,12 @@ exports[`Changelog Diffing > Generates correct output for changelog diffs > msdo
       href: test-module1-1xx/ExampleInterface.md
     - name: RemovedInterface
       href: test-module1-1xx/RemovedInterface.md
+    - name: ChangedType
+      href: test-module1-1xx/ChangedType.md
+    - name: ChangedTypeMap
+      href: test-module1-1xx/ChangedTypeMap.md
+    - name: RemovedType
+      href: test-module1-1xx/RemovedType.md
 "
 `;
 
@@ -2955,6 +2961,8 @@ exports[`Changelog Diffing > Generates correct output for changelog diffs > msdo
       href: peer-module/peer-module.md
     - name: peer-module Changelog
       href: peer-module/changelog.md
+    - name: TypeAliasFromPeerDependency
+      href: peer-module/TypeAliasFromPeerDependency.md
   - name: test-module1
     items:
     - name: test-module1
@@ -2981,6 +2989,12 @@ exports[`Changelog Diffing > Generates correct output for changelog diffs > msdo
       href: test-module1/AddedInterface.md
     - name: ExampleInterface
       href: test-module1/ExampleInterface.md
+    - name: AddedType
+      href: test-module1/AddedType.md
+    - name: ChangedType
+      href: test-module1/ChangedType.md
+    - name: ChangedTypeMap
+      href: test-module1/ChangedTypeMap.md
 "
 `;
 

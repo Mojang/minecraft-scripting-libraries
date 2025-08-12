@@ -7,6 +7,8 @@ exports[`Hybrid Script and Native Module > Generates documentation for both the 
     items:
     - name: hybrid-module 0.x.x
       href: hybrid-module-0xx/hybrid-module.md
+    - name: TypeAliasWithTSDocComments
+      href: hybrid-module-0xx/TypeAliasWithTSDocComments.md
   - name: hybrid-module-native 0.x.x
     items:
     - name: hybrid-module-native 0.x.x
@@ -126,6 +128,10 @@ exports[`Hybrid Script and Native Module > Generates documentation for both the 
       href: hybrid-module/ScriptGeneratedEnum.md
     - name: ScriptGeneratedClass
       href: hybrid-module/ScriptGeneratedClass.md
+    - name: TypeAliasWithInfoJsonComments
+      href: hybrid-module/TypeAliasWithInfoJsonComments.md
+    - name: TypeAliasWithTSDocComments
+      href: hybrid-module/TypeAliasWithTSDocComments.md
   - name: hybrid-module-native
     items:
     - name: hybrid-module-native
@@ -1298,6 +1304,8 @@ exports[`Hybrid Script and Native Module > Properly generates documentation for 
     items:
     - name: hybrid-module 0.x.x
       href: hybrid-module-0xx/hybrid-module.md
+    - name: TypeAliasWithTSDocComments
+      href: hybrid-module-0xx/TypeAliasWithTSDocComments.md
 "
 `;
 
@@ -1376,6 +1384,10 @@ exports[`Hybrid Script and Native Module > Properly generates documentation for 
       href: hybrid-module/ScriptGeneratedEnum.md
     - name: ScriptGeneratedClass
       href: hybrid-module/ScriptGeneratedClass.md
+    - name: TypeAliasWithInfoJsonComments
+      href: hybrid-module/TypeAliasWithInfoJsonComments.md
+    - name: TypeAliasWithTSDocComments
+      href: hybrid-module/TypeAliasWithTSDocComments.md
   - name: hybrid-module-native
     items:
     - name: hybrid-module-native

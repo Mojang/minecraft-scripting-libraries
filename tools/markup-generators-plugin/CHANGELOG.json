@@ -2,6 +2,21 @@
   "name": "@minecraft/markup-generators-plugin",
   "entries": [
     {
+      "date": "Wed, 13 Aug 2025 18:17:54 GMT",
+      "version": "1.0.5",
+      "tag": "@minecraft/markup-generators-plugin_v1.0.5",
+      "comments": {
+        "patch": [
+          {
+            "author": "mike.demone@skyboxlabs.com",
+            "package": "@minecraft/markup-generators-plugin",
+            "commit": "f370c88c174a44501a1572166beddcf2eb4ebdb7",
+            "comment": "Add Type Alias to TOC"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 24 Jul 2025 21:03:05 GMT",
       "version": "1.0.4",
       "tag": "@minecraft/markup-generators-plugin_v1.0.4",

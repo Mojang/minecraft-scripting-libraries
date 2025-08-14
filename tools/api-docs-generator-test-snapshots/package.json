@@ -19,7 +19,7 @@
     "@types/node": "^22.0.0",
     "eslint": "^9.22.0",
     "eslint-config-minecraft-scripting": "*",
-    "just-scripts": "^2.3.3",
+    "just-scripts": "^2.4.1",
     "prettier": "^3.5.3"
   },
   "dependencies": {

@@ -1,8 +1,16 @@
 # Change Log - @minecraft/markup-generators-plugin
 
-<!-- This log was last generated on Thu, 24 Jul 2025 21:03:05 GMT and should not be manually modified. -->
+<!-- This log was last generated on Wed, 13 Aug 2025 18:17:54 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 1.0.5
+
+Wed, 13 Aug 2025 18:17:54 GMT
+
+### Patches
+
+- Add Type Alias to TOC (mike.demone@skyboxlabs.com)
 
 ## 1.0.4
 

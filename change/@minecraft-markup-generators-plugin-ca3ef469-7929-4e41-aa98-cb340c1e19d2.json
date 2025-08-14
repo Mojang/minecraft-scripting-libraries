@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Add Type Alias to TOC",
-  "packageName": "@minecraft/markup-generators-plugin",
-  "email": "mike.demone@skyboxlabs.com",
-  "dependentChangeType": "patch"
-}

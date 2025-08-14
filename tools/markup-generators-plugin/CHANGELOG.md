@@ -1,8 +1,16 @@
 # Change Log - @minecraft/markup-generators-plugin
 
-<!-- This log was last generated on Wed, 13 Aug 2025 18:17:54 GMT and should not be manually modified. -->
+<!-- This log was last generated on Thu, 14 Aug 2025 17:25:00 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 1.0.6
+
+Thu, 14 Aug 2025 17:25:00 GMT
+
+### Patches
+
+- Patch bump to correct publish issues (rlanda@microsoft.com)
 
 ## 1.0.5
 

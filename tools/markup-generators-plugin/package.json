@@ -1,6 +1,6 @@
 {
   "name": "@minecraft/markup-generators-plugin",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Plugin for @minecraft/api-docs-generator containing core markup generators and template files",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

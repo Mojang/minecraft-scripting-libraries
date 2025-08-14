@@ -2,6 +2,21 @@
   "name": "@minecraft/markup-generators-plugin",
   "entries": [
     {
+      "date": "Thu, 14 Aug 2025 17:25:00 GMT",
+      "version": "1.0.6",
+      "tag": "@minecraft/markup-generators-plugin_v1.0.6",
+      "comments": {
+        "patch": [
+          {
+            "author": "rlanda@microsoft.com",
+            "package": "@minecraft/markup-generators-plugin",
+            "commit": "c1103bfd2d8217fb5bdb2a0aed2967c09a375e17",
+            "comment": "Patch bump to correct publish issues"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 13 Aug 2025 18:17:54 GMT",
       "version": "1.0.5",
       "tag": "@minecraft/markup-generators-plugin_v1.0.5",

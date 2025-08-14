@@ -1,7 +1,7 @@
 {
-  "type": "patch",
-  "comment": "Fix up main after publish",
-  "packageName": "@minecraft/markup-generators-plugin",
-  "email": "rlanda@microsoft.com",
-  "dependentChangeType": "patch"
+    "type": "patch",
+    "comment": "Patch bump to correct publish issues",
+    "packageName": "@minecraft/markup-generators-plugin",
+    "email": "rlanda@microsoft.com",
+    "dependentChangeType": "patch"
 }

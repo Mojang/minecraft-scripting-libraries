@@ -6,6 +6,7 @@ import path from 'path';
 
 export function copyFiles(originPaths: string[], outputPath: string) {
     let destinationPath = path.resolve(outputPath);
+    const MTIME_TOLERANCE_MS = 1000; // 1 second tolerance, avoid the case when file copying across system get delayed
     for (const originPath of originPaths) {
         const inputPath = path.resolve(originPath);
         const pathStats = FileSystem.getLinkStatistics(inputPath);
@@ -14,19 +15,38 @@ export function copyFiles(originPaths: string[], outputPath: string) {
         } else {
             const filename = path.parse(inputPath).base;
             const fileDestinationPath = path.resolve(destinationPath, filename);
-            console.log(`Copying file ${inputPath} to ${fileDestinationPath}`);
+
+            let shouldCopy = true;
             try {
                 const destFileStats = FileSystem.getStatistics(fileDestinationPath);
-                if (destFileStats.size === pathStats.size) {
-                    continue;
+                // If sizes differ => must copy
+                if (destFileStats.size !== pathStats.size) {
+                    shouldCopy = true;
+                } else {
+                    // sizes equal -> check mtimes within tolerance
+                    const srcMtime = (pathStats as any).mtimeMs ?? new Date((pathStats as any).mtime).getTime();
+                    const destMtime = (destFileStats as any).mtimeMs ?? new Date((destFileStats as any).mtime).getTime();
+                    if (Math.abs(srcMtime - destMtime) > MTIME_TOLERANCE_MS) {
+                        shouldCopy = true;
+                    } else {
+                        // sizes equal and mtimes within tolerance -> skip copy
+                        shouldCopy = false;
+                    }
                 }
-            } catch (e) {
-                // If getStatistics throws, destination likely doesn't exist — proceed to copy
+            } catch (e: any) {
+                shouldCopy = true;
             }
 
+            if (!shouldCopy) {
+                console.log(`Skipping copy for ${inputPath}; no change detected`);
+                continue;
+            }
+
+            console.log(`Copying file ${inputPath} to ${fileDestinationPath}`);
             FileSystem.copyFiles({
                 sourcePath: inputPath,
                 destinationPath: fileDestinationPath,
+                preserveTimestamps: true,
             });
             continue;
         }
@@ -34,6 +54,7 @@ export function copyFiles(originPaths: string[], outputPath: string) {
         FileSystem.copyFiles({
             sourcePath: inputPath,
             destinationPath: destinationPath,
+            preserveTimestamps: true,
         });
     }
 }

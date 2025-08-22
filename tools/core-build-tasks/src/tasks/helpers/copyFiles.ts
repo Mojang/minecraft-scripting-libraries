@@ -13,8 +13,22 @@ export function copyFiles(originPaths: string[], outputPath: string) {
             console.log(`Copying folder ${inputPath} to ${destinationPath}`);
         } else {
             const filename = path.parse(inputPath).base;
-            destinationPath = path.resolve(destinationPath, filename);
-            console.log(`Copying file ${inputPath} to ${destinationPath}`);
+            const fileDestinationPath = path.resolve(destinationPath, filename);
+            console.log(`Copying file ${inputPath} to ${fileDestinationPath}`);
+            try {
+                const destFileStats = FileSystem.getStatistics(fileDestinationPath);
+                if (destFileStats.size === pathStats.size) {
+                    continue;
+                }
+            } catch (e) {
+                // If getStatistics throws, destination likely doesn't exist — proceed to copy
+            }
+
+            FileSystem.copyFiles({
+                sourcePath: inputPath,
+                destinationPath: fileDestinationPath,
+            });
+            continue;
         }
 
         FileSystem.copyFiles({

@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "build(dependabot): bump @microsoft/api-extractor from 7.48.1 to 7.52.11",
+  "packageName": "@minecraft/core-build-tasks",
+  "email": "mc-npm@microsoft.com",
+  "dependentChangeType": "patch"
+}

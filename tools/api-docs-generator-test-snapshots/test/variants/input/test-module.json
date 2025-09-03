@@ -85,6 +85,49 @@
             "name": "undefined",
             "valid_range": null
           }
+        },
+        {
+          "arguments": [
+            {
+              "details": null,
+              "name": "arrays",
+              "type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "variant",
+                "variant_types": [
+                  {
+                    "element_type": {
+                      "is_bind_type": false,
+                      "is_errorable": false,
+                      "name": "number"
+                    },
+                    "is_bind_type": false,
+                    "is_errorable": false,
+                    "name": "array"
+                  },
+                  {
+                    "element_type": {
+                      "is_bind_type": false,
+                      "is_errorable": false,
+                      "name": "string"
+                    },
+                    "is_bind_type": false,
+                    "is_errorable": false,
+                    "name": "array"
+                  }
+                ]
+              }
+            }
+          ],
+          "is_constructor": false,
+          "is_static": false,
+          "name": "methodWithVariantOfArrays",
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean"
+          }
         }
       ],
       "name": "ExampleClass",

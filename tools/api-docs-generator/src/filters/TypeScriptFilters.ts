@@ -175,12 +175,14 @@ function removeDuplicateVariantTypes(releases: MinecraftRelease[]) {
                 jsonObject.variant_types = jsonObject.variant_types.filter((item, index, self) => {
                     return (
                         index ===
-                        self.findIndex(value => {
-                            return item.name === 'array'
-                                ? value.element_type.name === item.element_type.name
-                                : item.name === 'optional'
-                                  ? value.optional_type.name === item.optional_type.name
-                                  : value.name === item.name;
+                        self.findIndex(other => {
+                            if (item.name === 'array') {
+                                return other.element_type.name === item.element_type.name;
+                            } else if (item.name === 'optional') {
+                                return other.optional_type.name === item.optional_type.name;
+                            } else {
+                                return other.name === item.name;
+                            }
                         })
                     );
                 });

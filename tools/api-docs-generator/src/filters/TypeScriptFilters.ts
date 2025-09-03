@@ -176,7 +176,11 @@ function removeDuplicateVariantTypes(releases: MinecraftRelease[]) {
                     return (
                         index ===
                         self.findIndex(value => {
-                            return value.name === item.name;
+                            return item.name === 'array'
+                                ? value.element_type.name === item.element_type.name
+                                : item.name === 'optional'
+                                  ? value.optional_type.name === item.optional_type.name
+                                  : value.name === item.name;
                         })
                     );
                 });

@@ -177,9 +177,9 @@ function removeDuplicateVariantTypes(releases: MinecraftRelease[]) {
                         index ===
                         self.findIndex(other => {
                             if (item.name === 'array') {
-                                return other.element_type.name === item.element_type.name;
+                                return other.element_type?.name === item.element_type.name;
                             } else if (item.name === 'optional') {
-                                return other.optional_type.name === item.optional_type.name;
+                                return other.optional_type?.name === item.optional_type.name;
                             } else {
                                 return other.name === item.name;
                             }

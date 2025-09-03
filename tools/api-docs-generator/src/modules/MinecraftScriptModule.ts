@@ -539,6 +539,7 @@ export type MinecraftScriptCoreExports = Static<typeof MinecraftScriptCoreExport
 
 export const MinecraftParentModuleRecord = Record({
     name: String,
+    uuid: Optional(String),
     version: Optional(String),
 });
 export type MinecraftParentModule = Static<typeof MinecraftParentModuleRecord>;
@@ -553,7 +554,13 @@ export const MinecraftScriptModuleRecord = Intersect(
         module_type: Literal('script'),
         uuid: String,
         parentModule: Optional(Union(String, MinecraftParentModuleRecord).Or(Null)),
-        base_module: Optional(MinecraftParentModuleRecord),
+        marked_up_parent_module: Optional(
+            Record({
+                name: String,
+                uuid: String,
+                version: String,
+            })
+        ),
         dependencies: Optional(Array(MinecraftModuleDependencyRecord).Or(Null)),
         peer_dependencies: Optional(Array(MinecraftModuleDependencyRecord).Or(Null)),
     }),

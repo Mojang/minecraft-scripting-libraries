@@ -44,6 +44,7 @@ Notes:
 
 ## Methods
 - [exampleMethod](#examplemethod)
+- [methodWithVariantOfArrays](#methodwithvariantofarrays)
 
 ### **exampleMethod**
 \`
@@ -53,6 +54,19 @@ exampleMethod(arg1: (arg0: number) => ((arg0: number) => (number | string) | str
 #### **Parameters**
 - **arg1**: (arg0: *number*) => ((arg0: *number*) => (*number* | *string*) | *string*)
 - **arg2**: *number*
+  
+Notes:
+- This function can't be called in read-only mode.
+
+### **methodWithVariantOfArrays**
+\`
+methodWithVariantOfArrays(arrays: number[] | string[]): boolean
+\`
+
+#### **Parameters**
+- **arrays**: *number*[] | *string*[]
+
+**Returns** *boolean*
   
 Notes:
 - This function can't be called in read-only mode.
@@ -131,6 +145,12 @@ export class ExampleClass {
      *
      */
     exampleMethod(arg1: (arg0: number) => (arg0: number) => (number | string) | string, arg2: number): void;
+    /**
+     * @remarks
+     * This function can't be called in read-only mode.
+     *
+     */
+    methodWithVariantOfArrays(arrays: number[] | string[]): boolean;
 }
 "
 `;

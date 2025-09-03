@@ -10,7 +10,6 @@ describe('Type Linking', () => {
         runGeneratorForTest({
             testDir: __dirname,
             generators: ['ts', 'msdocs'],
-            outDir: join(__dirname, 'output'),
         });
     });
 

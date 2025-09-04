@@ -11,8 +11,8 @@
       "base_types": [
         {
           "from_module": {
-            "name": "@minecraft/example-module",
-            "uuid": "a61fb766-9364-476a-96fd-61cde517876e",
+            "name": "@minecraft/example-module-parent",
+            "uuid": "a61fb766-9364-476a-96fd-61cde517876f",
             "version": "1.0.0"
           },
           "is_bind_type": true,

@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Fix type linking",
-  "packageName": "@minecraft/api-docs-generator",
-  "email": "mike.demone@skyboxlabs.com",
-  "dependentChangeType": "patch"
-}

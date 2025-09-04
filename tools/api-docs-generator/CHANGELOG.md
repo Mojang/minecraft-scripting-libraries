@@ -1,8 +1,18 @@
 # Change Log - @minecraft/api-docs-generator
 
-<!-- This log was last generated on Thu, 24 Jul 2025 21:03:05 GMT and should not be manually modified. -->
+<!-- This log was last generated on Thu, 04 Sep 2025 23:12:17 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 1.2.4
+
+Thu, 04 Sep 2025 23:12:17 GMT
+
+### Patches
+
+- Fix type linking (mike.demone@skyboxlabs.com)
+- Fix docs generator removeDuplicateVariantTypes filter for variants with multiple arrays (zachary.campbell@skyboxlabs.com)
+- build(dependabot): bump just-scripts from 2.3.3 to 2.4.1 (mc-npm@microsoft.com)
 
 ## 1.2.3
 

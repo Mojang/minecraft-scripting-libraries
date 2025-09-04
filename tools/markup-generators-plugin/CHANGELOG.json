@@ -2,6 +2,27 @@
   "name": "@minecraft/markup-generators-plugin",
   "entries": [
     {
+      "date": "Thu, 04 Sep 2025 23:12:17 GMT",
+      "version": "1.0.7",
+      "tag": "@minecraft/markup-generators-plugin_v1.0.7",
+      "comments": {
+        "patch": [
+          {
+            "author": "mc-npm@microsoft.com",
+            "package": "@minecraft/markup-generators-plugin",
+            "commit": "c4906fa36084307b5a29c18c5daca82004205cae",
+            "comment": "build(dependabot): bump just-scripts from 2.3.3 to 2.4.1"
+          },
+          {
+            "author": "beachball",
+            "package": "@minecraft/markup-generators-plugin",
+            "comment": "Bump @minecraft/api-docs-generator to v1.2.4",
+            "commit": "not available"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 14 Aug 2025 17:25:00 GMT",
       "version": "1.0.6",
       "tag": "@minecraft/markup-generators-plugin_v1.0.6",

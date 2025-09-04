@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Fix docs generator removeDuplicateVariantTypes filter for variants with multiple arrays",
-  "packageName": "@minecraft/api-docs-generator",
-  "email": "zachary.campbell@skyboxlabs.com",
-  "dependentChangeType": "patch"
-}

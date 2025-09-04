@@ -1,8 +1,17 @@
 # Change Log - @minecraft/markup-generators-plugin
 
-<!-- This log was last generated on Thu, 14 Aug 2025 17:25:00 GMT and should not be manually modified. -->
+<!-- This log was last generated on Thu, 04 Sep 2025 23:12:17 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 1.0.7
+
+Thu, 04 Sep 2025 23:12:17 GMT
+
+### Patches
+
+- build(dependabot): bump just-scripts from 2.3.3 to 2.4.1 (mc-npm@microsoft.com)
+- Bump @minecraft/api-docs-generator to v1.2.4
 
 ## 1.0.6
 

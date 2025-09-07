@@ -2,6 +2,21 @@
   "name": "eslint-plugin-minecraft-linting",
   "entries": [
     {
+      "date": "Thu, 04 Sep 2025 23:12:17 GMT",
+      "version": "2.0.8",
+      "tag": "eslint-plugin-minecraft-linting_v2.0.8",
+      "comments": {
+        "patch": [
+          {
+            "author": "mc-npm@microsoft.com",
+            "package": "eslint-plugin-minecraft-linting",
+            "commit": "c4906fa36084307b5a29c18c5daca82004205cae",
+            "comment": "build(dependabot): bump just-scripts from 2.3.3 to 2.4.1"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 14 Jul 2025 15:34:00 GMT",
       "version": "2.0.6",
       "tag": "eslint-plugin-minecraft-linting_v2.0.6",

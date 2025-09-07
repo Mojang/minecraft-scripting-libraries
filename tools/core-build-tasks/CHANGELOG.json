@@ -2,6 +2,21 @@
   "name": "@minecraft/core-build-tasks",
   "entries": [
     {
+      "date": "Thu, 04 Sep 2025 23:12:17 GMT",
+      "version": "5.3.2",
+      "tag": "@minecraft/core-build-tasks_v5.3.2",
+      "comments": {
+        "patch": [
+          {
+            "author": "mc-npm@microsoft.com",
+            "package": "@minecraft/core-build-tasks",
+            "commit": "c4906fa36084307b5a29c18c5daca82004205cae",
+            "comment": "build(dependabot): bump just-scripts from 2.3.3 to 2.4.1"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 24 Jul 2025 18:29:00 GMT",
       "version": "5.3.1",
       "tag": "@minecraft/core-build-tasks_v5.3.1",

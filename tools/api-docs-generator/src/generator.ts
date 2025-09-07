@@ -213,7 +213,7 @@ export function getMergedScriptModules(
         const parent = standardModules.get(`${parentName}_${parentVersion}_${minecraftVersion}`);
         if (!parent) {
             throw new Error(
-                `Module '${parentName}' does not exist, cannot parent '${moduleToParent.name}'. Please inspect metadata input.`
+                `Module '${parentName}@${parentVersion}' for minecraft version ${minecraftVersion} does not exist, cannot parent '${moduleToParent.name}@${moduleToParent.version}'. Please inspect metadata input.`
             );
         }
 
@@ -222,9 +222,10 @@ export function getMergedScriptModules(
         );
         const mergedModule = mergeScriptModule(moduleToParent, parent);
         mergedModule.parentModule = moduleToParent.parentModule;
-        parent.base_module = {
-            name: moduleToParent.name,
-            version: moduleToParent.version,
+        mergedModule.marked_up_parent_module = {
+            name: parent.name,
+            uuid: parent.uuid,
+            version: parent.version,
         };
 
         if (!includeBaseModules) {

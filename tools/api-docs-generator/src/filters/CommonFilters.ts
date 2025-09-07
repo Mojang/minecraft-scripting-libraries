@@ -3267,17 +3267,22 @@ function addRuntimeConditionsFlag(releases: MinecraftRelease[]) {
     }
 }
 
+/**
+ * This updates all from_module dependencies from the parent (i.e. server-bindings) to the base (i.e. server)
+ *
+ * @param releases
+ */
 function upgradeFromModuleToBaseModule(releases: MinecraftRelease[]) {
     for (const release of releases) {
-        const scriptModules = getLatestScriptModules(release.script_modules);
-        const uuidToLatestBase = Object.fromEntries(
-            scriptModules.map(m => {
-                if (!m.base_module) {
-                    return [m.uuid, undefined];
-                }
-                return [m.uuid, scriptModules.find(m1 => m1.name === m.base_module.name)];
-            })
-        );
+        const latestModules = getLatestScriptModules(release.script_modules);
+        // Create a mapping from parent uuid (server-bindings uuid) to base uuid (server uuid and name)
+        const parentuuidToLatestBase: Record<string, { uuid: string; name: string }> = {};
+        for (const module of latestModules) {
+            if (!module.marked_up_parent_module) {
+                continue;
+            }
+            parentuuidToLatestBase[module.marked_up_parent_module.uuid] = module;
+        }
         for (const scriptModule of release.script_modules) {
             utils.scanObjectForMemberWithName(
                 scriptModule,
@@ -3286,8 +3291,8 @@ function upgradeFromModuleToBaseModule(releases: MinecraftRelease[]) {
                     if (jsonObject.from_module.uuid === scriptModule.uuid) {
                         return;
                     }
-                    if (uuidToLatestBase[jsonObject.from_module.uuid]) {
-                        const base = uuidToLatestBase[jsonObject.from_module.uuid];
+                    if (parentuuidToLatestBase[jsonObject.from_module.uuid]) {
+                        const base = parentuuidToLatestBase[jsonObject.from_module.uuid];
                         const dependencies: MinecraftModuleDependency[] = scriptModule.dependencies.concat(
                             scriptModule.peer_dependencies ?? []
                         );
@@ -3310,8 +3315,8 @@ export const CommonFilters: FilterGroup = {
     filters: [
         ['mark_prerelease_modules', markModulesWithPrerelease], // No dependencies
         ['default_module_categories', defaultModuleCategories], // No dependencies
-        ['link_derived_types', linkDerivedTypes], // No dependencies
         ['upgrade_from_module_to_base', upgradeFromModuleToBaseModule], // No dependencies
+        ['link_derived_types', linkDerivedTypes], // Depends on upgrade_from_module_to_base
         ['add_from_module_to_root', addFromModuleToRoot], // No dependencies
         ['external_module_flag', fromExternalModule], // Depends on link_derived_types, add_from_module_to_root
         ['add_from_module_to_dependencies', addFromModuleToDependencies], // Run after upgrade_from_module_to_base for perf

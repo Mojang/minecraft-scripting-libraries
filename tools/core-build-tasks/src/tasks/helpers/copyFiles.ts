@@ -4,7 +4,7 @@
 import { FileSystem } from '@rushstack/node-core-library';
 import path from 'path';
 
-export function copyFiles(originPaths: string[], outputPath: string) {
+export function copyFiles(originPaths: string[], outputPath: string, skipIfPossible: boolean = true) {
     let destinationPath = path.resolve(outputPath);
     const MTIME_TOLERANCE_MS = 1000; // 1 second tolerance, avoid the case when file copying across system get delayed
     for (const originPath of originPaths) {
@@ -17,24 +17,26 @@ export function copyFiles(originPaths: string[], outputPath: string) {
             const fileDestinationPath = path.resolve(destinationPath, filename);
 
             let shouldCopy = true;
-            try {
-                const destFileStats = FileSystem.getStatistics(fileDestinationPath);
-                // If sizes differ => must copy
-                if (destFileStats.size !== pathStats.size) {
-                    shouldCopy = true;
-                } else {
-                    // sizes equal -> check mtimes within tolerance
-                    const srcMtime = (pathStats as any).mtimeMs ?? new Date((pathStats as any).mtime).getTime();
-                    const destMtime = (destFileStats as any).mtimeMs ?? new Date((destFileStats as any).mtime).getTime();
-                    if (Math.abs(srcMtime - destMtime) > MTIME_TOLERANCE_MS) {
+            if (skipIfPossible) {
+                try {
+                    const destFileStats = FileSystem.getStatistics(fileDestinationPath);
+                    // If sizes differ => must copy
+                    if (destFileStats.size !== pathStats.size) {
                         shouldCopy = true;
                     } else {
-                        // sizes equal and mtimes within tolerance -> skip copy
-                        shouldCopy = false;
+                        // sizes equal -> check mtimes within tolerance
+                        const srcMtime = (pathStats as any).mtimeMs ?? new Date((pathStats as any).mtime).getTime();
+                        const destMtime = (destFileStats as any).mtimeMs ?? new Date((destFileStats as any).mtime).getTime();
+                        if (Math.abs(srcMtime - destMtime) > MTIME_TOLERANCE_MS) {
+                            shouldCopy = true;
+                        } else {
+                            // sizes equal and mtimes within tolerance -> skip copy
+                            shouldCopy = false;
+                        }
                     }
+                } catch (e: any) {
+                    shouldCopy = true;
                 }
-            } catch (e: any) {
-                shouldCopy = true;
             }
 
             if (!shouldCopy) {

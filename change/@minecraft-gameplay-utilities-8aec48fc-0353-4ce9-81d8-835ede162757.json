@@ -1,0 +1,7 @@
+{
+  "type": "major",
+  "comment": "Event promise and thenable added to new gameplay utility library",
+  "packageName": "@minecraft/gameplay-utilities",
+  "email": "agriffin@microsoft.com",
+  "dependentChangeType": "patch"
+}

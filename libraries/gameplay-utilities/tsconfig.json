@@ -1,0 +1,11 @@
+{
+    "extends": "@minecraft/tsconfig/base.json",
+    "include": ["src/**/*"],
+    "exclude": ["dist", "build", "node_modules"],
+    "compilerOptions": {
+        "outDir": "lib",
+        "declarationDir": "temp/types",
+        "module": "node16",
+        "moduleResolution": "node16"
+    }
+}

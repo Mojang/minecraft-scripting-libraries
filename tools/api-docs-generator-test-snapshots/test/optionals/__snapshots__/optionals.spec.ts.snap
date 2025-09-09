@@ -41,6 +41,7 @@ Notes:
 ## Methods
 - [methodThatReturnsOptional](#methodthatreturnsoptional)
 - [methodThatTakesOptionals](#methodthattakesoptionals)
+- [methodThatTakesRecordOfOptionalVariants](#methodthattakesrecordofoptionalvariants)
 - [methodWithDefaultValuesAreOptional](#methodwithdefaultvaluesareoptional)
 
 ### **methodThatReturnsOptional**
@@ -61,6 +62,19 @@ methodThatTakesOptionals(arg1?: boolean, arg2?: string): void
 #### **Parameters**
 - **arg1**?: *boolean*
 - **arg2**?: *string*
+
+**Returns** *void*
+  
+Notes:
+- This function can't be called in read-only mode.
+
+### **methodThatTakesRecordOfOptionalVariants**
+\`
+methodThatTakesRecordOfOptionalVariants(values: Record<string, boolean | number | string | undefined>): void
+\`
+
+#### **Parameters**
+- **values**: Record<*string*, *boolean* | *number* | *string*>
 
 **Returns** *void*
   
@@ -205,6 +219,12 @@ export class ClassWithOptionals {
      *
      */
     methodThatTakesOptionals(arg1?: boolean, arg2?: string): void;
+    /**
+     * @remarks
+     * This function can't be called in read-only mode.
+     *
+     */
+    methodThatTakesRecordOfOptionalVariants(values: Record<string, boolean | number | string | undefined>): void;
     /**
      * @remarks
      * This function can't be called in read-only mode.

@@ -74,7 +74,7 @@ methodThatTakesRecordOfOptionalVariants(values: Record<string, boolean | number 
 \`
 
 #### **Parameters**
-- **values**: Record<*string*, *boolean* | *number* | *string*>
+- **values**: Record<*string*, *boolean* | *number* | *string* | *undefined*>
 
 **Returns** *void*
   

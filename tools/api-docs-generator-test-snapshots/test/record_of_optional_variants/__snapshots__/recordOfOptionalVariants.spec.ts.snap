@@ -29,7 +29,7 @@ description: Contents of the exampleMember.ClassWithRecordOfOptionalVariantsProp
 ### **exampleMember**
 \`exampleMember?: Record<string, boolean | number | string | undefined>;\`
 
-Type: Record<*string*, *boolean* | *number* | *string*>
+Type: Record<*string*, *boolean* | *number* | *string* | *undefined*>
 
 Notes:
   - This property can't be used in read-only mode.

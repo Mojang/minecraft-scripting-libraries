@@ -5,7 +5,7 @@ import { FileSystem } from '@rushstack/node-core-library';
 import path from 'path';
 
 export function copyFiles(originPaths: string[], outputPath: string, skipIfPossible: boolean = true) {
-    let destinationPath = path.resolve(outputPath);
+    const destinationPath = path.resolve(outputPath);
     const MTIME_TOLERANCE_MS = 1000; // 1 second tolerance, avoid the case when file copying across system get delayed
     for (const originPath of originPaths) {
         const inputPath = path.resolve(originPath);
@@ -25,8 +25,8 @@ export function copyFiles(originPaths: string[], outputPath: string, skipIfPossi
                         shouldCopy = true;
                     } else {
                         // sizes equal -> check mtimes within tolerance
-                        const srcMtime = (pathStats as any).mtimeMs ?? new Date((pathStats as any).mtime).getTime();
-                        const destMtime = (destFileStats as any).mtimeMs ?? new Date((destFileStats as any).mtime).getTime();
+                        const srcMtime = pathStats.mtimeMs ?? pathStats.mtime.getTime();
+                        const destMtime = destFileStats.mtimeMs ?? destFileStats.mtime.getTime();
                         if (Math.abs(srcMtime - destMtime) > MTIME_TOLERANCE_MS) {
                             shouldCopy = true;
                         } else {
@@ -34,7 +34,7 @@ export function copyFiles(originPaths: string[], outputPath: string, skipIfPossi
                             shouldCopy = false;
                         }
                     }
-                } catch (e: any) {
+                } catch {
                     shouldCopy = true;
                 }
             }

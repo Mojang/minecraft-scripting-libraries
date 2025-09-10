@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Fixed an issue where optional type information wasn't properly conveyed when inside an Record type.",
-  "packageName": "@minecraft/markup-generators-plugin",
-  "email": "alexander.denford@skyboxlabs.com",
-  "dependentChangeType": "patch"
-}

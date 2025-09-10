@@ -1,8 +1,16 @@
 # Change Log - @minecraft/markup-generators-plugin
 
-<!-- This log was last generated on Wed, 10 Sep 2025 20:47:56 GMT and should not be manually modified. -->
+<!-- This log was last generated on Wed, 10 Sep 2025 22:50:16 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 1.1.0
+
+Wed, 10 Sep 2025 22:50:16 GMT
+
+### Minor changes
+
+- Fixed an issue where optional type information wasn't properly conveyed when inside an Record type. (alexander.denford@skyboxlabs.com)
 
 ## 1.0.8
 

@@ -2,6 +2,21 @@
   "name": "@minecraft/markup-generators-plugin",
   "entries": [
     {
+      "date": "Wed, 10 Sep 2025 20:47:56 GMT",
+      "version": "1.0.8",
+      "tag": "@minecraft/markup-generators-plugin_v1.0.8",
+      "comments": {
+        "patch": [
+          {
+            "author": "beachball",
+            "package": "@minecraft/markup-generators-plugin",
+            "comment": "Bump @minecraft/api-docs-generator to v1.2.5",
+            "commit": "not available"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 04 Sep 2025 23:12:17 GMT",
       "version": "1.0.7",
       "tag": "@minecraft/markup-generators-plugin_v1.0.7",

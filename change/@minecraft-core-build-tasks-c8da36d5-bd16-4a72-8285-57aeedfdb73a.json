@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "added sizeCheck as a flag",
+  "packageName": "@minecraft/core-build-tasks",
+  "email": "keyyard8888@gmail.com",
+  "dependentChangeType": "patch"
+}

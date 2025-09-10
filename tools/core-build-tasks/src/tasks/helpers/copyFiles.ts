@@ -4,8 +4,9 @@
 import { FileSystem } from '@rushstack/node-core-library';
 import path from 'path';
 
-export function copyFiles(originPaths: string[], outputPath: string) {
-    let destinationPath = path.resolve(outputPath);
+export function copyFiles(originPaths: string[], outputPath: string, skipIfPossible: boolean = true) {
+    const destinationPath = path.resolve(outputPath);
+    const MTIME_TOLERANCE_MS = 1000; // 1 second tolerance, avoid the case when file copying across system get delayed
     for (const originPath of originPaths) {
         const inputPath = path.resolve(originPath);
         const pathStats = FileSystem.getLinkStatistics(inputPath);
@@ -13,13 +14,49 @@ export function copyFiles(originPaths: string[], outputPath: string) {
             console.log(`Copying folder ${inputPath} to ${destinationPath}`);
         } else {
             const filename = path.parse(inputPath).base;
-            destinationPath = path.resolve(destinationPath, filename);
-            console.log(`Copying file ${inputPath} to ${destinationPath}`);
+            const fileDestinationPath = path.resolve(destinationPath, filename);
+
+            let shouldCopy = true;
+            if (skipIfPossible) {
+                try {
+                    const destFileStats = FileSystem.getStatistics(fileDestinationPath);
+                    // If sizes differ => must copy
+                    if (destFileStats.size !== pathStats.size) {
+                        shouldCopy = true;
+                    } else {
+                        // sizes equal -> check mtimes within tolerance
+                        const srcMtime = pathStats.mtimeMs ?? pathStats.mtime.getTime();
+                        const destMtime = destFileStats.mtimeMs ?? destFileStats.mtime.getTime();
+                        if (Math.abs(srcMtime - destMtime) > MTIME_TOLERANCE_MS) {
+                            shouldCopy = true;
+                        } else {
+                            // sizes equal and mtimes within tolerance -> skip copy
+                            shouldCopy = false;
+                        }
+                    }
+                } catch {
+                    shouldCopy = true;
+                }
+            }
+
+            if (!shouldCopy) {
+                console.log(`Skipping copy for ${inputPath}; no change detected`);
+                continue;
+            }
+
+            console.log(`Copying file ${inputPath} to ${fileDestinationPath}`);
+            FileSystem.copyFiles({
+                sourcePath: inputPath,
+                destinationPath: fileDestinationPath,
+                preserveTimestamps: true,
+            });
+            continue;
         }
 
         FileSystem.copyFiles({
             sourcePath: inputPath,
             destinationPath: destinationPath,
+            preserveTimestamps: true,
         });
     }
 }

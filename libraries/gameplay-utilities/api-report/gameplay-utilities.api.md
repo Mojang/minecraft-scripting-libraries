@@ -40,7 +40,7 @@ export class Thenable<T> {
 }
 
 // @public
-export function waitForNextEvent<T, U>(signal: EventSignal<T, U>, filter?: U): EventThenable<T, U>;
+export function nextEvent<T, U>(signal: EventSignal<T, U>, filter?: U): EventThenable<T, U>;
 
 // (No @packageDocumentation comment for this package)
 

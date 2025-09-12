@@ -2,24 +2,20 @@
 
 A set of utilities and functions for common gameplay operations. Major pieces are covered below.
 
-## Thenable
+## nextEvent() and EventPromise
 
-A promise-like object which allows for cancellation through external resolution with it's `fulfill` and `reject` functions.
-
-## EventThenable
-
-This object provides a "wait for next event" utility. A wrapper around the `Thenable` object which is designed to be used with Minecraft script event signals. Provide the constructor with a signal and it will resolve the promise when the next event for the provided signal is raised. Also provides a `cancel` function to unregister the event and fulfill the promise with `undefined`.
+`nextEvent()` is a function which takes a Minecraft event signal and wraps a promise around the next event being raised. The function returns an `EventPromise` object which is a promise type. When the event is raised, the promise will resolve with the event data, and unsubscribe from the event's signal. The `EventPromise` type also adds a `cancel()` function which will unsubscribe from the event's signal, and fulfill the promise with `undefined`.
 
 ### Can be awaited to receive the event
 
 ```ts
-const event = await new EventThenable(world.afterEvents.buttonPush);
+const event = await nextEvent(world.afterEvents.buttonPush);
 ```
 
 ### Can be used like a promise
 
 ```ts
-new EventThenable(world.afterEvents.leverAction).then(
+await nextEvent(world.afterEvents.leverAction).then(
     (event) => {
         // do something with the event
     }).finally(() => {
@@ -30,7 +26,7 @@ new EventThenable(world.afterEvents.leverAction).then(
 ### Optionally provide filters for the signal and use helper function
 
 ```ts
-const creeperDeathEvent = await waitForNextEvent(world.afterEvents.entityDie, { entityTypes: ['minecraft:creeper'] });
+const creeperDeathEvent = await nextEvent(world.afterEvents.entityDie, { entityTypes: ['minecraft:creeper'] });
 ```
 
 ## How to use @minecraft/gameplay-utilities in your project

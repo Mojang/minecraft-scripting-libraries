@@ -1,37 +1,43 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-import { Thenable } from '../thenable.js';
+import { world, system } from '@minecraft/server';
 
 /**
- * Interface representing the functions required to subscribe and unsubscribe to events.
- *
+ * A promise wrapper utility which returns a new promise that will resolve when the next
+ * event is raised.
+ * 
  * @public
  */
-export interface EventSignal<T, U> {
-    subscribe(closure: (event: T) => void, filter?: U): (event: T) => void;
-    unsubscribe(closure: (event: T) => void): void;
+export interface EventPromise {
+    /**
+     * Cancels the promise and unsubscribes from the event signal. Cancellation is done
+     * by fulfilling with undefined.
+     * 
+     * @public
+     */
+    cancel(): void;
 }
 
 /**
- * Helper to create a new EventThenable from an event signal.
+ * Helper to create a new EventPromise from an after event signal.
  *
  * @public
  */
-export function waitForNextEvent<T, U>(signal: EventSignal<T, U>, filter?: U) {
-    return new EventThenable(signal, filter);
+export function nextEvent<U>(signal: (typeof world.afterEvents[keyof typeof world.afterEvents]) | (typeof system.afterEvents[keyof typeof system.afterEvents]), filter?: U) : EventPromise {
+    return new EventPromiseImpl(signal, filter);
 }
 
 /**
  * A promise wrapper utility which returns a new promise that will resolve when the next
  * event is raised.
  *
- * @public
+ * @private
  */
-export class EventThenable<T, U = undefined> extends Thenable<T | undefined> {
+class EventPromiseImpl<T, U = undefined> extends Promise<T | undefined> {
     private onCancel?: () => void;
 
-    constructor(signal: EventSignal<T, U>, filter?: U) {
+    constructor(signal: typeof world.afterEvents[keyof typeof world.afterEvents], filter?: U) {
         let cancelFn: (() => void) | undefined = undefined;
         super((resolve, _) => {
             let sub: (event: T) => void;
@@ -61,8 +67,6 @@ export class EventThenable<T, U = undefined> extends Thenable<T | undefined> {
      * Cancels the promise by resolving it with undefined and unsubscribing from the event signal.
      */
     cancel() {
-        if (this.onCancel) {
-            this.onCancel();
-        }
+        this.onCancel?.();
     }
 }

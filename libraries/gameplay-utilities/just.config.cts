@@ -24,7 +24,7 @@ task('typescript', tscTask());
 task('api-extractor-local', apiExtractorTask('./api-extractor.json', isOnlyBuild /* localBuild */));
 task('bundle', () => {
     execSync(
-        'npx esbuild ./lib/index.js --bundle --outfile=dist/minecraft-gameplay-utilities.js --format=esm --sourcemap --external:@minecraft/server'
+        'npx esbuild ./lib/src/index.js --bundle --outfile=dist/minecraft-gameplay-utilities.js --format=esm --sourcemap --external:@minecraft/server'
     );
     // Copy over type definitions and rename
     const officialTypes = JSON.parse(readFileSync('./package.json', 'utf-8'))['types'];

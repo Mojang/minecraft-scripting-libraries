@@ -1,6 +1,6 @@
 {
     "extends": "@minecraft/tsconfig/base.json",
-    "include": ["src/**/*"],
+    "include": ["src/**/*", "__mocks__/**/*"],
     "exclude": ["dist", "build", "node_modules"],
     "compilerOptions": {
         "outDir": "lib",

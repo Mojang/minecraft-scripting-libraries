@@ -4,43 +4,25 @@
 
 ```ts
 
-// @public
-export interface EventSignal<T, U> {
-    // (undocumented)
-    subscribe(closure: (event: T) => void, filter?: U): (event: T) => void;
-    // (undocumented)
-    unsubscribe(closure: (event: T) => void): void;
-}
+import { system } from '@minecraft/server';
+import { world } from '@minecraft/server';
 
 // @public
-export class EventThenable<T, U = undefined> extends Thenable<T | undefined> {
-    constructor(signal: EventSignal<T, U>, filter?: U);
+export interface EventPromise<T> extends Promise<T | undefined> {
     cancel(): void;
+    catch<TReject = never>(onrejected?: ((reason: unknown) => TReject | PromiseLike<TReject>) | null): Promise<T | undefined | TReject>;
+    finally(onfinally?: (() => void) | null): Promise<T | undefined>;
+    then<TFulfill = T | undefined, TReject = never>(onfulfilled?: ((value: T | undefined) => TFulfill | PromiseLike<TFulfill>) | null, onrejected?: ((reason: unknown) => TReject | PromiseLike<TReject>) | null): Promise<TFulfill | TReject>;
 }
 
 // @public
-export enum PromiseState {
-    // (undocumented)
-    FULFILLED = "fulfilled",
-    // (undocumented)
-    PENDING = "pending",
-    // (undocumented)
-    REJECTED = "rejected"
-}
+export type FirstArg<T> = T extends (arg: infer U) => void ? U : never;
 
 // @public
-export class Thenable<T> {
-    constructor(callback: (fulfill: (value: T) => void, reject: (reason: unknown) => void) => void);
-    catch(onRejected: (reason: unknown) => unknown): Thenable<unknown>;
-    finally(onFinally: () => void): Thenable<T>;
-    fulfill(value: T | Thenable<unknown>): void;
-    reject(error: unknown): void;
-    state(): PromiseState;
-    then<U>(onFulfilled?: (val: T) => U, onRejected?: (reason: unknown) => unknown): Thenable<U>;
-}
+export type MinecraftAfterEventSignals = (typeof world.afterEvents)[keyof typeof world.afterEvents] | (typeof system.afterEvents)[keyof typeof system.afterEvents];
 
 // @public
-export function nextEvent<T, U>(signal: EventSignal<T, U>, filter?: U): EventThenable<T, U>;
+export function nextEvent<U>(signal: MinecraftAfterEventSignals, filter?: U): EventPromise<FirstArg<FirstArg<typeof signal.subscribe>>>;
 
 // (No @packageDocumentation comment for this package)
 

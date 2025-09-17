@@ -21,8 +21,9 @@ export interface EventPromise<T> extends Promise<T | undefined> {
     /**
      * Promise-like interface then.
      *
-     * @param onfulfilled Called if the promise fulfills
-     * @param onrejected Called if the promise rejects
+     * @param onfulfilled - Called if the promise fulfills
+     * @param onrejected - Called if the promise rejects
+     * @public
      */
     then<TFulfill = T | undefined, TReject = never>(
         onfulfilled?: ((value: T | undefined) => TFulfill | PromiseLike<TFulfill>) | null,
@@ -32,7 +33,8 @@ export interface EventPromise<T> extends Promise<T | undefined> {
     /**
      * Promise-like interface catch.
      *
-     * @param onrejected Called if the promise rejects
+     * @param onrejected - Called if the promise rejects
+     * @public
      */
     catch<TReject = never>(
         onrejected?: ((reason: unknown) => TReject | PromiseLike<TReject>) | null
@@ -41,15 +43,27 @@ export interface EventPromise<T> extends Promise<T | undefined> {
     /**
      * Promise-like interface finally.
      *
-     * @param onfinally Called when the promise resolves
+     * @param onfinally - Called when the promise resolves
+     * @public
      */
     finally(onfinally?: (() => void) | null): Promise<T | undefined>;
 }
 
-type MinecraftAfterEventSignals =
+/**
+ * The types of after event signals that exist in Minecraft's API that EventPromise can use.
+ *
+ * @public
+ */
+export type MinecraftAfterEventSignals =
     | (typeof world.afterEvents)[keyof typeof world.afterEvents]
     | (typeof system.afterEvents)[keyof typeof system.afterEvents];
-type FirstArg<T> = T extends (arg: infer U) => void ? U : never;
+
+/**
+ * Obtains the first argument of a function
+ *
+ * @public
+ */
+export type FirstArg<T> = T extends (arg: infer U) => void ? U : never;
 
 /**
  * Helper to create a new EventPromise from an after event signal.
@@ -111,22 +125,12 @@ class EventPromiseImpl<T, U> implements Promise<T | undefined> {
         return this.promise.then(onfulfilled, onrejected);
     }
 
-    /**
-     * Promise-like interface catch.
-     *
-     * @param onrejected Called if the promise rejects
-     */
     catch<TReject = never>(
         onrejected?: ((reason: unknown) => TReject | PromiseLike<TReject>) | null
     ): Promise<T | undefined | TReject> {
         return this.promise.catch(onrejected);
     }
 
-    /**
-     * Promise-like interface finally.
-     *
-     * @param onfinally Called when the promise resolves
-     */
     finally(onfinally?: (() => void) | null): Promise<T | undefined> {
         return this.promise.finally(onfinally);
     }

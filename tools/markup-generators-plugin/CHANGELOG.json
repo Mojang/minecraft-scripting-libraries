@@ -2,6 +2,36 @@
   "name": "@minecraft/markup-generators-plugin",
   "entries": [
     {
+      "date": "Wed, 10 Sep 2025 22:50:16 GMT",
+      "version": "1.1.0",
+      "tag": "@minecraft/markup-generators-plugin_v1.1.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "alexander.denford@skyboxlabs.com",
+            "package": "@minecraft/markup-generators-plugin",
+            "commit": "eaecf2035ec34b76311f8b153d796ca343148d4a",
+            "comment": "Fixed an issue where optional type information wasn't properly conveyed when inside an Record type."
+          }
+        ]
+      }
+    },
+    {
+      "date": "Wed, 10 Sep 2025 20:47:56 GMT",
+      "version": "1.0.8",
+      "tag": "@minecraft/markup-generators-plugin_v1.0.8",
+      "comments": {
+        "patch": [
+          {
+            "author": "beachball",
+            "package": "@minecraft/markup-generators-plugin",
+            "comment": "Bump @minecraft/api-docs-generator to v1.2.5",
+            "commit": "not available"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 04 Sep 2025 23:12:17 GMT",
       "version": "1.0.7",
       "tag": "@minecraft/markup-generators-plugin_v1.0.7",

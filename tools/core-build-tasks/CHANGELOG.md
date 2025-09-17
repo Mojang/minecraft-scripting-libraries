@@ -1,8 +1,16 @@
 # Change Log - @minecraft/core-build-tasks
 
-<!-- This log was last generated on Thu, 04 Sep 2025 23:12:17 GMT and should not be manually modified. -->
+<!-- This log was last generated on Wed, 10 Sep 2025 20:47:56 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 5.4.0
+
+Wed, 10 Sep 2025 20:47:56 GMT
+
+### Minor changes
+
+- added sizeCheck as a flag (keyyard8888@gmail.com)
 
 ## 5.3.2
 

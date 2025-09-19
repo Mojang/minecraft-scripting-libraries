@@ -32,7 +32,7 @@
     "CHANGELOG.*"
   ],
   "dependencies": {
-    "@microsoft/api-extractor": "^7.38.3",
+    "@microsoft/api-extractor": "^7.52.11",
     "@rushstack/node-core-library": "^5.14.0",
     "dotenv": "^16.4.5",
     "esbuild": "^0.25.0",

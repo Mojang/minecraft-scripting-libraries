@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-import { EntityEventOptions, WeatherChangeAfterEvent, EntityRemoveAfterEvent } from '@minecraft/server';
+import type { EntityEventOptions, WeatherChangeAfterEvent, EntityRemoveAfterEvent } from '@minecraft/server';
 
 export enum WeatherType {
     Clear = 'Clear',

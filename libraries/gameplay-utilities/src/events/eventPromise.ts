@@ -59,13 +59,6 @@ export type MinecraftAfterEventSignals =
     | (typeof system.afterEvents)[keyof typeof system.afterEvents];
 
 /**
- * Obtains the first argument of a function
- *
- * @public
- */
-export type FirstArg<T> = T extends (arg: infer U) => void ? U : never;
-
-/**
  * Helper to create a new EventPromise from an after event signal.
  *
  * @public
@@ -73,8 +66,8 @@ export type FirstArg<T> = T extends (arg: infer U) => void ? U : never;
 export function nextEvent<U>(
     signal: MinecraftAfterEventSignals,
     filter?: U
-): EventPromise<FirstArg<FirstArg<typeof signal.subscribe>>> {
-    return new EventPromiseImpl<FirstArg<FirstArg<typeof signal.subscribe>>, U>(signal, filter);
+): EventPromise<Parameters<Parameters<typeof signal.subscribe>[0]>[0]> {
+    return new EventPromiseImpl<Parameters<Parameters<typeof signal.subscribe>[0]>[0], U>(signal, filter);
 }
 
 /**

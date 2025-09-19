@@ -1,0 +1,20 @@
+{
+  "name": "@minecraft/gameplay-utilities",
+  "entries": [
+    {
+      "date": "Fri, 19 Sep 2025 19:52:47 GMT",
+      "version": "1.0.0",
+      "tag": "@minecraft/gameplay-utilities_v1.0.0",
+      "comments": {
+        "major": [
+          {
+            "author": "agriffin@microsoft.com",
+            "package": "@minecraft/gameplay-utilities",
+            "commit": "9095d1fe4409ca14b4d18e045376e7435c3b2866",
+            "comment": "EventPromise and nextEvent() added to gameplay-utilities"
+          }
+        ]
+      }
+    }
+  ]
+}

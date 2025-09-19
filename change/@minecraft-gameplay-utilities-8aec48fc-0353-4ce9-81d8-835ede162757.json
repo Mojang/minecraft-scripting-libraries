@@ -1,7 +1,0 @@
-{
-  "type": "major",
-  "comment": "EventPromise and nextEvent() added to gameplay-utilities",
-  "packageName": "@minecraft/gameplay-utilities",
-  "email": "agriffin@microsoft.com",
-  "dependentChangeType": "patch"
-}

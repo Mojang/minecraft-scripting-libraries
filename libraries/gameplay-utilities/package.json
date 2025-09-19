@@ -1,0 +1,47 @@
+{
+  "name": "@minecraft/gameplay-utilities",
+  "version": "0.1.0",
+  "author": "Andrew Griffin (agriffin@microsoft.com)",
+  "contributors": [
+    {
+      "name": "Jake Shirley",
+      "email": "jashir@mojang.com"
+    }
+  ],
+  "description": "Gameplay utilities for use with minecraft scripting modules",
+  "exports": {
+    "import": "./lib/src/index.js",
+    "types": "./lib/types/gameplay-utilities-public.d.ts"
+  },
+  "type": "module",
+  "types": "./lib/types/gameplay-utilities-public.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mojang/minecraft-scripting-libraries.git",
+    "directory": "libraries/gameplay-utilities"
+  },
+  "scripts": {
+    "build": "just build",
+    "lint": "just lint",
+    "test": "just test",
+    "clean": "just clean",
+    "postpublish": "just postpublish"
+  },
+  "license": "MIT",
+  "files": [
+    "dist",
+    "lib",
+    "api-report"
+  ],
+  "peerDependencies": {
+    "@minecraft/server": "^1.15.0 || ^2.0.0"
+  },
+  "devDependencies": {
+    "@minecraft/core-build-tasks": "*",
+    "@minecraft/server": "^2.0.0",
+    "@minecraft/tsconfig": "*",
+    "just-scripts": "^2.4.1",
+    "prettier": "^3.5.3",
+    "vitest": "^3.0.8"
+  }
+}

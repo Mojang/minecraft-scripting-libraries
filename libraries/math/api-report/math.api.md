@@ -4,8 +4,34 @@
 
 ```ts
 
+import { BlockVolume } from '@minecraft/server';
 import type { Vector2 } from '@minecraft/server';
 import type { Vector3 } from '@minecraft/server';
+
+// @public
+export interface AABB {
+    // (undocumented)
+    center: Vector3;
+    // (undocumented)
+    extent: Vector3;
+}
+
+// @public
+export class AABBUtils {
+    static createFromCornerPoints(pointA: Vector3, pointB: Vector3): AABB;
+    static dilate(aabb: AABB, size: Vector3): AABB;
+    static equals(aabb: AABB, other: AABB): boolean;
+    static expand(aabb: AABB, other: AABB): AABB;
+    static getBlockVolume(aabb: AABB): BlockVolume;
+    static getIntersection(aabb: AABB, other: AABB): AABB | undefined;
+    static getMax(aabb: AABB): Vector3;
+    static getMin(aabb: AABB): Vector3;
+    static getSpan(aabb: AABB): Vector3;
+    static intersects(aabb: AABB, other: AABB): boolean;
+    static isInside(aabb: AABB, pos: Vector3): boolean;
+    static isValid(box: AABB): boolean;
+    static translate(aabb: AABB, delta: Vector3): AABB;
+}
 
 // @public
 export function clampNumber(val: number, min: number, max: number): number;
@@ -121,6 +147,7 @@ export class Vector3Builder implements Vector3 {
 // @public
 export class Vector3Utils {
     static add(v1: Vector3, v2: Partial<Vector3>): Vector3;
+    static ceil(v: Vector3): Vector3;
     static clamp(v: Vector3, limits?: {
         min?: Partial<Vector3>;
         max?: Partial<Vector3>;

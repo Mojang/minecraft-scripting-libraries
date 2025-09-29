@@ -1,8 +1,16 @@
 # Change Log - @minecraft/markup-generators-plugin
 
-<!-- This log was last generated on Wed, 10 Sep 2025 22:50:16 GMT and should not be manually modified. -->
+<!-- This log was last generated on Mon, 29 Sep 2025 17:42:55 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 1.1.1
+
+Mon, 29 Sep 2025 17:42:55 GMT
+
+### Patches
+
+- Bump @minecraft/api-docs-generator to v1.2.6
 
 ## 1.1.0
 

@@ -2,6 +2,21 @@
   "name": "@minecraft/core-build-tasks",
   "entries": [
     {
+      "date": "Mon, 29 Sep 2025 17:42:55 GMT",
+      "version": "5.5.0",
+      "tag": "@minecraft/core-build-tasks_v5.5.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "zachary.campbell@skyboxlabs.com",
+            "package": "@minecraft/core-build-tasks",
+            "commit": "a3a4494c22624aa8b334dd0b664a535fdb421827",
+            "comment": "Add Bedrock GDK paths to core-build-tasks"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 10 Sep 2025 20:47:56 GMT",
       "version": "5.4.0",
       "tag": "@minecraft/core-build-tasks_v5.4.0",

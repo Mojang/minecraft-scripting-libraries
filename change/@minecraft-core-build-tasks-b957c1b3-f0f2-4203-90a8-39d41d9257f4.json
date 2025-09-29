@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Add Bedrock GDK paths to core-build-tasks",
-  "packageName": "@minecraft/core-build-tasks",
-  "email": "zachary.campbell@skyboxlabs.com",
-  "dependentChangeType": "patch"
-}

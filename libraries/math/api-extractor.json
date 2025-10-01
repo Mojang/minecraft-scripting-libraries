@@ -3,5 +3,6 @@
  */
 {
     "$schema": "https://developer.microsoft.com/json-schemas/api-extractor/v7/api-extractor.schema.json",
-    "extends": "@minecraft/api-extractor-base/api-extractor-base.json"
+    "extends": "@minecraft/api-extractor-base/api-extractor-base.json",
+    "mainEntryPointFilePath": "<projectFolder>/temp/types/src/index.d.ts"
 }

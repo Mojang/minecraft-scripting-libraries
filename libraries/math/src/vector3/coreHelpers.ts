@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-import type { Vector2, Vector3 } from '@minecraft/server';
+import type { Vector2, Vector3, VectorXZ } from '@minecraft/server';
 import { clampNumber } from '../general/clamp.js';
 
 /**
@@ -221,6 +221,87 @@ export class Vector3Utils {
  */
 export class Vector2Utils {
     /**
+     * equals
+     *
+     * Check the equality of two vectors
+     */
+    static equals(v1: Vector2, v2: Vector2): boolean {
+        return v1.x === v2.x && v1.y === v2.y;
+    }
+
+    /**
+     * add
+     *
+     * Add two vectors to produce a new vector
+     */
+    static add(v1: Vector2, v2: Partial<Vector2>): Vector2 {
+        return { x: v1.x + (v2.x ?? 0), y: v1.y + (v2.y ?? 0) };
+    }
+
+    /**
+     * subtract
+     *
+     * Subtract two vectors to produce a new vector (v1-v2)
+     */
+    static subtract(v1: Vector2, v2: Partial<Vector2>): Vector2 {
+        return { x: v1.x - (v2.x ?? 0), y: v1.y - (v2.y ?? 0) };
+    }
+
+    /** scale
+     *
+     * Multiple all entries in a vector by a single scalar value producing a new vector
+     */
+    static scale(v1: Vector2, scale: number): Vector2 {
+        return { x: v1.x * scale, y: v1.y * scale };
+    }
+
+    /**
+     * dot
+     *
+     * Calculate the dot product of two vectors
+     */
+    static dot(a: Vector2, b: Vector2): number {
+        return a.x * b.x + a.y * b.y;
+    }
+
+    /**
+     * magnitude
+     *
+     * The magnitude of a vector
+     */
+    static magnitude(v: Vector2): number {
+        return Math.sqrt(v.x ** 2 + v.y ** 2);
+    }
+
+    /**
+     * distance
+     *
+     * Calculate the distance between two vectors
+     */
+    static distance(a: Vector2, b: Vector2): number {
+        return Vector2Utils.magnitude(Vector2Utils.subtract(a, b));
+    }
+
+    /**
+     * normalize
+     *
+     * Takes a vector 3 and normalizes it to a unit vector
+     */
+    static normalize(v: Vector2): Vector2 {
+        const mag = Vector2Utils.magnitude(v);
+        return { x: v.x / mag, y: v.y / mag };
+    }
+
+    /**
+     * floor
+     *
+     * Floor the components of a vector to produce a new vector
+     */
+    static floor(v: Vector2): Vector2 {
+        return { x: Math.floor(v.x), y: Math.floor(v.y) };
+    }
+
+    /**
      * toString
      *
      * Create a string representation of a vector2
@@ -234,10 +315,10 @@ export class Vector2Utils {
     /**
      * fromString
      *
-     * Gets a Vector2 from the string representation produced by {@link Vector3Utils.toString}. If any numeric value is not a number
+     * Gets a Vector2 from the string representation produced by {@link Vector2Utils.toString}. If any numeric value is not a number
      * or the format is invalid, undefined is returned.
      * @param str - The string to parse
-     * @param delimiter - The delimiter used to separate the components. Defaults to the same as the default for {@link Vector3Utils.toString}
+     * @param delimiter - The delimiter used to separate the components. Defaults to the same as the default for {@link Vector2Utils.toString}
      */
     static fromString(str: string, delimiter: string = ','): Vector2 | undefined {
         const parts = str.split(delimiter);
@@ -250,6 +331,214 @@ export class Vector2Utils {
             return undefined;
         }
         return { x: output[0], y: output[1] };
+    }
+
+    /**
+     * clamp
+     *
+     * Clamps the components of a vector to limits to produce a new vector
+     */
+    static clamp(v: Vector2, limits?: { min?: Partial<Vector2>; max?: Partial<Vector2> }): Vector2 {
+        return {
+            x: clampNumber(v.x, limits?.min?.x ?? Number.MIN_SAFE_INTEGER, limits?.max?.x ?? Number.MAX_SAFE_INTEGER),
+            y: clampNumber(v.y, limits?.min?.y ?? Number.MIN_SAFE_INTEGER, limits?.max?.y ?? Number.MAX_SAFE_INTEGER),
+        };
+    }
+
+    /**
+     * lerp
+     *
+     * Constructs a new vector using linear interpolation on each component from two vectors.
+     */
+    static lerp(a: Vector2, b: Vector2, t: number): Vector2 {
+        return { x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t };
+    }
+
+    /**
+     * slerp
+     *
+     * Constructs a new vector using spherical linear interpolation on each component from two vectors.
+     */
+    static slerp(a: Vector2, b: Vector2, t: number): Vector2 {
+        const theta = Math.acos(Vector2Utils.dot(a, b));
+        const sinTheta = Math.sin(theta);
+        const ta = Math.sin((1.0 - t) * theta) / sinTheta;
+        const tb = Math.sin(t * theta) / sinTheta;
+        return Vector2Utils.add(Vector2Utils.scale(a, ta), Vector2Utils.scale(b, tb));
+    }
+
+    /**
+     * multiply
+     *
+     * Element-wise multiplication of two vectors together.
+     * Not to be confused with {@link Vector2Utils.dot} product
+     */
+    static multiply(a: Vector2, b: Vector2): Vector2 {
+        return { x: a.x * b.x, y: a.y * b.y };
+    }
+}
+
+/**
+ * Utilities operating on VectorXZ objects. All methods are static and do not modify the input objects.
+ *
+ * @public
+ */
+export class VectorXZUtils {
+    /**
+     * equals
+     *
+     * Check the equality of two vectors
+     */
+    static equals(v1: VectorXZ, v2: VectorXZ): boolean {
+        return v1.x === v2.x && v1.z === v2.z;
+    }
+
+    /**
+     * add
+     *
+     * Add two vectors to produce a new vector
+     */
+    static add(v1: VectorXZ, v2: Partial<VectorXZ>): VectorXZ {
+        return { x: v1.x + (v2.x ?? 0), z: v1.z + (v2.z ?? 0) };
+    }
+
+    /**
+     * subtract
+     *
+     * Subtract two vectors to produce a new vector (v1-v2)
+     */
+    static subtract(v1: VectorXZ, v2: Partial<VectorXZ>): VectorXZ {
+        return { x: v1.x - (v2.x ?? 0), z: v1.z - (v2.z ?? 0) };
+    }
+
+    /** scale
+     *
+     * Multiple all entries in a vector by a single scalar value producing a new vector
+     */
+    static scale(v1: VectorXZ, scale: number): VectorXZ {
+        return { x: v1.x * scale, z: v1.z * scale };
+    }
+
+    /**
+     * dot
+     *
+     * Calculate the dot product of two vectors
+     */
+    static dot(a: VectorXZ, b: VectorXZ): number {
+        return a.x * b.x + a.z * b.z;
+    }
+
+    /**
+     * magnitude
+     *
+     * The magnitude of a vector
+     */
+    static magnitude(v: VectorXZ): number {
+        return Math.sqrt(v.x ** 2 + v.z ** 2);
+    }
+
+    /**
+     * distance
+     *
+     * Calculate the distance between two vectors
+     */
+    static distance(a: VectorXZ, b: VectorXZ): number {
+        return VectorXZUtils.magnitude(VectorXZUtils.subtract(a, b));
+    }
+
+    /**
+     * normalize
+     *
+     * Takes a vector 3 and normalizes it to a unit vector
+     */
+    static normalize(v: VectorXZ): VectorXZ {
+        const mag = VectorXZUtils.magnitude(v);
+        return { x: v.x / mag, z: v.z / mag };
+    }
+
+    /**
+     * floor
+     *
+     * Floor the components of a vector to produce a new vector
+     */
+    static floor(v: VectorXZ): VectorXZ {
+        return { x: Math.floor(v.x), z: Math.floor(v.z) };
+    }
+
+    /**
+     * toString
+     *
+     * Create a string representation of a vectorxz
+     */
+    static toString(v: VectorXZ, options?: { decimals?: number; delimiter?: string }): string {
+        const decimals = options?.decimals ?? 2;
+        const str: string[] = [v.x.toFixed(decimals), v.z.toFixed(decimals)];
+        return str.join(options?.delimiter ?? ', ');
+    }
+
+    /**
+     * fromString
+     *
+     * Gets a VectorXZ from the string representation produced by {@link VectorXZUtils.toString}. If any numeric value is not a number
+     * or the format is invalid, undefined is returned.
+     * @param str - The string to parse
+     * @param delimiter - The delimiter used to separate the components. Defaults to the same as the default for {@link VectorXZUtils.toString}
+     */
+    static fromString(str: string, delimiter: string = ','): VectorXZ | undefined {
+        const parts = str.split(delimiter);
+        if (parts.length !== 2) {
+            return undefined;
+        }
+
+        const output = parts.map(part => parseFloat(part));
+        if (output.some(part => isNaN(part))) {
+            return undefined;
+        }
+        return { x: output[0], z: output[1] };
+    }
+
+    /**
+     * clamp
+     *
+     * Clamps the components of a vector to limits to produce a new vector
+     */
+    static clamp(v: VectorXZ, limits?: { min?: Partial<VectorXZ>; max?: Partial<VectorXZ> }): VectorXZ {
+        return {
+            x: clampNumber(v.x, limits?.min?.x ?? Number.MIN_SAFE_INTEGER, limits?.max?.x ?? Number.MAX_SAFE_INTEGER),
+            z: clampNumber(v.z, limits?.min?.z ?? Number.MIN_SAFE_INTEGER, limits?.max?.z ?? Number.MAX_SAFE_INTEGER),
+        };
+    }
+
+    /**
+     * lerp
+     *
+     * Constructs a new vector using linear interpolation on each component from two vectors.
+     */
+    static lerp(a: VectorXZ, b: VectorXZ, t: number): VectorXZ {
+        return { x: a.x + (b.x - a.x) * t, z: a.z + (b.z - a.z) * t };
+    }
+
+    /**
+     * slerp
+     *
+     * Constructs a new vector using spherical linear interpolation on each component from two vectors.
+     */
+    static slerp(a: VectorXZ, b: VectorXZ, t: number): VectorXZ {
+        const theta = Math.acos(VectorXZUtils.dot(a, b));
+        const sinTheta = Math.sin(theta);
+        const ta = Math.sin((1.0 - t) * theta) / sinTheta;
+        const tb = Math.sin(t * theta) / sinTheta;
+        return VectorXZUtils.add(VectorXZUtils.scale(a, ta), VectorXZUtils.scale(b, tb));
+    }
+
+    /**
+     * multiply
+     *
+     * Element-wise multiplication of two vectors together.
+     * Not to be confused with {@link VectorXZUtils.dot} product
+     */
+    static multiply(a: VectorXZ, b: VectorXZ): VectorXZ {
+        return { x: a.x * b.x, z: a.z * b.z };
     }
 }
 
@@ -377,3 +666,11 @@ export const VECTOR3_NEGATIVE_ONE: Vector3 = { x: -1, y: -1, z: -1 };
  * @public
  */
 export const VECTOR2_ZERO: Vector2 = { x: 0, y: 0 };
+/**
+ * zero
+ *
+ * A vector representing the value of 0 in all directions (0,0)
+ *
+ * @public
+ */
+export const VECTORXZ_ZERO: VectorXZ = { x: 0, z: 0 };

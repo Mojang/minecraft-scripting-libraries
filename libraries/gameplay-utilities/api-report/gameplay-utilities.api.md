@@ -16,13 +16,10 @@ export interface EventPromise<T> extends Promise<T | undefined> {
 }
 
 // @public
-export type FirstArg<T> = T extends (arg: infer U) => void ? U : never;
-
-// @public
 export type MinecraftAfterEventSignals = (typeof world.afterEvents)[keyof typeof world.afterEvents] | (typeof system.afterEvents)[keyof typeof system.afterEvents];
 
 // @public
-export function nextEvent<U>(signal: MinecraftAfterEventSignals, filter?: U): EventPromise<FirstArg<FirstArg<typeof signal.subscribe>>>;
+export function nextEvent<U>(signal: MinecraftAfterEventSignals, filter?: U): EventPromise<Parameters<Parameters<typeof signal.subscribe>[0]>[0]>;
 
 // (No @packageDocumentation comment for this package)
 

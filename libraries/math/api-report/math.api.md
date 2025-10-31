@@ -6,7 +6,6 @@
 
 import type { Vector2 } from '@minecraft/server';
 import type { Vector3 } from '@minecraft/server';
-import type { VectorXZ } from '@minecraft/server';
 
 // @public
 export function clampNumber(val: number, min: number, max: number): number;
@@ -19,23 +18,6 @@ export class Vector2Builder implements Vector2 {
     constructor(vecStr: string, delim?: string);
     constructor(vec: Vector2, arg?: never);
     constructor(x: number, y: number);
-    add(v: Partial<Vector2>): this;
-    assign(vec: Vector2): this;
-    clamp(limits: {
-        min?: Partial<Vector2>;
-        max?: Partial<Vector2>;
-    }): this;
-    distance(vec: Vector2): number;
-    dot(vec: Vector2): number;
-    equals(v: Vector2): boolean;
-    floor(): this;
-    lerp(vec: Vector2, t: number): this;
-    magnitude(): number;
-    multiply(vec: Vector2): this;
-    normalize(): this;
-    scale(val: number): this;
-    slerp(vec: Vector2, t: number): this;
-    subtract(v: Partial<Vector2>): this;
     // (undocumented)
     toString(options?: {
         decimals?: number;
@@ -49,23 +31,7 @@ export class Vector2Builder implements Vector2 {
 
 // @public
 export class Vector2Utils {
-    static add(v1: Vector2, v2: Partial<Vector2>): Vector2;
-    static clamp(v: Vector2, limits?: {
-        min?: Partial<Vector2>;
-        max?: Partial<Vector2>;
-    }): Vector2;
-    static distance(a: Vector2, b: Vector2): number;
-    static dot(a: Vector2, b: Vector2): number;
-    static equals(v1: Vector2, v2: Vector2): boolean;
-    static floor(v: Vector2): Vector2;
     static fromString(str: string, delimiter?: string): Vector2 | undefined;
-    static lerp(a: Vector2, b: Vector2, t: number): Vector2;
-    static magnitude(v: Vector2): number;
-    static multiply(a: Vector2, b: Vector2): Vector2;
-    static normalize(v: Vector2): Vector2;
-    static scale(v1: Vector2, scale: number): Vector2;
-    static slerp(a: Vector2, b: Vector2, t: number): Vector2;
-    static subtract(v1: Vector2, v2: Partial<Vector2>): Vector2;
     static toString(v: Vector2, options?: {
         decimals?: number;
         delimiter?: string;
@@ -176,67 +142,6 @@ export class Vector3Utils {
     static slerp(a: Vector3, b: Vector3, t: number): Vector3;
     static subtract(v1: Vector3, v2: Partial<Vector3>): Vector3;
     static toString(v: Vector3, options?: {
-        decimals?: number;
-        delimiter?: string;
-    }): string;
-}
-
-// @public
-export const VECTORXZ_ZERO: VectorXZ;
-
-// @public
-export class VectorXZBuilder implements VectorXZ {
-    constructor(vecStr: string, delim?: string);
-    constructor(vec: VectorXZ, arg?: never);
-    constructor(x: number, y: number);
-    add(v: Partial<VectorXZ>): this;
-    assign(vec: VectorXZ): this;
-    clamp(limits: {
-        min?: Partial<VectorXZ>;
-        max?: Partial<VectorXZ>;
-    }): this;
-    distance(vec: VectorXZ): number;
-    dot(vec: VectorXZ): number;
-    equals(v: VectorXZ): boolean;
-    floor(): this;
-    lerp(vec: VectorXZ, t: number): this;
-    magnitude(): number;
-    multiply(vec: VectorXZ): this;
-    normalize(): this;
-    scale(val: number): this;
-    slerp(vec: VectorXZ, t: number): this;
-    subtract(v: Partial<VectorXZ>): this;
-    // (undocumented)
-    toString(options?: {
-        decimals?: number;
-        delimiter?: string;
-    }): string;
-    // (undocumented)
-    x: number;
-    // (undocumented)
-    z: number;
-}
-
-// @public
-export class VectorXZUtils {
-    static add(v1: VectorXZ, v2: Partial<VectorXZ>): VectorXZ;
-    static clamp(v: VectorXZ, limits?: {
-        min?: Partial<VectorXZ>;
-        max?: Partial<VectorXZ>;
-    }): VectorXZ;
-    static distance(a: VectorXZ, b: VectorXZ): number;
-    static dot(a: VectorXZ, b: VectorXZ): number;
-    static equals(v1: VectorXZ, v2: VectorXZ): boolean;
-    static floor(v: VectorXZ): VectorXZ;
-    static fromString(str: string, delimiter?: string): VectorXZ | undefined;
-    static lerp(a: VectorXZ, b: VectorXZ, t: number): VectorXZ;
-    static magnitude(v: VectorXZ): number;
-    static multiply(a: VectorXZ, b: VectorXZ): VectorXZ;
-    static normalize(v: VectorXZ): VectorXZ;
-    static scale(v1: VectorXZ, scale: number): VectorXZ;
-    static slerp(a: VectorXZ, b: VectorXZ, t: number): VectorXZ;
-    static subtract(v1: VectorXZ, v2: Partial<VectorXZ>): VectorXZ;
-    static toString(v: VectorXZ, options?: {
         decimals?: number;
         delimiter?: string;
     }): string;

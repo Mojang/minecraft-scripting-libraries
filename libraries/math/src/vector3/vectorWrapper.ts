@@ -1,8 +1,8 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-import type { Vector2, Vector3 } from '@minecraft/server';
-import { Vector2Utils, Vector3Utils } from './coreHelpers.js';
+import type { Vector2, Vector3, VectorXZ } from '@minecraft/server';
+import { Vector2Utils, Vector3Utils, VectorXZUtils } from './coreHelpers.js';
 
 /**
  * Vector3 wrapper class which can be used as a Vector3 for APIs on \@minecraft/server which require a Vector,
@@ -256,5 +256,294 @@ export class Vector2Builder implements Vector2 {
 
     toString(options?: { decimals?: number; delimiter?: string }): string {
         return Vector2Utils.toString(this, options);
+    }
+
+    /**
+     * Assigns the values of the passed in vector to this vector. Returns itself.
+     */
+    assign(vec: Vector2): this {
+        this.x = vec.x;
+        this.y = vec.y;
+        return this;
+    }
+
+    /**
+     * equals
+     *
+     * Check the equality of two vectors
+     */
+    equals(v: Vector2): boolean {
+        return Vector2Utils.equals(this, v);
+    }
+
+    /**
+     * add
+     *
+     * Adds the vector v to this, returning itself.
+     */
+    add(v: Partial<Vector2>): this {
+        return this.assign(Vector2Utils.add(this, v));
+    }
+
+    /**
+     * subtract
+     *
+     * Subtracts the vector v from this, returning itself.
+     */
+    subtract(v: Partial<Vector2>): this {
+        return this.assign(Vector2Utils.subtract(this, v));
+    }
+
+    /** scale
+     *
+     * Scales this by the passed in value, returning itself.
+     */
+    scale(val: number): this {
+        return this.assign(Vector2Utils.scale(this, val));
+    }
+
+    /**
+     * dot
+     *
+     * Computes the dot product of this and the passed in vector.
+     */
+    dot(vec: Vector2): number {
+        return Vector2Utils.dot(this, vec);
+    }
+
+    /**
+     * magnitude
+     *
+     * The magnitude of the vector
+     */
+    magnitude(): number {
+        return Vector2Utils.magnitude(this);
+    }
+
+    /**
+     * distance
+     *
+     * Calculate the distance between two vectors
+     */
+    distance(vec: Vector2): number {
+        return Vector2Utils.distance(this, vec);
+    }
+
+    /**
+     * normalize
+     *
+     * Normalizes this vector, returning itself.
+     */
+    normalize(): this {
+        return this.assign(Vector2Utils.normalize(this));
+    }
+
+    /**
+     * floor
+     *
+     * Floor the components of a vector to produce a new vector
+     */
+    floor(): this {
+        return this.assign(Vector2Utils.floor(this));
+    }
+
+    /**
+     * clamp
+     *
+     * Clamps the components of a vector to limits to produce a new vector
+     */
+    clamp(limits: { min?: Partial<Vector2>; max?: Partial<Vector2> }): this {
+        return this.assign(Vector2Utils.clamp(this, limits));
+    }
+
+    /**
+     * lerp
+     *
+     * Constructs a new vector using linear interpolation on each component from two vectors.
+     */
+    lerp(vec: Vector2, t: number): this {
+        return this.assign(Vector2Utils.lerp(this, vec, t));
+    }
+
+    /**
+     * slerp
+     *
+     * Constructs a new vector using spherical linear interpolation on each component from two vectors.
+     */
+    slerp(vec: Vector2, t: number): this {
+        return this.assign(Vector2Utils.slerp(this, vec, t));
+    }
+
+    /**
+     * multiply
+     *
+     * Element-wise multiplication of two vectors together.
+     * Not to be confused with {@link Vector2Builder.dot} product
+     */
+    multiply(vec: Vector2): this {
+        return this.assign(Vector2Utils.multiply(this, vec));
+    }
+}
+
+/**
+ * VectorXZ wrapper class which can be used as a VectorXZ for APIs on \@minecraft/server which require a VectorXZ.
+ * @public
+ */
+export class VectorXZBuilder implements VectorXZ {
+    x: number;
+    z: number;
+
+    constructor(vecStr: string, delim?: string);
+    constructor(vec: VectorXZ, arg?: never);
+    constructor(x: number, y: number);
+    constructor(first: number | VectorXZ | string, second?: number | string) {
+        if (typeof first === 'object') {
+            this.x = first.x;
+            this.z = first.z;
+        } else if (typeof first === 'string') {
+            const parsed = VectorXZUtils.fromString(first, (second as string | undefined) ?? ',');
+            if (!parsed) {
+                this.x = 0;
+                this.z = 0;
+
+                return;
+            }
+
+            this.x = parsed.x;
+            this.z = parsed.z;
+        } else {
+            this.x = first;
+            this.z = (second as number) ?? 0;
+        }
+    }
+
+    toString(options?: { decimals?: number; delimiter?: string }): string {
+        return VectorXZUtils.toString(this, options);
+    }
+
+    /**
+     * Assigns the values of the passed in vector to this vector. Returns itself.
+     */
+    assign(vec: VectorXZ): this {
+        this.x = vec.x;
+        this.z = vec.z;
+        return this;
+    }
+
+    /**
+     * equals
+     *
+     * Check the equality of two vectors
+     */
+    equals(v: VectorXZ): boolean {
+        return VectorXZUtils.equals(this, v);
+    }
+
+    /**
+     * add
+     *
+     * Adds the vector v to this, returning itself.
+     */
+    add(v: Partial<VectorXZ>): this {
+        return this.assign(VectorXZUtils.add(this, v));
+    }
+
+    /**
+     * subtract
+     *
+     * Subtracts the vector v from this, returning itself.
+     */
+    subtract(v: Partial<VectorXZ>): this {
+        return this.assign(VectorXZUtils.subtract(this, v));
+    }
+
+    /** scale
+     *
+     * Scales this by the passed in value, returning itself.
+     */
+    scale(val: number): this {
+        return this.assign(VectorXZUtils.scale(this, val));
+    }
+
+    /**
+     * dot
+     *
+     * Computes the dot product of this and the passed in vector.
+     */
+    dot(vec: VectorXZ): number {
+        return VectorXZUtils.dot(this, vec);
+    }
+
+    /**
+     * magnitude
+     *
+     * The magnitude of the vector
+     */
+    magnitude(): number {
+        return VectorXZUtils.magnitude(this);
+    }
+
+    /**
+     * distance
+     *
+     * Calculate the distance between two vectors
+     */
+    distance(vec: VectorXZ): number {
+        return VectorXZUtils.distance(this, vec);
+    }
+
+    /**
+     * normalize
+     *
+     * Normalizes this vector, returning itself.
+     */
+    normalize(): this {
+        return this.assign(VectorXZUtils.normalize(this));
+    }
+
+    /**
+     * floor
+     *
+     * Floor the components of a vector to produce a new vector
+     */
+    floor(): this {
+        return this.assign(VectorXZUtils.floor(this));
+    }
+
+    /**
+     * clamp
+     *
+     * Clamps the components of a vector to limits to produce a new vector
+     */
+    clamp(limits: { min?: Partial<VectorXZ>; max?: Partial<VectorXZ> }): this {
+        return this.assign(VectorXZUtils.clamp(this, limits));
+    }
+
+    /**
+     * lerp
+     *
+     * Constructs a new vector using linear interpolation on each component from two vectors.
+     */
+    lerp(vec: VectorXZ, t: number): this {
+        return this.assign(VectorXZUtils.lerp(this, vec, t));
+    }
+
+    /**
+     * slerp
+     *
+     * Constructs a new vector using spherical linear interpolation on each component from two vectors.
+     */
+    slerp(vec: VectorXZ, t: number): this {
+        return this.assign(VectorXZUtils.slerp(this, vec, t));
+    }
+
+    /**
+     * multiply
+     *
+     * Element-wise multiplication of two vectors together.
+     * Not to be confused with {@link VectorXZBuilder.dot} product
+     */
+    multiply(vec: VectorXZ): this {
+        return this.assign(VectorXZUtils.multiply(this, vec));
     }
 }

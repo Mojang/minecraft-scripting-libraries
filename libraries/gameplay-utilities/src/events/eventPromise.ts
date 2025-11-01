@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-import { world, system } from '@minecraft/server';
+import { SystemAfterEvents, WorldAfterEvents } from '@minecraft/server';
 
 /**
  * A promise wrapper utility which returns a new promise that will resolve when the next
@@ -50,24 +50,32 @@ export interface EventPromise<T> extends Promise<T | undefined> {
 }
 
 /**
+ * The keys of after event signals that exist in Minecraft's API that EventPromise can use.
+ *
+ * @public
+ */
+export type MinecraftAfterEventSignalKeys = keyof WorldAfterEvents | keyof SystemAfterEvents;
+/**
  * The types of after event signals that exist in Minecraft's API that EventPromise can use.
  *
  * @public
  */
-export type MinecraftAfterEventSignals =
-    | (typeof world.afterEvents)[keyof typeof world.afterEvents]
-    | (typeof system.afterEvents)[keyof typeof system.afterEvents];
+export type MinecraftAfterEventSignals<K extends MinecraftAfterEventSignalKeys> = K extends keyof WorldAfterEvents
+    ? WorldAfterEvents[K]
+    : K extends keyof SystemAfterEvents
+      ? SystemAfterEvents[K]
+      : never;
 
 /**
  * Helper to create a new EventPromise from an after event signal.
  *
  * @public
  */
-export function nextEvent<U>(
-    signal: MinecraftAfterEventSignals,
-    filter?: U
-): EventPromise<Parameters<Parameters<typeof signal.subscribe>[0]>[0]> {
-    return new EventPromiseImpl<Parameters<Parameters<typeof signal.subscribe>[0]>[0], U>(signal, filter);
+export function nextEvent<T extends MinecraftAfterEventSignals<MinecraftAfterEventSignalKeys>>(
+    signal: T,
+    filter?: Parameters<T['subscribe']>[1]
+): EventPromise<Parameters<ReturnType<T['subscribe']>>[0]> {
+    return new EventPromiseImpl(signal, filter);
 }
 
 /**
@@ -76,32 +84,37 @@ export function nextEvent<U>(
  *
  * @private
  */
-class EventPromiseImpl<T, U> implements Promise<T | undefined> {
+class EventPromiseImpl<
+    K extends MinecraftAfterEventSignalKeys,
+    Signal extends MinecraftAfterEventSignals<K>,
+    T = Parameters<ReturnType<Signal['subscribe']>>[0],
+    U = Parameters<Signal['subscribe']>[1],
+> implements EventPromise<T | undefined>
+{
     [Symbol.toStringTag] = 'Promise';
     private promise: Promise<T | undefined>;
     private onCancel?: () => void;
 
-    constructor(signal: MinecraftAfterEventSignals, filter?: U) {
+    constructor(signal: Signal, filter?: U) {
         this.promise = new Promise<T | undefined>((resolve, _) => {
             if (signal === undefined || signal.subscribe === undefined || signal.unsubscribe === undefined) {
                 resolve(undefined);
                 return;
             }
 
-            const sub = (event: T) => {
+            const sub = (event: Parameters<ReturnType<Signal['subscribe']>>[0]) => {
                 this.onCancel = undefined;
-                signal.unsubscribe(sub as never);
-                resolve(event);
+                signal.unsubscribe(sub);
+                resolve(event as T);
             };
             if (filter === undefined) {
-                signal.subscribe(sub as never);
+                signal.subscribe(sub);
             } else {
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                (signal.subscribe as (listener: (event: T) => void, filter: U) => (...a: any) => void)(sub, filter);
+                (signal.subscribe as (handler: Parameters<Signal['subscribe']>[0], filter: U) => void)(sub, filter);
             }
 
             this.onCancel = () => {
-                signal.unsubscribe(sub as never);
+                signal.unsubscribe(sub);
                 resolve(undefined);
             };
         });

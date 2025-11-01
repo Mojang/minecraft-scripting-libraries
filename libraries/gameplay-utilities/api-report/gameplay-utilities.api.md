@@ -4,8 +4,8 @@
 
 ```ts
 
-import { system } from '@minecraft/server';
-import { world } from '@minecraft/server';
+import { SystemAfterEvents } from '@minecraft/server';
+import { WorldAfterEvents } from '@minecraft/server';
 
 // @public
 export interface EventPromise<T> extends Promise<T | undefined> {
@@ -16,13 +16,13 @@ export interface EventPromise<T> extends Promise<T | undefined> {
 }
 
 // @public
-export type FirstArg<T> = T extends (arg: infer U) => void ? U : never;
+export type MinecraftAfterEventSignalKeys = keyof WorldAfterEvents | keyof SystemAfterEvents;
 
 // @public
-export type MinecraftAfterEventSignals = (typeof world.afterEvents)[keyof typeof world.afterEvents] | (typeof system.afterEvents)[keyof typeof system.afterEvents];
+export type MinecraftAfterEventSignals<K extends MinecraftAfterEventSignalKeys> = K extends keyof WorldAfterEvents ? WorldAfterEvents[K] : K extends keyof SystemAfterEvents ? SystemAfterEvents[K] : never;
 
 // @public
-export function nextEvent<U>(signal: MinecraftAfterEventSignals, filter?: U): EventPromise<FirstArg<FirstArg<typeof signal.subscribe>>>;
+export function nextEvent<T extends MinecraftAfterEventSignals<MinecraftAfterEventSignalKeys>>(signal: T, filter?: Parameters<T['subscribe']>[1]): EventPromise<Parameters<ReturnType<T['subscribe']>>[0]>;
 
 // (No @packageDocumentation comment for this package)
 

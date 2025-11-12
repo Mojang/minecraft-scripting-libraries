@@ -32,7 +32,7 @@ description: Contents of the example_module.ExampleClass class.
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **none_privileged_property**
 \`none_privileged_property: number;\`
@@ -40,7 +40,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be edited in read-only mode.
+  - This property can't be edited in restricted-execution mode.
 
 ### **none_privileged_property_with_docs**
 \`none_privileged_property_with_docs: number;\`
@@ -50,7 +50,7 @@ Test description
 Type: *number*
 
 Notes:
-  - This property can't be edited in read-only mode.
+  - This property can't be edited in restricted-execution mode.
 
 ### **privileged_property**
 \`privileged_property: number;\`
@@ -77,7 +77,7 @@ early_privileged_function(): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 - This function can be called in early-execution mode.
 
 ### **multi_privileged_function**
@@ -98,7 +98,7 @@ non_privileged_function(): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **non_privileged_function_with_comments**
 \`
@@ -110,7 +110,7 @@ Test description
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **privileged_function**
 \`
@@ -158,7 +158,7 @@ early_privileged_function(): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 - This function can be called in early-execution mode.
 
 ### **multi_privileged_function**
@@ -179,7 +179,7 @@ non_privileged_function(): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **non_privileged_function_with_comments**
 \`
@@ -191,7 +191,7 @@ Test description
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **privileged_function**
 \`
@@ -227,13 +227,13 @@ export class ExampleClass {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     no_privilege_property: number;
     /**
      * @remarks
-     * This property can't be edited in read-only mode.
+     * This property can't be edited in restricted-execution mode.
      *
      */
     none_privileged_property: number;
@@ -241,7 +241,7 @@ export class ExampleClass {
      * @remarks
      * Test description
      *
-     * This property can't be edited in read-only mode.
+     * This property can't be edited in restricted-execution mode.
      *
      */
     none_privileged_property_with_docs: number;
@@ -249,7 +249,7 @@ export class ExampleClass {
     readonly read_only_property: number;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      * This function can be called in early-execution mode.
      *
@@ -263,7 +263,7 @@ export class ExampleClass {
     multi_privileged_function(): boolean;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     non_privileged_function(): boolean;
@@ -271,7 +271,7 @@ export class ExampleClass {
      * @remarks
      * Test description
      *
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     non_privileged_function_with_comments(): boolean;
@@ -280,7 +280,7 @@ export class ExampleClass {
 
 /**
  * @remarks
- * This function can't be called in read-only mode.
+ * This function can't be called in restricted-execution mode.
  *
  * This function can be called in early-execution mode.
  *
@@ -294,7 +294,7 @@ export function early_privileged_function(): boolean;
 export function multi_privileged_function(): boolean;
 /**
  * @remarks
- * This function can't be called in read-only mode.
+ * This function can't be called in restricted-execution mode.
  *
  */
 export function non_privileged_function(): boolean;
@@ -302,7 +302,7 @@ export function non_privileged_function(): boolean;
  * @remarks
  * Test description
  *
- * This function can't be called in read-only mode.
+ * This function can't be called in restricted-execution mode.
  *
  */
 export function non_privileged_function_with_comments(): boolean;
@@ -374,7 +374,7 @@ exports[`Property and Function Privilege > Generates correct output for class pr
             "arguments": [],
             "call_privilege": [
               {
-                "name": "read_only",
+                "name": "restricted_execution",
                 "$added": true
               }
             ]
@@ -391,13 +391,13 @@ exports[`Property and Function Privilege > Generates correct output for class pr
             },
             "set_privilege": [
               {
-                "name": "read_only",
+                "name": "restricted_execution",
                 "$added": true
               }
             ],
             "get_privilege": [
               {
-                "name": "read_only",
+                "name": "restricted_execution",
                 "$added": true
               }
             ]
@@ -548,7 +548,7 @@ exports[`Property and Function Privilege > Generates correct output for class pr
             "arguments": [],
             "call_privilege": [
               {
-                "name": "read_only",
+                "name": "restricted_execution",
                 "$removed": true
               }
             ]
@@ -565,13 +565,13 @@ exports[`Property and Function Privilege > Generates correct output for class pr
             },
             "get_privilege": [
               {
-                "name": "read_only",
+                "name": "restricted_execution",
                 "$removed": true
               }
             ],
             "set_privilege": [
               {
-                "name": "read_only",
+                "name": "restricted_execution",
                 "$removed": true
               }
             ]
@@ -599,7 +599,7 @@ exports[`Property and Function Privilege > Generates correct output for class pr
             "arguments": [],
             "call_privilege": [
               {
-                "name": "read_only",
+                "name": "restricted_execution",
                 "$removed": true
               }
             ]
@@ -616,13 +616,13 @@ exports[`Property and Function Privilege > Generates correct output for class pr
             },
             "set_privilege": [
               {
-                "name": "read_only",
+                "name": "restricted_execution",
                 "$removed": true
               }
             ],
             "get_privilege": [
               {
-                "name": "read_only",
+                "name": "restricted_execution",
                 "$removed": true
               }
             ]
@@ -716,7 +716,7 @@ exports[`Property and Function Privilege > Generates correct output for class pr
         "arguments": [],
         "call_privilege": [
           {
-            "name": "read_only",
+            "name": "restricted_execution",
             "$added": true
           }
         ]
@@ -770,7 +770,7 @@ exports[`Property and Function Privilege > Generates correct output for class pr
         "arguments": [],
         "call_privilege": [
           {
-            "name": "read_only",
+            "name": "restricted_execution",
             "$removed": true
           }
         ]
@@ -786,7 +786,7 @@ exports[`Property and Function Privilege > Generates correct output for class pr
         "arguments": [],
         "call_privilege": [
           {
-            "name": "read_only",
+            "name": "restricted_execution",
             "$removed": true
           }
         ]
@@ -885,7 +885,7 @@ exports[`Property and Function Privilege > Generates correct output for class pr
             "arguments": [],
             "call_privilege": [
               {
-                "name": "read_only"
+                "name": "restricted_execution"
               }
             ]
           }
@@ -901,12 +901,12 @@ exports[`Property and Function Privilege > Generates correct output for class pr
             },
             "get_privilege": [
               {
-                "name": "read_only"
+                "name": "restricted_execution"
               }
             ],
             "set_privilege": [
               {
-                "name": "read_only"
+                "name": "restricted_execution"
               }
             ]
           }
@@ -931,7 +931,7 @@ exports[`Property and Function Privilege > Generates correct output for class pr
             "arguments": [],
             "call_privilege": [
               {
-                "name": "read_only"
+                "name": "restricted_execution"
               }
             ]
           }
@@ -947,12 +947,12 @@ exports[`Property and Function Privilege > Generates correct output for class pr
             },
             "get_privilege": [
               {
-                "name": "read_only"
+                "name": "restricted_execution"
               }
             ],
             "set_privilege": [
               {
-                "name": "read_only"
+                "name": "restricted_execution"
               }
             ]
           }
@@ -977,7 +977,7 @@ exports[`Property and Function Privilege > Generates correct output for class pr
             "arguments": [],
             "call_privilege": [
               {
-                "name": "read_only"
+                "name": "restricted_execution"
               },
               {
                 "name": "early_execution"
@@ -996,7 +996,7 @@ exports[`Property and Function Privilege > Generates correct output for class pr
             },
             "set_privilege": [
               {
-                "name": "read_only"
+                "name": "restricted_execution"
               },
               {
                 "name": "early_execution"
@@ -1004,7 +1004,7 @@ exports[`Property and Function Privilege > Generates correct output for class pr
             ],
             "get_privilege": [
               {
-                "name": "read_only"
+                "name": "restricted_execution"
               },
               {
                 "name": "early_execution"
@@ -1032,7 +1032,7 @@ exports[`Property and Function Privilege > Generates correct output for class pr
             "arguments": [],
             "call_privilege": [
               {
-                "name": "read_only"
+                "name": "restricted_execution"
               },
               {
                 "name": "early_execution"
@@ -1051,7 +1051,7 @@ exports[`Property and Function Privilege > Generates correct output for class pr
             },
             "get_privilege": [
               {
-                "name": "read_only"
+                "name": "restricted_execution"
               },
               {
                 "name": "early_execution"
@@ -1059,7 +1059,7 @@ exports[`Property and Function Privilege > Generates correct output for class pr
             ],
             "set_privilege": [
               {
-                "name": "read_only"
+                "name": "restricted_execution"
               },
               {
                 "name": "early_execution"
@@ -1087,7 +1087,7 @@ exports[`Property and Function Privilege > Generates correct output for class pr
             "arguments": [],
             "call_privilege": [
               {
-                "name": "read_only"
+                "name": "restricted_execution"
               }
             ]
           }
@@ -1103,12 +1103,12 @@ exports[`Property and Function Privilege > Generates correct output for class pr
             },
             "set_privilege": [
               {
-                "name": "read_only"
+                "name": "restricted_execution"
               }
             ],
             "get_privilege": [
               {
-                "name": "read_only"
+                "name": "restricted_execution"
               }
             ]
           }
@@ -1132,12 +1132,12 @@ exports[`Property and Function Privilege > Generates correct output for class pr
             },
             "set_privilege": [
               {
-                "name": "none"
+                "name": "default"
               }
             ],
             "get_privilege": [
               {
-                "name": "read_only"
+                "name": "restricted_execution"
               }
             ]
           }
@@ -1161,12 +1161,12 @@ exports[`Property and Function Privilege > Generates correct output for class pr
             },
             "get_privilege": [
               {
-                "name": "none"
+                "name": "default"
               }
             ],
             "set_privilege": [
               {
-                "name": "read_only"
+                "name": "restricted_execution"
               }
             ]
           }
@@ -1205,7 +1205,7 @@ exports[`Property and Function Privilege > Generates correct output for class pr
         "arguments": [],
         "call_privilege": [
           {
-            "name": "read_only"
+            "name": "restricted_execution"
           }
         ]
       },
@@ -1220,7 +1220,7 @@ exports[`Property and Function Privilege > Generates correct output for class pr
         "arguments": [],
         "call_privilege": [
           {
-            "name": "read_only"
+            "name": "restricted_execution"
           }
         ]
       },
@@ -1235,7 +1235,7 @@ exports[`Property and Function Privilege > Generates correct output for class pr
         "arguments": [],
         "call_privilege": [
           {
-            "name": "read_only"
+            "name": "restricted_execution"
           },
           {
             "name": "early_execution"
@@ -1253,7 +1253,7 @@ exports[`Property and Function Privilege > Generates correct output for class pr
         "arguments": [],
         "call_privilege": [
           {
-            "name": "read_only"
+            "name": "restricted_execution"
           },
           {
             "name": "early_execution"
@@ -1271,7 +1271,7 @@ exports[`Property and Function Privilege > Generates correct output for class pr
         "arguments": [],
         "call_privilege": [
           {
-            "name": "read_only"
+            "name": "restricted_execution"
           }
         ]
       }
@@ -1346,7 +1346,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
   - This property can be used in early-execution mode.
 
 ### **prop_getearlyexe_privileges**
@@ -1355,7 +1355,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
   - This property can be read in early-execution mode.
 
 ### **prop_getreadonly_privileges**
@@ -1364,7 +1364,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be edited in read-only mode.
+  - This property can't be edited in restricted-execution mode.
 
 ### **prop_none_privilege**
 \`prop_none_privilege: number;\`
@@ -1372,7 +1372,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **prop_readonly_privilege**
 \`prop_readonly_privilege: number;\`
@@ -1385,7 +1385,7 @@ Type: *number*
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
   - This property can be edited in early-execution mode.
 
 ### **prop_setreadonly_privileges**
@@ -1394,7 +1394,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be read in read-only mode.
+  - This property can't be read in restricted-execution mode.
 
 ## Methods
 - [memberfn_both_privileges](#memberfn_both_privileges)
@@ -1420,7 +1420,7 @@ memberfn_earlyexe_privilege(): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 - This function can be called in early-execution mode.
 
 ### **memberfn_none_privilege**
@@ -1431,7 +1431,7 @@ memberfn_none_privilege(): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **memberfn_readonly_privilege**
 \`
@@ -1489,7 +1489,7 @@ fn_earlyexe_privilege(): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 - This function can be called in early-execution mode.
 
 ### **fn_none_privilege**
@@ -1500,7 +1500,7 @@ fn_none_privilege(): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **fn_readonly_privilege**
 \`
@@ -1542,7 +1542,7 @@ export class ExampleClass {
     prop_both_privileges: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      * This property can be used in early-execution mode.
      *
@@ -1550,7 +1550,7 @@ export class ExampleClass {
     prop_earlyexe_privilege: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      * This property can be read in early-execution mode.
      *
@@ -1558,20 +1558,20 @@ export class ExampleClass {
     prop_getearlyexe_privileges: number;
     /**
      * @remarks
-     * This property can't be edited in read-only mode.
+     * This property can't be edited in restricted-execution mode.
      *
      */
     prop_getreadonly_privileges: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     prop_none_privilege: number;
     prop_readonly_privilege: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      * This property can be edited in early-execution mode.
      *
@@ -1579,7 +1579,7 @@ export class ExampleClass {
     prop_setearlyexe_privileges: number;
     /**
      * @remarks
-     * This property can't be read in read-only mode.
+     * This property can't be read in restricted-execution mode.
      *
      */
     prop_setreadonly_privileges: number;
@@ -1591,7 +1591,7 @@ export class ExampleClass {
     memberfn_both_privileges(): boolean;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      * This function can be called in early-execution mode.
      *
@@ -1599,7 +1599,7 @@ export class ExampleClass {
     memberfn_earlyexe_privilege(): boolean;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     memberfn_none_privilege(): boolean;
@@ -1614,7 +1614,7 @@ export class ExampleClass {
 export function fn_both_privileges(): boolean;
 /**
  * @remarks
- * This function can't be called in read-only mode.
+ * This function can't be called in restricted-execution mode.
  *
  * This function can be called in early-execution mode.
  *
@@ -1622,7 +1622,7 @@ export function fn_both_privileges(): boolean;
 export function fn_earlyexe_privilege(): boolean;
 /**
  * @remarks
- * This function can't be called in read-only mode.
+ * This function can't be called in restricted-execution mode.
  *
  */
 export function fn_none_privilege(): boolean;
@@ -1662,7 +1662,7 @@ description: Contents of the example_module.ExampleClass class.
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **none_privileged_property**
 \`none_privileged_property: number;\`
@@ -1670,7 +1670,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be edited in read-only mode.
+  - This property can't be edited in restricted-execution mode.
 
 ### **none_privileged_property_with_docs**
 \`none_privileged_property_with_docs: number;\`
@@ -1680,7 +1680,7 @@ Test description
 Type: *number*
 
 Notes:
-  - This property can't be edited in read-only mode.
+  - This property can't be edited in restricted-execution mode.
 
 ### **privileged_property**
 \`privileged_property: number;\`
@@ -1705,7 +1705,7 @@ non_privileged_function(): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **non_privileged_function_with_comments**
 \`
@@ -1717,7 +1717,7 @@ Test description
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **privileged_function**
 \`
@@ -1765,7 +1765,7 @@ non_privileged_function(): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **non_privileged_function_with_comments**
 \`
@@ -1777,7 +1777,7 @@ Test description
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **privileged_function**
 \`
@@ -1813,13 +1813,13 @@ export class ExampleClass {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     no_privilege_property: number;
     /**
      * @remarks
-     * This property can't be edited in read-only mode.
+     * This property can't be edited in restricted-execution mode.
      *
      */
     none_privileged_property: number;
@@ -1827,7 +1827,7 @@ export class ExampleClass {
      * @remarks
      * Test description
      *
-     * This property can't be edited in read-only mode.
+     * This property can't be edited in restricted-execution mode.
      *
      */
     none_privileged_property_with_docs: number;
@@ -1835,7 +1835,7 @@ export class ExampleClass {
     readonly read_only_property: number;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     non_privileged_function(): boolean;
@@ -1843,7 +1843,7 @@ export class ExampleClass {
      * @remarks
      * Test description
      *
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     non_privileged_function_with_comments(): boolean;
@@ -1852,7 +1852,7 @@ export class ExampleClass {
 
 /**
  * @remarks
- * This function can't be called in read-only mode.
+ * This function can't be called in restricted-execution mode.
  *
  */
 export function non_privileged_function(): boolean;
@@ -1860,10 +1860,309 @@ export function non_privileged_function(): boolean;
  * @remarks
  * Test description
  *
- * This function can't be called in read-only mode.
+ * This function can't be called in restricted-execution mode.
  *
  */
 export function non_privileged_function_with_comments(): boolean;
 export function privileged_function(): boolean;
+"
+`;
+
+exports[`Property and Function Privilege > Generates correct output for read-only to restricted-execution privilege name change > # Of Files Generated 1`] = `4`;
+
+exports[`Property and Function Privilege > Generates correct output for read-only to restricted-execution privilege name change > msdocs/scriptapi/TOC.yml 1`] = `
+"  - name: example_module
+    items:
+    - name: example_module
+      href: example_module/example_module.md
+    - name: ExampleClass
+      href: example_module/ExampleClass.md
+"
+`;
+
+exports[`Property and Function Privilege > Generates correct output for read-only to restricted-execution privilege name change > msdocs/scriptapi/example_module/ExampleClass.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: example_module.ExampleClass Class
+description: Contents of the example_module.ExampleClass class.
+---
+# ExampleClass Class
+
+## Properties
+
+### **both_none_name_prop**
+\`both_none_name_prop: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be edited in restricted-execution mode.
+
+### **both_read_only_name_prop**
+\`both_read_only_name_prop: number;\`
+
+Type: *number*
+
+### **new_default_name_prop**
+\`new_default_name_prop: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be edited in restricted-execution mode.
+
+### **new_restrict_name_prop**
+\`new_restrict_name_prop: number;\`
+
+Type: *number*
+
+### **old_none_name_prop**
+\`old_none_name_prop: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be edited in restricted-execution mode.
+
+### **old_read_only_name_prop**
+\`old_read_only_name_prop: number;\`
+
+Type: *number*
+
+## Methods
+- [both_none_name_func](#both_none_name_func)
+- [both_read_only_name_func](#both_read_only_name_func)
+- [new_default_name_func](#new_default_name_func)
+- [new_restrict_name_func](#new_restrict_name_func)
+- [old_none_name_func](#old_none_name_func)
+- [old_read_only_name_func](#old_read_only_name_func)
+
+### **both_none_name_func**
+\`
+both_none_name_func(): boolean
+\`
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in restricted-execution mode.
+
+### **both_read_only_name_func**
+\`
+both_read_only_name_func(): boolean
+\`
+
+**Returns** *boolean*
+
+### **new_default_name_func**
+\`
+new_default_name_func(): boolean
+\`
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in restricted-execution mode.
+
+### **new_restrict_name_func**
+\`
+new_restrict_name_func(): boolean
+\`
+
+**Returns** *boolean*
+
+### **old_none_name_func**
+\`
+old_none_name_func(): boolean
+\`
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in restricted-execution mode.
+
+### **old_read_only_name_func**
+\`
+old_read_only_name_func(): boolean
+\`
+
+**Returns** *boolean*
+"
+`;
+
+exports[`Property and Function Privilege > Generates correct output for read-only to restricted-execution privilege name change > msdocs/scriptapi/example_module/example_module.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: example_module Module
+description: Contents of the example_module module
+---
+# \`example_module\` Module
+
+## Manifest Details
+\`\`\`json
+{
+    "module_name": "example_module",
+    "version": "1.0.0"
+}
+\`\`\`
+This is version 1.x.x of this module, which is the latest as of version 1.0.0 of Minecraft.
+
+## Available Versions
+- \`1.0.0\`
+
+## Classes
+- [ExampleClass](ExampleClass.md)
+
+## Functions
+
+### **both_none_name_func**
+\`
+both_none_name_func(): boolean
+\`
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in restricted-execution mode.
+
+### **both_read_only_name_func**
+\`
+both_read_only_name_func(): boolean
+\`
+
+**Returns** *boolean*
+
+### **new_default_name_func**
+\`
+new_default_name_func(): boolean
+\`
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in restricted-execution mode.
+
+### **new_restrict_name_func**
+\`
+new_restrict_name_func(): boolean
+\`
+
+**Returns** *boolean*
+
+### **old_none_name_func**
+\`
+old_none_name_func(): boolean
+\`
+
+**Returns** *boolean*
+  
+Notes:
+- This function can't be called in restricted-execution mode.
+
+### **old_read_only_name_func**
+\`
+old_read_only_name_func(): boolean
+\`
+
+**Returns** *boolean*
+"
+`;
+
+exports[`Property and Function Privilege > Generates correct output for read-only to restricted-execution privilege name change > typescript/example_module@1.0.0.d.ts 1`] = `
+"// Type definitions for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+/**
+ * @packageDocumentation
+ *
+ * Manifest Details
+ * \`\`\`json
+ * {
+ *   "module_name": "example_module",
+ *   "version": "1.0.0"
+ * }
+ * \`\`\`
+ *
+ */
+export class ExampleClass {
+    private constructor();
+    /**
+     * @remarks
+     * This property can't be edited in restricted-execution mode.
+     *
+     */
+    both_none_name_prop: number;
+    both_read_only_name_prop: number;
+    /**
+     * @remarks
+     * This property can't be edited in restricted-execution mode.
+     *
+     */
+    new_default_name_prop: number;
+    new_restrict_name_prop: number;
+    /**
+     * @remarks
+     * This property can't be edited in restricted-execution mode.
+     *
+     */
+    old_none_name_prop: number;
+    old_read_only_name_prop: number;
+    /**
+     * @remarks
+     * This function can't be called in restricted-execution mode.
+     *
+     */
+    both_none_name_func(): boolean;
+    both_read_only_name_func(): boolean;
+    /**
+     * @remarks
+     * This function can't be called in restricted-execution mode.
+     *
+     */
+    new_default_name_func(): boolean;
+    new_restrict_name_func(): boolean;
+    /**
+     * @remarks
+     * This function can't be called in restricted-execution mode.
+     *
+     */
+    old_none_name_func(): boolean;
+    old_read_only_name_func(): boolean;
+}
+
+/**
+ * @remarks
+ * This function can't be called in restricted-execution mode.
+ *
+ */
+export function both_none_name_func(): boolean;
+export function both_read_only_name_func(): boolean;
+/**
+ * @remarks
+ * This function can't be called in restricted-execution mode.
+ *
+ */
+export function new_default_name_func(): boolean;
+export function new_restrict_name_func(): boolean;
+/**
+ * @remarks
+ * This function can't be called in restricted-execution mode.
+ *
+ */
+export function old_none_name_func(): boolean;
+export function old_read_only_name_func(): boolean;
 "
 `;

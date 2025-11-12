@@ -38,7 +38,7 @@ bbbExampleMemberFunction(): string
 **Returns** *string*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **dddExampleMemberFunction**
 \`
@@ -48,7 +48,7 @@ dddExampleMemberFunction(): string
 **Returns** *string*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **aaaExampleStaticFunction**
 \`
@@ -58,7 +58,7 @@ static aaaExampleStaticFunction(): string
 **Returns** *string*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **cccExampleStaticFunction**
 \`
@@ -68,7 +68,7 @@ static cccExampleStaticFunction(): string
 **Returns** *string*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 "
 `;
 
@@ -126,25 +126,25 @@ export class ClassWithStaticFunction {
     private constructor();
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     bbbExampleMemberFunction(): string;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     dddExampleMemberFunction(): string;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     static aaaExampleStaticFunction(): string;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     static cccExampleStaticFunction(): string;

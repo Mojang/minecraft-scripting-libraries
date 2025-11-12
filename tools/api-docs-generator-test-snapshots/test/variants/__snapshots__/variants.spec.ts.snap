@@ -32,7 +32,7 @@ description: Contents of the variants-module.ExampleClass class.
 Type: (arg0: *number*) => (*number* | *string*)
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **propertyFunctionThatReturnsVariantWithClosureThatReturnsVariant**
 \`propertyFunctionThatReturnsVariantWithClosureThatReturnsVariant: (arg0: number) => ((arg0: number) => (number | string) | string);\`
@@ -40,7 +40,7 @@ Notes:
 Type: (arg0: *number*) => ((arg0: *number*) => (*number* | *string*) | *string*)
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ## Methods
 - [exampleMethod](#examplemethod)
@@ -56,7 +56,7 @@ exampleMethod(arg1: (arg0: number) => ((arg0: number) => (number | string) | str
 - **arg2**: *number*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **methodWithVariantOfArrays**
 \`
@@ -69,7 +69,7 @@ methodWithVariantOfArrays(arrays: number[] | string[]): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 "
 `;
 
@@ -127,13 +127,13 @@ export class ExampleClass {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     propertyFunctionThatReturnsVariant: (arg0: number) => number | string;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     propertyFunctionThatReturnsVariantWithClosureThatReturnsVariant: (
@@ -141,13 +141,13 @@ export class ExampleClass {
     ) => (arg0: number) => (number | string) | string;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     exampleMethod(arg1: (arg0: number) => (arg0: number) => (number | string) | string, arg2: number): void;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     methodWithVariantOfArrays(arrays: number[] | string[]): boolean;

@@ -7,6 +7,192 @@
         {
           "arguments": [
             {
+              "name": "closureDefaultOptional",
+              "type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "optional",
+                "optional_type": {
+                  "is_bind_type": false,
+                  "is_errorable": false,
+                  "name": "closure",
+                  "closure_type": {
+                    "argument_types": [],
+                    "return_type": {
+                      "is_bind_type": false,
+                      "is_errorable": true,
+                      "name": "undefined"
+                    },
+                    "call_privilege": {
+                      "name": "default"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "closureRestrictedExec",
+              "type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "closure",
+                "closure_type": {
+                  "argument_types": [],
+                  "return_type": {
+                    "is_bind_type": false,
+                    "is_errorable": true,
+                    "name": "undefined"
+                  },
+                  "call_privilege": {
+                    "name": "restricted_execution"
+                  }
+                }
+              }
+            },
+            {
+              "name": "closureEarlyExec",
+              "type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "closure",
+                "closure_type": {
+                  "argument_types": [],
+                  "return_type": {
+                    "is_bind_type": false,
+                    "is_errorable": true,
+                    "name": "undefined"
+                  },
+                  "call_privilege": {
+                    "name": "early_execution"
+                  }
+                }
+              }
+            },
+            {
+              "name": "closureNoPrivilegeShouldntBreak",
+              "type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "closure",
+                "closure_type": {
+                  "argument_types": [],
+                  "return_type": {
+                    "is_bind_type": false,
+                    "is_errorable": true,
+                    "name": "undefined"
+                  }
+                }
+              }
+            }
+          ],
+          "is_constructor": false,
+          "name": "func",
+          "call_privilege": [ { "name": "restricted_execution" } ],
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "undefined"
+          }
+        }
+      ],
+      "name": "ClassWithPrivilegedClosures",
+      "properties": [
+        {
+          "is_read_only": true,
+          "name": "closureOptionalDefault",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "optional",
+            "optional_type": {
+              "closure_type": {
+                "argument_types": [],
+                "return_type": {
+                  "is_bind_type": false,
+                  "is_errorable": false,
+                  "name": "undefined"
+                },
+                "call_privilege": {
+                  "name": "default"
+                }
+              },
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "closure"
+            }
+          }
+        },
+        {
+          "is_read_only": true,
+          "name": "closureRestrictedExec",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "closure",
+            "closure_type": {
+              "argument_types": [],
+              "return_type": {
+                "is_bind_type": false,
+                "is_errorable": true,
+                "name": "undefined"
+              },
+              "call_privilege": {
+                "name": "restricted_execution"
+              }
+            }
+          }
+        },
+        {
+          "is_read_only": true,
+          "name": "closureEarlyExec",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "closure",
+            "closure_type": {
+              "argument_types": [],
+              "return_type": {
+                "is_bind_type": false,
+                "is_errorable": true,
+                "name": "undefined"
+              },
+              "call_privilege": {
+                "name": "early_execution"
+              }
+            }
+          }
+        },
+        {
+          "is_read_only": true,
+          "name": "closureNoPrivilegeShouldntBreak",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "closure",
+            "closure_type": {
+              "argument_types": [],
+              "return_type": {
+                "is_bind_type": false,
+                "is_errorable": true,
+                "name": "undefined"
+              }
+            }
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ClassWithPrivilegedClosures"
+      }
+    },
+    {
+      "base_types": [],
+      "constants": [],
+      "functions": [
+        {
+          "arguments": [
+            {
               "details": {
                 "default_value": "null"
               },
@@ -155,7 +341,7 @@
             }
           }
         },
-                {
+        {
           "is_read_only": true,
           "name": "closureWithVariantUndefinedArg",
           "type": {
@@ -200,6 +386,109 @@
         "is_bind_type": true,
         "is_errorable": false,
         "name": "ExampleClass"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "arguments": [
+        {
+          "name": "closureDefaultOptional",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "optional",
+            "optional_type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "closure",
+              "closure_type": {
+                "argument_types": [],
+                "return_type": {
+                  "is_bind_type": false,
+                  "is_errorable": true,
+                  "name": "undefined"
+                },
+                "call_privilege": {
+                  "name": "default"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "closureRestrictedExec",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "closure",
+            "closure_type": {
+              "argument_types": [],
+              "return_type": {
+                "is_bind_type": false,
+                "is_errorable": true,
+                "name": "undefined"
+              },
+              "call_privilege": {
+                "name": "restricted_execution"
+              }
+            }
+          }
+        },
+        {
+          "name": "closureEarlyExec",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "closure",
+            "closure_type": {
+              "argument_types": [],
+              "return_type": {
+                "is_bind_type": false,
+                "is_errorable": true,
+                "name": "undefined"
+              },
+              "call_privilege": {
+                "name": "early_execution"
+              }
+            }
+          }
+        },
+        {
+          "name": "closureNoPrivilegeShouldntBreak",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "closure",
+            "closure_type": {
+              "argument_types": [],
+              "return_type": {
+                "is_bind_type": false,
+                "is_errorable": true,
+                "name": "undefined"
+              }
+            }
+          }
+        }
+      ],
+      "is_constructor": false,
+      "name": "globalFuncReturnsRestrictedExecClosure",
+      "call_privilege": [ { "name": "early_execution" } ],
+      "return_type": {
+        "closure_type": {
+          "argument_types": [],
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": true,
+            "name": "undefined"
+          },
+          "call_privilege": {
+            "name": "restricted_execution"
+          }
+        },
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "closure"
       }
     }
   ],

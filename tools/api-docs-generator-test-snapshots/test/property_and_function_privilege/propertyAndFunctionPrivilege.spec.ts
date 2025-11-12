@@ -38,4 +38,12 @@ describe('Property and Function Privilege', () => {
             outDir: join(__dirname, 'privilege_changelog_output'),
         });
     });
+    it('Generates correct output for read-only to restricted-execution privilege name change', () => {
+        runGeneratorForTest({
+            testDir: __dirname,
+            generators: ['msdocs', 'ts'],
+            inDir: join(__dirname, 'privilege_rename_readonly_input'),
+            outDir: join(__dirname, 'privilege_rename_readonly_output'),
+        });
+    });
 });

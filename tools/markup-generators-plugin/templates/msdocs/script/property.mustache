@@ -26,19 +26,19 @@ Notes:
   - This property defaults to `{{> value}}` when undefined.
     {{/default_value}}
   {{/has_defaults}}
-  {{#set_disallowed_in_read_only}}
-    {{#get_disallowed_in_read_only}}
-  - This property can't be used in read-only mode.
-    {{/get_disallowed_in_read_only}}
-    {{^get_disallowed_in_read_only}}
-  - This property can't be edited in read-only mode.
-    {{/get_disallowed_in_read_only}}
-  {{/set_disallowed_in_read_only}}
-  {{^set_disallowed_in_read_only}}
-    {{#get_disallowed_in_read_only}}
-  - This property can't be read in read-only mode.
-    {{/get_disallowed_in_read_only}}
-  {{/set_disallowed_in_read_only}}
+  {{#set_disallowed_in_restricted_execution}}
+    {{#get_disallowed_in_restricted_execution}}
+  - This property can't be used in restricted-execution mode.
+    {{/get_disallowed_in_restricted_execution}}
+    {{^get_disallowed_in_restricted_execution}}
+  - This property can't be edited in restricted-execution mode.
+    {{/get_disallowed_in_restricted_execution}}
+  {{/set_disallowed_in_restricted_execution}}
+  {{^set_disallowed_in_restricted_execution}}
+    {{#get_disallowed_in_restricted_execution}}
+  - This property can't be read in restricted-execution mode.
+    {{/get_disallowed_in_restricted_execution}}
+  {{/set_disallowed_in_restricted_execution}}
   {{#set_allowed_in_early_execution}}
     {{#get_allowed_in_early_execution}}
   - This property can be used in early-execution mode.
@@ -71,6 +71,9 @@ Notes:
       {{/throws_description_md.length}}
     {{/error_types.length}}
   {{/type}}
+  {{#has_closure_privilege_type_comments}}
+  - This closure is called with {{closure_privilege_type_name}} privilege.
+  {{/has_closure_privilege_type_comments}}
 {{/msdocs_has_comments}}
 {{#examples.length}}
 

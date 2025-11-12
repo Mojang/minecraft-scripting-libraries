@@ -49,7 +49,7 @@ testMethodWithAddedArgument(addedArg?: number): boolean
 > This function is still in pre-release.  Its signature may change or it may be removed in future releases.
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 ::: moniker-end
 
 ::: moniker range="=minecraft-bedrock-stable"
@@ -61,7 +61,7 @@ testMethodWithAddedArgument(): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 ::: moniker-end
 "
 `;
@@ -187,7 +187,7 @@ export class ExampleClass1 {
     private constructor();
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     testMethodWithAddedArgument(): boolean;
@@ -226,7 +226,7 @@ export class ExampleClass1 {
     private constructor();
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     testMethodWithAddedArgument(addedArg?: number): boolean;

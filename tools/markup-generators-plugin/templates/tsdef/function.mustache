@@ -45,6 +45,12 @@
  * Defaults to: {{> value}}
         {{/details.default_value}}
       {{/has_defaults}}
+      {{#details.has_min}}
+ * Minimum value: {{details.min_value}}
+      {{/details.has_min}}
+      {{#details.has_max}}
+ * Maximum value: {{details.max_value}}
+      {{/details.has_max}}
     {{/ts_has_comments}}
   {{/arguments}}
   {{#returns_description_ts.length}}

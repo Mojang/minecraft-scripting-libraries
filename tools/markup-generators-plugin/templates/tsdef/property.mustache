@@ -62,6 +62,14 @@
  *
     {{/default_value}}
   {{/has_defaults}}
+    {{#has_min}}
+ * Minimum Value: {{min_value}}
+ *
+    {{/has_min}}
+    {{#has_max}}
+ * Maximum Value: {{max_value}}
+ *
+    {{/has_max}}
  {{#throws_description_ts.length}}
  * @throws
    {{#throws_description_ts}}

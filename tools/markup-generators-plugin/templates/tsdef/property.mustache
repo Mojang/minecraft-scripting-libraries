@@ -58,22 +58,18 @@
   {{/ts_has_remarks}}
   {{#has_defaults}}
     {{#default_value}}
- * Defaults to Sanity Check #1: {{> value}}
+ * Defaults to: {{> value}}
  *
     {{/default_value}}
   {{/has_defaults}}
-  {{#has_minimum}}
-    {{#has_min}}
- * Minimum: {{min_value}}
+  {{#has_min}}
+ * Minimum Value: {{min_value}}
  *
-    {{/has_min}}
-  {{/has_minimum}}
-  {{#has_maximum}}
-    {{#has_max}}
- * Maximum: {{max_value}}
+  {{/has_min}}
+  {{#has_max}}
+ * Maximum Value: {{max_value}}
  *
-    {{/has_max}}
-  {{/has_maximum}}
+  {{/has_max}}
  {{#throws_description_ts.length}}
  * @throws
    {{#throws_description_ts}}

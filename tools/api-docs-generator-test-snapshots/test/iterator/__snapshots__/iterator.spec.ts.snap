@@ -39,7 +39,7 @@ description: Contents of the iterator.ExampleIterator class.
 **Returns** Iterator&lt;*number*&gt;
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **next**
 \`
@@ -49,7 +49,7 @@ next(): IteratorResult<number>
 **Returns** IteratorResult&lt;*number*&gt;
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 "
 `;
 
@@ -107,13 +107,13 @@ export class ExampleIterator implements Iterable<number> {
     private constructor();
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     [Symbol.iterator](): Iterator<number>;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     next(): IteratorResult<number>;

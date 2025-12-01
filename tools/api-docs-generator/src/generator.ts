@@ -27,6 +27,7 @@ import {
     MinecraftScriptCoreExports,
     MinecraftScriptModule,
     MinecraftScriptModuleRecord,
+    PrivilegeTypes,
     PrivilegeValueType,
 } from './modules/MinecraftScriptModule';
 import { MinecraftVanillaDataModule } from './modules/MinecraftVanillaDataModules';
@@ -85,10 +86,19 @@ async function generateMarkupFiles(
  * Performs metadata schema upgrades to support backwards compatibility with metadata generated from older Minecraft releases.
  */
 function upgradeScriptModuleMetadataFormat(documentationJson: MinecraftScriptModule): void {
+    const upgradePrivilegeNames = (privileges?: PrivilegeValueType[]) => {
+        for (const priv of privileges ?? []) {
+            if (priv.name === PrivilegeTypes.Deprecated_ReadOnly) {
+                priv.name = PrivilegeTypes.RestrictedExec;
+            } else if (priv.name === PrivilegeTypes.Deprecated_None) {
+                priv.name = PrivilegeTypes.Default;
+            }
+        }
+    };
     const upgradePropertyPrivilegeFormat = (properties?: MinecraftProperty[]) => {
         for (const prop of properties ?? []) {
             if ('privilege' in prop) {
-                prop.get_privilege = [{ name: 'read_only' }];
+                prop.get_privilege = [{ name: PrivilegeTypes.RestrictedExec }];
                 if (typeof prop.privilege === 'string') {
                     prop.set_privilege = [{ name: prop.privilege }];
                 } else {
@@ -96,6 +106,8 @@ function upgradeScriptModuleMetadataFormat(documentationJson: MinecraftScriptMod
                 }
                 delete prop.privilege;
             }
+            upgradePrivilegeNames(prop.get_privilege);
+            upgradePrivilegeNames(prop.set_privilege);
         }
     };
     const upgradeFunctionPrivilegeFormat = (functions?: MinecraftFunction[]) => {
@@ -108,6 +120,7 @@ function upgradeScriptModuleMetadataFormat(documentationJson: MinecraftScriptMod
                 }
                 delete func.privilege;
             }
+            upgradePrivilegeNames(func.call_privilege);
         }
     };
     for (const c of documentationJson.classes ?? []) {

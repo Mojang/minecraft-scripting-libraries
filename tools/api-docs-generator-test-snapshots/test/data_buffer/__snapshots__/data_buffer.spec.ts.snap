@@ -32,7 +32,7 @@ description: Contents of the data-buffer-module.ExampleClass class.
 Type: [Float64Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array)
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **floatDataBufferProperty**
 \`floatDataBufferProperty: Float32Array;\`
@@ -40,7 +40,7 @@ Notes:
 Type: [Float32Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array)
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **int16DataBufferProperty**
 \`int16DataBufferProperty: Int16Array;\`
@@ -48,7 +48,7 @@ Notes:
 Type: [Int16Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array)
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **int32DataBufferProperty**
 \`int32DataBufferProperty: Int32Array;\`
@@ -56,7 +56,7 @@ Notes:
 Type: [Int32Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array)
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **int64DataBufferProperty**
 \`int64DataBufferProperty: BigInt64Array;\`
@@ -64,7 +64,7 @@ Notes:
 Type: [BigInt64Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt64Array)
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **int8DataBufferProperty**
 \`int8DataBufferProperty: Uint8Array;\`
@@ -72,7 +72,7 @@ Notes:
 Type: [Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array)
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **uint16DataBufferProperty**
 \`uint16DataBufferProperty: Uint16Array;\`
@@ -80,7 +80,7 @@ Notes:
 Type: [Uint16Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array)
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **uint32DataBufferProperty**
 \`uint32DataBufferProperty: Uint32Array;\`
@@ -88,7 +88,7 @@ Notes:
 Type: [Uint32Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array)
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **uint64DataBufferProperty**
 \`uint64DataBufferProperty: BigUint64Array;\`
@@ -96,7 +96,7 @@ Notes:
 Type: [BigUint64Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigUint64Array)
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **uint8DataBufferProperty**
 \`uint8DataBufferProperty: Uint8Array;\`
@@ -104,7 +104,7 @@ Notes:
 Type: [Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array)
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 "
 `;
 
@@ -162,61 +162,61 @@ export class ExampleClass {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     doubleDataBufferProperty: Float64Array;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     floatDataBufferProperty: Float32Array;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     int16DataBufferProperty: Int16Array;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     int32DataBufferProperty: Int32Array;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     int64DataBufferProperty: BigInt64Array;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     int8DataBufferProperty: Uint8Array;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     uint16DataBufferProperty: Uint16Array;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     uint32DataBufferProperty: Uint32Array;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     uint64DataBufferProperty: BigUint64Array;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     uint8DataBufferProperty: Uint8Array;

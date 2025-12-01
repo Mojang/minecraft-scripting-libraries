@@ -36,7 +36,7 @@ description: Contents of the optionals-module.ClassWithOptionals class.
 Type: *boolean*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ## Methods
 - [methodThatReturnsOptional](#methodthatreturnsoptional)
@@ -52,7 +52,7 @@ methodThatReturnsOptional(): boolean | undefined
 **Returns** *boolean* | *undefined*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **methodThatTakesOptionals**
 \`
@@ -66,7 +66,7 @@ methodThatTakesOptionals(arg1?: boolean, arg2?: string): void
 **Returns** *void*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **methodThatTakesRecordOfOptionalVariants**
 \`
@@ -79,7 +79,7 @@ methodThatTakesRecordOfOptionalVariants(values: Record<string, boolean | number 
 **Returns** *void*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **methodWithDefaultValuesAreOptional**
 \`
@@ -96,7 +96,7 @@ methodWithDefaultValuesAreOptional(defaultIs1?: number, defaultIs0?: number, def
 **Returns** *void*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 "
 `;
 
@@ -203,31 +203,31 @@ export class ClassWithOptionals {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     optionalProperty?: boolean;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     methodThatReturnsOptional(): boolean | undefined;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     methodThatTakesOptionals(arg1?: boolean, arg2?: string): void;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     methodThatTakesRecordOfOptionalVariants(values: Record<string, boolean | number | string | undefined>): void;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      * @param defaultIs1
      * Defaults to: 1

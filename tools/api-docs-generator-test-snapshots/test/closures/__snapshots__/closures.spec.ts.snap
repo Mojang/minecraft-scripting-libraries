@@ -46,9 +46,6 @@ Type: () => *void*
 
 Type: () => *void*
 
-Notes:
-  - This closure is called with default privilege.
-
 ### **closureRestrictedExec**
 \`read-only closureRestrictedExec: () => void;\`
 
@@ -67,7 +64,6 @@ func(closureDefaultOptional?: () => void, closureRestrictedExec: () => void, clo
 
 #### **Parameters**
 - **closureDefaultOptional**?: () => *void*
-  This closure is called with default privilege.
 - **closureRestrictedExec**: () => *void*
   This closure is called with restricted-execution privilege.
 - **closureEarlyExec**: () => *void*
@@ -163,7 +159,6 @@ globalFuncReturnsRestrictedExecClosure(closureDefaultOptional?: () => void, clos
 
 #### **Parameters**
 - **closureDefaultOptional**?: () => *void*
-  This closure is called with default privilege.
 - **closureRestrictedExec**: () => *void*
   This closure is called with restricted-execution privilege.
 - **closureEarlyExec**: () => *void*
@@ -209,11 +204,6 @@ export class ClassWithPrivilegedClosures {
      */
     readonly closureEarlyExec: () => void;
     readonly closureNoPrivilegeShouldntBreak: () => void;
-    /**
-     * @remarks
-     * This closure is called with default privilege.
-     *
-     */
     readonly closureOptionalDefault?: () => void;
     /**
      * @remarks
@@ -223,8 +213,6 @@ export class ClassWithPrivilegedClosures {
     readonly closureRestrictedExec: () => void;
     /**
      * @remarks
-     * @param closureDefaultOptional
-     * This closure is called with default privilege.
      * @param closureRestrictedExec
      * This closure is called with restricted-execution privilege.
      * @param closureEarlyExec
@@ -251,8 +239,6 @@ export class ExampleClass {
  *
  * This function can be called in early-execution mode.
  *
- * @param closureDefaultOptional
- * This closure is called with default privilege.
  * @param closureRestrictedExec
  * This closure is called with restricted-execution privilege.
  * @param closureEarlyExec

@@ -3183,7 +3183,7 @@ function addPrivilegeFlags(releases: MinecraftRelease[]) {
         } else if (type.closure_type && type.closure_type.call_privilege) {
             // convert to friendly names for documentation
             if (PrivilegeTypes.Default === type.closure_type.call_privilege.name) {
-                return 'default';
+                return undefined; // dont document default privileges
             } else if (PrivilegeTypes.EarlyExec === type.closure_type.call_privilege.name) {
                 return 'early-execution';
             } else if (PrivilegeTypes.RestrictedExec === type.closure_type.call_privilege.name) {

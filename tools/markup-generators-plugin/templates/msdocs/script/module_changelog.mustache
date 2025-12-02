@@ -100,19 +100,29 @@ description: Changelog of the `{{{name}}}` module
         {{/$added}}
         {{#$removed}}
 - Removed has_min flag for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
-        {{/$removed}}
-      {{/has_min}}    
-      {{#min_value}}
-        {{#$changed}}
-- Changed min_value from `{{{$old}}}` to `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
-        {{/$changed}}
-        {{#$added}}
-- Added min_value for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
-        {{/$added}}
-        {{#$removed}}
+        {{/$removed}}        
+        {{^$old}}{{#$new}}
+          {{#min_value}}
+- Added min_value `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
+          {{/min_value}}
+        {{/$new}}{{/$old}}   
+        {{#$old}}{{^$new}}
 - Removed min_value for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
-        {{/$removed}}
-      {{/min_value}}
+        {{/$new}}{{/$old}}
+        {{#$old}}{{#$new}}
+          {{#min_value}}
+            {{#$changed}}
+- Changed min_value from `{{{$old}}}` to `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
+            {{/$changed}}
+            {{#$added}}
+- Added min_value`{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
+            {{/$added}}            
+            {{#$removed}}
+- Removed min_value`{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
+            {{/$removed}}
+          {{/min_value}}
+        {{/$new}}{{/$old}}
+      {{/has_min}}    
       {{#has_max}}
         {{#$changed}}
 - Changed has_max flag from `{{{$old}}}` to `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*   
@@ -122,19 +132,29 @@ description: Changelog of the `{{{name}}}` module
         {{/$added}}
         {{#$removed}}
 - Removed has_max flag for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
-        {{/$removed}}
-      {{/has_max}}    
-      {{#max_value}}
-        {{#$changed}}
-- Changed max_value from `{{{$old}}}` to `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
-        {{/$changed}}
-        {{#$added}}
-- Added max_value for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
-        {{/$added}}
-        {{#$removed}}
+        {{/$removed}}        
+        {{^$old}}{{#$new}}
+          {{#max_value}}
+- Added max_value `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
+          {{/max_value}}
+        {{/$new}}{{/$old}}   
+        {{#$old}}{{^$new}}
 - Removed max_value for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
-        {{/$removed}}
-      {{/max_value}}
+        {{/$new}}{{/$old}}
+        {{#$old}}{{#$new}}
+          {{#max_value}}
+            {{#$changed}}
+- Changed min_value from `{{{$old}}}` to `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
+            {{/$changed}}
+            {{#$added}}
+- Added min_value`{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
+            {{/$added}}            
+            {{#$removed}}
+- Removed min_value`{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
+            {{/$removed}}
+          {{/max_value}}
+        {{/$new}}{{/$old}}
+      {{/has_max}}
       {{#type}}
         {{#$changed}}
 - Changed type for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* from {{#$old.type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$old.type}} to {{#$new.type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$new.type}}

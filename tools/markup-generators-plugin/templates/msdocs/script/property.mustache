@@ -26,6 +26,14 @@ Notes:
   - This property defaults to `{{> value}}` when undefined.
     {{/default_value}}
   {{/has_defaults}}
+  {{#details}}
+    {{#has_min}}
+  - This property has a minimum bound of `{{min_value}}`
+    {{/has_min}}
+    {{#has_max}}
+  - This property has a maximum bound of `{{max_value}}`
+    {{/has_max}}
+  {{/details}}
   {{#set_disallowed_in_read_only}}
     {{#get_disallowed_in_read_only}}
   - This property can't be used in read-only mode.

@@ -138,10 +138,7 @@ const scriptingDataLayout: RootMetadataScope = {
                 properties: {
                     type: 'array',
                     key: 'name',
-                    submembers: {
-                        is_read_only: { type: 'value' },
-                        type: TypeDataLayout,
-                    },
+                    submembers: { is_read_only: { type: 'value' }, type: TypeDataLayout },
                 },
             },
         },

@@ -93,17 +93,65 @@ description: Changelog of the `{{{name}}}` module
       {{/is_read_only}}      
       {{#details}}
         {{#$changed}}
-- Changed details for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*`
-   from `{has_min: {{$old.has_min}}, min_value: {{$old.min_value}}, has_max: {{$old.has_max}}, max_value: {{$old.max_value}}}` 
-   to `{has_min: {{$new.has_min}}, min_value: {{$new.min_value}}, has_max: {{$new.has_max}}, max_value: {{$new.max_value}}}`
+- Changed details for property *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*`
+  from:
+          {{#$old.has_min}}
+  - Minimum Bound: {{$old.min_value}}
+          {{/$old.has_min}}
+          {{^$old.has_min}}
+  - Minimum Bound: None
+          {{/$old.has_min}}
+          {{#$old.has_max}}
+  - Maximum Bound: {{$old.max_value}}
+          {{/$old.has_max}}
+          {{^$old.has_max}}
+  - Maximum Bound: None
+          {{/$old.has_max}}
+  to:
+          {{#$new.has_min}}
+  - Minimum Bound: {{$new.min_value}}
+          {{/$new.has_min}}
+          {{^$new.has_min}}
+  - Minimum Bound: None
+          {{/$new.has_min}}
+          {{#$new.has_max}}
+  - Maximum Bound: {{$new.max_value}}
+          {{/$new.has_max}}
+          {{^$new.has_max}}
+  - Maximum Bound: None
+          {{/$new.has_max}}
         {{/$changed}}
         {{#$added}}
-- Added details for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
-   added `{has_min: {{$new.has_min}}, min_value: {{$new.min_value}}, has_max: {{$new.has_max}}, max_value: {{$new.max_value}}}`
+- Added details for property *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
+   added:
+          {{#$new.has_min}}
+  - Minimum Bound: {{$new.min_value}}
+          {{/$new.has_min}}
+          {{^$new.has_min}}
+  - Minimum Bound: None
+          {{/$new.has_min}}
+          {{#$new.has_max}}
+  - Maximum Bound: {{$new.max_value}}
+          {{/$new.has_max}}
+          {{^$new.has_max}}
+  - Maximum Bound: None
+          {{/$new.has_max}}
         {{/$added}}
         {{#$removed}}
-- Removed details for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
-   removed `{has_min: {{$old.has_min}}, min_value: {{$old.min_value}}, has_max: {{$old.has_max}}, max_value: {{$old.max_value}}}`
+- Removed details for property *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
+   removed:
+          {{#$old.has_min}}
+  - Minimum Bound: {{$old.min_value}}
+          {{/$old.has_min}}
+          {{^$old.has_min}}
+  - Minimum Bound: None
+          {{/$old.has_min}}
+          {{#$old.has_max}}
+  - Maximum Bound: {{$old.max_value}}
+          {{/$old.has_max}}
+          {{^$old.has_max}}
+  - Maximum Bound: None
+          {{/$old.has_max}}
         {{/$removed}}
       {{/details}}
       {{#type}}
@@ -157,9 +205,33 @@ description: Changelog of the `{{{name}}}` module
               {{/type}}
               {{#details}}
                 {{#$changed}}
-  - Changed details of `{{{name}}}`
-    from `{has_min: {{$old.has_min}}, min_value: {{$old.min_value}}, has_max: {{$old.has_max}}, max_value: {{$old.max_value}}}` 
-    to `{has_min: {{$new.has_min}}, min_value: {{$new.min_value}}, has_max: {{$new.has_max}}, max_value: {{$new.max_value}}}`
+  - Changed details of argument `{{{name}}}`
+  from:
+                  {{#$old.has_min}}
+    - Minimum Bound: {{$old.min_value}}
+                  {{/$old.has_min}}
+                  {{^$old.has_min}}
+   - Minimum Bound: None
+                  {{/$old.has_min}}
+                  {{#$old.has_max}}
+    - Maximum Bound: {{$old.max_value}}
+                  {{/$old.has_max}}
+                  {{^$old.has_max}}
+    - Maximum Bound: None
+                  {{/$old.has_max}}
+  to:
+                  {{#$new.has_min}}
+    - Minimum Bound: {{$new.min_value}}
+                  {{/$new.has_min}}
+                  {{^$new.has_min}}
+    - Minimum Bound: None
+                  {{/$new.has_min}}
+                  {{#$new.has_max}}
+    - Maximum Bound: {{$new.max_value}}
+                  {{/$new.has_max}}
+                  {{^$new.has_max}}
+    - Maximum Bound: None
+                  {{/$new.has_max}}
                 {{/$changed}}
               {{/details}}
             {{/$removed}}{{/$added}}
@@ -197,6 +269,37 @@ description: Changelog of the `{{{name}}}` module
 - Changed argument `{{{name}}}` type from {{#$old.type}}{{> type_with_links}}{{/$old.type}} to {{#$new.type}}{{> type_with_links}}{{/$new.type}}
             {{/$changed}}
           {{/type}}
+          {{#details}}
+            {{#$changed}}
+  - Changed details of argument `{{{name}}}`
+  from:
+              {{#$old.has_min}}
+    - Minimum Bound: {{$old.min_value}}
+              {{/$old.has_min}}
+              {{^$old.has_min}}
+    - Minimum Bound: None
+              {{/$old.has_min}}
+              {{#$old.has_max}}
+    - Maximum Bound: {{$old.max_value}}
+              {{/$old.has_max}}
+              {{^$old.has_max}}
+    - Maximum Bound: None
+              {{/$old.has_max}}
+  to:
+              {{#$new.has_min}}
+    - Minimum Bound: {{$new.min_value}}
+              {{/$new.has_min}}
+              {{^$new.has_min}}
+    - Minimum Bound: None
+              {{/$new.has_min}}
+              {{#$new.has_max}}
+    - Maximum Bound: {{$new.max_value}}
+              {{/$new.has_max}}
+              {{^$new.has_max}}
+    - Maximum Bound: None
+              {{/$new.has_max}}
+            {{/$changed}}
+          {{/details}}
         {{/$removed}}{{/$added}}
       {{/arguments}}
     {{/$removed}}{{/$added}}{{/has_changes}}

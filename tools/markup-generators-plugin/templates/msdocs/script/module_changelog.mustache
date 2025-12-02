@@ -155,6 +155,13 @@ description: Changelog of the `{{{name}}}` module
   - Changed argument `{{{name}}}` type from {{#$old.type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$old.type}} to {{#$new.type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$new.type}}
                 {{/$changed}}
               {{/type}}
+              {{#details}}
+                {{#$changed}}
+  - Changed details of `{{{name}}}`
+    from `{has_min: {{$old.has_min}}, min_value: {{$old.min_value}}, has_max: {{$old.has_max}}, max_value: {{$old.max_value}}}` 
+    to `{has_min: {{$new.has_min}}, min_value: {{$new.min_value}}, has_max: {{$new.has_max}}, max_value: {{$new.max_value}}}`
+                {{/$changed}}
+              {{/details}}
             {{/$removed}}{{/$added}}
           {{/arguments}}
         {{/$removed}}{{/$added}}{{/has_changes}}
@@ -184,6 +191,7 @@ description: Changelog of the `{{{name}}}` module
 - Removed argument `{{{name}}}`
         {{/$removed}}
         {{^$added}}{{^$removed}}
+- Changed argument `{{{name}}}`
           {{#type}}
             {{#$changed}}
 - Changed argument `{{{name}}}` type from {{#$old.type}}{{> type_with_links}}{{/$old.type}} to {{#$new.type}}{{> type_with_links}}{{/$new.type}}

@@ -4,13 +4,67 @@
             "name": "ClassWithBounds",
             "properties": [
                 {
-                    "has_max": false,
+                    "has_max": true,
                     "has_min": true,
                     "is_baked": false,
                     "is_read_only": false,
                     "max_value": 255,
                     "min_value": 1,
-                    "name": "BoundsProperty",
+                    "name": "w",
+                    "type": {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "int32",
+                        "valid_range": {
+                            "max": 2147483647,
+                            "min": -2147483648
+                        }
+                    }
+                },
+                {
+                    "has_max": true,
+                    "has_min": false,
+                    "is_baked": false,
+                    "is_read_only": false,
+                    "max_value": 255,
+                    "min_value": -2147483648,
+                    "name": "x",
+                    "type": {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "int32",
+                        "valid_range": {
+                            "max": 2147483647,
+                            "min": -2147483648
+                        }
+                    }
+                },
+                {
+                    "has_max": false,
+                    "has_min": true,
+                    "is_baked": false,
+                    "is_read_only": false,
+                    "max_value": 2147483647,
+                    "min_value": 1,
+                    "name": "y",
+                    "type": {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "int32",
+                        "valid_range": {
+                            "max": 2147483647,
+                            "min": -2147483648
+                        }
+                    }
+                },
+                {
+                    "has_max": false,
+                    "has_min": false,
+                    "is_baked": false,
+                    "is_read_only": false,
+                    "max_value": 2147483647,
+                    "min_value": -2147483648,
+                    "name": "z",
                     "type": {
                         "is_bind_type": false,
                         "is_errorable": false,
@@ -35,7 +89,7 @@
                                 "has_max": true,
                                 "has_min": false,
                                 "max_value": 255,
-                                "min_value": 1
+                                "min_value": -2147483648
                             },
                             "name": "amount",
                             "type": {

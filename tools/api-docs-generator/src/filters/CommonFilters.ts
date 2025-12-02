@@ -1714,6 +1714,35 @@ function typeFlags(releases: MinecraftRelease[]) {
 }
 
 /**
+ * Marks up APIs that have bound values.
+ */
+function boundValues(releases: MinecraftRelease[]) {
+    for (const release of releases) {
+        for (const scriptModule of release.script_modules) {
+            for (const classJson of scriptModule.classes ?? []) {
+                for (const functionJson of classJson.functions ?? []) {
+                    for (const argumentJson of functionJson.arguments) {
+                        if (!argumentJson.details) {
+                            continue;
+                        }
+
+                        if (argumentJson.details.min_value !== undefined) {
+                            functionJson.has_bounds = true;
+                            argumentJson.has_bounds = true;
+                        }
+
+                        if (argumentJson.details.max_value !== undefined) {
+                            functionJson.has_bounds = true;
+                            argumentJson.has_bounds = true;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
  * Marks up APIs that have default values with 'has_defaults'.
  */
 function defaultValues(releases: MinecraftRelease[]) {
@@ -3337,6 +3366,7 @@ export const CommonFilters: FilterGroup = {
         ['block_filters', blockFilters],
         ['constant_values', constantValues],
         ['default_values', defaultValues],
+        ['bound_values', boundValues],
         ['markup_categories', markupCategories],
         ['type_alias_markup', typeAliasMarkup],
         ['type_flags', typeFlags],

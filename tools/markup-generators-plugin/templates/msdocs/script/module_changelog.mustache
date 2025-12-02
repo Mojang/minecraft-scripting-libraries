@@ -90,7 +90,22 @@ description: Changelog of the `{{{name}}}` module
         {{#$changed}}
 - Changed read-only flag for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* from `{{{$old}}}` to `{{{$new}}}`
         {{/$changed}}
-      {{/is_read_only}}
+      {{/is_read_only}}      
+      {{#details}}
+        {{#$changed}}
+- Changed details for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*`
+   from `{has_min: {{$old.has_min}}, min_value: {{$old.min_value}}, has_max: {{$old.has_max}}, max_value: {{$old.max_value}}}` 
+   to `{has_min: {{$new.has_min}}, min_value: {{$new.min_value}}, has_max: {{$new.has_max}}, max_value: {{$new.max_value}}}`
+        {{/$changed}}
+        {{#$added}}
+- Added details for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
+   added `{has_min: {{$new.has_min}}, min_value: {{$new.min_value}}, has_max: {{$new.has_max}}, max_value: {{$new.max_value}}}`
+        {{/$added}}
+        {{#$removed}}
+- Removed details for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
+   removed `{has_min: {{$old.has_min}}, min_value: {{$old.min_value}}, has_max: {{$old.has_max}}, max_value: {{$old.max_value}}}`
+        {{/$removed}}
+      {{/details}}
       {{#type}}
         {{#$changed}}
 - Changed type for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* from {{#$old.type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$old.type}} to {{#$new.type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$new.type}}

@@ -26,10 +26,10 @@ description: Contents of the bounds-module.ClassWithBounds class.
 
 ## Properties
 
-### **boundProperty**
-\`boundProperty?: boolean;\`
+### **BoundsProperty**
+\`BoundsProperty: number;\`
 
-Type: *boolean*
+Type: *number*
 
 Notes:
   - This property can't be used in read-only mode.
@@ -39,11 +39,11 @@ Notes:
 
 ### **methodThatTakesBoundedValue**
 \`
-methodThatTakesBoundedValue(amount?: number): void
+methodThatTakesBoundedValue(amount: number): void
 \`
 
 #### **Parameters**
-- **amount**?: *number* = \`1\`
+- **amount**: *number*
 
 **Returns** *void*
   
@@ -108,18 +108,21 @@ export class ClassWithBounds {
      * @remarks
      * This property can't be used in read-only mode.
      *
+     * Minimum Value: 1
+     *
+     * Maximum Value: 255
+     *
      */
-    boundProperty?: boolean;
+    BoundsProperty: number;
     /**
      * @remarks
      * This function can't be called in read-only mode.
      *
      * @param amount
-     * Defaults to Sanity Check #2: 1
      * Minimum value: 1
      * Maximum value: 255
      */
-    methodThatTakesBoundedValue(amount?: number): void;
+    methodThatTakesBoundedValue(amount: number): void;
 }
 "
 `;

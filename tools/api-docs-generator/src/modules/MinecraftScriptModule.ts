@@ -53,6 +53,7 @@ export const MarkupCommentFlagsValidator = Intersect(
     Record({
         has_changes: Optional(Boolean),
         has_defaults: Optional(Boolean),
+        has_bounds: Optional(Boolean),
         has_errors: Optional(Boolean),
 
         prerelease: Optional(String),
@@ -286,6 +287,8 @@ export const MinecraftConstantRecord = Intersect(
     Record({
         type: MinecraftTypeRecord,
         is_read_only: Literal(true),
+        has_min: Optional(Boolean),
+        has_max: Optional(Boolean),
         is_static: Literal(true),
         value: Optional(Unknown),
 
@@ -331,6 +334,8 @@ export const MinecraftPropertyRecord = Intersect(
     Record({
         type: MinecraftTypeRecord,
         is_read_only: Boolean,
+        has_min: Optional(Boolean),
+        has_max: Optional(Boolean),
         is_baked: Optional(Boolean),
         default_value: Optional(Unknown.Or(Null)),
 

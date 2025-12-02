@@ -91,69 +91,50 @@ description: Changelog of the `{{{name}}}` module
 - Changed read-only flag for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* from `{{{$old}}}` to `{{{$new}}}`
         {{/$changed}}
       {{/is_read_only}}      
-      {{#details}}
+      {{#has_min}}
         {{#$changed}}
-- Changed details for property *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*`
-  from:
-          {{#$old.has_min}}
-  - Minimum Bound: {{$old.min_value}}
-          {{/$old.has_min}}
-          {{^$old.has_min}}
-  - Minimum Bound: None
-          {{/$old.has_min}}
-          {{#$old.has_max}}
-  - Maximum Bound: {{$old.max_value}}
-          {{/$old.has_max}}
-          {{^$old.has_max}}
-  - Maximum Bound: None
-          {{/$old.has_max}}
-  to:
-          {{#$new.has_min}}
-  - Minimum Bound: {{$new.min_value}}
-          {{/$new.has_min}}
-          {{^$new.has_min}}
-  - Minimum Bound: None
-          {{/$new.has_min}}
-          {{#$new.has_max}}
-  - Maximum Bound: {{$new.max_value}}
-          {{/$new.has_max}}
-          {{^$new.has_max}}
-  - Maximum Bound: None
-          {{/$new.has_max}}
+- Changed has_min flag from `{{{$old}}}` to `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*   
         {{/$changed}}
         {{#$added}}
-- Added details for property *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
-   added:
-          {{#$new.has_min}}
-  - Minimum Bound: {{$new.min_value}}
-          {{/$new.has_min}}
-          {{^$new.has_min}}
-  - Minimum Bound: None
-          {{/$new.has_min}}
-          {{#$new.has_max}}
-  - Maximum Bound: {{$new.max_value}}
-          {{/$new.has_max}}
-          {{^$new.has_max}}
-  - Maximum Bound: None
-          {{/$new.has_max}}
+- Added has_min flag for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
         {{/$added}}
         {{#$removed}}
-- Removed details for property *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
-   removed:
-          {{#$old.has_min}}
-  - Minimum Bound: {{$old.min_value}}
-          {{/$old.has_min}}
-          {{^$old.has_min}}
-  - Minimum Bound: None
-          {{/$old.has_min}}
-          {{#$old.has_max}}
-  - Maximum Bound: {{$old.max_value}}
-          {{/$old.has_max}}
-          {{^$old.has_max}}
-  - Maximum Bound: None
-          {{/$old.has_max}}
+- Removed has_min flag for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
         {{/$removed}}
-      {{/details}}
+      {{/has_min}}    
+      {{#min_value}}
+        {{#$changed}}
+- Changed min_value from `{{{$old}}}` to `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
+        {{/$changed}}
+        {{#$added}}
+- Added min_value for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
+        {{/$added}}
+        {{#$removed}}
+- Removed min_value for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
+        {{/$removed}}
+      {{/min_value}}
+      {{#has_max}}
+        {{#$changed}}
+- Changed has_max flag from `{{{$old}}}` to `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*   
+        {{/$changed}}
+        {{#$added}}
+- Added has_max flag for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
+        {{/$added}}
+        {{#$removed}}
+- Removed has_max flag for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
+        {{/$removed}}
+      {{/has_max}}    
+      {{#max_value}}
+        {{#$changed}}
+- Changed max_value from `{{{$old}}}` to `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
+        {{/$changed}}
+        {{#$added}}
+- Added max_value for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
+        {{/$added}}
+        {{#$removed}}
+- Removed max_value for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
+        {{/$removed}}
+      {{/max_value}}
       {{#type}}
         {{#$changed}}
 - Changed type for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* from {{#$old.type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$old.type}} to {{#$new.type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$new.type}}

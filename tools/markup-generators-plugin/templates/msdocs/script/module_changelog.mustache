@@ -91,66 +91,48 @@ description: Changelog of the `{{{name}}}` module
 - Changed read-only flag for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* from `{{{$old}}}` to `{{{$new}}}`
         {{/$changed}}
       {{/is_read_only}}      
-      {{#has_min}}
-        {{#$changed}}
-- Changed has_min flag from `{{{$old}}}` to `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*   
-        {{/$changed}}
-        {{#$added}}
-- Added has_min flag for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
-        {{/$added}}
-        {{#$removed}}
-- Removed has_min flag for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
-        {{/$removed}}        
+      {{#has_min}}      
         {{^$old}}{{#$new}}
           {{#min_value}}
-- Added min_value `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
+- Added Minimum Bound of `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
           {{/min_value}}
         {{/$new}}{{/$old}}   
         {{#$old}}{{^$new}}
-- Removed min_value for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
+- Removed Minimum Bound for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
         {{/$new}}{{/$old}}
         {{#$old}}{{#$new}}
           {{#min_value}}
             {{#$changed}}
-- Changed min_value from `{{{$old}}}` to `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
+- Changed Minimum Bound of `{{{$old}}}` to `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
             {{/$changed}}
             {{#$added}}
-- Added min_value`{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
+- Added Minimum Bound of `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
             {{/$added}}            
             {{#$removed}}
-- Removed min_value`{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
+- Removed Minimum Bound of `{{{$old}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
             {{/$removed}}
           {{/min_value}}
         {{/$new}}{{/$old}}
       {{/has_min}}    
-      {{#has_max}}
-        {{#$changed}}
-- Changed has_max flag from `{{{$old}}}` to `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*   
-        {{/$changed}}
-        {{#$added}}
-- Added has_max flag for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
-        {{/$added}}
-        {{#$removed}}
-- Removed has_max flag for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
-        {{/$removed}}        
+      {{#has_max}}     
         {{^$old}}{{#$new}}
           {{#max_value}}
-- Added max_value `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
+- Added Maximum Bound of `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
           {{/max_value}}
         {{/$new}}{{/$old}}   
         {{#$old}}{{^$new}}
-- Removed max_value for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
+- Removed Maximum Bound for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
         {{/$new}}{{/$old}}
         {{#$old}}{{#$new}}
           {{#max_value}}
             {{#$changed}}
-- Changed min_value from `{{{$old}}}` to `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
+- Changed Maximum Bound of `{{{$old}}}` to `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
             {{/$changed}}
             {{#$added}}
-- Added min_value`{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
+- Added Maximum Bound of `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
             {{/$added}}            
             {{#$removed}}
-- Removed min_value`{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
+- Removed Maximum Bound of `{{{$old}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
             {{/$removed}}
           {{/max_value}}
         {{/$new}}{{/$old}}

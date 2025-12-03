@@ -131,7 +131,7 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
         },
         "call_privilege": [
           {
-            "name": "read_only"
+            "name": "restricted_execution"
           }
         ]
       }
@@ -988,7 +988,7 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
         },
         "call_privilege": [
           {
-            "name": "read_only"
+            "name": "restricted_execution"
           }
         ]
       }

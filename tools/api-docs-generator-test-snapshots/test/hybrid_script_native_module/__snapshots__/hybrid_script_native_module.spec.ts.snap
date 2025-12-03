@@ -165,7 +165,7 @@ A script generated property
 Type: *string | undefined*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ## Methods
 - [testFunctionWithTSDocComments](#testfunctionwithtsdoccomments)
@@ -188,7 +188,7 @@ A script generated function with doc text defined in TSDoc comments
 **Returns** *boolean* - This is a return comment defined in info.json
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 - This function can throw errors.
   - Throws comment in TSDocs
 "
@@ -564,7 +564,7 @@ export declare class ScriptGeneratedClass {
      * @remarks
      * A script generated property
      *
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     testProperty: string | undefined;
@@ -573,7 +573,7 @@ export declare class ScriptGeneratedClass {
      * A script generated function with doc text defined in TSDoc
      * comments
      *
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      * @param tsdocParam
      * Param comment from TSDoc
@@ -683,7 +683,7 @@ export declare class ScriptGeneratedClass {
      * @remarks
      * A script generated property
      *
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     testProperty: string | undefined;
@@ -692,7 +692,7 @@ export declare class ScriptGeneratedClass {
      * A script generated function with doc text defined in TSDoc
      * comments
      *
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      * @param tsdocParam
      * Param comment from TSDoc
@@ -1054,7 +1054,7 @@ export declare class ScriptGeneratedClass {
      * @remarks
      * A script generated property
      *
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     testProperty: string | undefined;
@@ -1063,7 +1063,7 @@ export declare class ScriptGeneratedClass {
      * A script generated function with doc text defined in TSDoc
      * comments
      *
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      * @param tsdocParam
      * Param comment from TSDoc
@@ -1144,7 +1144,7 @@ export declare class ScriptGeneratedClass {
      * @remarks
      * A script generated property
      *
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     testProperty: string | undefined;
@@ -1153,7 +1153,7 @@ export declare class ScriptGeneratedClass {
      * A script generated function with doc text defined in TSDoc
      * comments
      *
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      * @param tsdocParam
      * Param comment from TSDoc
@@ -1421,7 +1421,7 @@ A script generated property
 Type: *string | undefined*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ## Methods
 - [testFunctionWithTSDocComments](#testfunctionwithtsdoccomments)
@@ -1444,7 +1444,7 @@ A script generated function with doc text defined in TSDoc comments
 **Returns** *boolean* - This is a return comment defined in info.json
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 - This function can throw errors.
   - Throws comment in TSDocs
 "
@@ -1802,7 +1802,7 @@ export declare class ScriptGeneratedClass {
      * @remarks
      * A script generated property
      *
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     testProperty: string | undefined;
@@ -1811,7 +1811,7 @@ export declare class ScriptGeneratedClass {
      * A script generated function with doc text defined in TSDoc
      * comments
      *
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      * @param tsdocParam
      * Param comment from TSDoc
@@ -1921,7 +1921,7 @@ export declare class ScriptGeneratedClass {
      * @remarks
      * A script generated property
      *
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     testProperty: string | undefined;
@@ -1930,7 +1930,7 @@ export declare class ScriptGeneratedClass {
      * A script generated function with doc text defined in TSDoc
      * comments
      *
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      * @param tsdocParam
      * Param comment from TSDoc
@@ -2123,7 +2123,7 @@ export declare class ScriptGeneratedClass {
      * @remarks
      * A script generated property
      *
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     testProperty: string | undefined;
@@ -2132,7 +2132,7 @@ export declare class ScriptGeneratedClass {
      * A script generated function with doc text defined in TSDoc
      * comments
      *
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      * @param tsdocParam
      * Param comment from TSDoc
@@ -2213,7 +2213,7 @@ export declare class ScriptGeneratedClass {
      * @remarks
      * A script generated property
      *
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     testProperty: string | undefined;
@@ -2222,7 +2222,7 @@ export declare class ScriptGeneratedClass {
      * A script generated function with doc text defined in TSDoc
      * comments
      *
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      * @param tsdocParam
      * Param comment from TSDoc

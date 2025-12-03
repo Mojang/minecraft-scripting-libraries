@@ -2206,7 +2206,7 @@ description: Contents of the dependant-module.ClassWithCrossModuleProperty class
 Type: [*test-module1.SmallClass*](../../../priorscriptapi/test-module1-1xx/SmallClass.md)
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 "
 `;
 
@@ -2267,7 +2267,7 @@ description: Contents of the dependant-module.ClassWithCrossModuleProperty class
 Type: [*test-module1.SmallClass*](../../../scriptapi/test-module1/SmallClass.md)
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 "
 `;
 
@@ -2397,7 +2397,7 @@ description: Contents of the test-module1.ClassWithConstructor class (Version 1.
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **y**
 \`y: number;\`
@@ -2405,7 +2405,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **z**
 \`z: number;\`
@@ -2413,7 +2413,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ## Methods
 - [constructor](#constructor)
@@ -2431,7 +2431,7 @@ new ClassWithConstructor(x: number, y: number, z: number)
 **Returns** [*ClassWithConstructor*](ClassWithConstructor.md)
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 "
 `;
 
@@ -2485,7 +2485,7 @@ description: Contents of the test-module1.EntityIterator class (Version 1.x.x).
 **Returns** Iterator&lt;*string*&gt;
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **next**
 \`
@@ -2495,7 +2495,7 @@ next(): IteratorResult<string>
 **Returns** IteratorResult&lt;*string*&gt;
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 "
 `;
 
@@ -2522,7 +2522,7 @@ description: Contents of the test-module1.ExampleClass1 class (Version 1.x.x).
 Type: *boolean*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **floatProperty**
 \`floatProperty: number;\`
@@ -2530,7 +2530,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **int16Property**
 \`int16Property: number;\`
@@ -2538,7 +2538,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **int32Property**
 \`int32Property: number;\`
@@ -2546,7 +2546,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **int64Property**
 \`int64Property: number;\`
@@ -2554,7 +2554,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **int8Property**
 \`int8Property: number;\`
@@ -2562,7 +2562,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **propertyWithChangedType**
 \`propertyWithChangedType: string;\`
@@ -2570,7 +2570,7 @@ Notes:
 Type: *string*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
   - This property can throw errors when used.
 
 ### **propertyWithReadOnlyChanging**
@@ -2584,7 +2584,7 @@ Type: *string*
 Type: *string*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **stringPropertyErrorable**
 \`stringPropertyErrorable: string;\`
@@ -2592,7 +2592,7 @@ Notes:
 Type: *string*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
   - This property can throw errors when used.
 
 ### **stringPropertyReadOnly**
@@ -2606,7 +2606,7 @@ Type: *string*
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **uint32Property**
 \`uint32Property: number;\`
@@ -2614,7 +2614,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **uint64Property**
 \`uint64Property: number;\`
@@ -2622,7 +2622,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **uint8Property**
 \`uint8Property: number;\`
@@ -2630,7 +2630,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ## Methods
 - [testMethod](#testmethod)
@@ -2653,7 +2653,7 @@ testMethod(stringArgument: string, stringArgumentOptional?: string): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **testMethodWithAddedArgument**
 \`
@@ -2663,7 +2663,7 @@ testMethodWithAddedArgument(): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **testMethodWithAddedErrorable**
 \`
@@ -2673,7 +2673,7 @@ testMethodWithAddedErrorable(): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **testMethodWithChangedArgumentType**
 \`
@@ -2686,7 +2686,7 @@ testMethodWithChangedArgumentType(arg: string): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **testMethodWithChangedReturnType**
 \`
@@ -2696,7 +2696,7 @@ testMethodWithChangedReturnType(): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **testMethodWithRemovedArgument**
 \`
@@ -2709,7 +2709,7 @@ testMethodWithRemovedArgument(removedArg: string): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **testMethodWithRemovedErrorable**
 \`
@@ -2719,7 +2719,7 @@ testMethodWithRemovedErrorable(): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 - This function can throw errors.
 
 ## Constants
@@ -2837,7 +2837,7 @@ description: Contents of the test-module1.SmallClass class (Version 1.x.x).
 Type: *string*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
   - This property can throw errors when used.
 "
 `;
@@ -2941,7 +2941,7 @@ testFunctionWithAddedArgument(): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **testFunctionWithAddedErrorable**
 \`
@@ -2951,7 +2951,7 @@ testFunctionWithAddedErrorable(): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **testFunctionWithChangedArgumentType**
 \`
@@ -2964,7 +2964,7 @@ testFunctionWithChangedArgumentType(arg: string): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **testFunctionWithRemovedArgument**
 \`
@@ -2977,7 +2977,7 @@ testFunctionWithRemovedArgument(removedArg: string): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **testFunctionWithRemovedErrorable**
 \`
@@ -2987,7 +2987,7 @@ testFunctionWithRemovedErrorable(): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 - This function can throw errors.
 
 ## Constants
@@ -3085,7 +3085,7 @@ description: Contents of the dependant-module.ClassWithCrossModuleProperty class
 Type: [*test-module1.SmallClass*](../../../scriptapi/test-module1/SmallClass.md)
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 "
 `;
 
@@ -3368,7 +3368,7 @@ description: Contents of the test-module1.ClassWithConstructor class.
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **x**
 \`x: number;\`
@@ -3376,7 +3376,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **y**
 \`y: number;\`
@@ -3384,7 +3384,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **z**
 \`z: number;\`
@@ -3392,7 +3392,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ## Methods
 - [constructor](#constructor)
@@ -3411,7 +3411,7 @@ new ClassWithConstructor(x: number, y: number, z: number)
 **Returns** [*ClassWithConstructor*](ClassWithConstructor.md)
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **testFunction**
 \`
@@ -3425,7 +3425,7 @@ testFunction(argument1: string, argument2: string): number
 **Returns** *number*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 "
 `;
 
@@ -3470,7 +3470,7 @@ description: Contents of the test-module1.EntityIterator class.
 **Returns** Iterator&lt;*string*&gt;
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **next**
 \`
@@ -3480,7 +3480,7 @@ next(): IteratorResult<string>
 **Returns** IteratorResult&lt;*string*&gt;
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 "
 `;
 
@@ -3504,7 +3504,7 @@ description: Contents of the test-module1.ExampleClass1 class.
 Type: *boolean*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **floatProperty**
 \`floatProperty: number;\`
@@ -3512,7 +3512,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **int16Property**
 \`int16Property: number;\`
@@ -3520,7 +3520,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **int32Property**
 \`int32Property: number;\`
@@ -3528,7 +3528,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **int64Property**
 \`int64Property: number;\`
@@ -3536,7 +3536,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **int8Property**
 \`int8Property: number;\`
@@ -3544,7 +3544,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **propertyWithChangedType**
 \`propertyWithChangedType: boolean;\`
@@ -3552,7 +3552,7 @@ Notes:
 Type: *boolean*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
   - This property can throw errors when used.
 
 ### **propertyWithReadOnlyChanging**
@@ -3561,7 +3561,7 @@ Notes:
 Type: *string*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **stringProperty**
 \`stringProperty: string;\`
@@ -3569,7 +3569,7 @@ Notes:
 Type: *string*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **stringPropertyErrorable**
 \`stringPropertyErrorable: string;\`
@@ -3577,7 +3577,7 @@ Notes:
 Type: *string*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
   - This property can throw errors when used.
 
 ### **stringPropertyReadOnly**
@@ -3591,7 +3591,7 @@ Type: *string*
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **uint32Property**
 \`uint32Property: number;\`
@@ -3599,7 +3599,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **uint64Property**
 \`uint64Property: number;\`
@@ -3607,7 +3607,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **uint8Property**
 \`uint8Property: number;\`
@@ -3615,7 +3615,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ## Methods
 - [testMethod](#testmethod)
@@ -3638,7 +3638,7 @@ testMethod(stringArgument: string, stringArgumentOptional?: string): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **testMethodWithAddedArgument**
 \`
@@ -3651,7 +3651,7 @@ testMethodWithAddedArgument(addedArg: string): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **testMethodWithAddedErrorable**
 \`
@@ -3661,7 +3661,7 @@ testMethodWithAddedErrorable(): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 - This function can throw errors.
 
 ### **testMethodWithChangedArgumentType**
@@ -3675,7 +3675,7 @@ testMethodWithChangedArgumentType(arg: number): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **testMethodWithChangedReturnType**
 \`
@@ -3685,7 +3685,7 @@ testMethodWithChangedReturnType(): string
 **Returns** *string*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **testMethodWithRemovedArgument**
 \`
@@ -3695,7 +3695,7 @@ testMethodWithRemovedArgument(): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **testMethodWithRemovedErrorable**
 \`
@@ -3705,7 +3705,7 @@ testMethodWithRemovedErrorable(): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ## Constants
 
@@ -3760,7 +3760,7 @@ description: Contents of the test-module1.SmallClass class.
 Type: *string*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
   - This property can throw errors when used.
 "
 `;
@@ -3935,7 +3935,7 @@ testFunctionWithAddedArgument(addedArg: string): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **testFunctionWithAddedErrorable**
 \`
@@ -3945,7 +3945,7 @@ testFunctionWithAddedErrorable(): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 - This function can throw errors.
 
 ### **testFunctionWithChangedArgumentType**
@@ -3959,7 +3959,7 @@ testFunctionWithChangedArgumentType(arg: number): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **testFunctionWithRemovedArgument**
 \`
@@ -3969,7 +3969,7 @@ testFunctionWithRemovedArgument(): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **testFunctionWithRemovedErrorable**
 \`
@@ -3979,7 +3979,7 @@ testFunctionWithRemovedErrorable(): boolean
 **Returns** *boolean*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **testGlobalFunction**
 \`
@@ -3992,7 +3992,7 @@ testGlobalFunction(argument1: string): number
 **Returns** *number*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ## Constants
 
@@ -4150,7 +4150,7 @@ export class ClassWithCrossModuleProperty {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     exampleProperty: testmodule1.SmallClass;
@@ -4186,7 +4186,7 @@ export class ClassWithCrossModuleProperty {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     exampleProperty: testmodule1.SmallClass;
@@ -4222,7 +4222,7 @@ export class ClassWithCrossModuleProperty {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     exampleProperty: testmodule1.SmallClass;
@@ -4317,25 +4317,25 @@ export class ClassWithAddedBaseClass {
 export class ClassWithConstructor {
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     x: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     y: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     z: number;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      * @param x
      * @param y
@@ -4353,13 +4353,13 @@ export class EntityIterator implements Iterable<string> {
     private constructor();
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     [Symbol.iterator](): Iterator<string>;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     next(): IteratorResult<string>;
@@ -4369,43 +4369,43 @@ export class ExampleClass1 {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     boolProperty: boolean;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     floatProperty: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     int16Property: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     int32Property: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     int64Property: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     int8Property: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      * @throws This property can throw when used.
      */
@@ -4413,13 +4413,13 @@ export class ExampleClass1 {
     readonly propertyWithReadOnlyChanging: string;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     stringProperty: string;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      * @throws This property can throw when used.
      */
@@ -4427,68 +4427,68 @@ export class ExampleClass1 {
     readonly stringPropertyReadOnly: string;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     uint16Property: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     uint32Property: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     uint64Property: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     uint8Property: number;
     static readonly ClassConstantExample = 1337;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     testMethod(stringArgument: string, stringArgumentOptional?: string): boolean;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     testMethodWithAddedArgument(): boolean;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     testMethodWithAddedErrorable(): boolean;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     testMethodWithChangedArgumentType(arg: string): boolean;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     testMethodWithChangedReturnType(): boolean;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     testMethodWithRemovedArgument(removedArg: string): boolean;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      * @throws This function can throw errors.
      */
@@ -4499,7 +4499,7 @@ export class SmallClass {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      * @throws This property can throw when used.
      */
@@ -4522,31 +4522,31 @@ export interface RemovedInterface {
 
 /**
  * @remarks
- * This function can't be called in read-only mode.
+ * This function can't be called in restricted-execution mode.
  *
  */
 export function testFunctionWithAddedArgument(): boolean;
 /**
  * @remarks
- * This function can't be called in read-only mode.
+ * This function can't be called in restricted-execution mode.
  *
  */
 export function testFunctionWithAddedErrorable(): boolean;
 /**
  * @remarks
- * This function can't be called in read-only mode.
+ * This function can't be called in restricted-execution mode.
  *
  */
 export function testFunctionWithChangedArgumentType(arg: string): boolean;
 /**
  * @remarks
- * This function can't be called in read-only mode.
+ * This function can't be called in restricted-execution mode.
  *
  */
 export function testFunctionWithRemovedArgument(removedArg: string): boolean;
 /**
  * @remarks
- * This function can't be called in read-only mode.
+ * This function can't be called in restricted-execution mode.
  *
  * @throws This function can throw errors.
  */
@@ -4624,31 +4624,31 @@ export class ClassWithAddedBaseClass extends SmallClass {
 export class ClassWithConstructor {
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     w: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     x: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     y: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     z: number;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      * @param x
      * @param y
@@ -4657,7 +4657,7 @@ export class ClassWithConstructor {
     constructor(x: number, y: number, z: number);
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     testFunction(argument1: string, argument2: string): number;
@@ -4671,13 +4671,13 @@ export class EntityIterator implements Iterable<string> {
     private constructor();
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     [Symbol.iterator](): Iterator<string>;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     next(): IteratorResult<string>;
@@ -4687,62 +4687,62 @@ export class ExampleClass1 {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     boolProperty: boolean;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     floatProperty: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     int16Property: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     int32Property: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     int64Property: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     int8Property: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      * @throws This property can throw when used.
      */
     propertyWithChangedType: boolean;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     propertyWithReadOnlyChanging: string;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     stringProperty: string;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      * @throws This property can throw when used.
      */
@@ -4750,69 +4750,69 @@ export class ExampleClass1 {
     readonly stringPropertyReadOnly: string;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     uint16Property: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     uint32Property: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     uint64Property: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     uint8Property: number;
     static readonly ClassConstantExample = 1338;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     testMethod(stringArgument: string, stringArgumentOptional?: string): boolean;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     testMethodWithAddedArgument(addedArg: string): boolean;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      * @throws This function can throw errors.
      */
     testMethodWithAddedErrorable(): boolean;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     testMethodWithChangedArgumentType(arg: number): boolean;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     testMethodWithChangedReturnType(): string;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     testMethodWithRemovedArgument(): boolean;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     testMethodWithRemovedErrorable(): boolean;
@@ -4822,7 +4822,7 @@ export class SmallClass {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      * @throws This property can throw when used.
      */
@@ -4839,38 +4839,38 @@ export interface ExampleInterface {
 
 /**
  * @remarks
- * This function can't be called in read-only mode.
+ * This function can't be called in restricted-execution mode.
  *
  */
 export function testFunctionWithAddedArgument(addedArg: string): boolean;
 /**
  * @remarks
- * This function can't be called in read-only mode.
+ * This function can't be called in restricted-execution mode.
  *
  * @throws This function can throw errors.
  */
 export function testFunctionWithAddedErrorable(): boolean;
 /**
  * @remarks
- * This function can't be called in read-only mode.
+ * This function can't be called in restricted-execution mode.
  *
  */
 export function testFunctionWithChangedArgumentType(arg: number): boolean;
 /**
  * @remarks
- * This function can't be called in read-only mode.
+ * This function can't be called in restricted-execution mode.
  *
  */
 export function testFunctionWithRemovedArgument(): boolean;
 /**
  * @remarks
- * This function can't be called in read-only mode.
+ * This function can't be called in restricted-execution mode.
  *
  */
 export function testFunctionWithRemovedErrorable(): boolean;
 /**
  * @remarks
- * This function can't be called in read-only mode.
+ * This function can't be called in restricted-execution mode.
  *
  */
 export function testGlobalFunction(argument1: string): number;

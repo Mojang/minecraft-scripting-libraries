@@ -36,7 +36,7 @@ Type: *number*
 
 Notes:
   - This property has a minimum bound of \`-255\`
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **t**
 \`t: number;\`
@@ -45,7 +45,7 @@ Type: *number*
 
 Notes:
   - This property has a maximum bound of \`1\`
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **u**
 \`u: number;\`
@@ -53,7 +53,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **v**
 \`v: number;\`
@@ -63,7 +63,7 @@ Type: *number*
 Notes:
   - This property has a minimum bound of \`-255\`
   - This property has a maximum bound of \`-1\`
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **w**
 \`w: number;\`
@@ -71,7 +71,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **x**
 \`x: number;\`
@@ -80,7 +80,7 @@ Type: *number*
 
 Notes:
   - This property has a minimum bound of \`1\`
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **y**
 \`y: number;\`
@@ -89,7 +89,7 @@ Type: *number*
 
 Notes:
   - This property has a maximum bound of \`255\`
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **z**
 \`z: number;\`
@@ -99,7 +99,7 @@ Type: *number*
 Notes:
   - This property has a minimum bound of \`1\`
   - This property has a maximum bound of \`255\`
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ## Methods
 - [methodThatTakesBoundedValue](#methodthattakesboundedvalue)
@@ -130,7 +130,7 @@ methodThatTakesBoundedValue(s: number, t: number, u: number, v: number, w: numbe
 **Returns** *void*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 "
 `;
 
@@ -198,7 +198,7 @@ Type: *number*
 
 Notes:
   - This property has a minimum bound of \`1\`
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **t**
 \`t: number;\`
@@ -207,7 +207,7 @@ Type: *number*
 
 Notes:
   - This property has a maximum bound of \`255\`
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **u**
 \`u: number;\`
@@ -215,7 +215,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **v**
 \`v: number;\`
@@ -225,7 +225,7 @@ Type: *number*
 Notes:
   - This property has a minimum bound of \`1\`
   - This property has a maximum bound of \`255\`
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **w**
 \`w: number;\`
@@ -235,7 +235,7 @@ Type: *number*
 Notes:
   - This property has a minimum bound of \`1\`
   - This property has a maximum bound of \`255\`
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **x**
 \`x: number;\`
@@ -244,7 +244,7 @@ Type: *number*
 
 Notes:
   - This property has a maximum bound of \`255\`
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **y**
 \`y: number;\`
@@ -253,7 +253,7 @@ Type: *number*
 
 Notes:
   - This property has a minimum bound of \`1\`
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ### **z**
 \`z: number;\`
@@ -261,7 +261,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ## Methods
 - [methodThatTakesBoundedValue](#methodthattakesboundedvalue)
@@ -292,7 +292,7 @@ methodThatTakesBoundedValue(s: number, t: number, u: number, v: number, w: numbe
 **Returns** *void*
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 "
 `;
 
@@ -406,7 +406,7 @@ export class ClassWithBounds {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      * Minimum Value: -255
      *
@@ -414,7 +414,7 @@ export class ClassWithBounds {
     s: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      * Maximum Value: 1
      *
@@ -422,13 +422,13 @@ export class ClassWithBounds {
     t: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     u: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      * Minimum Value: -255
      *
@@ -438,13 +438,13 @@ export class ClassWithBounds {
     v: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     w: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      * Minimum Value: 1
      *
@@ -452,7 +452,7 @@ export class ClassWithBounds {
     x: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      * Maximum Value: 255
      *
@@ -460,7 +460,7 @@ export class ClassWithBounds {
     y: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      * Minimum Value: 1
      *
@@ -470,7 +470,7 @@ export class ClassWithBounds {
     z: number;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      * @param s
      * Minimum value: -255
@@ -528,7 +528,7 @@ export class ClassWithBounds {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      * Minimum Value: 1
      *
@@ -536,7 +536,7 @@ export class ClassWithBounds {
     s: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      * Maximum Value: 255
      *
@@ -544,13 +544,13 @@ export class ClassWithBounds {
     t: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     u: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      * Minimum Value: 1
      *
@@ -560,7 +560,7 @@ export class ClassWithBounds {
     v: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      * Minimum Value: 1
      *
@@ -570,7 +570,7 @@ export class ClassWithBounds {
     w: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      * Maximum Value: 255
      *
@@ -578,7 +578,7 @@ export class ClassWithBounds {
     x: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      * Minimum Value: 1
      *
@@ -586,13 +586,13 @@ export class ClassWithBounds {
     y: number;
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     z: number;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      * @param s
      * Minimum value: 1

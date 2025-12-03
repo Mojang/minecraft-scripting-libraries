@@ -2,7 +2,43 @@
     "classes": [
         {
             "name": "ClassWithBounds",
-            "properties": [
+            "properties": [                    
+                {
+                    "has_max": false,
+                    "has_min": true,
+                    "is_baked": false,
+                    "is_read_only": false,
+                    "max_value": 2147483647,
+                    "min_value": -255,
+                    "name": "s",
+                    "type": {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "int32",
+                        "valid_range": {
+                            "max": 2147483647,
+                            "min": -2147483648
+                        }
+                    }
+                },            
+                {
+                    "has_max": true,
+                    "has_min": false,
+                    "is_baked": false,
+                    "is_read_only": false,
+                    "max_value": 1,
+                    "min_value": -2147483648,
+                    "name": "t",
+                    "type": {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "int32",
+                        "valid_range": {
+                            "max": 2147483647,
+                            "min": -2147483648
+                        }
+                    }
+                },
                 {
                     "has_max": false,
                     "has_min": false,
@@ -119,7 +155,43 @@
             },
             "functions": [
                 {
-                    "arguments": [                        
+                    "arguments": [                         
+                        {
+                            "details": {
+                                "has_max": false,
+                                "has_min": true,
+                                "max_value": 2147483647,
+                                "min_value": -255
+                            },
+                            "name": "s",
+                            "type": {
+                                "is_bind_type": false,
+                                "is_errorable": false,
+                                "name": "int32",
+                                "valid_range": {
+                                    "max": 2147483647,
+                                    "min": -2147483648
+                                }
+                            }
+                        },                               
+                        {
+                            "details": {
+                                "has_max": true,
+                                "has_min": false,
+                                "max_value": 1,
+                                "min_value": -2147483648
+                            },
+                            "name": "t",
+                            "type": {
+                                "is_bind_type": false,
+                                "is_errorable": false,
+                                "name": "int32",
+                                "valid_range": {
+                                    "max": 2147483647,
+                                    "min": -2147483648
+                                }
+                            }
+                        },                      
                         {
                             "details": {
                                 "has_max": false,

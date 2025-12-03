@@ -29,6 +29,42 @@ description: Contents of the bounds-module.ClassWithBounds class (Version 1.x.x)
 
 ## Properties
 
+### **s**
+\`s: number;\`
+
+Type: *number*
+
+Notes:
+  - This property has a minimum bound of \`-255\`
+  - This property can't be used in read-only mode.
+
+### **t**
+\`t: number;\`
+
+Type: *number*
+
+Notes:
+  - This property has a maximum bound of \`1\`
+  - This property can't be used in read-only mode.
+
+### **u**
+\`u: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **v**
+\`v: number;\`
+
+Type: *number*
+
+Notes:
+  - This property has a minimum bound of \`-255\`
+  - This property has a maximum bound of \`-1\`
+  - This property can't be used in read-only mode.
+
 ### **w**
 \`w: number;\`
 
@@ -70,10 +106,18 @@ Notes:
 
 ### **methodThatTakesBoundedValue**
 \`
-methodThatTakesBoundedValue(w: number, x: number, y: number, z: number): void
+methodThatTakesBoundedValue(s: number, t: number, u: number, v: number, w: number, x: number, y: number, z: number): void
 \`
 
 #### **Parameters**
+- **s**: *number*
+  Minimum Bound: \`-255\`
+- **t**: *number*
+  Maximum Bound: \`1\`
+- **u**: *number*
+- **v**: *number*
+  Minimum Bound: \`-255\`
+  Maximum Bound: \`-1\`
 - **w**: *number*
   Minimum Bound: \`1\`
   Maximum Bound: \`255\`
@@ -147,6 +191,42 @@ description: Contents of the bounds-module.ClassWithBounds class.
 
 ## Properties
 
+### **s**
+\`s: number;\`
+
+Type: *number*
+
+Notes:
+  - This property has a minimum bound of \`1\`
+  - This property can't be used in read-only mode.
+
+### **t**
+\`t: number;\`
+
+Type: *number*
+
+Notes:
+  - This property has a maximum bound of \`255\`
+  - This property can't be used in read-only mode.
+
+### **u**
+\`u: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in read-only mode.
+
+### **v**
+\`v: number;\`
+
+Type: *number*
+
+Notes:
+  - This property has a minimum bound of \`1\`
+  - This property has a maximum bound of \`255\`
+  - This property can't be used in read-only mode.
+
 ### **w**
 \`w: number;\`
 
@@ -188,10 +268,18 @@ Notes:
 
 ### **methodThatTakesBoundedValue**
 \`
-methodThatTakesBoundedValue(w: number, x: number, y: number, z: number): void
+methodThatTakesBoundedValue(s: number, t: number, u: number, v: number, w: number, x: number, y: number, z: number): void
 \`
 
 #### **Parameters**
+- **s**: *number*
+  Minimum Bound: \`1\`
+- **t**: *number*
+  Maximum Bound: \`255\`
+- **u**: *number*
+- **v**: *number*
+  Minimum Bound: \`1\`
+  Maximum Bound: \`255\`
 - **w**: *number*
 - **x**: *number*
   Maximum Bound: \`255\`
@@ -263,51 +351,31 @@ description: Changelog of the \`bounds-module\` module
 
 ## 2.0.0
 #### Changed *[\`ClassWithBounds\`](ClassWithBounds.md)*
-- Changed has_min flag from \`false\` to \`true\` for *[\`w\`](ClassWithBounds.md#w)*   
-- Added min_value \`1\` for *[\`w\`](ClassWithBounds.md#w)* 
-- Changed has_max flag from \`false\` to \`true\` for *[\`w\`](ClassWithBounds.md#w)*   
-- Added max_value \`255\` for *[\`w\`](ClassWithBounds.md#w)* 
-- Changed has_min flag from \`true\` to \`false\` for *[\`x\`](ClassWithBounds.md#x)*   
-- Removed min_value for *[\`x\`](ClassWithBounds.md#x)*
-- Changed has_max flag from \`false\` to \`true\` for *[\`x\`](ClassWithBounds.md#x)*   
-- Added max_value \`255\` for *[\`x\`](ClassWithBounds.md#x)* 
-- Changed has_min flag from \`false\` to \`true\` for *[\`y\`](ClassWithBounds.md#y)*   
-- Added min_value \`1\` for *[\`y\`](ClassWithBounds.md#y)* 
-- Changed has_max flag from \`true\` to \`false\` for *[\`y\`](ClassWithBounds.md#y)*   
-- Removed max_value for *[\`y\`](ClassWithBounds.md#y)*
-- Changed has_min flag from \`true\` to \`false\` for *[\`z\`](ClassWithBounds.md#z)*   
-- Removed min_value for *[\`z\`](ClassWithBounds.md#z)*
-- Changed has_max flag from \`true\` to \`false\` for *[\`z\`](ClassWithBounds.md#z)*   
-- Removed max_value for *[\`z\`](ClassWithBounds.md#z)*
+- Changed minimum bound of \`-255\` to \`1\` for property *[\`s\`](ClassWithBounds.md#s)* 
+- Changed maximum bound of \`1\` to \`255\` for property *[\`t\`](ClassWithBounds.md#t)* 
+- Changed minimum bound of \`-255\` to \`1\` for property *[\`v\`](ClassWithBounds.md#v)* 
+- Changed maximum bound of \`-1\` to \`255\` for property *[\`v\`](ClassWithBounds.md#v)* 
+- Added minimum bound of \`1\` for property *[\`w\`](ClassWithBounds.md#w)* 
+- Added maximum bound of \`255\` for property *[\`w\`](ClassWithBounds.md#w)* 
+- Removed minimum bound for property *[\`x\`](ClassWithBounds.md#x)*
+- Added maximum bound of \`255\` for property *[\`x\`](ClassWithBounds.md#x)* 
+- Added minimum bound of \`1\` for property *[\`y\`](ClassWithBounds.md#y)* 
+- Removed maximum bound for *[\`y\`](ClassWithBounds.md#y)*
+- Removed minimum bound for property *[\`z\`](ClassWithBounds.md#z)*
+- Removed maximum bound for *[\`z\`](ClassWithBounds.md#z)*
 - Changed function *[\`methodThatTakesBoundedValue\`](ClassWithBounds.md#methodthattakesboundedvalue)*
-  - Changed details of argument \`w\`
-  from:
-    - Minimum Bound: 1
-    - Maximum Bound: 255
-  to:
-    - Minimum Bound: None
-    - Maximum Bound: None
-  - Changed details of argument \`x\`
-  from:
-    - Minimum Bound: 1
-    - Maximum Bound: None
-  to:
-    - Minimum Bound: None
-    - Maximum Bound: 255
-  - Changed details of argument \`y\`
-  from:
-   - Minimum Bound: None
-    - Maximum Bound: 255
-  to:
-    - Minimum Bound: 1
-    - Maximum Bound: None
-  - Changed details of argument \`z\`
-  from:
-   - Minimum Bound: None
-    - Maximum Bound: None
-  to:
-    - Minimum Bound: 1
-    - Maximum Bound: 255
+  - Changed minimum bound from \`-255\` to \`1\` for argument \`s\`
+  - Changed maximum bound from \`1\` to \`255\` for argument \`t\`
+  - Changed minimum bound from \`-255\` to \`1\` for argument \`v\`
+  - Changed maximum bound from \`-1\` to \`255\` for argument \`v\`
+  - Removed minimum bound of \`1\` from argument \`w\`
+  - Removed maximum bound of \`255\` from argument \`w\`           
+  - Removed minimum bound of \`1\` from argument \`x\`
+  - Added maximum bound of \`255\` to argument \`x\`
+  - Added minimum bound of \`1\` to argument \`y\`
+  - Removed maximum bound of \`255\` from argument \`y\`           
+  - Added minimum bound of \`1\` to argument \`z\`
+  - Added maximum bound of \`255\` to argument \`z\`
 ## 1.0.0
 #### Added \`bounds-module\` Module
 "
@@ -336,6 +404,38 @@ exports[`Bounds > Properly generates documentation for modules which contain bou
  */
 export class ClassWithBounds {
     private constructor();
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     * Minimum Value: -255
+     *
+     */
+    s: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     * Maximum Value: 1
+     *
+     */
+    t: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    u: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     * Minimum Value: -255
+     *
+     * Maximum Value: -1
+     *
+     */
+    v: number;
     /**
      * @remarks
      * This property can't be used in read-only mode.
@@ -372,6 +472,14 @@ export class ClassWithBounds {
      * @remarks
      * This function can't be called in read-only mode.
      *
+     * @param s
+     * Minimum value: -255
+     * @param t
+     * Maximum value: 1
+     * @param u
+     * @param v
+     * Minimum value: -255
+     * Maximum value: -1
      * @param w
      * Minimum value: 1
      * Maximum value: 255
@@ -381,7 +489,16 @@ export class ClassWithBounds {
      * Maximum value: 255
      * @param z
      */
-    methodThatTakesBoundedValue(w: number, x: number, y: number, z: number): void;
+    methodThatTakesBoundedValue(
+        s: number,
+        t: number,
+        u: number,
+        v: number,
+        w: number,
+        x: number,
+        y: number,
+        z: number
+    ): void;
 }
 "
 `;
@@ -415,6 +532,38 @@ export class ClassWithBounds {
      *
      * Minimum Value: 1
      *
+     */
+    s: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     * Maximum Value: 255
+     *
+     */
+    t: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     */
+    u: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     * Minimum Value: 1
+     *
+     * Maximum Value: 255
+     *
+     */
+    v: number;
+    /**
+     * @remarks
+     * This property can't be used in read-only mode.
+     *
+     * Minimum Value: 1
+     *
      * Maximum Value: 255
      *
      */
@@ -445,6 +594,14 @@ export class ClassWithBounds {
      * @remarks
      * This function can't be called in read-only mode.
      *
+     * @param s
+     * Minimum value: 1
+     * @param t
+     * Maximum value: 255
+     * @param u
+     * @param v
+     * Minimum value: 1
+     * Maximum value: 255
      * @param w
      * @param x
      * Maximum value: 255
@@ -454,7 +611,16 @@ export class ClassWithBounds {
      * Minimum value: 1
      * Maximum value: 255
      */
-    methodThatTakesBoundedValue(w: number, x: number, y: number, z: number): void;
+    methodThatTakesBoundedValue(
+        s: number,
+        t: number,
+        u: number,
+        v: number,
+        w: number,
+        x: number,
+        y: number,
+        z: number
+    ): void;
 }
 "
 `;

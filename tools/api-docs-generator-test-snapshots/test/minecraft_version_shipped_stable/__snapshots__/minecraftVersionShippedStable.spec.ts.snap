@@ -14,7 +14,17 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
     "objects": [],
     "functions": [
       {
-        "arguments": [],
+        "arguments": [
+          {
+            "details": [],
+            "name": "arg",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "string"
+            }
+          }
+        ],
         "is_constructor": false,
         "name": "TestFunction",
         "return_type": {
@@ -52,7 +62,17 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
     "objects": [],
     "functions": [
       {
-        "arguments": [],
+        "arguments": [
+          {
+            "details": [],
+            "name": "arg",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "string"
+            }
+          }
+        ],
         "is_constructor": false,
         "name": "TestFunction",
         "return_type": {
@@ -851,7 +871,17 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
     "objects": [],
     "functions": [
       {
-        "arguments": [],
+        "arguments": [
+          {
+            "details": [],
+            "name": "arg",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "string"
+            }
+          }
+        ],
         "is_constructor": false,
         "name": "TestFunction",
         "return_type": {
@@ -889,7 +919,17 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
     "objects": [],
     "functions": [
       {
-        "arguments": [],
+        "arguments": [
+          {
+            "details": [],
+            "name": "arg",
+            "type": {
+              "is_bind_type": false,
+              "is_errorable": false,
+              "name": "string"
+            }
+          }
+        ],
         "is_constructor": false,
         "name": "TestFunction",
         "return_type": {

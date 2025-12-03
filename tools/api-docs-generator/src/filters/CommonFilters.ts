@@ -1838,49 +1838,51 @@ function boundChanges(releases: MinecraftRelease[]) {
                                     $old: ArgumentDetails;
                                     $new: ArgumentDetails;
                                     has_changes?: boolean;
-                                };
+                                } | null;
 
-                                const oldDetails: ArgumentDetails = details.$old;
-                                const newDetails: ArgumentDetails = details.$new;
-
-                                if (oldDetails === undefined && newDetails === undefined) {
+                                if (
+                                    details === undefined ||
+                                    // eslint-disable-next-line unicorn/no-null
+                                    details === null ||
+                                    (details.$old === undefined && details.$new === undefined)
+                                ) {
                                     continue;
                                 }
 
-                                if (oldDetails !== undefined && newDetails === undefined) {
-                                    if (oldDetails.has_min && oldDetails.min_value !== undefined) {
+                                if (details.$old !== undefined && details.$new === undefined) {
+                                    if (details.$old.has_min && details.$old.min_value !== undefined) {
                                         argumentJson.min_removed = true;
                                     }
-                                    if (oldDetails.has_max && oldDetails.max_value !== undefined) {
+                                    if (details.$old.has_max && details.$old.max_value !== undefined) {
                                         argumentJson.max_removed = true;
                                     }
                                     continue;
                                 }
 
-                                if (oldDetails === undefined && newDetails !== undefined) {
-                                    if (newDetails.has_min && newDetails.min_value !== undefined) {
+                                if (details.$old === undefined && details.$new !== undefined) {
+                                    if (details.$new.has_min && details.$new.min_value !== undefined) {
                                         argumentJson.min_added = true;
                                     }
-                                    if (newDetails.has_max && newDetails.max_value !== undefined) {
+                                    if (details.$new.has_max && details.$new.max_value !== undefined) {
                                         argumentJson.max_added = true;
                                     }
                                     continue;
                                 }
 
-                                const validOldMin = oldDetails.has_min && oldDetails.min_value !== undefined;
-                                const validOldMax = oldDetails.has_max && oldDetails.max_value !== undefined;
+                                const validOldMin = details.$old.has_min && details.$old.min_value !== undefined;
+                                const validOldMax = details.$old.has_max && details.$old.max_value !== undefined;
 
-                                const validNewMin = newDetails.has_min && newDetails.min_value !== undefined;
-                                const validNewMax = newDetails.has_max && newDetails.max_value !== undefined;
+                                const validNewMin = details.$new.has_min && details.$new.min_value !== undefined;
+                                const validNewMax = details.$new.has_max && details.$new.max_value !== undefined;
 
                                 argumentJson.min_added = !validOldMin && validNewMin;
                                 argumentJson.min_removed = validOldMin && !validNewMin;
                                 argumentJson.min_changed =
-                                    validOldMin && validNewMin && oldDetails.min_value !== newDetails.min_value;
+                                    validOldMin && validNewMin && details.$old.min_value !== details.$new.min_value;
                                 argumentJson.max_added = !validOldMax && validNewMax;
                                 argumentJson.max_removed = validOldMax && !validNewMax;
                                 argumentJson.max_changed =
-                                    validOldMax && validNewMax && oldDetails.max_value !== newDetails.max_value;
+                                    validOldMax && validNewMax && details.$old.max_value !== details.$new.max_value;
                             }
                         }
                     }

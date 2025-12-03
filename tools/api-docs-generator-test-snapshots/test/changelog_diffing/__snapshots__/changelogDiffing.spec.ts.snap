@@ -380,7 +380,7 @@ exports[`Changelog Diffing > Generates correct output for changelog diffs > chan
           {
             "arguments": [
               {
-                "details": null,
+                "details": [],
                 "name": "arg",
                 "type": {
                   "$old": {
@@ -477,7 +477,34 @@ exports[`Changelog Diffing > Generates correct output for changelog diffs > chan
             "call_privilege": []
           },
           {
-            "arguments": [],
+            "arguments": [
+              {
+                "details": [],
+                "name": "stringArgument",
+                "type": {
+                  "is_bind_type": false,
+                  "is_errorable": false,
+                  "name": "string",
+                  "valid_range": null
+                }
+              },
+              {
+                "details": [],
+                "name": "stringArgumentOptional",
+                "type": {
+                  "is_bind_type": false,
+                  "is_errorable": false,
+                  "name": "optional",
+                  "optional_type": {
+                    "is_bind_type": false,
+                    "is_errorable": false,
+                    "name": "string",
+                    "valid_range": null
+                  },
+                  "valid_range": null
+                }
+              }
+            ],
             "is_constructor": false,
             "is_static": false,
             "name": "testMethod",
@@ -698,7 +725,47 @@ exports[`Changelog Diffing > Generates correct output for changelog diffs > chan
         "constants": [],
         "functions": [
           {
-            "arguments": [],
+            "arguments": [
+              {
+                "details": [],
+                "name": "x",
+                "type": {
+                  "is_bind_type": false,
+                  "is_errorable": false,
+                  "name": "int32",
+                  "valid_range": {
+                    "max": 2147483647,
+                    "min": -2147483648
+                  }
+                }
+              },
+              {
+                "details": [],
+                "name": "y",
+                "type": {
+                  "is_bind_type": false,
+                  "is_errorable": false,
+                  "name": "int32",
+                  "valid_range": {
+                    "max": 2147483647,
+                    "min": -2147483648
+                  }
+                }
+              },
+              {
+                "details": [],
+                "name": "z",
+                "type": {
+                  "is_bind_type": false,
+                  "is_errorable": false,
+                  "name": "int32",
+                  "valid_range": {
+                    "max": 2147483647,
+                    "min": -2147483648
+                  }
+                }
+              }
+            ],
             "is_constructor": true,
             "name": "constructor",
             "return_type": {
@@ -1003,7 +1070,7 @@ exports[`Changelog Diffing > Generates correct output for changelog diffs > chan
       {
         "arguments": [
           {
-            "details": null,
+            "details": [],
             "name": "arg",
             "type": {
               "$old": {
@@ -4270,6 +4337,9 @@ export class ClassWithConstructor {
      * @remarks
      * This function can't be called in read-only mode.
      *
+     * @param x
+     * @param y
+     * @param z
      */
     constructor(x: number, y: number, z: number);
 }
@@ -4580,6 +4650,9 @@ export class ClassWithConstructor {
      * @remarks
      * This function can't be called in read-only mode.
      *
+     * @param x
+     * @param y
+     * @param z
      */
     constructor(x: number, y: number, z: number);
     /**

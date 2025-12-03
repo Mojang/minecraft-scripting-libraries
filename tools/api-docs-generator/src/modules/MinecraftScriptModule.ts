@@ -298,8 +298,6 @@ export const MinecraftConstantRecord = Intersect(
     Record({
         type: MinecraftTypeRecord,
         is_read_only: Literal(true),
-        has_min: Optional(Boolean),
-        has_max: Optional(Boolean),
         is_static: Literal(true),
         value: Optional(Unknown),
 

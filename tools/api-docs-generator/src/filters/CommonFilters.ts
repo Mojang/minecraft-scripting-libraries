@@ -1743,6 +1743,154 @@ function boundValues(releases: MinecraftRelease[]) {
 }
 
 /**
+ * Marks up APIs that have bound values.
+ */
+function boundChanges(releases: MinecraftRelease[]) {
+    for (const release of releases) {
+        for (const scriptModule of release.script_modules) {
+            if (moduleHasChangelog(scriptModule)) {
+                for (const changelog of scriptModule.changelog) {
+                    for (const classJson of changelog.classes) {
+                        for (const propertyJson of classJson.properties) {
+                            const has_min = propertyJson.has_min as unknown as {
+                                $old: boolean;
+                                $new: boolean;
+                                has_changes?: boolean;
+                            };
+
+                            const min_value = propertyJson.min_value as {
+                                $old: unknown;
+                                $new: unknown;
+                                has_changes?: boolean;
+                            };
+
+                            if (has_min && min_value) {
+                                if (has_min.$old === true && has_min.$new === true) {
+                                    if (min_value.$old && min_value.$new && min_value.$old !== min_value.$new) {
+                                        propertyJson.min_changed = true;
+                                    } else if (min_value.$old === undefined && min_value.$new) {
+                                        propertyJson.min_added = true;
+                                    } else if (min_value.$old && min_value.$new === undefined) {
+                                        propertyJson.min_removed = true;
+                                    }
+                                } else if (has_min.$old === false && has_min.$new === true) {
+                                    if (min_value.$new !== undefined) {
+                                        propertyJson.min_added = true;
+                                    }
+                                } else if (has_min.$old === true && has_min.$new === false) {
+                                    if (min_value.$old !== undefined) {
+                                        propertyJson.min_removed = true;
+                                    }
+                                    // Conversion to $old and $new failed, since no changes were made
+                                } else if (propertyJson.has_min === true && min_value.$old !== min_value.$new) {
+                                    propertyJson.min_changed = true;
+                                }
+                            }
+
+                            const has_max = propertyJson.has_max as unknown as {
+                                $old: boolean;
+                                $new: boolean;
+                                has_changes?: boolean;
+                            };
+
+                            const max_value = propertyJson.max_value as {
+                                $old: unknown;
+                                $new: unknown;
+                                has_changes?: boolean;
+                            };
+
+                            if (has_max && max_value) {
+                                if (has_max.$old === true && has_max.$new === true) {
+                                    if (max_value.$old && max_value.$new && max_value.$old !== max_value.$new) {
+                                        propertyJson.max_changed = true;
+                                    } else if (max_value.$old === undefined && max_value.$new) {
+                                        propertyJson.max_added = true;
+                                    } else if (max_value.$old && max_value.$new === undefined) {
+                                        propertyJson.max_removed = true;
+                                    }
+                                } else if (has_max.$old === false && has_max.$new === true) {
+                                    if (max_value.$new !== undefined) {
+                                        propertyJson.max_added = true;
+                                    }
+                                } else if (has_max.$old === true && has_max.$new === false) {
+                                    if (max_value.$old !== undefined) {
+                                        propertyJson.max_removed = true;
+                                    }
+                                    // Conversion to $old and $new failed, since no changes were made
+                                } else if (propertyJson.has_max === true && max_value.$old !== max_value.$new) {
+                                    propertyJson.max_changed = true;
+                                }
+                            }
+                        }
+
+                        for (const functionJson of classJson.functions) {
+                            for (const argumentJson of functionJson.arguments) {
+                                type ArgumentDetails = {
+                                    default_value: unknown;
+                                    has_min: boolean;
+                                    min_value: unknown;
+                                    has_max: boolean;
+                                    max_value: unknown;
+                                    supported_values: unknown;
+                                };
+
+                                const details = argumentJson.details as {
+                                    $old: ArgumentDetails;
+                                    $new: ArgumentDetails;
+                                    has_changes?: boolean;
+                                };
+
+                                const oldDetails: ArgumentDetails = details.$old;
+                                const newDetails: ArgumentDetails = details.$new;
+
+                                if (oldDetails === undefined && newDetails === undefined) {
+                                    continue;
+                                }
+
+                                if (oldDetails !== undefined && newDetails === undefined) {
+                                    if (oldDetails.has_min && oldDetails.min_value !== undefined) {
+                                        argumentJson.min_removed = true;
+                                    }
+                                    if (oldDetails.has_max && oldDetails.max_value !== undefined) {
+                                        argumentJson.max_removed = true;
+                                    }
+                                    continue;
+                                }
+
+                                if (oldDetails === undefined && newDetails !== undefined) {
+                                    if (newDetails.has_min && newDetails.min_value !== undefined) {
+                                        argumentJson.min_added = true;
+                                    }
+                                    if (newDetails.has_max && newDetails.max_value !== undefined) {
+                                        argumentJson.max_added = true;
+                                    }
+                                    continue;
+                                }
+
+                                const validOldMin = oldDetails.has_min && oldDetails.min_value !== undefined;
+                                const validOldMax = oldDetails.has_max && oldDetails.max_value !== undefined;
+
+                                const validNewMin = newDetails.has_min && newDetails.min_value !== undefined;
+                                const validNewMax = newDetails.has_max && newDetails.max_value !== undefined;
+
+                                argumentJson.min_added = !validOldMin && validNewMin;
+                                argumentJson.min_removed = validOldMin && !validNewMin;
+                                argumentJson.min_changed =
+                                    validOldMin && validNewMin && oldDetails.min_value !== newDetails.min_value;
+                                argumentJson.max_added = !validOldMax && validNewMax;
+                                argumentJson.max_removed = validOldMax && !validNewMax;
+                                argumentJson.max_changed =
+                                    validOldMax && validNewMax && oldDetails.max_value !== newDetails.max_value;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
  * Marks up APIs that have default values with 'has_defaults'.
  */
 function defaultValues(releases: MinecraftRelease[]) {
@@ -3367,6 +3515,7 @@ export const CommonFilters: FilterGroup = {
         ['constant_values', constantValues],
         ['default_values', defaultValues],
         ['bound_values', boundValues],
+        ['bound_changes', boundChanges],
         ['markup_categories', markupCategories],
         ['type_alias_markup', typeAliasMarkup],
         ['type_flags', typeFlags],

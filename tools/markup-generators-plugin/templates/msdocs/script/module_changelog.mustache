@@ -90,53 +90,25 @@ description: Changelog of the `{{{name}}}` module
         {{#$changed}}
 - Changed read-only flag for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* from `{{{$old}}}` to `{{{$new}}}`
         {{/$changed}}
-      {{/is_read_only}}      
-      {{#has_min}}      
-        {{^$old}}{{#$new}}
-          {{#min_value}}
-- Added Minimum Bound of `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
-          {{/min_value}}
-        {{/$new}}{{/$old}}   
-        {{#$old}}{{^$new}}
-- Removed Minimum Bound for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
-        {{/$new}}{{/$old}}
-        {{#$old}}{{#$new}}
-          {{#min_value}}
-            {{#$changed}}
-- Changed Minimum Bound of `{{{$old}}}` to `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
-            {{/$changed}}
-            {{#$added}}
-- Added Minimum Bound of `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
-            {{/$added}}            
-            {{#$removed}}
-- Removed Minimum Bound of `{{{$old}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
-            {{/$removed}}
-          {{/min_value}}
-        {{/$new}}{{/$old}}
-      {{/has_min}}    
-      {{#has_max}}     
-        {{^$old}}{{#$new}}
-          {{#max_value}}
-- Added Maximum Bound of `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
-          {{/max_value}}
-        {{/$new}}{{/$old}}   
-        {{#$old}}{{^$new}}
-- Removed Maximum Bound for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
-        {{/$new}}{{/$old}}
-        {{#$old}}{{#$new}}
-          {{#max_value}}
-            {{#$changed}}
-- Changed Maximum Bound of `{{{$old}}}` to `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
-            {{/$changed}}
-            {{#$added}}
-- Added Maximum Bound of `{{{$new}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
-            {{/$added}}            
-            {{#$removed}}
-- Removed Maximum Bound of `{{{$old}}}` for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
-            {{/$removed}}
-          {{/max_value}}
-        {{/$new}}{{/$old}}
-      {{/has_max}}
+      {{/is_read_only}}     
+    {{#min_added}}
+- Added minimum bound of `{{{min_value.$new}}}` for property *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
+    {{/min_added}}
+    {{#min_changed}}
+- Changed minimum bound of `{{{min_value.$old}}}` to `{{{min_value.$new}}}` for property *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
+    {{/min_changed}}
+    {{#min_removed}}
+- Removed minimum bound for property *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
+    {{/min_removed}}
+    {{#max_added}}
+- Added maximum bound of `{{{max_value.$new}}}` for property *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
+    {{/max_added}}
+    {{#max_changed}}
+- Changed maximum bound of `{{{max_value.$old}}}` to `{{{max_value.$new}}}` for property *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* 
+    {{/max_changed}}
+    {{#max_removed}}
+- Removed maximum bound for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
+    {{/max_removed}}       
       {{#type}}
         {{#$changed}}
 - Changed type for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* from {{#$old.type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$old.type}} to {{#$new.type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$new.type}}
@@ -186,38 +158,27 @@ description: Changelog of the `{{{name}}}` module
   - Changed argument `{{{name}}}` type from {{#$old.type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$old.type}} to {{#$new.type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$new.type}}
                 {{/$changed}}
               {{/type}}
-              {{#details}}
-                {{#$changed}}
-  - Changed details of argument `{{{name}}}`
-  from:
-                  {{#$old.has_min}}
-    - Minimum Bound: {{$old.min_value}}
-                  {{/$old.has_min}}
-                  {{^$old.has_min}}
-   - Minimum Bound: None
-                  {{/$old.has_min}}
-                  {{#$old.has_max}}
-    - Maximum Bound: {{$old.max_value}}
-                  {{/$old.has_max}}
-                  {{^$old.has_max}}
-    - Maximum Bound: None
-                  {{/$old.has_max}}
-  to:
-                  {{#$new.has_min}}
-    - Minimum Bound: {{$new.min_value}}
-                  {{/$new.has_min}}
-                  {{^$new.has_min}}
-    - Minimum Bound: None
-                  {{/$new.has_min}}
-                  {{#$new.has_max}}
-    - Maximum Bound: {{$new.max_value}}
-                  {{/$new.has_max}}
-                  {{^$new.has_max}}
-    - Maximum Bound: None
-                  {{/$new.has_max}}
-                {{/$changed}}
-              {{/details}}
             {{/$removed}}{{/$added}}
+            {{#details}}
+              {{#min_added}}
+  - Added minimum bound of `{{{$new.min_value}}}` to argument `{{{name}}}`
+              {{/min_added}}
+              {{#min_changed}}
+  - Changed minimum bound from `{{{$old.min_value}}}` to `{{{$new.min_value}}}` for argument `{{{name}}}`
+              {{/min_changed}}
+              {{#min_removed}}
+  - Removed minimum bound of `{{{$old.min_value}}}` from argument `{{{name}}}`
+              {{/min_removed}}
+              {{#max_added}}
+  - Added maximum bound of `{{{$new.max_value}}}` to argument `{{{name}}}`
+              {{/max_added}}
+              {{#max_changed}}
+  - Changed maximum bound from `{{{$old.max_value}}}` to `{{{$new.max_value}}}` for argument `{{{name}}}`
+              {{/max_changed}}
+              {{#max_removed}}
+  - Removed maximum bound of `{{{$old.max_value}}}` from argument `{{{name}}}`           
+              {{/max_removed}}
+            {{/details}}
           {{/arguments}}
         {{/$removed}}{{/$added}}{{/has_changes}}
       {{/functions}}
@@ -250,38 +211,7 @@ description: Changelog of the `{{{name}}}` module
             {{#$changed}}
 - Changed argument `{{{name}}}` type from {{#$old.type}}{{> type_with_links}}{{/$old.type}} to {{#$new.type}}{{> type_with_links}}{{/$new.type}}
             {{/$changed}}
-          {{/type}}
-          {{#details}}
-            {{#$changed}}
-  - Changed details of argument `{{{name}}}`
-  from:
-              {{#$old.has_min}}
-    - Minimum Bound: {{$old.min_value}}
-              {{/$old.has_min}}
-              {{^$old.has_min}}
-    - Minimum Bound: None
-              {{/$old.has_min}}
-              {{#$old.has_max}}
-    - Maximum Bound: {{$old.max_value}}
-              {{/$old.has_max}}
-              {{^$old.has_max}}
-    - Maximum Bound: None
-              {{/$old.has_max}}
-  to:
-              {{#$new.has_min}}
-    - Minimum Bound: {{$new.min_value}}
-              {{/$new.has_min}}
-              {{^$new.has_min}}
-    - Minimum Bound: None
-              {{/$new.has_min}}
-              {{#$new.has_max}}
-    - Maximum Bound: {{$new.max_value}}
-              {{/$new.has_max}}
-              {{^$new.has_max}}
-    - Maximum Bound: None
-              {{/$new.has_max}}
-            {{/$changed}}
-          {{/details}}
+          {{/type}} 
         {{/$removed}}{{/$added}}
       {{/arguments}}
     {{/$removed}}{{/$added}}{{/has_changes}}

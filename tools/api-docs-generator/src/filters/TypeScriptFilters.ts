@@ -327,6 +327,7 @@ function flagTSComments(obj: MarkupCommentFlags): void {
     if (
         obj.has_comments ||
         obj.has_defaults ||
+        obj.has_bounds ||
         obj.has_errors ||
         obj.is_prerelease ||
         obj.is_deprecated ||
@@ -346,7 +347,13 @@ function flagTSComments(obj: MarkupCommentFlags): void {
         obj.ts_has_remarks = false;
     }
 
-    if (obj.has_privilege_comments || obj.has_closure_privilege_type_comments || obj.has_defaults || obj.has_errors) {
+    if (
+        obj.has_privilege_comments ||
+        obj.has_closure_privilege_type_comments ||
+        obj.has_defaults ||
+        obj.has_bounds ||
+        obj.has_errors
+    ) {
         obj.msdocs_has_comments = true;
     }
 }

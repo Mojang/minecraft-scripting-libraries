@@ -53,6 +53,7 @@ export const MarkupCommentFlagsValidator = Intersect(
     Record({
         has_changes: Optional(Boolean),
         has_defaults: Optional(Boolean),
+        has_bounds: Optional(Boolean),
         has_errors: Optional(Boolean),
 
         prerelease: Optional(String),
@@ -342,8 +343,18 @@ export const MinecraftPropertyRecord = Intersect(
     Record({
         type: MinecraftTypeRecord,
         is_read_only: Boolean,
+        has_min: Optional(Boolean),
+        min_value: Optional(Unknown.Or(Null)),
+        has_max: Optional(Boolean),
+        max_value: Optional(Unknown.Or(Null)),
         is_baked: Optional(Boolean),
         default_value: Optional(Unknown.Or(Null)),
+        min_added: Optional(Boolean),
+        min_changed: Optional(Boolean),
+        min_removed: Optional(Boolean),
+        max_added: Optional(Boolean),
+        max_changed: Optional(Boolean),
+        max_removed: Optional(Boolean),
 
         // Runtime Markup
         property_name: Optional(String.Or(Null)),
@@ -364,7 +375,9 @@ export function hasProperties(obj: object): obj is { properties: MinecraftProper
 
 export const MinecraftFunctionArgumentDetailsRecord = Record({
     default_value: Optional(Unknown.Or(Null)),
+    has_min: Optional(Unknown.Or(Null)),
     min_value: Optional(Unknown.Or(Null)),
+    has_max: Optional(Unknown.Or(Null)),
     max_value: Optional(Unknown.Or(Null)),
     supported_values: Optional(Unknown.Or(Null)),
 });
@@ -376,6 +389,12 @@ export const MinecraftFunctionArgumentRecord = Intersect(
     Record({
         type: MinecraftTypeRecord,
         details: Optional(MinecraftFunctionArgumentDetailsRecord.Or(Null)),
+        min_added: Optional(Boolean),
+        min_changed: Optional(Boolean),
+        min_removed: Optional(Boolean),
+        max_added: Optional(Boolean),
+        max_changed: Optional(Boolean),
+        max_removed: Optional(Boolean),
 
         // Runtime Markup
         argument_description: Optional(Array(String).Or(Null)),

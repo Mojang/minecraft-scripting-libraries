@@ -18,6 +18,14 @@
 #### **Parameters**
   {{#arguments}}
 - **{{{name}}}**{{#type}}{{#is_optional}}?{{/is_optional}}: {{> type_with_links}}{{/type}}{{#details.default_value}} = `{{> value}}`{{/details.default_value}}
+  {{#details}}
+    {{#has_min}}
+  Minimum Bound: `{{min_value}}`
+    {{/has_min}}
+    {{#has_max}}
+  Maximum Bound: `{{max_value}}`
+    {{/has_max}}
+  {{/details}}
     {{#details.supported_values.length}}
 
   Supported values: [{{#details.supported_values}}{{> value}}{{^is_last}}, {{/is_last}}{{/details.supported_values}}]

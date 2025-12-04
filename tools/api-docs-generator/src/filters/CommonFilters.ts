@@ -1727,13 +1727,19 @@ function boundValues(releases: MinecraftRelease[]) {
                             continue;
                         }
 
-                        if (argumentJson.details.min_value !== undefined) {
-                            functionJson.has_bounds = true;
+                        if (
+                            argumentJson.details.has_min !== undefined &&
+                            argumentJson.details.has_min === true &&
+                            argumentJson.details.min_value !== undefined
+                        ) {
                             argumentJson.has_bounds = true;
                         }
 
-                        if (argumentJson.details.max_value !== undefined) {
-                            functionJson.has_bounds = true;
+                        if (
+                            argumentJson.details.has_max !== undefined &&
+                            argumentJson.details.has_max === true &&
+                            argumentJson.details.max_value !== undefined
+                        ) {
                             argumentJson.has_bounds = true;
                         }
                     }

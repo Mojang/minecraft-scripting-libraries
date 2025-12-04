@@ -108,14 +108,7 @@ const scriptingDataLayout: RootMetadataScope = {
                             submembers: {
                                 type: TypeDataLayout,
                                 details: {
-                                    type: 'simple_ordered_array',
-                                    key: 'name',
-                                    submembers: {
-                                        has_min: { type: 'value' },
-                                        has_max: { type: 'value' },
-                                        min_value: { type: 'value' },
-                                        max_value: { type: 'value' },
-                                    },
+                                    type: 'value',
                                 },
                             },
                         },
@@ -173,14 +166,7 @@ const scriptingDataLayout: RootMetadataScope = {
                     submembers: {
                         type: TypeDataLayout,
                         details: {
-                            type: 'simple_ordered_array',
-                            key: 'name',
-                            submembers: {
-                                has_min: { type: 'value' },
-                                has_max: { type: 'value' },
-                                min_value: { type: 'value' },
-                                max_value: { type: 'value' },
-                            },
+                            type: 'value',
                         },
                     },
                 },

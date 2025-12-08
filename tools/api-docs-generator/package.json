@@ -1,6 +1,6 @@
 {
   "name": "@minecraft/api-docs-generator",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "Core Minecraft API Docs Generator package for generating API markup and documentation",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

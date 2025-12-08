@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Added closure execution privileges for properties, returns, and parameters. Also renamed privileges.",
+  "packageName": "@minecraft/api-docs-generator",
+  "email": "agriffin@microsoft.com",
+  "dependentChangeType": "patch"
+}

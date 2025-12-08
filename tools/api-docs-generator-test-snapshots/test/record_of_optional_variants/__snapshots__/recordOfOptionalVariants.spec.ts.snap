@@ -32,7 +32,7 @@ description: Contents of the exampleMember.ClassWithRecordOfOptionalVariantsProp
 Type: Record<*string*, *boolean* | *number* | *string* | *undefined*>
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 "
 `;
 
@@ -90,7 +90,7 @@ export class ClassWithRecordOfOptionalVariantsProperty {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     exampleMember?: Record<string, boolean | number | string | undefined>;

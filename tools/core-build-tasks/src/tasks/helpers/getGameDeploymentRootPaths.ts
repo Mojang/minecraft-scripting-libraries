@@ -7,8 +7,13 @@ import { getOrThrowFromProcess } from './getOrThrowFromProcess';
 
 export function getGameDeploymentRootPaths(): Record<MinecraftProduct, string | undefined> {
     const localAppDataPath = process.env['LOCALAPPDATA'];
+    const appDataPath = process.env['APPDATA'];
     const customDeploymentPath = process.env['CUSTOM_DEPLOYMENT_PATH'];
     return {
+        BedrockGDK: appDataPath ? resolve(appDataPath, 'Minecraft Bedrock/Users/Shared/games/com.mojang/') : undefined,
+        PreviewGDK: appDataPath
+            ? resolve(appDataPath, 'Minecraft Bedrock Preview/Users/Shared/games/com.mojang/')
+            : undefined,
         BedrockUWP: localAppDataPath
             ? resolve(localAppDataPath, 'Packages/Microsoft.MinecraftUWP_8wekyb3d8bbwe/LocalState/games/com.mojang/')
             : undefined,

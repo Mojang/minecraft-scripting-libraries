@@ -1,8 +1,16 @@
 # Change Log - @minecraft/core-build-tasks
 
-<!-- This log was last generated on Wed, 10 Sep 2025 20:47:56 GMT and should not be manually modified. -->
+<!-- This log was last generated on Mon, 29 Sep 2025 17:42:55 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 5.5.0
+
+Mon, 29 Sep 2025 17:42:55 GMT
+
+### Minor changes
+
+- Add Bedrock GDK paths to core-build-tasks (zachary.campbell@skyboxlabs.com)
 
 ## 5.4.0
 

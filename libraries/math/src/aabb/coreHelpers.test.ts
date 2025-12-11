@@ -5,9 +5,9 @@ import { describe, expect, it, vi } from 'vitest';
 import { createMockServerBindings } from '../../__mocks__/minecraft-server.js';
 vi.mock('@minecraft/server', () => createMockServerBindings());
 
-import type { Vector3 } from '@minecraft/server';
+import type { AABB, Vector3 } from '@minecraft/server';
 import { VECTOR3_FORWARD, VECTOR3_ONE, VECTOR3_ZERO, Vector3Utils } from '../vector3/coreHelpers.js';
-import { AABB, AABBUtils } from './coreHelpers.js';
+import { AABBUtils } from './coreHelpers.js';
 
 describe('AABB factories', () => {
     it('successfully reports invalid AABB when created from identical corner points', () => {

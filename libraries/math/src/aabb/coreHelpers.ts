@@ -1,19 +1,9 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-import type { Vector3 } from '@minecraft/server';
+import type { AABB, Vector3 } from '@minecraft/server';
 import { BlockVolume } from '@minecraft/server';
 import { Vector3Utils } from '../vector3/coreHelpers.js';
-
-/**
- *  TEMP: Interface until AABB is available
- *
- * @public
- */
-export interface AABB {
-    center: Vector3;
-    extent: Vector3;
-}
 
 /**
  * Utilities operating on AABB objects. All methods are static and do not modify the input objects.

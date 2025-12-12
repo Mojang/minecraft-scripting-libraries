@@ -11,9 +11,15 @@ import type { Vector3 } from '@minecraft/server';
 import type { VectorXZ } from '@minecraft/server';
 
 // @public
+export class AABBInvalidExtentsError extends Error {
+    constructor(aabb: AABB);
+}
+
+// @public
 export class AABBUtils {
     static createFromCornerPoints(pointA: Vector3, pointB: Vector3): AABB;
     static dilate(aabb: AABB, size: Vector3): AABB;
+    static EPSILON: number;
     static equals(aabb: AABB, other: AABB): boolean;
     static expand(aabb: AABB, other: AABB): AABB;
     static getBlockVolume(aabb: AABB): BlockVolume;
@@ -23,7 +29,8 @@ export class AABBUtils {
     static getSpan(aabb: AABB): Vector3;
     static intersects(aabb: AABB, other: AABB): boolean;
     static isInside(aabb: AABB, pos: Vector3): boolean;
-    static isValid(box: AABB): boolean;
+    static isValid(aabb: AABB): boolean;
+    static throwErrorIfInvalid(aabb: AABB): void;
     static translate(aabb: AABB, delta: Vector3): AABB;
 }
 

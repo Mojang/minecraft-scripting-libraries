@@ -6,12 +6,32 @@ import { BlockVolume } from '@minecraft/server';
 import { Vector3Utils } from '../vector3/coreHelpers.js';
 
 /**
+ * An error that is thrown when using an invalid AABB with AABBUtils operations.
+ *
+ * @public
+ */
+export class AABBInvalidExtentsError extends Error {
+    constructor(aabb: AABB) {
+        super(
+            `Invalid AABB with center '${Vector3Utils.toString(aabb.center)}' and extents '${Vector3Utils.toString(aabb.extent)}'`
+        );
+    }
+}
+
+/**
  * Utilities operating on AABB objects. All methods are static and do not modify the input objects.
  *
  * @public
  */
 export class AABBUtils {
     private constructor() {}
+
+    /**
+     * EPSILON
+     *
+     * The internal epsilon value used for block volume tolerance and the lowest dilation.
+     */
+    static EPSILON = 0.00001;
 
     /**
      * createFromCornerPoints
@@ -35,6 +55,7 @@ export class AABBUtils {
 
         const extent = Vector3Utils.multiply(Vector3Utils.subtract(max, min), { x: 0.5, y: 0.5, z: 0.5 });
         const aabb: AABB = { center: Vector3Utils.add(min, extent), extent: extent };
+        AABBUtils.throwErrorIfInvalid(aabb);
         return aabb;
     }
 
@@ -42,11 +63,23 @@ export class AABBUtils {
      * isValid
      *
      * Determines if the AABB has non-zero extent on all axes.
-     * @param box - The AABB to test for validity.
+     * @param aabb - The AABB to test for validity.
      * @returns - True if all extent axes are non-zero, otherwise false.
      */
-    static isValid(box: AABB): boolean {
-        return box.extent.x > 0.0 && box.extent.y > 0.0 && box.extent.z > 0.0;
+    static isValid(aabb: AABB): boolean {
+        return aabb.extent.x > 0.0 && aabb.extent.y > 0.0 && aabb.extent.z > 0.0;
+    }
+
+    /**
+     * throwErrorIfInvalid
+     *
+     * Throws an error if the AABB is invalid.
+     * @param aabb - The AABB to test for validity.
+     */
+    static throwErrorIfInvalid(aabb: AABB): void {
+        if (!AABBUtils.isValid(aabb)) {
+            throw new AABBInvalidExtentsError(aabb);
+        }
     }
 
     /**
@@ -58,6 +91,9 @@ export class AABBUtils {
      * @returns - True if the center and extent of both AABBs are equal.
      */
     static equals(aabb: AABB, other: AABB): boolean {
+        AABBUtils.throwErrorIfInvalid(aabb);
+        AABBUtils.throwErrorIfInvalid(other);
+
         return Vector3Utils.equals(aabb.center, other.center) && Vector3Utils.equals(aabb.extent, other.extent);
     }
 
@@ -69,6 +105,8 @@ export class AABBUtils {
      * @returns - The minimum corner of the AABB.
      */
     static getMin(aabb: AABB): Vector3 {
+        AABBUtils.throwErrorIfInvalid(aabb);
+
         return Vector3Utils.subtract(aabb.center, aabb.extent);
     }
 
@@ -80,6 +118,8 @@ export class AABBUtils {
      * @returns - The maximum corner of the AABB.
      */
     static getMax(aabb: AABB): Vector3 {
+        AABBUtils.throwErrorIfInvalid(aabb);
+
         return Vector3Utils.add(aabb.center, aabb.extent);
     }
 
@@ -91,6 +131,8 @@ export class AABBUtils {
      * @returns - The span of the AABB.
      */
     static getSpan(aabb: AABB): Vector3 {
+        AABBUtils.throwErrorIfInvalid(aabb);
+
         return Vector3Utils.multiply(aabb.extent, { x: 2.0, y: 2.0, z: 2.0 });
     }
 
@@ -101,10 +143,12 @@ export class AABBUtils {
      * @returns - The BlockVolume containing the source AABB.
      */
     static getBlockVolume(aabb: AABB): BlockVolume {
-        const epsilon = 0.00001;
+        AABBUtils.throwErrorIfInvalid(aabb);
+
+        const epsilon = AABBUtils.EPSILON;
         const epsilonVec: Vector3 = { x: epsilon, y: epsilon, z: epsilon };
-        const from = Vector3Utils.floor(Vector3Utils.add(this.getMin(aabb), epsilonVec));
-        const to = Vector3Utils.ceil(Vector3Utils.subtract(this.getMax(aabb), epsilonVec));
+        const from = Vector3Utils.floor(Vector3Utils.add(AABBUtils.getMin(aabb), epsilonVec));
+        const to = Vector3Utils.ceil(Vector3Utils.subtract(AABBUtils.getMax(aabb), epsilonVec));
         return new BlockVolume(from, to);
     }
 
@@ -117,6 +161,8 @@ export class AABBUtils {
      * @returns - The resulting translated AABB.
      */
     static translate(aabb: AABB, delta: Vector3): AABB {
+        AABBUtils.throwErrorIfInvalid(aabb);
+
         return { center: Vector3Utils.add(aabb.center, delta), extent: aabb.extent };
     }
 
@@ -129,7 +175,13 @@ export class AABBUtils {
      * @returns - The resulting dilated AABB.
      */
     static dilate(aabb: AABB, size: Vector3): AABB {
-        return { center: aabb.center, extent: Vector3Utils.add(aabb.extent, size) };
+        AABBUtils.throwErrorIfInvalid(aabb);
+
+        const epsilon = AABBUtils.EPSILON;
+        const epsilonVec: Vector3 = { x: epsilon, y: epsilon, z: epsilon };
+        let dilatedExtent = Vector3Utils.add(aabb.extent, size);
+        dilatedExtent = Vector3Utils.clamp(dilatedExtent, { min: epsilonVec });
+        return { center: aabb.center, extent: dilatedExtent };
     }
 
     /**
@@ -141,21 +193,24 @@ export class AABBUtils {
      * @returns - The resulting expanded AABB.
      */
     static expand(aabb: AABB, other: AABB): AABB {
-        const aabbMin = this.getMin(aabb);
-        const otherMin = this.getMin(other);
+        AABBUtils.throwErrorIfInvalid(aabb);
+        AABBUtils.throwErrorIfInvalid(other);
+
+        const aabbMin = AABBUtils.getMin(aabb);
+        const otherMin = AABBUtils.getMin(other);
         const min: Vector3 = {
             x: Math.min(aabbMin.x, otherMin.x),
             y: Math.min(aabbMin.y, otherMin.y),
             z: Math.min(aabbMin.z, otherMin.z),
         };
-        const aabbMax = this.getMax(aabb);
-        const otherMax = this.getMax(other);
+        const aabbMax = AABBUtils.getMax(aabb);
+        const otherMax = AABBUtils.getMax(other);
         const max: Vector3 = {
             x: Math.max(aabbMax.x, otherMax.x),
             y: Math.max(aabbMax.y, otherMax.y),
             z: Math.max(aabbMax.z, otherMax.z),
         };
-        return this.createFromCornerPoints(min, max);
+        return AABBUtils.createFromCornerPoints(min, max);
     }
 
     /**
@@ -167,26 +222,29 @@ export class AABBUtils {
      * @returns - The resulting intersecting AABB if they intersect, otherwise returns undefined.
      */
     static getIntersection(aabb: AABB, other: AABB): AABB | undefined {
-        if (!this.intersects(aabb, other)) {
+        AABBUtils.throwErrorIfInvalid(aabb);
+        AABBUtils.throwErrorIfInvalid(other);
+
+        if (!AABBUtils.intersects(aabb, other)) {
             return undefined;
         }
 
-        const aabbMin = this.getMin(aabb);
-        const otherMin = this.getMin(other);
+        const aabbMin = AABBUtils.getMin(aabb);
+        const otherMin = AABBUtils.getMin(other);
         const min: Vector3 = {
             x: Math.max(aabbMin.x, otherMin.x),
             y: Math.max(aabbMin.y, otherMin.y),
             z: Math.max(aabbMin.z, otherMin.z),
         };
 
-        const aabbMax = this.getMax(aabb);
-        const otherMax = this.getMax(other);
+        const aabbMax = AABBUtils.getMax(aabb);
+        const otherMax = AABBUtils.getMax(other);
         const max: Vector3 = {
             x: Math.min(aabbMax.x, otherMax.x),
             y: Math.min(aabbMax.y, otherMax.y),
             z: Math.min(aabbMax.z, otherMax.z),
         };
-        return this.createFromCornerPoints(min, max);
+        return AABBUtils.createFromCornerPoints(min, max);
     }
 
     /**
@@ -198,14 +256,13 @@ export class AABBUtils {
      * @returns - True if the AABBs are intersecting, otherwise false.
      */
     static intersects(aabb: AABB, other: AABB): boolean {
-        if (!this.isValid(aabb) || !this.isValid(other)) {
-            return false;
-        }
+        AABBUtils.throwErrorIfInvalid(aabb);
+        AABBUtils.throwErrorIfInvalid(other);
 
-        const aabbMin = this.getMin(aabb);
-        const aabbMax = this.getMax(aabb);
-        const otherMin = this.getMin(other);
-        const otherMax = this.getMax(other);
+        const aabbMin = AABBUtils.getMin(aabb);
+        const aabbMax = AABBUtils.getMax(aabb);
+        const otherMin = AABBUtils.getMin(other);
+        const otherMax = AABBUtils.getMax(other);
 
         if (otherMax.x < aabbMin.x || otherMin.x > aabbMax.x) {
             return false;
@@ -228,12 +285,14 @@ export class AABBUtils {
      * @returns True if the position is inside of the AABB, otherwise returns false.
      */
     static isInside(aabb: AABB, pos: Vector3): boolean {
-        const min = this.getMin(aabb);
+        AABBUtils.throwErrorIfInvalid(aabb);
+
+        const min = AABBUtils.getMin(aabb);
         if (pos.x < min.x || pos.y < min.y || pos.z < min.z) {
             return false;
         }
 
-        const max = this.getMax(aabb);
+        const max = AABBUtils.getMax(aabb);
         if (pos.x > max.x || pos.y > max.y || pos.z > max.z) {
             return false;
         }

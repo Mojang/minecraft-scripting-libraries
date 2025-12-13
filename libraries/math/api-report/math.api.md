@@ -11,8 +11,8 @@ import type { Vector3 } from '@minecraft/server';
 import type { VectorXZ } from '@minecraft/server';
 
 // @public
-export class AABBInvalidExtentsError extends Error {
-    constructor(aabb: AABB);
+export class AABBInvalidExtentError extends Error {
+    constructor(extent: Vector3);
 }
 
 // @public

@@ -10,11 +10,9 @@ import { Vector3Utils } from '../vector3/coreHelpers.js';
  *
  * @public
  */
-export class AABBInvalidExtentsError extends Error {
-    constructor(aabb: AABB) {
-        super(
-            `Invalid AABB with center '${Vector3Utils.toString(aabb.center)}' and extents '${Vector3Utils.toString(aabb.extent)}'`
-        );
+export class AABBInvalidExtentError extends Error {
+    constructor(extent: Vector3) {
+        super(`Invalid AABB extent of '${Vector3Utils.toString(extent)}'`);
     }
 }
 
@@ -78,7 +76,7 @@ export class AABBUtils {
      */
     static throwErrorIfInvalid(aabb: AABB): void {
         if (!AABBUtils.isValid(aabb)) {
-            throw new AABBInvalidExtentsError(aabb);
+            throw new AABBInvalidExtentError(aabb.extent);
         }
     }
 

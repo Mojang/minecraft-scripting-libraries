@@ -13,12 +13,12 @@ import {
     VECTOR3_ZERO,
     Vector3Utils,
 } from '../vector3/coreHelpers.js';
-import { AABBUtils } from './coreHelpers.js';
+import { AABBInvalidExtentError, AABBUtils } from './coreHelpers.js';
 
 describe('AABB factories', () => {
     it('successfully throws error when created from identical corner points', () => {
         expect(() => AABBUtils.createFromCornerPoints(VECTOR3_ZERO, VECTOR3_ZERO)).toThrow(
-            "Invalid AABB with center '0.00, 0.00, 0.00' and extents '0.00, 0.00, 0.00'"
+            new AABBInvalidExtentError(VECTOR3_ZERO)
         );
     });
 
@@ -83,15 +83,11 @@ describe('AABB operations', () => {
     });
 
     it('successfully throws error when calling equals with an invalid AABB as the first param', () => {
-        expect(() => AABBUtils.equals(invalidAABB, validAABB)).toThrow(
-            "Invalid AABB with center '0.00, 0.00, 0.00' and extents '0.00, 0.00, 0.00'"
-        );
+        expect(() => AABBUtils.equals(invalidAABB, validAABB)).toThrow(new AABBInvalidExtentError(VECTOR3_ZERO));
     });
 
     it('successfully throws error when calling equals with an invalid AABB as the second param', () => {
-        expect(() => AABBUtils.equals(validAABB, invalidAABB)).toThrow(
-            "Invalid AABB with center '0.00, 0.00, 0.00' and extents '0.00, 0.00, 0.00'"
-        );
+        expect(() => AABBUtils.equals(validAABB, invalidAABB)).toThrow(new AABBInvalidExtentError(VECTOR3_ZERO));
     });
 
     it('successfully returns expected min Vector3', () => {
@@ -101,9 +97,7 @@ describe('AABB operations', () => {
     });
 
     it('successfully throws error when calling getMin with an invalid AABB', () => {
-        expect(() => AABBUtils.getMin(invalidAABB)).throws(
-            "Invalid AABB with center '0.00, 0.00, 0.00' and extents '0.00, 0.00, 0.00'"
-        );
+        expect(() => AABBUtils.getMin(invalidAABB)).toThrow(new AABBInvalidExtentError(VECTOR3_ZERO));
     });
 
     it('successfully returns expected max Vector3', () => {
@@ -113,9 +107,7 @@ describe('AABB operations', () => {
     });
 
     it('successfully throws error when calling getMax with an invalid AABB', () => {
-        expect(() => AABBUtils.getMax(invalidAABB)).toThrow(
-            "Invalid AABB with center '0.00, 0.00, 0.00' and extents '0.00, 0.00, 0.00'"
-        );
+        expect(() => AABBUtils.getMax(invalidAABB)).toThrow(new AABBInvalidExtentError(VECTOR3_ZERO));
     });
 
     it('successfully returns expected span Vector3', () => {
@@ -125,9 +117,7 @@ describe('AABB operations', () => {
     });
 
     it('successfully throws error when calling getSpan with an invalid AABB', () => {
-        expect(() => AABBUtils.getSpan(invalidAABB)).toThrow(
-            "Invalid AABB with center '0.00, 0.00, 0.00' and extents '0.00, 0.00, 0.00'"
-        );
+        expect(() => AABBUtils.getSpan(invalidAABB)).toThrow(new AABBInvalidExtentError(VECTOR3_ZERO));
     });
 
     it('successfully translates AABB center not changing extent', () => {
@@ -138,9 +128,7 @@ describe('AABB operations', () => {
     });
 
     it('successfully throws error when calling translate with an invalid AABB', () => {
-        expect(() => AABBUtils.translate(invalidAABB, VECTOR3_ONE)).toThrow(
-            "Invalid AABB with center '0.00, 0.00, 0.00' and extents '0.00, 0.00, 0.00'"
-        );
+        expect(() => AABBUtils.translate(invalidAABB, VECTOR3_ONE)).toThrow(new AABBInvalidExtentError(VECTOR3_ZERO));
     });
 
     it('successfully dilates AABB extent growing with positive components not changing center', () => {
@@ -167,9 +155,7 @@ describe('AABB operations', () => {
     });
 
     it('successfully throws error when calling dilate with an invalid AABB', () => {
-        expect(() => AABBUtils.dilate(invalidAABB, VECTOR3_ONE)).toThrow(
-            "Invalid AABB with center '0.00, 0.00, 0.00' and extents '0.00, 0.00, 0.00'"
-        );
+        expect(() => AABBUtils.dilate(invalidAABB, VECTOR3_ONE)).toThrow(new AABBInvalidExtentError(VECTOR3_ZERO));
     });
 
     it('successfully expands AABB with other AABB', () => {
@@ -181,15 +167,11 @@ describe('AABB operations', () => {
     });
 
     it('successfully throws error when calling expand with an invalid AABB as the first parameter', () => {
-        expect(() => AABBUtils.expand(invalidAABB, validAABB)).toThrow(
-            "Invalid AABB with center '0.00, 0.00, 0.00' and extents '0.00, 0.00, 0.00'"
-        );
+        expect(() => AABBUtils.expand(invalidAABB, validAABB)).toThrow(new AABBInvalidExtentError(VECTOR3_ZERO));
     });
 
     it('successfully throws error when calling expand with an invalid AABB as the second parameter', () => {
-        expect(() => AABBUtils.expand(validAABB, invalidAABB)).toThrow(
-            "Invalid AABB with center '0.00, 0.00, 0.00' and extents '0.00, 0.00, 0.00'"
-        );
+        expect(() => AABBUtils.expand(validAABB, invalidAABB)).toThrow(new AABBInvalidExtentError(VECTOR3_ZERO));
     });
 
     it('successfully reports non-overlapping AABBs as not intersecting', () => {
@@ -205,15 +187,11 @@ describe('AABB operations', () => {
     });
 
     it('successfully throws error when calling intersect with an invalid AABB as the first parameter', () => {
-        expect(() => AABBUtils.intersects(invalidAABB, validAABB)).toThrow(
-            "Invalid AABB with center '0.00, 0.00, 0.00' and extents '0.00, 0.00, 0.00'"
-        );
+        expect(() => AABBUtils.intersects(invalidAABB, validAABB)).toThrow(new AABBInvalidExtentError(VECTOR3_ZERO));
     });
 
     it('successfully throws error when calling intersect with an invalid AABB as the second parameter', () => {
-        expect(() => AABBUtils.intersects(validAABB, invalidAABB)).toThrow(
-            "Invalid AABB with center '0.00, 0.00, 0.00' and extents '0.00, 0.00, 0.00'"
-        );
+        expect(() => AABBUtils.intersects(validAABB, invalidAABB)).toThrow(new AABBInvalidExtentError(VECTOR3_ZERO));
     });
 
     it('successfully reports Vector3 outside AABB as not inside', () => {
@@ -229,9 +207,7 @@ describe('AABB operations', () => {
     });
 
     it('successfully throws error when calling isInside with an invalid AABB', () => {
-        expect(() => AABBUtils.isInside(invalidAABB, VECTOR3_ONE)).toThrow(
-            "Invalid AABB with center '0.00, 0.00, 0.00' and extents '0.00, 0.00, 0.00'"
-        );
+        expect(() => AABBUtils.isInside(invalidAABB, VECTOR3_ONE)).toThrow(new AABBInvalidExtentError(VECTOR3_ZERO));
     });
 
     it('successfully reports correct intersecting AABB for overlapping AABBs', () => {
@@ -254,13 +230,13 @@ describe('AABB operations', () => {
 
     it('successfully throws error when calling getIntersection with an invalid AABB as the first parameter', () => {
         expect(() => AABBUtils.getIntersection(invalidAABB, validAABB)).toThrow(
-            "Invalid AABB with center '0.00, 0.00, 0.00' and extents '0.00, 0.00, 0.00'"
+            new AABBInvalidExtentError(VECTOR3_ZERO)
         );
     });
 
     it('successfully throws error when calling getIntersection with an invalid AABB as the second parameter', () => {
         expect(() => AABBUtils.getIntersection(validAABB, invalidAABB)).toThrow(
-            "Invalid AABB with center '0.00, 0.00, 0.00' and extents '0.00, 0.00, 0.00'"
+            new AABBInvalidExtentError(VECTOR3_ZERO)
         );
     });
 });

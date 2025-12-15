@@ -242,45 +242,45 @@ describe('AABB operations', () => {
 });
 
 describe('AABB BlockVolume operations', () => {
-    it('successfully creates a BlockVolume when AABB extent are VECTOR3_ONE', () => {
+    it('successfully creates a 2x2x2 BlockVolume when AABB extent is {1,1,1} around center {0,0,0}', () => {
         const aabb: AABB = { center: VECTOR3_ZERO, extent: VECTOR3_ONE };
         const blockVolume = AABBUtils.getBlockVolume(aabb);
         expect(blockVolume.from).toEqual({ x: -1.0, y: -1.0, z: -1.0 });
         expect(blockVolume.to).toEqual({ x: 1.0, y: 1.0, z: 1.0 });
     });
 
-    it('successfully creates a BlockVolume when AABB extent coords are 0.5', () => {
+    it('successfully creates a 2x2x2 BlockVolume when AABB extent is {0.5,0.5,0.5} around center {0,0,0}', () => {
         const aabb: AABB = { center: VECTOR3_ZERO, extent: { x: 0.5, y: 0.5, z: 0.5 } };
         const blockVolume = AABBUtils.getBlockVolume(aabb);
         expect(blockVolume.from).toEqual({ x: -1.0, y: -1.0, z: -1.0 });
         expect(blockVolume.to).toEqual({ x: 1.0, y: 1.0, z: 1.0 });
     });
 
-    it('successfully creates a BlockVolume when AABB center and extent coords are 0.5', () => {
+    it('successfully creates a 1x1x1 BlockVolume when AABB center and extent are {0.5,0.5,0.5}', () => {
         const aabb: AABB = { center: { x: 0.5, y: 0.5, z: 0.5 }, extent: { x: 0.5, y: 0.5, z: 0.5 } };
         const blockVolume = AABBUtils.getBlockVolume(aabb);
         expect(blockVolume.from).toEqual({ x: 0.0, y: 0.0, z: 0.0 });
         expect(blockVolume.to).toEqual({ x: 1.0, y: 1.0, z: 1.0 });
     });
 
-    it('successfully creates a BlockVolume when AABB center coords are -0.5 and extent coords are 0.5', () => {
+    it('successfully creates a 1x1x1 BlockVolume when AABB extent is {0.5,0.5,0.5} around center {-0.5,-0.5,-0.5}', () => {
         const aabb: AABB = { center: { x: -0.5, y: -0.5, z: -0.5 }, extent: { x: 0.5, y: 0.5, z: 0.5 } };
         const blockVolume = AABBUtils.getBlockVolume(aabb);
         expect(blockVolume.from).toEqual({ x: -1.0, y: -1.0, z: -1.0 });
         expect(blockVolume.to).toEqual({ x: -0.0, y: -0.0, z: -0.0 });
     });
 
-    it('successfully creates a BlockVolume when AABB extent are greater than VECTOR3_ZERO within epsilon', () => {
-        const aabb: AABB = { center: VECTOR3_ZERO, extent: { x: 0.00001, y: 0.00001, z: 0.00001 } };
+    it('successfully creates a 1x1x1 BlockVolume when AABB extent are {0.5,0.5,0.5} plus epsilon around {0.5,0.5,0.5}', () => {
+        const aabb: AABB = { center: { x: 0.5, y: 0.5, z: 0.5 }, extent: { x: 0.50001, y: 0.50001, z: 0.50001 } };
         const blockVolume = AABBUtils.getBlockVolume(aabb);
         expect(blockVolume.from).toEqual({ x: 0.0, y: 0.0, z: 0.0 });
-        expect(blockVolume.to).toEqual({ x: 0.0, y: 0.0, z: 0.0 });
+        expect(blockVolume.to).toEqual({ x: 1.0, y: 1.0, z: 1.0 });
     });
 
-    it('successfully creates a BlockVolume when AABB extent are greater than VECTOR3_ZERO exceeding epsilon', () => {
-        const aabb: AABB = { center: VECTOR3_ZERO, extent: { x: 0.00002, y: 0.00002, z: 0.00002 } };
+    it('successfully creates a 3x3x3 BlockVolume when AABB extent are {0.5,0.5,0.5} plus more than epsilon around {0.5,0.5,0.5}', () => {
+        const aabb: AABB = { center: { x: 0.5, y: 0.5, z: 0.5 }, extent: { x: 0.50002, y: 0.50002, z: 0.50002 } };
         const blockVolume = AABBUtils.getBlockVolume(aabb);
         expect(blockVolume.from).toEqual({ x: -1.0, y: -1.0, z: -1.0 });
-        expect(blockVolume.to).toEqual({ x: 1.0, y: 1.0, z: 1.0 });
+        expect(blockVolume.to).toEqual({ x: 2.0, y: 2.0, z: 2.0 });
     });
 });

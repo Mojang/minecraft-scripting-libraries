@@ -101,6 +101,15 @@ export class Vector3Utils {
     }
 
     /**
+     * ceil
+     *
+     * Ceil the components of a vector to produce a new vector
+     */
+    static ceil(v: Vector3): Vector3 {
+        return { x: Math.ceil(v.x), y: Math.ceil(v.y), z: Math.ceil(v.z) };
+    }
+
+    /**
      * toString
      *
      * Create a string representation of a vector3

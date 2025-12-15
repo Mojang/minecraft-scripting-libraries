@@ -65,7 +65,11 @@ export class AABBUtils {
      * @returns - True if all extent axes are non-zero, otherwise false.
      */
     static isValid(aabb: AABB): boolean {
-        return aabb.extent.x > 0.0 && aabb.extent.y > 0.0 && aabb.extent.z > 0.0;
+        return (
+            aabb.extent.x >= AABBUtils.EPSILON &&
+            aabb.extent.y >= AABBUtils.EPSILON &&
+            aabb.extent.z >= AABBUtils.EPSILON
+        );
     }
 
     /**

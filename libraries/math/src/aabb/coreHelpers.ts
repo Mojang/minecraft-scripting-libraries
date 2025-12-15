@@ -27,7 +27,7 @@ export class AABBUtils {
     /**
      * EPSILON
      *
-     * The internal epsilon value used for block volume tolerance and the lowest dilation.
+     * The internal epsilon value that determines validity and used for block volume tolerance.
      */
     static EPSILON = 0.00001;
 

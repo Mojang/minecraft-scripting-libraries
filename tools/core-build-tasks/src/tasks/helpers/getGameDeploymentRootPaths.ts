@@ -29,7 +29,9 @@ export function getGameDeploymentRootPaths(): Record<MinecraftProduct, string | 
                   'Packages/Microsoft.MinecraftEducationEdition_8wekyb3d8bbwe/LocalState/games/com.mojang/'
               )
             : undefined,
-        EducationDesktop: appDataPath ? resolve(appDataPath, 'Minecraft Education/games/com.mojang/') : undefined,
+        EducationDesktop: appDataPath
+            ? resolve(appDataPath, 'Minecraft Education Edition/games/com.mojang/')
+            : undefined,
         Custom: customDeploymentPath ? customDeploymentPath : undefined,
     };
 }

@@ -62,6 +62,7 @@ import {
     MinecraftTypeAliasTypes,
     MinecraftTypeKeyList,
     MinecraftTypeMapping,
+    PrivilegeTypes,
     PrivilegeValueType,
 } from '../modules/MinecraftScriptModule';
 import * as utils from '../utilities';
@@ -3174,6 +3175,24 @@ function populateFromModuleData(releases: MinecraftRelease[]) {
 }
 
 function addPrivilegeFlags(releases: MinecraftRelease[]) {
+    const tryGetClosurePrivilegeFromType = (type?: MinecraftType) => {
+        if (type === undefined) {
+            return undefined;
+        } else if (type.optional_type) {
+            return tryGetClosurePrivilegeFromType(type.optional_type);
+        } else if (type.closure_type && type.closure_type.call_privilege) {
+            // convert to friendly names for documentation
+            if (PrivilegeTypes.Default === type.closure_type.call_privilege.name) {
+                return undefined; // dont document default privileges
+            } else if (PrivilegeTypes.EarlyExec === type.closure_type.call_privilege.name) {
+                return 'early-execution';
+            } else if (PrivilegeTypes.RestrictedExec === type.closure_type.call_privilege.name) {
+                return 'restricted-execution';
+            }
+        }
+        return undefined;
+    };
+
     const contains = (search: string, priv?: PrivilegeValueType[]) => {
         if (priv === undefined) {
             return false;
@@ -3190,21 +3209,48 @@ function addPrivilegeFlags(releases: MinecraftRelease[]) {
 
     const checkPropertyPrivileges = (prop: MinecraftProperty) => {
         if (!prop.is_read_only) {
-            prop.set_disallowed_in_read_only = !contains('read_only', prop.set_privilege);
-            prop.get_disallowed_in_read_only = !contains('read_only', prop.get_privilege);
-            prop.has_privilege_comments = prop.set_disallowed_in_read_only || prop.get_disallowed_in_read_only;
+            prop.set_disallowed_in_restricted_execution = !contains(PrivilegeTypes.RestrictedExec, prop.set_privilege);
+            prop.get_disallowed_in_restricted_execution = !contains(PrivilegeTypes.RestrictedExec, prop.get_privilege);
         }
 
-        prop.set_allowed_in_early_execution = contains('early_execution', prop.set_privilege);
-        prop.get_allowed_in_early_execution = contains('early_execution', prop.get_privilege);
+        prop.set_allowed_in_early_execution = contains(PrivilegeTypes.EarlyExec, prop.set_privilege);
+        prop.get_allowed_in_early_execution = contains(PrivilegeTypes.EarlyExec, prop.get_privilege);
+
         prop.has_privilege_comments =
-            prop.set_allowed_in_early_execution || prop.get_allowed_in_early_execution || prop.has_privilege_comments;
+            prop.set_allowed_in_early_execution ||
+            prop.get_allowed_in_early_execution ||
+            prop.set_disallowed_in_restricted_execution ||
+            prop.get_disallowed_in_restricted_execution;
+
+        const closurePrivilegeName = tryGetClosurePrivilegeFromType(prop.type);
+        if (closurePrivilegeName !== undefined) {
+            prop.has_closure_privilege_type_comments = true;
+            prop.closure_privilege_type_name = closurePrivilegeName;
+        }
     };
 
     const checkFunctionPrivileges = (func: MinecraftFunction) => {
-        func.call_disallowed_in_read_only = !contains('read_only', func.call_privilege);
-        func.call_allowed_in_early_execution = contains('early_execution', func.call_privilege);
-        func.has_privilege_comments = func.call_disallowed_in_read_only || func.call_allowed_in_early_execution;
+        func.call_disallowed_in_restricted_execution = !contains(PrivilegeTypes.RestrictedExec, func.call_privilege);
+        func.call_allowed_in_early_execution = contains(PrivilegeTypes.EarlyExec, func.call_privilege);
+
+        func.has_privilege_comments =
+            func.call_disallowed_in_restricted_execution || func.call_allowed_in_early_execution;
+
+        for (const argument of func.arguments) {
+            const priv = tryGetClosurePrivilegeFromType(argument.type);
+            if (priv !== undefined) {
+                func.has_comments = true;
+                argument.has_closure_privilege_type_comments = true;
+                argument.closure_privilege_type_name = priv;
+            }
+        }
+
+        const retPriv = tryGetClosurePrivilegeFromType(func.return_type);
+        if (retPriv !== undefined) {
+            func.has_comments = true;
+            func.return_type_has_closure_privilege_type_comments = true;
+            func.return_type_closure_privilege_type_name = retPriv;
+        }
     };
 
     for (const release of releases ?? []) {

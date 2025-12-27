@@ -272,7 +272,7 @@ Type: *number*
 > This property is still in pre-release.  Its signature may change or it may be removed in future releases.
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 ::: moniker-end
 
 ## Methods
@@ -292,7 +292,7 @@ prereleaseMethod(): number
 > This function is still in pre-release.  Its signature may change or it may be removed in future releases.
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 ::: moniker-end
 "
 `;
@@ -433,7 +433,7 @@ prereleaseFunction(): boolean
 > This function is still in pre-release.  Its signature may change or it may be removed in future releases.
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 ::: moniker-end
 
 ## Constants
@@ -570,14 +570,14 @@ export class StableClass {
     /**
      * @beta
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     prereleaseProperty: number;
     /**
      * @beta
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     prereleaseMethod(): number;
@@ -598,7 +598,7 @@ export interface StableInterface {
 /**
  * @beta
  * @remarks
- * This function can't be called in read-only mode.
+ * This function can't be called in restricted-execution mode.
  *
  */
 export function prereleaseFunction(): boolean;

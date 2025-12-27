@@ -1,0 +1,331 @@
+{
+  "classes": [
+    {
+      "base_types": [],
+      "constants": [],
+      "functions": [
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "is_static": false,
+          "name": "new_restrict_name_func",
+          "privilege": [
+            {
+              "name": "restricted_execution"
+            }
+          ],
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean",
+            "valid_range": null
+          }
+        },
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "is_static": false,
+          "name": "old_read_only_name_func",
+          "privilege": [
+            {
+              "name": "read_only"
+            }
+          ],
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean",
+            "valid_range": null
+          }
+        },
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "is_static": false,
+          "name": "both_read_only_name_func",
+          "privilege": [
+            {
+              "name": "read_only"
+            },
+            {
+              "name": "restricted_execution"
+            }
+          ],
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean",
+            "valid_range": null
+          }
+        },
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "is_static": false,
+          "name": "both_none_name_func",
+          "privilege": [
+            {
+              "name": "none"
+            },
+            {
+              "name": "default"
+            }
+          ],
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean",
+            "valid_range": null
+          }
+        },
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "is_static": false,
+          "name": "old_none_name_func",
+          "privilege": [
+            {
+              "name": "none"
+            }
+          ],
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean",
+            "valid_range": null
+          }
+        },
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "is_static": false,
+          "name": "new_default_name_func",
+          "privilege": [
+            {
+              "name": "default"
+            }
+          ],
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "boolean",
+            "valid_range": null
+          }
+        }
+      ],
+      "name": "ExampleClass",
+      "properties": [
+        {
+          "is_read_only": false,
+          "privilege": [
+            {
+              "name": "read_only"
+            }
+          ],
+          "name": "old_read_only_name_prop",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "number"
+          }
+        },
+        {
+          "is_read_only": false,
+          "privilege": [
+            {
+              "name": "restricted_execution"
+            }
+          ],
+          "name": "new_restrict_name_prop",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "number"
+          }
+        },
+        {
+          "is_read_only": false,
+          "privilege": [
+            {
+              "name": "read_only"
+            },
+            {
+              "name": "restricted_execution"
+            }
+          ],
+          "name": "both_read_only_name_prop",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "number"
+          }
+        },
+        {
+          "is_read_only": false,
+          "privilege": [
+            {
+              "name": "none"
+            },
+            {
+              "name": "default"
+            }
+          ],
+          "name": "both_none_name_prop",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "number"
+          }
+        },
+        {
+          "is_read_only": false,
+          "privilege": [
+            {
+              "name": "default"
+            }
+          ],
+          "name": "new_default_name_prop",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "number"
+          }
+        },
+        {
+          "is_read_only": false,
+          "privilege": [
+            {
+              "name": "none"
+            }
+          ],
+          "name": "old_none_name_prop",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "number"
+          }
+        }
+      ],
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "ExampleClass"
+      }
+    }
+  ],
+  "functions": [
+    {
+      "arguments": [],
+      "is_constructor": false,
+      "is_static": false,
+      "name": "old_read_only_name_func",
+      "privilege": [
+        {
+          "name": "read_only"
+        }
+      ],
+      "return_type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "boolean",
+        "valid_range": null
+      }
+    },
+    {
+      "arguments": [],
+      "is_constructor": false,
+      "is_static": false,
+      "name": "both_read_only_name_func",
+      "privilege": [
+        {
+          "name": "restricted_execution"
+        },
+        {
+          "name": "read_only"
+        }
+      ],
+      "return_type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "boolean",
+        "valid_range": null
+      }
+    },
+    {
+      "arguments": [],
+      "is_constructor": false,
+      "is_static": false,
+      "name": "new_restrict_name_func",
+      "privilege": [
+        {
+          "name": "restricted_execution"
+        }
+      ],
+      "return_type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "boolean",
+        "valid_range": null
+      }
+    },
+    {
+      "arguments": [],
+      "is_constructor": false,
+      "is_static": false,
+      "name": "old_none_name_func",
+      "privilege": [
+        {
+          "name": "none"
+        }
+      ],
+      "return_type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "boolean",
+        "valid_range": null
+      }
+    },
+    {
+      "arguments": [],
+      "is_constructor": false,
+      "is_static": false,
+      "name": "new_default_name_func",
+      "privilege": [
+        {
+          "name": "default"
+        }
+      ],
+      "return_type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "boolean",
+        "valid_range": null
+      }
+    },
+    {
+      "arguments": [],
+      "is_constructor": false,
+      "is_static": false,
+      "name": "both_none_name_func",
+      "privilege": [
+        {
+          "name": "none"
+        },
+        {
+          "name": "default"
+        }
+      ],
+      "return_type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "boolean",
+        "valid_range": null
+      }
+    }
+  ],
+  "minecraft_version": "1.0.0",
+  "name": "example_module",
+  "uuid": "93faf953-0173-44dc-b542-b48f4fea7c4b",
+  "version": "1.0.0",
+  "module_type": "script"
+}

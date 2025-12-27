@@ -32,7 +32,7 @@ description: Contents of the maps-module.ExampleClass class.
 Type: Record<*string*, *number*>
 
 Notes:
-  - This property can't be used in read-only mode.
+  - This property can't be used in restricted-execution mode.
 
 ## Methods
 - [exampleMethodReturnsMap](#examplemethodreturnsmap)
@@ -46,7 +46,7 @@ exampleMethodReturnsMap(): Record<string, number>
 **Returns** Record<*string*, *number*>
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 
 ### **exampleMethodTakesMapArg**
 \`
@@ -57,7 +57,7 @@ exampleMethodTakesMapArg(arg: Record<string, number>): void
 - **arg**: Record<*string*, *number*>
   
 Notes:
-- This function can't be called in read-only mode.
+- This function can't be called in restricted-execution mode.
 "
 `;
 
@@ -115,19 +115,19 @@ export class ExampleClass {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in read-only mode.
+     * This property can't be used in restricted-execution mode.
      *
      */
     mapProperty: Record<string, number>;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     exampleMethodReturnsMap(): Record<string, number>;
     /**
      * @remarks
-     * This function can't be called in read-only mode.
+     * This function can't be called in restricted-execution mode.
      *
      */
     exampleMethodTakesMapArg(arg: Record<string, number>): void;

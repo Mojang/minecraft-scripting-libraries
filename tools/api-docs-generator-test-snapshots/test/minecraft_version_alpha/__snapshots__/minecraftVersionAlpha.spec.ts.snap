@@ -99,7 +99,7 @@ exports[`Minecraft Version Alpha > Generates correct output for alpha minecraft 
         },
         "call_privilege": [
           {
-            "name": "read_only"
+            "name": "restricted_execution"
           }
         ]
       }
@@ -170,7 +170,7 @@ exports[`Minecraft Version Alpha > Generates correct output for alpha minecraft 
         },
         "call_privilege": [
           {
-            "name": "read_only"
+            "name": "restricted_execution"
           }
         ]
       }
@@ -869,7 +869,7 @@ exports[`Minecraft Version Alpha Preview > Generates correct output for alpha mi
         },
         "call_privilege": [
           {
-            "name": "read_only"
+            "name": "restricted_execution"
           }
         ]
       }
@@ -940,7 +940,7 @@ exports[`Minecraft Version Alpha Preview > Generates correct output for alpha mi
         },
         "call_privilege": [
           {
-            "name": "read_only"
+            "name": "restricted_execution"
           }
         ]
       }

@@ -28,6 +28,6 @@
     "mustache": "^4.2.0",
     "ts-node": "^10.9.2",
     "typescript": "~5.6.0",
-    "vitest": "^3.0.8"
+    "vitest": "^4.0.16"
   }
 }

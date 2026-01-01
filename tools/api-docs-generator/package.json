@@ -63,7 +63,7 @@
     "resolve-from": "^5.0.0",
     "runtypes": "^6.7.0",
     "semver": "^7.3.5",
-    "terminal-kit": "^2.5.6",
+    "terminal-kit": "^3.1.2",
     "toposort": "^2.0.2",
     "typescript": "~5.6.0",
     "word-wrap": "^1.2.3",

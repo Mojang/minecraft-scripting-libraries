@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "build(dependabot): bump vitest from 3.0.8 to 4.0.16",
+  "packageName": "@minecraft/math",
+  "email": "mc-npm@microsoft.com",
+  "dependentChangeType": "patch"
+}

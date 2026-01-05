@@ -9,5 +9,7 @@ export enum MinecraftProduct {
     PreviewGDK = 'PreviewGDK',
     Bedrock = 'BedrockUWP',
     Preview = 'PreviewUWP',
+    EducationUWP = 'EducationUWP',
+    EducationDesktop = 'EducationDesktop',
     Custom = 'Custom',
 }

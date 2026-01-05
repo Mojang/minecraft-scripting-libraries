@@ -1,5 +1,5 @@
 {
-  "type": "none",
+  "type": "minor",
   "comment": "Added AABBUtils for performing functional operations on AABB objects, added Vector3Utils.ceil",
   "packageName": "@minecraft/math",
   "email": "niamh.cuileann@skyboxlabs.com",

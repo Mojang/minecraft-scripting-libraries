@@ -100,6 +100,16 @@ describe('Vector3 operations', () => {
         expect(Vector3Utils.ceil(input)).toEqual(expected);
     });
 
+    it('computes the min of two vectors', () => {
+        const result = Vector3Utils.min(v1, v2);
+        expect(result).toEqual(v1);
+    });
+
+    it('computes the max of two vectors', () => {
+        const result = Vector3Utils.max(v1, v2);
+        expect(result).toEqual(v2);
+    });
+
     it('normalizes the vector', () => {
         const result: Vector3 = Vector3Utils.normalize(v1);
         expect(result.x).toBeCloseTo(0.27, 2);

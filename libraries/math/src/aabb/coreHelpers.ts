@@ -43,16 +43,8 @@ export class AABBUtils {
      * @returns - The resulting AABB.
      */
     static createFromCornerPoints(pointA: Vector3, pointB: Vector3): AABB {
-        const min: Vector3 = {
-            x: Math.min(pointA.x, pointB.x),
-            y: Math.min(pointA.y, pointB.y),
-            z: Math.min(pointA.z, pointB.z),
-        };
-        const max: Vector3 = {
-            x: Math.max(pointA.x, pointB.x),
-            y: Math.max(pointA.y, pointB.y),
-            z: Math.max(pointA.z, pointB.z),
-        };
+        const min = Vector3Utils.min(pointA, pointB);
+        const max = Vector3Utils.max(pointA, pointB);
 
         const extent = Vector3Utils.multiply(Vector3Utils.subtract(max, min), { x: 0.5, y: 0.5, z: 0.5 });
         const aabb: AABB = { center: Vector3Utils.add(min, extent), extent: extent };
@@ -230,18 +222,10 @@ export class AABBUtils {
 
         const aabbMin = AABBUtils.getMin(aabb);
         const otherMin = AABBUtils.getMin(other);
-        const min: Vector3 = {
-            x: Math.min(aabbMin.x, otherMin.x),
-            y: Math.min(aabbMin.y, otherMin.y),
-            z: Math.min(aabbMin.z, otherMin.z),
-        };
+        const min = Vector3Utils.min(aabbMin, otherMin);
         const aabbMax = AABBUtils.getMax(aabb);
         const otherMax = AABBUtils.getMax(other);
-        const max: Vector3 = {
-            x: Math.max(aabbMax.x, otherMax.x),
-            y: Math.max(aabbMax.y, otherMax.y),
-            z: Math.max(aabbMax.z, otherMax.z),
-        };
+        const max = Vector3Utils.max(aabbMax, otherMax);
         return AABBUtils.createFromCornerPoints(min, max);
     }
 
@@ -266,19 +250,10 @@ export class AABBUtils {
 
         const aabbMin = AABBUtils.getMin(aabb);
         const otherMin = AABBUtils.getMin(other);
-        const min: Vector3 = {
-            x: Math.max(aabbMin.x, otherMin.x),
-            y: Math.max(aabbMin.y, otherMin.y),
-            z: Math.max(aabbMin.z, otherMin.z),
-        };
-
+        const min = Vector3Utils.max(aabbMin, otherMin);
         const aabbMax = AABBUtils.getMax(aabb);
         const otherMax = AABBUtils.getMax(other);
-        const max: Vector3 = {
-            x: Math.min(aabbMax.x, otherMax.x),
-            y: Math.min(aabbMax.y, otherMax.y),
-            z: Math.min(aabbMax.z, otherMax.z),
-        };
+        const max = Vector3Utils.min(aabbMax, otherMax);
         return AABBUtils.createFromCornerPoints(min, max);
     }
 

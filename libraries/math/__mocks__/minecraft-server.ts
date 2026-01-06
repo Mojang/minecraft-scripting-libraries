@@ -2,7 +2,7 @@
 // Licensed under the MIT License.
 
 import type { Vector3 } from '@minecraft/server';
-import { Vector3Utils } from '../src/index.js';
+import { Vector3Utils } from '../src/vector3/coreHelpers.js';
 
 export class BlockVolume {
     constructor(

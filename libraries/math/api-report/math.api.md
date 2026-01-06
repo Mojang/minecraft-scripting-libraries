@@ -147,6 +147,7 @@ export class Vector3Builder implements Vector3 {
     constructor(x: number, y: number, z: number);
     add(v: Partial<Vector3>): this;
     assign(vec: Vector3): this;
+    ceil(): this;
     clamp(limits: {
         min?: Partial<Vector3>;
         max?: Partial<Vector3>;
@@ -158,6 +159,8 @@ export class Vector3Builder implements Vector3 {
     floor(): this;
     lerp(vec: Vector3, t: number): this;
     magnitude(): number;
+    max(vec: Vector3): this;
+    min(vec: Vector3): this;
     multiply(vec: Vector3): this;
     normalize(): this;
     rotateX(a: number): this;
@@ -194,6 +197,8 @@ export class Vector3Utils {
     static fromString(str: string, delimiter?: string): Vector3 | undefined;
     static lerp(a: Vector3, b: Vector3, t: number): Vector3;
     static magnitude(v: Vector3): number;
+    static max(a: Vector3, b: Vector3): Vector3;
+    static min(a: Vector3, b: Vector3): Vector3;
     static multiply(a: Vector3, b: Vector3): Vector3;
     static normalize(v: Vector3): Vector3;
     static rotateX(v: Vector3, a: number): Vector3;

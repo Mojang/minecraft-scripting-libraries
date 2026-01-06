@@ -162,6 +162,35 @@ describe('Vector3Builder', () => {
         expect(vectorA).toBe(result); // Referential equality must be preserved
     });
 
+    it('should be able to compute the ceil of the vector with the same result as the coreHelpers function', () => {
+        const vectorA = new Vector3Builder(1.33, 2.14, 3.55);
+        const vectorB = Vector3Utils.ceil(vectorA);
+
+        const result = vectorA.ceil();
+        expect(result).toEqual(vectorB);
+        expect(vectorA).toBe(result); // Referential equality must be preserved
+    });
+
+    it('should be able to compute the min of two vectors with the same result as the coreHelpers function', () => {
+        const vectorA = new Vector3Builder(1, 2, 3);
+        const vectorB: Vector3 = { x: 4, y: 5, z: 6 };
+        const vectorC = Vector3Utils.min(vectorA, vectorB);
+
+        const result = vectorA.min(vectorB);
+        expect(result).toEqual(vectorC);
+        expect(vectorA).toBe(result); // Referential equality must be preserved
+    });
+
+    it('should be able to compute the max of two vectors with the same result as the coreHelpers function', () => {
+        const vectorA = new Vector3Builder(1, 2, 3);
+        const vectorB: Vector3 = { x: 4, y: 5, z: 6 };
+        const vectorC = Vector3Utils.max(vectorA, vectorB);
+
+        const result = vectorA.max(vectorB);
+        expect(result).toEqual(vectorC);
+        expect(vectorA).toBe(result); // Referential equality must be preserved
+    });
+
     it('should be able to clamp the vector with the same result as the coreHelpers function', () => {
         const vectorA = new Vector3Builder(1, 2, 3);
         const minVec: Partial<Vector3> = { x: 0, y: 1.5 };

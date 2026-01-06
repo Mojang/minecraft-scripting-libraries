@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Added AABBUtils for performing functional operations on AABB objects, added Vector3Utils ceil, min and max",
+  "packageName": "@minecraft/math",
+  "email": "niamh.cuileann@skyboxlabs.com",
+  "dependentChangeType": "patch"
+}

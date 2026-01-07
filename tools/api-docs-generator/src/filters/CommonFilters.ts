@@ -1714,14 +1714,29 @@ function typeFlags(releases: MinecraftRelease[]) {
     }
 }
 
+function _getFunctionsForInterfaceOrClass(jsonObject: MinecraftInterface | MinecraftClass) {
+    const functions = jsonObject.functions ?? [];
+    return functions;
+}
+
+function _getPropertiesForInterfaceOrClass(jsonObject: MinecraftInterface | MinecraftClass) {
+    const properties = jsonObject.properties ?? [];
+    return properties;
+}
+
 /**
  * Marks up APIs that have bound values.
  */
 function boundValues(releases: MinecraftRelease[]) {
     for (const release of releases) {
         for (const scriptModule of release.script_modules) {
-            for (const classJson of scriptModule.classes ?? []) {
-                for (const functionJson of classJson.functions ?? []) {
+            const classJson = scriptModule.classes ?? [];
+            const interfaceJson = scriptModule.interfaces ?? [];
+            const concatJsonArray: (MinecraftInterface | MinecraftClass)[] = classJson.concat(interfaceJson);
+
+            for (const concatJson of concatJsonArray) {
+                const functionJsonArray = _getFunctionsForInterfaceOrClass(concatJson);
+                for (const functionJson of functionJsonArray) {
                     for (const argumentJson of functionJson.arguments) {
                         if (!argumentJson.details) {
                             continue;
@@ -1737,7 +1752,8 @@ function boundValues(releases: MinecraftRelease[]) {
                     }
                 }
 
-                for (const propertyJson of classJson.properties ?? []) {
+                const propertiesJsonArray = _getPropertiesForInterfaceOrClass(concatJson);
+                for (const propertyJson of propertiesJsonArray) {
                     if (propertyJson.min_value !== undefined) {
                         propertyJson.has_minimum = true;
                     }
@@ -1831,7 +1847,13 @@ function boundChanges(releases: MinecraftRelease[]) {
                                 continue;
                             }
 
-                            if (details.$old !== undefined && details.$new === undefined) {
+                            // eslint-disable-next-line unicorn/no-null
+                            const validOld = details.$old !== undefined && details.$old !== null;
+
+                            // eslint-disable-next-line unicorn/no-null
+                            const validNew = details.$new !== undefined && details.$new !== null;
+
+                            if (validOld && !validNew) {
                                 if (details.$old.min_value !== undefined) {
                                     argumentJson.min_removed = true;
                                 }
@@ -1841,7 +1863,7 @@ function boundChanges(releases: MinecraftRelease[]) {
                                 continue;
                             }
 
-                            if (details.$old === undefined && details.$new !== undefined) {
+                            if (!validOld && validNew) {
                                 if (details.$new.min_value !== undefined) {
                                     argumentJson.min_added = true;
                                 }

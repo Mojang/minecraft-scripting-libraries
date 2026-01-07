@@ -1,8 +1,47 @@
-{
+{    
+    "interfaces":[
+        {
+            "base_types": [],
+            "name": "InterfaceWithBounds",
+            "properties": [
+                {
+                    "is_baked": false,
+                    "is_read_only": false,
+                    "max_value": 1000,
+                    "min_value": 0,
+                    "name": "boundedInterfaceProperty",
+                    "type": {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "optional",
+                        "optional_type": {
+                            "element_type": {
+                                "is_bind_type": false,
+                                "is_errorable": false,
+                                "name": "int32",
+                                "valid_range": {
+                                    "max": 2147483647,
+                                    "min": -2147483648
+                                }
+                            },
+                            "is_bind_type": false,
+                            "is_errorable": false,
+                            "name": "array"
+                        }
+                    }
+                }
+            ],
+            "type": {
+                "is_bind_type": true,
+                "is_errorable": false,
+                "name": "InterfaceWithBounds"
+            }
+        }
+    ],
     "classes": [
         {
             "name": "ClassWithBounds",
-            "properties": [
+            "properties": [ 
                 {
                     "is_baked": false,
                     "is_read_only": false,

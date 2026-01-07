@@ -343,9 +343,7 @@ export const MinecraftPropertyRecord = Intersect(
     Record({
         type: MinecraftTypeRecord,
         is_read_only: Boolean,
-        has_min: Optional(Boolean),
         min_value: Optional(Unknown.Or(Null)),
-        has_max: Optional(Boolean),
         max_value: Optional(Unknown.Or(Null)),
         is_baked: Optional(Boolean),
         default_value: Optional(Unknown.Or(Null)),
@@ -375,9 +373,7 @@ export function hasProperties(obj: object): obj is { properties: MinecraftProper
 
 export const MinecraftFunctionArgumentDetailsRecord = Record({
     default_value: Optional(Unknown.Or(Null)),
-    has_min: Optional(Unknown.Or(Null)),
     min_value: Optional(Unknown.Or(Null)),
-    has_max: Optional(Unknown.Or(Null)),
     max_value: Optional(Unknown.Or(Null)),
     supported_values: Optional(Unknown.Or(Null)),
 });

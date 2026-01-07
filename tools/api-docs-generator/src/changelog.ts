@@ -89,8 +89,6 @@ const scriptingDataLayout: RootMetadataScope = {
                     key: 'name',
                     submembers: {
                         is_read_only: { type: 'value' },
-                        has_min: { type: 'value' },
-                        has_max: { type: 'value' },
                         min_value: { type: 'value' },
                         max_value: { type: 'value' },
                         get_privilege: { type: 'array', key: 'name' },

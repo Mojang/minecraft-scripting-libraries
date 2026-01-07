@@ -4,11 +4,8 @@
             "name": "ClassWithBounds",
             "properties": [
                 {
-                    "has_max": false,
-                    "has_min": true,
                     "is_baked": false,
                     "is_read_only": false,
-                    "max_value": 2147483647,
                     "min_value": 1,
                     "name": "s",
                     "type": {
@@ -22,12 +19,9 @@
                     }
                 },            
                 {
-                    "has_max": true,
-                    "has_min": false,
                     "is_baked": false,
                     "is_read_only": false,
                     "max_value": 255,
-                    "min_value": -2147483648,
                     "name": "t",
                     "type": {
                         "is_bind_type": false,
@@ -39,12 +33,8 @@
                         }
                     }
                 },{
-                    "has_max": false,
-                    "has_min": false,
                     "is_baked": false,
                     "is_read_only": false,
-                    "max_value": 255,
-                    "min_value": 1,
                     "name": "u",
                     "type": {
                         "is_bind_type": false,
@@ -57,8 +47,6 @@
                     }
                 },
                 {
-                    "has_max": true,
-                    "has_min": true,
                     "is_baked": false,
                     "is_read_only": false,
                     "max_value": 255,
@@ -75,8 +63,6 @@
                     }
                 },
                 {
-                    "has_max": true,
-                    "has_min": true,
                     "is_baked": false,
                     "is_read_only": false,
                     "max_value": 255,
@@ -93,12 +79,9 @@
                     }
                 },
                 {
-                    "has_max": true,
-                    "has_min": false,
                     "is_baked": false,
                     "is_read_only": false,
                     "max_value": 255,
-                    "min_value": -2147483648,
                     "name": "x",
                     "type": {
                         "is_bind_type": false,
@@ -111,11 +94,8 @@
                     }
                 },
                 {
-                    "has_max": false,
-                    "has_min": true,
                     "is_baked": false,
                     "is_read_only": false,
-                    "max_value": 2147483647,
                     "min_value": 1,
                     "name": "y",
                     "type": {
@@ -129,12 +109,8 @@
                     }
                 },
                 {
-                    "has_max": false,
-                    "has_min": false,
                     "is_baked": false,
                     "is_read_only": false,
-                    "max_value": 2147483647,
-                    "min_value": -2147483648,
                     "name": "z",
                     "type": {
                         "is_bind_type": false,
@@ -157,9 +133,6 @@
                     "arguments": [
                         {
                             "details": {
-                                "has_max": false,
-                                "has_min": true,
-                                "max_value": 2147483647,
                                 "min_value": 1
                             },
                             "name": "s",
@@ -175,10 +148,7 @@
                         },                               
                         {
                             "details": {
-                                "has_max": true,
-                                "has_min": false,
-                                "max_value": 255,
-                                "min_value": -2147483648
+                                "max_value": 255
                             },
                             "name": "t",
                             "type": {
@@ -193,10 +163,6 @@
                         }, 
                         {
                             "details": {
-                                "has_max": false,
-                                "has_min": false,
-                                "max_value": 255,
-                                "min_value": 1
                             },
                             "name": "u",
                             "type": {
@@ -211,8 +177,6 @@
                         },   
                         {
                             "details": {
-                                "has_max": true,
-                                "has_min": true,
                                 "max_value": 255,
                                 "min_value": 1
                             },
@@ -229,10 +193,6 @@
                         },   
                         {
                             "details": {
-                                "has_max": false,
-                                "has_min": false,
-                                "max_value": 2147483647,
-                                "min_value": -2147483648
                             },
                             "name": "w",
                             "type": {
@@ -247,10 +207,7 @@
                         },                        
                         {
                             "details": {
-                                "has_max": true,
-                                "has_min": false,
-                                "max_value": 255,
-                                "min_value": -2147483648
+                                "max_value": 255
                             },
                             "name": "x",
                             "type": {
@@ -265,9 +222,6 @@
                         },                        
                         {
                             "details": {
-                                "has_max": false,
-                                "has_min": true,
-                                "max_value": 2147483647,
                                 "min_value": 1
                             },
                             "name": "y",
@@ -283,8 +237,6 @@
                         },                        
                         {
                             "details": {
-                                "has_max": true,
-                                "has_min": true,
                                 "max_value": 255,
                                 "min_value": 1
                             },

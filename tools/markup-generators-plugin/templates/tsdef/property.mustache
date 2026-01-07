@@ -66,14 +66,14 @@
  *
     {{/default_value}}
   {{/has_defaults}}
-  {{#min_value}}
+  {{#has_minimum}}
  * Minimum Value: {{min_value}}
  *
-  {{/min_value}}
-  {{#max_value}}
+  {{/has_minimum}}
+  {{#has_maximum}}
  * Maximum Value: {{max_value}}
  *
-  {{/max_value}}
+  {{/has_maximum}}
  {{#throws_description_ts.length}}
  * @throws
    {{#throws_description_ts}}

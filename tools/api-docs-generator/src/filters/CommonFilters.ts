@@ -1728,12 +1728,22 @@ function boundValues(releases: MinecraftRelease[]) {
                         }
 
                         if (argumentJson.details.min_value !== undefined) {
-                            argumentJson.has_bounds = true;
+                            argumentJson.has_minimum = true;
                         }
 
                         if (argumentJson.details.max_value !== undefined) {
-                            argumentJson.has_bounds = true;
+                            argumentJson.has_maximum = true;
                         }
+                    }
+                }
+
+                for (const propertyJson of classJson.properties ?? []) {
+                    if (propertyJson.min_value !== undefined) {
+                        propertyJson.has_minimum = true;
+                    }
+
+                    if (propertyJson.max_value !== undefined) {
+                        propertyJson.has_maximum = true;
                     }
                 }
             }

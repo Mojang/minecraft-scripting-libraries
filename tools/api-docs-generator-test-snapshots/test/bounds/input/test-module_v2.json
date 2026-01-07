@@ -6,6 +6,22 @@
                 {
                     "is_baked": false,
                     "is_read_only": false,
+                    "min_value": 0,
+                    "max_value": 0,
+                    "name": "r",
+                    "type": {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "int32",
+                        "valid_range": {
+                            "max": 2147483647,
+                            "min": -2147483648
+                        }
+                    }
+                }, 
+                {
+                    "is_baked": false,
+                    "is_read_only": false,
                     "min_value": 1,
                     "name": "s",
                     "type": {

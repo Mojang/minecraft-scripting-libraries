@@ -19,12 +19,12 @@
   {{#arguments}}
 - **{{{name}}}**{{#type}}{{#is_optional}}?{{/is_optional}}: {{> type_with_links}}{{/type}}{{#details.default_value}} = `{{> value}}`{{/details.default_value}}
   {{#details}}
-    {{#min_value}}
+    {{#has_minimum}}
   Minimum Bound: `{{min_value}}`
-    {{/min_value}}
-    {{#max_value}}
+    {{/has_minimum}}
+    {{#has_maximum}}
   Maximum Bound: `{{max_value}}`
-    {{/max_value}}
+    {{/has_maximum}}
   {{/details}}
     {{#details.supported_values.length}}
 

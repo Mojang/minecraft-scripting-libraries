@@ -29,6 +29,16 @@ description: Contents of the bounds-module.ClassWithBounds class (Version 1.x.x)
 
 ## Properties
 
+### **r**
+\`r: number;\`
+
+Type: *number*
+
+Notes:
+  - This property has a minimum bound of \`0\`
+  - This property has a maximum bound of \`0\`
+  - This property can't be used in restricted-execution mode.
+
 ### **s**
 \`s: number;\`
 
@@ -190,6 +200,16 @@ description: Contents of the bounds-module.ClassWithBounds class.
 # ClassWithBounds Class
 
 ## Properties
+
+### **r**
+\`r: number;\`
+
+Type: *number*
+
+Notes:
+  - This property has a minimum bound of \`0\`
+  - This property has a maximum bound of \`0\`
+  - This property can't be used in restricted-execution mode.
 
 ### **s**
 \`s: number;\`
@@ -408,6 +428,16 @@ export class ClassWithBounds {
      * @remarks
      * This property can't be used in restricted-execution mode.
      *
+     * Minimum Value: 0
+     *
+     * Maximum Value: 0
+     *
+     */
+    r: number;
+    /**
+     * @remarks
+     * This property can't be used in restricted-execution mode.
+     *
      * Minimum Value: -255
      *
      */
@@ -524,6 +554,16 @@ exports[`Bounds > Properly generates documentation for modules which contain bou
  */
 export class ClassWithBounds {
     private constructor();
+    /**
+     * @remarks
+     * This property can't be used in restricted-execution mode.
+     *
+     * Minimum Value: 0
+     *
+     * Maximum Value: 0
+     *
+     */
+    r: number;
     /**
      * @remarks
      * This property can't be used in restricted-execution mode.

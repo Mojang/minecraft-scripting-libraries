@@ -26,12 +26,12 @@ Notes:
   - This property defaults to `{{> value}}` when undefined.
     {{/default_value}}
   {{/has_defaults}}
-  {{#min_value}}
+  {{#has_minimum}}
   - This property has a minimum bound of `{{min_value}}`
-  {{/min_value}}
-  {{#max_value}}
+  {{/has_minimum}}
+  {{#has_maximum}}
   - This property has a maximum bound of `{{max_value}}`
-  {{/max_value}}
+  {{/has_maximum}}
   {{#set_disallowed_in_restricted_execution}}
     {{#get_disallowed_in_restricted_execution}}
   - This property can't be used in restricted-execution mode.

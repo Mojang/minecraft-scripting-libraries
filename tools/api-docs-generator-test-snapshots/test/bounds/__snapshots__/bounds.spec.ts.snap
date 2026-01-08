@@ -545,9 +545,9 @@ export class ClassWithBounds {
      * @param t
      * Maximum value: 1
      * @param v
-     * Bounds: [ , ]
+     * Bounds: [-255 , -1]
      * @param w
-     * Bounds: [ , ]
+     * Bounds: [1 , 255]
      * @param x
      * Minimum value: 1
      * @param y
@@ -667,13 +667,13 @@ export class ClassWithBounds {
      * @param t
      * Maximum value: 255
      * @param v
-     * Bounds: [ , ]
+     * Bounds: [1 , 255]
      * @param x
      * Maximum value: 255
      * @param y
      * Minimum value: 1
      * @param z
-     * Bounds: [ , ]
+     * Bounds: [1 , 255]
      */
     methodThatTakesBoundedValue(
         s: number,

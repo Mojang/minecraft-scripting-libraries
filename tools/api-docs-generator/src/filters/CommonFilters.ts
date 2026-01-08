@@ -1749,6 +1749,10 @@ function boundValues(releases: MinecraftRelease[]) {
                         if (argumentJson.details.max_value !== undefined) {
                             argumentJson.has_maximum = true;
                         }
+
+                        if (argumentJson.has_minimum && argumentJson.has_maximum) {
+                            argumentJson.has_bounds = true;
+                        }
                     }
                 }
 
@@ -1760,6 +1764,10 @@ function boundValues(releases: MinecraftRelease[]) {
 
                     if (propertyJson.max_value !== undefined) {
                         propertyJson.has_maximum = true;
+                    }
+
+                    if (propertyJson.has_minimum && propertyJson.has_maximum) {
+                        propertyJson.has_bounds = true;
                     }
                 }
             }

@@ -354,6 +354,7 @@ function flagTSComments(obj: MarkupCommentFlags): void {
         obj.has_defaults ||
         obj.has_minimum ||
         obj.has_maximum ||
+        obj.has_bounds ||
         obj.has_errors
     ) {
         obj.msdocs_has_comments = true;

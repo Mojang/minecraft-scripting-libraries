@@ -55,6 +55,7 @@ export const MarkupCommentFlagsValidator = Intersect(
         has_defaults: Optional(Boolean),
         has_minimum: Optional(Boolean),
         has_maximum: Optional(Boolean),
+        has_bounds: Optional(Boolean),
         has_errors: Optional(Boolean),
 
         prerelease: Optional(String),

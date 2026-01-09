@@ -2358,8 +2358,11 @@ new ClassWithConstructor(x: number, y: number, z: number)
 
 #### **Parameters**
 - **x**: *number*
+  * Bounds: [\`-2147483648\` , \`2147483647\`]
 - **y**: *number*
+  * Bounds: [\`-2147483648\` , \`2147483647\`]
 - **z**: *number*
+  * Bounds: [\`-2147483648\` , \`2147483647\`]
 
 **Returns** [*ClassWithConstructor*](ClassWithConstructor.md)
   
@@ -3338,8 +3341,11 @@ new ClassWithConstructor(x: number, y: number, z: number)
 
 #### **Parameters**
 - **x**: *number*
+  * Bounds: [\`-2147483648\` , \`2147483647\`]
 - **y**: *number*
+  * Bounds: [\`-2147483648\` , \`2147483647\`]
 - **z**: *number*
+  * Bounds: [\`-2147483648\` , \`2147483647\`]
 
 **Returns** [*ClassWithConstructor*](ClassWithConstructor.md)
   
@@ -4270,6 +4276,12 @@ export class ClassWithConstructor {
      * @remarks
      * This function can't be called in restricted-execution mode.
      *
+     * @param x
+     * Bounds: [-2147483648 , 2147483647]
+     * @param y
+     * Bounds: [-2147483648 , 2147483647]
+     * @param z
+     * Bounds: [-2147483648 , 2147483647]
      */
     constructor(x: number, y: number, z: number);
 }
@@ -4580,6 +4592,12 @@ export class ClassWithConstructor {
      * @remarks
      * This function can't be called in restricted-execution mode.
      *
+     * @param x
+     * Bounds: [-2147483648 , 2147483647]
+     * @param y
+     * Bounds: [-2147483648 , 2147483647]
+     * @param z
+     * Bounds: [-2147483648 , 2147483647]
      */
     constructor(x: number, y: number, z: number);
     /**

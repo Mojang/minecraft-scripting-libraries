@@ -20,14 +20,14 @@
 - **{{{name}}}**{{#type}}{{#is_optional}}?{{/is_optional}}: {{> type_with_links}}{{/type}}{{#details.default_value}} = `{{> value}}`{{/details.default_value}}
   {{#details}}
     {{#has_bounds}}
-  Bounds: [`{{min_value}}` , `{{max_value}}`]
+  * Bounds: [`{{min_value}}` , `{{max_value}}`]
     {{/has_bounds}}
     {{^has_bounds}}
       {{#has_minimum}}
-  Minimum Bound: `{{min_value}}`
+  * Minimum Bound: `{{min_value}}`
       {{/has_minimum}}
       {{#has_maximum}}
-  Maximum Bound: `{{max_value}}`
+  * Maximum Bound: `{{max_value}}`
       {{/has_maximum}}    
     {{/has_bounds}}
   {{/details}}

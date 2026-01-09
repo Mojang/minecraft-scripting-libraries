@@ -1714,29 +1714,18 @@ function typeFlags(releases: MinecraftRelease[]) {
     }
 }
 
-function _getFunctionsForInterfaceOrClass(jsonObject: MinecraftInterface | MinecraftClass) {
-    const functions = jsonObject.functions ?? [];
-    return functions;
-}
-
-function _getPropertiesForInterfaceOrClass(jsonObject: MinecraftInterface | MinecraftClass) {
-    const properties = jsonObject.properties ?? [];
-    return properties;
-}
-
 /**
  * Marks up APIs that have bound values.
  */
 function boundValues(releases: MinecraftRelease[]) {
     for (const release of releases) {
         for (const scriptModule of release.script_modules) {
-            const classJson = scriptModule.classes ?? [];
-            const interfaceJson = scriptModule.interfaces ?? [];
+            const classJson: MinecraftClass[] = scriptModule.classes ?? [];
+            const interfaceJson: MinecraftInterface[] = scriptModule.interfaces ?? [];
             const concatJsonArray: (MinecraftInterface | MinecraftClass)[] = classJson.concat(interfaceJson);
 
             for (const concatJson of concatJsonArray) {
-                const functionJsonArray = _getFunctionsForInterfaceOrClass(concatJson);
-                for (const functionJson of functionJsonArray) {
+                for (const functionJson of concatJson.functions ?? []) {
                     for (const argumentJson of functionJson.arguments) {
                         if (!argumentJson.details) {
                             continue;
@@ -1756,8 +1745,7 @@ function boundValues(releases: MinecraftRelease[]) {
                     }
                 }
 
-                const propertiesJsonArray = _getPropertiesForInterfaceOrClass(concatJson);
-                for (const propertyJson of propertiesJsonArray) {
+                for (const propertyJson of concatJson.properties ?? []) {
                     if (propertyJson.min_value !== undefined) {
                         propertyJson.has_minimum = true;
                     }

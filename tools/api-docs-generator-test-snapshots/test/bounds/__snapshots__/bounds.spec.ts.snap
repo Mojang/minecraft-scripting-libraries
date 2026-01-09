@@ -120,18 +120,18 @@ methodThatTakesBoundedValue(s: number, t: number, u: number, v: number, w: numbe
 
 #### **Parameters**
 - **s**: *number*
-  Minimum Bound: \`-255\`
+  * Minimum Bound: \`-255\`
 - **t**: *number*
-  Maximum Bound: \`1\`
+  * Maximum Bound: \`1\`
 - **u**: *number*
 - **v**: *number*
-  Bounds: [\`-255\` , \`-1\`]
+  * Bounds: [\`-255\` , \`-1\`]
 - **w**: *number*
-  Bounds: [\`1\` , \`255\`]
+  * Bounds: [\`1\` , \`255\`]
 - **x**: *number*
-  Minimum Bound: \`1\`
+  * Minimum Bound: \`1\`
 - **y**: *number*
-  Maximum Bound: \`255\`
+  * Maximum Bound: \`255\`
 - **z**: *number*
 
 **Returns** *void*
@@ -319,19 +319,19 @@ methodThatTakesBoundedValue(s: number, t: number, u: number, v: number, w: numbe
 
 #### **Parameters**
 - **s**: *number*
-  Minimum Bound: \`1\`
+  * Minimum Bound: \`1\`
 - **t**: *number*
-  Maximum Bound: \`255\`
+  * Maximum Bound: \`255\`
 - **u**: *number*
 - **v**: *number*
-  Bounds: [\`1\` , \`255\`]
+  * Bounds: [\`1\` , \`255\`]
 - **w**: *number*
 - **x**: *number*
-  Maximum Bound: \`255\`
+  * Maximum Bound: \`255\`
 - **y**: *number*
-  Minimum Bound: \`1\`
+  * Minimum Bound: \`1\`
 - **z**: *number*
-  Bounds: [\`1\` , \`255\`]
+  * Bounds: [\`1\` , \`255\`]
 
 **Returns** *void*
   

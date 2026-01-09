@@ -37,7 +37,7 @@ description: Contents of the bounds-module.ClassWithBounds class (Version 1.x.x)
 Type: *number*
 
 Notes:
-  - This property has a bounds of [\`0\` , \`0\`]
+  - This property has a bounds of [\`0\`, \`0\`]
   - This property can't be used in restricted-execution mode.
 
 ### **s**
@@ -72,7 +72,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property has a bounds of [\`-255\` , \`-1\`]
+  - This property has a bounds of [\`-255\`, \`-1\`]
   - This property can't be used in restricted-execution mode.
 
 ### **w**
@@ -107,7 +107,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property has a bounds of [\`1\` , \`255\`]
+  - This property has a bounds of [\`1\`, \`255\`]
   - This property can't be used in restricted-execution mode.
 
 ## Methods
@@ -125,9 +125,9 @@ methodThatTakesBoundedValue(s: number, t: number, u: number, v: number, w: numbe
   * Maximum Bound: \`1\`
 - **u**: *number*
 - **v**: *number*
-  * Bounds: [\`-255\` , \`-1\`]
+  * Bounds: [\`-255\`, \`-1\`]
 - **w**: *number*
-  * Bounds: [\`1\` , \`255\`]
+  * Bounds: [\`1\`, \`255\`]
 - **x**: *number*
   * Minimum Bound: \`1\`
 - **y**: *number*
@@ -164,7 +164,7 @@ description: Contents of the bounds-module.InterfaceWithBounds class (Version 1.
 Type: *number*[]
 
 Notes:
-  - This property has a bounds of [\`0\` , \`1000\`]
+  - This property has a bounds of [\`0\`, \`1000\`]
 "
 `;
 
@@ -236,7 +236,7 @@ description: Contents of the bounds-module.ClassWithBounds class.
 Type: *number*
 
 Notes:
-  - This property has a bounds of [\`0\` , \`0\`]
+  - This property has a bounds of [\`0\`, \`0\`]
   - This property can't be used in restricted-execution mode.
 
 ### **s**
@@ -271,7 +271,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property has a bounds of [\`1\` , \`255\`]
+  - This property has a bounds of [\`1\`, \`255\`]
   - This property can't be used in restricted-execution mode.
 
 ### **w**
@@ -280,7 +280,7 @@ Notes:
 Type: *number*
 
 Notes:
-  - This property has a bounds of [\`1\` , \`255\`]
+  - This property has a bounds of [\`1\`, \`255\`]
   - This property can't be used in restricted-execution mode.
 
 ### **x**
@@ -324,14 +324,14 @@ methodThatTakesBoundedValue(s: number, t: number, u: number, v: number, w: numbe
   * Maximum Bound: \`255\`
 - **u**: *number*
 - **v**: *number*
-  * Bounds: [\`1\` , \`255\`]
+  * Bounds: [\`1\`, \`255\`]
 - **w**: *number*
 - **x**: *number*
   * Maximum Bound: \`255\`
 - **y**: *number*
   * Minimum Bound: \`1\`
 - **z**: *number*
-  * Bounds: [\`1\` , \`255\`]
+  * Bounds: [\`1\`, \`255\`]
 
 **Returns** *void*
   
@@ -360,7 +360,7 @@ description: Contents of the bounds-module.InterfaceWithBounds class.
 Type: *number*[]
 
 Notes:
-  - This property has a bounds of [\`0\` , \`1000\`]
+  - This property has a bounds of [\`0\`, \`1000\`]
 "
 `;
 
@@ -479,7 +479,7 @@ export class ClassWithBounds {
      * @remarks
      * This property can't be used in restricted-execution mode.
      *
-     * Bounds: [0 , 0]
+     * Bounds: [0, 0]
      */
     r: number;
     /**
@@ -506,7 +506,7 @@ export class ClassWithBounds {
      * @remarks
      * This property can't be used in restricted-execution mode.
      *
-     * Bounds: [-255 , -1]
+     * Bounds: [-255, -1]
      */
     v: number;
     /**
@@ -533,7 +533,7 @@ export class ClassWithBounds {
      * @remarks
      * This property can't be used in restricted-execution mode.
      *
-     * Bounds: [1 , 255]
+     * Bounds: [1, 255]
      */
     z: number;
     /**
@@ -545,9 +545,9 @@ export class ClassWithBounds {
      * @param t
      * Maximum value: 1
      * @param v
-     * Bounds: [-255 , -1]
+     * Bounds: [-255, -1]
      * @param w
-     * Bounds: [1 , 255]
+     * Bounds: [1, 255]
      * @param x
      * Minimum value: 1
      * @param y
@@ -567,7 +567,7 @@ export class ClassWithBounds {
 
 export interface InterfaceWithBounds {
     /**
-     * Bounds: [0 , 1000]
+     * Bounds: [0, 1000]
      */
     boundedInterfaceProperty?: number[];
 }
@@ -601,7 +601,7 @@ export class ClassWithBounds {
      * @remarks
      * This property can't be used in restricted-execution mode.
      *
-     * Bounds: [0 , 0]
+     * Bounds: [0, 0]
      */
     r: number;
     /**
@@ -628,14 +628,14 @@ export class ClassWithBounds {
      * @remarks
      * This property can't be used in restricted-execution mode.
      *
-     * Bounds: [1 , 255]
+     * Bounds: [1, 255]
      */
     v: number;
     /**
      * @remarks
      * This property can't be used in restricted-execution mode.
      *
-     * Bounds: [1 , 255]
+     * Bounds: [1, 255]
      */
     w: number;
     /**
@@ -667,13 +667,13 @@ export class ClassWithBounds {
      * @param t
      * Maximum value: 255
      * @param v
-     * Bounds: [1 , 255]
+     * Bounds: [1, 255]
      * @param x
      * Maximum value: 255
      * @param y
      * Minimum value: 1
      * @param z
-     * Bounds: [1 , 255]
+     * Bounds: [1, 255]
      */
     methodThatTakesBoundedValue(
         s: number,
@@ -689,7 +689,7 @@ export class ClassWithBounds {
 
 export interface InterfaceWithBounds {
     /**
-     * Bounds: [0 , 1000]
+     * Bounds: [0, 1000]
      */
     boundedInterfaceProperty?: number[];
 }

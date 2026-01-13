@@ -1,8 +1,16 @@
 # Change Log - @minecraft/core-build-tasks
 
-<!-- This log was last generated on Mon, 29 Sep 2025 17:42:55 GMT and should not be manually modified. -->
+<!-- This log was last generated on Tue, 13 Jan 2026 21:57:53 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 5.7.0
+
+Tue, 13 Jan 2026 21:57:53 GMT
+
+### Minor changes
+
+- Add support for Minecraft Education (desktop and UWP version) for deployment (gbaman@users.noreply.github.com)
 
 ## 5.5.0
 

@@ -1,0 +1,7 @@
+{
+  "type": "none",
+  "comment": "Use beachball sync to align local versions to NPM publish",
+  "packageName": "@minecraft/gameplay-utilities",
+  "email": "rlanda@microsoft.com",
+  "dependentChangeType": "none"
+}

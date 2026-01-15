@@ -2,6 +2,27 @@
   "name": "@minecraft/math",
   "entries": [
     {
+      "date": "Tue, 13 Jan 2026 21:57:53 GMT",
+      "version": "2.3.0",
+      "tag": "@minecraft/math_v2.3.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "niamh.cuileann@skyboxlabs.com",
+            "package": "@minecraft/math",
+            "commit": "e88bbe1ca158509f1ec32b2e86d48a0b1819b7e6",
+            "comment": "Added AABBUtils for performing functional operations on AABB objects, added Vector3Utils ceil, min and max"
+          },
+          {
+            "author": "1589lego@gmail.com",
+            "package": "@minecraft/math",
+            "commit": "e88bbe1ca158509f1ec32b2e86d48a0b1819b7e6",
+            "comment": "VectorXZUtils and more Vector2 utilities."
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 04 Sep 2025 23:12:17 GMT",
       "version": "2.2.9",
       "tag": "@minecraft/math_v2.2.9",

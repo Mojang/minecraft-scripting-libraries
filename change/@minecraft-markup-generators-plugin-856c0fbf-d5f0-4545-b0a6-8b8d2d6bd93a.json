@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Added closure execution privileges for properties, returns, and parameters. Also renamed privileges.",
-  "packageName": "@minecraft/markup-generators-plugin",
-  "email": "agriffin@microsoft.com",
-  "dependentChangeType": "patch"
-}

@@ -4,8 +4,35 @@
 
 ```ts
 
+import type { AABB } from '@minecraft/server';
+import { BlockVolume } from '@minecraft/server';
 import type { Vector2 } from '@minecraft/server';
 import type { Vector3 } from '@minecraft/server';
+import type { VectorXZ } from '@minecraft/server';
+
+// @public
+export class AABBInvalidExtentError extends Error {
+    constructor(extent: Vector3);
+}
+
+// @public
+export class AABBUtils {
+    static createFromCornerPoints(pointA: Vector3, pointB: Vector3): AABB;
+    static dilate(aabb: AABB, size: Vector3): AABB;
+    static EPSILON: number;
+    static equals(aabb: AABB, other: AABB): boolean;
+    static expand(aabb: AABB, other: AABB): AABB;
+    static getBlockVolume(aabb: AABB): BlockVolume;
+    static getIntersection(aabb: AABB, other: AABB): AABB | undefined;
+    static getMax(aabb: AABB): Vector3;
+    static getMin(aabb: AABB): Vector3;
+    static getSpan(aabb: AABB): Vector3;
+    static intersects(aabb: AABB, other: AABB): boolean;
+    static isInside(aabb: AABB, pos: Vector3): boolean;
+    static isValid(aabb: AABB): boolean;
+    static throwErrorIfInvalid(aabb: AABB): void;
+    static translate(aabb: AABB, delta: Vector3): AABB;
+}
 
 // @public
 export function clampNumber(val: number, min: number, max: number): number;
@@ -18,6 +45,23 @@ export class Vector2Builder implements Vector2 {
     constructor(vecStr: string, delim?: string);
     constructor(vec: Vector2, arg?: never);
     constructor(x: number, y: number);
+    add(v: Partial<Vector2>): this;
+    assign(vec: Vector2): this;
+    clamp(limits: {
+        min?: Partial<Vector2>;
+        max?: Partial<Vector2>;
+    }): this;
+    distance(vec: Vector2): number;
+    dot(vec: Vector2): number;
+    equals(v: Vector2): boolean;
+    floor(): this;
+    lerp(vec: Vector2, t: number): this;
+    magnitude(): number;
+    multiply(vec: Vector2): this;
+    normalize(): this;
+    scale(val: number): this;
+    slerp(vec: Vector2, t: number): this;
+    subtract(v: Partial<Vector2>): this;
     // (undocumented)
     toString(options?: {
         decimals?: number;
@@ -31,7 +75,23 @@ export class Vector2Builder implements Vector2 {
 
 // @public
 export class Vector2Utils {
+    static add(v1: Vector2, v2: Partial<Vector2>): Vector2;
+    static clamp(v: Vector2, limits?: {
+        min?: Partial<Vector2>;
+        max?: Partial<Vector2>;
+    }): Vector2;
+    static distance(a: Vector2, b: Vector2): number;
+    static dot(a: Vector2, b: Vector2): number;
+    static equals(v1: Vector2, v2: Vector2): boolean;
+    static floor(v: Vector2): Vector2;
     static fromString(str: string, delimiter?: string): Vector2 | undefined;
+    static lerp(a: Vector2, b: Vector2, t: number): Vector2;
+    static magnitude(v: Vector2): number;
+    static multiply(a: Vector2, b: Vector2): Vector2;
+    static normalize(v: Vector2): Vector2;
+    static scale(v1: Vector2, scale: number): Vector2;
+    static slerp(a: Vector2, b: Vector2, t: number): Vector2;
+    static subtract(v1: Vector2, v2: Partial<Vector2>): Vector2;
     static toString(v: Vector2, options?: {
         decimals?: number;
         delimiter?: string;
@@ -87,6 +147,7 @@ export class Vector3Builder implements Vector3 {
     constructor(x: number, y: number, z: number);
     add(v: Partial<Vector3>): this;
     assign(vec: Vector3): this;
+    ceil(): this;
     clamp(limits: {
         min?: Partial<Vector3>;
         max?: Partial<Vector3>;
@@ -98,6 +159,8 @@ export class Vector3Builder implements Vector3 {
     floor(): this;
     lerp(vec: Vector3, t: number): this;
     magnitude(): number;
+    max(vec: Vector3): this;
+    min(vec: Vector3): this;
     multiply(vec: Vector3): this;
     normalize(): this;
     rotateX(a: number): this;
@@ -121,6 +184,7 @@ export class Vector3Builder implements Vector3 {
 // @public
 export class Vector3Utils {
     static add(v1: Vector3, v2: Partial<Vector3>): Vector3;
+    static ceil(v: Vector3): Vector3;
     static clamp(v: Vector3, limits?: {
         min?: Partial<Vector3>;
         max?: Partial<Vector3>;
@@ -133,6 +197,8 @@ export class Vector3Utils {
     static fromString(str: string, delimiter?: string): Vector3 | undefined;
     static lerp(a: Vector3, b: Vector3, t: number): Vector3;
     static magnitude(v: Vector3): number;
+    static max(a: Vector3, b: Vector3): Vector3;
+    static min(a: Vector3, b: Vector3): Vector3;
     static multiply(a: Vector3, b: Vector3): Vector3;
     static normalize(v: Vector3): Vector3;
     static rotateX(v: Vector3, a: number): Vector3;
@@ -142,6 +208,67 @@ export class Vector3Utils {
     static slerp(a: Vector3, b: Vector3, t: number): Vector3;
     static subtract(v1: Vector3, v2: Partial<Vector3>): Vector3;
     static toString(v: Vector3, options?: {
+        decimals?: number;
+        delimiter?: string;
+    }): string;
+}
+
+// @public
+export const VECTORXZ_ZERO: VectorXZ;
+
+// @public
+export class VectorXZBuilder implements VectorXZ {
+    constructor(vecStr: string, delim?: string);
+    constructor(vec: VectorXZ, arg?: never);
+    constructor(x: number, y: number);
+    add(v: Partial<VectorXZ>): this;
+    assign(vec: VectorXZ): this;
+    clamp(limits: {
+        min?: Partial<VectorXZ>;
+        max?: Partial<VectorXZ>;
+    }): this;
+    distance(vec: VectorXZ): number;
+    dot(vec: VectorXZ): number;
+    equals(v: VectorXZ): boolean;
+    floor(): this;
+    lerp(vec: VectorXZ, t: number): this;
+    magnitude(): number;
+    multiply(vec: VectorXZ): this;
+    normalize(): this;
+    scale(val: number): this;
+    slerp(vec: VectorXZ, t: number): this;
+    subtract(v: Partial<VectorXZ>): this;
+    // (undocumented)
+    toString(options?: {
+        decimals?: number;
+        delimiter?: string;
+    }): string;
+    // (undocumented)
+    x: number;
+    // (undocumented)
+    z: number;
+}
+
+// @public
+export class VectorXZUtils {
+    static add(v1: VectorXZ, v2: Partial<VectorXZ>): VectorXZ;
+    static clamp(v: VectorXZ, limits?: {
+        min?: Partial<VectorXZ>;
+        max?: Partial<VectorXZ>;
+    }): VectorXZ;
+    static distance(a: VectorXZ, b: VectorXZ): number;
+    static dot(a: VectorXZ, b: VectorXZ): number;
+    static equals(v1: VectorXZ, v2: VectorXZ): boolean;
+    static floor(v: VectorXZ): VectorXZ;
+    static fromString(str: string, delimiter?: string): VectorXZ | undefined;
+    static lerp(a: VectorXZ, b: VectorXZ, t: number): VectorXZ;
+    static magnitude(v: VectorXZ): number;
+    static multiply(a: VectorXZ, b: VectorXZ): VectorXZ;
+    static normalize(v: VectorXZ): VectorXZ;
+    static scale(v1: VectorXZ, scale: number): VectorXZ;
+    static slerp(a: VectorXZ, b: VectorXZ, t: number): VectorXZ;
+    static subtract(v1: VectorXZ, v2: Partial<VectorXZ>): VectorXZ;
+    static toString(v: VectorXZ, options?: {
         decimals?: number;
         delimiter?: string;
     }): string;

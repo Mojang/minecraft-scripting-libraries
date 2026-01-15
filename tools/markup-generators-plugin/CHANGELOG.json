@@ -2,6 +2,27 @@
   "name": "@minecraft/markup-generators-plugin",
   "entries": [
     {
+      "date": "Tue, 13 Jan 2026 21:57:53 GMT",
+      "version": "1.2.0",
+      "tag": "@minecraft/markup-generators-plugin_v1.2.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "agriffin@microsoft.com",
+            "package": "@minecraft/markup-generators-plugin",
+            "commit": "e88bbe1ca158509f1ec32b2e86d48a0b1819b7e6",
+            "comment": "Added closure execution privileges for properties, returns, and parameters. Also renamed privileges."
+          },
+          {
+            "author": "beachball",
+            "package": "@minecraft/markup-generators-plugin",
+            "comment": "Bump @minecraft/api-docs-generator to v1.3.0",
+            "commit": "not available"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 29 Sep 2025 17:42:55 GMT",
       "version": "1.1.1",
       "tag": "@minecraft/markup-generators-plugin_v1.1.1",

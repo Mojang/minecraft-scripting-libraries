@@ -146,6 +146,33 @@ export class Vector3Builder implements Vector3 {
     }
 
     /**
+     * ceil
+     *
+     * Ceil the components of a vector to produce a new vector
+     */
+    ceil(): this {
+        return this.assign(Vector3Utils.ceil(this));
+    }
+
+    /**
+     * min
+     *
+     * Min the components of two vectors to produce a new vector
+     */
+    min(vec: Vector3): this {
+        return this.assign(Vector3Utils.min(this, vec));
+    }
+
+    /**
+     * max
+     *
+     * Max the components of two vectors to produce a new vector
+     */
+    max(vec: Vector3): this {
+        return this.assign(Vector3Utils.max(this, vec));
+    }
+
+    /**
      * toString
      *
      * Create a string representation of a vector

@@ -101,6 +101,33 @@ export class Vector3Utils {
     }
 
     /**
+     * ceil
+     *
+     * Ceil the components of a vector to produce a new vector
+     */
+    static ceil(v: Vector3): Vector3 {
+        return { x: Math.ceil(v.x), y: Math.ceil(v.y), z: Math.ceil(v.z) };
+    }
+
+    /**
+     * min
+     *
+     * Min the components of two vectors to produce a new vector
+     */
+    static min(a: Vector3, b: Vector3): Vector3 {
+        return { x: Math.min(a.x, b.x), y: Math.min(a.y, b.y), z: Math.min(a.z, b.z) };
+    }
+
+    /**
+     * max
+     *
+     * Max the components of two vectors to produce a new vector
+     */
+    static max(a: Vector3, b: Vector3): Vector3 {
+        return { x: Math.max(a.x, b.x), y: Math.max(a.y, b.y), z: Math.max(a.z, b.z) };
+    }
+
+    /**
      * toString
      *
      * Create a string representation of a vector3

@@ -1,8 +1,17 @@
 # Change Log - @minecraft/markup-generators-plugin
 
-<!-- This log was last generated on Mon, 29 Sep 2025 17:42:55 GMT and should not be manually modified. -->
+<!-- This log was last generated on Tue, 13 Jan 2026 21:57:53 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 1.2.0
+
+Tue, 13 Jan 2026 21:57:53 GMT
+
+### Minor changes
+
+- Added closure execution privileges for properties, returns, and parameters. Also renamed privileges. (agriffin@microsoft.com)
+- Bump @minecraft/api-docs-generator to v1.3.0
 
 ## 1.1.1
 

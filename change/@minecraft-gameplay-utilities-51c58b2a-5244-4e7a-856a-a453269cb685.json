@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "feat: improve type infer",
-  "packageName": "@minecraft/gameplay-utilities",
-  "email": "renixiel@gmail.com",
-  "dependentChangeType": "patch"
-}

@@ -1,8 +1,20 @@
 # Change Log - @minecraft/api-docs-generator
 
-<!-- This log was last generated on Thu, 04 Sep 2025 23:12:17 GMT and should not be manually modified. -->
+<!-- This log was last generated on Tue, 13 Jan 2026 21:57:53 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 1.3.0
+
+Tue, 13 Jan 2026 21:57:53 GMT
+
+### Minor changes
+
+- Added closure execution privileges for properties, returns, and parameters. Also renamed privileges. (agriffin@microsoft.com)
+
+### Patches
+
+- build(dependabot): bump terminal-kit from 2.11.7 to 3.1.2 (mc-npm@microsoft.com)
 
 ## 1.2.4
 

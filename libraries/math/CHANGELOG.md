@@ -1,8 +1,17 @@
 # Change Log - @minecraft/math
 
-<!-- This log was last generated on Thu, 04 Sep 2025 23:12:17 GMT and should not be manually modified. -->
+<!-- This log was last generated on Tue, 13 Jan 2026 21:57:53 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.3.0
+
+Tue, 13 Jan 2026 21:57:53 GMT
+
+### Minor changes
+
+- Added AABBUtils for performing functional operations on AABB objects, added Vector3Utils ceil, min and max (niamh.cuileann@skyboxlabs.com)
+- VectorXZUtils and more Vector2 utilities. (1589lego@gmail.com)
 
 ## 2.2.9
 

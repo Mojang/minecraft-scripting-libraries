@@ -88,6 +88,28 @@ describe('Vector3 operations', () => {
         expect(Vector3Utils.floor(input)).toEqual(expected);
     });
 
+    it('computes the ceil of the vector', () => {
+        const input: Vector3 = { x: 0.33, y: 1.14, z: 2.55 };
+        const expected: Vector3 = { x: 1, y: 2, z: 3 };
+        expect(Vector3Utils.ceil(input)).toEqual(expected);
+    });
+
+    it('computes the ceil of negative vectors', () => {
+        const input: Vector3 = { x: -0.33, y: -1.14, z: -2.55 };
+        const expected: Vector3 = { x: -0, y: -1, z: -2 };
+        expect(Vector3Utils.ceil(input)).toEqual(expected);
+    });
+
+    it('computes the min of two vectors', () => {
+        const result = Vector3Utils.min(v1, v2);
+        expect(result).toEqual(v1);
+    });
+
+    it('computes the max of two vectors', () => {
+        const result = Vector3Utils.max(v1, v2);
+        expect(result).toEqual(v2);
+    });
+
     it('normalizes the vector', () => {
         const result: Vector3 = Vector3Utils.normalize(v1);
         expect(result.x).toBeCloseTo(0.27, 2);

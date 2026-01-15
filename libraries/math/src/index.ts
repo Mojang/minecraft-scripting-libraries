@@ -3,3 +3,4 @@
 
 export * from './vector3/index.js';
 export * from './general/index.js';
+export * from './aabb/index.js';

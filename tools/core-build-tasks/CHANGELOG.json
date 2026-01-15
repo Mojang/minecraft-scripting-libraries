@@ -2,6 +2,21 @@
   "name": "@minecraft/core-build-tasks",
   "entries": [
     {
+      "date": "Tue, 13 Jan 2026 21:57:53 GMT",
+      "version": "5.7.0",
+      "tag": "@minecraft/core-build-tasks_v5.7.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "gbaman@users.noreply.github.com",
+            "package": "@minecraft/core-build-tasks",
+            "commit": "e88bbe1ca158509f1ec32b2e86d48a0b1819b7e6",
+            "comment": "Add support for Minecraft Education (desktop and UWP version) for deployment"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 29 Sep 2025 17:42:55 GMT",
       "version": "5.5.0",
       "tag": "@minecraft/core-build-tasks_v5.5.0",

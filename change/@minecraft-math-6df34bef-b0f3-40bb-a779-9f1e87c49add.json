@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "VectorXZUtils and more Vector2 utilities.",
-  "packageName": "@minecraft/math",
-  "email": "1589lego@gmail.com",
-  "dependentChangeType": "patch"
-}

@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Added property and function argument bounds data to metadata",
+  "packageName": "@minecraft/markup-generators-plugin",
+  "email": "brandon.chan@skyboxlabs.com",
+  "dependentChangeType": "patch"
+}

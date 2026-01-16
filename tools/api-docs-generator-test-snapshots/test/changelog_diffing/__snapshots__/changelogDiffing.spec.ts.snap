@@ -1718,10 +1718,6 @@ exports[`Changelog Diffing > Generates correct output for changelog diffs > chan
           {
             "arguments": [
               {
-                "details": {
-                  "max_value": 2147483647,
-                  "min_value": -2147483648
-                },
                 "name": "x",
                 "type": {
                   "is_bind_type": false,
@@ -1734,10 +1730,6 @@ exports[`Changelog Diffing > Generates correct output for changelog diffs > chan
                 }
               },
               {
-                "details": {
-                  "max_value": 2147483647,
-                  "min_value": -2147483648
-                },
                 "name": "y",
                 "type": {
                   "is_bind_type": false,
@@ -1750,10 +1742,6 @@ exports[`Changelog Diffing > Generates correct output for changelog diffs > chan
                 }
               },
               {
-                "details": {
-                  "max_value": 2147483647,
-                  "min_value": -2147483648
-                },
                 "name": "z",
                 "type": {
                   "is_bind_type": false,

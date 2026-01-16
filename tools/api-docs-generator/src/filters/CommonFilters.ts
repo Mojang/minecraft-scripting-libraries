@@ -1715,6 +1715,183 @@ function typeFlags(releases: MinecraftRelease[]) {
 }
 
 /**
+ * Marks up APIs that have bound values.
+ */
+function boundValues(releases: MinecraftRelease[]) {
+    for (const release of releases) {
+        for (const scriptModule of release.script_modules) {
+            const classJson: MinecraftClass[] = scriptModule.classes ?? [];
+            const interfaceJson: MinecraftInterface[] = scriptModule.interfaces ?? [];
+            const concatJsonArray: (MinecraftInterface | MinecraftClass)[] = classJson.concat(interfaceJson);
+
+            for (const concatJson of concatJsonArray) {
+                for (const functionJson of concatJson.functions ?? []) {
+                    for (const argumentJson of functionJson.arguments) {
+                        if (!argumentJson.details) {
+                            continue;
+                        }
+
+                        if (argumentJson.details.min_value !== undefined) {
+                            argumentJson.has_minimum = true;
+                        }
+
+                        if (argumentJson.details.max_value !== undefined) {
+                            argumentJson.has_maximum = true;
+                        }
+
+                        if (argumentJson.has_minimum && argumentJson.has_maximum) {
+                            argumentJson.has_bounds = true;
+                        }
+                    }
+                }
+
+                for (const propertyJson of concatJson.properties ?? []) {
+                    if (propertyJson.min_value !== undefined) {
+                        propertyJson.has_minimum = true;
+                    }
+
+                    if (propertyJson.max_value !== undefined) {
+                        propertyJson.has_maximum = true;
+                    }
+
+                    if (propertyJson.has_minimum && propertyJson.has_maximum) {
+                        propertyJson.has_bounds = true;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Marks up APIs that have bound values.
+ */
+function boundChanges(releases: MinecraftRelease[]) {
+    for (const release of releases) {
+        for (const scriptModule of release.script_modules) {
+            if (!moduleHasChangelog(scriptModule)) {
+                continue;
+            }
+
+            for (const changelog of scriptModule.changelog) {
+                for (const classJson of changelog.classes) {
+                    for (const propertyJson of classJson.properties) {
+                        const min_value = propertyJson.min_value as {
+                            $old: unknown;
+                            $new: unknown;
+                            has_changes?: boolean;
+                        };
+
+                        if (min_value) {
+                            // eslint-disable-next-line unicorn/no-null
+                            const validOld = min_value.$old !== undefined && min_value.$old !== null;
+                            // eslint-disable-next-line unicorn/no-null
+                            const validNew = min_value.$new !== undefined && min_value.$new !== null;
+
+                            if (validOld && validNew && min_value.$old !== min_value.$new) {
+                                propertyJson.min_changed = true;
+                            } else if (!validOld && validNew) {
+                                propertyJson.min_added = true;
+                            } else if (validOld && !validNew) {
+                                propertyJson.min_removed = true;
+                            }
+                        }
+
+                        const max_value = propertyJson.max_value as {
+                            $old: unknown;
+                            $new: unknown;
+                            has_changes?: boolean;
+                        };
+
+                        if (max_value) {
+                            // eslint-disable-next-line unicorn/no-null
+                            const validOld = max_value.$old !== undefined && max_value.$old !== null;
+                            // eslint-disable-next-line unicorn/no-null
+                            const validNew = max_value.$new !== undefined && max_value.$new !== null;
+
+                            if (validOld && validNew && max_value.$old !== max_value.$new) {
+                                propertyJson.max_changed = true;
+                            } else if (!validOld && validNew) {
+                                propertyJson.max_added = true;
+                            } else if (validOld && !validNew) {
+                                propertyJson.max_removed = true;
+                            }
+                        }
+                    }
+
+                    for (const functionJson of classJson.functions) {
+                        for (const argumentJson of functionJson.arguments) {
+                            type ArgumentDetails = {
+                                default_value: unknown;
+                                min_value: unknown;
+                                max_value: unknown;
+                                supported_values: unknown;
+                            };
+
+                            const details = argumentJson.details as {
+                                $old: ArgumentDetails;
+                                $new: ArgumentDetails;
+                                has_changes?: boolean;
+                            } | null;
+
+                            if (
+                                details === undefined ||
+                                // eslint-disable-next-line unicorn/no-null
+                                details === null ||
+                                (details.$old === undefined && details.$new === undefined)
+                            ) {
+                                continue;
+                            }
+
+                            // eslint-disable-next-line unicorn/no-null
+                            const validOld = details.$old !== undefined && details.$old !== null;
+
+                            // eslint-disable-next-line unicorn/no-null
+                            const validNew = details.$new !== undefined && details.$new !== null;
+
+                            if (validOld && !validNew) {
+                                if (details.$old.min_value !== undefined) {
+                                    argumentJson.min_removed = true;
+                                }
+                                if (details.$old.max_value !== undefined) {
+                                    argumentJson.max_removed = true;
+                                }
+                                continue;
+                            }
+
+                            if (!validOld && validNew) {
+                                if (details.$new.min_value !== undefined) {
+                                    argumentJson.min_added = true;
+                                }
+                                if (details.$new.max_value !== undefined) {
+                                    argumentJson.max_added = true;
+                                }
+                                continue;
+                            }
+
+                            const validOldMin = details.$old.min_value !== undefined;
+                            const validOldMax = details.$old.max_value !== undefined;
+
+                            const validNewMin = details.$new.min_value !== undefined;
+                            const validNewMax = details.$new.max_value !== undefined;
+
+                            argumentJson.min_added = !validOldMin && validNewMin;
+                            argumentJson.min_removed = validOldMin && !validNewMin;
+                            argumentJson.min_changed =
+                                validOldMin && validNewMin && details.$old.min_value !== details.$new.min_value;
+                            argumentJson.max_added = !validOldMax && validNewMax;
+                            argumentJson.max_removed = validOldMax && !validNewMax;
+                            argumentJson.max_changed =
+                                validOldMax && validNewMax && details.$old.max_value !== details.$new.max_value;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
  * Marks up APIs that have default values with 'has_defaults'.
  */
 function defaultValues(releases: MinecraftRelease[]) {
@@ -3383,6 +3560,8 @@ export const CommonFilters: FilterGroup = {
         ['block_filters', blockFilters],
         ['constant_values', constantValues],
         ['default_values', defaultValues],
+        ['bound_values', boundValues],
+        ['bound_changes', boundChanges],
         ['markup_categories', markupCategories],
         ['type_alias_markup', typeAliasMarkup],
         ['type_flags', typeFlags],

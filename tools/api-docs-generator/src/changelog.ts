@@ -89,6 +89,8 @@ const scriptingDataLayout: RootMetadataScope = {
                     key: 'name',
                     submembers: {
                         is_read_only: { type: 'value' },
+                        min_value: { type: 'value' },
+                        max_value: { type: 'value' },
                         get_privilege: { type: 'array', key: 'name' },
                         set_privilege: { type: 'array', key: 'name' },
                         type: TypeDataLayout,
@@ -103,6 +105,9 @@ const scriptingDataLayout: RootMetadataScope = {
                             key: 'name',
                             submembers: {
                                 type: TypeDataLayout,
+                                details: {
+                                    type: 'value',
+                                },
                             },
                         },
                         call_privilege: { type: 'array', key: 'name' },
@@ -158,6 +163,9 @@ const scriptingDataLayout: RootMetadataScope = {
                     key: 'name',
                     submembers: {
                         type: TypeDataLayout,
+                        details: {
+                            type: 'value',
+                        },
                     },
                 },
                 return_type: TypeDataLayout,

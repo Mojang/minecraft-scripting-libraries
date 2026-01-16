@@ -48,6 +48,17 @@
  * Defaults to: {{> value}}
         {{/details.default_value}}
       {{/has_defaults}}
+      {{#has_bounds}}
+ * Bounds: [{{details.min_value}}, {{details.max_value}}]
+      {{/has_bounds}}
+      {{^has_bounds}}
+        {{#has_minimum}}
+ * Minimum value: {{details.min_value}}
+        {{/has_minimum}}
+        {{#has_maximum}}
+ * Maximum value: {{details.max_value}}
+        {{/has_maximum}}      
+      {{/has_bounds}}
     {{/ts_has_comments}}
   {{/arguments}}
   {{#returns_description_ts.length}}

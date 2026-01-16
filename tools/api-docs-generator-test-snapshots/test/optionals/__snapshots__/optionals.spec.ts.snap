@@ -88,6 +88,7 @@ methodWithDefaultValuesAreOptional(defaultIs1?: number, defaultIs0?: number, def
 
 #### **Parameters**
 - **defaultIs1**?: *number* = \`1\`
+  * Bounds: [\`1\`, \`255\`]
 - **defaultIs0**?: *number* = \`0\`
 - **defaultIsFalse**?: *boolean* = \`false\`
 - **defaultIsString**?: *string* = \`"String"\`
@@ -231,6 +232,7 @@ export class ClassWithOptionals {
      *
      * @param defaultIs1
      * Defaults to: 1
+     * Bounds: [1, 255]
      * @param defaultIs0
      * Defaults to: 0
      * @param defaultIsFalse

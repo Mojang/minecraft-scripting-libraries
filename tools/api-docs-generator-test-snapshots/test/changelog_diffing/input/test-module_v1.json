@@ -447,10 +447,6 @@
         {
           "arguments": [
             {
-              "details": {
-                "max_value": 2147483647,
-                "min_value": -2147483648
-              },
               "name": "x",
               "type": {
                 "is_bind_type": false,
@@ -463,10 +459,6 @@
               }
             },
             {
-              "details": {
-                "max_value": 2147483647,
-                "min_value": -2147483648
-              },
               "name": "y",
               "type": {
                 "is_bind_type": false,
@@ -479,10 +471,6 @@
               }
             },
             {
-              "details": {
-                "max_value": 2147483647,
-                "min_value": -2147483648
-              },
               "name": "z",
               "type": {
                 "is_bind_type": false,

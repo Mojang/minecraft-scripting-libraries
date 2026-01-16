@@ -329,6 +329,7 @@ function flagTSComments(obj: MarkupCommentFlags): void {
         obj.has_defaults ||
         obj.has_minimum ||
         obj.has_maximum ||
+        obj.has_bounds ||
         obj.has_errors ||
         obj.is_prerelease ||
         obj.is_deprecated ||

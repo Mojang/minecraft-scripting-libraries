@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Allow docs generator to handle molang metadata",
+  "packageName": "@minecraft/api-docs-generator",
+  "email": "rlanda@microsoft.com",
+  "dependentChangeType": "patch"
+}

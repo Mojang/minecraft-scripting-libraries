@@ -7,6 +7,7 @@ import { IMinecraftModule, RuntimeDataModule } from './modules/IMinecraftModule'
 import { MinecraftBlockModule } from './modules/MinecraftBlockModule';
 import { MinecraftCommandModule } from './modules/MinecraftCommandModule';
 import { MinecraftEngineDataModule } from './modules/MinecraftEngineDataModules';
+import { MinecraftMolangModule } from './modules/MinecraftMolangModule';
 import { MinecraftScriptModule } from './modules/MinecraftScriptModule';
 import { MinecraftVanillaDataModule } from './modules/MinecraftVanillaDataModules';
 import * as utils from './utilities';
@@ -64,6 +65,7 @@ export class MinecraftRelease {
     block_modules: RuntimeDataModule<MinecraftBlockModule>[] = [];
     vanilla_data_modules: RuntimeDataModule<MinecraftVanillaDataModule>[] = [];
     engine_data_modules: RuntimeDataModule<MinecraftEngineDataModule>[] = [];
+    molang_modules: RuntimeDataModule<MinecraftMolangModule>[] = [];
     json_schemas: MinecraftJsonSchemaMap = {};
 
     constructor(public minecraft_version: string) {}
@@ -86,6 +88,9 @@ export class MinecraftRelease {
         for (const module of this.engine_data_modules) {
             result.engine_data_modules.push(JSON.parse(JSON.stringify(module)) as MinecraftEngineDataModule);
         }
+        for (const module of this.molang_modules) {
+            result.molang_modules.push(JSON.parse(JSON.stringify(module)) as MinecraftMolangModule);
+        }
         result.json_schemas = JSON.parse(JSON.stringify(this.json_schemas)) as MinecraftJsonSchemaMap;
 
         return result;
@@ -98,7 +103,8 @@ export class MinecraftRelease {
             .concat(this.command_modules)
             .concat(this.block_modules)
             .concat(this.vanilla_data_modules)
-            .concat(this.engine_data_modules);
+            .concat(this.engine_data_modules)
+            .concat(this.molang_modules);
         return result;
     }
 

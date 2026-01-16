@@ -13,6 +13,7 @@ export * from './MinecraftEnchantmentsModule';
 export * from './MinecraftEngineDataModules';
 export * from './MinecraftEntitiesModule';
 export * from './MinecraftItemsModule';
+export * from './MinecraftMolangModule';
 export * from './MinecraftScriptModule';
 export * from './MinecraftVanillaDataModules';
 export * from './MinecraftSchemaObject';

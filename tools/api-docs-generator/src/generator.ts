@@ -20,6 +20,7 @@ import { MinecraftAfterEventsOrderModuleRecord } from './modules/MinecraftAfterE
 import { MinecraftBlockModule, MinecraftBlockModuleRecord } from './modules/MinecraftBlockModule';
 import { MinecraftCommandModule, MinecraftCommandModuleRecord } from './modules/MinecraftCommandModule';
 import { MinecraftEngineDataModule } from './modules/MinecraftEngineDataModules';
+import { MinecraftMolangModule, MinecraftMolangModuleRecord } from './modules/MinecraftMolangModule';
 import { MinecraftJsonSchemaMap, MinecraftSchemaObject } from './modules/MinecraftSchemaObject';
 import {
     MinecraftFunction,
@@ -296,6 +297,7 @@ function loadMinecraftReleases(context: GeneratorContext): MinecraftReleasesByVe
     const allBlockModules: MinecraftBlockModule[] = [];
     const allVanillaModules: MinecraftVanillaDataModule[] = [];
     const allEngineModules: MinecraftEngineDataModule[] = [];
+    const allMolangModules: MinecraftMolangModule[] = [];
     const allJsonSchemas: MinecraftJsonSchemaMap = {};
 
     const inputFiles = utils.getFilesRecursively(context.inputDirectory);
@@ -349,6 +351,11 @@ function loadMinecraftReleases(context: GeneratorContext): MinecraftReleasesByVe
                     case 'after_events_ordering': {
                         const afterEventsOrderModule = MinecraftAfterEventsOrderModuleRecord.check(documentationJson);
                         allEngineModules.push(afterEventsOrderModule);
+                        break;
+                    }
+                    case 'molang': {
+                        const molangModule = MinecraftMolangModuleRecord.check(documentationJson);
+                        allMolangModules.push(molangModule);
                         break;
                     }
                     default: {
@@ -422,6 +429,16 @@ function loadMinecraftReleases(context: GeneratorContext): MinecraftReleasesByVe
         }
 
         allMinecraftReleases[moduleMinecraftVersion].engine_data_modules.push(engineModule);
+    }
+
+    for (const molangModule of allMolangModules) {
+        const moduleMinecraftVersion = molangModule.minecraft_version;
+
+        if (!allMinecraftReleases[moduleMinecraftVersion]) {
+            allMinecraftReleases[moduleMinecraftVersion] = new MinecraftRelease(moduleMinecraftVersion);
+        }
+
+        allMinecraftReleases[moduleMinecraftVersion].molang_modules.push(molangModule);
     }
 
     const unversionedJsonSchemas: MinecraftJsonSchemaMap = {};

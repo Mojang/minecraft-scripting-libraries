@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Timeout increases",
-  "packageName": "eslint-plugin-minecraft-linting",
-  "email": "rlanda@microsoft.com",
-  "dependentChangeType": "patch"
-}

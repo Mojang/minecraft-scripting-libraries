@@ -1,8 +1,16 @@
 # Change Log - eslint-plugin-minecraft-linting
 
-<!-- This log was last generated on Thu, 04 Sep 2025 23:12:17 GMT and should not be manually modified. -->
+<!-- This log was last generated on Fri, 16 Jan 2026 21:45:44 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.0.12
+
+Fri, 16 Jan 2026 21:45:44 GMT
+
+### Patches
+
+- Timeout increases (rlanda@microsoft.com)
 
 ## 2.0.8
 

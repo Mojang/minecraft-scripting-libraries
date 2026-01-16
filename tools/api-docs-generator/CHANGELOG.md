@@ -1,8 +1,16 @@
 # Change Log - @minecraft/api-docs-generator
 
-<!-- This log was last generated on Tue, 13 Jan 2026 21:57:53 GMT and should not be manually modified. -->
+<!-- This log was last generated on Fri, 16 Jan 2026 21:45:44 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 1.4.0
+
+Fri, 16 Jan 2026 21:45:44 GMT
+
+### Minor changes
+
+- Allow docs generator to handle molang metadata (rlanda@microsoft.com)
 
 ## 1.3.0
 

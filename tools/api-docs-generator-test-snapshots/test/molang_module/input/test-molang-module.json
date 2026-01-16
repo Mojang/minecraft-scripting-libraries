@@ -1,0 +1,50 @@
+{
+    "name": "@minecraft/molang",
+    "minecraft_version": "1.26.0",
+    "module_type": "molang",
+    "queries": [
+        {
+            "name": "query.is_sneaking",
+            "description": "Returns 1.0 if the entity is sneaking, 0.0 otherwise.",
+            "return_type": "float",
+            "min_args": 0,
+            "experiments": [],
+            "version_ranges": [
+                {
+                    "first_version": "1.16.0"
+                }
+            ]
+        },
+        {
+            "name": "query.health",
+            "description": "Returns the current health of the entity.",
+            "return_type": "float",
+            "min_args": 0,
+            "max_args": 1,
+            "experiments": [],
+            "version_ranges": [
+                {
+                    "first_version": "1.16.0",
+                    "query_sets": [
+                        "entity"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "query.get_equipped_item_name",
+            "description": "Returns the name of the currently equipped item. This is an experimental query.",
+            "return_type": "string",
+            "min_args": 0,
+            "experiments": [
+                "upcoming_creator_features"
+            ],
+            "version_ranges": [
+                {
+                    "first_version": "1.20.0",
+                    "version_change_description": "Added in 1.20.0 as experimental"
+                }
+            ]
+        }
+    ]
+}

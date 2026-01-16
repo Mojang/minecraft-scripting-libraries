@@ -10,7 +10,8 @@ export const ModuleTypesValidator = Union(
     Literal('script'),
     Literal('commands'),
     Literal('after_events_ordering'),
-    Literal('vanilla_data')
+    Literal('vanilla_data'),
+    Literal('molang')
 );
 export type ModuleTypes = Static<typeof ModuleTypesValidator>;
 

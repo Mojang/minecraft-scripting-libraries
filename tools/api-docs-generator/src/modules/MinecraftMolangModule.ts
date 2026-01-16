@@ -42,7 +42,3 @@ export const MinecraftMolangModuleRecord = Intersect(
     })
 );
 export type MinecraftMolangModule = Static<typeof MinecraftMolangModuleRecord>;
-
-export function isMolangModule(module: IMinecraftModule): module is MinecraftMolangModule {
-    return module !== undefined && module.module_type === 'molang';
-}

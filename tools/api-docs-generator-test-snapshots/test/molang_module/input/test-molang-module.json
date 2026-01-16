@@ -1,5 +1,5 @@
 {
-    "name": "@minecraft/molang",
+    "name": "engine-molang",
     "minecraft_version": "1.26.0",
     "module_type": "molang",
     "queries": [
@@ -8,7 +8,6 @@
             "description": "Returns 1.0 if the entity is sneaking, 0.0 otherwise.",
             "return_type": "float",
             "min_args": 0,
-            "experiments": [],
             "version_ranges": [
                 {
                     "first_version": "1.16.0"
@@ -21,7 +20,6 @@
             "return_type": "float",
             "min_args": 0,
             "max_args": 1,
-            "experiments": [],
             "version_ranges": [
                 {
                     "first_version": "1.16.0",

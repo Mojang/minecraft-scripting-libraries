@@ -3,7 +3,7 @@
 
 import { Array, Intersect, Literal, Number, Optional, Record, Static, String } from 'runtypes';
 
-import { CommonModuleDataValidator, IMinecraftModule } from './IMinecraftModule';
+import { CommonModuleDataValidator } from './IMinecraftModule';
 
 /**
  * A version range for a Molang query which includes change description and pertinent query sets
@@ -24,7 +24,7 @@ export const MinecraftMolangQueryRecord = Record({
     return_type: String,
     min_args: Number,
     max_args: Optional(Number),
-    experiments: Array(String),
+    experiments: Optional(Array(String)),
     version_ranges: Array(MinecraftMolangVersionRangeRecord),
 });
 export type MinecraftMolangQuery = Static<typeof MinecraftMolangQueryRecord>;

@@ -316,7 +316,7 @@ export class MSDocsMarkdownGenerator implements MarkupGenerator {
         outputDirectory: string
     ): void {
         const msdocsTemplateFileData = mdTemplateFiles.readFileAsString('script/module_changelog.mustache');
-        
+
         moduleJson.mustache_config = MUSTACHE_CONFIG;
 
         const msdocsProcessedData = mustache.render(msdocsTemplateFileData, moduleJson, {

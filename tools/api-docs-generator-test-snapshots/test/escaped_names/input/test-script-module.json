@@ -29,6 +29,15 @@
             "is_errorable": false,
             "name": "int32"
           }
+        },
+        {
+          "is_read_only": false,
+          "name": "delete",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32"
+          }
         }
       ],
       "functions": [

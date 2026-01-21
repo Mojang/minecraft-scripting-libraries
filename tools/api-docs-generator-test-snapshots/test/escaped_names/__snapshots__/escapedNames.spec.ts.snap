@@ -42,6 +42,14 @@ Type: *number*
 Notes:
   - This property can't be used in restricted-execution mode.
 
+### **delete**
+\`delete: number;\`
+
+Type: *number*
+
+Notes:
+  - This property can't be used in restricted-execution mode.
+
 ### **member with spaces**
 \`member with spaces: number;\`
 
@@ -64,6 +72,7 @@ Notes:
 ### **delete**
 \`
 delete(): void
+
 \`
   
 Notes:
@@ -243,13 +252,19 @@ export class ClassWithSpookyMemberNames {
      * This property can't be used in restricted-execution mode.
      *
      */
+    delete: number;
+    /**
+     * @remarks
+     * This property can't be used in restricted-execution mode.
+     *
+     */
     'member with spaces': number;
     /**
      * @remarks
      * This property can't be used in restricted-execution mode.
      *
      */
-    'type': number;
+    type: number;
     /**
      * @remarks
      * This function can't be called in restricted-execution mode.

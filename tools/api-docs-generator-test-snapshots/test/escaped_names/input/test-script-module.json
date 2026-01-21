@@ -31,6 +31,18 @@
           }
         }
       ],
+      "functions": [
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "name": "delete",
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "undefined"
+          }
+        }
+      ],
       "type": {
         "is_bind_type": true,
         "is_errorable": false,

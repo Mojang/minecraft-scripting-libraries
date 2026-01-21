@@ -189,6 +189,7 @@ function checkForChangedStableAPIs(releases: MinecraftRelease[]) {
 type TypeScriptMustacheConfig = {
     display_constructor_as_instantiation?: boolean;
     disable_export_keyword?: boolean;
+    ts_name_prevent_escape?: boolean;
 };
 
 type WithTypeScriptMustacheConfig<T> = T & {
@@ -198,6 +199,7 @@ type WithTypeScriptMustacheConfig<T> = T & {
 const MUSTACHE_CONFIG: TypeScriptMustacheConfig = {
     display_constructor_as_instantiation: true,
     disable_export_keyword: true,
+    ts_name_prevent_escape: false,
 };
 
 export class MSDocsMarkdownGenerator implements MarkupGenerator {
@@ -210,6 +212,7 @@ export class MSDocsMarkdownGenerator implements MarkupGenerator {
         const msdocsTemplateFileData = mdTemplateFiles.readFileAsString('script/class.mustache');
 
         classJson.mustache_config = MUSTACHE_CONFIG;
+        classJson.mustache_config.ts_name_prevent_escape = true;
 
         const msdocsProcessedData = mustache.render(msdocsTemplateFileData, classJson, {
             // MSDocs Partials
@@ -240,6 +243,7 @@ export class MSDocsMarkdownGenerator implements MarkupGenerator {
         const msdocsTemplateFileData = mdTemplateFiles.readFileAsString('script/enum.mustache');
 
         enumJson.mustache_config = MUSTACHE_CONFIG;
+        enumJson.mustache_config.ts_name_prevent_escape = false;
 
         const msdocsProcessedData = mustache.render(msdocsTemplateFileData, enumJson, {
             // MSDocs Partials
@@ -268,6 +272,7 @@ export class MSDocsMarkdownGenerator implements MarkupGenerator {
         const msdocsTemplateFileData = mdTemplateFiles.readFileAsString('script/type_alias.mustache');
 
         typeAliasJson.mustache_config = MUSTACHE_CONFIG;
+        typeAliasJson.mustache_config.ts_name_prevent_escape = false;
 
         const msdocsProcessedData = mustache.render(msdocsTemplateFileData, typeAliasJson, {
             examples: mdTemplateFiles.readFileAsString('script/examples.mustache'),
@@ -287,6 +292,7 @@ export class MSDocsMarkdownGenerator implements MarkupGenerator {
         const msdocsTemplateFileData = mdTemplateFiles.readFileAsString('script/module.mustache');
 
         moduleJson.mustache_config = MUSTACHE_CONFIG;
+        moduleJson.mustache_config.ts_name_prevent_escape = false;
 
         const msdocsProcessedData = mustache.render(msdocsTemplateFileData, moduleJson, {
             // MSDocs Partials
@@ -316,7 +322,9 @@ export class MSDocsMarkdownGenerator implements MarkupGenerator {
         outputDirectory: string
     ): void {
         const msdocsTemplateFileData = mdTemplateFiles.readFileAsString('script/module_changelog.mustache');
+        
         moduleJson.mustache_config = MUSTACHE_CONFIG;
+        moduleJson.mustache_config.ts_name_prevent_escape = false;
 
         const msdocsProcessedData = mustache.render(msdocsTemplateFileData, moduleJson, {
             // MSDocs Partials

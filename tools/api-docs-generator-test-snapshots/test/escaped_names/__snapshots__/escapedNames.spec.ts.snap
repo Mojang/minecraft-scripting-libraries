@@ -72,7 +72,6 @@ Notes:
 ### **delete**
 \`
 delete(): void
-
 \`
   
 Notes:
@@ -234,7 +233,7 @@ exports[`Escaped Names > Properly generates documentation for names which need e
  *
  */
 export enum EnumWithSpookyMemberNames {
-    'type' = 'Name that is a keyword',
+    type = 'Name that is a keyword',
     '5valueWithNumberStart' = 'Name with a number at the start',
     'value with spaces' = 'Name with a space in it',
 }

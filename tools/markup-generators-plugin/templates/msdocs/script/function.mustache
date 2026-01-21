@@ -4,7 +4,15 @@
 {{#is_prerelease}}
 ::: moniker range="=minecraft-bedrock-experimental"
 {{/is_prerelease}}
-{{> function_declaration }}
+### **{{{name}}}**
+`
+{{> function_declaration}}
+
+`
+{{#function_description_md}}
+
+{{{.}}}
+{{/function_description_md}}
 {{#arguments.length}}
 
 #### **Parameters**

@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Fixing issues with keywords being surrounded by quotes.",
+  "packageName": "@minecraft/markup-generators-plugin",
+  "email": "alexander.denford@skyboxlabs.com",
+  "dependentChangeType": "patch"
+}

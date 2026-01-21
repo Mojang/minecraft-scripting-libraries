@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Fixing issues with keywords being surrounded by quotes.",
+  "packageName": "@minecraft/api-docs-generator",
+  "email": "alexander.denford@skyboxlabs.com",
+  "dependentChangeType": "patch"
+}

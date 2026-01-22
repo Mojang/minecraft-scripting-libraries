@@ -32,7 +32,7 @@
         },
         {
           "is_read_only": false,
-          "name": "delete",
+          "name": "void",
           "type": {
             "is_bind_type": false,
             "is_errorable": false,

@@ -203,7 +203,9 @@ function escapeNameIfNeeded(objectWithName: {
         return;
     }
 
-    if (name.includes(' ')) {
+    if (escapedWords.indexOf(name) !== -1) {
+        objectWithName.ts_name_should_escape = true;
+    } else if (name.includes(' ')) {
         objectWithName.ts_name_should_escape = true;
     } else if (name.includes('.')) {
         objectWithName.ts_name_should_escape = true;
@@ -211,7 +213,84 @@ function escapeNameIfNeeded(objectWithName: {
     else if (/^\d/.test(name)) {
         objectWithName.ts_name_should_escape = true;
     }
+
+    if( objectWithName.ts_name_should_escape) {
+        console.log(objectWithName.name);
+        objectWithName.name = `"${objectWithName.name}"`;
+        objectWithName.ts_name_should_escape = false;
+    }
 }
+
+/**
+ * Words that must be escaped for TypeScript generation.
+ *
+ * See: https://github.com/microsoft/TypeScript/issues/2536#issuecomment-87194347
+ */
+const escapedWords: string[] = [
+    // Reserved Words
+    'break',
+    'case',
+    'catch',
+    'class',
+    'const',
+    'continue',
+    'debugger',
+    'default',
+    'delete',
+    'do',
+    'else',
+    'enum',
+    'export',
+    'extends',
+    'false',
+    'finally',
+    'for',
+    'function',
+    'if',
+    'import',
+    'in',
+    'instanceof',
+    'new',
+    'null',
+    'return',
+    'super',
+    'switch',
+    'this',
+    'throw',
+    'true',
+    'try',
+    'typeof',
+    'var',
+    'void',
+    'while',
+    'with',
+    // Strict Mode Reserved Words
+    'as',
+    'implements',
+    'interface',
+    'let',
+    'package',
+    'private',
+    'protected',
+    'public',
+    'static',
+    'yield',
+    // Contextual Keywords
+    'any',
+    'boolean',
+    'constructor',
+    'declare',
+    'get',
+    'module',
+    'require',
+    'number',
+    'set',
+    'string',
+    'symbol',
+    'type',
+    'from',
+    'of',
+];
 
 function markNamesThatShouldBeEscaped(releases: MinecraftRelease[]) {
     for (const release of releases) {

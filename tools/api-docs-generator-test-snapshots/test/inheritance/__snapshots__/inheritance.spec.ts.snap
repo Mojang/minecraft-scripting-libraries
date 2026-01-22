@@ -53,9 +53,9 @@ description: Contents of the example-module.BaseClassWithPublicConstructor class
 - [*ChildClassOfPublicConstructor*](ChildClassOfPublicConstructor.md)
 
 ## Methods
-- [constructor](#constructor)
+- ["constructor"](#constructor)
 
-### **constructor**
+### **"constructor"**
 \`
 new BaseClassWithPublicConstructor()
 \`
@@ -80,9 +80,9 @@ description: Contents of the example-module.ChildClassOfPrivateConstructor class
 - [*BaseClassWithPrivateConstructor*](BaseClassWithPrivateConstructor.md)
 
 ## Methods
-- [constructor](#constructor)
+- ["constructor"](#constructor)
 
-### **constructor**
+### **"constructor"**
 \`
 new ChildClassOfPrivateConstructor()
 \`
@@ -107,9 +107,9 @@ description: Contents of the example-module.ChildClassOfPublicConstructor class.
 - [*BaseClassWithPublicConstructor*](BaseClassWithPublicConstructor.md)
 
 ## Methods
-- [constructor](#constructor)
+- ["constructor"](#constructor)
 
-### **constructor**
+### **"constructor"**
 \`
 new ChildClassOfPublicConstructor()
 \`
@@ -131,9 +131,9 @@ description: Contents of the example-module.NonChildClass class.
 # NonChildClass Class
 
 ## Methods
-- [constructor](#constructor)
+- ["constructor"](#constructor)
 
-### **constructor**
+### **"constructor"**
 \`
 new NonChildClass()
 \`

@@ -222,7 +222,7 @@ export class MSDocsMarkdownGenerator implements MarkupGenerator {
             default_metadata: mdTemplateFiles.readFileAsString('script/default_metadata.mustache'),
 
             // TypeScript Partials
-            function_declaration: tsTemplateFiles.readFileAsString('function_declaration.mustache'),
+            function_declaration: mdTemplateFiles.readFileAsString('script/function_declaration.mustache'),
             function_argument_declaration: tsTemplateFiles.readFileAsString('function_argument_declaration.mustache'),
             type: tsTemplateFiles.readFileAsString('type.mustache'),
         });
@@ -251,7 +251,7 @@ export class MSDocsMarkdownGenerator implements MarkupGenerator {
             default_metadata: mdTemplateFiles.readFileAsString('script/default_metadata.mustache'),
 
             // TypeScript Partials
-            function_declaration: tsTemplateFiles.readFileAsString('function_declaration.mustache'),
+            function_declaration: mdTemplateFiles.readFileAsString('script/function_declaration.mustache'),
             function_argument_declaration: tsTemplateFiles.readFileAsString('function_argument_declaration.mustache'),
             type: tsTemplateFiles.readFileAsString('type.mustache'),
         });
@@ -300,7 +300,7 @@ export class MSDocsMarkdownGenerator implements MarkupGenerator {
             default_metadata: mdTemplateFiles.readFileAsString('script/default_metadata.mustache'),
 
             // TypeScript Partials
-            function_declaration: tsTemplateFiles.readFileAsString('function_declaration.mustache'),
+            function_declaration: mdTemplateFiles.readFileAsString('script/function_declaration.mustache'),
             function_argument_declaration: tsTemplateFiles.readFileAsString('function_argument_declaration.mustache'),
             type: tsTemplateFiles.readFileAsString('type.mustache'),
         });
@@ -316,6 +316,7 @@ export class MSDocsMarkdownGenerator implements MarkupGenerator {
         outputDirectory: string
     ): void {
         const msdocsTemplateFileData = mdTemplateFiles.readFileAsString('script/module_changelog.mustache');
+
         moduleJson.mustache_config = MUSTACHE_CONFIG;
 
         const msdocsProcessedData = mustache.render(msdocsTemplateFileData, moduleJson, {
@@ -330,7 +331,7 @@ export class MSDocsMarkdownGenerator implements MarkupGenerator {
             default_metadata: mdTemplateFiles.readFileAsString('script/default_metadata.mustache'),
 
             // TypeScript Partials
-            function_declaration: tsTemplateFiles.readFileAsString('function_declaration.mustache'),
+            function_declaration: mdTemplateFiles.readFileAsString('script/function_declaration.mustache'),
             function_argument_declaration: tsTemplateFiles.readFileAsString('function_argument_declaration.mustache'),
             type: tsTemplateFiles.readFileAsString('type.mustache'),
         });

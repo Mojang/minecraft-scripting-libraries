@@ -8,7 +8,7 @@ describe('Escaped Names', () => {
     it('Properly generates documentation for names which need escaping', () => {
         runGeneratorForTest({
             testDir: __dirname,
-            generators: ['ts'],
+            generators: ['ts', 'msdocs'],
         });
     });
 });

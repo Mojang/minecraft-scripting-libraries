@@ -29,6 +29,27 @@
             "is_errorable": false,
             "name": "int32"
           }
+        },
+        {
+          "is_read_only": false,
+          "name": "void",
+          "type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "int32"
+          }
+        }
+      ],
+      "functions": [
+        {
+          "arguments": [],
+          "is_constructor": false,
+          "name": "delete",
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "undefined"
+          }
         }
       ],
       "type": {

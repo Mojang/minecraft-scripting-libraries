@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Fixing functions that match keywords from being surrounded by quotes in docs generation.",
+  "packageName": "@minecraft/api-docs-generator",
+  "email": "alexander.denford@skyboxlabs.com",
+  "dependentChangeType": "patch"
+}

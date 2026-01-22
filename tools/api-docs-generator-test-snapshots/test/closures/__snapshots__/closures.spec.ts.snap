@@ -97,10 +97,10 @@ Type: (arg0: *boolean* | *number*) => *void*
 Type: (arg0: *number* | *undefined*) => *number | undefined*
 
 ## Methods
-- ["constructor"](#constructor)
+- [constructor](#constructor)
 - [methodWithMultiArgClosure](#methodwithmultiargclosure)
 
-### **"constructor"**
+### **constructor**
 \`
 new ExampleClass(onChange?: (arg0: boolean | number) => void)
 \`

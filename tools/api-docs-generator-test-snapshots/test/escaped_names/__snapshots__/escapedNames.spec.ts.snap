@@ -34,32 +34,32 @@ description: Contents of the escaped-names.ClassWithSpookyMemberNames class.
 
 ## Properties
 
-### **"5memberWithNumberStart"**
-\`"5memberWithNumberStart": number;\`
+### **5memberWithNumberStart**
+\`5memberWithNumberStart: number;\`
 
 Type: *number*
 
 Notes:
   - This property can't be used in restricted-execution mode.
 
-### **"member with spaces"**
-\`"member with spaces": number;\`
+### **member with spaces**
+\`member with spaces: number;\`
 
 Type: *number*
 
 Notes:
   - This property can't be used in restricted-execution mode.
 
-### **"type"**
-\`"type": number;\`
+### **type**
+\`type: number;\`
 
 Type: *number*
 
 Notes:
   - This property can't be used in restricted-execution mode.
 
-### **"void"**
-\`"void": number;\`
+### **void**
+\`void: number;\`
 
 Type: *number*
 
@@ -67,11 +67,11 @@ Notes:
   - This property can't be used in restricted-execution mode.
 
 ## Methods
-- ["delete"](#delete)
+- [delete](#delete)
 
-### **"delete"**
+### **delete**
 \`
-"delete"(): void
+delete(): void
 \`
   
 Notes:
@@ -92,12 +92,12 @@ description: Contents of the escaped-names.EnumWithSpookyMemberNames enumeration
 # EnumWithSpookyMemberNames Enumeration
 
 ## Constants
-### **"type"**
-\`"type" = "Name that is a keyword"\`
-### **"5valueWithNumberStart"**
-\`"5valueWithNumberStart" = "Name with a number at the start"\`
-### **"value with spaces"**
-\`"value with spaces" = "Name with a space in it"\`
+### **type**
+\`type = "Name that is a keyword"\`
+### **5valueWithNumberStart**
+\`5valueWithNumberStart = "Name with a number at the start"\`
+### **value with spaces**
+\`value with spaces = "Name with a space in it"\`
 "
 `;
 
@@ -157,18 +157,18 @@ description: Contents of the escaped-names.InterfaceWithSpookyMemberNames class.
 
 ## Properties
 
-### **"5memberWithNumberStart"**
-\`"5memberWithNumberStart": number;\`
+### **5memberWithNumberStart**
+\`5memberWithNumberStart: number;\`
 
 Type: *number*
 
-### **"member with spaces"**
-\`"member with spaces": number;\`
+### **member with spaces**
+\`member with spaces: number;\`
 
 Type: *number*
 
-### **"type"**
-\`"type": number;\`
+### **type**
+\`type: number;\`
 
 Type: *number*
 "

@@ -243,9 +243,9 @@ Notes:
 Type: *number*
 
 ## Methods
-- ["constructor"](#constructor)
+- [constructor](#constructor)
 
-### **"constructor"**
+### **constructor**
 \`
 new ClassWithEmptyConstructor()
 \`
@@ -298,9 +298,9 @@ Notes:
 Type: *number*
 
 ## Methods
-- ["constructor"](#constructor)
+- [constructor](#constructor)
 
-### **"constructor"**
+### **constructor**
 \`
 new ClassWithExplicitConstructor(constructorArg: string)
 \`

@@ -2349,9 +2349,9 @@ Notes:
   - This property can't be used in restricted-execution mode.
 
 ## Methods
-- ["constructor"](#constructor)
+- [constructor](#constructor)
 
-### **"constructor"**
+### **constructor**
 \`
 new ClassWithConstructor(x: number, y: number, z: number)
 \`
@@ -3328,10 +3328,10 @@ Notes:
   - This property can't be used in restricted-execution mode.
 
 ## Methods
-- ["constructor"](#constructor)
+- [constructor](#constructor)
 - [testFunction](#testfunction)
 
-### **"constructor"**
+### **constructor**
 \`
 new ClassWithConstructor(x: number, y: number, z: number)
 \`

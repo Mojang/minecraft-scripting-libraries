@@ -213,12 +213,6 @@ function escapeNameIfNeeded(objectWithName: {
     else if (/^\d/.test(name)) {
         objectWithName.ts_name_should_escape = true;
     }
-
-    if( objectWithName.ts_name_should_escape) {
-        console.log(objectWithName.name);
-        objectWithName.name = `"${objectWithName.name}"`;
-        objectWithName.ts_name_should_escape = false;
-    }
 }
 
 /**

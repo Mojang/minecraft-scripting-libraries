@@ -1,0 +1,328 @@
+{    
+    "interfaces":[
+        {
+            "base_types": [],
+            "name": "InterfaceWithBounds",
+            "properties": [
+                {
+                    "is_baked": false,
+                    "is_read_only": false,
+                    "max_value": 1000,
+                    "min_value": 0,
+                    "name": "boundedInterfaceProperty",
+                    "type": {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "optional",
+                        "optional_type": {
+                            "element_type": {
+                                "is_bind_type": false,
+                                "is_errorable": false,
+                                "name": "int32",
+                                "valid_range": {
+                                    "max": 2147483647,
+                                    "min": -2147483648
+                                }
+                            },
+                            "is_bind_type": false,
+                            "is_errorable": false,
+                            "name": "array"
+                        }
+                    }
+                }
+            ],
+            "type": {
+                "is_bind_type": true,
+                "is_errorable": false,
+                "name": "InterfaceWithBounds"
+            }
+        }
+    ],
+    "classes": [
+        {
+            "name": "ClassWithBounds",
+            "properties": [ 
+                {
+                    "is_baked": false,
+                    "is_read_only": false,
+                    "min_value": 0,
+                    "max_value": 0,
+                    "name": "r",
+                    "type": {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "int32",
+                        "valid_range": {
+                            "max": 2147483647,
+                            "min": -2147483648
+                        }
+                    }
+                },          
+                {
+                    "is_baked": false,
+                    "is_read_only": false,
+                    "min_value": -255,
+                    "name": "s",
+                    "type": {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "int32",
+                        "valid_range": {
+                            "max": 2147483647,
+                            "min": -2147483648
+                        }
+                    }
+                },            
+                {
+                    "is_baked": false,
+                    "is_read_only": false,
+                    "max_value": 1,
+                    "name": "t",
+                    "type": {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "int32",
+                        "valid_range": {
+                            "max": 2147483647,
+                            "min": -2147483648
+                        }
+                    }
+                },
+                {
+                    "is_baked": false,
+                    "is_read_only": false,
+                    "name": "u",
+                    "type": {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "int32",
+                        "valid_range": {
+                            "max": 2147483647,
+                            "min": -2147483648
+                        }
+                    }
+                },
+                {
+                    "is_baked": false,
+                    "is_read_only": false,
+                    "max_value": -1,
+                    "min_value": -255,
+                    "name": "v",
+                    "type": {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "int32",
+                        "valid_range": {
+                            "max": 2147483647,
+                            "min": -2147483648
+                        }
+                    }
+                },
+                {
+                    "is_baked": false,
+                    "is_read_only": false,
+                    "name": "w",
+                    "type": {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "int32",
+                        "valid_range": {
+                            "max": 2147483647,
+                            "min": -2147483648
+                        }
+                    }
+                },
+                {
+                    "is_baked": false,
+                    "is_read_only": false,
+                    "min_value": 1,
+                    "name": "x",
+                    "type": {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "int32",
+                        "valid_range": {
+                            "max": 2147483647,
+                            "min": -2147483648
+                        }
+                    }
+                },
+                {
+                    "is_baked": false,
+                    "is_read_only": false,
+                    "max_value": 255,
+                    "name": "y",
+                    "type": {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "int32",
+                        "valid_range": {
+                            "max": 2147483647,
+                            "min": -2147483648
+                        }
+                    }
+                },
+                {
+                    "is_baked": false,
+                    "is_read_only": false,
+                    "max_value": 255,
+                    "min_value": 1,
+                    "name": "z",
+                    "type": {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "int32",
+                        "valid_range": {
+                            "max": 2147483647,
+                            "min": -2147483648
+                        }
+                    }
+                }
+            ],
+            "type": {
+                "is_bind_type": true,
+                "is_errorable": false,
+                "name": "ClassWithBounds"
+            },
+            "functions": [
+                {
+                    "arguments": [                         
+                        {
+                            "details": {
+                                "min_value": -255
+                            },
+                            "name": "s",
+                            "type": {
+                                "is_bind_type": false,
+                                "is_errorable": false,
+                                "name": "int32",
+                                "valid_range": {
+                                    "max": 2147483647,
+                                    "min": -2147483648
+                                }
+                            }
+                        },                               
+                        {
+                            "details": {
+                                "max_value": 1
+                            },
+                            "name": "t",
+                            "type": {
+                                "is_bind_type": false,
+                                "is_errorable": false,
+                                "name": "int32",
+                                "valid_range": {
+                                    "max": 2147483647,
+                                    "min": -2147483648
+                                }
+                            }
+                        },                      
+                        {
+                            "details": {
+                            },
+                            "name": "u",
+                            "type": {
+                                "is_bind_type": false,
+                                "is_errorable": false,
+                                "name": "int32",
+                                "valid_range": {
+                                    "max": 2147483647,
+                                    "min": -2147483648
+                                }
+                            }
+                        },   
+                        {
+                            "details": {
+                                "max_value": -1,
+                                "min_value": -255
+                            },
+                            "name": "v",
+                            "type": {
+                                "is_bind_type": false,
+                                "is_errorable": false,
+                                "name": "int32",
+                                "valid_range": {
+                                    "max": 2147483647,
+                                    "min": -2147483648
+                                }
+                            }
+                        },   
+                        {
+                            "details": {
+                                "max_value": 255,
+                                "min_value": 1
+                            },
+                            "name": "w",
+                            "type": {
+                                "is_bind_type": false,
+                                "is_errorable": false,
+                                "name": "int32",
+                                "valid_range": {
+                                    "max": 2147483647,
+                                    "min": -2147483648
+                                }
+                            }
+                        },                        
+                        {
+                            "details": {
+                                "min_value": 1
+                            },
+                            "name": "x",
+                            "type": {
+                                "is_bind_type": false,
+                                "is_errorable": false,
+                                "name": "int32",
+                                "valid_range": {
+                                    "max": 2147483647,
+                                    "min": -2147483648
+                                }
+                            }
+                        },                        
+                        {
+                            "details": {
+                                "max_value": 255
+                            },
+                            "name": "y",
+                            "type": {
+                                "is_bind_type": false,
+                                "is_errorable": false,
+                                "name": "int32",
+                                "valid_range": {
+                                    "max": 2147483647,
+                                    "min": -2147483648
+                                }
+                            }
+                        },                        
+                        {
+                            "details": {
+                            },
+                            "name": "z",
+                            "type": {
+                                "is_bind_type": false,
+                                "is_errorable": false,
+                                "name": "int32",
+                                "valid_range": {
+                                    "max": 2147483647,
+                                    "min": -2147483648
+                                }
+                            }
+                        }
+                    ],
+                    "is_constructor": false,
+                    "name": "methodThatTakesBoundedValue",
+                    "return_type": {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "void"
+                    }
+                }
+            ]
+        }
+    ],
+
+    "minecraft_version": "1.0.0",
+    "name": "bounds-module",
+    "uuid": "d79b396f-dc7a-46e0-97c5-a14434ab8dcd",
+    "version": "1.0.0",
+    "module_type": "script"
+}

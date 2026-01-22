@@ -2,6 +2,29 @@
   "name": "@minecraft/api-docs-generator",
   "entries": [
     {
+      "date": "Thu, 22 Jan 2026 17:23:10 GMT",
+      "version": "1.5.0",
+      "tag": "@minecraft/api-docs-generator_v1.5.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "brandon.chan@skyboxlabs.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "bb082662983e40f3b477222ca035fcf8597ea79f",
+            "comment": "Added property and function argument bounds data to metadata"
+          }
+        ],
+        "patch": [
+          {
+            "author": "alexander.denford@skyboxlabs.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "bb082662983e40f3b477222ca035fcf8597ea79f",
+            "comment": "Fixing functions that match keywords from being surrounded by quotes in docs generation."
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 16 Jan 2026 21:45:44 GMT",
       "version": "1.4.0",
       "tag": "@minecraft/api-docs-generator_v1.4.0",

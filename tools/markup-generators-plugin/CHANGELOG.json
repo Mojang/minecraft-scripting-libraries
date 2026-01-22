@@ -2,6 +2,35 @@
   "name": "@minecraft/markup-generators-plugin",
   "entries": [
     {
+      "date": "Thu, 22 Jan 2026 17:23:10 GMT",
+      "version": "1.3.0",
+      "tag": "@minecraft/markup-generators-plugin_v1.3.0",
+      "comments": {
+        "patch": [
+          {
+            "author": "alexander.denford@skyboxlabs.com",
+            "package": "@minecraft/markup-generators-plugin",
+            "commit": "bb082662983e40f3b477222ca035fcf8597ea79f",
+            "comment": "Fixing functions that match keywords from being surrounded by quotes in docs generation."
+          }
+        ],
+        "minor": [
+          {
+            "author": "brandon.chan@skyboxlabs.com",
+            "package": "@minecraft/markup-generators-plugin",
+            "commit": "bb082662983e40f3b477222ca035fcf8597ea79f",
+            "comment": "Added property and function argument bounds data to metadata"
+          },
+          {
+            "author": "beachball",
+            "package": "@minecraft/markup-generators-plugin",
+            "comment": "Bump @minecraft/api-docs-generator to v1.5.0",
+            "commit": "not available"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 16 Jan 2026 21:45:44 GMT",
       "version": "1.2.1",
       "tag": "@minecraft/markup-generators-plugin_v1.2.1",

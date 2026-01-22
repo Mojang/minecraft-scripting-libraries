@@ -1,8 +1,20 @@
 # Change Log - @minecraft/api-docs-generator
 
-<!-- This log was last generated on Fri, 16 Jan 2026 21:45:44 GMT and should not be manually modified. -->
+<!-- This log was last generated on Thu, 22 Jan 2026 17:23:10 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 1.5.0
+
+Thu, 22 Jan 2026 17:23:10 GMT
+
+### Minor changes
+
+- Added property and function argument bounds data to metadata (brandon.chan@skyboxlabs.com)
+
+### Patches
+
+- Fixing functions that match keywords from being surrounded by quotes in docs generation. (alexander.denford@skyboxlabs.com)
 
 ## 1.4.0
 

@@ -731,7 +731,7 @@ export interface StableInterfaceWithDeprecatedProperty {
 // @ts-ignore Class inheritance allowed for native defined classes
 export class DeprecatedError extends Error {
     private constructor();
-    exampleProperty: string[];
+    readonly exampleProperty: string[];
 }
 
 // @ts-ignore Class inheritance allowed for native defined classes
@@ -740,8 +740,8 @@ export class StableErrorWithDeprecatedProperty extends Error {
     /**
      * @deprecated This property is deprecated and will be removed in 2.0.0.
      */
-    deprecatedProperty: string[];
-    stableProperty?: string;
+    readonly deprecatedProperty: string[];
+    readonly stableProperty?: string;
 }
 
 /**
@@ -874,7 +874,7 @@ export interface StableInterfaceWithDeprecatedProperty {
 // @ts-ignore Class inheritance allowed for native defined classes
 export class DeprecatedError extends Error {
     private constructor();
-    exampleProperty: string[];
+    readonly exampleProperty: string[];
 }
 
 // @ts-ignore Class inheritance allowed for native defined classes
@@ -883,8 +883,8 @@ export class StableErrorWithDeprecatedProperty extends Error {
     /**
      * @deprecated This property is deprecated and will be removed in 2.0.0.
      */
-    deprecatedProperty: string[];
-    stableProperty?: string;
+    readonly deprecatedProperty: string[];
+    readonly stableProperty?: string;
 }
 
 /**
@@ -968,7 +968,7 @@ export interface StableInterfaceWithDeprecatedProperty {
 // @ts-ignore Class inheritance allowed for native defined classes
 export class StableErrorWithDeprecatedProperty extends Error {
     private constructor();
-    stableProperty?: string;
+    readonly stableProperty?: string;
 }
 
 /**

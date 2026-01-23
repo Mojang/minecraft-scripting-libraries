@@ -3,6 +3,18 @@
     {
       "base_types": [],
       "constants": [],
+      "functions": [],
+      "properties": [],
+      "name": "BasicClass",
+      "type": {
+        "is_bind_type": true,
+        "is_errorable": false,
+        "name": "BasicClass"
+      }
+    },
+    {
+      "base_types": [],
+      "constants": [],
       "functions": [
         {
           "arguments": [
@@ -281,6 +293,33 @@
         "is_bind_type": true,
         "is_errorable": false,
         "name": "InterfaceWithDefaultProperty"
+      }
+    }
+  ],
+  "objects" : [
+    {
+      "is_read_only" : true,
+      "is_static" : true,
+      "name" : "nonOptionalGlobal",
+      "type" : {
+        "is_bind_type" : true,
+        "is_errorable" : false,
+        "name" : "BasicClass"
+      }
+    },
+    {
+      "is_read_only": true,
+      "is_static": true,
+      "name": "optionalGlobal",
+      "type": {
+        "is_bind_type": false,
+        "is_errorable": false,
+        "name": "optional",
+        "optional_type": {
+          "is_bind_type": true,
+          "is_errorable": false,
+          "name": "BasicClass"
+        }
       }
     }
   ],

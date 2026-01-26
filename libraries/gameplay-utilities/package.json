@@ -42,6 +42,6 @@
     "@minecraft/tsconfig": "*",
     "just-scripts": "^2.4.1",
     "prettier": "^3.5.3",
-    "vitest": "^3.0.8"
+    "vitest": "^4.0.16"
   }
 }

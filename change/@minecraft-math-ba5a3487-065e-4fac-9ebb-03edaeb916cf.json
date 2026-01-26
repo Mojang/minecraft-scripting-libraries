@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Fix @minecraft/math import path",
+  "packageName": "@minecraft/math",
+  "email": "zachary.campbell@skyboxlabs.com",
+  "dependentChangeType": "patch"
+}

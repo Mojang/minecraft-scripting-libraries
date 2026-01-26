@@ -1,8 +1,16 @@
 # Change Log - @minecraft/math
 
-<!-- This log was last generated on Tue, 13 Jan 2026 21:57:53 GMT and should not be manually modified. -->
+<!-- This log was last generated on Mon, 26 Jan 2026 20:10:37 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.3.1
+
+Mon, 26 Jan 2026 20:10:37 GMT
+
+### Patches
+
+- Fix @minecraft/math import path (zachary.campbell@skyboxlabs.com)
 
 ## 2.3.0
 

@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Global variables now properly generate when optional",
-  "packageName": "@minecraft/markup-generators-plugin",
-  "email": "agriffin@microsoft.com",
-  "dependentChangeType": "patch"
-}

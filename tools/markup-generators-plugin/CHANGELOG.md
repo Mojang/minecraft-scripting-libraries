@@ -1,8 +1,17 @@
 # Change Log - @minecraft/markup-generators-plugin
 
-<!-- This log was last generated on Thu, 22 Jan 2026 17:23:10 GMT and should not be manually modified. -->
+<!-- This log was last generated on Tue, 27 Jan 2026 20:46:50 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 1.4.0
+
+Tue, 27 Jan 2026 20:46:50 GMT
+
+### Minor changes
+
+- Global variables now properly generate when optional (agriffin@microsoft.com)
+- Bump @minecraft/api-docs-generator to v1.6.0
 
 ## 1.3.0
 

@@ -2,6 +2,21 @@
   "name": "@minecraft/api-docs-generator",
   "entries": [
     {
+      "date": "Tue, 27 Jan 2026 20:46:50 GMT",
+      "version": "1.6.0",
+      "tag": "@minecraft/api-docs-generator_v1.6.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "agriffin@microsoft.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "025ecde17e3de39bf1d0b4e925dafc6b29d1406a",
+            "comment": "Global variables now properly generate when optional"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 22 Jan 2026 17:23:10 GMT",
       "version": "1.5.0",
       "tag": "@minecraft/api-docs-generator_v1.5.0",

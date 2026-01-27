@@ -2,6 +2,27 @@
   "name": "@minecraft/markup-generators-plugin",
   "entries": [
     {
+      "date": "Tue, 27 Jan 2026 20:46:50 GMT",
+      "version": "1.4.0",
+      "tag": "@minecraft/markup-generators-plugin_v1.4.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "agriffin@microsoft.com",
+            "package": "@minecraft/markup-generators-plugin",
+            "commit": "025ecde17e3de39bf1d0b4e925dafc6b29d1406a",
+            "comment": "Global variables now properly generate when optional"
+          },
+          {
+            "author": "beachball",
+            "package": "@minecraft/markup-generators-plugin",
+            "comment": "Bump @minecraft/api-docs-generator to v1.6.0",
+            "commit": "not available"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 22 Jan 2026 17:23:10 GMT",
       "version": "1.3.0",
       "tag": "@minecraft/markup-generators-plugin_v1.3.0",

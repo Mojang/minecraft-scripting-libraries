@@ -1,8 +1,16 @@
 # Change Log - @minecraft/api-docs-generator
 
-<!-- This log was last generated on Thu, 22 Jan 2026 17:23:10 GMT and should not be manually modified. -->
+<!-- This log was last generated on Tue, 27 Jan 2026 20:46:50 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 1.6.0
+
+Tue, 27 Jan 2026 20:46:50 GMT
+
+### Minor changes
+
+- Global variables now properly generate when optional (agriffin@microsoft.com)
 
 ## 1.5.0
 

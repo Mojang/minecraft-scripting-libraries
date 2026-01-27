@@ -490,14 +490,14 @@ export class ExampleClass {
 // @ts-ignore Class inheritance allowed for native defined classes
 export class ExampleError extends Error {
     private constructor();
-    exampleOptionalProperty?: string;
-    exampleProperty: string[];
+    readonly exampleOptionalProperty?: string;
+    readonly exampleProperty: string[];
 }
 
 // @ts-ignore Class inheritance allowed for native defined classes
 export class ExampleError2 extends Error {
     private constructor();
-    exampleProperty: string[];
+    readonly exampleProperty: string[];
 }
 
 /**

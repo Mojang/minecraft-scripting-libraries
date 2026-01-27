@@ -2992,7 +2992,7 @@ function copyChangelogsToObjectMetadata(releases: MinecraftRelease[]) {
 
 /**
  * Add 'is_member' and 'has_member_*' fields for functions and constants
- * to mark whether they belong to a class/interface.
+ * to mark whether they belong to a class/interface/error.
  */
 function markMembers(releases: MinecraftRelease[]) {
     const markMembersOnModule = (scriptModule: MinecraftScriptModule) => {
@@ -3012,6 +3012,16 @@ function markMembers(releases: MinecraftRelease[]) {
                 }
                 if (classJson.properties) {
                     for (const propertyJson of classJson.properties) {
+                        propertyJson.is_member = true;
+                    }
+                }
+            }
+        }
+
+        if (scriptModule.errors) {
+            for (const errorJson of scriptModule.errors) {
+                if (errorJson.properties) {
+                    for (const propertyJson of errorJson.properties) {
                         propertyJson.is_member = true;
                     }
                 }

@@ -30,6 +30,17 @@ export const MinecraftMolangQueryRecord = Record({
 export type MinecraftMolangQuery = Static<typeof MinecraftMolangQueryRecord>;
 
 /**
+ * A built in molang math function
+ */
+export const MinecraftMolangMathRecord = Record({
+    name: String,
+    description: Optional(String),
+    min_args: Number,
+    max_args: Optional(Number),
+});
+export type MinecraftMolangMath = Static<typeof MinecraftMolangMathRecord>;
+
+/**
  * Molang module containing queries, variables, and math functions
  */
 export const MinecraftMolangModuleRecord = Intersect(
@@ -39,6 +50,7 @@ export const MinecraftMolangModuleRecord = Intersect(
 
         // Molang query functions (e.g., query.is_sneaking)
         queries: Optional(Array(MinecraftMolangQueryRecord)),
+        math_functions: Optional(Array(MinecraftMolangMathRecord)),
     })
 );
 export type MinecraftMolangModule = Static<typeof MinecraftMolangModuleRecord>;

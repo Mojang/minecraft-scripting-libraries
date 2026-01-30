@@ -2,6 +2,21 @@
   "name": "@minecraft/api-docs-generator",
   "entries": [
     {
+      "date": "Fri, 30 Jan 2026 21:03:31 GMT",
+      "version": "1.6.1",
+      "tag": "@minecraft/api-docs-generator_v1.6.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "rlanda@microsoft.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "1b9cf99c9a09c0419dd235d755d75852d1fbf04c",
+            "comment": "Add another field to molang metadata"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 27 Jan 2026 20:46:50 GMT",
       "version": "1.6.0",
       "tag": "@minecraft/api-docs-generator_v1.6.0",

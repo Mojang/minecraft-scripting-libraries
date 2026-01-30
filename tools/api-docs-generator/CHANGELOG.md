@@ -1,8 +1,16 @@
 # Change Log - @minecraft/api-docs-generator
 
-<!-- This log was last generated on Tue, 27 Jan 2026 20:46:50 GMT and should not be manually modified. -->
+<!-- This log was last generated on Fri, 30 Jan 2026 21:03:31 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 1.6.1
+
+Fri, 30 Jan 2026 21:03:31 GMT
+
+### Patches
+
+- Add another field to molang metadata (rlanda@microsoft.com)
 
 ## 1.6.0
 

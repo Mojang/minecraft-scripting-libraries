@@ -2,6 +2,20 @@
     "name": "engine-molang",
     "minecraft_version": "1.26.0",
     "module_type": "molang",
+    "math_functions": [
+      {
+         "description" : "Absolute Value 'math.abs'",
+         "max_args" : 1,
+         "min_args" : 1,
+         "name" : "math.abs"
+      },
+      {
+         "description" : "Arc Cosine 'math.acos'",
+         "max_args" : 1,
+         "min_args" : 1,
+         "name" : "math.acos"
+      }
+    ],
     "queries": [
         {
             "name": "query.is_sneaking",

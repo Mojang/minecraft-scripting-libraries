@@ -6,6 +6,7 @@
 
 import type { AABB } from '@minecraft/server';
 import { BlockVolume } from '@minecraft/server';
+import { RGBA } from '@minecraft/server';
 import type { Vector2 } from '@minecraft/server';
 import type { Vector3 } from '@minecraft/server';
 import type { VectorXZ } from '@minecraft/server';
@@ -36,6 +37,32 @@ export class AABBUtils {
 
 // @public
 export function clampNumber(val: number, min: number, max: number): number;
+
+// @public
+export const Colors: {
+    Black: RGBA;
+    Blue: RGBA;
+    Brown: RGBA;
+    Cyan: RGBA;
+    Gray: RGBA;
+    Green: RGBA;
+    LightBlue: RGBA;
+    Lime: RGBA;
+    Magenta: RGBA;
+    Orange: RGBA;
+    Pink: RGBA;
+    Purple: RGBA;
+    Red: RGBA;
+    Silver: RGBA;
+    White: RGBA;
+    Yellow: RGBA;
+    PureWhite: RGBA;
+    PureBlack: RGBA;
+    PureRed: RGBA;
+    PureGreen: RGBA;
+    PureBlue: RGBA;
+    Transparent: RGBA;
+};
 
 // @public
 export const VECTOR2_ZERO: Vector2;

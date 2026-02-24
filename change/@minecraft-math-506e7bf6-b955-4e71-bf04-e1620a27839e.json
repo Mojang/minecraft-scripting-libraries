@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Added color constants",
+  "packageName": "@minecraft/math",
+  "email": "alexander.denford@skyboxlabs.com",
+  "dependentChangeType": "patch"
+}

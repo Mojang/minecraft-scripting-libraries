@@ -2,6 +2,21 @@
   "name": "@minecraft/math",
   "entries": [
     {
+      "date": "Wed, 25 Feb 2026 01:02:45 GMT",
+      "version": "2.4.0",
+      "tag": "@minecraft/math_v2.4.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "alexander.denford@skyboxlabs.com",
+            "package": "@minecraft/math",
+            "commit": "9ff6388df28154c7dd21815c34f40a5238d0c311",
+            "comment": "Added color constants"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 26 Jan 2026 20:10:37 GMT",
       "version": "2.3.1",
       "tag": "@minecraft/math_v2.3.1",

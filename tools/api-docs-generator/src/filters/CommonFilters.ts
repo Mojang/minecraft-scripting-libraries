@@ -1454,6 +1454,20 @@ function constructors(releases: MinecraftRelease[]) {
                 }
             }
         }
+        if (moduleJson.errors) {
+            for (const errorJson of moduleJson.errors) {
+                if (errorJson.functions) {
+                    for (const functionJson of errorJson.functions) {
+                        if (functionJson.is_constructor) {
+                            functionJson.name = 'constructor';
+                        }
+                        if (functionJson.is_constructor) {
+                            errorJson.has_constructor = true;
+                        }
+                    }
+                }
+            }
+        }
     };
 
     for (const release of releases) {

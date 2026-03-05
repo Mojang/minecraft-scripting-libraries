@@ -3034,6 +3034,12 @@ function markMembers(releases: MinecraftRelease[]) {
 
         if (scriptModule.errors) {
             for (const errorJson of scriptModule.errors) {
+                if (errorJson.functions && errorJson.functions.length > 0) {
+                    errorJson.has_member_functions = true;
+                    for (const functionJson of errorJson.functions) {
+                        functionJson.is_member = true;
+                    }
+                }
                 if (errorJson.properties) {
                     for (const propertyJson of errorJson.properties) {
                         propertyJson.is_member = true;

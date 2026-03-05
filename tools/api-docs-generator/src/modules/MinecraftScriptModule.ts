@@ -452,6 +452,7 @@ export const MinecraftErrorRecord = Intersect(
         class_name: Optional(String.Or(Null)),
         class_description: Optional(Array(String).Or(Null)),
         has_constructor: Optional(Boolean.Or(Null)),
+        has_member_functions: Optional(Boolean.Or(Null)),
         show_prior_warning: Optional(Boolean),
         prior_link: Optional(String),
     })

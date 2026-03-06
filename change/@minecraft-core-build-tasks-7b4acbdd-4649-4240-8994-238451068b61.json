@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "build(dependabot): bump rimraf from 3.0.2 to 6.1.2",
+  "packageName": "@minecraft/core-build-tasks",
+  "email": "mc-npm@microsoft.com",
+  "dependentChangeType": "patch"
+}

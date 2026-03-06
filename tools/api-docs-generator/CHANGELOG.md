@@ -1,8 +1,16 @@
 # Change Log - @minecraft/api-docs-generator
 
-<!-- This log was last generated on Fri, 30 Jan 2026 21:03:31 GMT and should not be manually modified. -->
+<!-- This log was last generated on Fri, 06 Mar 2026 18:11:49 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 1.7.0
+
+Fri, 06 Mar 2026 18:11:49 GMT
+
+### Minor changes
+
+- Add support for error constructors to api-docs-generator (zachary.campbell@skyboxlabs.com)
 
 ## 1.6.1
 

@@ -2,6 +2,21 @@
   "name": "@minecraft/api-docs-generator",
   "entries": [
     {
+      "date": "Fri, 06 Mar 2026 18:11:49 GMT",
+      "version": "1.7.0",
+      "tag": "@minecraft/api-docs-generator_v1.7.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "zachary.campbell@skyboxlabs.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "240a638649b85d616828a79d9917f9dc6aad9c79",
+            "comment": "Add support for error constructors to api-docs-generator"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 30 Jan 2026 21:03:31 GMT",
       "version": "1.6.1",
       "tag": "@minecraft/api-docs-generator_v1.6.1",

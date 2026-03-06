@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Add support for error constructors to api-docs-generator",
+  "packageName": "@minecraft/api-docs-generator",
+  "email": "zachary.campbell@skyboxlabs.com",
+  "dependentChangeType": "patch"
+}

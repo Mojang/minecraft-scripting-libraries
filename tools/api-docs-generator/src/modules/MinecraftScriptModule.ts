@@ -443,6 +443,7 @@ export const MinecraftErrorRecord = Intersect(
     Record({
         type: MinecraftTypeRecord,
 
+        functions: Optional(Array(MinecraftFunctionRecord).Or(Null)),
         properties: Optional(Array(MinecraftPropertyRecord).Or(Null)),
 
         // Runtime Markup
@@ -450,6 +451,8 @@ export const MinecraftErrorRecord = Intersect(
         from_module: Optional(MinecraftModuleDescriptionRecord.Or(Null)),
         class_name: Optional(String.Or(Null)),
         class_description: Optional(Array(String).Or(Null)),
+        has_constructor: Optional(Boolean.Or(Null)),
+        has_member_functions: Optional(Boolean.Or(Null)),
         show_prior_warning: Optional(Boolean),
         prior_link: Optional(String),
     })

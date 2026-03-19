@@ -37,13 +37,20 @@ interface PacketInfo {
 
 type EnumCache = Record<string, string[]>;
 
+const HTML_ESCAPE_MAP: Record<string, string> = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+};
+
 function escapeHtml(str: string): string {
-    return str
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;');
+    return str.replace(/[&<>"']/g, c => HTML_ESCAPE_MAP[c]);
+}
+
+function getOrdinalIndex(fieldData: FieldData): number {
+    return (fieldData['x-ordinal-index'] as number | undefined) ?? 9999;
 }
 
 export class ProtocolHTMLGenerator implements MarkupGenerator {
@@ -103,43 +110,34 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
         return (fieldData.type as string | undefined) ?? 'unknown';
     }
 
-    private static getOrdinalIndex(fieldData: FieldData): number {
-        return (fieldData['x-ordinal-index'] as number | undefined) ?? 9999;
-    }
-
     private generateEnumTable(enumValues: string[], indentLevel: number): string {
         if (!enumValues || enumValues.length === 0) {
             return '';
         }
 
         const marginLeft = (indentLevel + 1) * 20;
-        const html: string[] = [];
-
-        html.push(`<div style="margin-left: ${marginLeft}px; margin-top: 5px; margin-bottom: 5px;">`);
-        html.push('<strong>Enum Values:</strong>');
-        html.push(
-            '<table border="1" cellpadding="3" cellspacing="0" style="border-collapse: collapse; width: 100%; max-width: 760px; font-size: 12px;">'
-        );
-        html.push('<thead>');
-        html.push('<tr style="background-color: #e8e8e8;">');
-        html.push('<th style="width: 40px;">Index</th>');
-        html.push('<th>Value</th>');
-        html.push('</tr>');
-        html.push('</thead>');
-        html.push('<tbody>');
-
-        for (let idx = 0; idx < enumValues.length; idx++) {
-            html.push('<tr>');
-            html.push(`<td style="text-align: center;">${idx}</td>`);
-            html.push(`<td><code>${escapeHtml(enumValues[idx])}</code></td>`);
-            html.push('</tr>');
-        }
-
-        html.push('</tbody>');
-        html.push('</table>');
-        html.push('</div>');
-
-        return html.join('\n');
+        return `<div style="margin-left: ${marginLeft}px; margin-top: 5px; margin-bottom: 5px;">
+    <strong>Enum Values:</strong>
+    <table border="1" cellpadding="3" cellspacing="0" style="border-collapse: collapse; width: 100%; max-width: 760px; font-size: 12px;">
+        <thead>
+            <tr style="background-color: #e8e8e8;">
+                <th style="width: 40px;">Index</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            ${enumValues
+                .map(
+                    (value, idx) => `<tr>
+            <td style="text-align: center;">${idx}</td>
+            <td><code>${escapeHtml(value)}</code></td>
+            </tr>`
+                )
+                .join('\n')}
+        </tbody>
+    </table>
+</div>
+`;
     }
 
     private generateOneOfTable(
@@ -154,14 +152,14 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
 
         const controlValueType = (fieldData['x-control-value-type'] as string | undefined) ?? 'varuint32';
         const oneOfItems = fieldData.oneOf as FieldData[];
-        let oneofType = 'oneOf<';
+        const oneofTypeMembers: string[] = [];
         const oneOfMembersHtml: string[] = [];
         const expandedDefinitionsHtml: string[] = [];
 
         for (let idx = 0; idx < oneOfItems.length; idx++) {
             const oneOfItem = oneOfItems[idx];
             const underlyingType = ProtocolHTMLGenerator.getUnderlyingType(oneOfItem, definitions);
-            oneofType += underlyingType + ', ';
+            oneofTypeMembers.push(underlyingType);
 
             const details: string[] = [];
             if ('x-underlying-type' in oneOfItem) {
@@ -189,14 +187,14 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
                     const refTitle = refSchema.title ?? refId;
 
                     if (!refTitle.endsWith('Payload')) {
-                        const nestedHtml = this.generateNestedTable(
+                        const nestedTable = this.generateNestedTable(
                             refSchema,
                             definitions,
                             enumCache,
                             '',
                             indentLevel + 2
                         );
-                        if (nestedHtml) {
+                        if (nestedTable) {
                             const detailHtml: string[] = [];
                             detailHtml.push(
                                 `<details style="margin-left: ${(indentLevel + 1) * 20}px; margin-top: 10px;">`
@@ -204,7 +202,7 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
                             detailHtml.push(
                                 `<summary style="cursor: pointer; font-weight: bold; padding: 5px; background-color: #f0f0f0; border: 1px solid #ddd;"><strong>${refTitle} (Variant ${idx})</strong></summary>`
                             );
-                            detailHtml.push(nestedHtml);
+                            detailHtml.push(nestedTable);
                             detailHtml.push('</details>');
                             expandedDefinitionsHtml.push(detailHtml.join('\n'));
                         }
@@ -213,35 +211,26 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
             }
         }
 
-        oneofType = oneofType.replace(/, $/, '') + '>';
-        oneofType = escapeHtml(oneofType);
+        const oneofType = escapeHtml(`oneOf<${oneofTypeMembers.join(', ')}>`);
         const marginLeft = (indentLevel + 1) * 20;
-        const html: string[] = [];
 
-        html.push(`<div style="margin-left: ${marginLeft}px; margin-top: 0px; margin-bottom: 0px;">`);
-        html.push(`<strong>${oneofType}:</strong>`);
-        html.push(
-            '<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 100%; max-width: 760px; margin-top: 5px;">'
-        );
-        html.push('<thead>');
-        html.push('<tr style="background-color: #e8e8e8;">');
-        html.push(`<th>Control Value [${controlValueType}]</th>`);
-        html.push('<th>Type</th>');
-        html.push('<th>Details</th>');
-        html.push('</tr>');
-        html.push('</thead>');
-        html.push('<tbody>');
-        html.push(...oneOfMembersHtml);
-        html.push('</tbody>');
-        html.push('</table>');
-
-        if (expandedDefinitionsHtml.length > 0) {
-            html.push(...expandedDefinitionsHtml);
-        }
-
-        html.push('</div>');
-
-        return html.join('\n');
+        return `<div style="margin-left: ${marginLeft}px; margin-top: 0px; margin-bottom: 0px;">
+    <strong>${oneofType}:</strong>
+    <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 100%; max-width: 760px; margin-top: 5px;">
+        <thead>
+            <tr style="background-color: #e8e8e8;">
+                <th>Control Value [${controlValueType}]</th>
+                <th>Type</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            ${oneOfMembersHtml.join('\n')}
+        </tbody>
+    </table>
+    ${expandedDefinitionsHtml.join('\n')}
+</div>
+`;
     }
 
     private generateNestedTable(
@@ -256,14 +245,14 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
         }
 
         const properties = schema.properties ?? {};
-        const required: string[] = schema.required ?? [];
+        const required = new Set<string>(schema.required ?? []);
 
         if (Object.keys(properties).length === 0) {
             return '';
         }
 
         const sortedProperties = Object.entries(properties).sort(
-            ([, a], [, b]) => ProtocolHTMLGenerator.getOrdinalIndex(a) - ProtocolHTMLGenerator.getOrdinalIndex(b)
+            ([, a], [, b]) => getOrdinalIndex(a) - getOrdinalIndex(b)
         );
 
         const html: string[] = [];
@@ -289,9 +278,9 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
 
         for (const [fieldName, fieldData] of sortedProperties) {
             let underlyingType = ProtocolHTMLGenerator.getUnderlyingType(fieldData, definitions);
-            const ordinal = ProtocolHTMLGenerator.getOrdinalIndex(fieldData);
+            const ordinal = getOrdinalIndex(fieldData);
             const description = escapeHtml((fieldData.description as string | undefined) ?? '');
-            const isRequired = required.includes(fieldName);
+            const isRequired = required.has(fieldName);
 
             const displayFieldName = isRequired ? `${fieldName} (Required)` : fieldName;
             const ordinalDisplay = ordinal !== 9999 ? String(ordinal) : '';
@@ -373,14 +362,14 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
         return html.join('\n');
     }
 
-    private getPageHtml(title: string, content: string, backLink: boolean = true): string {
-        const backHtml = backLink ? '<p><a href="index.html">← Back to Index</a></p>' : '';
-        return `<!DOCTYPE html>
+    private static readonly PAGE_HTML_BEFORE_TITLE = `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${escapeHtml(title)}</title>
+    <title>`;
+
+    private static readonly PAGE_HTML_AFTER_TITLE = `</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -494,43 +483,43 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
 </head>
 <body>
     <div class="container">
-        ${backHtml}
-        ${content}
+        `;
+
+    private static readonly PAGE_HTML_SUFFIX = `
     </div>
 </body>
 </html>`;
+
+    private getPageHtml(title: string, content: string, backLink: boolean = true): string {
+        const backLinkHtml = backLink ? '<p><a href="index.html">← Back to Index</a></p>' : '';
+        return (
+            ProtocolHTMLGenerator.PAGE_HTML_BEFORE_TITLE +
+            escapeHtml(title) +
+            ProtocolHTMLGenerator.PAGE_HTML_AFTER_TITLE +
+            backLinkHtml +
+            '\n        ' +
+            content +
+            ProtocolHTMLGenerator.PAGE_HTML_SUFFIX
+        );
     }
 
     private async generateIndexPage(packets: PacketInfo[], outputDirectory: string): Promise<void> {
-        const htmlParts: string[] = [];
+        const indexHtml = `<h1>Game Protocol Documentation</h1>
+    <p>Documentation for ${packets.length} protocol packets.</p>
+    <h2>Packet List</h2>
+    <ul class="packet-list">
+        ${packets
+            .map(
+                value =>
+                    `<li><a href="${value.filename}"><strong>${escapeHtml(value.title)}</strong></a><br><span style="color: #666; font-size: 0.9em;">${escapeHtml(
+                        value.description.length > 100 ? value.description.substring(0, 100) + '...' : value.description
+                    )}</span></li>`
+            )
+            .join('\n')}
+    </ul>`;
 
-        htmlParts.push('<h1>Game Protocol Documentation</h1>');
-        htmlParts.push(`<p>Documentation for ${packets.length} protocol packets.</p>`);
-        htmlParts.push('<h2>Packet List</h2>');
-        htmlParts.push('<ul class="packet-list">');
-
-        packets.sort((a, b) => a.id - b.id);
-
-        for (const packet of packets) {
-            const title = escapeHtml(packet.title);
-            const desc =
-                packet.description.length > 100
-                    ? escapeHtml(packet.description.substring(0, 100) + '...')
-                    : escapeHtml(packet.description);
-
-            htmlParts.push('<li>');
-            htmlParts.push(`<a href="${packet.filename}"><strong>${title}</strong></a>`);
-            if (packet.description) {
-                htmlParts.push(`<br><span style="color: #666; font-size: 0.9em;">${desc}</span>`);
-            }
-            htmlParts.push('</li>');
-        }
-
-        htmlParts.push('</ul>');
-
-        const content = htmlParts.join('\n');
         const indexPath = path.join(outputDirectory, 'index.html');
-        await fs.writeFile(indexPath, this.getPageHtml('Game Protocol Documentation', content, false), 'utf-8');
+        await fs.writeFile(indexPath, this.getPageHtml('Game Protocol Documentation', indexHtml, false), 'utf-8');
     }
 
     private processSchema(
@@ -550,7 +539,7 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
             }
 
             let packetId = -1;
-            if (Object.keys(metaProperties).length > 0) {
+            if ('[cereal:packet]' in metaProperties) {
                 packetId = (metaProperties['[cereal:packet]'] as number | undefined) ?? -1;
                 title += ` (${packetId})`;
 
@@ -630,16 +619,17 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
 
         await fs.mkdir(outputDirectory, { recursive: true });
 
-        const packets: PacketInfo[] = [];
         const packetEntries = Object.entries(releases[0].protocol_schemas)
             .filter(([key]) => !path.basename(key).startsWith('enum_'))
             .sort(([a], [b]) => a.localeCompare(b));
 
-        if (Object.keys(packetEntries).length === 0) {
+        if (packetEntries.length === 0) {
             Logger.warn(`No packets found, '${this.name}' generation not possible.`);
             return;
         }
 
+        const writePromises: Promise<void>[] = [];
+        const packets: PacketInfo[] = [];
         for (const [key, schema] of packetEntries) {
             const data = schema as unknown as SchemaData;
             const { title, description, content, packetId } = this.processSchema(data, key, enumCache);
@@ -651,12 +641,15 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
             const outputFilename = `${stem}.html`;
             const outputPath = path.join(outputDirectory, outputFilename);
 
-            await fs.writeFile(outputPath, this.getPageHtml(title, content, true), 'utf-8');
+            writePromises.push(fs.writeFile(outputPath, this.getPageHtml(title, content, true), 'utf-8'));
 
             packets.push({ title, description, filename: outputFilename, id: packetId });
         }
 
-        await this.generateIndexPage(packets, outputDirectory);
+        packets.sort((a, b) => a.id - b.id);
+        writePromises.push(this.generateIndexPage(packets, outputDirectory));
+
+        await Promise.all(writePromises);
     }
 
     readonly id: string = 'protocol';

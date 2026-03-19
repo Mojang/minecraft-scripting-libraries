@@ -290,9 +290,9 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
                 oneofHtml = this.generateOneOfTable(fieldData, 0, definitions);
             } else if ('enum' in fieldData) {
                 enumHtml = this.generateEnumTable(fieldData.enum as string[], 0);
-            } else if (((fieldData.title as string | undefined) ?? '') in this.protocolEnums) {
+            } else if (((fieldData.title as string | undefined) ?? '') in this.enumCache) {
                 const enumTitle = fieldData.title as string;
-                enumHtml = this.generateEnumTable(this.protocolEnums[enumTitle], 0);
+                enumHtml = this.generateEnumTable(this.enumCache[enumTitle], 0);
             } else if ('$ref' in fieldData) {
                 const refId = (fieldData['$ref'] as string).split('/').pop() ?? '';
                 if (refId in definitions) {
@@ -596,31 +596,34 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
             return Promise.resolve();
         }
 
-        this.protocolEnums = {};
-
-        fs.mkdirSync(outputDirectory, { recursive: true });
-
-        for (const [key, schema] of Object.entries(releases[0].json_schemas)) {
-            if (!path.basename(key).startsWith('enum_')) {
-                continue;
-            }
-            const data = schema as unknown as SchemaData;
-            const title = data.title ?? '';
-            if (title && data.enum) {
-                this.protocolEnums[title] = data.enum;
-            }
-        }
-
-        const packets: PacketInfo[] = [];
+        this.enumCache = {};
 
         const packetEntries = Object.entries(releases[0].json_schemas)
             .filter(([key]) => !path.basename(key).startsWith('enum_'))
             .sort(([a], [b]) => a.localeCompare(b));
 
+        if (Object.keys(packetEntries).length === 0) {
+            Logger.warn(`No packet schemas found, '${this.name}' generation not possible.`);
+            return Promise.resolve();
+        }
+
+        for (const [_, schema] of packetEntries) {
+            const data = schema as unknown as SchemaData;
+            if (!data.title) {
+                continue;
+            }
+            if (data.enum) {
+                this.enumCache[data.title] = data.enum;
+            }
+        }
+
+        fs.mkdirSync(outputDirectory, { recursive: true });
+
+        const packets: PacketInfo[] = [];
+
         for (const [key, schema] of packetEntries) {
             const data = schema as unknown as SchemaData;
             const { title, description, content, packetId } = this.processSchema(data, key);
-
             if (!title) {
                 continue;
             }
@@ -639,7 +642,7 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
         return Promise.resolve();
     }
 
-    private protocolEnums: Record<string, string[]> = {};
+    private enumCache: Record<string, string[]> = {};
 
     readonly id: string = 'protocol';
     readonly name: string = 'Protocol HTML Generator';

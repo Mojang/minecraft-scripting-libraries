@@ -11,6 +11,7 @@ import { SchemaObject } from 'ajv';
 export type MinecraftSchemaObject = SchemaObject & {
     'x-minecraft-version'?: string;
     'x-format-version'?: string;
+    'x-protocol-version'?: string;
     title: string;
 };
 

@@ -299,6 +299,7 @@ function loadMinecraftReleases(context: GeneratorContext): MinecraftReleasesByVe
     const allEngineModules: MinecraftEngineDataModule[] = [];
     const allMolangModules: MinecraftMolangModule[] = [];
     const allJsonSchemas: MinecraftJsonSchemaMap = {};
+    const allProtocolSchemas: MinecraftJsonSchemaMap = {};
 
     const inputFiles = utils.getFilesRecursively(context.inputDirectory);
     const parseErrors: string[] = [];
@@ -316,7 +317,11 @@ function loadMinecraftReleases(context: GeneratorContext): MinecraftReleasesByVe
                 const ajv = new Ajv();
                 try {
                     if (ajv.validateSchema(documentationJsonRaw)) {
-                        allJsonSchemas[inputFilePath] = documentationJsonRaw as MinecraftSchemaObject;
+                        if ('x-protocol-version' in documentationJsonRaw) {
+                            allProtocolSchemas[inputFilePath] = documentationJsonRaw as MinecraftSchemaObject;
+                        } else {
+                            allJsonSchemas[inputFilePath] = documentationJsonRaw as MinecraftSchemaObject;
+                        }
                     } else {
                         log.warn(`Skipping invalid JSON schema: ${inputFilePath}`);
                     }

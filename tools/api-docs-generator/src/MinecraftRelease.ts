@@ -67,6 +67,7 @@ export class MinecraftRelease {
     engine_data_modules: RuntimeDataModule<MinecraftEngineDataModule>[] = [];
     molang_modules: RuntimeDataModule<MinecraftMolangModule>[] = [];
     json_schemas: MinecraftJsonSchemaMap = {};
+    protocol_schemas: MinecraftJsonSchemaMap = {};
 
     constructor(public minecraft_version: string) {}
 
@@ -92,7 +93,7 @@ export class MinecraftRelease {
             result.molang_modules.push(JSON.parse(JSON.stringify(module)) as MinecraftMolangModule);
         }
         result.json_schemas = JSON.parse(JSON.stringify(this.json_schemas)) as MinecraftJsonSchemaMap;
-
+        result.protocol_schemas = JSON.parse(JSON.stringify(this.protocol_schemas)) as MinecraftJsonSchemaMap;
         return result;
     }
 

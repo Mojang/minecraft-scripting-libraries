@@ -1,13 +1,13 @@
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT License.
 
-import fs from 'fs';
+import { promises as fs } from 'fs';
 import path from 'path';
 
 import { GeneratorContext, Logger, MarkupGenerator, MinecraftRelease } from '@minecraft/api-docs-generator';
 
-type FieldData = Record<string, unknown>;
 type Definitions = Record<string, SchemaData>;
+type FieldData = Record<string, unknown>;
 
 interface SchemaData {
     type?: string;
@@ -34,6 +34,8 @@ interface PacketInfo {
     filename: string;
     id: number;
 }
+
+type EnumCache = Record<string, string[]>;
 
 function escapeHtml(str: string): string {
     return str
@@ -140,7 +142,12 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
         return html.join('\n');
     }
 
-    private generateOneOfTable(fieldData: FieldData, indentLevel: number, definitions: Definitions): string {
+    private generateOneOfTable(
+        fieldData: FieldData,
+        indentLevel: number,
+        definitions: Definitions,
+        enumCache: EnumCache
+    ): string {
         if (!('oneOf' in fieldData)) {
             return '';
         }
@@ -182,7 +189,13 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
                     const refTitle = refSchema.title ?? refId;
 
                     if (!refTitle.endsWith('Payload')) {
-                        const nestedHtml = this.generateNestedTable(refSchema, definitions, '', indentLevel + 2);
+                        const nestedHtml = this.generateNestedTable(
+                            refSchema,
+                            definitions,
+                            enumCache,
+                            '',
+                            indentLevel + 2
+                        );
                         if (nestedHtml) {
                             const detailHtml: string[] = [];
                             detailHtml.push(
@@ -234,6 +247,7 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
     private generateNestedTable(
         schema: SchemaData,
         definitions: Definitions,
+        enumCache: Record<string, string[]>,
         title: string,
         indentLevel: number = 0
     ): string {
@@ -287,12 +301,12 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
             let oneofHtml = '';
 
             if ('oneOf' in fieldData) {
-                oneofHtml = this.generateOneOfTable(fieldData, 0, definitions);
+                oneofHtml = this.generateOneOfTable(fieldData, 0, definitions, enumCache);
             } else if ('enum' in fieldData) {
                 enumHtml = this.generateEnumTable(fieldData.enum as string[], 0);
-            } else if (((fieldData.title as string | undefined) ?? '') in this.enumCache) {
+            } else if (((fieldData.title as string | undefined) ?? '') in enumCache) {
                 const enumTitle = fieldData.title as string;
-                enumHtml = this.generateEnumTable(this.enumCache[enumTitle], 0);
+                enumHtml = this.generateEnumTable(enumCache[enumTitle], 0);
             } else if ('$ref' in fieldData) {
                 const refId = (fieldData['$ref'] as string).split('/').pop() ?? '';
                 if (refId in definitions) {
@@ -300,7 +314,7 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
                     const refTitle = refSchema.title ?? refId;
                     underlyingType = refTitle;
                     if (!refTitle.endsWith('Payload')) {
-                        nestedHtml = this.generateNestedTable(refSchema, definitions, refTitle, 1);
+                        nestedHtml = this.generateNestedTable(refSchema, definitions, enumCache, refTitle, 1);
                     }
                 }
             } else if (fieldData.type === 'array') {
@@ -317,6 +331,7 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
                             nestedHtml = this.generateNestedTable(
                                 refSchema,
                                 definitions,
+                                enumCache,
                                 `${refTitle} (Array Item)`,
                                 1
                             );
@@ -486,7 +501,7 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
 </html>`;
     }
 
-    private generateIndexPage(packets: PacketInfo[], outputDirectory: string): void {
+    private async generateIndexPage(packets: PacketInfo[], outputDirectory: string): Promise<void> {
         const htmlParts: string[] = [];
 
         htmlParts.push('<h1>Game Protocol Documentation</h1>');
@@ -515,12 +530,13 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
 
         const content = htmlParts.join('\n');
         const indexPath = path.join(outputDirectory, 'index.html');
-        fs.writeFileSync(indexPath, this.getPageHtml('Game Protocol Documentation', content, false), 'utf-8');
+        await fs.writeFile(indexPath, this.getPageHtml('Game Protocol Documentation', content, false), 'utf-8');
     }
 
     private processSchema(
         data: SchemaData,
-        key: string
+        key: string,
+        enumCache: Record<string, string[]>
     ): { title: string; description: string; content: string; packetId: number } {
         try {
             let title = data.title ?? path.basename(key, '.json');
@@ -568,15 +584,15 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
                     const payloadSchema = definitions[refId];
                     const payloadTitle = payloadSchema.title ?? '';
                     if (payloadTitle.endsWith('Payload')) {
-                        htmlParts.push(this.generateNestedTable(payloadSchema, definitions, '', 0));
+                        htmlParts.push(this.generateNestedTable(payloadSchema, definitions, enumCache, '', 0));
                     } else {
-                        htmlParts.push(this.generateNestedTable(data, definitions, '', 0));
+                        htmlParts.push(this.generateNestedTable(data, definitions, enumCache, '', 0));
                     }
                 } else {
-                    htmlParts.push(this.generateNestedTable(data, definitions, '', 0));
+                    htmlParts.push(this.generateNestedTable(data, definitions, enumCache, '', 0));
                 }
             } else if (data.type === 'object' && data.properties) {
-                htmlParts.push(this.generateNestedTable(data, definitions, '', 0));
+                htmlParts.push(this.generateNestedTable(data, definitions, enumCache, '', 0));
             }
 
             return { title, description, content: htmlParts.join('\n'), packetId };
@@ -586,44 +602,47 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
         }
     }
 
-    generateFiles(_context: GeneratorContext, releases: MinecraftRelease[], outputDirectory: string): Promise<void> {
+    async generateFiles(
+        _context: GeneratorContext,
+        releases: MinecraftRelease[],
+        outputDirectory: string
+    ): Promise<void> {
         if (releases.length === 0) {
             Logger.warn(`No releases found, '${this.name}' generation not possible.`);
-            return Promise.resolve();
+            return;
         }
-        if (Object.keys(releases[0].json_schemas).length === 0) {
-            Logger.warn(`No JSON schemas found, '${this.name}' generation not possible.`);
-            return Promise.resolve();
-        }
-
-        this.enumCache = {};
-
-        const packetEntries = Object.entries(releases[0].json_schemas)
-            .filter(([key]) => !path.basename(key).startsWith('enum_'))
-            .sort(([a], [b]) => a.localeCompare(b));
-
-        if (Object.keys(packetEntries).length === 0) {
-            Logger.warn(`No packet schemas found, '${this.name}' generation not possible.`);
-            return Promise.resolve();
+        if (Object.keys(releases[0].protocol_schemas).length === 0) {
+            Logger.warn(`No protocol schemas found, '${this.name}' generation not possible.`);
+            return;
         }
 
-        for (const [_, schema] of packetEntries) {
+        const enumCache: Record<string, string[]> = {};
+
+        for (const [_, schema] of Object.entries(releases[0].protocol_schemas)) {
             const data = schema as unknown as SchemaData;
             if (!data.title) {
                 continue;
             }
             if (data.enum) {
-                this.enumCache[data.title] = data.enum;
+                enumCache[data.title] = data.enum;
             }
         }
 
-        fs.mkdirSync(outputDirectory, { recursive: true });
+        await fs.mkdir(outputDirectory, { recursive: true });
 
         const packets: PacketInfo[] = [];
+        const packetEntries = Object.entries(releases[0].protocol_schemas)
+            .filter(([key]) => !path.basename(key).startsWith('enum_'))
+            .sort(([a], [b]) => a.localeCompare(b));
+
+        if (Object.keys(packetEntries).length === 0) {
+            Logger.warn(`No packets found, '${this.name}' generation not possible.`);
+            return;
+        }
 
         for (const [key, schema] of packetEntries) {
             const data = schema as unknown as SchemaData;
-            const { title, description, content, packetId } = this.processSchema(data, key);
+            const { title, description, content, packetId } = this.processSchema(data, key, enumCache);
             if (!title) {
                 continue;
             }
@@ -632,17 +651,13 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
             const outputFilename = `${stem}.html`;
             const outputPath = path.join(outputDirectory, outputFilename);
 
-            fs.writeFileSync(outputPath, this.getPageHtml(title, content, true), 'utf-8');
+            await fs.writeFile(outputPath, this.getPageHtml(title, content, true), 'utf-8');
 
             packets.push({ title, description, filename: outputFilename, id: packetId });
         }
 
-        this.generateIndexPage(packets, outputDirectory);
-
-        return Promise.resolve();
+        await this.generateIndexPage(packets, outputDirectory);
     }
-
-    private enumCache: Record<string, string[]> = {};
 
     readonly id: string = 'protocol';
     readonly name: string = 'Protocol HTML Generator';

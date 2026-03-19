@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Add generator for rendering HTML documentation for protocol schemas",
+  "packageName": "@minecraft/markup-generators-plugin",
+  "email": "zachary.campbell@skyboxlabs.com",
+  "dependentChangeType": "patch"
+}

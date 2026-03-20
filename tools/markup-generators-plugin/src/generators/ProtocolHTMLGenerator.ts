@@ -470,16 +470,18 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
 
     private getPageHtml(title: string, content: string, backLink: boolean = true): string {
         const backLinkHtml = backLink ? '<p><a href="index.html">← Back to Index</a></p>' : '';
-        return `${ProtocolHTMLGenerator.PAGE_HTML_BEFORE_TITLE}
-${escapeHtml(title)}
-${ProtocolHTMLGenerator.PAGE_HTML_AFTER_TITLE}
-${backLinkHtml}
-\n
-${content}
-${ProtocolHTMLGenerator.PAGE_HTML_SUFFIX}`;
+        return (
+            ProtocolHTMLGenerator.PAGE_HTML_BEFORE_TITLE +
+            escapeHtml(title) +
+            ProtocolHTMLGenerator.PAGE_HTML_AFTER_TITLE +
+            backLinkHtml +
+            '\n        ' +
+            content +
+            ProtocolHTMLGenerator.PAGE_HTML_SUFFIX
+        );
     }
 
-    private generateIndexPage(packets: PacketInfo[], outputDirectory: string): Promise<void> {
+    private async generateIndexPage(packets: PacketInfo[], outputDirectory: string): Promise<void> {
         const indexHtml = `<h1>Game Protocol Documentation</h1>
     <p>Documentation for ${packets.length} protocol packets.</p>
     <h2>Packet List</h2>
@@ -495,18 +497,20 @@ ${ProtocolHTMLGenerator.PAGE_HTML_SUFFIX}`;
     </ul>`;
 
         const indexPath = path.join(outputDirectory, 'index.html');
-        return fs.writeFile(indexPath, this.getPageHtml('Game Protocol Documentation', indexHtml), 'utf-8');
+        await fs.writeFile(indexPath, this.getPageHtml('Game Protocol Documentation', indexHtml, false), 'utf-8');
     }
 
     private processSchema(
-        schema: MinecraftProtocolSchemaObject,
+        data: MinecraftProtocolSchemaObject,
         key: string,
         enumCache: EnumCache
     ): { title: string; description: string; content: string; packetId: number } {
         try {
-            const { description, definitions, $metaProperties: metaProperties } = schema;
-            let title = schema.title ?? path.basename(key, '.json');
+            let title = data.title ?? path.basename(key, '.json');
+            const description = data.description ?? '';
             let extraDetails = '';
+            const definitions: Definitions = data.definitions ?? {};
+            const metaProperties = data['$metaProperties'] ?? {};
 
             if (title.endsWith('Payload')) {
                 return { title: '', description: '', content: '', packetId: -1 };
@@ -517,8 +521,9 @@ ${ProtocolHTMLGenerator.PAGE_HTML_SUFFIX}`;
                 packetId = (metaProperties['[cereal:packet]'] as number | undefined) ?? -1;
                 title += ` (${packetId})`;
 
-                if ('[cereal:packet_details]' in metaProperties) {
-                    extraDetails = String(metaProperties['[cereal:packet_details]']);
+                const packetDetails = metaProperties['[cereal:packet_details]'];
+                if (packetDetails) {
+                    extraDetails = String(packetDetails);
                 }
             }
 
@@ -532,11 +537,11 @@ ${ProtocolHTMLGenerator.PAGE_HTML_SUFFIX}`;
                 html.push(`<div class="description">${escapeHtml(extraDetails)}</div>`);
             }
 
-            const properties = schema.properties ?? {};
+            const properties = data.properties ?? {};
             const propertyKeys = Object.keys(properties);
 
             if (
-                schema.type === 'object' &&
+                data.type === 'object' &&
                 propertyKeys.length === 1 &&
                 'mPayload' in properties &&
                 properties.mPayload.$ref
@@ -548,13 +553,13 @@ ${ProtocolHTMLGenerator.PAGE_HTML_SUFFIX}`;
                     if (payloadTitle.endsWith('Payload')) {
                         html.push(this.generateNestedTable(payloadSchema, definitions, enumCache, ''));
                     } else {
-                        html.push(this.generateNestedTable(schema, definitions, enumCache, ''));
+                        html.push(this.generateNestedTable(data, definitions, enumCache, ''));
                     }
                 } else {
-                    html.push(this.generateNestedTable(schema, definitions, enumCache, ''));
+                    html.push(this.generateNestedTable(data, definitions, enumCache, ''));
                 }
-            } else if (schema.type === 'object' && schema.properties) {
-                html.push(this.generateNestedTable(schema, definitions, enumCache, ''));
+            } else if (data.type === 'object' && data.properties) {
+                html.push(this.generateNestedTable(data, definitions, enumCache, ''));
             }
 
             return { title, description, content: html.join('\n'), packetId };

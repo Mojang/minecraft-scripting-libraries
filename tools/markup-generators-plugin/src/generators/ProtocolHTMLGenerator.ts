@@ -4,29 +4,13 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 
-import { GeneratorContext, Logger, MarkupGenerator, MinecraftRelease } from '@minecraft/api-docs-generator';
-
-type Definitions = Record<string, SchemaData>;
-type FieldData = Record<string, unknown>;
-
-interface SchemaData {
-    type?: string;
-    title?: string;
-    description?: string;
-    properties?: Record<string, FieldData>;
-    required?: string[];
-    definitions?: Definitions;
-    enum?: string[];
-    items?: FieldData;
-    oneOf?: FieldData[];
-    $ref?: string;
-    'x-underlying-type'?: string;
-    'x-serialization-options'?: string;
-    'x-ordinal-index'?: number;
-    'x-control-value-type'?: string;
-    $metaProperties?: Record<string, unknown>;
-    [key: string]: unknown;
-}
+import {
+    GeneratorContext,
+    Logger,
+    MarkupGenerator,
+    MinecraftRelease,
+    MinecraftProtocolSchemaObject,
+} from '@minecraft/api-docs-generator';
 
 interface PacketInfo {
     title: string;
@@ -35,6 +19,7 @@ interface PacketInfo {
     id: number;
 }
 
+type Definitions = Record<string, MinecraftProtocolSchemaObject>;
 type EnumCache = Record<string, string[]>;
 
 const HTML_ESCAPE_MAP: Record<string, string> = {
@@ -49,24 +34,20 @@ function escapeHtml(str: string): string {
     return str.replace(/[&<>"']/g, c => HTML_ESCAPE_MAP[c]);
 }
 
-function getOrdinalIndex(fieldData: FieldData): number {
-    return (fieldData['x-ordinal-index'] as number | undefined) ?? 9999;
-}
-
 export class ProtocolHTMLGenerator implements MarkupGenerator {
-    private static getUnderlyingType(fieldData: FieldData, definitions: Definitions): string {
-        const serializationOptions = (fieldData['x-serialization-options'] as string | undefined) ?? undefined;
+    private getUnderlyingType(schema: MinecraftProtocolSchemaObject, definitions: Definitions): string {
+        const serializationOptions = schema['x-serialization-options'];
 
-        if ('x-underlying-type' in fieldData) {
-            const underlyingType = fieldData['x-underlying-type'] as string;
-            if ('enum' in fieldData) {
+        if (schema['x-underlying-type']) {
+            const underlyingType = schema['x-underlying-type'];
+            if (schema.enum) {
                 if (serializationOptions && serializationOptions.includes('Enum-as-Value')) {
                     if (serializationOptions.includes('Compression')) {
                         return 'var' + underlyingType;
                     }
                     return underlyingType;
                 }
-                return (fieldData.type as string | undefined) ?? 'unknown';
+                return schema.type ?? 'unknown';
             }
             if (serializationOptions?.includes('Compression')) {
                 return 'var' + underlyingType;
@@ -74,40 +55,41 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
             return underlyingType;
         }
 
-        if (fieldData.type === 'array') {
-            const items = (fieldData.items as FieldData | undefined) ?? {};
-            if ('$ref' in items) {
-                const refId = (items['$ref'] as string).split('/').pop() ?? '';
-                if (definitions && refId in definitions) {
-                    const refTitle = definitions[refId].title ?? refId;
-                    return `array&lt;${refTitle}&gt;`;
+        if (schema.type === 'array') {
+            if (schema.items) {
+                if (schema.items.$ref) {
+                    const refId = schema.items.$ref.split('/').pop() ?? '';
+                    if (definitions && refId in definitions) {
+                        const refTitle = definitions[refId].title ?? refId;
+                        return `array&lt;${refTitle}&gt;`;
+                    }
+                    return `array&lt;${refId}&gt;`;
+                } else if (schema.items['x-underlying-type']) {
+                    return `array&lt;${schema.items['x-underlying-type']}&gt;`;
+                } else {
+                    const itemType = schema.items.type ?? 'unknown';
+                    return `array&lt;${itemType}&gt;`;
                 }
-                return `array&lt;${refId}&gt;`;
-            } else if ('x-underlying-type' in items) {
-                return `array&lt;${items['x-underlying-type'] as string}&gt;`;
-            } else {
-                const itemType = (items.type as string | undefined) ?? 'unknown';
-                return `array&lt;${itemType}&gt;`;
             }
         }
 
-        if ('oneOf' in fieldData) {
+        if (schema.oneOf) {
             return 'oneOf';
         }
 
-        if ('$ref' in fieldData) {
-            const refId = (fieldData['$ref'] as string).split('/').pop() ?? '';
+        if (schema.$ref) {
+            const refId = schema.$ref.split('/').pop() ?? '';
             if (definitions && refId in definitions) {
                 return definitions[refId].title ?? refId;
             }
             return refId;
         }
 
-        if ('enum' in fieldData) {
-            return (fieldData.title as string | undefined) ?? 'enum';
+        if (schema.enum) {
+            return schema.title ?? 'enum';
         }
 
-        return (fieldData.type as string | undefined) ?? 'unknown';
+        return schema.type ?? 'unknown';
     }
 
     private generateEnumTable(enumValues: string[], indentLevel: number): string {
@@ -141,47 +123,47 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
     }
 
     private generateOneOfTable(
-        fieldData: FieldData,
+        schema: MinecraftProtocolSchemaObject,
         indentLevel: number,
         definitions: Definitions,
         enumCache: EnumCache
     ): string {
-        if (!('oneOf' in fieldData)) {
+        if (!schema.oneOf) {
             return '';
         }
 
-        const controlValueType = (fieldData['x-control-value-type'] as string | undefined) ?? 'varuint32';
-        const oneOfItems = fieldData.oneOf as FieldData[];
+        const controlValueType = schema['x-control-value-type'] ?? 'varuint32';
+        const oneOfItems = schema.oneOf;
         const oneofTypeMembers: string[] = [];
         const oneOfMembersHtml: string[] = [];
         const expandedDefinitionsHtml: string[] = [];
 
         for (let idx = 0; idx < oneOfItems.length; idx++) {
             const oneOfItem = oneOfItems[idx];
-            const underlyingType = ProtocolHTMLGenerator.getUnderlyingType(oneOfItem, definitions);
+            const underlyingType = this.getUnderlyingType(oneOfItem, definitions);
             oneofTypeMembers.push(underlyingType);
 
             const details: string[] = [];
-            if ('x-underlying-type' in oneOfItem) {
-                details.push(`Underlying: ${oneOfItem['x-underlying-type'] as string}`);
+            if (oneOfItem['x-underlying-type']) {
+                details.push(`Underlying: ${oneOfItem['x-underlying-type']}`);
             }
-            if ('x-serialization-options' in oneOfItem) {
-                details.push(`Serialization: ${oneOfItem['x-serialization-options'] as string}`);
+            if (oneOfItem['x-serialization-options']) {
+                details.push(`Serialization: ${oneOfItem['x-serialization-options']}`);
             }
-            if ('title' in oneOfItem) {
-                details.push(`Title: ${oneOfItem.title as string}`);
+            if (oneOfItem.title) {
+                details.push(`Title: ${oneOfItem.title}`);
             }
 
             const detailsStr = details.length > 0 ? details.join(', ') : '-';
 
-            oneOfMembersHtml.push('<tr>');
-            oneOfMembersHtml.push(`<td>${idx}</td>`);
-            oneOfMembersHtml.push(`<td><strong>${underlyingType}</strong></td>`);
-            oneOfMembersHtml.push(`<td>${detailsStr}</td>`);
-            oneOfMembersHtml.push('</tr>');
+            oneOfMembersHtml.push(`<tr>
+                <td>${idx}</td>
+                <td><strong>${underlyingType}</strong></td>
+                <td>${detailsStr}</td>
+            </tr>`);
 
-            if ('$ref' in oneOfItem) {
-                const refId = (oneOfItem['$ref'] as string).split('/').pop() ?? '';
+            if (oneOfItem.$ref) {
+                const refId = oneOfItem.$ref.split('/').pop() ?? '';
                 if (refId in definitions) {
                     const refSchema = definitions[refId];
                     const refTitle = refSchema.title ?? refId;
@@ -195,16 +177,10 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
                             indentLevel + 2
                         );
                         if (nestedTable) {
-                            const detailHtml: string[] = [];
-                            detailHtml.push(
-                                `<details style="margin-left: ${(indentLevel + 1) * 20}px; margin-top: 10px;">`
-                            );
-                            detailHtml.push(
-                                `<summary style="cursor: pointer; font-weight: bold; padding: 5px; background-color: #f0f0f0; border: 1px solid #ddd;"><strong>${refTitle} (Variant ${idx})</strong></summary>`
-                            );
-                            detailHtml.push(nestedTable);
-                            detailHtml.push('</details>');
-                            expandedDefinitionsHtml.push(detailHtml.join('\n'));
+                            expandedDefinitionsHtml.push(`<details style="margin-left: ${(indentLevel + 1) * 20}px; margin-top: 10px;">
+                                <summary style="cursor: pointer; font-weight: bold; padding: 5px; background-color: #f0f0f0; border: 1px solid #ddd;"><strong>${refTitle} (Variant ${idx})</strong></summary>
+                                ${nestedTable}
+                            </details>`);
                         }
                     }
                 }
@@ -233,10 +209,14 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
 `;
     }
 
+    private getOrdinalIndex(schema: MinecraftProtocolSchemaObject): number {
+        return schema['x-ordinal-index'] ?? 9999;
+    }
+
     private generateNestedTable(
-        schema: SchemaData,
+        schema: MinecraftProtocolSchemaObject,
         definitions: Definitions,
-        enumCache: Record<string, string[]>,
+        enumCache: EnumCache,
         title: string,
         indentLevel: number = 0
     ): string {
@@ -252,7 +232,7 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
         }
 
         const sortedProperties = Object.entries(properties).sort(
-            ([, a], [, b]) => getOrdinalIndex(a) - getOrdinalIndex(b)
+            ([, a], [, b]) => this.getOrdinalIndex(a) - this.getOrdinalIndex(b)
         );
 
         const html: string[] = [];
@@ -263,23 +243,21 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
             html.push(`<h3>${escapeHtml(title)}</h3>`);
         }
 
-        html.push(
-            '<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 100%; max-width: 800px;">'
-        );
-        html.push('<thead>');
-        html.push('<tr style="background-color: #f0f0f0;">');
-        html.push('<th>Field Name</th>');
-        html.push('<th>Type</th>');
-        html.push('<th>Field Index</th>');
-        html.push('<th>Description</th>');
-        html.push('</tr>');
-        html.push('</thead>');
-        html.push('<tbody>');
+        html.push(`<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 100%; max-width: 800px;">
+        <thead>
+            <tr style="background-color: #f0f0f0;">
+                <th>Field Name</th>
+                <th>Type</th>
+                <th>Field Index</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>`);
 
-        for (const [fieldName, fieldData] of sortedProperties) {
-            let underlyingType = ProtocolHTMLGenerator.getUnderlyingType(fieldData, definitions);
-            const ordinal = getOrdinalIndex(fieldData);
-            const description = escapeHtml((fieldData.description as string | undefined) ?? '');
+        for (const [fieldName, fieldSchema] of sortedProperties) {
+            let underlyingType = this.getUnderlyingType(fieldSchema, definitions);
+            const ordinal = this.getOrdinalIndex(fieldSchema);
+            const description = escapeHtml(fieldSchema.description ?? '');
             const isRequired = required.has(fieldName);
 
             const displayFieldName = isRequired ? `${fieldName} (Required)` : fieldName;
@@ -289,15 +267,15 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
             let nestedHtml = '';
             let oneofHtml = '';
 
-            if ('oneOf' in fieldData) {
-                oneofHtml = this.generateOneOfTable(fieldData, 0, definitions, enumCache);
-            } else if ('enum' in fieldData) {
-                enumHtml = this.generateEnumTable(fieldData.enum as string[], 0);
-            } else if (((fieldData.title as string | undefined) ?? '') in enumCache) {
-                const enumTitle = fieldData.title as string;
+            if (fieldSchema.oneOf) {
+                oneofHtml = this.generateOneOfTable(fieldSchema, 0, definitions, enumCache);
+            } else if (fieldSchema.enum) {
+                enumHtml = this.generateEnumTable(fieldSchema.enum, 0);
+            } else if ((fieldSchema.title ?? '') in enumCache) {
+                const enumTitle = fieldSchema.title;
                 enumHtml = this.generateEnumTable(enumCache[enumTitle], 0);
-            } else if ('$ref' in fieldData) {
-                const refId = (fieldData['$ref'] as string).split('/').pop() ?? '';
+            } else if (fieldSchema.$ref) {
+                const refId = fieldSchema.$ref.split('/').pop() ?? '';
                 if (refId in definitions) {
                     const refSchema = definitions[refId];
                     const refTitle = refSchema.title ?? refId;
@@ -306,24 +284,25 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
                         nestedHtml = this.generateNestedTable(refSchema, definitions, enumCache, refTitle, 1);
                     }
                 }
-            } else if (fieldData.type === 'array') {
-                const items = (fieldData.items as FieldData | undefined) ?? {};
-                if ('$ref' in items) {
-                    const refId = (items['$ref'] as string).split('/').pop() ?? '';
-                    if (refId in definitions) {
-                        const refSchema = definitions[refId];
-                        let refTitle = refSchema.title ?? refId;
-                        if ('x-serialization-options' in fieldData) {
-                            refTitle += ` (${fieldData['x-serialization-options'] as string})`;
-                        }
-                        if (!refTitle.endsWith('Payload')) {
-                            nestedHtml = this.generateNestedTable(
-                                refSchema,
-                                definitions,
-                                enumCache,
-                                `${refTitle} (Array Item)`,
-                                1
-                            );
+            } else if (fieldSchema.type === 'array') {
+                if (fieldSchema.items) {
+                    if (fieldSchema.items.$ref) {
+                        const refId = fieldSchema.items.$ref.split('/').pop() ?? '';
+                        if (refId in definitions) {
+                            const refSchema = definitions[refId];
+                            let refTitle = refSchema.title ?? refId;
+                            if (fieldSchema['x-serialization-options']) {
+                                refTitle += ` (${fieldSchema['x-serialization-options']})`;
+                            }
+                            if (!refTitle.endsWith('Payload')) {
+                                nestedHtml = this.generateNestedTable(
+                                    refSchema,
+                                    definitions,
+                                    enumCache,
+                                    `${refTitle} (Array Item)`,
+                                    1
+                                );
+                            }
                         }
                     }
                 }
@@ -335,30 +314,29 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
             } else {
                 html.push(`<td><strong>${escapeHtml(displayFieldName)}</strong></td>`);
             }
-            html.push(`<td>${underlyingType}</td>`);
-            html.push(`<td>${ordinalDisplay}</td>`);
-            html.push(`<td>${description}</td>`);
-            html.push('</tr>');
+            html.push(`<td>${underlyingType}</td>
+                <td>${ordinalDisplay}</td>
+                <td>${description}</td>
+            </tr>`);
 
             if (oneofHtml) {
-                html.push('<tr>');
-                html.push(`<td colspan="3" style="padding: 0;">${oneofHtml}</td>`);
-                html.push('</tr>');
+                html.push(`<tr>
+                    <td colspan="3" style="padding: 0;">${oneofHtml}</td>
+                </tr>`);
             } else if (enumHtml) {
-                html.push('<tr>');
-                html.push(`<td colspan="3">${enumHtml}</td>`);
-                html.push('</tr>');
+                html.push(`<tr>
+                    <td colspan="3">${enumHtml}</td>
+                </tr>`);
             } else if (nestedHtml) {
-                html.push('<tr>');
-                html.push(`<td colspan="3">${nestedHtml}</td>`);
-                html.push('</tr>');
+                html.push(`<tr>
+                    <td colspan="3">${nestedHtml}</td>
+                </tr>`);
             }
         }
 
-        html.push('</tbody>');
-        html.push('</table>');
-        html.push('</div>');
-
+        html.push(`</tbody>
+    </table>
+</div>`);
         return html.join('\n');
     }
 
@@ -523,9 +501,9 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
     }
 
     private processSchema(
-        data: SchemaData,
+        data: MinecraftProtocolSchemaObject,
         key: string,
-        enumCache: Record<string, string[]>
+        enumCache: EnumCache
     ): { title: string; description: string; content: string; packetId: number } {
         try {
             let title = data.title ?? path.basename(key, '.json');
@@ -544,19 +522,19 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
                 title += ` (${packetId})`;
 
                 const packetDetails = metaProperties['[cereal:packet_details]'];
-                if (packetDetails !== undefined) {
+                if (packetDetails) {
                     extraDetails = String(packetDetails);
                 }
             }
 
-            const htmlParts: string[] = [];
-            htmlParts.push(`<h1>${escapeHtml(title)}</h1>`);
+            const html: string[] = [];
+            html.push(`<h1>${escapeHtml(title)}</h1>`);
 
             if (description) {
-                htmlParts.push(`<div class="description">${escapeHtml(description)}</div>`);
+                html.push(`<div class="description">${escapeHtml(description)}</div>`);
             }
             if (extraDetails) {
-                htmlParts.push(`<div class="description">${escapeHtml(extraDetails)}</div>`);
+                html.push(`<div class="description">${escapeHtml(extraDetails)}</div>`);
             }
 
             const properties = data.properties ?? {};
@@ -566,25 +544,25 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
                 data.type === 'object' &&
                 propertyKeys.length === 1 &&
                 'mPayload' in properties &&
-                '$ref' in properties.mPayload
+                properties.mPayload.$ref
             ) {
-                const refId = (properties.mPayload['$ref'] as string).split('/').pop() ?? '';
+                const refId = properties.mPayload.$ref.split('/').pop() ?? '';
                 if (refId in definitions) {
                     const payloadSchema = definitions[refId];
                     const payloadTitle = payloadSchema.title ?? '';
                     if (payloadTitle.endsWith('Payload')) {
-                        htmlParts.push(this.generateNestedTable(payloadSchema, definitions, enumCache, '', 0));
+                        html.push(this.generateNestedTable(payloadSchema, definitions, enumCache, ''));
                     } else {
-                        htmlParts.push(this.generateNestedTable(data, definitions, enumCache, '', 0));
+                        html.push(this.generateNestedTable(data, definitions, enumCache, ''));
                     }
                 } else {
-                    htmlParts.push(this.generateNestedTable(data, definitions, enumCache, '', 0));
+                    html.push(this.generateNestedTable(data, definitions, enumCache, ''));
                 }
             } else if (data.type === 'object' && data.properties) {
-                htmlParts.push(this.generateNestedTable(data, definitions, enumCache, '', 0));
+                html.push(this.generateNestedTable(data, definitions, enumCache, ''));
             }
 
-            return { title, description, content: htmlParts.join('\n'), packetId };
+            return { title, description, content: html.join('\n'), packetId };
         } catch (e) {
             Logger.error(`Error processing schema '${key}': ${String(e)}`);
             return { title: '', description: '', content: '', packetId: -1 };
@@ -605,10 +583,10 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
             return;
         }
 
-        const enumCache: Record<string, string[]> = {};
+        const enumCache: EnumCache = {};
 
         for (const [_, schema] of Object.entries(releases[0].protocol_schemas)) {
-            const data = schema as unknown as SchemaData;
+            const data = schema as unknown as MinecraftProtocolSchemaObject;
             if (!data.title) {
                 continue;
             }
@@ -631,7 +609,7 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
         const writePromises: Promise<void>[] = [];
         const packets: PacketInfo[] = [];
         for (const [key, schema] of packetEntries) {
-            const data = schema as unknown as SchemaData;
+            const data = schema as unknown as MinecraftProtocolSchemaObject;
             const { title, description, content, packetId } = this.processSchema(data, key, enumCache);
             if (!title) {
                 continue;
@@ -642,7 +620,6 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
             const outputPath = path.join(outputDirectory, outputFilename);
 
             writePromises.push(fs.writeFile(outputPath, this.getPageHtml(title, content, true), 'utf-8'));
-
             packets.push({ title, description, filename: outputFilename, id: packetId });
         }
 

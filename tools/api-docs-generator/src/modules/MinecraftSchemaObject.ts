@@ -15,6 +15,21 @@ export type MinecraftSchemaObject = SchemaObject & {
 
 export type MinecraftProtocolSchemaObject = MinecraftSchemaObject & {
     'x-protocol-version'?: string;
+    'x-underlying-type'?: string;
+    'x-serialization-options'?: string;
+    'x-ordinal-index'?: number;
+    'x-control-value-type'?: string;
+    type?: string;
+    title?: string;
+    description?: string;
+    properties?: Record<string, MinecraftProtocolSchemaObject>;
+    required?: string[];
+    definitions?: Record<string, MinecraftProtocolSchemaObject>;
+    enum?: string[];
+    items?: MinecraftProtocolSchemaObject;
+    oneOf?: MinecraftProtocolSchemaObject[];
+    $ref?: string;
+    $metaProperties?: Record<string, unknown>;
 };
 
 /**

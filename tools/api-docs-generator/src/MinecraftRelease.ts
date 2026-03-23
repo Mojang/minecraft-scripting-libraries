@@ -8,10 +8,10 @@ import { MinecraftBlockModule } from './modules/MinecraftBlockModule';
 import { MinecraftCommandModule } from './modules/MinecraftCommandModule';
 import { MinecraftEngineDataModule } from './modules/MinecraftEngineDataModules';
 import { MinecraftMolangModule } from './modules/MinecraftMolangModule';
+import { MinecraftJsonSchemaMap, MinecraftProtocolSchemaMap } from './modules/MinecraftSchemaObject';
 import { MinecraftScriptModule } from './modules/MinecraftScriptModule';
 import { MinecraftVanillaDataModule } from './modules/MinecraftVanillaDataModules';
 import * as utils from './utilities';
-import { MinecraftJsonSchemaMap } from './modules/MinecraftSchemaObject';
 
 export enum GetLatestScriptModulesOptions {
     OnlyStable,
@@ -67,6 +67,7 @@ export class MinecraftRelease {
     engine_data_modules: RuntimeDataModule<MinecraftEngineDataModule>[] = [];
     molang_modules: RuntimeDataModule<MinecraftMolangModule>[] = [];
     json_schemas: MinecraftJsonSchemaMap = {};
+    protocol_schemas: MinecraftProtocolSchemaMap = {};
 
     constructor(public minecraft_version: string) {}
 
@@ -92,7 +93,7 @@ export class MinecraftRelease {
             result.molang_modules.push(JSON.parse(JSON.stringify(module)) as MinecraftMolangModule);
         }
         result.json_schemas = JSON.parse(JSON.stringify(this.json_schemas)) as MinecraftJsonSchemaMap;
-
+        result.protocol_schemas = JSON.parse(JSON.stringify(this.protocol_schemas)) as MinecraftProtocolSchemaMap;
         return result;
     }
 

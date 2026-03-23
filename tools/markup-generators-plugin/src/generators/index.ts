@@ -5,6 +5,7 @@ export * from './ChangelogJSONGenerator';
 export * from './ChangelogMDGenerator';
 export * from './MSDocsMarkdownGenerator';
 export * from './NPMModuleGenerator';
+export * from './ProtocolHTMLGenerator';
 export * from './TypeDocGenerator';
 export * from './TypeScriptDefinitionGenerator';
 export * from './TypeScriptGenerator';

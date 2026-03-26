@@ -1,8 +1,17 @@
 # Change Log - @minecraft/markup-generators-plugin
 
-<!-- This log was last generated on Fri, 06 Mar 2026 18:11:49 GMT and should not be manually modified. -->
+<!-- This log was last generated on Thu, 26 Mar 2026 20:36:26 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 1.5.0
+
+Thu, 26 Mar 2026 20:36:26 GMT
+
+### Minor changes
+
+- Add generator for rendering HTML documentation for protocol schemas (zachary.campbell@skyboxlabs.com)
+- Bump @minecraft/api-docs-generator to v1.8.0
 
 ## 1.4.2
 

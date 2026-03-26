@@ -2,6 +2,27 @@
   "name": "@minecraft/markup-generators-plugin",
   "entries": [
     {
+      "date": "Thu, 26 Mar 2026 20:36:26 GMT",
+      "version": "1.5.0",
+      "tag": "@minecraft/markup-generators-plugin_v1.5.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "zachary.campbell@skyboxlabs.com",
+            "package": "@minecraft/markup-generators-plugin",
+            "commit": "dff55b90bbb552ea829531dacb5009d796bc53cd",
+            "comment": "Add generator for rendering HTML documentation for protocol schemas"
+          },
+          {
+            "author": "beachball",
+            "package": "@minecraft/markup-generators-plugin",
+            "comment": "Bump @minecraft/api-docs-generator to v1.8.0",
+            "commit": "not available"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 06 Mar 2026 18:11:49 GMT",
       "version": "1.4.2",
       "tag": "@minecraft/markup-generators-plugin_v1.4.2",

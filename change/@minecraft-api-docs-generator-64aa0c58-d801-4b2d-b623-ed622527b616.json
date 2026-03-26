@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Add generator for rendering HTML documentation for protocol schemas",
-  "packageName": "@minecraft/api-docs-generator",
-  "email": "zachary.campbell@skyboxlabs.com",
-  "dependentChangeType": "patch"
-}

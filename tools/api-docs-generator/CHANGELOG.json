@@ -2,6 +2,21 @@
   "name": "@minecraft/api-docs-generator",
   "entries": [
     {
+      "date": "Thu, 26 Mar 2026 20:36:26 GMT",
+      "version": "1.8.0",
+      "tag": "@minecraft/api-docs-generator_v1.8.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "zachary.campbell@skyboxlabs.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "dff55b90bbb552ea829531dacb5009d796bc53cd",
+            "comment": "Add generator for rendering HTML documentation for protocol schemas"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 06 Mar 2026 18:11:49 GMT",
       "version": "1.7.0",
       "tag": "@minecraft/api-docs-generator_v1.7.0",

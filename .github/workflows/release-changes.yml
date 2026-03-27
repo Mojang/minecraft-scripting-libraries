@@ -32,7 +32,6 @@ jobs:
       
       # Pass the token on the command line for publishing
       - name: Publish
-        run: npm run release -- --token "$NPM_TOKEN" --yes --new
+        run: npm run release -- --yes --new
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           REPO_PAT: ${{ secrets.REPO_PAT }}

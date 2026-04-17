@@ -336,19 +336,19 @@ export class ChangelogGenerator {
         currentSubobjects: Array<Record<string, unknown>>,
         nextSubobjects: Array<Record<string, unknown>>
     ) {
+        const subObjectDataLayout = dataLayout.submembers[subObjectKey];
+        const subObjectDataLayoutAsArray = subObjectDataLayout as ArrayMetadataScope;
+        const layoutKey = subObjectDataLayoutAsArray.key;
+
+        // Build a key -> index lookup
+        const nextIndexByKey = new Map(nextSubobjects.map((obj, i) => [obj[layoutKey], i]));
+
         currentSubobjects.forEach(currentSubObjectPropertyData => {
-            const subObjectDataLayout = dataLayout.submembers[subObjectKey];
-            const subObjectDataLayoutAsArray = dataLayout.submembers[subObjectKey] as ArrayMetadataScope;
+            const nextObjectPropertyIndex = nextIndexByKey.get(currentSubObjectPropertyData[layoutKey]);
 
-            const nextObjectPropertyIndex = nextSubobjects
-                .map(objectData => objectData[subObjectDataLayoutAsArray.key])
-                .indexOf(currentSubObjectPropertyData[subObjectDataLayoutAsArray.key]);
-
-            if (nextObjectPropertyIndex === -1) {
+            if (nextObjectPropertyIndex === undefined) {
                 const objectChange = {
-                    [subObjectDataLayoutAsArray.key]: utils.deepCopyJson(
-                        currentSubObjectPropertyData[subObjectDataLayoutAsArray.key]
-                    ),
+                    [layoutKey]: utils.deepCopyJson(currentSubObjectPropertyData[layoutKey]),
                     [changeLogList]: true,
                     ...currentSubObjectPropertyData,
                 };
@@ -416,15 +416,15 @@ export class ChangelogGenerator {
                     const currentObjectValue = currentObjectData[subObjectKey];
                     const nextObjectValue = nextObjectData[subObjectKey];
 
-                    const currentObjectValueCopy = utils.deepCopyJson(currentObjectValue) as Record<string, unknown>;
-                    const nextObjectValueCopy = utils.deepCopyJson(nextObjectValue) as Record<string, unknown>;
+                    const ignoredSubmembers = subObjectDataLayout.ignoredSubmembers;
 
-                    subObjectDataLayout.ignoredSubmembers?.forEach(ignoredSubmember => {
-                        utils.removePropertyRecursive(currentObjectValueCopy, ignoredSubmember);
-                        utils.removePropertyRecursive(nextObjectValueCopy, ignoredSubmember);
-                    });
-
-                    if (!deepEqual(currentObjectValueCopy, nextObjectValueCopy)) {
+                    // Compare by serializing to JSON with sorted keys — this is
+                    // order-insensitive (like deepEqual) while being dramatically
+                    // faster than deepCopyJson + removePropertyRecursive + deepEqual.
+                    if (
+                        utils.stableStringify(currentObjectValue, ignoredSubmembers) !==
+                        utils.stableStringify(nextObjectValue, ignoredSubmembers)
+                    ) {
                         parentObjectChangelog[subObjectKey] = {
                             $old: utils.deepCopyJson(currentObjectValue),
                             $new: utils.deepCopyJson(nextObjectValue),
@@ -592,11 +592,16 @@ export class ChangelogGenerator {
 
                 const sortedChangelogs = changelogs.sort(utils.reverseSemVerSortComparer(this.config.getVersionKey()));
 
+                // Serialize once, parse N times — avoids re-running JSON.stringify per module.
+                const serializedChangelog = JSON.stringify(sortedChangelogs, (_key, value: unknown) =>
+                    // eslint-disable-next-line unicorn/no-null
+                    typeof value === 'undefined' ? null : value
+                );
                 for (const moduleJson of currentModuleList) {
                     const moduleWithChangelog = moduleJson as ModuleWithChangelog<
                         WithVersionKey<IMinecraftModule, ReturnType<typeof this.config.getVersionKey>>
                     >;
-                    moduleWithChangelog.changelog = utils.deepCopyJson(sortedChangelogs);
+                    moduleWithChangelog.changelog = JSON.parse(serializedChangelog) as typeof sortedChangelogs;
                 }
             }
         }

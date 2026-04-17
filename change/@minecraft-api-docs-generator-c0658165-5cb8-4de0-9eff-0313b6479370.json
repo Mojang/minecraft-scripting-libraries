@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Optimize changelog diffing for large metadata sets",
+  "packageName": "@minecraft/api-docs-generator",
+  "email": "jake@xbox.com",
+  "dependentChangeType": "patch"
+}

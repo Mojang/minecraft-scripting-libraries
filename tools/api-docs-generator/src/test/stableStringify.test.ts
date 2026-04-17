@@ -33,7 +33,12 @@ describe('stableStringify', () => {
 
     it('preserves array element order', () => {
         expect(stableStringify([3, 1, 2])).toBe('[3,1,2]');
-        expect(stableStringify([{ b: 1, a: 2 }, { d: 4, c: 3 }])).toBe('[{"a":2,"b":1},{"c":3,"d":4}]');
+        expect(
+            stableStringify([
+                { b: 1, a: 2 },
+                { d: 4, c: 3 },
+            ])
+        ).toBe('[{"a":2,"b":1},{"c":3,"d":4}]');
     });
 
     it('omits properties whose keys are listed in ignoredSubmembers', () => {

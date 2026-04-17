@@ -344,15 +344,11 @@ export class ChangelogGenerator {
         const nextIndexByKey = new Map(nextSubobjects.map((obj, i) => [obj[layoutKey], i]));
 
         currentSubobjects.forEach(currentSubObjectPropertyData => {
-            const nextObjectPropertyIndex = nextIndexByKey.get(
-                currentSubObjectPropertyData[layoutKey]
-            );
+            const nextObjectPropertyIndex = nextIndexByKey.get(currentSubObjectPropertyData[layoutKey]);
 
             if (nextObjectPropertyIndex === undefined) {
                 const objectChange = {
-                    [layoutKey]: utils.deepCopyJson(
-                        currentSubObjectPropertyData[layoutKey]
-                    ),
+                    [layoutKey]: utils.deepCopyJson(currentSubObjectPropertyData[layoutKey]),
                     [changeLogList]: true,
                     ...currentSubObjectPropertyData,
                 };

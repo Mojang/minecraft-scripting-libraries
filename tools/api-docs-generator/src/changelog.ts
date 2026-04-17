@@ -340,8 +340,7 @@ export class ChangelogGenerator {
         const subObjectDataLayoutAsArray = subObjectDataLayout as ArrayMetadataScope;
         const layoutKey = subObjectDataLayoutAsArray.key;
 
-        // Build a key -> index lookup for nextSubobjects once, rather than rescanning
-        // with .map().indexOf() per currentSubobjects entry (was O(N*M); now O(N+M)).
+        // Build a key -> index lookup
         const nextIndexByKey = new Map(nextSubobjects.map((obj, i) => [obj[layoutKey], i]));
 
         currentSubobjects.forEach(currentSubObjectPropertyData => {

@@ -348,7 +348,7 @@ export class ChangelogGenerator {
 
             if (nextObjectPropertyIndex === undefined) {
                 const objectChange = {
-                    [layoutKey]: utils.deepCopyJson(currentSubObjectPropertyData[layoutKey]),
+                    [layoutKey]: currentSubObjectPropertyData[layoutKey],
                     [changeLogList]: true,
                     ...currentSubObjectPropertyData,
                 };
@@ -592,16 +592,20 @@ export class ChangelogGenerator {
 
                 const sortedChangelogs = changelogs.sort(utils.reverseSemVerSortComparer(this.config.getVersionKey()));
 
-                // Serialize once, parse N times — avoids re-running JSON.stringify per module.
+                // Serialize once and parse a single shared copy. All modules in the
+                // same group receive the same reference. This is safe because nothing
+                // mutates the originals before MinecraftRelease.copy() deep-clones them.
                 const serializedChangelog = JSON.stringify(sortedChangelogs, (_key, value: unknown) =>
                     // eslint-disable-next-line unicorn/no-null
                     typeof value === 'undefined' ? null : value
                 );
+
+                const sharedChangelog = JSON.parse(serializedChangelog) as typeof sortedChangelogs;
                 for (const moduleJson of currentModuleList) {
                     const moduleWithChangelog = moduleJson as ModuleWithChangelog<
                         WithVersionKey<IMinecraftModule, ReturnType<typeof this.config.getVersionKey>>
                     >;
-                    moduleWithChangelog.changelog = JSON.parse(serializedChangelog) as typeof sortedChangelogs;
+                    moduleWithChangelog.changelog = sharedChangelog;
                 }
             }
         }

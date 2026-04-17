@@ -74,24 +74,14 @@ export class MinecraftRelease {
     copy(): MinecraftRelease {
         const result = new MinecraftRelease(this.minecraft_version);
 
-        for (const module of this.script_modules) {
-            result.script_modules.push(JSON.parse(JSON.stringify(module)) as MinecraftScriptModule);
-        }
-        for (const module of this.command_modules) {
-            result.command_modules.push(JSON.parse(JSON.stringify(module)) as MinecraftCommandModule);
-        }
-        for (const module of this.block_modules) {
-            result.block_modules.push(JSON.parse(JSON.stringify(module)) as MinecraftBlockModule);
-        }
-        for (const module of this.vanilla_data_modules) {
-            result.vanilla_data_modules.push(JSON.parse(JSON.stringify(module)) as MinecraftVanillaDataModule);
-        }
-        for (const module of this.engine_data_modules) {
-            result.engine_data_modules.push(JSON.parse(JSON.stringify(module)) as MinecraftEngineDataModule);
-        }
-        for (const module of this.molang_modules) {
-            result.molang_modules.push(JSON.parse(JSON.stringify(module)) as MinecraftMolangModule);
-        }
+        const deepCopyArray = <T>(arr: T[]): T[] => (arr.length > 0 ? (JSON.parse(JSON.stringify(arr)) as T[]) : []);
+
+        result.script_modules = deepCopyArray(this.script_modules);
+        result.command_modules = deepCopyArray(this.command_modules);
+        result.block_modules = deepCopyArray(this.block_modules);
+        result.vanilla_data_modules = deepCopyArray(this.vanilla_data_modules);
+        result.engine_data_modules = deepCopyArray(this.engine_data_modules);
+        result.molang_modules = deepCopyArray(this.molang_modules);
         result.json_schemas = JSON.parse(JSON.stringify(this.json_schemas)) as MinecraftJsonSchemaMap;
         result.protocol_schemas = JSON.parse(JSON.stringify(this.protocol_schemas)) as MinecraftProtocolSchemaMap;
         return result;

@@ -342,10 +342,7 @@ export class ChangelogGenerator {
 
         // Build a key -> index lookup for nextSubobjects once, rather than rescanning
         // with .map().indexOf() per currentSubobjects entry (was O(N*M); now O(N+M)).
-        const nextIndexByKey = new Map<unknown, number>();
-        for (let i = 0; i < nextSubobjects.length; i++) {
-            nextIndexByKey.set(nextSubobjects[i][layoutKey], i);
-        }
+        const nextIndexByKey = new Map(nextSubobjects.map((obj, i) => [obj[layoutKey], i]));
 
         currentSubobjects.forEach(currentSubObjectPropertyData => {
             const nextObjectPropertyIndex = nextIndexByKey.get(
@@ -429,36 +426,10 @@ export class ChangelogGenerator {
                     // Compare by serializing to JSON with sorted keys — this is
                     // order-insensitive (like deepEqual) while being dramatically
                     // faster than deepCopyJson + removePropertyRecursive + deepEqual.
-                    const replacer =
-                        ignoredSubmembers && ignoredSubmembers.length > 0
-                            ? (key: string, value: unknown) => {
-                                  if (ignoredSubmembers.includes(key)) return undefined;
-                                  if (typeof value === 'undefined')
-                                      // eslint-disable-next-line unicorn/no-null
-                                      return null;
-                                  if (value && typeof value === 'object' && !Array.isArray(value)) {
-                                      const sorted: Record<string, unknown> = {};
-                                      for (const k of Object.keys(value as Record<string, unknown>).sort()) {
-                                          sorted[k] = (value as Record<string, unknown>)[k];
-                                      }
-                                      return sorted;
-                                  }
-                                  return value;
-                              }
-                            : (_key: string, value: unknown) => {
-                                  // eslint-disable-next-line unicorn/no-null
-                                  if (typeof value === 'undefined') return null;
-                                  if (value && typeof value === 'object' && !Array.isArray(value)) {
-                                      const sorted: Record<string, unknown> = {};
-                                      for (const k of Object.keys(value as Record<string, unknown>).sort()) {
-                                          sorted[k] = (value as Record<string, unknown>)[k];
-                                      }
-                                      return sorted;
-                                  }
-                                  return value;
-                              };
-
-                    if (JSON.stringify(currentObjectValue, replacer) !== JSON.stringify(nextObjectValue, replacer)) {
+                    if (
+                        utils.stableStringify(currentObjectValue, ignoredSubmembers) !==
+                        utils.stableStringify(nextObjectValue, ignoredSubmembers)
+                    ) {
                         parentObjectChangelog[subObjectKey] = {
                             $old: utils.deepCopyJson(currentObjectValue),
                             $new: utils.deepCopyJson(nextObjectValue),

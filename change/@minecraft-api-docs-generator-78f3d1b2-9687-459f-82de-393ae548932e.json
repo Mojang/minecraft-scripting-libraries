@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "build(dependabot): bump ajv from 8.12.0 to 8.20.0",
+  "packageName": "@minecraft/api-docs-generator",
+  "email": "mc-npm@microsoft.com",
+  "dependentChangeType": "patch"
+}

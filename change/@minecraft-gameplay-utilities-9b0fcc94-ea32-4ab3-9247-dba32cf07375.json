@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "build(dependabot): bump @minecraft/server from 2.4.0 to 2.6.0",
+  "packageName": "@minecraft/gameplay-utilities",
+  "email": "mc-npm@microsoft.com",
+  "dependentChangeType": "patch"
+}

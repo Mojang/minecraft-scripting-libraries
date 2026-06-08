@@ -13,7 +13,6 @@ import {
     getAfterEventsOrderingModuleFrom,
     MinecraftAfterEventsOrderByVersion,
 } from '../modules/MinecraftAfterEventsOrderModule';
-import { CommandMarkupFilter } from './CommandFilters';
 import { MinecraftBlock, MinecraftBlockModule, MinecraftBlockProperty } from '../modules/MinecraftBlockModule';
 import {
     ArrayChangelogEntry,
@@ -22,17 +21,8 @@ import {
     moduleHasChangelog,
 } from '../modules/MinecraftChangelogTypes';
 import {
-    MinecraftCommand,
-    MinecraftCommandArgumentType,
-    MinecraftCommandEnum,
-    MinecraftCommandModule,
-} from '../modules/MinecraftCommandModule';
-import {
     BlockDocsValidator,
     BlockPropertyDocsValidator,
-    CommandDocsValidator,
-    CommandEnumDocsValidator,
-    CommonDocsDescriptionValidator,
     ScriptCommonDocsValidator,
     ScriptFunctionDocsValidator,
     ScriptNestedCommonDocsValidator,
@@ -957,92 +947,6 @@ function addTypeAliasDescriptions(
     addExamples(fileLoader, aliasJson, aliasFolder, moduleJson.name);
 }
 
-function addCommandEnumDescriptions(fileLoader: FileLoader, enumJson: MinecraftCommandEnum, moduleFolderPath: string) {
-    enumJson.has_comments = false;
-
-    const enumName = enumJson.name;
-    const enumFolderPath = path.join(moduleFolderPath, 'command_enums', enumName);
-
-    const infoPath = path.join(enumFolderPath, 'info.json');
-    const infoJson = parseJsonSafe(fileLoader, infoPath, CommandEnumDocsValidator);
-    if (infoJson) {
-        if (infoJson.description) {
-            enumJson.has_comments = true;
-            enumJson.enum_description = splitStringByNewline(infoJson.description);
-        }
-        if (infoJson.values) {
-            for (const valueJson of enumJson.values) {
-                const valueInfoJson = infoJson.values.find(v => valueJson.value === v.name);
-                if (valueInfoJson && valueInfoJson.description) {
-                    valueJson.has_comments = true;
-                    valueJson.value_description = splitStringByNewline(valueInfoJson.description);
-                }
-            }
-        }
-    }
-}
-
-function addCommandTypeDescriptions(
-    fileLoader: FileLoader,
-    typeJson: MinecraftCommandArgumentType,
-    moduleFolderPath: string
-) {
-    typeJson.has_comments = false;
-
-    const typeName = typeJson.name;
-    const typeFolderPath = path.join(moduleFolderPath, 'command_types', typeName);
-
-    const infoPath = path.join(typeFolderPath, 'info.json');
-    const infoJson = parseJsonSafe(fileLoader, infoPath, CommonDocsDescriptionValidator);
-    if (infoJson && infoJson.description) {
-        typeJson.has_comments = true;
-        typeJson.type_description = splitStringByNewline(infoJson.description);
-    }
-}
-
-function addCommandDescriptions(fileLoader: FileLoader, commandJson: MinecraftCommand, moduleFolderPath: string) {
-    commandJson.has_comments = false;
-
-    const commandName = commandJson.name;
-    const commandFolderPath = path.join(moduleFolderPath, 'commands', commandName);
-
-    const infoPath = path.join(commandFolderPath, 'info.json');
-    const infoJson = parseJsonSafe(fileLoader, infoPath, CommandDocsValidator);
-    if (infoJson) {
-        if (infoJson.description) {
-            commandJson.has_comments = true;
-            commandJson.command_description = splitStringByNewline(infoJson.description);
-        }
-        if (infoJson.overloads) {
-            for (const overloadJson of commandJson.overloads) {
-                const overloadInfoJson = infoJson.overloads.find(o => Number(overloadJson.name) === o.id);
-                if (overloadInfoJson && overloadInfoJson.description) {
-                    overloadJson.has_comments = true;
-                    overloadJson.overload_description = splitStringByNewline(overloadInfoJson.description);
-                    if (overloadInfoJson.header) {
-                        overloadJson.overload_header = overloadInfoJson.header;
-                    }
-                }
-            }
-        }
-        if (infoJson.arguments) {
-            for (const argumentJson of commandJson.arguments) {
-                const argInfoJson = infoJson.arguments.find(a => argumentJson.directory_name === a.name);
-                if (argInfoJson && argInfoJson.description) {
-                    argumentJson.has_comments = true;
-                    argumentJson.argument_description = splitStringByNewline(argInfoJson.description);
-                }
-            }
-        }
-    }
-
-    if (commandJson.command_enums) {
-        for (const enumJson of commandJson.command_enums) {
-            addCommandEnumDescriptions(fileLoader, enumJson, commandFolderPath);
-        }
-    }
-}
-
 function addBlockPropertyDescriptions(
     fileLoader: FileLoader,
     blockPropertyJson: MinecraftBlockProperty,
@@ -1187,20 +1091,6 @@ function addDescriptionsAndExamples(releases: MinecraftRelease[], fileLoader?: F
             }
         }
 
-        for (const moduleJson of release.command_modules) {
-            for (const commandJson of moduleJson.commands ?? []) {
-                addCommandDescriptions(fileLoader, commandJson, moduleJson.name);
-            }
-
-            for (const enumJson of moduleJson.command_enums ?? []) {
-                addCommandEnumDescriptions(fileLoader, enumJson, moduleJson.name);
-            }
-
-            for (const typeJson of moduleJson.command_types ?? []) {
-                addCommandTypeDescriptions(fileLoader, typeJson, moduleJson.name);
-            }
-        }
-
         for (const moduleJson of release.block_modules) {
             for (const dataItemsJson of moduleJson.data_items ?? []) {
                 addBlockDescriptions(fileLoader, dataItemsJson, moduleJson.name);
@@ -1341,53 +1231,6 @@ function markupCategoriesOnScriptModule(moduleJson: MinecraftScriptModule) {
     }
 }
 
-function markupCategoriesOnCommandsModule(moduleJson: MinecraftCommandModule) {
-    moduleJson.module_name = moduleJson.name;
-
-    if (moduleJson.commands) {
-        for (const commandJson of moduleJson.commands) {
-            commandJson.command_name = commandJson.name;
-
-            if (commandJson.overloads) {
-                for (const overloadJson of commandJson.overloads) {
-                    for (const paramJson of overloadJson.params) {
-                        paramJson.param_name = paramJson.type.is_keyword ? paramJson.type.keyword_name : paramJson.name;
-                    }
-                }
-            }
-
-            if (commandJson.arguments) {
-                for (const paramJson of commandJson.arguments) {
-                    paramJson.param_name = paramJson.type.is_keyword ? paramJson.type.keyword_name : paramJson.name;
-                }
-                commandJson.arguments.sort(utils.nameSortComparer);
-            }
-
-            if (commandJson.command_enums) {
-                for (const enumJson of commandJson.command_enums) {
-                    enumJson.enum_name = enumJson.name;
-                }
-                commandJson.command_enums.sort(utils.nameSortComparer);
-            }
-        }
-        moduleJson.commands.sort(utils.nameSortComparer);
-    }
-
-    if (moduleJson.command_enums) {
-        for (const enumJson of moduleJson.command_enums) {
-            enumJson.enum_name = enumJson.name;
-        }
-        moduleJson.command_enums.sort(utils.nameSortComparer);
-    }
-
-    if (moduleJson.command_types) {
-        for (const typeJson of moduleJson.command_types) {
-            typeJson.type_name = typeJson.name;
-        }
-        moduleJson.command_types.sort(utils.nameSortComparer);
-    }
-}
-
 function markupCategoriesOnBlocksModule(moduleJson: MinecraftBlockModule) {
     moduleJson.module_name = moduleJson.name;
 
@@ -1412,16 +1255,6 @@ function markupCategories(releases: MinecraftRelease[]) {
             if (moduleHasChangelog(moduleJson)) {
                 for (const changelog of moduleJson.changelog) {
                     markupCategoriesOnScriptModule(changelog);
-                }
-            }
-        }
-
-        for (const moduleJson of release.command_modules) {
-            markupCategoriesOnCommandsModule(moduleJson);
-
-            if (moduleHasChangelog(moduleJson)) {
-                for (const changelog of moduleJson.changelog) {
-                    markupCategoriesOnCommandsModule(changelog);
                 }
             }
         }
@@ -2419,7 +2252,6 @@ function flagChangelogChanges(releases: MinecraftRelease[]) {
 
                 for (const changelogModuleJson of commandModule.changelog) {
                     flagArraySubmemberChanges(changelogModuleJson, 'commands', [changelogModuleJson]);
-                    flagArraySubmemberChanges(changelogModuleJson, 'command_enums', [changelogModuleJson]);
 
                     for (const commandJson of changelogModuleJson.commands) {
                         flagChanges(commandJson, [changelogModuleJson, commandJson]);
@@ -3150,12 +2982,6 @@ function defaultModuleCategories(releases: MinecraftRelease[]) {
             }
         }
 
-        for (const commandsModule of release.command_modules) {
-            insertEmptyArrayIfNotExist(commandsModule, 'commands');
-            insertEmptyArrayIfNotExist(commandsModule, 'command_enums');
-            insertEmptyArrayIfNotExist(commandsModule, 'command_types');
-        }
-
         for (const blockModule of release.block_modules) {
             insertEmptyArrayIfNotExist(blockModule, 'data_items');
             insertEmptyArrayIfNotExist(blockModule, 'block_properties');
@@ -3586,7 +3412,6 @@ export const CommonFilters: FilterGroup = {
         ['mark_errorable', markErrorable],
         ['mark_prerelease', markPrerelease],
         ['mark_deprecated', markDeprecated],
-        CommandMarkupFilter,
         ['block_filters', blockFilters],
         ['constant_values', constantValues],
         ['default_values', defaultValues],

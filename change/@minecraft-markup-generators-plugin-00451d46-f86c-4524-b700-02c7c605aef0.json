@@ -1,0 +1,7 @@
+{
+  "type": "major",
+  "comment": "Remove commands docs generation",
+  "packageName": "@minecraft/markup-generators-plugin",
+  "email": "zachary.campbell@skyboxlabs.com",
+  "dependentChangeType": "patch"
+}

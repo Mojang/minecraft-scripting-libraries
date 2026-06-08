@@ -1,0 +1,7 @@
+{
+  "type": "major",
+  "comment": "Remove commands docs generation",
+  "packageName": "@minecraft/api-docs-generator",
+  "email": "zachary.campbell@skyboxlabs.com",
+  "dependentChangeType": "patch"
+}

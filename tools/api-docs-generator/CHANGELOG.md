@@ -1,8 +1,20 @@
 # Change Log - @minecraft/api-docs-generator
 
-<!-- This log was last generated on Thu, 26 Mar 2026 20:36:26 GMT and should not be manually modified. -->
+<!-- This log was last generated on Tue, 09 Jun 2026 21:01:20 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.0.0
+
+Tue, 09 Jun 2026 21:01:20 GMT
+
+### Major changes
+
+- Remove commands docs generation (zachary.campbell@skyboxlabs.com)
+
+### Patches
+
+- Optimize changelog diffing for large metadata sets (jake@xbox.com)
 
 ## 1.8.0
 

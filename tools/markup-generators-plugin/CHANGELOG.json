@@ -2,6 +2,27 @@
   "name": "@minecraft/markup-generators-plugin",
   "entries": [
     {
+      "date": "Tue, 09 Jun 2026 21:01:20 GMT",
+      "version": "2.0.0",
+      "tag": "@minecraft/markup-generators-plugin_v2.0.0",
+      "comments": {
+        "major": [
+          {
+            "author": "zachary.campbell@skyboxlabs.com",
+            "package": "@minecraft/markup-generators-plugin",
+            "commit": "0085b6e1f1c59bfdd822c666605d83190ff8948c",
+            "comment": "Remove commands docs generation"
+          },
+          {
+            "author": "beachball",
+            "package": "@minecraft/markup-generators-plugin",
+            "comment": "Bump @minecraft/api-docs-generator to v2.0.0",
+            "commit": "not available"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 26 Mar 2026 20:36:26 GMT",
       "version": "1.5.0",
       "tag": "@minecraft/markup-generators-plugin_v1.5.0",

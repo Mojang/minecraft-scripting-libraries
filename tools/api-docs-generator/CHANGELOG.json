@@ -2,6 +2,29 @@
   "name": "@minecraft/api-docs-generator",
   "entries": [
     {
+      "date": "Tue, 09 Jun 2026 21:01:20 GMT",
+      "version": "2.0.0",
+      "tag": "@minecraft/api-docs-generator_v2.0.0",
+      "comments": {
+        "patch": [
+          {
+            "author": "jake@xbox.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "0085b6e1f1c59bfdd822c666605d83190ff8948c",
+            "comment": "Optimize changelog diffing for large metadata sets"
+          }
+        ],
+        "major": [
+          {
+            "author": "zachary.campbell@skyboxlabs.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "0085b6e1f1c59bfdd822c666605d83190ff8948c",
+            "comment": "Remove commands docs generation"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 26 Mar 2026 20:36:26 GMT",
       "version": "1.8.0",
       "tag": "@minecraft/api-docs-generator_v1.8.0",

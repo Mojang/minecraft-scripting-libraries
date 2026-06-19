@@ -446,7 +446,9 @@ function addDescriptionFields(
                 }
                 newLine = newLine.concat(word);
             } else {
-                tsDescriptionWrapped.push(newLine);
+                if (newLine.length > 0) {
+                    tsDescriptionWrapped.push(newLine);
+                }
                 newLine = word;
             }
 

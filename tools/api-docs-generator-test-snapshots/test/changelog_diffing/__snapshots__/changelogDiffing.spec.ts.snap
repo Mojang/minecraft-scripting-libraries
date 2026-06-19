@@ -2143,6 +2143,8 @@ description: Contents of the dependant-module module (Version 1.x.x)
 ---
 # \`dependant-module\` Module (Version 1.x.x)
 
+dependant-module has a dependancy on test-module1: [*test-module1*](../../../priorscriptapi/test-module1-1xx/test-module1.md)
+
 > [!IMPORTANT]
 > This documentation is for an older version of this module. Go to the latest documentation [*here*](../../../scriptapi/dependant-module/dependant-module.md).
 
@@ -2203,6 +2205,8 @@ title: dependant-module-2xx Module
 description: Contents of the dependant-module module (Version 2.x.x)
 ---
 # \`dependant-module\` Module (Version 2.x.x)
+
+dependant-module has a dependancy on test-module1: [*test-module1*](../../../scriptapi/test-module1/test-module1.md)
 
 > [!IMPORTANT]
 > This documentation is for an older version of this module. Go to the latest documentation [*here*](../../../scriptapi/dependant-module/dependant-module.md).
@@ -3048,6 +3052,8 @@ title: dependant-module Module
 description: Contents of the dependant-module module
 ---
 # \`dependant-module\` Module
+
+dependant-module has a dependancy on test-module1: [*test-module1*](../../../scriptapi/test-module1/test-module1.md)
 
 ## [Changelog](changelog.md)
 
@@ -4056,6 +4062,8 @@ exports[`Changelog Diffing > Generates correct output for changelog diffs > type
    ***************************************************************************** */
 /**
  * @packageDocumentation
+ * dependant-module has a dependancy on test-module1:
+ * {@link testmodule1}
  *
  * Manifest Details
  * \`\`\`json
@@ -4090,6 +4098,8 @@ exports[`Changelog Diffing > Generates correct output for changelog diffs > type
    ***************************************************************************** */
 /**
  * @packageDocumentation
+ * dependant-module has a dependancy on test-module1:
+ * {@link testmodule1}
  *
  * Manifest Details
  * \`\`\`json
@@ -4126,6 +4136,8 @@ exports[`Changelog Diffing > Generates correct output for changelog diffs > type
    ***************************************************************************** */
 /**
  * @packageDocumentation
+ * dependant-module has a dependancy on test-module1:
+ * {@link testmodule1}
  *
  * Manifest Details
  * \`\`\`json

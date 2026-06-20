@@ -1745,6 +1745,10 @@ function boundChanges(releases: MinecraftRelease[]) {
                                 continue;
                             }
 
+                            if (!validOld && !validNew) {
+                                continue;
+                            }
+
                             const validOldMin = details.$old.min_value !== undefined;
                             const validOldMax = details.$old.max_value !== undefined;
 

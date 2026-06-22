@@ -430,10 +430,11 @@ function addDescriptionFields(
     for (let line of tsDescription) {
         line = line.replace(originalValue, tempValue);
 
-        let wrappedLines = wrap(line, { width: 60, indent: '', trim: true });
-        wrappedLines = line.replace(tempValue, originalValue);
-
-        tsDescriptionWrapped.push(...wrappedLines.split('\n'));
+        const wrappedLines = wrap(line, { width: 60, indent: '', trim: true });
+        for (let wrappedBreaks of wrappedLines.split('\n')) {
+            wrappedBreaks = wrappedBreaks.replace(tempValue, originalValue);
+            tsDescriptionWrapped.push(wrappedBreaks);
+        }
     }
 
     jsonObject[`${descriptionKey}_ts`] = tsDescriptionWrapped;

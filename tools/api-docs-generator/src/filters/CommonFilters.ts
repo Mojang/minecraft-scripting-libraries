@@ -425,36 +425,15 @@ function addDescriptionFields(
     const tsDescription = linkSymbols(description, generateTSDocsLink, moduleJson, allModules);
     const tsDescriptionWrapped: string[] = [];
 
-    const maxLineWidth = 60;
-    const linkStart = '{'.concat(LINK_TAG);
-    for (const line of tsDescription) {
-        let newLine = '';
-        let isPrevWordLinking = false;
-        for (let word of line.split(' ')) {
-            if (isPrevWordLinking) {
-                word = linkStart.concat(' ').concat(word);
-            }
+    const originalValue = LINK_TAG.concat(' ');
+    const tempValue = LINK_TAG.concat('-');
+    for (let line of tsDescription) {
+        line = line.replace(originalValue, tempValue);
 
-            if (word === linkStart) {
-                isPrevWordLinking = true;
-                continue;
-            }
+        let wrappedLines = wrap(line, { width: 60, indent: '', trim: true });
+        wrappedLines = line.replace(tempValue, originalValue);
 
-            if (newLine.length + 1 + word.length <= maxLineWidth) {
-                if (newLine.length > 0) {
-                    newLine = newLine.concat(' ');
-                }
-                newLine = newLine.concat(word);
-            } else {
-                if (newLine.length > 0) {
-                    tsDescriptionWrapped.push(newLine);
-                }
-                newLine = word;
-            }
-
-            isPrevWordLinking = false;
-        }
-        tsDescriptionWrapped.push(newLine);
+        tsDescriptionWrapped.push(...wrappedLines.split('\n'));
     }
 
     jsonObject[`${descriptionKey}_ts`] = tsDescriptionWrapped;

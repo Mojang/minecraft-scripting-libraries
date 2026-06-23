@@ -428,11 +428,11 @@ function addDescriptionFields(
     const originalValue = LINK_TAG.concat(' ');
     const tempValue = LINK_TAG.concat('-');
     for (let line of tsDescription) {
-        line = line.replace(originalValue, tempValue);
+        line = line.replaceAll(originalValue, tempValue);
 
         const wrappedLines = wrap(line, { width: 60, indent: '', trim: true });
         for (let wrappedBreaks of wrappedLines.split('\n')) {
-            wrappedBreaks = wrappedBreaks.replace(tempValue, originalValue);
+            wrappedBreaks = wrappedBreaks.replaceAll(tempValue, originalValue);
             tsDescriptionWrapped.push(wrappedBreaks);
         }
     }

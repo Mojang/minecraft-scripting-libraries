@@ -305,6 +305,18 @@
                                     "min": -2147483648
                                 }
                             }
+                        },                      
+                        {
+                            "name": "null_details_to_no_details",
+                            "type": {
+                                "is_bind_type": false,
+                                "is_errorable": false,
+                                "name": "int32",
+                                "valid_range": {
+                                    "max": 2147483647,
+                                    "min": -2147483648
+                                }
+                            }
                         }
                     ],
                     "is_constructor": false,

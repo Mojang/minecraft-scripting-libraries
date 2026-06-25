@@ -594,8 +594,7 @@ export class ChangelogGenerator {
 
                 // Serialize once, parse N times — avoids re-running JSON.stringify per module.
                 const serializedChangelog = JSON.stringify(sortedChangelogs, (_key, value: unknown) =>
-                    // eslint-disable-next-line unicorn/no-null
-                    typeof value === 'undefined' ? null : value
+                    typeof value === 'undefined' ? undefined : value
                 );
                 for (const moduleJson of currentModuleList) {
                     const moduleWithChangelog = moduleJson as ModuleWithChangelog<

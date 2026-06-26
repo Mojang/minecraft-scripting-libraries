@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Adjust @link to always be on the same line as its following value",
+  "packageName": "@minecraft/markup-generators-plugin",
+  "email": "brandon.chan@skyboxlabs.com",
+  "dependentChangeType": "patch"
+}

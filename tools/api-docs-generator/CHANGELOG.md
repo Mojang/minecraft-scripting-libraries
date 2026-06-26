@@ -1,8 +1,18 @@
 # Change Log - @minecraft/api-docs-generator
 
-<!-- This log was last generated on Tue, 09 Jun 2026 21:01:20 GMT and should not be manually modified. -->
+<!-- This log was last generated on Fri, 26 Jun 2026 20:57:53 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.0.4
+
+Fri, 26 Jun 2026 20:57:53 GMT
+
+### Patches
+
+- Fix null issues in bound function (mike.demone@skyboxlabs.com)
+- npm audit + sync beachball (rlanda@microsoft.com)
+- Adjust @link to always be on the same line as its following value (brandon.chan@skyboxlabs.com)
 
 ## 2.0.0
 

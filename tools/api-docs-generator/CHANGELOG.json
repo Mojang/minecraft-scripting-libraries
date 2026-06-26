@@ -2,6 +2,33 @@
   "name": "@minecraft/api-docs-generator",
   "entries": [
     {
+      "date": "Fri, 26 Jun 2026 20:57:53 GMT",
+      "version": "2.0.4",
+      "tag": "@minecraft/api-docs-generator_v2.0.4",
+      "comments": {
+        "patch": [
+          {
+            "author": "mike.demone@skyboxlabs.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "4ef12c977516be5e503adee7910783007d690506",
+            "comment": "Fix null issues in bound function"
+          },
+          {
+            "author": "rlanda@microsoft.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "4ef12c977516be5e503adee7910783007d690506",
+            "comment": "npm audit + sync beachball"
+          },
+          {
+            "author": "brandon.chan@skyboxlabs.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "4ef12c977516be5e503adee7910783007d690506",
+            "comment": "Adjust @link to always be on the same line as its following value"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 09 Jun 2026 21:01:20 GMT",
       "version": "2.0.0",
       "tag": "@minecraft/api-docs-generator_v2.0.0",

@@ -1,8 +1,18 @@
 # Change Log - @minecraft/markup-generators-plugin
 
-<!-- This log was last generated on Tue, 09 Jun 2026 21:01:20 GMT and should not be manually modified. -->
+<!-- This log was last generated on Fri, 26 Jun 2026 20:57:53 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.0.2
+
+Fri, 26 Jun 2026 20:57:53 GMT
+
+### Patches
+
+- npm audit + sync beachball (rlanda@microsoft.com)
+- Adjust @link to always be on the same line as its following value (brandon.chan@skyboxlabs.com)
+- Bump @minecraft/api-docs-generator to v2.0.4
 
 ## 2.0.0
 

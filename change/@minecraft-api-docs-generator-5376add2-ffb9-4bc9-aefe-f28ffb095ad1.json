@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Adjust @link to always be on the same line as its following value",
-  "packageName": "@minecraft/api-docs-generator",
-  "email": "brandon.chan@skyboxlabs.com",
-  "dependentChangeType": "patch"
-}

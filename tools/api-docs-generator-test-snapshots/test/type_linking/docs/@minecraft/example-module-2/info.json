@@ -11,6 +11,7 @@
     "Example interface: {@link @minecraft/example-module.ExampleInterface}",
     "Example interface property: {@link @minecraft/example-module.ExampleInterface.ExampleProperty}",
     "Example enum: {@link @minecraft/example-module.ExampleEnum}",
-    "Example enum value: {@link @minecraft/example-module.ExampleEnum.ExampleValue}"
+    "Example enum value: {@link @minecraft/example-module.ExampleEnum.ExampleValue}",
+    "This line has multiple links and lots of text! This is the first link {@link @minecraft/example-module}, and this is the second. {@link @minecraft/example-module.ExampleFunction} Here's a third link {@link @minecraft/example-module.ExampleConstant} and this one here is the final link {@link @minecraft/example-module.ExampleObject}"
   ]
 }

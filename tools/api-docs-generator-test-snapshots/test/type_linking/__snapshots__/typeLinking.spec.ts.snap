@@ -468,6 +468,8 @@ Example enum: [*@minecraft/example-module.ExampleEnum*](../../../scriptapi/minec
 
 Example enum value: [*@minecraft/example-module.ExampleEnum.ExampleValue*](../../../scriptapi/minecraft/example-module/ExampleEnum.md#examplevalue)
 
+This line has multiple links and lots of text! This is the first link [*@minecraft/example-module*](../../../scriptapi/minecraft/example-module/minecraft-example-module.md), and this is the second. [*@minecraft/example-module.ExampleFunction*](../../../scriptapi/minecraft/example-module/minecraft-example-module.md#examplefunction) Here's a third link [*@minecraft/example-module.ExampleConstant*](../../../scriptapi/minecraft/example-module/minecraft-example-module.md#exampleconstant) and this one here is the final link [*@minecraft/example-module.ExampleObject*](../../../scriptapi/minecraft/example-module/minecraft-example-module.md#exampleobject)
+
 ## [Changelog](changelog.md)
 
 ## Manifest Details
@@ -826,13 +828,13 @@ exports[`Type Linking > Properly generates documentation for types that are link
  * Example class property: {@link ExampleClass.ExampleProperty}
  * Example class method: {@link ExampleClass.ExampleMethod}
  * Example interface: {@link ExampleInterface}
- * Example interface property: {@link
- * ExampleInterface.ExampleProperty}
+ * Example interface property:
+ * {@link ExampleInterface.ExampleProperty}
  * Example enum: {@link ExampleEnum}
  * Example enum value: {@link ExampleEnum.ExampleValue}
- * This line has multiple links! {@link
- * @minecraft/example-module} {@link ExampleFunction} {@link
- * ExampleConstant} {@link ExampleObject}
+ * This line has multiple links!
+ * {@link @minecraft/example-module} {@link ExampleFunction}
+ * {@link ExampleConstant} {@link ExampleObject}
  *
  * Manifest Details
  * \`\`\`json
@@ -918,13 +920,13 @@ exports[`Type Linking > Properly generates documentation for types that are link
  * Example class property: {@link ExampleClass.ExampleProperty}
  * Example class method: {@link ExampleClass.ExampleMethod}
  * Example interface: {@link ExampleInterface}
- * Example interface property: {@link
- * ExampleInterface.ExampleProperty}
+ * Example interface property:
+ * {@link ExampleInterface.ExampleProperty}
  * Example enum: {@link ExampleEnum}
  * Example enum value: {@link ExampleEnum.ExampleValue}
- * This line has multiple links! {@link
- * @minecraft/example-module} {@link ExampleFunction} {@link
- * ExampleConstant} {@link ExampleObject}
+ * This line has multiple links!
+ * {@link @minecraft/example-module} {@link ExampleFunction}
+ * {@link ExampleConstant} {@link ExampleObject}
  *
  * Manifest Details
  * \`\`\`json
@@ -1004,24 +1006,31 @@ exports[`Type Linking > Properly generates documentation for types that are link
  * This is a description with a ton of links from a dependency
  * module:
  * Example module: {@link minecraftexamplemodule}
- * Example module function: {@link
- * minecraftexamplemodule#ExampleFunction}
- * Example module constant: {@link
- * minecraftexamplemodule#ExampleConstant}
- * Example module object: {@link
- * minecraftexamplemodule#ExampleObject}
+ * Example module function:
+ * {@link minecraftexamplemodule#ExampleFunction}
+ * Example module constant:
+ * {@link minecraftexamplemodule#ExampleConstant}
+ * Example module object:
+ * {@link minecraftexamplemodule#ExampleObject}
  * Example class: {@link minecraftexamplemodule.ExampleClass}
- * Example class property: {@link
- * minecraftexamplemodule.ExampleClass.ExampleProperty}
- * Example class method: {@link
- * minecraftexamplemodule.ExampleClass.ExampleMethod}
- * Example interface: {@link
- * minecraftexamplemodule.ExampleInterface}
- * Example interface property: {@link
- * minecraftexamplemodule.ExampleInterface.ExampleProperty}
+ * Example class property:
+ * {@link minecraftexamplemodule.ExampleClass.ExampleProperty}
+ * Example class method:
+ * {@link minecraftexamplemodule.ExampleClass.ExampleMethod}
+ * Example interface:
+ * {@link minecraftexamplemodule.ExampleInterface}
+ * Example interface property:
+ * {@link minecraftexamplemodule.ExampleInterface.ExampleProperty}
  * Example enum: {@link minecraftexamplemodule.ExampleEnum}
- * Example enum value: {@link
- * minecraftexamplemodule.ExampleEnum.ExampleValue}
+ * Example enum value:
+ * {@link minecraftexamplemodule.ExampleEnum.ExampleValue}
+ * This line has multiple links and lots of text! This is the
+ * first link {@link minecraftexamplemodule}, and this is the
+ * second. {@link minecraftexamplemodule#ExampleFunction}
+ * Here's a third link
+ * {@link minecraftexamplemodule#ExampleConstant} and this one
+ * here is the final link
+ * {@link minecraftexamplemodule#ExampleObject}
  *
  * Manifest Details
  * \`\`\`json
@@ -1658,6 +1667,8 @@ Example enum: [*@minecraft/example-module.ExampleEnum*](../../../scriptapi/minec
 
 Example enum value: [*@minecraft/example-module.ExampleEnum.ExampleValue*](../../../scriptapi/minecraft/example-module/ExampleEnum.md#examplevalue)
 
+This line has multiple links and lots of text! This is the first link [*@minecraft/example-module*](../../../scriptapi/minecraft/example-module/minecraft-example-module.md), and this is the second. [*@minecraft/example-module.ExampleFunction*](../../../scriptapi/minecraft/example-module/minecraft-example-module.md#examplefunction) Here's a third link [*@minecraft/example-module.ExampleConstant*](../../../scriptapi/minecraft/example-module/minecraft-example-module.md#exampleconstant) and this one here is the final link [*@minecraft/example-module.ExampleObject*](../../../scriptapi/minecraft/example-module/minecraft-example-module.md#exampleobject)
+
 ## [Changelog](changelog.md)
 
 ## Manifest Details
@@ -2262,13 +2273,13 @@ exports[`Type Linking > Properly generates documentation for types that are link
  * Example class property: {@link ExampleClass.ExampleProperty}
  * Example class method: {@link ExampleClass.ExampleMethod}
  * Example interface: {@link ExampleInterface}
- * Example interface property: {@link
- * ExampleInterface.ExampleProperty}
+ * Example interface property:
+ * {@link ExampleInterface.ExampleProperty}
  * Example enum: {@link ExampleEnum}
  * Example enum value: {@link ExampleEnum.ExampleValue}
- * This line has multiple links! {@link
- * @minecraft/example-module} {@link ExampleFunction} {@link
- * ExampleConstant} {@link ExampleObject}
+ * This line has multiple links!
+ * {@link @minecraft/example-module} {@link ExampleFunction}
+ * {@link ExampleConstant} {@link ExampleObject}
  *
  * Manifest Details
  * \`\`\`json
@@ -2354,13 +2365,13 @@ exports[`Type Linking > Properly generates documentation for types that are link
  * Example class property: {@link ExampleClass.ExampleProperty}
  * Example class method: {@link ExampleClass.ExampleMethod}
  * Example interface: {@link ExampleInterface}
- * Example interface property: {@link
- * ExampleInterface.ExampleProperty}
+ * Example interface property:
+ * {@link ExampleInterface.ExampleProperty}
  * Example enum: {@link ExampleEnum}
  * Example enum value: {@link ExampleEnum.ExampleValue}
- * This line has multiple links! {@link
- * @minecraft/example-module} {@link ExampleFunction} {@link
- * ExampleConstant} {@link ExampleObject}
+ * This line has multiple links!
+ * {@link @minecraft/example-module} {@link ExampleFunction}
+ * {@link ExampleConstant} {@link ExampleObject}
  *
  * Manifest Details
  * \`\`\`json
@@ -2440,24 +2451,31 @@ exports[`Type Linking > Properly generates documentation for types that are link
  * This is a description with a ton of links from a dependency
  * module:
  * Example module: {@link minecraftexamplemodule}
- * Example module function: {@link
- * minecraftexamplemodule#ExampleFunction}
- * Example module constant: {@link
- * minecraftexamplemodule#ExampleConstant}
- * Example module object: {@link
- * minecraftexamplemodule#ExampleObject}
+ * Example module function:
+ * {@link minecraftexamplemodule#ExampleFunction}
+ * Example module constant:
+ * {@link minecraftexamplemodule#ExampleConstant}
+ * Example module object:
+ * {@link minecraftexamplemodule#ExampleObject}
  * Example class: {@link minecraftexamplemodule.ExampleClass}
- * Example class property: {@link
- * minecraftexamplemodule.ExampleClass.ExampleProperty}
- * Example class method: {@link
- * minecraftexamplemodule.ExampleClass.ExampleMethod}
- * Example interface: {@link
- * minecraftexamplemodule.ExampleInterface}
- * Example interface property: {@link
- * minecraftexamplemodule.ExampleInterface.ExampleProperty}
+ * Example class property:
+ * {@link minecraftexamplemodule.ExampleClass.ExampleProperty}
+ * Example class method:
+ * {@link minecraftexamplemodule.ExampleClass.ExampleMethod}
+ * Example interface:
+ * {@link minecraftexamplemodule.ExampleInterface}
+ * Example interface property:
+ * {@link minecraftexamplemodule.ExampleInterface.ExampleProperty}
  * Example enum: {@link minecraftexamplemodule.ExampleEnum}
- * Example enum value: {@link
- * minecraftexamplemodule.ExampleEnum.ExampleValue}
+ * Example enum value:
+ * {@link minecraftexamplemodule.ExampleEnum.ExampleValue}
+ * This line has multiple links and lots of text! This is the
+ * first link {@link minecraftexamplemodule}, and this is the
+ * second. {@link minecraftexamplemodule#ExampleFunction}
+ * Here's a third link
+ * {@link minecraftexamplemodule#ExampleConstant} and this one
+ * here is the final link
+ * {@link minecraftexamplemodule#ExampleObject}
  *
  * Manifest Details
  * \`\`\`json

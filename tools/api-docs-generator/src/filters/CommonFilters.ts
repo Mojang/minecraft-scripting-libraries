@@ -60,7 +60,7 @@ import { FilterGroup } from './Filters';
 
 type DescriptionFormatCallback = (
     fromModule: MinecraftScriptModule,
-    moduleJson: MinecraftScriptModule,
+    moduleJson?: MinecraftScriptModule,
     memberJson?: Record<'name', string>,
     submemberJson?: Record<'name', string>
 ) => string;
@@ -87,25 +87,40 @@ function formatSymbolReference(
         if (memberJson && submemberJson) {
             // ModuleName.ClassName.MemberName
             const pattern = `${moduleJson.name}.${memberJson.name}.${submemberJson.name}`;
+            //ClassName.MemberName
+            const patternNoModule = `${memberJson.name}.${submemberJson.name}`;
 
             if (matchedSymbol === pattern) {
                 result = result.replace(matchedString, formatter(fromModule, moduleJson, memberJson, submemberJson));
+                linkMatches.splice(i, 1);
+            } else if (matchedSymbol === patternNoModule) {
+                result = result.replace(matchedString, formatter(fromModule, undefined, memberJson, submemberJson));
                 linkMatches.splice(i, 1);
             }
         } else if (!memberJson && submemberJson) {
             // ModuleName.MemberName
             const pattern = `${moduleJson.name}.${submemberJson.name}`;
+            // MemberName
+            const patternNoModule = `${submemberJson.name}`;
 
             if (matchedSymbol === pattern) {
                 result = result.replace(matchedString, formatter(fromModule, moduleJson, undefined, submemberJson));
+                linkMatches.splice(i, 1);
+            } else if (matchedSymbol === patternNoModule) {
+                result = result.replace(matchedString, formatter(fromModule, undefined, undefined, submemberJson));
                 linkMatches.splice(i, 1);
             }
         } else if (memberJson) {
             // ModuleName.ClassName
             const patternRegex = `${moduleJson.name}.${memberJson.name}`;
+            // ClassName
+            const patternNoModule = `${memberJson.name}`;
 
             if (matchedSymbol === patternRegex) {
                 result = result.replace(matchedString, formatter(fromModule, moduleJson, memberJson, undefined));
+                linkMatches.splice(i, 1);
+            } else if (matchedSymbol === patternNoModule) {
+                result = result.replace(matchedString, formatter(fromModule, undefined, memberJson, undefined));
                 linkMatches.splice(i, 1);
             }
         } else if (!memberJson && !submemberJson) {
@@ -139,9 +154,9 @@ function linkSymbols(
         const linkMatches = [...str.matchAll(LINK_REGEX)];
 
         moduleLoop: for (const moduleJson of allModules) {
-            if (!str.includes(moduleJson.name)) {
-                continue;
-            }
+            // if (!str.includes(moduleJson.name)) {
+            //     continue;
+            // }
 
             for (const functionJson of moduleJson.functions ?? []) {
                 if (linkMatches.length === 0) {
@@ -283,6 +298,44 @@ function linkSymbols(
                 if (linkMatches.length === 0) {
                     break moduleLoop;
                 }
+
+                if (typeAliasJson.type) {
+                    const typeAliasSubTypes = typeAliasJson.type.name.split('\n');
+
+                    for (let typeAliasSubType of typeAliasSubTypes) {
+                        typeAliasSubType = typeAliasSubType.trim();
+                        if (typeAliasSubType.length === 0 && typeAliasSubType !== '?' && typeAliasSubType !== ':') {
+                            continue;
+                        }
+
+                        let index = typeAliasSubType.indexOf('?');
+                        if (index !== -1) {
+                            const subTypeName = typeAliasSubType.substring(0, index);
+                            str = formatSymbolReference(
+                                str,
+                                linkMatches,
+                                formatter,
+                                fromModule,
+                                moduleJson,
+                                { name: `${typeAliasJson.name}` },
+                                { name: `${subTypeName}` }
+                            );
+                        } else {
+                            index = typeAliasSubType.indexOf(':');
+                            const subTypeName = typeAliasSubType.substring(0, index);
+                            str = formatSymbolReference(
+                                str,
+                                linkMatches,
+                                formatter,
+                                fromModule,
+                                moduleJson,
+                                { name: `${typeAliasJson.name}` },
+                                { name: `${subTypeName}` }
+                            );
+                        }
+                    }
+                }
+
                 str = formatSymbolReference(
                     str,
                     linkMatches,
@@ -313,18 +366,29 @@ function generateMSDocsLink(
     classJson: MinecraftClass,
     memberJson: MinecraftConstant | MinecraftFunction | MinecraftProperty
 ) {
-    if (classJson && memberJson) {
-        // Class Member
-        return `[*${moduleJson.name}.${classJson.name}.${memberJson.name}*](../../../${moduleJson.from_module.folder_path}/${moduleJson.filepath_name}/${classJson.name}.md#${memberJson.bookmark_name})`;
-    } else if (!classJson && memberJson) {
-        // Module Member
-        return `[*${moduleJson.name}.${memberJson.name}*](../../../${moduleJson.from_module.folder_path}/${moduleJson.filepath_name}/${moduleJson.bookmark_name}.md#${memberJson.bookmark_name})`;
-    } else if (classJson) {
-        // Class
-        return `[*${moduleJson.name}.${classJson.name}*](../../../${moduleJson.from_module.folder_path}/${moduleJson.filepath_name}/${classJson.name}.md)`;
+    if (moduleJson) {
+        if (classJson && memberJson) {
+            // Class Member
+            return `[*${moduleJson.name}.${classJson.name}.${memberJson.name}*](../../../${moduleJson.from_module.folder_path}/${moduleJson.filepath_name}/${classJson.name}.md#${memberJson.name})`;
+        } else if (!classJson && memberJson) {
+            // Module Member
+            return `[*${moduleJson.name}.${memberJson.name}*](../../../${moduleJson.from_module.folder_path}/${moduleJson.filepath_name}/${moduleJson.bookmark_name}.md#${memberJson.name})`;
+        } else if (classJson) {
+            // Class
+            return `[*${moduleJson.name}.${classJson.name}*](../../../${moduleJson.from_module.folder_path}/${moduleJson.filepath_name}/${classJson.name}.md)`;
+        } else {
+            // Module
+            return `[*${moduleJson.name}*](../../../${moduleJson.from_module.folder_path}/${moduleJson.filepath_name}/${moduleJson.bookmark_name}.md)`;
+        }
     } else {
-        // Module
-        return `[*${moduleJson.name}*](../../../${moduleJson.from_module.folder_path}/${moduleJson.filepath_name}/${moduleJson.bookmark_name}.md)`;
+        // defined in the current module .json but not in the module's .md
+        if (classJson && memberJson) {
+            // Class Member
+            return `[*${classJson.name}.${memberJson.name}*](${classJson.name}.md#${memberJson.name})`;
+        } else if (classJson) {
+            // Class
+            return `[*${classJson.name}*](${classJson.name}.md)`;
+        }
     }
 }
 
@@ -334,6 +398,10 @@ function generateTSDocsLink(
     classJson: MinecraftClass,
     memberJson: MinecraftConstant | MinecraftFunction | MinecraftProperty
 ) {
+    if (!moduleJson) {
+        return;
+    }
+
     const isSameModule = fromModule.uuid === moduleJson.uuid;
     const isDependencyModule =
         fromModule.dependencies.some(dep => dep.name === moduleJson.name) ||

@@ -1,0 +1,57 @@
+{
+    "minecraft_version": "1.0.0",
+    "module_type": "script",
+    "name": "test-module",
+    "uuid": "1d565354-296d-11ed-a261-0242ac120002",
+    "version": "0.1.0-beta",
+    "peer_dependencies": [],
+    "type_aliases": [
+        {
+            "is_script_generated": true,
+            "raw_tsdoc_text": "/**\n * Additional information about TestInfo.\n *\n * @beta\n */\n",
+            "raw_script_text": "export type TestInfo = {\n    propA: string;\n    propB?: string;\n    propC: string;\n};",
+            "name": "TestInfo",
+            "type": {
+                "name": "{\n    propA: string;\n    propB?: string;\n    propC: string;\n}",
+                "is_errorable": false,
+                "is_bind_type": false
+            }
+        }
+    ],
+    "enums": [
+        {
+            "is_script_generated": true,
+            "raw_tsdoc_text": "/**\n * Add link to {@link TestInfo.propC}. TestCategory description.\n *\n * @beta\n */\n",
+            "raw_script_text": "export declare enum TestCategory ",
+            "name": "TestCategory",
+            "constants": [
+                {
+                    "is_script_generated": true,
+                    "raw_script_text": "EnumA = \"enumA\"",
+                    "name": "EnumA",
+                    "type": {
+                        "name": "EnumA",
+                        "is_errorable": false,
+                        "is_bind_type": false
+                    },
+                    "is_read_only": true,
+                    "is_static": true,
+                    "value": "enumA"
+                },
+                {
+                    "is_script_generated": true,
+                    "raw_script_text": "EnumB = \"enumB\"",
+                    "name": "EnumB",
+                    "type": {
+                        "name": "EnumB",
+                        "is_errorable": false,
+                        "is_bind_type": false
+                    },
+                    "is_read_only": true,
+                    "is_static": true,
+                    "value": "enumB"
+                }
+            ]
+        }
+    ]    
+}

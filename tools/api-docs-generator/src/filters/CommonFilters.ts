@@ -497,10 +497,19 @@ function addDescriptionFields(
 
     const tsDescription = linkSymbols(description, generateTSDocsLink, moduleJson, allModules);
     const tsDescriptionWrapped: string[] = [];
-    for (const line of tsDescription) {
+
+    const originalValue = LINK_TAG.concat(' ');
+    const tempValue = LINK_TAG.concat('-');
+    for (let line of tsDescription) {
+        line = line.replaceAll(originalValue, tempValue);
+
         const wrappedLines = wrap(line, { width: 60, indent: '', trim: true });
-        tsDescriptionWrapped.push(...wrappedLines.split('\n'));
+        for (let wrappedBreaks of wrappedLines.split('\n')) {
+            wrappedBreaks = wrappedBreaks.replaceAll(tempValue, originalValue);
+            tsDescriptionWrapped.push(wrappedBreaks);
+        }
     }
+
     jsonObject[`${descriptionKey}_ts`] = tsDescriptionWrapped;
 }
 

@@ -115,7 +115,7 @@ Notes:
 
 ### **methodThatTakesBoundedValue**
 \`
-methodThatTakesBoundedValue(s: number, t: number, u: number, v: number, w: number, x: number, y: number, z: number): void
+methodThatTakesBoundedValue(s: number, t: number, u: number, v: number, w: number, x: number, y: number, z: number, null_details_to_no_details: number): void
 \`
 
 #### **Parameters**
@@ -133,6 +133,7 @@ methodThatTakesBoundedValue(s: number, t: number, u: number, v: number, w: numbe
 - **y**: *number*
   * Maximum Bound: \`255\`
 - **z**: *number*
+- **null_details_to_no_details**: *number*
 
 **Returns** *void*
   
@@ -314,7 +315,7 @@ Notes:
 
 ### **methodThatTakesBoundedValue**
 \`
-methodThatTakesBoundedValue(s: number, t: number, u: number, v: number, w: number, x: number, y: number, z: number): void
+methodThatTakesBoundedValue(s: number, t: number, u: number, v: number, w: number, x: number, y: number, z: number, null_details_to_no_details: number): void
 \`
 
 #### **Parameters**
@@ -332,6 +333,7 @@ methodThatTakesBoundedValue(s: number, t: number, u: number, v: number, w: numbe
   * Minimum Bound: \`1\`
 - **z**: *number*
   * Bounds: [\`1\`, \`255\`]
+- **null_details_to_no_details**: *number*
 
 **Returns** *void*
   
@@ -561,7 +563,8 @@ export class ClassWithBounds {
         w: number,
         x: number,
         y: number,
-        z: number
+        z: number,
+        null_details_to_no_details: number
     ): void;
 }
 
@@ -683,7 +686,8 @@ export class ClassWithBounds {
         w: number,
         x: number,
         y: number,
-        z: number
+        z: number,
+        null_details_to_no_details: number
     ): void;
 }
 

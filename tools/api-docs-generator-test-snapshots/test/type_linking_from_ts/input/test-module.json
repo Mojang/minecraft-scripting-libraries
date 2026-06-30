@@ -21,7 +21,7 @@
     "enums": [
         {
             "is_script_generated": true,
-            "raw_tsdoc_text": "/**\n * Add link to {@link TestInfo.propC}. TestCategory description.\n *\n * @beta\n */\n",
+            "raw_tsdoc_text": "/**\n * Add new link to {@link TestInfo.propC}. TestCategory description.\n *\n * @beta\n */\n",
             "raw_script_text": "export declare enum TestCategory ",
             "name": "TestCategory",
             "constants": [

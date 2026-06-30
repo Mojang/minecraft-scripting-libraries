@@ -369,10 +369,10 @@ function generateMSDocsLink(
     if (moduleJson) {
         if (classJson && memberJson) {
             // Class Member
-            return `[*${moduleJson.name}.${classJson.name}.${memberJson.name}*](../../../${moduleJson.from_module.folder_path}/${moduleJson.filepath_name}/${classJson.name}.md#${memberJson.name})`;
+            return `[*${moduleJson.name}.${classJson.name}.${memberJson.name}*](../../../${moduleJson.from_module.folder_path}/${moduleJson.filepath_name}/${classJson.name}.md#${memberJson.name.toLowerCase()})`;
         } else if (!classJson && memberJson) {
             // Module Member
-            return `[*${moduleJson.name}.${memberJson.name}*](../../../${moduleJson.from_module.folder_path}/${moduleJson.filepath_name}/${moduleJson.bookmark_name}.md#${memberJson.name})`;
+            return `[*${moduleJson.name}.${memberJson.name}*](../../../${moduleJson.from_module.folder_path}/${moduleJson.filepath_name}/${moduleJson.bookmark_name}.md#${memberJson.name.toLowerCase()})`;
         } else if (classJson) {
             // Class
             return `[*${moduleJson.name}.${classJson.name}*](../../../${moduleJson.from_module.folder_path}/${moduleJson.filepath_name}/${classJson.name}.md)`;
@@ -384,7 +384,7 @@ function generateMSDocsLink(
         // defined in the current module .json but not in the module's .md
         if (classJson && memberJson) {
             // Class Member
-            return `[*${classJson.name}.${memberJson.name}*](${classJson.name}.md#${memberJson.name})`;
+            return `[*${classJson.name}.${memberJson.name}*](${classJson.name}.md#${memberJson.name.toLowerCase()})`;
         } else if (classJson) {
             // Class
             return `[*${classJson.name}*](${classJson.name}.md)`;
@@ -398,44 +398,49 @@ function generateTSDocsLink(
     classJson: MinecraftClass,
     memberJson: MinecraftConstant | MinecraftFunction | MinecraftProperty
 ) {
-    if (!moduleJson) {
-        return;
-    }
+    if (moduleJson) {
+        const isSameModule = fromModule.uuid === moduleJson.uuid;
+        const isDependencyModule =
+            fromModule.dependencies.some(dep => dep.name === moduleJson.name) ||
+            fromModule.peer_dependencies.some(dep => dep.name === moduleJson.name);
 
-    const isSameModule = fromModule.uuid === moduleJson.uuid;
-    const isDependencyModule =
-        fromModule.dependencies.some(dep => dep.name === moduleJson.name) ||
-        fromModule.peer_dependencies.some(dep => dep.name === moduleJson.name);
-
-    if (classJson && memberJson) {
-        if (isSameModule) {
-            return `{@link ${classJson.name}.${memberJson.name}}`;
-        } else if (isDependencyModule) {
-            return `{@link ${moduleJson.variable_name}.${classJson.name}.${memberJson.name}}`;
+        if (classJson && memberJson) {
+            if (isSameModule) {
+                return `{@link ${classJson.name}.${memberJson.name}}`;
+            } else if (isDependencyModule) {
+                return `{@link ${moduleJson.variable_name}.${classJson.name}.${memberJson.name}}`;
+            } else {
+                return `{@link ${moduleJson.name}.${classJson.name}.${memberJson.name}}`;
+            }
+        } else if (!classJson && memberJson) {
+            if (isSameModule) {
+                return `{@link ${memberJson.name}}`;
+            } else if (isDependencyModule) {
+                return `{@link ${moduleJson.variable_name}#${memberJson.name}}`;
+            } else {
+                return `{@link ${moduleJson.name}#${memberJson.name}}`;
+            }
+        } else if (classJson) {
+            if (isSameModule) {
+                return `{@link ${classJson.name}}`;
+            } else if (isDependencyModule) {
+                return `{@link ${moduleJson.variable_name}.${classJson.name}}`;
+            } else {
+                return `{@link ${moduleJson.name}.${classJson.name}}`;
+            }
         } else {
-            return `{@link ${moduleJson.name}.${classJson.name}.${memberJson.name}}`;
-        }
-    } else if (!classJson && memberJson) {
-        if (isSameModule) {
-            return `{@link ${memberJson.name}}`;
-        } else if (isDependencyModule) {
-            return `{@link ${moduleJson.variable_name}#${memberJson.name}}`;
-        } else {
-            return `{@link ${moduleJson.name}#${memberJson.name}}`;
-        }
-    } else if (classJson) {
-        if (isSameModule) {
-            return `{@link ${classJson.name}}`;
-        } else if (isDependencyModule) {
-            return `{@link ${moduleJson.variable_name}.${classJson.name}}`;
-        } else {
-            return `{@link ${moduleJson.name}.${classJson.name}}`;
+            if (isDependencyModule) {
+                return `{@link ${moduleJson.variable_name}}`;
+            } else {
+                return `{@link ${moduleJson.name}}`;
+            }
         }
     } else {
-        if (isDependencyModule) {
-            return `{@link ${moduleJson.variable_name}}`;
-        } else {
-            return `{@link ${moduleJson.name}}`;
+        // defined in the current module .json
+        if (classJson && memberJson) {
+            return `{@link ${classJson.name}.${memberJson.name}}`;
+        } else if (classJson) {
+            return `{@link ${classJson.name}}`;
         }
     }
 }

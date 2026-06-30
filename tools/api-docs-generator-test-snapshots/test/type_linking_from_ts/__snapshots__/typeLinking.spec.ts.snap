@@ -28,7 +28,7 @@ description: Contents of the test-module.TestCategory enumeration.
 ---
 # TestCategory Enumeration
 
-Add link to [*TestInfo.propC*](TestInfo.md#propC). TestCategory description.
+Add new link to [*TestInfo.propC*](TestInfo.md#propc). TestCategory description.
 
 ## Constants
 ### **EnumA**
@@ -142,7 +142,8 @@ exports[`Type Linking > Properly generates documentation for types that are link
  *
  */
 /**
- * Add link to undefined. TestCategory description.
+ * Add new link to {@link TestInfo.propC}. TestCategory
+ * description.
  */
 export declare enum TestCategory {
     EnumA = 'enumA',
@@ -188,7 +189,7 @@ description: Contents of the test-module.TestCategory enumeration.
 ---
 # TestCategory Enumeration
 
-Add link to [*TestInfo.propC*](TestInfo.md#propC). TestCategory description.
+Add new link to [*TestInfo.propC*](TestInfo.md#propc). TestCategory description.
 
 ## Constants
 ### **EnumA**
@@ -302,7 +303,8 @@ exports[`Type Linking > Properly generates documentation for types that are link
  *
  */
 /**
- * Add link to undefined. TestCategory description.
+ * Add new link to {@link TestInfo.propC}. TestCategory
+ * description.
  */
 export declare enum TestCategory {
     EnumA = 'enumA',

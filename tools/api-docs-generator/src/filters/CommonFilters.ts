@@ -87,6 +87,7 @@ function formatSymbolReference(
         if (memberJson && submemberJson) {
             // ModuleName.ClassName.MemberName
             const pattern = `${moduleJson.name}.${memberJson.name}.${submemberJson.name}`;
+            //result = result.concat(JSON.stringify(pattern));
 
             if (matchedSymbol === pattern) {
                 result = result.replace(matchedString, formatter(fromModule, moduleJson, memberJson, submemberJson));
@@ -95,6 +96,7 @@ function formatSymbolReference(
         } else if (!memberJson && submemberJson) {
             // ModuleName.MemberName
             const pattern = `${moduleJson.name}.${submemberJson.name}`;
+            //result = result.concat(JSON.stringify(pattern));
 
             if (matchedSymbol === pattern) {
                 result = result.replace(matchedString, formatter(fromModule, moduleJson, undefined, submemberJson));
@@ -103,6 +105,7 @@ function formatSymbolReference(
         } else if (memberJson) {
             // ModuleName.ClassName
             const patternRegex = `${moduleJson.name}.${memberJson.name}`;
+            //result = result.concat(JSON.stringify(patternRegex));
 
             if (matchedSymbol === patternRegex) {
                 result = result.replace(matchedString, formatter(fromModule, moduleJson, memberJson, undefined));
@@ -111,6 +114,7 @@ function formatSymbolReference(
         } else if (!memberJson && !submemberJson) {
             // ModuleName
             const pattern = `${moduleJson.name}`;
+            //result = result.concat(JSON.stringify(pattern));
 
             if (matchedSymbol === pattern) {
                 result = result.replace(matchedString, formatter(fromModule, moduleJson, undefined, undefined));
@@ -277,6 +281,14 @@ function linkSymbols(
                     undefined,
                     constantJson
                 );
+            }
+
+            for (const errorJson of moduleJson.errors ?? []) {
+                if (linkMatches.length === 0) {
+                    break moduleLoop;
+                }
+
+                str = formatSymbolReference(str, linkMatches, formatter, fromModule, moduleJson, undefined, errorJson);
             }
 
             for (const typeAliasJson of moduleJson.type_aliases ?? []) {

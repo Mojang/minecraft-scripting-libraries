@@ -302,6 +302,12 @@ function linkSymbols(
         }
 
         result.push(str);
+
+        if (linkMatches.length > 0) {
+            log.error(
+                `Link(s) not found. Please check spelling or if the modules or members are defined: ${JSON.stringify(linkMatches)}`
+            );
+        }
     }
 
     return result;

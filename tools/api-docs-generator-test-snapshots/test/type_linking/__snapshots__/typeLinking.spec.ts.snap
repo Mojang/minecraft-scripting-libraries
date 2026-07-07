@@ -326,6 +326,8 @@ Example enum: [*@minecraft/example-module.ExampleEnum*](../../../scriptapi/minec
 
 Example enum value: [*@minecraft/example-module.ExampleEnum.ExampleValue*](../../../scriptapi/minecraft/example-module/ExampleEnum.md#examplevalue)
 
+Example link problem: {@link @minecraft/example-module.ExampleProblem4}
+
 This line has multiple links! [*@minecraft/example-module*](../../../scriptapi/minecraft/example-module/minecraft-example-module.md) [*@minecraft/example-module.ExampleFunction*](../../../scriptapi/minecraft/example-module/minecraft-example-module.md#examplefunction) [*@minecraft/example-module.ExampleConstant*](../../../scriptapi/minecraft/example-module/minecraft-example-module.md#exampleconstant) [*@minecraft/example-module.ExampleObject*](../../../scriptapi/minecraft/example-module/minecraft-example-module.md#exampleobject)
 
 ## [Changelog](changelog.md)
@@ -467,6 +469,12 @@ Example interface property: [*@minecraft/example-module.ExampleInterface.Example
 Example enum: [*@minecraft/example-module.ExampleEnum*](../../../scriptapi/minecraft/example-module/ExampleEnum.md)
 
 Example enum value: [*@minecraft/example-module.ExampleEnum.ExampleValue*](../../../scriptapi/minecraft/example-module/ExampleEnum.md#examplevalue)
+
+Example link problem: {@link @minecraft/example-module.ExampleProblem}
+
+Example link problem: {@link @minecraft/example-module.ExampleProblem2}
+
+Example link problem: {@link @minecraft/example-module.ExampleProblem3}
 
 This line has multiple links and lots of text! This is the first link [*@minecraft/example-module*](../../../scriptapi/minecraft/example-module/minecraft-example-module.md), and this is the second. [*@minecraft/example-module.ExampleFunction*](../../../scriptapi/minecraft/example-module/minecraft-example-module.md#examplefunction) Here's a third link [*@minecraft/example-module.ExampleConstant*](../../../scriptapi/minecraft/example-module/minecraft-example-module.md#exampleconstant) and this one here is the final link [*@minecraft/example-module.ExampleObject*](../../../scriptapi/minecraft/example-module/minecraft-example-module.md#exampleobject)
 
@@ -832,6 +840,8 @@ exports[`Type Linking > Properly generates documentation for types that are link
  * {@link ExampleInterface.ExampleProperty}
  * Example enum: {@link ExampleEnum}
  * Example enum value: {@link ExampleEnum.ExampleValue}
+ * Example link problem:
+ * {@link @minecraft/example-module.ExampleProblem4}
  * This line has multiple links!
  * {@link @minecraft/example-module} {@link ExampleFunction}
  * {@link ExampleConstant} {@link ExampleObject}
@@ -924,6 +934,8 @@ exports[`Type Linking > Properly generates documentation for types that are link
  * {@link ExampleInterface.ExampleProperty}
  * Example enum: {@link ExampleEnum}
  * Example enum value: {@link ExampleEnum.ExampleValue}
+ * Example link problem:
+ * {@link @minecraft/example-module.ExampleProblem4}
  * This line has multiple links!
  * {@link @minecraft/example-module} {@link ExampleFunction}
  * {@link ExampleConstant} {@link ExampleObject}
@@ -1024,6 +1036,12 @@ exports[`Type Linking > Properly generates documentation for types that are link
  * Example enum: {@link minecraftexamplemodule.ExampleEnum}
  * Example enum value:
  * {@link minecraftexamplemodule.ExampleEnum.ExampleValue}
+ * Example link problem:
+ * {@link @minecraft/example-module.ExampleProblem}
+ * Example link problem:
+ * {@link @minecraft/example-module.ExampleProblem2}
+ * Example link problem:
+ * {@link @minecraft/example-module.ExampleProblem3}
  * This line has multiple links and lots of text! This is the
  * first link {@link minecraftexamplemodule}, and this is the
  * second. {@link minecraftexamplemodule#ExampleFunction}
@@ -1525,6 +1543,8 @@ Example enum: [*@minecraft/example-module.ExampleEnum*](../../../scriptapi/minec
 
 Example enum value: [*@minecraft/example-module.ExampleEnum.ExampleValue*](../../../scriptapi/minecraft/example-module/ExampleEnum.md#examplevalue)
 
+Example link problem: {@link @minecraft/example-module.ExampleProblem4}
+
 This line has multiple links! [*@minecraft/example-module*](../../../scriptapi/minecraft/example-module/minecraft-example-module.md) [*@minecraft/example-module.ExampleFunction*](../../../scriptapi/minecraft/example-module/minecraft-example-module.md#examplefunction) [*@minecraft/example-module.ExampleConstant*](../../../scriptapi/minecraft/example-module/minecraft-example-module.md#exampleconstant) [*@minecraft/example-module.ExampleObject*](../../../scriptapi/minecraft/example-module/minecraft-example-module.md#exampleobject)
 
 ## [Changelog](changelog.md)
@@ -1666,6 +1686,12 @@ Example interface property: [*@minecraft/example-module.ExampleInterface.Example
 Example enum: [*@minecraft/example-module.ExampleEnum*](../../../scriptapi/minecraft/example-module/ExampleEnum.md)
 
 Example enum value: [*@minecraft/example-module.ExampleEnum.ExampleValue*](../../../scriptapi/minecraft/example-module/ExampleEnum.md#examplevalue)
+
+Example link problem: {@link @minecraft/example-module.ExampleProblem}
+
+Example link problem: {@link @minecraft/example-module.ExampleProblem2}
+
+Example link problem: {@link @minecraft/example-module.ExampleProblem3}
 
 This line has multiple links and lots of text! This is the first link [*@minecraft/example-module*](../../../scriptapi/minecraft/example-module/minecraft-example-module.md), and this is the second. [*@minecraft/example-module.ExampleFunction*](../../../scriptapi/minecraft/example-module/minecraft-example-module.md#examplefunction) Here's a third link [*@minecraft/example-module.ExampleConstant*](../../../scriptapi/minecraft/example-module/minecraft-example-module.md#exampleconstant) and this one here is the final link [*@minecraft/example-module.ExampleObject*](../../../scriptapi/minecraft/example-module/minecraft-example-module.md#exampleobject)
 
@@ -2277,6 +2303,8 @@ exports[`Type Linking > Properly generates documentation for types that are link
  * {@link ExampleInterface.ExampleProperty}
  * Example enum: {@link ExampleEnum}
  * Example enum value: {@link ExampleEnum.ExampleValue}
+ * Example link problem:
+ * {@link @minecraft/example-module.ExampleProblem4}
  * This line has multiple links!
  * {@link @minecraft/example-module} {@link ExampleFunction}
  * {@link ExampleConstant} {@link ExampleObject}
@@ -2369,6 +2397,8 @@ exports[`Type Linking > Properly generates documentation for types that are link
  * {@link ExampleInterface.ExampleProperty}
  * Example enum: {@link ExampleEnum}
  * Example enum value: {@link ExampleEnum.ExampleValue}
+ * Example link problem:
+ * {@link @minecraft/example-module.ExampleProblem4}
  * This line has multiple links!
  * {@link @minecraft/example-module} {@link ExampleFunction}
  * {@link ExampleConstant} {@link ExampleObject}
@@ -2469,6 +2499,12 @@ exports[`Type Linking > Properly generates documentation for types that are link
  * Example enum: {@link minecraftexamplemodule.ExampleEnum}
  * Example enum value:
  * {@link minecraftexamplemodule.ExampleEnum.ExampleValue}
+ * Example link problem:
+ * {@link @minecraft/example-module.ExampleProblem}
+ * Example link problem:
+ * {@link @minecraft/example-module.ExampleProblem2}
+ * Example link problem:
+ * {@link @minecraft/example-module.ExampleProblem3}
  * This line has multiple links and lots of text! This is the
  * first link {@link minecraftexamplemodule}, and this is the
  * second. {@link minecraftexamplemodule#ExampleFunction}

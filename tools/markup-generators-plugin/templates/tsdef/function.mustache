@@ -24,11 +24,11 @@
  *
     {{/function_description_ts.length}}
     {{#call_disallowed_in_restricted_execution}}
- * This function can't be called in restricted-execution mode.
+ * @no-restricted-execution This function can't be called in restricted-execution mode.
  *
     {{/call_disallowed_in_restricted_execution}}
     {{#call_allowed_in_early_execution}}
- * This function can be called in early-execution mode.
+ * @early-execution-allowed This function can be called in early-execution mode.
  *
     {{/call_allowed_in_early_execution}}
   {{/ts_has_remarks}}
@@ -42,6 +42,7 @@
       {{/argument_description_ts.length}}
       {{#has_closure_privilege_type_comments}}
  * This closure is called with {{closure_privilege_type_name}} privilege.
+ * {{{name}}} @{{closure_privilege_type_name}}-closure
       {{/has_closure_privilege_type_comments}}
       {{#has_defaults}}
         {{#details.default_value}}
@@ -68,12 +69,14 @@
     {{/returns_description_ts}}
     {{#return_type_has_closure_privilege_type_comments}}
  * Closure that is called with {{return_type_closure_privilege_type_name}} privilege.
+ * {{{name}}} @{{return_type_closure_privilege_type_name}}-closure
     {{/return_type_has_closure_privilege_type_comments}}
   {{/returns_description_ts.length}}
   {{^returns_description_ts.length}}
     {{#return_type_has_closure_privilege_type_comments}}
  * @returns
  * Closure that is called with {{return_type_closure_privilege_type_name}} privilege.
+ * {{{name}}} @{{return_type_closure_privilege_type_name}}-closure
     {{/return_type_has_closure_privilege_type_comments}}
   {{/returns_description_ts.length}}
   {{#has_runtime_conditions}}

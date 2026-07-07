@@ -227,13 +227,13 @@ export class ExampleClass {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
      *
      */
     no_privilege_property: number;
     /**
      * @remarks
-     * This property can't be edited in restricted-execution mode.
+     * @restricted-execution-read-only This property can't be edited in restricted-execution mode.
      *
      */
     none_privileged_property: number;
@@ -241,7 +241,7 @@ export class ExampleClass {
      * @remarks
      * Test description
      *
-     * This property can't be edited in restricted-execution mode.
+     * @restricted-execution-read-only This property can't be edited in restricted-execution mode.
      *
      */
     none_privileged_property_with_docs: number;
@@ -249,21 +249,21 @@ export class ExampleClass {
     readonly read_only_property: number;
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * @no-restricted-execution This function can't be called in restricted-execution mode.
      *
-     * This function can be called in early-execution mode.
+     * @early-execution-allowed This function can be called in early-execution mode.
      *
      */
     early_privileged_function(): boolean;
     /**
      * @remarks
-     * This function can be called in early-execution mode.
+     * @early-execution-allowed This function can be called in early-execution mode.
      *
      */
     multi_privileged_function(): boolean;
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * @no-restricted-execution This function can't be called in restricted-execution mode.
      *
      */
     non_privileged_function(): boolean;
@@ -271,7 +271,7 @@ export class ExampleClass {
      * @remarks
      * Test description
      *
-     * This function can't be called in restricted-execution mode.
+     * @no-restricted-execution This function can't be called in restricted-execution mode.
      *
      */
     non_privileged_function_with_comments(): boolean;
@@ -280,21 +280,21 @@ export class ExampleClass {
 
 /**
  * @remarks
- * This function can't be called in restricted-execution mode.
+ * @no-restricted-execution This function can't be called in restricted-execution mode.
  *
- * This function can be called in early-execution mode.
+ * @early-execution-allowed This function can be called in early-execution mode.
  *
  */
 export function early_privileged_function(): boolean;
 /**
  * @remarks
- * This function can be called in early-execution mode.
+ * @early-execution-allowed This function can be called in early-execution mode.
  *
  */
 export function multi_privileged_function(): boolean;
 /**
  * @remarks
- * This function can't be called in restricted-execution mode.
+ * @no-restricted-execution This function can't be called in restricted-execution mode.
  *
  */
 export function non_privileged_function(): boolean;
@@ -302,7 +302,7 @@ export function non_privileged_function(): boolean;
  * @remarks
  * Test description
  *
- * This function can't be called in restricted-execution mode.
+ * @no-restricted-execution This function can't be called in restricted-execution mode.
  *
  */
 export function non_privileged_function_with_comments(): boolean;
@@ -1536,70 +1536,70 @@ export class ExampleClass {
     private constructor();
     /**
      * @remarks
-     * This property can be used in early-execution mode.
+     * @early-execution-usable This property can be used in early-execution mode.
      *
      */
     prop_both_privileges: number;
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
      *
-     * This property can be used in early-execution mode.
+     * @early-execution-usable This property can be used in early-execution mode.
      *
      */
     prop_earlyexe_privilege: number;
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
      *
-     * This property can be read in early-execution mode.
+     * @early-execution-readable This property can be read in early-execution mode.
      *
      */
     prop_getearlyexe_privileges: number;
     /**
      * @remarks
-     * This property can't be edited in restricted-execution mode.
+     * @restricted-execution-read-only This property can't be edited in restricted-execution mode.
      *
      */
     prop_getreadonly_privileges: number;
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
      *
      */
     prop_none_privilege: number;
     prop_readonly_privilege: number;
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
      *
-     * This property can be edited in early-execution mode.
+     * @early-execution-editable This property can be edited in early-execution mode.
      *
      */
     prop_setearlyexe_privileges: number;
     /**
      * @remarks
-     * This property can't be read in restricted-execution mode.
+     * @restricted-execution-non-readable This property can't be read in restricted-execution mode.
      *
      */
     prop_setreadonly_privileges: number;
     /**
      * @remarks
-     * This function can be called in early-execution mode.
+     * @early-execution-allowed This function can be called in early-execution mode.
      *
      */
     memberfn_both_privileges(): boolean;
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * @no-restricted-execution This function can't be called in restricted-execution mode.
      *
-     * This function can be called in early-execution mode.
+     * @early-execution-allowed This function can be called in early-execution mode.
      *
      */
     memberfn_earlyexe_privilege(): boolean;
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * @no-restricted-execution This function can't be called in restricted-execution mode.
      *
      */
     memberfn_none_privilege(): boolean;
@@ -1608,21 +1608,21 @@ export class ExampleClass {
 
 /**
  * @remarks
- * This function can be called in early-execution mode.
+ * @early-execution-allowed This function can be called in early-execution mode.
  *
  */
 export function fn_both_privileges(): boolean;
 /**
  * @remarks
- * This function can't be called in restricted-execution mode.
+ * @no-restricted-execution This function can't be called in restricted-execution mode.
  *
- * This function can be called in early-execution mode.
+ * @early-execution-allowed This function can be called in early-execution mode.
  *
  */
 export function fn_earlyexe_privilege(): boolean;
 /**
  * @remarks
- * This function can't be called in restricted-execution mode.
+ * @no-restricted-execution This function can't be called in restricted-execution mode.
  *
  */
 export function fn_none_privilege(): boolean;
@@ -1813,13 +1813,13 @@ export class ExampleClass {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
      *
      */
     no_privilege_property: number;
     /**
      * @remarks
-     * This property can't be edited in restricted-execution mode.
+     * @restricted-execution-read-only This property can't be edited in restricted-execution mode.
      *
      */
     none_privileged_property: number;
@@ -1827,7 +1827,7 @@ export class ExampleClass {
      * @remarks
      * Test description
      *
-     * This property can't be edited in restricted-execution mode.
+     * @restricted-execution-read-only This property can't be edited in restricted-execution mode.
      *
      */
     none_privileged_property_with_docs: number;
@@ -1835,7 +1835,7 @@ export class ExampleClass {
     readonly read_only_property: number;
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * @no-restricted-execution This function can't be called in restricted-execution mode.
      *
      */
     non_privileged_function(): boolean;
@@ -1843,7 +1843,7 @@ export class ExampleClass {
      * @remarks
      * Test description
      *
-     * This function can't be called in restricted-execution mode.
+     * @no-restricted-execution This function can't be called in restricted-execution mode.
      *
      */
     non_privileged_function_with_comments(): boolean;
@@ -1852,7 +1852,7 @@ export class ExampleClass {
 
 /**
  * @remarks
- * This function can't be called in restricted-execution mode.
+ * @no-restricted-execution This function can't be called in restricted-execution mode.
  *
  */
 export function non_privileged_function(): boolean;
@@ -1860,7 +1860,7 @@ export function non_privileged_function(): boolean;
  * @remarks
  * Test description
  *
- * This function can't be called in restricted-execution mode.
+ * @no-restricted-execution This function can't be called in restricted-execution mode.
  *
  */
 export function non_privileged_function_with_comments(): boolean;
@@ -2101,42 +2101,42 @@ export class ExampleClass {
     private constructor();
     /**
      * @remarks
-     * This property can't be edited in restricted-execution mode.
+     * @restricted-execution-read-only This property can't be edited in restricted-execution mode.
      *
      */
     both_none_name_prop: number;
     both_read_only_name_prop: number;
     /**
      * @remarks
-     * This property can't be edited in restricted-execution mode.
+     * @restricted-execution-read-only This property can't be edited in restricted-execution mode.
      *
      */
     new_default_name_prop: number;
     new_restrict_name_prop: number;
     /**
      * @remarks
-     * This property can't be edited in restricted-execution mode.
+     * @restricted-execution-read-only This property can't be edited in restricted-execution mode.
      *
      */
     old_none_name_prop: number;
     old_read_only_name_prop: number;
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * @no-restricted-execution This function can't be called in restricted-execution mode.
      *
      */
     both_none_name_func(): boolean;
     both_read_only_name_func(): boolean;
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * @no-restricted-execution This function can't be called in restricted-execution mode.
      *
      */
     new_default_name_func(): boolean;
     new_restrict_name_func(): boolean;
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * @no-restricted-execution This function can't be called in restricted-execution mode.
      *
      */
     old_none_name_func(): boolean;
@@ -2145,21 +2145,21 @@ export class ExampleClass {
 
 /**
  * @remarks
- * This function can't be called in restricted-execution mode.
+ * @no-restricted-execution This function can't be called in restricted-execution mode.
  *
  */
 export function both_none_name_func(): boolean;
 export function both_read_only_name_func(): boolean;
 /**
  * @remarks
- * This function can't be called in restricted-execution mode.
+ * @no-restricted-execution This function can't be called in restricted-execution mode.
  *
  */
 export function new_default_name_func(): boolean;
 export function new_restrict_name_func(): boolean;
 /**
  * @remarks
- * This function can't be called in restricted-execution mode.
+ * @no-restricted-execution This function can't be called in restricted-execution mode.
  *
  */
 export function old_none_name_func(): boolean;

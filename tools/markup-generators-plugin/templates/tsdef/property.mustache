@@ -25,37 +25,38 @@
     {{/property_description_ts.length}}
     {{#has_closure_privilege_type_comments}}
  * This closure is called with {{closure_privilege_type_name}} privilege.
+ * {{property_name}} @{{closure_privilege_type_name}}-closure
  *
     {{/has_closure_privilege_type_comments}}
     {{#set_disallowed_in_restricted_execution}}
       {{#get_disallowed_in_restricted_execution}}
- * This property can't be used in restricted-execution mode.
+ * @restricted-execution-unusable This property can't be used in restricted-execution mode.
  *
       {{/get_disallowed_in_restricted_execution}}
       {{^get_disallowed_in_restricted_execution}}
- * This property can't be edited in restricted-execution mode.
+ * @restricted-execution-read-only This property can't be edited in restricted-execution mode.
  *
       {{/get_disallowed_in_restricted_execution}}
     {{/set_disallowed_in_restricted_execution}}
     {{^set_disallowed_in_restricted_execution}}
       {{#get_disallowed_in_restricted_execution}}
- * This property can't be read in restricted-execution mode.
+ * @restricted-execution-non-readable This property can't be read in restricted-execution mode.
  *
       {{/get_disallowed_in_restricted_execution}}
     {{/set_disallowed_in_restricted_execution}}
     {{#set_allowed_in_early_execution}}
       {{#get_allowed_in_early_execution}}
- * This property can be used in early-execution mode.
+ * @early-execution-usable This property can be used in early-execution mode.
  *
       {{/get_allowed_in_early_execution}}
       {{^get_allowed_in_early_execution}}
- * This property can be edited in early-execution mode.
+ * @early-execution-editable This property can be edited in early-execution mode.
  *
       {{/get_allowed_in_early_execution}}
     {{/set_allowed_in_early_execution}}
     {{^set_allowed_in_early_execution}}
       {{#get_allowed_in_early_execution}}
- * This property can be read in early-execution mode.
+ * @early-execution-readable This property can be read in early-execution mode.
  *
       {{/get_allowed_in_early_execution}}
     {{/set_allowed_in_early_execution}}

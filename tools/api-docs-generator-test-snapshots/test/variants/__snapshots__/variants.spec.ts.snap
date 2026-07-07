@@ -127,13 +127,13 @@ export class ExampleClass {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
      *
      */
     propertyFunctionThatReturnsVariant: (arg0: number) => number | string;
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
      *
      */
     propertyFunctionThatReturnsVariantWithClosureThatReturnsVariant: (
@@ -141,13 +141,13 @@ export class ExampleClass {
     ) => (arg0: number) => (number | string) | string;
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * @no-restricted-execution This function can't be called in restricted-execution mode.
      *
      */
     exampleMethod(arg1: (arg0: number) => (arg0: number) => (number | string) | string, arg2: number): void;
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * @no-restricted-execution This function can't be called in restricted-execution mode.
      *
      */
     methodWithVariantOfArrays(arrays: number[] | string[]): boolean;

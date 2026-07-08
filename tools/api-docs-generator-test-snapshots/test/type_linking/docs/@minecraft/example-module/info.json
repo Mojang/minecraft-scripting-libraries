@@ -11,7 +11,8 @@
     "Example interface: {@link @minecraft/example-module.ExampleInterface}",
     "Example interface property: {@link @minecraft/example-module.ExampleInterface.ExampleProperty}",
     "Example enum: {@link @minecraft/example-module.ExampleEnum}",
-    "Example enum value: {@link @minecraft/example-module.ExampleEnum.ExampleValue}",
+    "Example enum value: {@link @minecraft/example-module.ExampleEnum.ExampleValue}",    
+    "Example error: {@link @minecraft/example-module.ExampleError}",
     "This line has multiple links! {@link @minecraft/example-module} {@link @minecraft/example-module.ExampleFunction} {@link @minecraft/example-module.ExampleConstant} {@link @minecraft/example-module.ExampleObject}"
   ]
 }

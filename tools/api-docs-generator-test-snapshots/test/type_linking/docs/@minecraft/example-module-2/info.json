@@ -12,6 +12,7 @@
     "Example interface property: {@link @minecraft/example-module.ExampleInterface.ExampleProperty}",
     "Example enum: {@link @minecraft/example-module.ExampleEnum}",
     "Example enum value: {@link @minecraft/example-module.ExampleEnum.ExampleValue}",
+    "Example error: {@link @minecraft/example-module.ExampleError}",
     "Example link problem: {@link @minecraft/example-module.ExampleProblem}",
     "Example link problem: {@link @minecraft/example-module.ExampleProblem2}",
     "Example link problem: {@link @minecraft/example-module.ExampleProblem3}",

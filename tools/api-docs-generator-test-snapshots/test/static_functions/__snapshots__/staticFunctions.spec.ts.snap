@@ -126,25 +126,25 @@ export class ClassWithStaticFunction {
     private constructor();
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     bbbExampleMemberFunction(): string;
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     dddExampleMemberFunction(): string;
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     static aaaExampleStaticFunction(): string;
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     static cccExampleStaticFunction(): string;

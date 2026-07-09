@@ -242,31 +242,31 @@ export class ClassWithSpookyMemberNames {
     private constructor();
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     '5memberWithNumberStart': number;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     'member with spaces': number;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     'type': number;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     'void': number;
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     delete(): void;

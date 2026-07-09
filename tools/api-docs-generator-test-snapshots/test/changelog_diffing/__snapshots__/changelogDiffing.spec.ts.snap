@@ -4079,7 +4079,7 @@ export class ClassWithCrossModuleProperty {
     private constructor();
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     exampleProperty: testmodule1.SmallClass;
@@ -4117,7 +4117,7 @@ export class ClassWithCrossModuleProperty {
     private constructor();
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     exampleProperty: testmodule1.SmallClass;
@@ -4155,7 +4155,7 @@ export class ClassWithCrossModuleProperty {
     private constructor();
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     exampleProperty: testmodule1.SmallClass;
@@ -4250,25 +4250,25 @@ export class ClassWithAddedBaseClass {
 export class ClassWithConstructor {
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     x: number;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     y: number;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     z: number;
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     constructor(x: number, y: number, z: number);
@@ -4283,13 +4283,13 @@ export class EntityIterator implements Iterable<string> {
     private constructor();
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     [Symbol.iterator](): Iterator<string>;
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     next(): IteratorResult<string>;
@@ -4299,43 +4299,43 @@ export class ExampleClass1 {
     private constructor();
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     boolProperty: boolean;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     floatProperty: number;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     int16Property: number;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     int32Property: number;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     int64Property: number;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     int8Property: number;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      * @throws This property can throw when used.
      */
@@ -4343,13 +4343,13 @@ export class ExampleClass1 {
     readonly propertyWithReadOnlyChanging: string;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     stringProperty: string;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      * @throws This property can throw when used.
      */
@@ -4357,68 +4357,68 @@ export class ExampleClass1 {
     readonly stringPropertyReadOnly: string;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     uint16Property: number;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     uint32Property: number;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     uint64Property: number;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     uint8Property: number;
     static readonly ClassConstantExample = 1337;
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     testMethod(stringArgument: string, stringArgumentOptional?: string): boolean;
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     testMethodWithAddedArgument(): boolean;
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     testMethodWithAddedErrorable(): boolean;
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     testMethodWithChangedArgumentType(arg: string): boolean;
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     testMethodWithChangedReturnType(): boolean;
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     testMethodWithRemovedArgument(removedArg: string): boolean;
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      * @throws This function can throw errors.
      */
@@ -4429,7 +4429,7 @@ export class SmallClass {
     private constructor();
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      * @throws This property can throw when used.
      */
@@ -4452,31 +4452,31 @@ export interface RemovedInterface {
 
 /**
  * @remarks
- * @no-restricted-execution This function can't be called in restricted-execution mode.
+ * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
  *
  */
 export function testFunctionWithAddedArgument(): boolean;
 /**
  * @remarks
- * @no-restricted-execution This function can't be called in restricted-execution mode.
+ * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
  *
  */
 export function testFunctionWithAddedErrorable(): boolean;
 /**
  * @remarks
- * @no-restricted-execution This function can't be called in restricted-execution mode.
+ * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
  *
  */
 export function testFunctionWithChangedArgumentType(arg: string): boolean;
 /**
  * @remarks
- * @no-restricted-execution This function can't be called in restricted-execution mode.
+ * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
  *
  */
 export function testFunctionWithRemovedArgument(removedArg: string): boolean;
 /**
  * @remarks
- * @no-restricted-execution This function can't be called in restricted-execution mode.
+ * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
  *
  * @throws This function can throw errors.
  */
@@ -4554,37 +4554,37 @@ export class ClassWithAddedBaseClass extends SmallClass {
 export class ClassWithConstructor {
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     w: number;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     x: number;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     y: number;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     z: number;
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     constructor(x: number, y: number, z: number);
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     testFunction(argument1: string, argument2: string): number;
@@ -4598,13 +4598,13 @@ export class EntityIterator implements Iterable<string> {
     private constructor();
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     [Symbol.iterator](): Iterator<string>;
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     next(): IteratorResult<string>;
@@ -4614,62 +4614,62 @@ export class ExampleClass1 {
     private constructor();
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     boolProperty: boolean;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     floatProperty: number;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     int16Property: number;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     int32Property: number;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     int64Property: number;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     int8Property: number;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      * @throws This property can throw when used.
      */
     propertyWithChangedType: boolean;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     propertyWithReadOnlyChanging: string;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     stringProperty: string;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      * @throws This property can throw when used.
      */
@@ -4677,69 +4677,69 @@ export class ExampleClass1 {
     readonly stringPropertyReadOnly: string;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     uint16Property: number;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     uint32Property: number;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     uint64Property: number;
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     uint8Property: number;
     static readonly ClassConstantExample = 1338;
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     testMethod(stringArgument: string, stringArgumentOptional?: string): boolean;
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     testMethodWithAddedArgument(addedArg: string): boolean;
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      * @throws This function can throw errors.
      */
     testMethodWithAddedErrorable(): boolean;
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     testMethodWithChangedArgumentType(arg: number): boolean;
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     testMethodWithChangedReturnType(): string;
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     testMethodWithRemovedArgument(): boolean;
     /**
      * @remarks
-     * @no-restricted-execution This function can't be called in restricted-execution mode.
+     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     testMethodWithRemovedErrorable(): boolean;
@@ -4749,7 +4749,7 @@ export class SmallClass {
     private constructor();
     /**
      * @remarks
-     * @restricted-execution-unusable This property can't be used in restricted-execution mode.
+     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      * @throws This property can throw when used.
      */
@@ -4766,38 +4766,38 @@ export interface ExampleInterface {
 
 /**
  * @remarks
- * @no-restricted-execution This function can't be called in restricted-execution mode.
+ * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
  *
  */
 export function testFunctionWithAddedArgument(addedArg: string): boolean;
 /**
  * @remarks
- * @no-restricted-execution This function can't be called in restricted-execution mode.
+ * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
  *
  * @throws This function can throw errors.
  */
 export function testFunctionWithAddedErrorable(): boolean;
 /**
  * @remarks
- * @no-restricted-execution This function can't be called in restricted-execution mode.
+ * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
  *
  */
 export function testFunctionWithChangedArgumentType(arg: number): boolean;
 /**
  * @remarks
- * @no-restricted-execution This function can't be called in restricted-execution mode.
+ * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
  *
  */
 export function testFunctionWithRemovedArgument(): boolean;
 /**
  * @remarks
- * @no-restricted-execution This function can't be called in restricted-execution mode.
+ * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
  *
  */
 export function testFunctionWithRemovedErrorable(): boolean;
 /**
  * @remarks
- * @no-restricted-execution This function can't be called in restricted-execution mode.
+ * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
  *
  */
 export function testGlobalFunction(argument1: string): number;

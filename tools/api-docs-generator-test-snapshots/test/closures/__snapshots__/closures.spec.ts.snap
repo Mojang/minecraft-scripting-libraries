@@ -200,7 +200,6 @@ export class ClassWithPrivilegedClosures {
     /**
      * @remarks
      * This closure is called with early-execution privilege.
-     * closureEarlyExec @early-execution-closure
      *
      */
     readonly closureEarlyExec: () => void;
@@ -209,7 +208,6 @@ export class ClassWithPrivilegedClosures {
     /**
      * @remarks
      * This closure is called with restricted-execution privilege.
-     * closureRestrictedExec @restricted-execution-closure
      *
      */
     readonly closureRestrictedExec: () => void;
@@ -217,10 +215,8 @@ export class ClassWithPrivilegedClosures {
      * @remarks
      * @param closureRestrictedExec
      * This closure is called with restricted-execution privilege.
-     * closureRestrictedExec @restricted-execution-closure
      * @param closureEarlyExec
      * This closure is called with early-execution privilege.
-     * closureEarlyExec @early-execution-closure
      */
     func(
         closureDefaultOptional?: () => void,
@@ -239,19 +235,16 @@ export class ExampleClass {
 
 /**
  * @remarks
- * @no-restricted-execution This function can't be called in restricted-execution mode.
+ * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
  *
- * @early-execution-allowed This function can be called in early-execution mode.
+ * @privelege early-execution-allowed. This function can be called in early-execution mode.
  *
  * @param closureRestrictedExec
  * This closure is called with restricted-execution privilege.
- * closureRestrictedExec @restricted-execution-closure
  * @param closureEarlyExec
  * This closure is called with early-execution privilege.
- * closureEarlyExec @early-execution-closure
  * @returns
  * Closure that is called with restricted-execution privilege.
- * globalFuncReturnsRestrictedExecClosure @restricted-execution-closure
  */
 export function globalFuncReturnsRestrictedExecClosure(
     closureDefaultOptional?: () => void,

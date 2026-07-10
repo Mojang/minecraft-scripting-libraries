@@ -311,9 +311,10 @@ function linkSymbols(
 
         result.push(str);
 
-        if (linkMatches.length > 0) {
+        const hasLinksRemaining = str.includes('@link');
+        if (hasLinksRemaining && linkMatches.length > 0) {
             log.error(
-                `Link(s) not found. Please check spelling or if the modules or members are defined: ${JSON.stringify(linkMatches)}`
+                `Link(s) not found in ${fromModule.name} version ${fromModule.version}. Please check spelling or if the modules or members are defined: ${JSON.stringify(linkMatches)}`
             );
         }
     }

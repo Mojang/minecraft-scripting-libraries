@@ -279,6 +279,14 @@ function linkSymbols(
                 );
             }
 
+            for (const errorJson of moduleJson.errors ?? []) {
+                if (linkMatches.length === 0) {
+                    break moduleLoop;
+                }
+
+                str = formatSymbolReference(str, linkMatches, formatter, fromModule, moduleJson, undefined, errorJson);
+            }
+
             for (const typeAliasJson of moduleJson.type_aliases ?? []) {
                 if (linkMatches.length === 0) {
                     break moduleLoop;

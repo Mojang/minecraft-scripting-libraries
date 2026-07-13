@@ -535,66 +535,32 @@ exports[`Hybrid Script and Native Module > Generates documentation for both the 
  * \`\`\`
  *
  */
-/**
- * A script generated enum
- */
 export declare enum ScriptGeneratedEnum {
     First = 'first',
     Second = 'second',
 }
 
-/**
- * This overwrites the TSDoc from TypeAliasWithInfoJsonComments
- * with an info.json file's description
- */
 export type TypeAliasWithInfoJsonComments = {
     id: string;
 };
 
-/**
- * This doc text is extracted from TSDoc comments
- */
 export type TypeAliasWithTSDocComments = boolean | string;
 
-/**
- * A script generated class
- */
 export declare class ScriptGeneratedClass {
     /**
      * @remarks
-     * A script generated property
-     *
      * This property can't be used in restricted-execution mode.
      *
      */
     testProperty: string | undefined;
     /**
      * @remarks
-     * A script generated function with doc text defined in TSDoc
-     * comments
-     *
      * This function can't be called in restricted-execution mode.
      *
-     * @param tsdocParam
-     * Param comment from TSDoc
-     * @param msdocParam
-     * This overwrites the TSDoc for msdocParam with an info.json
-     * file's description
-     * @returns
-     * This is a return comment defined in info.json
-     * @throws
-     * Throws comment in TSDocs
      */
     testFunctionWithTSDocComments(tsdocParam: number, msdocParam: number): boolean;
 }
 
-/**
- * @remarks
- * A native bound function.
- *
- * @returns
- * A boolean value.
- */
 export function NativeBoundFunction(): boolean;
 "
 `;
@@ -1025,66 +991,32 @@ exports[`Hybrid Script and Native Module > Generates documentation for both the 
  * \`\`\`
  *
  */
-/**
- * A script generated enum
- */
 export declare enum ScriptGeneratedEnum {
     First = 'first',
     Second = 'second',
 }
 
-/**
- * This overwrites the TSDoc from TypeAliasWithInfoJsonComments
- * with an info.json file's description
- */
 export type TypeAliasWithInfoJsonComments = {
     id: string;
 };
 
-/**
- * This doc text is extracted from TSDoc comments
- */
 export type TypeAliasWithTSDocComments = boolean | string;
 
-/**
- * A script generated class
- */
 export declare class ScriptGeneratedClass {
     /**
      * @remarks
-     * A script generated property
-     *
      * This property can't be used in restricted-execution mode.
      *
      */
     testProperty: string | undefined;
     /**
      * @remarks
-     * A script generated function with doc text defined in TSDoc
-     * comments
-     *
      * This function can't be called in restricted-execution mode.
      *
-     * @param tsdocParam
-     * Param comment from TSDoc
-     * @param msdocParam
-     * This overwrites the TSDoc for msdocParam with an info.json
-     * file's description
-     * @returns
-     * This is a return comment defined in info.json
-     * @throws
-     * Throws comment in TSDocs
      */
     testFunctionWithTSDocComments(tsdocParam: number, msdocParam: number): boolean;
 }
 
-/**
- * @remarks
- * A native bound function.
- *
- * @returns
- * A boolean value.
- */
 export function NativeBoundFunction(): boolean;
 "
 `;
@@ -1773,66 +1705,32 @@ exports[`Hybrid Script and Native Module > Properly generates documentation for 
  * \`\`\`
  *
  */
-/**
- * A script generated enum
- */
 export declare enum ScriptGeneratedEnum {
     First = 'first',
     Second = 'second',
 }
 
-/**
- * This overwrites the TSDoc from TypeAliasWithInfoJsonComments
- * with an info.json file's description
- */
 export type TypeAliasWithInfoJsonComments = {
     id: string;
 };
 
-/**
- * This doc text is extracted from TSDoc comments
- */
 export type TypeAliasWithTSDocComments = boolean | string;
 
-/**
- * A script generated class
- */
 export declare class ScriptGeneratedClass {
     /**
      * @remarks
-     * A script generated property
-     *
      * This property can't be used in restricted-execution mode.
      *
      */
     testProperty: string | undefined;
     /**
      * @remarks
-     * A script generated function with doc text defined in TSDoc
-     * comments
-     *
      * This function can't be called in restricted-execution mode.
      *
-     * @param tsdocParam
-     * Param comment from TSDoc
-     * @param msdocParam
-     * This overwrites the TSDoc for msdocParam with an info.json
-     * file's description
-     * @returns
-     * This is a return comment defined in info.json
-     * @throws
-     * Throws comment in TSDocs
      */
     testFunctionWithTSDocComments(tsdocParam: number, msdocParam: number): boolean;
 }
 
-/**
- * @remarks
- * A native bound function.
- *
- * @returns
- * A boolean value.
- */
 export function NativeBoundFunction(): boolean;
 "
 `;
@@ -2094,66 +1992,32 @@ exports[`Hybrid Script and Native Module > Properly generates documentation for 
  * \`\`\`
  *
  */
-/**
- * A script generated enum
- */
 export declare enum ScriptGeneratedEnum {
     First = 'first',
     Second = 'second',
 }
 
-/**
- * This overwrites the TSDoc from TypeAliasWithInfoJsonComments
- * with an info.json file's description
- */
 export type TypeAliasWithInfoJsonComments = {
     id: string;
 };
 
-/**
- * This doc text is extracted from TSDoc comments
- */
 export type TypeAliasWithTSDocComments = boolean | string;
 
-/**
- * A script generated class
- */
 export declare class ScriptGeneratedClass {
     /**
      * @remarks
-     * A script generated property
-     *
      * This property can't be used in restricted-execution mode.
      *
      */
     testProperty: string | undefined;
     /**
      * @remarks
-     * A script generated function with doc text defined in TSDoc
-     * comments
-     *
      * This function can't be called in restricted-execution mode.
      *
-     * @param tsdocParam
-     * Param comment from TSDoc
-     * @param msdocParam
-     * This overwrites the TSDoc for msdocParam with an info.json
-     * file's description
-     * @returns
-     * This is a return comment defined in info.json
-     * @throws
-     * Throws comment in TSDocs
      */
     testFunctionWithTSDocComments(tsdocParam: number, msdocParam: number): boolean;
 }
 
-/**
- * @remarks
- * A native bound function.
- *
- * @returns
- * A boolean value.
- */
 export function NativeBoundFunction(): boolean;
 "
 `;

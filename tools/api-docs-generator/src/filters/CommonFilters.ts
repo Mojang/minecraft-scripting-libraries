@@ -1058,7 +1058,7 @@ function addDescriptionsAndExamples(releases: MinecraftRelease[], fileLoader?: F
     }
 
     for (const release of releases) {
-        for (const moduleJson of release.script_modules) {
+        for (const moduleJson of release.getLatestScriptModulesByMajorVersion()) {
             const dependentModules = getLatestDependentScriptModules(release.script_modules, moduleJson);
 
             addModuleDescriptions(fileLoader, moduleJson, dependentModules);

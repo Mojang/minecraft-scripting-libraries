@@ -666,10 +666,6 @@ export enum StableEnumWithDeprecatedConstant {
 
 /**
  * @deprecated This class is deprecated and will be removed in 2.0.0.
- *
- * Custom deprecation message!
- *
- * This class is deprecated.
  */
 export class DeprecatedClass {
     private constructor();

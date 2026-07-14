@@ -317,6 +317,7 @@ exports[`Only Generate Latest Script Module Versions > Generates correct output 
    ***************************************************************************** */
 /**
  * @packageDocumentation
+ * This should only be applied in the latest module!
  *
  * Manifest Details
  * \`\`\`json
@@ -327,8 +328,23 @@ exports[`Only Generate Latest Script Module Versions > Generates correct output 
  * \`\`\`
  *
  */
+/**
+ * @remarks
+ * This should only be applied in the latest module!
+ *
+ */
 export const GlobalConstantV100 = 8;
+/**
+ * @remarks
+ * This should only be applied in the latest module!
+ *
+ */
 export const GlobalConstantV110 = 8;
+/**
+ * @remarks
+ * This should only be applied in the latest module!
+ *
+ */
 export const GlobalConstantV200 = 8;
 "
 `;

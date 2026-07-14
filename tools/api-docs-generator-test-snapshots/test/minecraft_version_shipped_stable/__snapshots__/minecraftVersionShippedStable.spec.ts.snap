@@ -429,6 +429,8 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
 exports[`Minecraft Version Shipped Stable > Generates correct output for module with stable shipped version and beta in a new version in preview > npm/types/@minecraft/module@2.0.0-rc.1.2.3-preview.5/README.md 1`] = `
 "# \`@minecraft/module\`
 
+The description for the module in V2 stable
+
 ## **NOTE: This version of this module is still in pre-release.  It may change or it may be removed in future releases.**
 
 See full documentation for this module here:
@@ -448,6 +450,7 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
 /**
  * @preview
  * @packageDocumentation
+ * The description for the module in V2 stable
  *
  * Manifest Details
  * \`\`\`json
@@ -460,8 +463,20 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
  */
 /**
  * @rc
+ * @remarks
+ * Test function woot woot!
+ *
+ * @param arg
+ * default arg description!.
+ * @returns
+ * Returns default stuff.
  */
 export function TestFunction(arg: string): number;
+/**
+ * @remarks
+ * The description for GlobalConstantStable in V2 stable
+ *
+ */
 export const GlobalConstantStable = 8;
 "
 `;
@@ -488,6 +503,8 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
 exports[`Minecraft Version Shipped Stable > Generates correct output for module with stable shipped version and beta in a new version in preview > npm/types/@minecraft/module@2.1.0-beta.1.2.3-preview.5/README.md 1`] = `
 "# \`@minecraft/module\`
 
+The description for the module in beta
+
 ## **NOTE: This version of this module is still in pre-release.  It may change or it may be removed in future releases.**
 
 See full documentation for this module here:
@@ -507,6 +524,7 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
 /**
  * @beta
  * @packageDocumentation
+ * The description for the module in beta
  *
  * Manifest Details
  * \`\`\`json
@@ -519,12 +537,24 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
  */
 /**
  * @rc
+ * @remarks
+ * Test function woot woot!
+ *
+ * @param arg
+ * default arg description!.
+ * @returns
+ * Returns default stuff.
  */
 export function TestFunction(arg: string): number;
 /**
  * @beta
  */
 export const GlobalConstantBeta = 8;
+/**
+ * @remarks
+ * The description for GlobalConstantStable in V2 stable
+ *
+ */
 export const GlobalConstantStable = 8;
 "
 `;
@@ -678,6 +708,7 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
 /**
  * @preview
  * @packageDocumentation
+ * The description for the module in V2 stable
  *
  * Manifest Details
  * \`\`\`json
@@ -690,8 +721,20 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
  */
 /**
  * @rc
+ * @remarks
+ * Test function woot woot!
+ *
+ * @param arg
+ * default arg description!.
+ * @returns
+ * Returns default stuff.
  */
 export function TestFunction(arg: string): number;
+/**
+ * @remarks
+ * The description for GlobalConstantStable in V2 stable
+ *
+ */
 export const GlobalConstantStable = 8;
 "
 `;
@@ -708,6 +751,7 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
 /**
  * @beta
  * @packageDocumentation
+ * The description for the module in beta
  *
  * Manifest Details
  * \`\`\`json
@@ -720,12 +764,24 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
  */
 /**
  * @rc
+ * @remarks
+ * Test function woot woot!
+ *
+ * @param arg
+ * default arg description!.
+ * @returns
+ * Returns default stuff.
  */
 export function TestFunction(arg: string): number;
 /**
  * @beta
  */
 export const GlobalConstantBeta = 8;
+/**
+ * @remarks
+ * The description for GlobalConstantStable in V2 stable
+ *
+ */
 export const GlobalConstantStable = 8;
 "
 `;
@@ -1194,6 +1250,8 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
 exports[`Minecraft Version Shipped Stable > Generates correct output for module with stable shipped version and beta in a new version in stable > npm/types/@minecraft/module@2.0.0/README.md 1`] = `
 "# \`@minecraft/module\`
 
+The description for the module in V2 stable
+
 See full documentation for this module here:
 
 https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/module/minecraft-module"
@@ -1210,6 +1268,7 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
    ***************************************************************************** */
 /**
  * @packageDocumentation
+ * The description for the module in V2 stable
  *
  * Manifest Details
  * \`\`\`json
@@ -1220,7 +1279,21 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
  * \`\`\`
  *
  */
+/**
+ * @remarks
+ * Test function woot woot!
+ *
+ * @param arg
+ * default arg description!.
+ * @returns
+ * Returns default stuff.
+ */
 export function TestFunction(arg: string): number;
+/**
+ * @remarks
+ * The description for GlobalConstantStable in V2 stable
+ *
+ */
 export const GlobalConstantStable = 8;
 "
 `;
@@ -1247,6 +1320,8 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
 exports[`Minecraft Version Shipped Stable > Generates correct output for module with stable shipped version and beta in a new version in stable > npm/types/@minecraft/module@2.1.0-beta.1.2.3-stable/README.md 1`] = `
 "# \`@minecraft/module\`
 
+The description for the module in beta
+
 ## **NOTE: This version of this module is still in pre-release.  It may change or it may be removed in future releases.**
 
 See full documentation for this module here:
@@ -1266,6 +1341,7 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
 /**
  * @beta
  * @packageDocumentation
+ * The description for the module in beta
  *
  * Manifest Details
  * \`\`\`json
@@ -1276,11 +1352,25 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
  * \`\`\`
  *
  */
+/**
+ * @remarks
+ * Test function woot woot!
+ *
+ * @param arg
+ * default arg description!.
+ * @returns
+ * Returns default stuff.
+ */
 export function TestFunction(arg: string): number;
 /**
  * @beta
  */
 export const GlobalConstantBeta = 8;
+/**
+ * @remarks
+ * The description for GlobalConstantStable in V2 stable
+ *
+ */
 export const GlobalConstantStable = 8;
 "
 `;
@@ -1431,6 +1521,7 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
    ***************************************************************************** */
 /**
  * @packageDocumentation
+ * The description for the module in V2 stable
  *
  * Manifest Details
  * \`\`\`json
@@ -1441,7 +1532,21 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
  * \`\`\`
  *
  */
+/**
+ * @remarks
+ * Test function woot woot!
+ *
+ * @param arg
+ * default arg description!.
+ * @returns
+ * Returns default stuff.
+ */
 export function TestFunction(arg: string): number;
+/**
+ * @remarks
+ * The description for GlobalConstantStable in V2 stable
+ *
+ */
 export const GlobalConstantStable = 8;
 "
 `;
@@ -1458,6 +1563,7 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
 /**
  * @beta
  * @packageDocumentation
+ * The description for the module in beta
  *
  * Manifest Details
  * \`\`\`json
@@ -1468,11 +1574,25 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
  * \`\`\`
  *
  */
+/**
+ * @remarks
+ * Test function woot woot!
+ *
+ * @param arg
+ * default arg description!.
+ * @returns
+ * Returns default stuff.
+ */
 export function TestFunction(arg: string): number;
 /**
  * @beta
  */
 export const GlobalConstantBeta = 8;
+/**
+ * @remarks
+ * The description for GlobalConstantStable in V2 stable
+ *
+ */
 export const GlobalConstantStable = 8;
 "
 `;

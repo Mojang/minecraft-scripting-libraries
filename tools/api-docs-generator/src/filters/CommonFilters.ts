@@ -8,7 +8,7 @@ import wrap from 'word-wrap';
 
 import { FileLoader } from '../FileLoader';
 import * as log from '../Logger';
-import { getLatestScriptModules, MinecraftRelease } from '../MinecraftRelease';
+import { getLatestScriptModules, GetLatestScriptModulesOptions, MinecraftRelease } from '../MinecraftRelease';
 import {
     getAfterEventsOrderingModuleFrom,
     MinecraftAfterEventsOrderByVersion,
@@ -1058,7 +1058,9 @@ function addDescriptionsAndExamples(releases: MinecraftRelease[], fileLoader?: F
     }
 
     for (const release of releases) {
-        for (const moduleJson of release.getLatestScriptModulesByMajorVersion()) {
+        for (const moduleJson of release.getLatestScriptModulesByMajorVersion(
+            GetLatestScriptModulesOptions.StableAndPrerelease
+        )) {
             const dependentModules = getLatestDependentScriptModules(release.script_modules, moduleJson);
 
             addModuleDescriptions(fileLoader, moduleJson, dependentModules);

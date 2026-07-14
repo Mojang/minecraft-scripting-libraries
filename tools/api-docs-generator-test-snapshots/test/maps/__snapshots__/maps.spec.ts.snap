@@ -115,19 +115,19 @@ export class ExampleClass {
     private constructor();
     /**
      * @remarks
-     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     mapProperty: Record<string, number>;
     /**
      * @remarks
-     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     exampleMethodReturnsMap(): Record<string, number>;
     /**
      * @remarks
-     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     exampleMethodTakesMapArg(arg: Record<string, number>): void;

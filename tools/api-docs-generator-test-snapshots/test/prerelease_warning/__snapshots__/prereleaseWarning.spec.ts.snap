@@ -570,14 +570,14 @@ export class StableClass {
     /**
      * @beta
      * @remarks
-     * @privelege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
      *
      */
     prereleaseProperty: number;
     /**
      * @beta
      * @remarks
-     * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
      *
      */
     prereleaseMethod(): number;
@@ -598,7 +598,7 @@ export interface StableInterface {
 /**
  * @beta
  * @remarks
- * @privelege no-restricted-execution. This function can't be called in restricted-execution mode.
+ * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
  *
  */
 export function prereleaseFunction(): boolean;

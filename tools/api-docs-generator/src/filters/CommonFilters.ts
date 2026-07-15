@@ -8,7 +8,7 @@ import wrap from 'word-wrap';
 
 import { FileLoader } from '../FileLoader';
 import * as log from '../Logger';
-import { getLatestScriptModules, MinecraftRelease } from '../MinecraftRelease';
+import { getLatestScriptModules, GetLatestScriptModulesOptions, MinecraftRelease } from '../MinecraftRelease';
 import {
     getAfterEventsOrderingModuleFrom,
     MinecraftAfterEventsOrderByVersion,
@@ -310,6 +310,13 @@ function linkSymbols(
         }
 
         result.push(str);
+
+        const hasLinksRemaining = str.includes('@link');
+        if (hasLinksRemaining && linkMatches.length > 0) {
+            log.error(
+                `Link(s) not found in ${fromModule.name} version ${fromModule.version}. Please check spelling or if the modules or members are defined: ${JSON.stringify(linkMatches)}`
+            );
+        }
     }
 
     return result;
@@ -1051,7 +1058,9 @@ function addDescriptionsAndExamples(releases: MinecraftRelease[], fileLoader?: F
     }
 
     for (const release of releases) {
-        for (const moduleJson of release.script_modules) {
+        for (const moduleJson of release.getLatestScriptModulesByMajorVersion(
+            GetLatestScriptModulesOptions.StableAndPrerelease
+        )) {
             const dependentModules = getLatestDependentScriptModules(release.script_modules, moduleJson);
 
             addModuleDescriptions(fileLoader, moduleJson, dependentModules);

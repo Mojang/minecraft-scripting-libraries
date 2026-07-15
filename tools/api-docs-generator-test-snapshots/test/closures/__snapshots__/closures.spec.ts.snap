@@ -235,9 +235,9 @@ export class ExampleClass {
 
 /**
  * @remarks
- * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
+ * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
  *
- * @privilege early-execution-allowed. This function can be called in early-execution mode.
+ * @privilege early-execution-allowed - This function can be called in early-execution mode.
  *
  * @param closureRestrictedExec
  * This closure is called with restricted-execution privilege.

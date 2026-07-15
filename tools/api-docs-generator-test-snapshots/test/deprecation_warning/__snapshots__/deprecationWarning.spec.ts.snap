@@ -681,13 +681,13 @@ export class StableClassWithDeprecatedMembers {
      * @deprecated This property is deprecated and will be removed in 2.0.0.
      *
      * @remarks
-     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     deprecatedProperty: boolean;
     /**
      * @remarks
-     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     stableProperty: boolean;
@@ -700,13 +700,13 @@ export class StableClassWithDeprecatedMembers {
      * @deprecated This function is deprecated and will be removed in 2.0.0.
      *
      * @remarks
-     * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      */
     deprecatedFunction(): boolean;
     /**
      * @remarks
-     * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      */
     stableFunction(): boolean;
@@ -748,7 +748,7 @@ export class StableErrorWithDeprecatedProperty extends Error {
  * @deprecated This function is deprecated and will be removed in 2.0.0.
  *
  * @remarks
- * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
+ * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
  *
  */
 export function deprecatedGlobalFunction(): boolean;
@@ -756,7 +756,7 @@ export function deprecatedGlobalFunction(): boolean;
  * @deprecated This function is deprecated and will be removed in 2.0.0.
  *
  * @remarks
- * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
+ * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
  *
  */
 export function stableGlobalFunction(): boolean;
@@ -824,13 +824,13 @@ export class StableClassWithDeprecatedMembers {
      * @deprecated This property is deprecated and will be removed in 2.0.0.
      *
      * @remarks
-     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     deprecatedProperty: boolean;
     /**
      * @remarks
-     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     stableProperty: boolean;
@@ -843,13 +843,13 @@ export class StableClassWithDeprecatedMembers {
      * @deprecated This function is deprecated and will be removed in 2.0.0.
      *
      * @remarks
-     * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      */
     deprecatedFunction(): boolean;
     /**
      * @remarks
-     * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      */
     stableFunction(): boolean;
@@ -890,7 +890,7 @@ export class StableErrorWithDeprecatedProperty extends Error {
 /**
  * @beta
  * @remarks
- * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
+ * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
  *
  */
 export function betaGlobalFunctionNotInAlpha(): boolean;
@@ -898,7 +898,7 @@ export function betaGlobalFunctionNotInAlpha(): boolean;
  * @deprecated This function is deprecated and will be removed in 2.0.0.
  *
  * @remarks
- * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
+ * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
  *
  */
 export function deprecatedGlobalFunction(): boolean;
@@ -906,7 +906,7 @@ export function deprecatedGlobalFunction(): boolean;
  * @deprecated This function is deprecated and will be removed in 2.0.0.
  *
  * @remarks
- * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
+ * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
  *
  */
 export function stableGlobalFunction(): boolean;
@@ -948,14 +948,14 @@ export class StableClassWithDeprecatedMembers {
     private constructor();
     /**
      * @remarks
-     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     stableProperty: boolean;
     static readonly stableConstant: boolean;
     /**
      * @remarks
-     * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      */
     stableFunction(): boolean;
@@ -974,7 +974,7 @@ export class StableErrorWithDeprecatedProperty extends Error {
 /**
  * @alpha
  * @remarks
- * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
+ * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
  *
  */
 export function v2GlobalFunction(): boolean;

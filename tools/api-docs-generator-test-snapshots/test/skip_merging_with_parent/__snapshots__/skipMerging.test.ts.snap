@@ -26,7 +26,7 @@ exports[`Skip Merging With Parent > Properly skips merging if skip merging is se
  */
 /**
  * @remarks
- * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
+ * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
  *
  */
 export function ChildFunction(): number;
@@ -57,7 +57,7 @@ exports[`Skip Merging With Parent > Properly skips merging if skip merging is se
  */
 /**
  * @remarks
- * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
+ * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
  *
  */
 export function ParentFunction(): number;

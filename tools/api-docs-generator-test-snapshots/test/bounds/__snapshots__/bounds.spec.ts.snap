@@ -479,68 +479,68 @@ export class ClassWithBounds {
     private constructor();
     /**
      * @remarks
-     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      * Bounds: [0, 0]
      */
     r: number;
     /**
      * @remarks
-     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      * Minimum Value: -255
      */
     s: number;
     /**
      * @remarks
-     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      * Maximum Value: 1
      */
     t: number;
     /**
      * @remarks
-     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     u: number;
     /**
      * @remarks
-     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      * Bounds: [-255, -1]
      */
     v: number;
     /**
      * @remarks
-     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     w: number;
     /**
      * @remarks
-     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      * Minimum Value: 1
      */
     x: number;
     /**
      * @remarks
-     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      * Maximum Value: 255
      */
     y: number;
     /**
      * @remarks
-     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      * Bounds: [1, 255]
      */
     z: number;
     /**
      * @remarks
-     * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      * @param s
      * Minimum value: -255
@@ -602,68 +602,68 @@ export class ClassWithBounds {
     private constructor();
     /**
      * @remarks
-     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      * Bounds: [0, 0]
      */
     r: number;
     /**
      * @remarks
-     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      * Minimum Value: 1
      */
     s: number;
     /**
      * @remarks
-     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      * Maximum Value: 255
      */
     t: number;
     /**
      * @remarks
-     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     u: number;
     /**
      * @remarks
-     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      * Bounds: [1, 255]
      */
     v: number;
     /**
      * @remarks
-     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      * Bounds: [1, 255]
      */
     w: number;
     /**
      * @remarks
-     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      * Maximum Value: 255
      */
     x: number;
     /**
      * @remarks
-     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      * Minimum Value: 1
      */
     y: number;
     /**
      * @remarks
-     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     z: number;
     /**
      * @remarks
-     * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      * @param s
      * Minimum value: 1

@@ -237,31 +237,31 @@ export class ClassWithOptionals {
     private constructor();
     /**
      * @remarks
-     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     optionalProperty?: boolean;
     /**
      * @remarks
-     * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      */
     methodThatReturnsOptional(): boolean | undefined;
     /**
      * @remarks
-     * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      */
     methodThatTakesOptionals(arg1?: boolean, arg2?: string): void;
     /**
      * @remarks
-     * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      */
     methodThatTakesRecordOfOptionalVariants(values: Record<string, boolean | number | string | undefined>): void;
     /**
      * @remarks
-     * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      * @param defaultIs1
      * Defaults to: 1

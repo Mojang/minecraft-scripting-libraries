@@ -90,7 +90,7 @@ export class ClassWithArrayOfVariantsProperty {
     private constructor();
     /**
      * @remarks
-     * @privilege restricted-execution-unusable. This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     exampleMember?: (boolean | number | string | undefined)[];

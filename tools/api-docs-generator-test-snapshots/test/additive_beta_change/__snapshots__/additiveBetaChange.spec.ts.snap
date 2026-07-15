@@ -187,7 +187,7 @@ export class ExampleClass1 {
     private constructor();
     /**
      * @remarks
-     * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      */
     testMethodWithAddedArgument(): boolean;
@@ -226,7 +226,7 @@ export class ExampleClass1 {
     private constructor();
     /**
      * @remarks
-     * @privilege no-restricted-execution. This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      */
     testMethodWithAddedArgument(addedArg?: number): boolean;

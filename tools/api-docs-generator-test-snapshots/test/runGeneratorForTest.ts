@@ -17,6 +17,7 @@ export type RunGeneratorForTestOptions = {
     additionalArgs?: string;
     excludedFiles?: string[];
     skipMerging?: boolean;
+    expectedLoggedErrorMessages?: string[];
 };
 
 function getAllFiles(dirPath: string): string[] {
@@ -32,6 +33,20 @@ function getAllFiles(dirPath: string): string[] {
     });
 
     return arrayOfFiles;
+}
+
+function getErrorsFromOutput(output: string): string[] {
+    const errorPrefix = '[ERROR]';
+    const retList = [];
+
+    const logs = output.split('\n');
+    for (const line of logs) {
+        if (line.indexOf(errorPrefix) === 0) {
+            retList.push(line);
+        }
+    }
+
+    return retList;
 }
 
 export function runGeneratorForTest(options: RunGeneratorForTestOptions): void {
@@ -64,12 +79,25 @@ export function runGeneratorForTest(options: RunGeneratorForTestOptions): void {
             encoding: 'utf-8',
         });
     } catch (e) {
-        console.error(`Errors detected in test '${path.basename(testDir)}', see log for details: ${testOutputPath}`);
-
         // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
         testOutput = `${e.stdout ? `${e.stdout.toString()}\n` : ''}${e.stderr ? `ERROR:\n${e.stderr.toString()}` : ''}`;
 
-        throw e;
+        if (!options.expectedLoggedErrorMessages) {
+            console.error(
+                `Errors detected in test '${path.basename(testDir)}', see log for details: ${testOutputPath}`
+            );
+            throw e;
+        } else {
+            const errorOutputs = getErrorsFromOutput(testOutput);
+            for (const errorLine of errorOutputs) {
+                if (!options.expectedLoggedErrorMessages.includes(errorLine)) {
+                    console.error(
+                        `Unexpected errors detected in test '${path.basename(testDir)}', see log for details: ${testOutputPath}`
+                    );
+                    throw e;
+                }
+            }
+        }
     } finally {
         if (testOutput) {
             fs.writeFileSync(testOutputPath, testOutput);

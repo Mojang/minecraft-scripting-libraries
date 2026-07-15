@@ -13,6 +13,9 @@
     "Example enum: {@link @minecraft/example-module.ExampleEnum}",
     "Example enum value: {@link @minecraft/example-module.ExampleEnum.ExampleValue}",
     "Example error: {@link @minecraft/example-module.ExampleError}",
+    "Example link problem: {@link @minecraft/example-module.ExampleProblem}",
+    "Example link problem: {@link @minecraft/example-module.ExampleProblem2}",
+    "Example link problem: {@link @minecraft/example-module.ExampleProblem3}",
     "This line has multiple links and lots of text! This is the first link {@link @minecraft/example-module}, and this is the second. {@link @minecraft/example-module.ExampleFunction} Here's a third link {@link @minecraft/example-module.ExampleConstant} and this one here is the final link {@link @minecraft/example-module.ExampleObject}"
   ]
 }

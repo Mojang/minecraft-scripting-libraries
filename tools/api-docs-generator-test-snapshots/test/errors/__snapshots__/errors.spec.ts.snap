@@ -429,14 +429,14 @@ export class ExampleClass {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      * @throws This property can throw when used.
      */
     examplePropertyThatThrows: number;
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      * @throws This property can throw when used.
      *
@@ -445,7 +445,7 @@ export class ExampleClass {
     examplePropertyThatThrowsCustomError: number;
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      * @throws This property can throw when used.
      *
@@ -462,7 +462,7 @@ export class ExampleClass {
     examplePropertyThatThrowsWithReadOnlyPrivilege: number;
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      * @throws This property can throw when used.
      *
@@ -471,7 +471,7 @@ export class ExampleClass {
     examplePropertyWithCrossModuleError: number;
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      * @throws This property can throw when used.
      *
@@ -480,20 +480,20 @@ export class ExampleClass {
     examplePropertyWithCrossModuleReturnAndError: minecraftexamplemodule2.CrossModuleReturn;
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      */
     exampleMethodThatTakesErrorParam(errorParam: unknown): string;
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      * @throws This function can throw errors.
      */
     exampleMethodThatThrows(): string;
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      * @throws This function can throw errors.
      *
@@ -502,7 +502,7 @@ export class ExampleClass {
     exampleMethodThatThrowsCustomError(): string;
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      * @throws This function can throw errors.
      *
@@ -539,14 +539,14 @@ export class ExampleError2 extends Error {
 
 /**
  * @remarks
- * This function can't be called in restricted-execution mode.
+ * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
  *
  * @throws This function can throw errors.
  */
 export function exampleFunctionThatThrows(): string;
 /**
  * @remarks
- * This function can't be called in restricted-execution mode.
+ * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
  *
  * @throws This function can throw errors.
  *
@@ -555,7 +555,7 @@ export function exampleFunctionThatThrows(): string;
 export function exampleFunctionThatThrowsCustomError(): string;
 /**
  * @remarks
- * This function can't be called in restricted-execution mode.
+ * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
  *
  * @throws This function can throw errors.
  *
@@ -566,7 +566,7 @@ export function exampleFunctionThatThrowsCustomError(): string;
 export function exampleFunctionThatThrowsTwoErrors(): string;
 /**
  * @remarks
- * This function can't be called in restricted-execution mode.
+ * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
  *
  * @throws This function can throw errors.
  *
@@ -575,7 +575,7 @@ export function exampleFunctionThatThrowsTwoErrors(): string;
 export function exampleFunctionWithCrossModuleError(): number;
 /**
  * @remarks
- * This function can't be called in restricted-execution mode.
+ * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
  *
  * @throws This function can throw errors.
  *

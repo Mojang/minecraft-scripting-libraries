@@ -904,13 +904,13 @@ export class ExampleClass {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     ExampleProperty: number;
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      */
     ExampleMethod(testArg: string): boolean;
@@ -931,7 +931,7 @@ export class ExampleError extends Error {
 
 /**
  * @remarks
- * This function can't be called in restricted-execution mode.
+ * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
  *
  */
 export function ExampleFunction(testArg: string): boolean;
@@ -1004,13 +1004,13 @@ export class ExampleClass {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     ExampleProperty: number;
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      */
     ExampleMethod(testArg: string): boolean;
@@ -1031,7 +1031,7 @@ export class ExampleError extends Error {
 
 /**
  * @remarks
- * This function can't be called in restricted-execution mode.
+ * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
  *
  */
 export function ExampleFunction(testArg: string): boolean;
@@ -1203,13 +1203,13 @@ export class ExampleClass {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     ExampleProperty: number;
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      */
     ExampleMethod(testArg: string): boolean;
@@ -1230,7 +1230,7 @@ export class ExampleError extends Error {
 
 /**
  * @remarks
- * This function can't be called in restricted-execution mode.
+ * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
  *
  */
 export function ExampleFunction(testArg: string): boolean;
@@ -2430,13 +2430,13 @@ export class ExampleClass {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     ExampleProperty: number;
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      */
     ExampleMethod(testArg: string): boolean;
@@ -2457,7 +2457,7 @@ export class ExampleError extends Error {
 
 /**
  * @remarks
- * This function can't be called in restricted-execution mode.
+ * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
  *
  */
 export function ExampleFunction(testArg: string): boolean;
@@ -2530,13 +2530,13 @@ export class ExampleClass {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     ExampleProperty: number;
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      */
     ExampleMethod(testArg: string): boolean;
@@ -2557,7 +2557,7 @@ export class ExampleError extends Error {
 
 /**
  * @remarks
- * This function can't be called in restricted-execution mode.
+ * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
  *
  */
 export function ExampleFunction(testArg: string): boolean;
@@ -2729,13 +2729,13 @@ export class ExampleClass {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     ExampleProperty: number;
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      */
     ExampleMethod(testArg: string): boolean;
@@ -2756,7 +2756,7 @@ export class ExampleError extends Error {
 
 /**
  * @remarks
- * This function can't be called in restricted-execution mode.
+ * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
  *
  */
 export function ExampleFunction(testArg: string): boolean;
@@ -2810,13 +2810,13 @@ export class ExampleClass {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     ExampleProperty: number;
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      */
     ExampleMethod(testArg: string): boolean;
@@ -2837,7 +2837,7 @@ export class ExampleError extends Error {
 
 /**
  * @remarks
- * This function can't be called in restricted-execution mode.
+ * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
  *
  */
 export function ExampleFunction(testArg: string): boolean;
@@ -2891,13 +2891,13 @@ export class ExampleClass {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     ExampleProperty: number;
     /**
      * @remarks
-     * This function can't be called in restricted-execution mode.
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      */
     ExampleMethod(testArg: string): boolean;
@@ -2918,7 +2918,7 @@ export class ExampleError extends Error {
 
 /**
  * @remarks
- * This function can't be called in restricted-execution mode.
+ * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
  *
  */
 export function ExampleFunction(testArg: string): boolean;

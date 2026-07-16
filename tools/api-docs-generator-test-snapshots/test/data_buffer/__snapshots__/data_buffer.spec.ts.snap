@@ -162,61 +162,61 @@ export class ExampleClass {
     private constructor();
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     doubleDataBufferProperty: Float64Array;
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     floatDataBufferProperty: Float32Array;
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     int16DataBufferProperty: Int16Array;
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     int32DataBufferProperty: Int32Array;
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     int64DataBufferProperty: BigInt64Array;
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     int8DataBufferProperty: Uint8Array;
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     uint16DataBufferProperty: Uint16Array;
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     uint32DataBufferProperty: Uint32Array;
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     uint64DataBufferProperty: BigUint64Array;
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     uint8DataBufferProperty: Uint8Array;

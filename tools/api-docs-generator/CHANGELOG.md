@@ -1,8 +1,17 @@
 # Change Log - @minecraft/api-docs-generator
 
-<!-- This log was last generated on Fri, 26 Jun 2026 20:57:53 GMT and should not be manually modified. -->
+<!-- This log was last generated on Tue, 21 Jul 2026 18:28:52 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.0.5
+
+Tue, 21 Jul 2026 18:28:52 GMT
+
+### Patches
+
+- Asserts if linking is missed (brandon.chan@skyboxlabs.com)
+- Add Error Types to links in doc generation (brandon.chan@skyboxlabs.com)
 
 ## 2.0.4
 

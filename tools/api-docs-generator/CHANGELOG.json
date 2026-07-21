@@ -2,6 +2,27 @@
   "name": "@minecraft/api-docs-generator",
   "entries": [
     {
+      "date": "Tue, 21 Jul 2026 18:28:52 GMT",
+      "version": "2.0.5",
+      "tag": "@minecraft/api-docs-generator_v2.0.5",
+      "comments": {
+        "patch": [
+          {
+            "author": "brandon.chan@skyboxlabs.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "5770590ca398cf9c323958b2661ab62ef1a850fd",
+            "comment": "Asserts if linking is missed"
+          },
+          {
+            "author": "brandon.chan@skyboxlabs.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "5770590ca398cf9c323958b2661ab62ef1a850fd",
+            "comment": "Add Error Types to links in doc generation"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 26 Jun 2026 20:57:53 GMT",
       "version": "2.0.4",
       "tag": "@minecraft/api-docs-generator_v2.0.4",

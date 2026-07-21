@@ -1,8 +1,17 @@
 # Change Log - @minecraft/markup-generators-plugin
 
-<!-- This log was last generated on Fri, 26 Jun 2026 20:57:53 GMT and should not be manually modified. -->
+<!-- This log was last generated on Tue, 21 Jul 2026 18:28:52 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.0.3
+
+Tue, 21 Jul 2026 18:28:52 GMT
+
+### Patches
+
+- Add tags for priviledge levels (brandon.chan@skyboxlabs.com)
+- Bump @minecraft/api-docs-generator to v2.0.5
 
 ## 2.0.2
 

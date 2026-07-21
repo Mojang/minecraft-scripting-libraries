@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Add tags for priviledge levels",
-  "packageName": "@minecraft/markup-generators-plugin",
-  "email": "brandon.chan@skyboxlabs.com",
-  "dependentChangeType": "patch"
-}

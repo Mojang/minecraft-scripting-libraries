@@ -2,6 +2,27 @@
   "name": "@minecraft/markup-generators-plugin",
   "entries": [
     {
+      "date": "Tue, 21 Jul 2026 18:28:52 GMT",
+      "version": "2.0.3",
+      "tag": "@minecraft/markup-generators-plugin_v2.0.3",
+      "comments": {
+        "patch": [
+          {
+            "author": "brandon.chan@skyboxlabs.com",
+            "package": "@minecraft/markup-generators-plugin",
+            "commit": "5770590ca398cf9c323958b2661ab62ef1a850fd",
+            "comment": "Add tags for priviledge levels"
+          },
+          {
+            "author": "beachball",
+            "package": "@minecraft/markup-generators-plugin",
+            "comment": "Bump @minecraft/api-docs-generator to v2.0.5",
+            "commit": "not available"
+          }
+        ]
+      }
+    },
+    {
       "date": "Fri, 26 Jun 2026 20:57:53 GMT",
       "version": "2.0.2",
       "tag": "@minecraft/markup-generators-plugin_v2.0.2",

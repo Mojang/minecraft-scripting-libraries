@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Add Error Types to links in doc generation",
-  "packageName": "@minecraft/api-docs-generator",
-  "email": "brandon.chan@skyboxlabs.com",
-  "dependentChangeType": "patch"
-}

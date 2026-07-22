@@ -224,6 +224,11 @@ exports[`Changelog Diffing > Generates correct output for changelog diffs > chan
         "properties": [
           {
             "is_read_only": false,
+            "max_length": {
+              "$old": 10,
+              "$new": 20,
+              "$changed": true
+            },
             "name": "exampleProperty",
             "type": {
               "is_bind_type": false,
@@ -1327,6 +1332,7 @@ exports[`Changelog Diffing > Generates correct output for changelog diffs > chan
         "properties": [
           {
             "is_read_only": false,
+            "max_length": 10,
             "name": "exampleProperty",
             "type": {
               "is_bind_type": false,
@@ -2762,6 +2768,7 @@ description: Contents of the test-module1.SmallClass class (Version 1.x.x).
 Type: *string*
 
 Notes:
+  - This property has a maximum length of \`10\`
   - This property can't be used in restricted-execution mode.
   - This property can throw errors when used.
 "
@@ -3687,6 +3694,7 @@ description: Contents of the test-module1.SmallClass class.
 Type: *string*
 
 Notes:
+  - This property has a maximum length of \`20\`
   - This property can't be used in restricted-execution mode.
   - This property can throw errors when used.
 "
@@ -3758,6 +3766,8 @@ description: Changelog of the \`test-module1\` module
   - Removed argument \`removedArg\`
 - Changed function *[\`testMethodWithRemovedErrorable\`](ExampleClass1.md#testmethodwithremovederrorable)*
   - Changed return type from *boolean* (throws exceptions) to *boolean*
+#### Changed *[\`SmallClass\`](SmallClass.md)*
+- Changed maximum length of \`10\` to \`20\` for property *[\`exampleProperty\`](SmallClass.md#exampleproperty)*
 #### Changed function \`testFunctionWithAddedArgument\`
 - Added argument \`addedArg\`
 #### Changed function \`testFunctionWithAddedErrorable\`
@@ -3996,6 +4006,7 @@ exports[`Changelog Diffing > Generates correct output for changelog diffs > txt/
       - Removed argument \`removedArg\`
     - Changed function \`testMethodWithRemovedErrorable\`
       - Changed return type from \`*boolean*\` (throws exceptions) to \`*boolean*\`
+- Changed class \`SmallClass\`
 - Added interface \`AddedInterface\`
   \`\`\`ts
   export interface AddedInterface {
@@ -4431,6 +4442,7 @@ export class SmallClass {
      * @remarks
      * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
+     * Maximum Length: 10
      * @throws This property can throw when used.
      */
     exampleProperty: string;
@@ -4751,6 +4763,7 @@ export class SmallClass {
      * @remarks
      * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
+     * Maximum Length: 20
      * @throws This property can throw when used.
      */
     exampleProperty: string;

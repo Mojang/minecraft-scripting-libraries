@@ -91,6 +91,7 @@ const scriptingDataLayout: RootMetadataScope = {
                         is_read_only: { type: 'value' },
                         min_value: { type: 'value' },
                         max_value: { type: 'value' },
+                        max_length: { type: 'value' },
                         get_privilege: { type: 'array', key: 'name' },
                         set_privilege: { type: 'array', key: 'name' },
                         type: TypeDataLayout,

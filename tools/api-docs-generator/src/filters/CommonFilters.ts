@@ -1619,6 +1619,10 @@ function boundValues(releases: MinecraftRelease[]) {
                 }
 
                 for (const propertyJson of concatJson.properties ?? []) {
+                    if (typeof propertyJson.max_length === 'number') {
+                        propertyJson.has_max_length = true;
+                    }
+
                     if (propertyJson.min_value !== undefined) {
                         propertyJson.has_minimum = true;
                     }
@@ -1688,6 +1692,24 @@ function boundChanges(releases: MinecraftRelease[]) {
                                 propertyJson.max_added = true;
                             } else if (validOld && !validNew) {
                                 propertyJson.max_removed = true;
+                            }
+                        }
+
+                        const maxLength = propertyJson.max_length as unknown as {
+                            $old: unknown;
+                            $new: unknown;
+                        };
+
+                        if (maxLength) {
+                            const validOld = typeof maxLength.$old === 'number';
+                            const validNew = typeof maxLength.$new === 'number';
+
+                            if (validOld && validNew && maxLength.$old !== maxLength.$new) {
+                                propertyJson.max_length_changed = true;
+                            } else if (!validOld && validNew) {
+                                propertyJson.max_length_added = true;
+                            } else if (validOld && !validNew) {
+                                propertyJson.max_length_removed = true;
                             }
                         }
                     }

@@ -540,21 +540,21 @@ export class ClassWithBounds {
     addedMaxLength: string;
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      * Maximum Length: 0
      */
     limitedArray: number[];
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      * Maximum Length: 50
      */
     limitedString: string;
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      * Bounds: [0, 0]
      */
@@ -684,20 +684,20 @@ export class ClassWithBounds {
     addedMaxLength: string;
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      */
     limitedArray: number[];
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      * Maximum Length: 75
      */
     limitedString: string;
     /**
      * @remarks
-     * This property can't be used in restricted-execution mode.
+     * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
      *
      * Bounds: [0, 0]
      */

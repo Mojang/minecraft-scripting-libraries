@@ -37,6 +37,9 @@ Notes:
   - This property has a maximum bound of `{{max_value}}`
     {{/has_maximum}}
   {{/has_bounds}}
+  {{#has_max_length}}
+  - This property has a maximum length of `{{max_length}}`
+  {{/has_max_length}}
   {{#set_disallowed_in_restricted_execution}}
     {{#get_disallowed_in_restricted_execution}}
   - This property can't be used in restricted-execution mode.

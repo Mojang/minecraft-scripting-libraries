@@ -56,6 +56,7 @@ export const MarkupCommentFlagsValidator = Intersect(
         has_minimum: Optional(Boolean),
         has_maximum: Optional(Boolean),
         has_bounds: Optional(Boolean),
+        has_max_length: Optional(Boolean),
         has_errors: Optional(Boolean),
 
         prerelease: Optional(String),
@@ -355,6 +356,10 @@ export const MinecraftPropertyRecord = Intersect(
         max_added: Optional(Boolean),
         max_changed: Optional(Boolean),
         max_removed: Optional(Boolean),
+        max_length: Optional(Number.Or(Null)),
+        max_length_added: Optional(Boolean),
+        max_length_changed: Optional(Boolean),
+        max_length_removed: Optional(Boolean),
 
         // Runtime Markup
         property_name: Optional(String.Or(Null)),

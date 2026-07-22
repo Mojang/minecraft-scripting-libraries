@@ -31,6 +31,32 @@ description: Contents of the bounds-module.ClassWithBounds class (Version 1.x.x)
 
 ## Properties
 
+### **addedMaxLength**
+\`addedMaxLength: string;\`
+
+Type: *string*
+
+Notes:
+  - This property can't be used in restricted-execution mode.
+
+### **limitedArray**
+\`limitedArray: number[];\`
+
+Type: *number*[]
+
+Notes:
+  - This property has a maximum length of \`0\`
+  - This property can't be used in restricted-execution mode.
+
+### **limitedString**
+\`limitedString: string;\`
+
+Type: *string*
+
+Notes:
+  - This property has a maximum length of \`50\`
+  - This property can't be used in restricted-execution mode.
+
 ### **r**
 \`r: number;\`
 
@@ -231,6 +257,32 @@ description: Contents of the bounds-module.ClassWithBounds class.
 
 ## Properties
 
+### **addedMaxLength**
+\`addedMaxLength: string;\`
+
+Type: *string*
+
+Notes:
+  - This property has a maximum length of \`25\`
+  - This property can't be used in restricted-execution mode.
+
+### **limitedArray**
+\`limitedArray: number[];\`
+
+Type: *number*[]
+
+Notes:
+  - This property can't be used in restricted-execution mode.
+
+### **limitedString**
+\`limitedString: string;\`
+
+Type: *string*
+
+Notes:
+  - This property has a maximum length of \`75\`
+  - This property can't be used in restricted-execution mode.
+
 ### **r**
 \`r: number;\`
 
@@ -424,6 +476,9 @@ description: Changelog of the \`bounds-module\` module
 
 ## 2.0.0
 #### Changed *[\`ClassWithBounds\`](ClassWithBounds.md)*
+- Added maximum length of \`25\` for property *[\`addedMaxLength\`](ClassWithBounds.md#addedmaxlength)*
+- Removed maximum length for property *[\`limitedArray\`](ClassWithBounds.md#limitedarray)*
+- Changed maximum length of \`50\` to \`75\` for property *[\`limitedString\`](ClassWithBounds.md#limitedstring)*
 - Changed minimum bound of \`-255\` to \`1\` for property *[\`s\`](ClassWithBounds.md#s)* 
 - Changed maximum bound of \`1\` to \`255\` for property *[\`t\`](ClassWithBounds.md#t)* 
 - Changed minimum bound of \`-255\` to \`1\` for property *[\`v\`](ClassWithBounds.md#v)* 
@@ -480,6 +535,26 @@ export class ClassWithBounds {
     /**
      * @remarks
      * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
+     *
+     */
+    addedMaxLength: string;
+    /**
+     * @remarks
+     * This property can't be used in restricted-execution mode.
+     *
+     * Maximum Length: 0
+     */
+    limitedArray: number[];
+    /**
+     * @remarks
+     * This property can't be used in restricted-execution mode.
+     *
+     * Maximum Length: 50
+     */
+    limitedString: string;
+    /**
+     * @remarks
+     * This property can't be used in restricted-execution mode.
      *
      * Bounds: [0, 0]
      */
@@ -603,6 +678,26 @@ export class ClassWithBounds {
     /**
      * @remarks
      * @privilege restricted-execution-unusable - This property can't be used in restricted-execution mode.
+     *
+     * Maximum Length: 25
+     */
+    addedMaxLength: string;
+    /**
+     * @remarks
+     * This property can't be used in restricted-execution mode.
+     *
+     */
+    limitedArray: number[];
+    /**
+     * @remarks
+     * This property can't be used in restricted-execution mode.
+     *
+     * Maximum Length: 75
+     */
+    limitedString: string;
+    /**
+     * @remarks
+     * This property can't be used in restricted-execution mode.
      *
      * Bounds: [0, 0]
      */

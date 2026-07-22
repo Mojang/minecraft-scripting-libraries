@@ -45,6 +45,43 @@
                 {
                     "is_baked": false,
                     "is_read_only": false,
+                    "max_length": 75,
+                    "name": "limitedString",
+                    "type": {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "string"
+                    }
+                },
+                {
+                    "is_baked": false,
+                    "is_read_only": false,
+                    "name": "limitedArray",
+                    "type": {
+                        "element_type": {
+                            "is_bind_type": false,
+                            "is_errorable": false,
+                            "name": "int32"
+                        },
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "array"
+                    }
+                },
+                {
+                    "is_baked": false,
+                    "is_read_only": false,
+                    "max_length": 25,
+                    "name": "addedMaxLength",
+                    "type": {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "string"
+                    }
+                },
+                {
+                    "is_baked": false,
+                    "is_read_only": false,
                     "min_value": 0,
                     "max_value": 0,
                     "name": "r",

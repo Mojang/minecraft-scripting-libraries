@@ -1,8 +1,16 @@
 # Change Log - @minecraft/api-docs-generator
 
-<!-- This log was last generated on Tue, 21 Jul 2026 18:28:52 GMT and should not be manually modified. -->
+<!-- This log was last generated on Wed, 22 Jul 2026 20:26:46 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.0.6
+
+Wed, 22 Jul 2026 20:26:46 GMT
+
+### Patches
+
+- Document maximum lengths for array and string properties, including changelog updates (jake@xbox.com)
 
 ## 2.0.5
 

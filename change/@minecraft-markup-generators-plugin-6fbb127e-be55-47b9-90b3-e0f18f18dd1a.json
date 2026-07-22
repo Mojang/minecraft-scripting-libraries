@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Document maximum lengths for array and string properties, including changelog updates",
-  "packageName": "@minecraft/markup-generators-plugin",
-  "email": "jake@xbox.com",
-  "dependentChangeType": "patch"
-}

@@ -2,6 +2,27 @@
   "name": "@minecraft/markup-generators-plugin",
   "entries": [
     {
+      "date": "Wed, 22 Jul 2026 20:26:46 GMT",
+      "version": "2.0.4",
+      "tag": "@minecraft/markup-generators-plugin_v2.0.4",
+      "comments": {
+        "patch": [
+          {
+            "author": "jake@xbox.com",
+            "package": "@minecraft/markup-generators-plugin",
+            "commit": "703b558cbc8ac440d624a721baf3777290df610e",
+            "comment": "Document maximum lengths for array and string properties, including changelog updates"
+          },
+          {
+            "author": "beachball",
+            "package": "@minecraft/markup-generators-plugin",
+            "comment": "Bump @minecraft/api-docs-generator to v2.0.6",
+            "commit": "not available"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 21 Jul 2026 18:28:52 GMT",
       "version": "2.0.3",
       "tag": "@minecraft/markup-generators-plugin_v2.0.3",

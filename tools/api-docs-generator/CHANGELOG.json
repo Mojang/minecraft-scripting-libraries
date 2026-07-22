@@ -2,6 +2,21 @@
   "name": "@minecraft/api-docs-generator",
   "entries": [
     {
+      "date": "Wed, 22 Jul 2026 20:26:46 GMT",
+      "version": "2.0.6",
+      "tag": "@minecraft/api-docs-generator_v2.0.6",
+      "comments": {
+        "patch": [
+          {
+            "author": "jake@xbox.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "703b558cbc8ac440d624a721baf3777290df610e",
+            "comment": "Document maximum lengths for array and string properties, including changelog updates"
+          }
+        ]
+      }
+    },
+    {
       "date": "Tue, 21 Jul 2026 18:28:52 GMT",
       "version": "2.0.5",
       "tag": "@minecraft/api-docs-generator_v2.0.5",

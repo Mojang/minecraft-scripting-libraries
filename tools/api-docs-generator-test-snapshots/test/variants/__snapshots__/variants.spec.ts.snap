@@ -35,7 +35,7 @@ Notes:
   - This property can't be used in restricted-execution mode.
 
 ### **propertyFunctionThatReturnsVariantWithClosureThatReturnsVariant**
-\`propertyFunctionThatReturnsVariantWithClosureThatReturnsVariant: (arg0: number) => ((arg0: number) => (number | string) | string);\`
+\`propertyFunctionThatReturnsVariantWithClosureThatReturnsVariant: (arg0: number) => (((arg0: number) => (number | string)) | string);\`
 
 Type: (arg0: *number*) => ((arg0: *number*) => (*number* | *string*) | *string*)
 
@@ -44,16 +44,28 @@ Notes:
 
 ## Methods
 - [exampleMethod](#examplemethod)
+- [methodWithVariantContainingClosure](#methodwithvariantcontainingclosure)
 - [methodWithVariantOfArrays](#methodwithvariantofarrays)
 
 ### **exampleMethod**
 \`
-exampleMethod(arg1: (arg0: number) => ((arg0: number) => (number | string) | string), arg2: number): void
+exampleMethod(arg1: (arg0: number) => (((arg0: number) => (number | string)) | string), arg2: number): void
 \`
 
 #### **Parameters**
 - **arg1**: (arg0: *number*) => ((arg0: *number*) => (*number* | *string*) | *string*)
 - **arg2**: *number*
+  
+Notes:
+- This function can't be called in restricted-execution mode.
+
+### **methodWithVariantContainingClosure**
+\`
+methodWithVariantContainingClosure(arg1: ((arg0: number) => boolean) | string): void
+\`
+
+#### **Parameters**
+- **arg1**: (arg0: *number*) => *boolean* | *string*
   
 Notes:
 - This function can't be called in restricted-execution mode.
@@ -138,13 +150,19 @@ export class ExampleClass {
      */
     propertyFunctionThatReturnsVariantWithClosureThatReturnsVariant: (
         arg0: number
-    ) => (arg0: number) => (number | string) | string;
+    ) => ((arg0: number) => number | string) | string;
     /**
      * @remarks
      * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
      *
      */
-    exampleMethod(arg1: (arg0: number) => (arg0: number) => (number | string) | string, arg2: number): void;
+    exampleMethod(arg1: (arg0: number) => ((arg0: number) => number | string) | string, arg2: number): void;
+    /**
+     * @remarks
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     */
+    methodWithVariantContainingClosure(arg1: ((arg0: number) => boolean) | string): void;
     /**
      * @remarks
      * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.

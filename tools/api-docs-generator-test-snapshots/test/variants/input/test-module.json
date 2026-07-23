@@ -90,6 +90,53 @@
           "arguments": [
             {
               "details": null,
+              "name": "arg1",
+              "type": {
+                "is_bind_type": false,
+                "is_errorable": false,
+                "name": "variant",
+                "variant_types": [
+                  {
+                    "closure_type": {
+                      "argument_types": [
+                        {
+                          "is_bind_type": false,
+                          "is_errorable": false,
+                          "name": "int32"
+                        }
+                      ],
+                      "return_type": {
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "name": "boolean"
+                      }
+                    },
+                    "is_bind_type": false,
+                    "is_errorable": false,
+                    "name": "closure"
+                  },
+                  {
+                    "is_bind_type": false,
+                    "is_errorable": false,
+                    "name": "string"
+                  }
+                ]
+              }
+            }
+          ],
+          "is_constructor": false,
+          "name": "methodWithVariantContainingClosure",
+          "return_type": {
+            "is_bind_type": false,
+            "is_errorable": false,
+            "name": "undefined",
+            "valid_range": null
+          }
+        },
+        {
+          "arguments": [
+            {
+              "details": null,
               "name": "arrays",
               "type": {
                 "is_bind_type": false,

@@ -2,6 +2,21 @@
   "name": "@minecraft/markup-generators-plugin",
   "entries": [
     {
+      "date": "Thu, 23 Jul 2026 16:29:49 GMT",
+      "version": "2.0.5",
+      "tag": "@minecraft/markup-generators-plugin_v2.0.5",
+      "comments": {
+        "patch": [
+          {
+            "author": "jake@xbox.com",
+            "package": "@minecraft/markup-generators-plugin",
+            "commit": "37d16181421603977447b5d5c3818d9892af55ae",
+            "comment": "Fixed TypeScript syntax for variants containing closures"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 22 Jul 2026 20:26:46 GMT",
       "version": "2.0.4",
       "tag": "@minecraft/markup-generators-plugin_v2.0.4",

@@ -1,8 +1,16 @@
 # Change Log - @minecraft/markup-generators-plugin
 
-<!-- This log was last generated on Wed, 22 Jul 2026 20:26:46 GMT and should not be manually modified. -->
+<!-- This log was last generated on Thu, 23 Jul 2026 16:29:49 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.0.5
+
+Thu, 23 Jul 2026 16:29:49 GMT
+
+### Patches
+
+- Fixed TypeScript syntax for variants containing closures (jake@xbox.com)
 
 ## 2.0.4
 

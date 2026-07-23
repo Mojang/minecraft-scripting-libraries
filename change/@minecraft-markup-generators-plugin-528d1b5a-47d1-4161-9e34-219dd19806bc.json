@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Fixed TypeScript syntax for variants containing closures",
-  "packageName": "@minecraft/markup-generators-plugin",
-  "email": "jake@xbox.com",
-  "dependentChangeType": "patch"
-}

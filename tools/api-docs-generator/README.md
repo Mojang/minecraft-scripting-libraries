@@ -66,6 +66,40 @@ To generate API types using the most recent type metadata:
 minecraft-api-docs-generator -i C:\bedrock-samples\metadata -o .\out
 ```
 
+## Generic Type Metadata
+
+Generic declarations and applications use structured metadata rather than raw TypeScript text.
+
+Class and interface declarations may contain an ordered `generic_class_types` array, and functions or methods may contain an ordered `generic_function_types` array. Each item has the shape `{ "name": string, "constraint"?: MinecraftType, "default"?: MinecraftType }`. Constraints and defaults use the normal recursive type structure. Producers must preserve declaration order and omit absent arrays, constraints, and defaults rather than emitting empty arrays or `null`.
+
+A reference to a declared parameter uses an ordinary unbound type such as `{ "name": "T", "is_errorable": false, "is_bind_type": false }`. It resolves to the nearest matching function parameter and then the enclosing class or interface parameter.
+
+A generic application uses the existing type fields plus `generic_base` and an ordered, nonempty `generic_types` array:
+
+```json
+{
+  "name": "Container<T>",
+  "is_errorable": false,
+  "is_bind_type": false,
+  "generic_base": {
+    "name": "Container",
+    "is_errorable": false,
+    "is_bind_type": true
+  },
+  "generic_types": [
+    {
+      "name": "T",
+      "is_errorable": false,
+      "is_bind_type": false
+    }
+  ]
+}
+```
+
+The application `name` is the recursively constructed, unqualified display expression for compatibility, while `generic_base` and `generic_types` are authoritative for rendering. Cross-module identity belongs on the referenced constraint, base, or argument through its existing `from_module` field, not on the application wrapper. Generic inheritance is represented by the same application shape inside `base_types`; classes do not have a separate inheritance-level `generic_base`.
+
+`NativeClass<T>` is a reserved generator-owned type for native APIs that accept an exported class value. Metadata emits an unbound, module-less `generic_base` named `NativeClass` and one ordered argument, but does not emit a helper API record. TypeScript generation conditionally exports `interface NativeClass<T> { readonly prototype: T }` once in each consuming module. The generator rejects a consuming module that also declares an API type named `NativeClass`.
+
 ## Development
 
 `npm run build` compiles `@minecraft/api-doc-generator` TS definitions and JS files into `lib`.
@@ -89,4 +123,3 @@ This package is validated with a series of vitest snapshot tests that validate g
 Snapshot tests will fail if the number of files generated or the contents of the files change. If snapshot changes are expected, you can update them by running: `npm run test:update` at the root of the repository.
 
 It is possible to run specific tests using `npm run test -- -- --test <name>`, where `<name>` is a pattern matching `.test.ts`/`.spec.ts`file names. Running this in the JavaScript Debug Terminal allows for debugging specific tests (see above).
-

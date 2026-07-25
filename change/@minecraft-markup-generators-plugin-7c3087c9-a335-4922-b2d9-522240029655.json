@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Add structured generic metadata and native TypeScript declaration rendering.",
+  "packageName": "@minecraft/markup-generators-plugin",
+  "email": "taz@hexland.com",
+  "dependentChangeType": "patch"
+}

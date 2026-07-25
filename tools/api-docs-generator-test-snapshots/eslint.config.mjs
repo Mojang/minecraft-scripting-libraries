@@ -6,7 +6,7 @@ import configMinecraftScripting from 'eslint-config-minecraft-scripting';
 export default [
     ...configMinecraftScripting,
     {
-        ignores: ['test/**/*.{js,mjs}', 'test/**/docs', 'test/**/*_output'],
+        ignores: ['test/**/*.{js,mjs}', 'test/**/docs', 'test/**/type-tests', 'test/**/*_output'],
     },
     {
         files: ['test/**', 'plugin/**'],

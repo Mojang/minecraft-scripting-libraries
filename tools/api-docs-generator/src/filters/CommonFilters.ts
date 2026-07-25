@@ -1528,6 +1528,8 @@ function typeFlags(releases: MinecraftRelease[]) {
         typeJson.is_map = typeJson.is_map ?? false;
         typeJson.is_generator = typeJson.is_generator ?? false;
         typeJson.is_data_buffer = typeJson.is_data_buffer ?? false;
+        // Mustache resolves missing child properties from parent contexts.
+        typeJson.is_generic = typeJson.generic_base !== undefined;
 
         if (typeJson.name === 'string') {
             typeJson.is_string = true;
@@ -1914,7 +1916,8 @@ function linkDerivedTypes(releases: MinecraftRelease[]) {
                 if (classJson.base_types) {
                     classJson.base_types.forEach(baseTypeJson => {
                         let foundBaseClassJson = false;
-                        const baseTypeModule = baseTypeJson.from_module ?? moduleJson;
+                        const baseTypeIdentity = baseTypeJson.generic_base ?? baseTypeJson;
+                        const baseTypeModule = baseTypeIdentity.from_module ?? moduleJson;
 
                         release.script_modules.forEach(baseClassModuleJson => {
                             if (
@@ -1923,7 +1926,7 @@ function linkDerivedTypes(releases: MinecraftRelease[]) {
                                 semver.minor(baseClassModuleJson.version) >= semver.minor(baseTypeModule.version)
                             ) {
                                 baseClassModuleJson.classes.forEach(baseTypeClassJson => {
-                                    if (baseTypeJson.name === baseTypeClassJson.name) {
+                                    if (baseTypeIdentity.name === baseTypeClassJson.name) {
                                         if (!baseTypeClassJson.derived_types) {
                                             baseTypeClassJson.derived_types = [];
                                         }
@@ -1954,7 +1957,7 @@ function linkDerivedTypes(releases: MinecraftRelease[]) {
 
                         if (!foundBaseClassJson) {
                             log.warn(
-                                `Failed to find base class '${baseTypeJson.name}' in module '${baseTypeModule.name}@${baseTypeModule.version}' for class '${classJson.name}'.`
+                                `Failed to find base class '${baseTypeIdentity.name}' in module '${baseTypeModule.name}@${baseTypeModule.version}' for class '${classJson.name}'.`
                             );
                         }
                     });
@@ -2213,6 +2216,7 @@ function flagChangelogChanges(releases: MinecraftRelease[]) {
 
                     flagArraySubmemberChanges(changelogModuleJson, 'functions', [changelogModuleJson]);
                     for (const functionJson of changelogModuleJson.functions) {
+                        flagValueSubmemberChanges(functionJson, 'generic_function_types', [changelogModuleJson]);
                         flagArraySubmemberChanges(functionJson, 'arguments', [changelogModuleJson, functionJson]);
                         for (const argumentJson of functionJson.arguments) {
                             flagValueSubmemberChanges(argumentJson, 'type', [changelogModuleJson, functionJson]);
@@ -2224,6 +2228,7 @@ function flagChangelogChanges(releases: MinecraftRelease[]) {
 
                     flagArraySubmemberChanges(changelogModuleJson, 'classes', [changelogModuleJson]);
                     for (const classJson of changelogModuleJson.classes) {
+                        flagValueSubmemberChanges(classJson, 'generic_class_types', [changelogModuleJson]);
                         flagArraySubmemberChanges(classJson, 'properties', [changelogModuleJson, classJson]);
                         for (const propertyJson of classJson.properties) {
                             flagValueSubmemberChanges(propertyJson, 'type', [changelogModuleJson, classJson]);
@@ -2238,6 +2243,10 @@ function flagChangelogChanges(releases: MinecraftRelease[]) {
 
                         flagArraySubmemberChanges(classJson, 'functions', [changelogModuleJson, classJson]);
                         for (const functionJson of classJson.functions) {
+                            flagValueSubmemberChanges(functionJson, 'generic_function_types', [
+                                changelogModuleJson,
+                                classJson,
+                            ]);
                             flagArraySubmemberChanges(functionJson, 'arguments', [
                                 changelogModuleJson,
                                 classJson,
@@ -2258,7 +2267,48 @@ function flagChangelogChanges(releases: MinecraftRelease[]) {
 
                     flagArraySubmemberChanges(changelogModuleJson, 'interfaces', [changelogModuleJson]);
                     for (const interfaceJson of changelogModuleJson.interfaces) {
+                        interfaceJson.has_generic_metadata = interfaceHasGenericMetadata(interfaceJson);
+                        flagValueSubmemberChanges(interfaceJson, 'generic_class_types', [changelogModuleJson]);
                         flagArraySubmemberChanges(interfaceJson, 'properties', [changelogModuleJson, interfaceJson]);
+                        if (Array.isArray(interfaceJson.properties)) {
+                            for (const propertyJson of interfaceJson.properties) {
+                                flagValueSubmemberChanges(propertyJson, 'type', [changelogModuleJson, interfaceJson]);
+                            }
+                        }
+
+                        if (Array.isArray(interfaceJson.functions)) {
+                            flagArraySubmemberChanges(interfaceJson, 'functions', [changelogModuleJson, interfaceJson]);
+                            for (const functionJson of interfaceJson.functions) {
+                                functionJson.has_generic_metadata =
+                                    interfaceJson.generic_class_types !== undefined ||
+                                    functionHasGenericMetadata(functionJson);
+                                flagValueSubmemberChanges(functionJson, 'generic_function_types', [
+                                    changelogModuleJson,
+                                    interfaceJson,
+                                ]);
+                                flagArraySubmemberChanges(functionJson, 'arguments', [
+                                    changelogModuleJson,
+                                    interfaceJson,
+                                    functionJson,
+                                ]);
+                                for (const argumentJson of functionJson.arguments) {
+                                    flagValueSubmemberChanges(argumentJson, 'type', [
+                                        changelogModuleJson,
+                                        interfaceJson,
+                                        functionJson,
+                                    ]);
+                                }
+
+                                flagValueSubmemberChanges(functionJson, 'return_type', [
+                                    changelogModuleJson,
+                                    interfaceJson,
+                                ]);
+                                flagValueSubmemberChanges(functionJson, 'call_privilege', [
+                                    changelogModuleJson,
+                                    interfaceJson,
+                                ]);
+                            }
+                        }
                     }
 
                     flagArraySubmemberChanges(changelogModuleJson, 'errors', [changelogModuleJson]);
@@ -2888,6 +2938,48 @@ function copyChangelogsToObjectMetadata(releases: MinecraftRelease[]) {
  * Add 'is_member' and 'has_member_*' fields for functions and constants
  * to mark whether they belong to a class/interface/error.
  */
+function containsGenericApplication(value: unknown): boolean {
+    if (Array.isArray(value)) {
+        return value.some(containsGenericApplication);
+    }
+    if (!value || typeof value !== 'object') {
+        return false;
+    }
+
+    const record = value as Record<string, unknown>;
+    return record.generic_base !== undefined || Object.values(record).some(containsGenericApplication);
+}
+
+function functionHasGenericMetadata(functionJson: {
+    generic_function_types?: unknown;
+    arguments?: unknown;
+    return_type?: unknown;
+}): boolean {
+    return (
+        functionJson.generic_function_types !== undefined ||
+        containsGenericApplication(functionJson.arguments) ||
+        containsGenericApplication(functionJson.return_type)
+    );
+}
+
+function interfaceHasGenericFunctionMetadata(interfaceJson: {
+    generic_class_types?: unknown;
+    functions?: Array<Parameters<typeof functionHasGenericMetadata>[0]> | null;
+}): boolean {
+    return (
+        interfaceJson.generic_class_types !== undefined ||
+        interfaceJson.functions?.some(functionHasGenericMetadata) === true
+    );
+}
+
+function interfaceHasGenericMetadata(
+    interfaceJson: Parameters<typeof interfaceHasGenericFunctionMetadata>[0] & {
+        properties?: unknown;
+    }
+): boolean {
+    return interfaceHasGenericFunctionMetadata(interfaceJson) || containsGenericApplication(interfaceJson.properties);
+}
+
 function markMembers(releases: MinecraftRelease[]) {
     const markMembersOnModule = (scriptModule: MinecraftScriptModule) => {
         if (scriptModule.classes) {
@@ -2931,9 +3023,9 @@ function markMembers(releases: MinecraftRelease[]) {
         if (scriptModule.interfaces) {
             for (const interfaceJson of scriptModule.interfaces) {
                 if (
-                    interfaceJson.is_script_generated &&
                     interfaceJson.functions &&
-                    interfaceJson.functions.length > 0
+                    interfaceJson.functions.length > 0 &&
+                    (interfaceJson.is_script_generated || interfaceHasGenericFunctionMetadata(interfaceJson))
                 ) {
                     interfaceJson.has_member_functions = true;
                     for (const functionJson of interfaceJson.functions) {

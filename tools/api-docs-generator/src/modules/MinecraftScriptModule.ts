@@ -178,6 +178,10 @@ export const MinecraftTypeKeyList = [
     'yield_type',
     'next_type',
     'data_buffer_type',
+    'generic_base',
+    'generic_types',
+    'constraint',
+    'default',
 ];
 
 export const MinecraftClosureTypeRecord = Lazy(() =>
@@ -220,6 +224,8 @@ type MinecraftTypeHelper = {
     value_type?: MinecraftTypeHelper;
     variant_types?: MinecraftTypeHelper[];
     data_buffer_type?: MinecraftTypeHelper;
+    generic_base?: MinecraftTypeHelper;
+    generic_types?: MinecraftTypeHelper[];
 
     // Runtime Markup
     original_name?: string;
@@ -238,6 +244,7 @@ type MinecraftTypeHelper = {
     is_map?: boolean;
     is_generator?: boolean;
     is_data_buffer?: boolean;
+    is_generic?: boolean;
 };
 export const MinecraftTypeRecord: Runtype<MinecraftTypeHelper> = Lazy(() =>
     Intersect(
@@ -262,6 +269,8 @@ export const MinecraftTypeRecord: Runtype<MinecraftTypeHelper> = Lazy(() =>
             promise_type: Optional(MinecraftTypeRecord),
             value_type: Optional(MinecraftTypeRecord),
             variant_types: Optional(Array(MinecraftTypeRecord)),
+            generic_base: Optional(MinecraftTypeRecord),
+            generic_types: Optional(Array(MinecraftTypeRecord)),
 
             // Runtime Markup
             original_name: Optional(String),
@@ -278,10 +287,18 @@ export const MinecraftTypeRecord: Runtype<MinecraftTypeHelper> = Lazy(() =>
             is_iterator_result: Optional(Boolean),
             is_map: Optional(Boolean),
             is_generator: Optional(Boolean),
+            is_generic: Optional(Boolean),
         })
     )
 );
 export type MinecraftType = Static<typeof MinecraftTypeRecord>;
+
+export const MinecraftGenericTypeParameterRecord = Record({
+    name: String,
+    constraint: Optional(MinecraftTypeRecord),
+    default: Optional(MinecraftTypeRecord),
+});
+export type MinecraftGenericTypeParameter = Static<typeof MinecraftGenericTypeParameterRecord>;
 
 export const MinecraftObjectRecord = Intersect(
     DocumentationMarkupValidator,
@@ -421,6 +438,7 @@ export const MinecraftFunctionRecord = Intersect(
         is_static: Optional(Boolean.Or(Null)),
         return_type: MinecraftTypeRecord,
         arguments: Array(MinecraftFunctionArgumentRecord),
+        generic_function_types: Optional(Array(MinecraftGenericTypeParameterRecord)),
         disable_unsafe_name_check: Optional(Boolean.Or(Null)),
         runtime_conditions: Optional(Array(String).Or(Null)),
 
@@ -435,6 +453,7 @@ export const MinecraftFunctionRecord = Intersect(
         call_disallowed_in_restricted_execution: Optional(Boolean),
         return_type_has_closure_privilege_type_comments: Optional(Boolean),
         return_type_closure_privilege_type_name: Optional(String),
+        has_generic_metadata: Optional(Boolean),
     })
 );
 export type MinecraftFunction = Static<typeof MinecraftFunctionRecord>;
@@ -476,6 +495,7 @@ export const MinecraftClassRecord = Intersect(
         functions: Optional(Array(MinecraftFunctionRecord).Or(Null)),
         properties: Optional(Array(MinecraftPropertyRecord).Or(Null)),
         constants: Optional(Array(MinecraftConstantRecord).Or(Null)),
+        generic_class_types: Optional(Array(MinecraftGenericTypeParameterRecord)),
         runtime_conditions: Optional(Array(String).Or(Null)),
 
         base_types: Optional(Array(MinecraftTypeRecord).Or(Null)),
@@ -507,6 +527,7 @@ export const MinecraftInterfaceRecord = Intersect(
         runtime_conditions: Optional(Array(String).Or(Null)),
         functions: Optional(Array(MinecraftFunctionRecord).Or(Null)),
         properties: Optional(Array(MinecraftPropertyRecord).Or(Null)),
+        generic_class_types: Optional(Array(MinecraftGenericTypeParameterRecord)),
 
         // Runtime Markup
         from_module: Optional(MinecraftModuleDescriptionRecord.Or(Null)),
@@ -514,6 +535,7 @@ export const MinecraftInterfaceRecord = Intersect(
         class_description: Optional(Array(String).Or(Null)),
         is_interface: Optional(Literal(true)),
         has_member_functions: Optional(Boolean.Or(Null)),
+        has_generic_metadata: Optional(Boolean),
         show_prior_warning: Optional(Boolean),
         prior_link: Optional(String),
     })
@@ -631,6 +653,7 @@ export const MinecraftScriptModuleRecord = Intersect(
         show_prior_warning: Optional(Boolean),
         prior_link: Optional(String),
         major_version: Optional(Number),
+        uses_native_class: Optional(Boolean),
     })
 );
 export type MinecraftScriptModule = Static<typeof MinecraftScriptModuleRecord>;

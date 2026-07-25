@@ -5,6 +5,7 @@ import { MinecraftRelease } from '../MinecraftRelease';
 import {
     MarkupCommentFlags,
     MinecraftFunction,
+    MinecraftScriptModule,
     MinecraftType,
     MinecraftTypeKeyList,
 } from '../modules/MinecraftScriptModule';
@@ -187,6 +188,97 @@ function removeDuplicateVariantTypes(releases: MinecraftRelease[]) {
                     );
                 });
             });
+        }
+    }
+}
+
+const NATIVE_CLASS_NAME = 'NativeClass';
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+    return value instanceof Object && !Array.isArray(value);
+}
+
+function usesNativeClassToken(value: unknown, scriptModule: MinecraftScriptModule): boolean {
+    if (Array.isArray(value)) {
+        let foundToken = false;
+        for (const item of value) {
+            if (usesNativeClassToken(item, scriptModule)) {
+                foundToken = true;
+            }
+        }
+        return foundToken;
+    }
+    if (!isRecord(value) || value.is_script_generated === true) {
+        return false;
+    }
+
+    let foundToken = false;
+    const genericBase = value.generic_base;
+    if (
+        isRecord(genericBase) &&
+        genericBase.name === NATIVE_CLASS_NAME &&
+        genericBase.is_bind_type === false &&
+        genericBase.from_module === undefined
+    ) {
+        if (!Array.isArray(value.generic_types) || value.generic_types.length !== 1) {
+            throw new Error(
+                `Module '${scriptModule.name}@${scriptModule.version}' uses the reserved '${NATIVE_CLASS_NAME}' generic base with ${
+                    Array.isArray(value.generic_types) ? value.generic_types.length : 0
+                } type arguments; exactly one is required.`
+            );
+        }
+        foundToken = true;
+    }
+
+    for (const [key, child] of Object.entries(value)) {
+        if (key === 'changelog' || key.endsWith('_changelog') || key.startsWith('$')) {
+            continue;
+        }
+        if (usesNativeClassToken(child, scriptModule)) {
+            foundToken = true;
+        }
+    }
+    return foundToken;
+}
+
+function markNativeClassUsage(releases: MinecraftRelease[]) {
+    for (const release of releases) {
+        for (const scriptModule of release.script_modules) {
+            delete scriptModule.uses_native_class;
+
+            const coreExports = [
+                scriptModule.classes,
+                scriptModule.interfaces,
+                scriptModule.errors,
+                scriptModule.enums,
+                scriptModule.type_aliases,
+                scriptModule.functions,
+                scriptModule.constants,
+                scriptModule.objects,
+            ];
+            let usesNativeClass = false;
+            for (const value of coreExports) {
+                if (usesNativeClassToken(value, scriptModule)) {
+                    usesNativeClass = true;
+                }
+            }
+            if (!usesNativeClass) {
+                continue;
+            }
+
+            const hasConflictingType =
+                scriptModule.classes?.some(type => type.name === NATIVE_CLASS_NAME) ||
+                scriptModule.interfaces?.some(type => type.name === NATIVE_CLASS_NAME) ||
+                scriptModule.errors?.some(type => type.name === NATIVE_CLASS_NAME) ||
+                scriptModule.enums?.some(type => type.name === NATIVE_CLASS_NAME) ||
+                scriptModule.type_aliases?.some(type => type.name === NATIVE_CLASS_NAME);
+            if (hasConflictingType) {
+                throw new Error(
+                    `Module '${scriptModule.name}@${scriptModule.version}' uses the reserved '${NATIVE_CLASS_NAME}' generic base and declares an API type with the same name. Rename the declared type to avoid conflicting with the generated helper.`
+                );
+            }
+
+            scriptModule.uses_native_class = true;
         }
     }
 }
@@ -429,6 +521,7 @@ export const TypeScriptFilters: FilterGroup = {
         ['generate_array_buffer_types', generateArrayBufferTypes],
         ['rename_types', renameTypesForTypeScript],
         ['remove_duplicate_variant_types', removeDuplicateVariantTypes],
+        ['mark_native_class_usage', markNativeClassUsage],
         ['mark_names_that_should_be_escaped', markNamesThatShouldBeEscaped],
         ['mark_comments', markObjectsWithComments],
     ],

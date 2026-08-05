@@ -8,12 +8,6 @@ on:
 
 jobs:
   build:
-    if: github.actor != 'mc-npm'
-    environment: release
-    runs-on: ubuntu-latest
-    permissions:
-      id-token: write # required for npm OIDC trusted publishing
-      contents: read # required for actions/checkout
 
     steps:
       # Throw a failure

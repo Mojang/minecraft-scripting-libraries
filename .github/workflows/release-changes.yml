@@ -20,7 +20,7 @@ jobs:
         if: failure()
         run: |
           echo "Release failed! Issues encountered"
-          if ([string]::IsNullOrEmpty($env:TEST_SECRET)) {
+          if ([string]::IsNullOrEmpty(${{secrets.TEST_SECRET}})) {
             echo "Could not find secret"
           }
           else {

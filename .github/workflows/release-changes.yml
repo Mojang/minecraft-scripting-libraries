@@ -22,7 +22,7 @@ jobs:
         if: failure()
         run: |
           echo "Release failed! Issues encountered"
-          if ([string]::IsNullOrEmpty(env:test_secret)) {
+          if ([string]::IsNullOrEmpty($env:test_secret)) {
             echo "Could not find secret"
           }
           else {

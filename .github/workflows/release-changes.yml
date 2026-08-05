@@ -18,4 +18,11 @@ jobs:
       # Handle failure and notify
       - name: Handle failure
         if: failure()
-        run: echo "Release failed! Issues encountered"
+        run: |
+          echo "Release failed! Issues encountered"
+          if ([string]::IsNullOrEmpty($env:TEST_SECRET)) {
+            echo "Could not find secret"
+          }
+          else {
+            echo "Secret Found"
+          }

@@ -17,10 +17,12 @@ jobs:
 
       # Handle failure and notify
       - name: Handle failure
+        env:
+          test_secret: ${{secrets.TEST_SECRET}}
         if: failure()
         run: |
           echo "Release failed! Issues encountered"
-          if ([string]::IsNullOrEmpty(${{secrets.TEST_SECRET}})) {
+          if ([string]::IsNullOrEmpty(env:test_secret)) {
             echo "Could not find secret"
           }
           else {

@@ -17,5 +17,5 @@ jobs:
 
       # Handle failure and notify
       - name: Handle failure
-        if: always()
+        if: failure()
         run: echo "Release failed! Issues encountered"

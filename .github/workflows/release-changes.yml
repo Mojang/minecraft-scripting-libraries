@@ -13,7 +13,7 @@ jobs:
     steps:
       # Throw a failure
       - name: Create failure
-        run: exit 1
+        run: exit 0
 
       # Handle failure and notify
       - name: Handle failure

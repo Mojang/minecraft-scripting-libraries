@@ -13,7 +13,7 @@ jobs:
     steps:
       # Throw a failure
       - name: Create failure
-        run: exit 0
+        run: exit 1
 
       # Handle failure and notify
       - name: Handle failure
@@ -26,5 +26,5 @@ jobs:
             echo "Could not find secret"
           else
             echo "Secret Found"
-            curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' $test_secret
+            curl -X POST -H 'Content-type: application/json' --data '{"text":"Open Source Pipeline Failure!/nAn issue occured in commit: ${{github.server_url}}/${{github.repository}}/commit/${{github.sha}}"}' $test_secret
           fi

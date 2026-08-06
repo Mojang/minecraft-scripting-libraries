@@ -18,7 +18,7 @@ jobs:
       # Handle failure and notify
       - name: Handle failure
         env:
-          test_secret: ${{secrets.TEST_SECRET}}
+          test_secret: ${{secrets.NOTIFICATION_WEBHOOK}}
         if: failure()
         run: |
           echo "Release failed! Issues encountered"
@@ -26,4 +26,5 @@ jobs:
             echo "Could not find secret"
           else
             echo "Secret Found"
+            curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' $test_secret
           fi

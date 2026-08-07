@@ -25,5 +25,7 @@ jobs:
           if [ -z "$test_secret" ]; then
             echo "Could not find secret"
           else
-            curl -X POST -H 'Content-type: application/json' --data '{"text":"*Open Source Pipeline Failure!*\n>An issue occurred in commit: <${{github.server_url}}/${{github.repository}}/commit/${{github.sha}}|${${{github.sha}}:0:6}...>"}' $test_secret
+            FULL_SHA = ${{github.sha}}
+            SHORTENED_SHA = ${FULL_SHA:0:6}
+            curl -X POST -H 'Content-type: application/json' --data '{"text":"*Open Source Pipeline Failure!*\n>An issue occurred in commit: <${{github.server_url}}/${{github.repository}}/commit/${FULL_SHA}|${SHORTENED_SHA}...>"}' $test_secret
           fi

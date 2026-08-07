@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - notifyOnFail
 
 jobs:
   build:

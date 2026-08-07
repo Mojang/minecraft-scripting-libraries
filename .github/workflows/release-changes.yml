@@ -7,39 +7,13 @@ on:
 
 jobs:
   build:
-    if: github.actor != 'mc-npm'
-    environment: release
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write # required for npm OIDC trusted publishing
-      contents: read # required for actions/checkout
 
     steps:
-      - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-      - name: Use Node.js 24.x
-        uses: actions/setup-node@v6
-        with:
-          node-version: 24
-          registry-url: 'https://registry.npmjs.org'
-      - run: npm ci
-      - run: npm run test:ci # Fully build the repo so we have artifacts available to create releases, include tests so we don't ship in a broken state
-      
-      - name: Set git credentials
-        run: |
-          git config --global user.name "Minecraft Bot"
-          git config --global user.email "mc-npm@microsoft.com"
-          git remote set-url origin "https://$REPO_PAT@github.com/mojang/minecraft-scripting-libraries"
-        env:
-          REPO_PAT: ${{ secrets.REPO_PAT }}
-      
-      # Pass the token on the command line for publishing
-      - name: Publish
-        run: npm run release -- --yes --new
-        env:
-          REPO_PAT: ${{ secrets.REPO_PAT }}
-                    
+      # Throw a failure
+      - name: Create failure
+        run: exit 1
+
       # Handle failure and notify
       - name: Handle failure
         env:
@@ -50,5 +24,5 @@ jobs:
           if [ -z "$test_secret" ]; then
             echo "Could not find secret"
           else
-            curl -X POST -H 'Content-type: application/json' --data '{"text":"Open Source Pipeline Failure!\nAn issue occured in commit: ${{github.server_url}}/${{github.repository}}/commit/${{github.sha}}"}' $test_secret
+            curl -X POST -H 'Content-type: application/json' --data '{"text":"*Open Source Pipeline Failure!*\n>An issue occured in commit: ${{github.server_url}}/${{github.repository}}/commit/${{github.sha}}"}' $test_secret
           fi

@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v4
+
       # Throw a failure
       - name: Create failure
         run: exit 1
@@ -22,4 +24,4 @@ jobs:
         if: failure()
         run: |
           echo "Release failed! Issues encountered"
-          bash ./scripts/notify-on-error.sh
+          bash .github/scripts/notify-on-error.sh

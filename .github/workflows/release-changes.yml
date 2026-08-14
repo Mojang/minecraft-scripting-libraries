@@ -22,4 +22,4 @@ jobs:
         if: failure()
         run: |
           echo "Release failed! Issues encountered"
-          ./scripts/notify-on-error.sh
+          bash .github/scripts/notify-on-error.sh

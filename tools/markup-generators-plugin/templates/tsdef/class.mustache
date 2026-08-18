@@ -35,7 +35,7 @@
 // @ts-ignore Class inheritance allowed for native defined classes
 {{/base_types.length}}
 {{^is_script_generated}}
-export {{#is_interface}}interface{{/is_interface}}{{^is_interface}}class{{/is_interface}} {{{class_name}}}{{#base_types.length}} extends {{#base_types}}{{> type}}{{^is_last}}, {{/is_last}}{{/base_types}}{{/base_types.length}}{{#iterator}} implements Iterable<{{> type}}>{{/iterator}} {
+export {{#is_interface}}interface{{/is_interface}}{{^is_interface}}class{{/is_interface}} {{{class_name}}}{{#generic_class_types.length}}<{{#generic_class_types}}{{> generic_declaration}}{{^is_last}}, {{/is_last}}{{/generic_class_types}}>{{/generic_class_types.length}}{{#base_types.length}} extends {{#base_types}}{{> type}}{{^is_last}}, {{/is_last}}{{/base_types}}{{/base_types.length}}{{#iterator}} implements Iterable<{{> type}}>{{/iterator}} {
 {{/is_script_generated}}
 {{#is_script_generated}}
 {{{raw_script_text}}} {

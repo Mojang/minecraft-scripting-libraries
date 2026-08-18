@@ -1,0 +1,450 @@
+{
+    "name": "@minecraft/generic-fixtures",
+    "uuid": "e740a8bd-246d-4b7c-87ca-2f381d6b4735",
+    "version": "1.1.0",
+    "minecraft_version": "1.0.0",
+    "module_type": "script",
+    "dependencies": [
+        {
+            "name": "@minecraft/generic-base",
+            "uuid": "8f750c76-293d-4be3-a1fe-e3b802e63e70",
+            "version": "1.0.0"
+        }
+    ],
+    "classes": [
+        {
+            "name": "BaseFixture",
+            "type": {
+                "name": "BaseFixture",
+                "is_errorable": false,
+                "is_bind_type": true
+            },
+            "base_types": [],
+            "properties": [],
+            "functions": []
+        },
+        {
+            "name": "DerivedFixture",
+            "type": {
+                "name": "DerivedFixture",
+                "is_errorable": false,
+                "is_bind_type": true
+            },
+            "base_types": [
+                {
+                    "name": "BaseFixture",
+                    "is_errorable": false,
+                    "is_bind_type": true
+                }
+            ],
+            "properties": [],
+            "functions": []
+        },
+        {
+            "name": "GenericFixture",
+            "type": {
+                "name": "GenericFixture",
+                "is_errorable": false,
+                "is_bind_type": true
+            },
+            "generic_class_types": [
+                {
+                    "name": "TZebra",
+                    "constraint": {
+                        "name": "CrossModuleBase",
+                        "is_errorable": false,
+                        "is_bind_type": true,
+                        "from_module": {
+                            "name": "@minecraft/generic-base",
+                            "uuid": "8f750c76-293d-4be3-a1fe-e3b802e63e70",
+                            "version": "1.0.0"
+                        }
+                    }
+                },
+                {
+                    "name": "TAlpha",
+                    "default": {
+                        "name": "string",
+                        "is_errorable": false,
+                        "is_bind_type": false
+                    }
+                }
+            ],
+            "base_types": [],
+            "properties": [
+                {
+                    "name": "values",
+                    "is_read_only": true,
+                    "type": {
+                        "name": "array",
+                        "is_errorable": false,
+                        "is_bind_type": false,
+                        "element_type": {
+                            "name": "TZebra",
+                            "is_errorable": false,
+                            "is_bind_type": false
+                        }
+                    }
+                },
+                {
+                    "name": "pair",
+                    "is_read_only": true,
+                    "type": {
+                        "name": "BasePair<TAlpha, TZebra>",
+                        "is_errorable": false,
+                        "is_bind_type": false,
+                        "generic_base": {
+                            "name": "BasePair",
+                            "is_errorable": false,
+                            "is_bind_type": true,
+                            "from_module": {
+                                "name": "@minecraft/generic-base",
+                                "uuid": "8f750c76-293d-4be3-a1fe-e3b802e63e70",
+                                "version": "1.0.0"
+                            }
+                        },
+                        "generic_types": [
+                            {
+                                "name": "TAlpha",
+                                "is_errorable": false,
+                                "is_bind_type": false
+                            },
+                            {
+                                "name": "TZebra",
+                                "is_errorable": false,
+                                "is_bind_type": false
+                            }
+                        ]
+                    }
+                }
+            ],
+            "functions": []
+        },
+        {
+            "name": "FixtureRegistry",
+            "type": {
+                "name": "FixtureRegistry",
+                "is_errorable": false,
+                "is_bind_type": true
+            },
+            "base_types": [],
+            "properties": [],
+            "functions": [
+                {
+                    "name": "get",
+                    "is_constructor": false,
+                    "is_static": true,
+                    "generic_function_types": [
+                        {
+                            "name": "TFixture",
+                            "constraint": {
+                                "name": "BaseFixture",
+                                "is_errorable": false,
+                                "is_bind_type": true
+                            }
+                        }
+                    ],
+                    "arguments": [
+                        {
+                            "name": "classType",
+                            "type": {
+                                "name": "NativeClass<TFixture>",
+                                "is_errorable": false,
+                                "is_bind_type": false,
+                                "generic_base": {
+                                    "name": "NativeClass",
+                                    "is_errorable": false,
+                                    "is_bind_type": false
+                                },
+                                "generic_types": [
+                                    {
+                                        "name": "TFixture",
+                                        "is_errorable": false,
+                                        "is_bind_type": false
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "return_type": {
+                        "name": "optional",
+                        "is_errorable": false,
+                        "is_bind_type": false,
+                        "optional_type": {
+                            "name": "TFixture",
+                            "is_errorable": false,
+                            "is_bind_type": false
+                        }
+                    }
+                },
+                {
+                    "name": "select",
+                    "is_constructor": false,
+                    "is_static": true,
+                    "generic_function_types": [
+                        {
+                            "name": "TItem",
+                            "constraint": {
+                                "name": "CrossModuleBase",
+                                "is_errorable": false,
+                                "is_bind_type": true,
+                                "from_module": {
+                                    "name": "@minecraft/generic-base",
+                                    "uuid": "8f750c76-293d-4be3-a1fe-e3b802e63e70",
+                                    "version": "1.0.0"
+                                }
+                            }
+                        }
+                    ],
+                    "arguments": [
+                        {
+                            "name": "items",
+                            "type": {
+                                "name": "array",
+                                "is_errorable": false,
+                                "is_bind_type": false,
+                                "element_type": {
+                                    "name": "TItem",
+                                    "is_errorable": false,
+                                    "is_bind_type": false
+                                }
+                            }
+                        }
+                    ],
+                    "return_type": {
+                        "name": "TItem",
+                        "is_errorable": false,
+                        "is_bind_type": false
+                    }
+                }
+            ]
+        },
+        {
+            "name": "GenericDerived",
+            "type": {
+                "name": "GenericDerived",
+                "is_errorable": false,
+                "is_bind_type": true
+            },
+            "generic_class_types": [
+                {
+                    "name": "TZebra"
+                },
+                {
+                    "name": "TAlpha"
+                }
+            ],
+            "base_types": [
+                {
+                    "name": "GenericBase<TAlpha, TZebra>",
+                    "is_errorable": false,
+                    "is_bind_type": false,
+                    "generic_base": {
+                        "name": "GenericBase",
+                        "is_errorable": false,
+                        "is_bind_type": true,
+                        "from_module": {
+                            "name": "@minecraft/generic-base",
+                            "uuid": "8f750c76-293d-4be3-a1fe-e3b802e63e70",
+                            "version": "1.0.0"
+                        }
+                    },
+                    "generic_types": [
+                        {
+                            "name": "TAlpha",
+                            "is_errorable": false,
+                            "is_bind_type": false
+                        },
+                        {
+                            "name": "TZebra",
+                            "is_errorable": false,
+                            "is_bind_type": false
+                        }
+                    ]
+                }
+            ],
+            "properties": [],
+            "functions": []
+        }
+    ],
+    "interfaces": [
+        {
+            "name": "GenericInterface",
+            "type": {
+                "name": "GenericInterface",
+                "is_errorable": false,
+                "is_bind_type": true
+            },
+            "generic_class_types": [
+                {
+                    "name": "TZebra"
+                },
+                {
+                    "name": "TAlpha"
+                }
+            ],
+            "properties": [],
+            "functions": [
+                {
+                    "name": "convert",
+                    "is_constructor": false,
+                    "is_static": false,
+                    "generic_function_types": [
+                        {
+                            "name": "TZebra"
+                        },
+                        {
+                            "name": "TAlpha"
+                        }
+                    ],
+                    "arguments": [
+                        {
+                            "name": "value",
+                            "type": {
+                                "name": "TZebra",
+                                "is_errorable": false,
+                                "is_bind_type": false
+                            }
+                        }
+                    ],
+                    "return_type": {
+                        "name": "TAlpha",
+                        "is_errorable": false,
+                        "is_bind_type": false
+                    }
+                },
+                {
+                    "name": "getCurrent",
+                    "is_constructor": false,
+                    "is_static": false,
+                    "arguments": [],
+                    "return_type": {
+                        "name": "array",
+                        "is_errorable": false,
+                        "is_bind_type": false,
+                        "element_type": {
+                            "name": "TAlpha",
+                            "is_errorable": false,
+                            "is_bind_type": false
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "GenericApplicationInterface",
+            "type": {
+                "name": "GenericApplicationInterface",
+                "is_errorable": false,
+                "is_bind_type": true
+            },
+            "properties": [],
+            "functions": [
+                {
+                    "name": "getPair",
+                    "is_constructor": false,
+                    "is_static": false,
+                    "arguments": [],
+                    "return_type": {
+                        "name": "BasePair<string, boolean>",
+                        "is_errorable": false,
+                        "is_bind_type": false,
+                        "generic_base": {
+                            "name": "BasePair",
+                            "is_errorable": false,
+                            "is_bind_type": true,
+                            "from_module": {
+                                "name": "@minecraft/generic-base",
+                                "uuid": "8f750c76-293d-4be3-a1fe-e3b802e63e70",
+                                "version": "1.0.0"
+                            }
+                        },
+                        "generic_types": [
+                            {
+                                "name": "string",
+                                "is_errorable": false,
+                                "is_bind_type": false
+                            },
+                            {
+                                "name": "boolean",
+                                "is_errorable": false,
+                                "is_bind_type": false
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "GenericPropertyInterface",
+            "type": {
+                "name": "GenericPropertyInterface",
+                "is_errorable": false,
+                "is_bind_type": true
+            },
+            "properties": [
+                {
+                    "name": "pair",
+                    "is_read_only": true,
+                    "type": {
+                        "name": "BasePair<string, boolean>",
+                        "is_errorable": false,
+                        "is_bind_type": false,
+                        "generic_base": {
+                            "name": "BasePair",
+                            "is_errorable": false,
+                            "is_bind_type": true,
+                            "from_module": {
+                                "name": "@minecraft/generic-base",
+                                "uuid": "8f750c76-293d-4be3-a1fe-e3b802e63e70",
+                                "version": "1.0.0"
+                            }
+                        },
+                        "generic_types": [
+                            {
+                                "name": "string",
+                                "is_errorable": false,
+                                "is_bind_type": false
+                            },
+                            {
+                                "name": "boolean",
+                                "is_errorable": false,
+                                "is_bind_type": false
+                            }
+                        ]
+                    }
+                }
+            ],
+            "functions": []
+        }
+    ],
+    "functions": [
+        {
+            "name": "pick",
+            "is_constructor": false,
+            "generic_function_types": [
+                {
+                    "name": "TZebra"
+                },
+                {
+                    "name": "TAlpha"
+                }
+            ],
+            "arguments": [
+                {
+                    "name": "value",
+                    "type": {
+                        "name": "TZebra",
+                        "is_errorable": false,
+                        "is_bind_type": false
+                    }
+                }
+            ],
+            "return_type": {
+                "name": "TAlpha",
+                "is_errorable": false,
+                "is_bind_type": false
+            }
+        }
+    ]
+}

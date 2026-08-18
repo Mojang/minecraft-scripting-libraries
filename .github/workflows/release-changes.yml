@@ -43,7 +43,7 @@ jobs:
       # Handle failure and notify
       - name: Handle failure
         env:
-          test_secret: ${{ secrets.NOTIFICATION_WEBHOOK }}
+          webhook_secret: ${{ secrets.NOTIFICATION_WEBHOOK }}
           server_url: ${{ github.server_url }}
           repository: ${{ github.repository }}
           sha: ${{ github.sha }}

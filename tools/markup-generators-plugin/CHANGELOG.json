@@ -2,6 +2,21 @@
   "name": "@minecraft/markup-generators-plugin",
   "entries": [
     {
+      "date": "Wed, 19 Aug 2026 00:46:21 GMT",
+      "version": "2.0.6",
+      "tag": "@minecraft/markup-generators-plugin_v2.0.6",
+      "comments": {
+        "patch": [
+          {
+            "author": "jake@xbox.com",
+            "package": "@minecraft/markup-generators-plugin",
+            "commit": "9703ca8fdfb97f23ddd5954ee4e557467143be8a",
+            "comment": "Fix protocol HTML documentation rendering and index layout"
+          }
+        ]
+      }
+    },
+    {
       "date": "Thu, 23 Jul 2026 16:29:49 GMT",
       "version": "2.0.5",
       "tag": "@minecraft/markup-generators-plugin_v2.0.5",

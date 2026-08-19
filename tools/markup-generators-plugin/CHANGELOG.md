@@ -1,8 +1,16 @@
 # Change Log - @minecraft/markup-generators-plugin
 
-<!-- This log was last generated on Thu, 23 Jul 2026 16:29:49 GMT and should not be manually modified. -->
+<!-- This log was last generated on Wed, 19 Aug 2026 00:46:21 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.0.6
+
+Wed, 19 Aug 2026 00:46:21 GMT
+
+### Patches
+
+- Fix protocol HTML documentation rendering and index layout (jake@xbox.com)
 
 ## 2.0.5
 

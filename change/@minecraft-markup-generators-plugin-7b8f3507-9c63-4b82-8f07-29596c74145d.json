@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Fix protocol HTML documentation rendering and index layout",
-  "packageName": "@minecraft/markup-generators-plugin",
-  "email": "jake@xbox.com",
-  "dependentChangeType": "patch"
-}

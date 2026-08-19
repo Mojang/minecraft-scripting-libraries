@@ -1,0 +1,25 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "LoginPacketPayload.json",
+    "x-format-version": "MISSING VERSION",
+    "x-minecraft-version": "1.26.10",
+    "x-protocol-version": 944,
+    "title": "LoginPacketPayload",
+    "type": "object",
+    "properties": {
+        "Client Network Version": {
+            "type": "integer",
+            "x-underlying-type": "uint32",
+            "x-ordinal-index": 0
+        },
+        "Connection Request": {
+            "description": "See @connectionRequest.html#diagram@ and @connectionRequest.html@.",
+            "type": "string",
+            "x-ordinal-index": 1
+        }
+    },
+    "required": [
+        "Client Network Version",
+        "Connection Request"
+    ]
+}

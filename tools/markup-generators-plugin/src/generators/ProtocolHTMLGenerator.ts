@@ -17,8 +17,10 @@ interface PacketInfo {
     description: string;
     filename: string;
     id: number;
+    category: SchemaCategory;
 }
 
+type SchemaCategory = 'packet' | 'object' | 'enum' | 'other';
 type Definitions = Record<string, MinecraftProtocolSchemaObject>;
 type EnumCache = Record<string, string[]>;
 
@@ -32,6 +34,25 @@ const HTML_ESCAPE_MAP: Record<string, string> = {
 
 function escapeHtml(str: string): string {
     return str.replace(/[&<>"']/g, c => HTML_ESCAPE_MAP[c]);
+}
+
+function formatDescription(description: string): string {
+    const html: string[] = [];
+    let offset = 0;
+
+    for (const match of description.matchAll(/@([^@]+\.html(?:#[^@]+)?)@/g)) {
+        const index = match.index;
+        const reference = match[1];
+        const fragment = reference.split('#', 2)[1];
+        const label = fragment ?? path.basename(reference, '.html');
+
+        html.push(escapeHtml(description.substring(offset, index)));
+        html.push(`<a href="${escapeHtml(reference)}">${escapeHtml(label)}</a>`);
+        offset = index + match[0].length;
+    }
+
+    html.push(escapeHtml(description.substring(offset)));
+    return html.join('');
 }
 
 export class ProtocolHTMLGenerator implements MarkupGenerator {
@@ -213,6 +234,19 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
         return schema['x-ordinal-index'] ?? 9999;
     }
 
+    private getExternalSchema(
+        reference: string,
+        schemaPath: string,
+        schemas: Record<string, MinecraftProtocolSchemaObject>
+    ): MinecraftProtocolSchemaObject | undefined {
+        const [schemaReference] = reference.split('#', 1);
+        if (!schemaReference || schemaReference === '.') {
+            return undefined;
+        }
+
+        return schemas[path.resolve(path.dirname(schemaPath), schemaReference)];
+    }
+
     private generateNestedTable(
         schema: MinecraftProtocolSchemaObject,
         definitions: Definitions,
@@ -257,7 +291,7 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
         for (const [fieldName, fieldSchema] of sortedProperties) {
             let underlyingType = this.getUnderlyingType(fieldSchema, definitions);
             const ordinal = this.getOrdinalIndex(fieldSchema);
-            const description = escapeHtml(fieldSchema.description ?? '');
+            const description = formatDescription(fieldSchema.description ?? '');
             const isRequired = required.has(fieldName);
 
             const displayFieldName = isRequired ? `${fieldName} (Required)` : fieldName;
@@ -426,6 +460,10 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
         .packet-list li {
             margin-bottom: 8px;
             break-inside: avoid;
+            overflow-wrap: anywhere;
+        }
+        .packet-list a {
+            overflow-wrap: anywhere;
         }
         details {
             margin: 10px 0;
@@ -481,20 +519,47 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
         );
     }
 
-    private async generateIndexPage(packets: PacketInfo[], outputDirectory: string): Promise<void> {
-        const indexHtml = `<h1>Game Protocol Documentation</h1>
-    <p>Documentation for ${packets.length} protocol packets.</p>
-    <h2>Packet List</h2>
-    <ul class="packet-list">
-        ${packets
-            .map(
-                value =>
-                    `<li><a href="${value.filename}"><strong>${escapeHtml(value.title)}</strong></a><br><span style="color: #666; font-size: 0.9em;">${escapeHtml(
-                        value.description.length > 100 ? value.description.substring(0, 100) + '...' : value.description
-                    )}</span></li>`
-            )
+    private generateIndexList(entries: PacketInfo[]): string {
+        return `<ul class="packet-list">
+        ${entries
+            .map(value => {
+                const description = value.description
+                    ? `<br><span style="color: #666; font-size: 0.9em;">${escapeHtml(
+                          value.description.length > 100
+                              ? value.description.substring(0, 100) + '...'
+                              : value.description
+                      )}</span>`
+                    : '';
+                return `<li><a href="${value.filename}"><strong>${escapeHtml(value.title)}</strong></a>${description}</li>`;
+            })
             .join('\n')}
     </ul>`;
+    }
+
+    private async generateIndexPage(entries: PacketInfo[], outputDirectory: string): Promise<void> {
+        const packets = entries.filter(entry => entry.category === 'packet').sort((a, b) => a.id - b.id);
+        const objectTypes = entries
+            .filter(entry => entry.category === 'object')
+            .sort((a, b) => a.title.localeCompare(b.title));
+        const enumTypes = entries
+            .filter(entry => entry.category === 'enum')
+            .sort((a, b) => a.title.localeCompare(b.title));
+        const otherTypes = entries
+            .filter(entry => entry.category === 'other')
+            .sort((a, b) => a.title.localeCompare(b.title));
+        const supportingTypeCount = objectTypes.length + enumTypes.length + otherTypes.length;
+
+        const indexHtml = `<h1>Game Protocol Documentation</h1>
+    <p>Documentation for ${packets.length} protocol packets and ${supportingTypeCount} supporting types.</p>
+    <h2>Packets</h2>
+    ${this.generateIndexList(packets)}
+    <h2>Supporting Types</h2>
+    <h3>Object Types</h3>
+    ${this.generateIndexList(objectTypes)}
+    <h3>Enums</h3>
+    ${this.generateIndexList(enumTypes)}
+    <h3>Other Types</h3>
+    ${this.generateIndexList(otherTypes)}`;
 
         const indexPath = path.join(outputDirectory, 'index.html');
         await fs.writeFile(indexPath, this.getPageHtml('Game Protocol Documentation', indexHtml, false), 'utf-8');
@@ -503,7 +568,8 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
     private processSchema(
         data: MinecraftProtocolSchemaObject,
         key: string,
-        enumCache: EnumCache
+        enumCache: EnumCache,
+        schemas: Record<string, MinecraftProtocolSchemaObject>
     ): { title: string; description: string; content: string; packetId: number } {
         try {
             let title = data.title ?? path.basename(key, '.json');
@@ -531,7 +597,7 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
             html.push(`<h1>${escapeHtml(title)}</h1>`);
 
             if (description) {
-                html.push(`<div class="description">${escapeHtml(description)}</div>`);
+                html.push(`<div class="description">${formatDescription(description)}</div>`);
             }
             if (extraDetails) {
                 html.push(`<div class="description">${escapeHtml(extraDetails)}</div>`);
@@ -540,7 +606,10 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
             const properties = data.properties ?? {};
             const propertyKeys = Object.keys(properties);
 
-            if (
+            const payloadSchema = data.$ref ? this.getExternalSchema(data.$ref, key, schemas) : undefined;
+            if (payloadSchema) {
+                html.push(this.generateNestedTable(payloadSchema, payloadSchema.definitions ?? {}, enumCache, ''));
+            } else if (
                 data.type === 'object' &&
                 propertyKeys.length === 1 &&
                 'mPayload' in properties &&
@@ -607,10 +676,15 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
         }
 
         const writePromises: Promise<void>[] = [];
-        const packets: PacketInfo[] = [];
+        const pages: PacketInfo[] = [];
         for (const [key, schema] of packetEntries) {
             const data = schema as unknown as MinecraftProtocolSchemaObject;
-            const { title, description, content, packetId } = this.processSchema(data, key, enumCache);
+            const { title, description, content, packetId } = this.processSchema(
+                data,
+                key,
+                enumCache,
+                releases[0].protocol_schemas
+            );
             if (!title) {
                 continue;
             }
@@ -620,11 +694,18 @@ export class ProtocolHTMLGenerator implements MarkupGenerator {
             const outputPath = path.join(outputDirectory, outputFilename);
 
             writePromises.push(fs.writeFile(outputPath, this.getPageHtml(title, content, true), 'utf-8'));
-            packets.push({ title, description, filename: outputFilename, id: packetId });
+            const isPacket = packetId >= 0 || stem.endsWith('Packet');
+            const category: SchemaCategory = isPacket
+                ? 'packet'
+                : data.enum
+                  ? 'enum'
+                  : data.type === 'object'
+                    ? 'object'
+                    : 'other';
+            pages.push({ title, description, filename: outputFilename, id: packetId, category });
         }
 
-        packets.sort((a, b) => a.id - b.id);
-        writePromises.push(this.generateIndexPage(packets, outputDirectory));
+        writePromises.push(this.generateIndexPage(pages, outputDirectory));
 
         await Promise.all(writePromises);
     }

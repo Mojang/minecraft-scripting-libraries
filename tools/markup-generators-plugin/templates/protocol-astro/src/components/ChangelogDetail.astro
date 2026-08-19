@@ -1,0 +1,26 @@
+---
+import SerializationTag from './SerializationTag.astro';
+
+interface Props {
+    detail: string;
+}
+
+const { detail } = Astro.props as Props;
+const serializationChange = detail.match(/^(Added|Removed) (.+) (to|from) (.+) serialization\.$/);
+const enumValueChange = detail.match(/^((?:Added|Removed)(?: .+)? enum value) (.+)\.$/);
+---
+
+<li>
+    {
+        serializationChange ? (
+            <>
+                {serializationChange[1]} <SerializationTag option={serializationChange[2]} />{' '}
+                {serializationChange[3]} {serializationChange[4]} serialization.
+            </>
+        ) : enumValueChange ? (
+            <>{enumValueChange[1]} <code>{enumValueChange[2]}</code>.</>
+        ) : (
+            detail
+        )
+    }
+</li>

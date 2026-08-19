@@ -1,4 +1,5 @@
 ---
+import ChangelogDetail from '../../components/ChangelogDetail.astro';
 import metadataJson from '../../data/protocol.json';
 import Layout from '../../layouts/Layout.astro';
 import type { ProtocolMetadata } from '../../types';
@@ -54,6 +55,18 @@ const releaseId = (version: string) => `release-${version.replace(/[^a-zA-Z0-9]+
                                         <div><dt>Protocol</dt><dd>{release.protocolVersion}</dd></div>
                                     </dl>
                                 </header>
+                                {
+                                    release.protocolVersionShouldHaveChanged && (
+                                        <aside class="protocol-bump-warning" role="note">
+                                            <strong>Protocol version should have changed.</strong>
+                                            <span>
+                                                This release contains {release.totalChanges} protocol changes, but both{' '}
+                                                {release.previousVersion} and {release.version} use protocol{' '}
+                                                <code>{release.protocolVersion}</code>.
+                                            </span>
+                                        </aside>
+                                    )
+                                }
 
                                 <section class="changelog-scope">
                                     <header><h3>Packets</h3><span>{packetCount} changes</span></header>
@@ -98,7 +111,7 @@ const releaseId = (version: string) => `release-${version.replace(/[^a-zA-Z0-9]+
                                                             )}
                                                             <span>{item.details.length}</span>
                                                         </header>
-                                                        <ul>{item.details.map(detail => <li>{detail}</li>)}</ul>
+                                                        <ul>{item.details.map(detail => <ChangelogDetail detail={detail} />)}</ul>
                                                     </article>
                                                 ))}
                                             </div>
@@ -121,6 +134,11 @@ const releaseId = (version: string) => `release-${version.replace(/[^a-zA-Z0-9]+
                                                             <strong>{item.title}</strong>
                                                         )}
                                                         {item.details[0] && <small>{item.details[0]}</small>}
+                                                        {item.details.length > 1 && (
+                                                            <ul class="changelog-subdetails">
+                                                                {item.details.slice(1).map(detail => <ChangelogDetail detail={detail} />)}
+                                                            </ul>
+                                                        )}
                                                     </li>
                                                 ))}
                                             </ul>
@@ -150,7 +168,7 @@ const releaseId = (version: string) => `release-${version.replace(/[^a-zA-Z0-9]+
                                                             )}
                                                             <span>{item.details.length}</span>
                                                         </header>
-                                                        <ul>{item.details.map(detail => <li>{detail}</li>)}</ul>
+                                                        <ul>{item.details.map(detail => <ChangelogDetail detail={detail} />)}</ul>
                                                     </article>
                                                 ))}
                                             </div>

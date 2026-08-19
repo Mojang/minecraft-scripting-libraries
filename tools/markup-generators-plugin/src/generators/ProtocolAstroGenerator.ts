@@ -102,8 +102,10 @@ interface ProtocolChangeSet {
 interface ProtocolChangelogRelease {
     minecraftVersion: string;
     packets: ProtocolChangeSet;
+    previousProtocolVersion: string;
     previousVersion: string;
     protocolVersion: string;
+    protocolVersionShouldHaveChanged: boolean;
     releaseDate: string;
     totalChanges: number;
     types: ProtocolChangeSet;
@@ -238,6 +240,7 @@ const PROJECT_FILES = [
     'package.json',
     'tsconfig.json',
     'src/components/Datagram.astro',
+    'src/components/ChangelogDetail.astro',
     'src/components/FieldTree.astro',
     'src/components/ProtocolSearch.astro',
     'src/components/SerializationTag.astro',
@@ -651,15 +654,9 @@ export class ProtocolAstroGenerator implements MarkupGenerator {
                     `Moved ${pathName} from field ${previous.ordinal ?? 'unassigned'} to ${field.ordinal ?? 'unassigned'}.`
                 );
             }
-            if (field.serialization.join('\0') !== previous.serialization.join('\0')) {
-                details.push(
-                    `Changed ${pathName} serialization from ${previous.serialization.join(', ') || 'default'} to ${field.serialization.join(', ') || 'default'}.`
-                );
-            }
-            if (field.description !== previous.description) {
-                details.push(`Updated ${pathName} documentation.`);
-            }
-
+            details.push(
+                ...this.compareSerializationAnnotations(field.serialization, previous.serialization, pathName)
+            );
             const currentEnumValues = new Set(field.enumValues ?? []);
             const previousEnumValues = new Set(previous.enumValues ?? []);
             for (const value of currentEnumValues) {
@@ -686,6 +683,19 @@ export class ProtocolAstroGenerator implements MarkupGenerator {
         return details;
     }
 
+    private compareSerializationAnnotations(current: string[], previous: string[], subject: string): string[] {
+        const details: string[] = [];
+        const currentValues = new Set(current);
+        const previousValues = new Set(previous);
+        for (const value of currentValues) {
+            if (!previousValues.has(value)) details.push(`Added ${value} to ${subject} serialization.`);
+        }
+        for (const value of previousValues) {
+            if (!currentValues.has(value)) details.push(`Removed ${value} from ${subject} serialization.`);
+        }
+        return details;
+    }
+
     private comparePackets(
         currentPackets: ProtocolPacketDocument[],
         previousPackets: ProtocolPacketDocument[]
@@ -704,8 +714,6 @@ export class ProtocolAstroGenerator implements MarkupGenerator {
             }
             const details = this.compareFields(packet.fields, previous.fields);
             if (packet.id !== previous.id) details.unshift(`Changed packet ID from ${previous.id} to ${packet.id}.`);
-            if (packet.description !== previous.description) details.push('Updated packet description.');
-            if (packet.details !== previous.details) details.push('Updated packet details.');
             if (details.length > 0) changed.push({ details, slug: packet.slug, title: packet.title });
         }
         for (const packet of previousPackets) {
@@ -729,14 +737,17 @@ export class ProtocolAstroGenerator implements MarkupGenerator {
         for (const type of currentTypes) {
             const previous = previousByTitle.get(type.title);
             if (!previous) {
-                added.push({ details: [`${type.category} type.`], slug: type.slug, title: type.title });
+                const details = [`${type.category} type.`];
+                if (type.category === 'enum') {
+                    details.push(...type.enumValues.map(value => `Added enum value ${value}.`));
+                }
+                added.push({ details, slug: type.slug, title: type.title });
                 continue;
             }
             const details = this.compareFields(type.fields, previous.fields);
             if (type.category !== previous.category) {
                 details.unshift(`Changed category from ${previous.category} to ${type.category}.`);
             }
-            if (type.description !== previous.description) details.push('Updated type description.');
             const currentValues = new Set(type.enumValues);
             const previousValues = new Set(previous.enumValues);
             for (const value of currentValues) {
@@ -745,9 +756,7 @@ export class ProtocolAstroGenerator implements MarkupGenerator {
             for (const value of previousValues) {
                 if (!currentValues.has(value)) details.push(`Removed enum value ${value}.`);
             }
-            if (type.serialization.join('\0') !== previous.serialization.join('\0')) {
-                details.push('Changed type serialization annotations.');
-            }
+            details.push(...this.compareSerializationAnnotations(type.serialization, previous.serialization, 'type'));
             if (details.length > 0) changed.push({ details, slug: type.slug, title: type.title });
         }
         for (const type of previousTypes) {
@@ -862,8 +871,11 @@ export class ProtocolAstroGenerator implements MarkupGenerator {
                 changelog.push({
                     minecraftVersion: current.metadata.minecraftVersion,
                     packets,
+                    previousProtocolVersion: previous.metadata.protocolVersion,
                     previousVersion: previous.version,
                     protocolVersion: current.metadata.protocolVersion,
+                    protocolVersionShouldHaveChanged:
+                        totalChanges > 0 && current.metadata.protocolVersion === previous.metadata.protocolVersion,
                     releaseDate: current.releaseDate,
                     totalChanges,
                     types,

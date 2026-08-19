@@ -77,8 +77,10 @@ export interface ProtocolChangeSet {
 export interface ProtocolChangelogRelease {
     minecraftVersion: string;
     packets: ProtocolChangeSet;
+    previousProtocolVersion: string;
     previousVersion: string;
     protocolVersion: string;
+    protocolVersionShouldHaveChanged: boolean;
     releaseDate: string;
     totalChanges: number;
     types: ProtocolChangeSet;

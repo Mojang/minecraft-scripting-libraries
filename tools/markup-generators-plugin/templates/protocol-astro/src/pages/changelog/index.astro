@@ -1,0 +1,170 @@
+---
+import metadataJson from '../../data/protocol.json';
+import Layout from '../../layouts/Layout.astro';
+import type { ProtocolMetadata } from '../../types';
+
+const metadata = metadataJson as ProtocolMetadata;
+const currentPacketSlugs = new Set(metadata.packets.map(packet => packet.slug));
+const currentTypeSlugs = new Set(metadata.types.map(type => type.slug));
+const releaseId = (version: string) => `release-${version.replace(/[^a-zA-Z0-9]+/g, '-').toLowerCase()}`;
+---
+
+<Layout title="Protocol changelog">
+    <section class="masthead">
+        <div>
+            <h1>Protocol changelog</h1>
+            <p class="lede">Packet and supporting-type changes across the latest tagged metadata releases.</p>
+        </div>
+    </section>
+
+    {
+        metadata.changelog.length > 0 ? (
+            <>
+                <nav class="category-toc changelog-toc" aria-label="Changelog releases">
+                    <p>Releases · sorted by semantic version</p>
+                    <div>
+                        {metadata.changelog.map(release => (
+                            <a href={`#${releaseId(release.version)}`}>
+                                {release.version}<span>{release.totalChanges}</span>
+                            </a>
+                        ))}
+                    </div>
+                </nav>
+
+                <div class="changelog-releases">
+                    {metadata.changelog.map(release => {
+                        const packetCount =
+                            release.packets.added.length +
+                            release.packets.changed.length +
+                            release.packets.removed.length;
+                        const typeCount =
+                            release.types.added.length + release.types.changed.length + release.types.removed.length;
+                        return (
+                            <section class="changelog-release" id={releaseId(release.version)}>
+                                <header class="changelog-release-header">
+                                    <div>
+                                        <h2>
+                                            <a class="release-permalink" href={`#${releaseId(release.version)}`}>
+                                                {release.version}<span aria-hidden="true">#</span>
+                                            </a>
+                                        </h2>
+                                    </div>
+                                    <dl>
+                                        <div><dt>Released</dt><dd><time datetime={release.releaseDate}>{release.releaseDate}</time></dd></div>
+                                        <div><dt>Protocol</dt><dd>{release.protocolVersion}</dd></div>
+                                    </dl>
+                                </header>
+
+                                <section class="changelog-scope">
+                                    <header><h3>Packets</h3><span>{packetCount} changes</span></header>
+                                    {release.packets.added.length > 0 && (
+                                        <div class="changelog-group added">
+                                            <h4>Added <span>{release.packets.added.length}</span></h4>
+                                            <ul>
+                                                {release.packets.added.map(item => (
+                                                    <li>
+                                                        {currentPacketSlugs.has(item.slug) ? (
+                                                            <a href={`/packets/${item.slug}/`}>{item.title}</a>
+                                                        ) : (
+                                                            <strong>{item.title}</strong>
+                                                        )}
+                                                        {item.details[0] && <small>{item.details[0]}</small>}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
+                                    {release.packets.removed.length > 0 && (
+                                        <div class="changelog-group removed">
+                                            <h4>Removed <span>{release.packets.removed.length}</span></h4>
+                                            <ul>
+                                                {release.packets.removed.map(item => (
+                                                    <li><strong>{item.title}</strong>{item.details[0] && <small>{item.details[0]}</small>}</li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
+                                    {release.packets.changed.length > 0 && (
+                                        <div class="changelog-group changed">
+                                            <h4>Changed <span>{release.packets.changed.length}</span></h4>
+                                            <div class="changelog-details">
+                                                {release.packets.changed.map(item => (
+                                                    <article>
+                                                        <header>
+                                                            {currentPacketSlugs.has(item.slug) ? (
+                                                                <a href={`/packets/${item.slug}/`}>{item.title}</a>
+                                                            ) : (
+                                                                <strong>{item.title}</strong>
+                                                            )}
+                                                            <span>{item.details.length}</span>
+                                                        </header>
+                                                        <ul>{item.details.map(detail => <li>{detail}</li>)}</ul>
+                                                    </article>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+                                    {packetCount === 0 && <p class="empty-state">No packet changes.</p>}
+                                </section>
+
+                                <section class="changelog-scope">
+                                    <header><h3>Supporting types</h3><span>{typeCount} changes</span></header>
+                                    {release.types.added.length > 0 && (
+                                        <div class="changelog-group added">
+                                            <h4>Added <span>{release.types.added.length}</span></h4>
+                                            <ul>
+                                                {release.types.added.map(item => (
+                                                    <li>
+                                                        {currentTypeSlugs.has(item.slug) ? (
+                                                            <a href={`/types/${item.slug}/`}>{item.title}</a>
+                                                        ) : (
+                                                            <strong>{item.title}</strong>
+                                                        )}
+                                                        {item.details[0] && <small>{item.details[0]}</small>}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
+                                    {release.types.removed.length > 0 && (
+                                        <div class="changelog-group removed">
+                                            <h4>Removed <span>{release.types.removed.length}</span></h4>
+                                            <ul>
+                                                {release.types.removed.map(item => (
+                                                    <li><strong>{item.title}</strong>{item.details[0] && <small>{item.details[0]}</small>}</li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    )}
+                                    {release.types.changed.length > 0 && (
+                                        <div class="changelog-group changed">
+                                            <h4>Changed <span>{release.types.changed.length}</span></h4>
+                                            <div class="changelog-details">
+                                                {release.types.changed.map(item => (
+                                                    <article>
+                                                        <header>
+                                                            {currentTypeSlugs.has(item.slug) ? (
+                                                                <a href={`/types/${item.slug}/`}>{item.title}</a>
+                                                            ) : (
+                                                                <strong>{item.title}</strong>
+                                                            )}
+                                                            <span>{item.details.length}</span>
+                                                        </header>
+                                                        <ul>{item.details.map(detail => <li>{detail}</li>)}</ul>
+                                                    </article>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+                                    {typeCount === 0 && <p class="empty-state">No supporting-type changes.</p>}
+                                </section>
+                            </section>
+                        );
+                    })}
+                </div>
+            </>
+        ) : (
+            <p class="empty-state changelog-empty">No semantic release history was available from the metadata repository.</p>
+        )
+    }
+</Layout>

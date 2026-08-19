@@ -62,7 +62,31 @@ export interface ProtocolPrimitive {
     title: string;
 }
 
+export interface ProtocolChangeItem {
+    details: string[];
+    slug: string;
+    title: string;
+}
+
+export interface ProtocolChangeSet {
+    added: ProtocolChangeItem[];
+    changed: ProtocolChangeItem[];
+    removed: ProtocolChangeItem[];
+}
+
+export interface ProtocolChangelogRelease {
+    minecraftVersion: string;
+    packets: ProtocolChangeSet;
+    previousVersion: string;
+    protocolVersion: string;
+    releaseDate: string;
+    totalChanges: number;
+    types: ProtocolChangeSet;
+    version: string;
+}
+
 export interface ProtocolMetadata {
+    changelog: ProtocolChangelogRelease[];
     minecraftVersion: string;
     packets: ProtocolPacket[];
     primitives: ProtocolPrimitive[];

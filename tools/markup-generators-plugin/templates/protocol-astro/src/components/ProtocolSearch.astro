@@ -23,6 +23,16 @@ const entries = [
         kind: 'Primitive',
         title: primitive.title,
     })),
+    ...(metadata.changelog.length > 0
+        ? [
+              {
+                  description: 'Packet and supporting-type changes across tagged metadata releases.',
+                  href: '/changelog/',
+                  kind: 'Reference',
+                  title: 'Protocol changelog',
+              },
+          ]
+        : []),
 ];
 ---
 

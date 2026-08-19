@@ -16,6 +16,8 @@ const activeSection = Astro.url.pathname.startsWith('/types')
         ? 'types'
         : Astro.url.pathname.startsWith('/primitives')
             ? 'primitives'
+            : Astro.url.pathname.startsWith('/changelog')
+                ? 'changelog'
             : 'packets';
 const metadata = metadataJson as ProtocolMetadata;
 ---
@@ -65,6 +67,9 @@ const metadata = metadataJson as ProtocolMetadata;
                         <a href="/primitives/" aria-current={activeSection === 'primitives' ? 'page' : undefined}>
                             <strong>Primitives</strong><small>{metadata.primitives.length}</small>
                         </a>
+                        <a href="/changelog/" aria-current={activeSection === 'changelog' ? 'page' : undefined}>
+                            <strong>Changelog</strong><small>{metadata.changelog.length}</small>
+                        </a>
                     </nav>
                     <section class="sidebar-meta" aria-label="Protocol version">
                         <p>Current metadata</p>
@@ -81,6 +86,7 @@ const metadata = metadataJson as ProtocolMetadata;
                         <a href="/" aria-current={activeSection === 'packets' ? 'page' : undefined}>Packets</a>
                         <a href="/types/" aria-current={activeSection === 'types' ? 'page' : undefined}>Types</a>
                         <a href="/primitives/" aria-current={activeSection === 'primitives' ? 'page' : undefined}>Primitives</a>
+                        <a href="/changelog/" aria-current={activeSection === 'changelog' ? 'page' : undefined}>Changelog</a>
                     </nav>
                     <p>Protocol {metadata.protocolVersion}</p>
                 </header>

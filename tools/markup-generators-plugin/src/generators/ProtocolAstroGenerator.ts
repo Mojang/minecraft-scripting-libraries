@@ -2,7 +2,9 @@
 // Licensed under the MIT License.
 
 import { promises as fs } from 'fs';
+import { execFileSync } from 'child_process';
 import path from 'path';
+import semver from 'semver';
 
 import {
     GeneratorContext,
@@ -85,7 +87,47 @@ interface ProtocolPrimitiveDocument {
     title: string;
 }
 
+interface ProtocolChangeItem {
+    details: string[];
+    slug: string;
+    title: string;
+}
+
+interface ProtocolChangeSet {
+    added: ProtocolChangeItem[];
+    changed: ProtocolChangeItem[];
+    removed: ProtocolChangeItem[];
+}
+
+interface ProtocolChangelogRelease {
+    minecraftVersion: string;
+    packets: ProtocolChangeSet;
+    previousVersion: string;
+    protocolVersion: string;
+    releaseDate: string;
+    totalChanges: number;
+    types: ProtocolChangeSet;
+    version: string;
+}
+
+interface ProtocolMetadataDocument {
+    changelog: ProtocolChangelogRelease[];
+    minecraftVersion: string;
+    packets: ProtocolPacketDocument[];
+    primitives: ProtocolPrimitiveDocument[];
+    protocolVersion: string;
+    types: ProtocolTypeDocument[];
+}
+
+interface ProtocolReleaseSnapshot {
+    metadata: Omit<ProtocolMetadataDocument, 'changelog'>;
+    releaseDate: string;
+    version: string;
+}
+
 type ProtocolPrimitiveDefinition = Omit<ProtocolPrimitiveDocument, 'slug' | 'title'>;
+
+const CHANGELOG_RELEASE_COUNT = 15;
 
 const PRIMITIVE_DEFINITIONS: Record<string, ProtocolPrimitiveDefinition> = {
     boolean: {
@@ -200,6 +242,7 @@ const PROJECT_FILES = [
     'src/components/ProtocolSearch.astro',
     'src/components/SerializationTag.astro',
     'src/layouts/Layout.astro',
+    'src/pages/changelog/index.astro',
     'src/pages/index.astro',
     'src/pages/packets/[slug].astro',
     'src/pages/primitives/index.astro',
@@ -409,7 +452,7 @@ export class ProtocolAstroGenerator implements MarkupGenerator {
                 return {
                     children: children?.length ? children : undefined,
                     description: field.description ?? '',
-                    enumValues: field.enum,
+                    enumValues: target?.schema.enum ?? field.enum,
                     name,
                     ordinal: ordinal === undefined ? undefined : ordinal,
                     required: required.has(name),
@@ -584,13 +627,257 @@ export class ProtocolAstroGenerator implements MarkupGenerator {
             .map(([title, definition]) => ({ ...definition, slug: slugify(title), title }));
     }
 
-    private createMetadata(release: MinecraftRelease): {
-        minecraftVersion: string;
-        packets: ProtocolPacketDocument[];
-        primitives: ProtocolPrimitiveDocument[];
-        protocolVersion: string;
-        types: ProtocolTypeDocument[];
-    } {
+    private compareFields(currentFields: ProtocolField[], previousFields: ProtocolField[], parentPath = ''): string[] {
+        const details: string[] = [];
+        const currentByName = new Map(currentFields.map(field => [field.name, field]));
+        const previousByName = new Map(previousFields.map(field => [field.name, field]));
+        const fieldPath = (name: string) => (parentPath ? `${parentPath}.${name}` : name);
+
+        for (const field of currentFields) {
+            const previous = previousByName.get(field.name);
+            const pathName = fieldPath(field.name);
+            if (!previous) {
+                details.push(`Added field ${pathName} (${field.type}).`);
+                continue;
+            }
+            if (field.type !== previous.type) {
+                details.push(`Changed ${pathName} type from ${previous.type} to ${field.type}.`);
+            }
+            if (field.required !== previous.required) {
+                details.push(`${pathName} is now ${field.required ? 'required' : 'optional'}.`);
+            }
+            if (field.ordinal !== previous.ordinal) {
+                details.push(
+                    `Moved ${pathName} from field ${previous.ordinal ?? 'unassigned'} to ${field.ordinal ?? 'unassigned'}.`
+                );
+            }
+            if (field.serialization.join('\0') !== previous.serialization.join('\0')) {
+                details.push(
+                    `Changed ${pathName} serialization from ${previous.serialization.join(', ') || 'default'} to ${field.serialization.join(', ') || 'default'}.`
+                );
+            }
+            if (field.description !== previous.description) {
+                details.push(`Updated ${pathName} documentation.`);
+            }
+
+            const currentEnumValues = new Set(field.enumValues ?? []);
+            const previousEnumValues = new Set(previous.enumValues ?? []);
+            for (const value of currentEnumValues) {
+                if (!previousEnumValues.has(value)) details.push(`Added ${pathName} enum value ${value}.`);
+            }
+            for (const value of previousEnumValues) {
+                if (!currentEnumValues.has(value)) details.push(`Removed ${pathName} enum value ${value}.`);
+            }
+
+            const variantSignature = (variant: ProtocolVariant) =>
+                `${variant.index}\0${variant.title}\0${variant.type}\0${variant.target ?? ''}`;
+            if (
+                (field.variants ?? []).map(variantSignature).join('\x01') !==
+                (previous.variants ?? []).map(variantSignature).join('\x01')
+            ) {
+                details.push(`Changed ${pathName} variants.`);
+            }
+            details.push(...this.compareFields(field.children ?? [], previous.children ?? [], pathName));
+        }
+
+        for (const field of previousFields) {
+            if (!currentByName.has(field.name)) details.push(`Removed field ${fieldPath(field.name)} (${field.type}).`);
+        }
+        return details;
+    }
+
+    private comparePackets(
+        currentPackets: ProtocolPacketDocument[],
+        previousPackets: ProtocolPacketDocument[]
+    ): ProtocolChangeSet {
+        const currentByTitle = new Map(currentPackets.map(packet => [packet.title, packet]));
+        const previousByTitle = new Map(previousPackets.map(packet => [packet.title, packet]));
+        const added: ProtocolChangeItem[] = [];
+        const changed: ProtocolChangeItem[] = [];
+        const removed: ProtocolChangeItem[] = [];
+
+        for (const packet of currentPackets) {
+            const previous = previousByTitle.get(packet.title);
+            if (!previous) {
+                added.push({ details: [`Packet ID ${packet.id}.`], slug: packet.slug, title: packet.title });
+                continue;
+            }
+            const details = this.compareFields(packet.fields, previous.fields);
+            if (packet.id !== previous.id) details.unshift(`Changed packet ID from ${previous.id} to ${packet.id}.`);
+            if (packet.description !== previous.description) details.push('Updated packet description.');
+            if (packet.details !== previous.details) details.push('Updated packet details.');
+            if (details.length > 0) changed.push({ details, slug: packet.slug, title: packet.title });
+        }
+        for (const packet of previousPackets) {
+            if (!currentByTitle.has(packet.title)) {
+                removed.push({ details: [`Packet ID ${packet.id}.`], slug: packet.slug, title: packet.title });
+            }
+        }
+        return this.sortChangeSet({ added, changed, removed });
+    }
+
+    private compareTypes(
+        currentTypes: ProtocolTypeDocument[],
+        previousTypes: ProtocolTypeDocument[]
+    ): ProtocolChangeSet {
+        const currentByTitle = new Map(currentTypes.map(type => [type.title, type]));
+        const previousByTitle = new Map(previousTypes.map(type => [type.title, type]));
+        const added: ProtocolChangeItem[] = [];
+        const changed: ProtocolChangeItem[] = [];
+        const removed: ProtocolChangeItem[] = [];
+
+        for (const type of currentTypes) {
+            const previous = previousByTitle.get(type.title);
+            if (!previous) {
+                added.push({ details: [`${type.category} type.`], slug: type.slug, title: type.title });
+                continue;
+            }
+            const details = this.compareFields(type.fields, previous.fields);
+            if (type.category !== previous.category) {
+                details.unshift(`Changed category from ${previous.category} to ${type.category}.`);
+            }
+            if (type.description !== previous.description) details.push('Updated type description.');
+            const currentValues = new Set(type.enumValues);
+            const previousValues = new Set(previous.enumValues);
+            for (const value of currentValues) {
+                if (!previousValues.has(value)) details.push(`Added enum value ${value}.`);
+            }
+            for (const value of previousValues) {
+                if (!currentValues.has(value)) details.push(`Removed enum value ${value}.`);
+            }
+            if (type.serialization.join('\0') !== previous.serialization.join('\0')) {
+                details.push('Changed type serialization annotations.');
+            }
+            if (details.length > 0) changed.push({ details, slug: type.slug, title: type.title });
+        }
+        for (const type of previousTypes) {
+            if (!currentByTitle.has(type.title)) {
+                removed.push({ details: [`${type.category} type.`], slug: type.slug, title: type.title });
+            }
+        }
+        return this.sortChangeSet({ added, changed, removed });
+    }
+
+    private sortChangeSet(changeSet: ProtocolChangeSet): ProtocolChangeSet {
+        const byTitle = (left: ProtocolChangeItem, right: ProtocolChangeItem) => left.title.localeCompare(right.title);
+        changeSet.added.sort(byTitle);
+        changeSet.changed.sort(byTitle);
+        changeSet.removed.sort(byTitle);
+        return changeSet;
+    }
+
+    private readGitProtocolSchemas(
+        repositoryRoot: string,
+        protocolDirectory: string,
+        tag: string
+    ): Record<string, MinecraftProtocolSchemaObject> {
+        const pathOutput = execFileSync(
+            'git',
+            ['-C', repositoryRoot, 'ls-tree', '-r', '-z', '--name-only', tag, '--', protocolDirectory],
+            { maxBuffer: 16 * 1024 * 1024 }
+        );
+        const paths = pathOutput
+            .toString('utf-8')
+            .split('\0')
+            .filter(filePath => filePath.endsWith('.json'));
+        if (paths.length === 0) return {};
+
+        const references = paths.map(filePath => `${tag}:${filePath}`).join('\n') + '\n';
+        const batchOutput = execFileSync('git', ['-C', repositoryRoot, 'cat-file', '--batch'], {
+            input: references,
+            maxBuffer: 128 * 1024 * 1024,
+        });
+        const schemas: Record<string, MinecraftProtocolSchemaObject> = {};
+        let offset = 0;
+        for (const filePath of paths) {
+            const headerEnd = batchOutput.indexOf(0x0a, offset);
+            if (headerEnd < 0) throw new Error(`Invalid git cat-file output for ${tag}.`);
+            const header = batchOutput.subarray(offset, headerEnd).toString('utf-8');
+            const size = Number(header.split(' ').at(-1));
+            if (!Number.isFinite(size)) throw new Error(`Unable to read ${filePath} from ${tag}.`);
+            const contentStart = headerEnd + 1;
+            const contentEnd = contentStart + size;
+            schemas[path.resolve(repositoryRoot, filePath)] = JSON.parse(
+                batchOutput.subarray(contentStart, contentEnd).toString('utf-8')
+            ) as MinecraftProtocolSchemaObject;
+            offset = contentEnd + 1;
+        }
+        return schemas;
+    }
+
+    private createChangelog(context: GeneratorContext): ProtocolChangelogRelease[] {
+        try {
+            const repositoryRoot = execFileSync('git', ['-C', context.inputDirectory, 'rev-parse', '--show-toplevel'], {
+                encoding: 'utf-8',
+            }).trim();
+            const tagOutput = execFileSync(
+                'git',
+                [
+                    '-C',
+                    repositoryRoot,
+                    'for-each-ref',
+                    '--format=%(refname:short)%09%(creatordate:short)',
+                    'refs/tags/release/',
+                ],
+                { encoding: 'utf-8' }
+            );
+            const versions = tagOutput
+                .split(/\r?\n/)
+                .map(line => {
+                    const [tag, releaseDate] = line.split('\t');
+                    return { releaseDate, tag, version: tag.replace(/^release\//, '') };
+                })
+                .filter(entry => entry.tag && semver.valid(entry.version))
+                .sort((left, right) => semver.rcompare(left.version, right.version))
+                .slice(0, CHANGELOG_RELEASE_COUNT + 1);
+            if (versions.length < 2) return [];
+
+            const protocolDirectory = path
+                .relative(repositoryRoot, path.join(context.inputDirectory, 'json_schemas', 'protocol'))
+                .split(path.sep)
+                .join('/');
+            const snapshots: ProtocolReleaseSnapshot[] = [];
+            for (const entry of versions) {
+                const schemas = this.readGitProtocolSchemas(repositoryRoot, protocolDirectory, entry.tag);
+                if (Object.keys(schemas).length === 0) continue;
+                const firstSchema = Object.values(schemas)[0];
+                const release = new MinecraftRelease(firstSchema['x-minecraft-version'] ?? entry.version);
+                release.protocol_schemas = schemas;
+                snapshots.push({
+                    metadata: this.createReleaseMetadata(release),
+                    releaseDate: entry.releaseDate,
+                    version: entry.version,
+                });
+            }
+
+            const changelog: ProtocolChangelogRelease[] = [];
+            for (let index = 0; index < Math.min(CHANGELOG_RELEASE_COUNT, snapshots.length - 1); index++) {
+                const current = snapshots[index];
+                const previous = snapshots[index + 1];
+                const packets = this.comparePackets(current.metadata.packets, previous.metadata.packets);
+                const types = this.compareTypes(current.metadata.types, previous.metadata.types);
+                const changeCount = (changes: ProtocolChangeSet) =>
+                    changes.added.length + changes.changed.length + changes.removed.length;
+                const totalChanges = changeCount(packets) + changeCount(types);
+                changelog.push({
+                    minecraftVersion: current.metadata.minecraftVersion,
+                    packets,
+                    previousVersion: previous.version,
+                    protocolVersion: current.metadata.protocolVersion,
+                    releaseDate: current.releaseDate,
+                    totalChanges,
+                    types,
+                    version: current.version,
+                });
+            }
+            return changelog;
+        } catch (error) {
+            Logger.warn(`Unable to generate protocol changelog: ${String(error)}`);
+            return [];
+        }
+    }
+
+    private createReleaseMetadata(release: MinecraftRelease): Omit<ProtocolMetadataDocument, 'changelog'> {
         this.indexSchemas(release.protocol_schemas);
         const packetPayloadSlugs = this.packetPayloadSlugs();
         const packets = this.createPackets();
@@ -626,9 +913,11 @@ export class ProtocolAstroGenerator implements MarkupGenerator {
         });
         const metadataPath = path.join(outputDirectory, 'src', 'data', 'protocol.json');
         await fs.mkdir(path.dirname(metadataPath), { recursive: true });
-        writes.push(
-            fs.writeFile(metadataPath, JSON.stringify(this.createMetadata(releases[0]), undefined, 2) + '\n', 'utf-8')
-        );
+        const metadata: ProtocolMetadataDocument = {
+            ...this.createReleaseMetadata(releases[0]),
+            changelog: this.createChangelog(context),
+        };
+        writes.push(fs.writeFile(metadataPath, JSON.stringify(metadata, undefined, 2) + '\n', 'utf-8'));
         await Promise.all(writes);
     }
 

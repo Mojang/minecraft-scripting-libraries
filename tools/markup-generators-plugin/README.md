@@ -16,4 +16,4 @@ The optional `run-generators` argument uses a list of markup generator IDs descr
 | changelog | Changelog | :heavy_check_mark: | Markdown formatted changelog output for differences between API module versions. |
 | changelog-json | Changelog JSON | | JSON changelog output. |
 | protocol | Protocol HTML | :heavy_check_mark: | Standalone HTML documentation for game protocol packets and supporting types. |
-| protocol-astro | Protocol Astro | :heavy_check_mark: | Complete Astro project with normalized protocol metadata, packet diagrams, type usage hierarchies, and primitive wire formats. |
+| protocol-astro | Protocol Astro | :heavy_check_mark: | Complete Astro project with normalized protocol metadata, packet diagrams, type usage hierarchies, primitive wire formats, and semantic release changelogs. |

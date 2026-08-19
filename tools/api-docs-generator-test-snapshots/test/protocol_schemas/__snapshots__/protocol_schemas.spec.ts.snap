@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Protocol Schemas > Generates a complete Astro project with normalized protocol metadata > # Of Files Generated 1`] = `18`;
+exports[`Protocol Schemas > Generates a complete Astro project with normalized protocol metadata > # Of Files Generated 1`] = `19`;
 
 exports[`Protocol Schemas > Generates a complete Astro project with normalized protocol metadata > protocol-astro/package.json 1`] = `
 "{
@@ -478,7 +478,8 @@ exports[`Protocol Schemas > Generates a complete Astro project with normalized p
       "uses": [],
       "wireFormats": []
     }
-  ]
+  ],
+  "changelog": []
 }
 "
 `;

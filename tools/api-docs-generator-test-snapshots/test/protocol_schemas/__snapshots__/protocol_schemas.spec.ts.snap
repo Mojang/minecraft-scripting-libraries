@@ -1,5 +1,488 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Protocol Schemas > Generates a complete Astro project with normalized protocol metadata > # Of Files Generated 1`] = `18`;
+
+exports[`Protocol Schemas > Generates a complete Astro project with normalized protocol metadata > protocol-astro/package.json 1`] = `
+"{
+  "name": "minecraft-protocol-docs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "check": "astro check",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^7.2.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "typescript": "^5.9.0"
+  }
+}"
+`;
+
+exports[`Protocol Schemas > Generates a complete Astro project with normalized protocol metadata > protocol-astro/src/data/protocol.json 1`] = `
+"{
+  "minecraftVersion": "1.26.10",
+  "packets": [
+    {
+      "description": "Sent once from client to server at login.",
+      "details": "",
+      "fields": [
+        {
+          "description": "",
+          "name": "Client Network Version",
+          "ordinal": 0,
+          "required": true,
+          "serialization": [],
+          "type": "uint32",
+          "wireSize": "4 bytes",
+          "wireSizeBytes": 4
+        },
+        {
+          "description": "See @connectionRequest.html#diagram@ and @connectionRequest.html@.",
+          "name": "Connection Request",
+          "ordinal": 1,
+          "required": true,
+          "serialization": [],
+          "type": "string",
+          "wireSize": "variable",
+          "wireSizeBytes": 8
+        }
+      ],
+      "id": 1,
+      "slug": "login-packet",
+      "title": "LoginPacket"
+    },
+    {
+      "description": "All kinds of actor state changes (see Actor::handleEntityEvent).",
+      "details": "",
+      "fields": [
+        {
+          "description": "",
+          "name": "Target Runtime ID",
+          "ordinal": 0,
+          "required": true,
+          "serialization": [],
+          "target": "actor-runtime-id",
+          "type": "ActorRuntimeID",
+          "wireSize": "variable",
+          "wireSizeBytes": 8
+        },
+        {
+          "description": "",
+          "enumValues": [
+            "NONE",
+            "JUMP",
+            "HURT",
+            "DEATH",
+            "START_ATTACKING",
+            "STOP_ATTACKING",
+            "TAMING_FAILED",
+            "TAMING_SUCCEEDED",
+            "SHAKE_WETNESS",
+            "EAT_GRASS",
+            "FISHHOOK_BUBBLE",
+            "FISHHOOK_FISHPOS",
+            "FISHHOOK_HOOKTIME",
+            "FISHHOOK_TEASE",
+            "SQUID_FLEEING",
+            "ZOMBIE_CONVERTING",
+            "PLAY_AMBIENT",
+            "SPAWN_ALIVE",
+            "START_OFFER_FLOWER",
+            "STOP_OFFER_FLOWER",
+            "LOVE_HEARTS",
+            "VILLAGER_ANGRY",
+            "VILLAGER_HAPPY",
+            "WITCH_HAT_MAGIC",
+            "FIREWORKS_EXPLODE",
+            "IN_LOVE_HEARTS",
+            "SILVERFISH_MERGE_ANIM",
+            "GUARDIAN_ATTACK_SOUND",
+            "DRINK_POTION",
+            "THROW_POTION",
+            "PRIME_TNTCART",
+            "PRIME_CREEPER",
+            "AIR_SUPPLY",
+            "DEPRECATED_ADD_PLAYER_LEVELS",
+            "GUARDIAN_MINING_FATIGUE",
+            "AGENT_SWING_ARM",
+            "DRAGON_START_DEATH_ANIM",
+            "GROUND_DUST",
+            "SHAKE",
+            "FEED",
+            "BABY_AGE",
+            "INSTANT_DEATH",
+            "NOTIFY_TRADE",
+            "LEASH_DESTROYED",
+            "CARAVAN_UPDATED",
+            "TALISMAN_ACTIVATE",
+            "DEPRECATED_UPDATE_STRUCTURE_FEATURE",
+            "PLAYER_SPAWNED_MOB",
+            "PUKE",
+            "UPDATE_STACK_SIZE",
+            "START_SWIMMING",
+            "BALLOON_POP",
+            "TREASURE_HUNT",
+            "SUMMON_AGENT",
+            "FINISHED_CHARGING_ITEM",
+            "ACTOR_GROW_UP",
+            "VIBRATION_DETECTED",
+            "DRINK_MILK",
+            "SHAKE_WETNESS_STOP",
+            "KINETIC_DAMAGE_DEALT"
+          ],
+          "name": "Event ID",
+          "ordinal": 1,
+          "required": true,
+          "serialization": [
+            "Enum-as-Value"
+          ],
+          "target": "actor-event",
+          "type": "uint8",
+          "wireSize": "1 byte",
+          "wireSizeBytes": 1
+        },
+        {
+          "description": "",
+          "name": "Data",
+          "ordinal": 2,
+          "required": true,
+          "serialization": [
+            "Compression"
+          ],
+          "type": "varint32",
+          "wireSize": "variable (up to 5 bytes)",
+          "wireSizeBytes": 5
+        }
+      ],
+      "id": -1,
+      "slug": "actor-event-packet",
+      "title": "ActorEventPacket"
+    },
+    {
+      "description": "Sent from the server to client when remote firing an NPC dialogue window for a client",
+      "details": "",
+      "fields": [
+        {
+          "description": "The ActorUniqueID of the NPC being remote fired",
+          "name": "Npc Id Raw Id",
+          "ordinal": 0,
+          "required": true,
+          "serialization": [],
+          "type": "uint64",
+          "wireSize": "8 bytes",
+          "wireSizeBytes": 8
+        },
+        {
+          "description": "",
+          "enumValues": [
+            "Open",
+            "Close"
+          ],
+          "name": "Npc Dialogue Action Type",
+          "ordinal": 1,
+          "required": true,
+          "serialization": [
+            "Compression",
+            "Enum-as-Value"
+          ],
+          "target": "npc-dialogue-action-type",
+          "type": "varint32",
+          "wireSize": "variable (up to 5 bytes)",
+          "wireSizeBytes": 5
+        },
+        {
+          "description": "The text to be displayed to the client",
+          "name": "Dialogue",
+          "ordinal": 2,
+          "required": true,
+          "serialization": [],
+          "type": "string",
+          "wireSize": "variable",
+          "wireSizeBytes": 8
+        },
+        {
+          "description": "The scene the data has been pulled from for the client to reference",
+          "name": "Scene Name",
+          "ordinal": 3,
+          "required": true,
+          "serialization": [],
+          "type": "string",
+          "wireSize": "variable",
+          "wireSizeBytes": 8
+        },
+        {
+          "description": "The name of the NPC to be displayed to the client",
+          "name": "Npc Name",
+          "ordinal": 4,
+          "required": true,
+          "serialization": [],
+          "type": "string",
+          "wireSize": "variable",
+          "wireSizeBytes": 8
+        },
+        {
+          "description": "The JSON string of the buttons/actions the server can perform. The server is still authoritative on what actions can be performed",
+          "name": "Action JSON",
+          "ordinal": 5,
+          "required": true,
+          "serialization": [],
+          "type": "string",
+          "wireSize": "variable",
+          "wireSizeBytes": 8
+        }
+      ],
+      "id": -1,
+      "slug": "npc-dialogue-packet",
+      "title": "NpcDialoguePacket"
+    }
+  ],
+  "primitives": [
+    {
+      "category": "Signed integer",
+      "encoding": "ZigZag-encoded, then written as base-128 groups with the high bit indicating continuation.",
+      "size": "1-5 bytes",
+      "slug": "varint32",
+      "title": "varint32"
+    },
+    {
+      "category": "Unsigned integer",
+      "encoding": "Unsigned binary integer.",
+      "size": "1 byte",
+      "slug": "uint8",
+      "title": "uint8"
+    },
+    {
+      "category": "Unsigned integer",
+      "encoding": "Unsigned binary integer, little-endian unless the field specifies Big Endian.",
+      "size": "4 bytes",
+      "slug": "uint32",
+      "title": "uint32"
+    },
+    {
+      "category": "Unsigned integer",
+      "encoding": "Unsigned binary integer, little-endian unless the field specifies Big Endian.",
+      "size": "8 bytes",
+      "slug": "uint64",
+      "title": "uint64"
+    },
+    {
+      "category": "Unsigned integer",
+      "encoding": "Written as base-128 groups with the high bit indicating that another byte follows.",
+      "size": "1-10 bytes",
+      "slug": "varuint64",
+      "title": "varuint64"
+    },
+    {
+      "category": "Text",
+      "encoding": "UTF-8 bytes prefixed by their byte length as a varuint32.",
+      "size": "Variable",
+      "slug": "string",
+      "title": "string"
+    }
+  ],
+  "protocolVersion": "944",
+  "types": [
+    {
+      "category": "enum",
+      "description": "",
+      "enumValues": [
+        "NONE",
+        "JUMP",
+        "HURT",
+        "DEATH",
+        "START_ATTACKING",
+        "STOP_ATTACKING",
+        "TAMING_FAILED",
+        "TAMING_SUCCEEDED",
+        "SHAKE_WETNESS",
+        "EAT_GRASS",
+        "FISHHOOK_BUBBLE",
+        "FISHHOOK_FISHPOS",
+        "FISHHOOK_HOOKTIME",
+        "FISHHOOK_TEASE",
+        "SQUID_FLEEING",
+        "ZOMBIE_CONVERTING",
+        "PLAY_AMBIENT",
+        "SPAWN_ALIVE",
+        "START_OFFER_FLOWER",
+        "STOP_OFFER_FLOWER",
+        "LOVE_HEARTS",
+        "VILLAGER_ANGRY",
+        "VILLAGER_HAPPY",
+        "WITCH_HAT_MAGIC",
+        "FIREWORKS_EXPLODE",
+        "IN_LOVE_HEARTS",
+        "SILVERFISH_MERGE_ANIM",
+        "GUARDIAN_ATTACK_SOUND",
+        "DRINK_POTION",
+        "THROW_POTION",
+        "PRIME_TNTCART",
+        "PRIME_CREEPER",
+        "AIR_SUPPLY",
+        "DEPRECATED_ADD_PLAYER_LEVELS",
+        "GUARDIAN_MINING_FATIGUE",
+        "AGENT_SWING_ARM",
+        "DRAGON_START_DEATH_ANIM",
+        "GROUND_DUST",
+        "SHAKE",
+        "FEED",
+        "BABY_AGE",
+        "INSTANT_DEATH",
+        "NOTIFY_TRADE",
+        "LEASH_DESTROYED",
+        "CARAVAN_UPDATED",
+        "TALISMAN_ACTIVATE",
+        "DEPRECATED_UPDATE_STRUCTURE_FEATURE",
+        "PLAYER_SPAWNED_MOB",
+        "PUKE",
+        "UPDATE_STACK_SIZE",
+        "START_SWIMMING",
+        "BALLOON_POP",
+        "TREASURE_HUNT",
+        "SUMMON_AGENT",
+        "FINISHED_CHARGING_ITEM",
+        "ACTOR_GROW_UP",
+        "VIBRATION_DETECTED",
+        "DRINK_MILK",
+        "SHAKE_WETNESS_STOP",
+        "KINETIC_DAMAGE_DEALT"
+      ],
+      "fields": [],
+      "serialization": [],
+      "slug": "actor-event",
+      "title": "enum ActorEvent",
+      "uses": [
+        {
+          "packetSlug": "actor-event-packet",
+          "packetTitle": "ActorEventPacket",
+          "path": [
+            "Event ID",
+            "enum ActorEvent"
+          ]
+        }
+      ],
+      "wireFormats": [
+        {
+          "serialization": [
+            "Enum-as-Value"
+          ],
+          "type": "uint8"
+        }
+      ]
+    },
+    {
+      "category": "enum",
+      "description": "",
+      "enumValues": [
+        "Open",
+        "Close"
+      ],
+      "fields": [],
+      "serialization": [
+        "Compression",
+        "Enum-as-Value"
+      ],
+      "slug": "npc-dialogue-action-type",
+      "title": "NpcDialogueActionType",
+      "uses": [
+        {
+          "packetSlug": "npc-dialogue-packet",
+          "packetTitle": "NpcDialoguePacket",
+          "path": [
+            "Npc Dialogue Action Type",
+            "NpcDialogueActionType"
+          ]
+        }
+      ],
+      "wireFormats": [
+        {
+          "serialization": [
+            "Compression",
+            "Enum-as-Value"
+          ],
+          "type": "varint32"
+        }
+      ]
+    },
+    {
+      "category": "enum",
+      "description": "",
+      "enumValues": [
+        "First",
+        "Second"
+      ],
+      "fields": [],
+      "serialization": [],
+      "slug": "protocol-mode",
+      "title": "ProtocolMode",
+      "uses": [],
+      "wireFormats": []
+    },
+    {
+      "category": "object",
+      "description": "",
+      "enumValues": [],
+      "fields": [
+        {
+          "description": "",
+          "name": "Actor Runtime ID",
+          "ordinal": 0,
+          "required": true,
+          "serialization": [
+            "Compression"
+          ],
+          "type": "varuint64",
+          "wireSize": "variable (up to 10 bytes)",
+          "wireSizeBytes": 10
+        }
+      ],
+      "serialization": [],
+      "slug": "actor-runtime-id",
+      "title": "ActorRuntimeID",
+      "uses": [
+        {
+          "packetSlug": "actor-event-packet",
+          "packetTitle": "ActorEventPacket",
+          "path": [
+            "Target Runtime ID",
+            "ActorRuntimeID"
+          ]
+        }
+      ],
+      "wireFormats": []
+    },
+    {
+      "category": "object",
+      "description": "",
+      "enumValues": [],
+      "fields": [
+        {
+          "description": "",
+          "name": "Value",
+          "ordinal": 0,
+          "required": false,
+          "serialization": [],
+          "type": "integer",
+          "wireSize": "variable",
+          "wireSizeBytes": 8
+        }
+      ],
+      "serialization": [],
+      "slug": "protocol-object",
+      "title": "ProtocolObject",
+      "uses": [],
+      "wireFormats": []
+    }
+  ]
+}
+"
+`;
+
 exports[`Protocol Schemas > Properly generates HTML pages and index for game protocol packets > # Of Files Generated 1`] = `6`;
 
 exports[`Protocol Schemas > Properly generates HTML pages and index for game protocol packets > protocol/ActorEventPacket.html 1`] = `

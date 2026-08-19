@@ -1,6 +1,6 @@
 {
   "type": "patch",
-  "comment": "Fix protocol HTML documentation rendering and index layout",
+  "comment": "Fix protocol HTML documentation rendering and add an Astro protocol documentation generator",
   "packageName": "@minecraft/markup-generators-plugin",
   "email": "jake@xbox.com",
   "dependentChangeType": "patch"

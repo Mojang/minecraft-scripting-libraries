@@ -1,0 +1,55 @@
+---
+import Datagram from '../../components/Datagram.astro';
+import FieldTree from '../../components/FieldTree.astro';
+import metadataJson from '../../data/protocol.json';
+import Layout from '../../layouts/Layout.astro';
+import type { ProtocolMetadata, ProtocolPacket } from '../../types';
+
+export function getStaticPaths() {
+    const metadata = metadataJson as ProtocolMetadata;
+    return metadata.packets.map(packet => ({ params: { slug: packet.slug }, props: { packet } }));
+}
+
+interface Props {
+    packet: ProtocolPacket;
+}
+
+const { packet } = Astro.props;
+---
+
+<Layout title={packet.title} description={packet.description}>
+    <article class="detail-page">
+        <a class="back-link" href="/#packets">← Packet index</a>
+        <header class="detail-header">
+            <div>
+                <p class="eyebrow">Packet {packet.id >= 0 ? packet.id : 'unassigned'}</p>
+                <h1>{packet.title}</h1>
+                {packet.description && <p class="lede">{packet.description}</p>}
+                {packet.details && <p class="packet-details">{packet.details}</p>}
+            </div>
+            <button class="explode-button" type="button" aria-pressed="false" data-expand-all>
+                <span aria-hidden="true">↧</span> Explode packet
+            </button>
+        </header>
+
+        <Datagram fields={packet.fields} packetId={packet.id} />
+
+        <section class="schema-section">
+            <header><h2>Serialized fields</h2><span>{packet.fields.length} top-level fields</span></header>
+            <FieldTree fields={packet.fields} />
+        </section>
+    </article>
+</Layout>
+
+<script>
+    const button = document.querySelector<HTMLButtonElement>('[data-expand-all]');
+    button?.addEventListener('click', () => {
+        const expand = button.getAttribute('aria-pressed') !== 'true';
+        const details = [...document.querySelectorAll<HTMLDetailsElement>('.field-details, .variant-details')];
+        for (const detail of details) detail.open = expand;
+        button.setAttribute('aria-pressed', String(expand));
+        button.innerHTML = expand
+            ? '<span aria-hidden="true">↥</span> Collapse packet'
+            : '<span aria-hidden="true">↧</span> Explode packet';
+    });
+</script>

@@ -1,0 +1,55 @@
+---
+import metadataJson from '../../data/protocol.json';
+import Layout from '../../layouts/Layout.astro';
+import type { ProtocolMetadata, ProtocolPrimitive } from '../../types';
+
+const metadata = metadataJson as ProtocolMetadata;
+const categories: ProtocolPrimitive['category'][] = [
+    'Boolean',
+    'Signed integer',
+    'Unsigned integer',
+    'Floating point',
+    'Text',
+];
+---
+
+<Layout title="Primitives">
+    <section class="masthead">
+        <div>
+            <h1>Primitives</h1>
+            <p class="lede">The fundamental wire values used to serialize packet fields.</p>
+        </div>
+    </section>
+
+    <section class="directory-section primitive-directory">
+        <header class="section-heading"><p>03</p><div><h2>Wire formats</h2><span>{metadata.primitives.length} primitives used by this protocol</span></div></header>
+        {
+            categories.map(category => {
+                const primitives = metadata.primitives.filter(primitive => primitive.category === category);
+                if (primitives.length === 0) return null;
+                return (
+                    <section class="primitive-group">
+                        <h3>{category}</h3>
+                        <div class="primitive-list">
+                            {primitives.map(primitive => (
+                                <article class="primitive-card" id={primitive.slug}>
+                                    <header><code>{primitive.title}</code><span>{primitive.size}</span></header>
+                                    <p>{primitive.encoding}</p>
+                                </article>
+                            ))}
+                        </div>
+                    </section>
+                );
+            })
+        }
+    </section>
+
+    <section class="schema-section primitive-options">
+        <header><h2>Field annotations</h2><span>Serialization modifiers</span></header>
+        <dl>
+            <div><dt>Big Endian</dt><dd>Writes multi-byte fixed-width values with the most significant byte first.</dd></div>
+            <div><dt>Compression</dt><dd>Uses the corresponding variable-length integer encoding instead of the fixed-width representation.</dd></div>
+            <div><dt>No size compression</dt><dd>Writes a collection size without the normal variable-length size encoding.</dd></div>
+        </dl>
+    </section>
+</Layout>

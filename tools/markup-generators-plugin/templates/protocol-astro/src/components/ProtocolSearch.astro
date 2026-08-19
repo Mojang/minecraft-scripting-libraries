@@ -1,0 +1,107 @@
+---
+import metadataJson from '../data/protocol.json';
+import type { ProtocolMetadata } from '../types';
+
+const metadata = metadataJson as ProtocolMetadata;
+const entries = [
+    ...metadata.packets.map(packet => ({
+        description: packet.description,
+        href: `/packets/${packet.slug}/`,
+        id: packet.id,
+        kind: 'Packet',
+        title: packet.title,
+    })),
+    ...metadata.types.map(type => ({
+        description: type.description,
+        href: `/types/${type.slug}/`,
+        kind: type.category,
+        title: type.title,
+    })),
+    ...metadata.primitives.map(primitive => ({
+        description: primitive.encoding,
+        href: `/primitives/#${primitive.slug}`,
+        kind: 'Primitive',
+        title: primitive.title,
+    })),
+];
+---
+
+<div class="directory-tools protocol-search">
+    <label class="sr-only" for="directory-search">Search reference</label>
+    <div class="search-control">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input
+            id="directory-search"
+            type="search"
+            placeholder="Search packets and types"
+            autocomplete="off"
+            aria-controls="protocol-search-results"
+            aria-expanded="false"
+        />
+        <div id="protocol-search-results" class="search-results" hidden></div>
+    </div>
+    <output id="search-count" aria-live="polite"></output>
+</div>
+<script is:inline type="application/json" id="protocol-search-data" set:html={JSON.stringify(entries).replaceAll('<', '\u003c')} />
+
+<script>
+    interface SearchEntry {
+        description: string;
+        href: string;
+        id?: number;
+        kind: string;
+        title: string;
+    }
+
+    const input = document.querySelector<HTMLInputElement>('#directory-search');
+    const output = document.querySelector<HTMLOutputElement>('#search-count');
+    const results = document.querySelector<HTMLElement>('#protocol-search-results');
+    const data = document.querySelector<HTMLScriptElement>('#protocol-search-data');
+    const entries: SearchEntry[] = data?.textContent ? JSON.parse(data.textContent) : [];
+
+    const closeResults = () => {
+        if (results) results.hidden = true;
+        input?.setAttribute('aria-expanded', 'false');
+    };
+
+    input?.addEventListener('input', () => {
+        const query = input.value.trim().toLowerCase();
+        if (!results || !query) {
+            if (output) output.textContent = '';
+            closeResults();
+            return;
+        }
+
+        const matches = entries.filter(entry =>
+            `${entry.title} ${entry.description} ${entry.kind}`.toLowerCase().includes(query)
+        );
+        const fragment = document.createDocumentFragment();
+        for (const entry of matches) {
+            const link = document.createElement('a');
+            const heading = document.createElement('strong');
+            const kind = document.createElement('span');
+            const description = document.createElement('small');
+            link.href = entry.href;
+            heading.textContent = entry.title;
+            kind.textContent = entry.kind === 'Packet' && entry.id !== undefined ? `Packet ${entry.id}` : entry.kind;
+            description.textContent = entry.description;
+            link.append(kind, heading, description);
+            fragment.append(link);
+        }
+        results.replaceChildren(fragment);
+        results.hidden = false;
+        input.setAttribute('aria-expanded', 'true');
+        if (output) output.textContent = `${matches.length} ${matches.length === 1 ? 'match' : 'matches'}`;
+    });
+
+    document.addEventListener('click', event => {
+        if (!(event.target instanceof Node) || !event.target.parentElement?.closest('.protocol-search')) closeResults();
+    });
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') closeResults();
+        if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
+            event.preventDefault();
+            input?.focus();
+        }
+    });
+</script>

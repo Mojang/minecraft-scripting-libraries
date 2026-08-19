@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Expose reusable network protocol metadata and changelog generation APIs",
+  "packageName": "@minecraft/api-docs-generator",
+  "email": "jake@xbox.com",
+  "dependentChangeType": "patch"
+}

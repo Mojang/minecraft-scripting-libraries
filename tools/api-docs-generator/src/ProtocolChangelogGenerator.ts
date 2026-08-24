@@ -145,7 +145,7 @@ export interface ProtocolFieldTypeChange extends ProtocolFieldChangeContext {
     type: string;
 }
 
-export interface ProtocolFieldVariantsChange extends ProtocolFieldChangeContext {}
+export type ProtocolFieldVariantsChange = ProtocolFieldChangeContext;
 
 export interface ProtocolTypeAddedOrRemoved {
     category: ProtocolTypeCategory;

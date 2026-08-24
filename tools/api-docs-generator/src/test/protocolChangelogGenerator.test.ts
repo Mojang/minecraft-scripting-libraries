@@ -70,25 +70,25 @@ describe('ProtocolChangelogGenerator', () => {
     it('only applies compression to integer widths supported by BinarySchemaWriter', () => {
         const release = createRelease('1.2.0', true);
         const packet = release.protocol_schemas[path.resolve('protocol', 'ExamplePacket.json')];
-        packet.properties!.CompressedBool = {
+        packet.properties.CompressedBool = {
             title: 'CompressedBool',
             type: 'boolean',
             'x-underlying-type': 'boolean',
             'x-serialization-options': 'Compression',
         };
-        packet.properties!.CompressedInt16 = {
+        packet.properties.CompressedInt16 = {
             title: 'CompressedInt16',
             type: 'integer',
             'x-underlying-type': 'int16',
             'x-serialization-options': 'Compression',
         };
-        packet.properties!.CompressedUint8 = {
+        packet.properties.CompressedUint8 = {
             title: 'CompressedUint8',
             type: 'integer',
             'x-underlying-type': 'uint8',
             'x-serialization-options': 'Compression',
         };
-        packet.properties!.CompressedInt32 = {
+        packet.properties.CompressedInt32 = {
             title: 'CompressedInt32',
             type: 'integer',
             'x-underlying-type': 'int32',
@@ -114,7 +114,7 @@ describe('ProtocolChangelogGenerator', () => {
             enum: ['None'],
             'x-underlying-type': 'uint8',
         };
-        release.protocol_schemas[path.join(schemaDirectory, 'ExamplePacket.json')].properties!.States = {
+        release.protocol_schemas[path.join(schemaDirectory, 'ExamplePacket.json')].properties.States = {
             title: 'States',
             type: 'array',
             items: {
@@ -288,7 +288,7 @@ describe('ProtocolChangelogGenerator', () => {
     it('includes supporting type targets in field changes', () => {
         const current = createRelease('1.2.0', true);
         const previous = createRelease('1.1.0', false);
-        current.protocol_schemas[path.resolve('protocol', 'ExamplePacket.json')].properties!.State[
+        current.protocol_schemas[path.resolve('protocol', 'ExamplePacket.json')].properties.State[
             'x-serialization-options'
         ] = 'Allow unknown enum values';
 
@@ -329,7 +329,7 @@ describe('ProtocolChangelogGenerator', () => {
             enum: ['None'],
             'x-underlying-type': 'uint8',
         };
-        current.protocol_schemas[path.join(schemaDirectory, 'ExamplePacket.json')].properties!.State.$ref =
+        current.protocol_schemas[path.join(schemaDirectory, 'ExamplePacket.json')].properties.State.$ref =
             './OtherState.json';
 
         const changelog = new ProtocolChangelogGenerator().generateChangelogs([current, previous]);
@@ -349,12 +349,12 @@ describe('ProtocolChangelogGenerator', () => {
         const current = createRelease('1.2.0', true);
         const previous = createRelease('1.1.0', false);
         const schemaDirectory = path.resolve('protocol');
-        current.protocol_schemas[path.join(schemaDirectory, 'ExamplePacket.json')].properties!.AddedState = {
+        current.protocol_schemas[path.join(schemaDirectory, 'ExamplePacket.json')].properties.AddedState = {
             $ref: './ExampleState.json',
             title: 'AddedState',
             'x-ordinal-index': 3,
         };
-        previous.protocol_schemas[path.join(schemaDirectory, 'ExamplePacket.json')].properties!.RemovedState = {
+        previous.protocol_schemas[path.join(schemaDirectory, 'ExamplePacket.json')].properties.RemovedState = {
             $ref: './ExampleState.json',
             title: 'RemovedState',
             'x-ordinal-index': 3,

@@ -1,0 +1,21 @@
+---
+{{ >default_metadata }}
+title: Minecraft Commands
+description: List and descriptions of Minecraft commands and enums
+---
+# List and summary of commands:
+|Command   |Description   |Required Permission Level  | Requires Cheats Enabled |
+|----------|-----------|-----------|-----------|
+{{#commands}}
+| [`/{{{name}}}`](./commands/{{{name}}}.md) | {{^command_description}}{{description}}{{/command_description}}{{#command_description}}{{.}}{{/command_description}} | {{permission_level_name}} | {{#requires_cheats}}Yes{{/requires_cheats}}{{^requires_cheats}}No{{/requires_cheats}} |
+{{/commands}}
+
+# List and summary of command argument types and enums:
+|Type   |Description   |Is Enum?   |
+|----------|-----------|-----------|
+{{#command_types}}
+| {{{name}}} | {{type_description}} |   |
+{{/command_types}}
+{{#command_enums}}
+| [`{{{name}}}`](./enums/{{{name}}}.md) | {{enum_description}} | Yes |
+{{/command_enums}}

@@ -303,6 +303,21 @@ describe('ProtocolChangelogGenerator', () => {
         });
     });
 
+    it('reports wire optionality only for fields without a requirement or default', () => {
+        const current = createRelease('1.2.0', true);
+        const previous = createRelease('1.1.0', false);
+        const packet = current.protocol_schemas[path.resolve('protocol', 'ExamplePacket.json')];
+        packet.required = [];
+        packet.properties.Value.default = 0;
+
+        const changelog = new ProtocolChangelogGenerator().generateChangelogs([current, previous]);
+        const changes = changelog[0].packets.changed[0].changes;
+
+        expect(changes.filter(change => change.fieldOptionalChanged)).toEqual([
+            { fieldOptionalChanged: { optional: true, path: 'State', target: 'example-state' } },
+        ]);
+    });
+
     it('includes current and previous targets when referenced fields change', () => {
         const current = createRelease('1.2.0', true);
         const previous = createRelease('1.1.0', false);

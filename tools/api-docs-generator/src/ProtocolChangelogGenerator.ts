@@ -20,8 +20,8 @@ export interface ProtocolField {
     description: string;
     enumValues?: string[];
     name: string;
+    optional: boolean;
     ordinal?: number;
-    required: boolean;
     serialization: string[];
     target?: string;
     type: string;
@@ -84,9 +84,9 @@ export interface ProtocolChange {
     fieldEnumValueAdded?: ProtocolFieldEnumValueChange;
     fieldEnumValueOrdinalChanged?: ProtocolFieldEnumValueOrdinalChange;
     fieldEnumValueRemoved?: ProtocolFieldEnumValueChange;
+    fieldOptionalChanged?: ProtocolFieldOptionalChange;
     fieldOrdinalChanged?: ProtocolFieldOrdinalChange;
     fieldRemoved?: ProtocolFieldRemoved;
-    fieldRequiredChanged?: ProtocolFieldRequiredChange;
     fieldSerializationOptionAdded?: ProtocolFieldSerializationOptionChange;
     fieldSerializationOptionRemoved?: ProtocolFieldSerializationOptionChange;
     fieldTypeChanged?: ProtocolFieldTypeChange;
@@ -131,8 +131,8 @@ export interface ProtocolFieldRemoved extends ProtocolFieldChangeContext {
     type: string;
 }
 
-export interface ProtocolFieldRequiredChange extends ProtocolFieldChangeContext {
-    required: boolean;
+export interface ProtocolFieldOptionalChange extends ProtocolFieldChangeContext {
+    optional: boolean;
 }
 
 export interface ProtocolFieldSerializationOptionChange extends ProtocolFieldChangeContext {
@@ -515,8 +515,8 @@ export class ProtocolChangelogGenerator {
                     description: field.description ?? '',
                     enumValues: target?.schema.enum ?? field.enum,
                     name,
+                    optional: !required.has(name) && field.default === undefined,
                     ordinal: ordinal === undefined ? undefined : ordinal,
-                    required: required.has(name),
                     serialization: serializationOptions(field),
                     target: target?.slug,
                     type,
@@ -739,11 +739,11 @@ export class ProtocolChangelogGenerator {
                     },
                 });
             }
-            if (field.required !== previous.required) {
+            if (field.optional !== previous.optional) {
                 changes.push({
-                    fieldRequiredChanged: {
+                    fieldOptionalChanged: {
+                        optional: field.optional,
                         path: pathName,
-                        required: field.required,
                         ...(field.target ? { target: field.target } : {}),
                     },
                 });

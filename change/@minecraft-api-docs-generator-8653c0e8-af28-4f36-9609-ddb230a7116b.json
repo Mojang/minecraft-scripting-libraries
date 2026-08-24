@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Added support for network protocol diffing",
-  "packageName": "@minecraft/api-docs-generator",
-  "email": "jake@xbox.com",
-  "dependentChangeType": "patch"
-}

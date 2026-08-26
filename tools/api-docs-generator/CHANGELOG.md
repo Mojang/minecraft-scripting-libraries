@@ -1,8 +1,16 @@
 # Change Log - @minecraft/api-docs-generator
 
-<!-- This log was last generated on Wed, 22 Jul 2026 20:26:46 GMT and should not be manually modified. -->
+<!-- This log was last generated on Mon, 24 Aug 2026 20:12:43 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.1.0
+
+Mon, 24 Aug 2026 20:12:43 GMT
+
+### Minor changes
+
+- Added support for network protocol diffing (jake@xbox.com)
 
 ## 2.0.6
 

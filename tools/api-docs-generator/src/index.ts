@@ -7,6 +7,7 @@
  */
 
 export * from './ChangelogStrategy';
+export * from './ProtocolChangelogGenerator';
 export { Config, GenerateOptions } from './Config';
 export { GeneratorContext } from './Context';
 export { FileLoader } from './FileLoader';

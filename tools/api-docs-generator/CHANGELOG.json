@@ -2,6 +2,21 @@
   "name": "@minecraft/api-docs-generator",
   "entries": [
     {
+      "date": "Mon, 24 Aug 2026 20:12:43 GMT",
+      "version": "2.1.0",
+      "tag": "@minecraft/api-docs-generator_v2.1.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "jake@xbox.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "333f0585da964446776226738590bf078105ff33",
+            "comment": "Added support for network protocol diffing"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 22 Jul 2026 20:26:46 GMT",
       "version": "2.0.6",
       "tag": "@minecraft/api-docs-generator_v2.0.6",

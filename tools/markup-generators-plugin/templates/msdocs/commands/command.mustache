@@ -1,0 +1,52 @@
+---
+{{ >default_metadata }}
+title: {{{command_name}}} Command
+description: Description and usage of the {{{command_name}}} command
+---
+# `/{{{command_name}}}` Command
+{{#command_description}}
+{{{.}}}
+
+{{/command_description}}
+{{^command_description}}
+{{{description}}}
+
+{{/command_description}}
+<table>
+{{#aliases.length}}
+  <tr>
+    <th>Aliases</th>
+    <td>{{#aliases}}/{{{name}}}{{^is_last}}, {{/is_last}}{{/aliases}}</td>
+  </tr>
+{{/aliases.length}}
+  <tr>
+    <th>Permission Level</th>
+    <td>{{permission_level_name}}</td>
+  </tr>
+  <tr>
+    <th>Requires Cheats?</th>
+    <td>{{#requires_cheats}}Yes{{/requires_cheats}}{{^requires_cheats}}No{{/requires_cheats}}</td>
+  </tr>
+</table>
+
+## Usage
+{{#overloads}}
+{{> overload}}
+{{/overloads}}
+{{#arguments.length}}
+
+## Arguments
+{{#arguments}}
+- `{{{param_name}}}{{#type.syntax}}: {{{.}}}{{/type.syntax}}`: {{#type.has_link}}[{{{type.name}}}]{{#type.is_enum}}(../enums/{{{type.name}}}.md){{/type.is_enum}}{{^type.is_enum}}(../types/{{{type.name}}}.md){{/type.is_enum}}{{/type.has_link}}{{^type.has_link}}{{{type.name}}}{{/type.has_link}}
+{{#argument_description}}
+{{{.}}}
+{{/argument_description}}
+{{/arguments}}
+{{/arguments.length}}
+{{#command_enums.length}}
+
+## Enums
+{{#command_enums}}
+{{> inline_enum}}
+{{/command_enums}}
+{{/command_enums.length}}

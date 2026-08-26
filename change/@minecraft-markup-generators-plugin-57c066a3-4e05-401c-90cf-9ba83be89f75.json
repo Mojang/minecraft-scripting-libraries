@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Revert \"Remove commands documentation generation (#137)\"",
+  "packageName": "@minecraft/markup-generators-plugin",
+  "email": "zachary.campbell@skyboxlabs.com",
+  "dependentChangeType": "patch"
+}

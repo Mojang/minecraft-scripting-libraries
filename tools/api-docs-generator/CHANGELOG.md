@@ -1,8 +1,20 @@
 # Change Log - @minecraft/api-docs-generator
 
-<!-- This log was last generated on Mon, 24 Aug 2026 20:12:43 GMT and should not be manually modified. -->
+<!-- This log was last generated on Wed, 02 Sep 2026 20:57:07 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.2.0
+
+Wed, 02 Sep 2026 20:57:07 GMT
+
+### Minor changes
+
+- Revert "Remove commands documentation generation (#137)" (zachary.campbell@skyboxlabs.com)
+
+### Patches
+
+- Added support for enum binary values (jake@xbox.com)
 
 ## 2.1.0
 

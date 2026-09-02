@@ -1,7 +1,0 @@
-{
-  "type": "minor",
-  "comment": "Revert \"Remove commands documentation generation (#137)\"",
-  "packageName": "@minecraft/api-docs-generator",
-  "email": "zachary.campbell@skyboxlabs.com",
-  "dependentChangeType": "patch"
-}

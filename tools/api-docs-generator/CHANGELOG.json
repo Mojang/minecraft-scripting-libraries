@@ -2,6 +2,29 @@
   "name": "@minecraft/api-docs-generator",
   "entries": [
     {
+      "date": "Wed, 02 Sep 2026 20:57:07 GMT",
+      "version": "2.2.0",
+      "tag": "@minecraft/api-docs-generator_v2.2.0",
+      "comments": {
+        "patch": [
+          {
+            "author": "jake@xbox.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "f2d8cf426481a7539d0b233d8f302504c7969981",
+            "comment": "Added support for enum binary values"
+          }
+        ],
+        "minor": [
+          {
+            "author": "zachary.campbell@skyboxlabs.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "f2d8cf426481a7539d0b233d8f302504c7969981",
+            "comment": "Revert \"Remove commands documentation generation (#137)\""
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 24 Aug 2026 20:12:43 GMT",
       "version": "2.1.0",
       "tag": "@minecraft/api-docs-generator_v2.1.0",

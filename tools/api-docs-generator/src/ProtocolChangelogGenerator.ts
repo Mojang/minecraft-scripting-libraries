@@ -18,6 +18,7 @@ export interface ProtocolVariant {
 export interface ProtocolField {
     children?: ProtocolField[];
     description: string;
+    enumBinaryValues?: number[];
     enumValues?: string[];
     name: string;
     optional: boolean;
@@ -45,6 +46,7 @@ export interface ProtocolWireFormat {
 export interface ProtocolTypeDocument {
     category: ProtocolTypeCategory;
     description: string;
+    enumBinaryValues?: number[];
     enumValues: string[];
     fields: ProtocolField[];
     serialization: string[];
@@ -510,10 +512,12 @@ export class ProtocolChangelogGenerator {
                     };
                 });
                 const children = !target && field.type === 'object' ? this.createFields(field, sourcePath) : undefined;
+                const enumSchema = target?.schema ?? field;
                 return {
                     children: children?.length ? children : undefined,
                     description: field.description ?? '',
-                    enumValues: target?.schema.enum ?? field.enum,
+                    enumBinaryValues: enumSchema['x-enum-binary-value'],
+                    enumValues: enumSchema.enum,
                     name,
                     optional: !required.has(name) && field.default === undefined,
                     ordinal: ordinal === undefined ? undefined : ordinal,
@@ -577,6 +581,7 @@ export class ProtocolChangelogGenerator {
             .map(type => ({
                 category: type.category as ProtocolTypeCategory,
                 description: type.schema.description ?? '',
+                enumBinaryValues: type.schema['x-enum-binary-value'],
                 enumValues: type.schema.enum ?? [],
                 fields: this.createFields(type.schema, type.sourcePath),
                 serialization: serializationOptions(type.schema),
@@ -771,7 +776,12 @@ export class ProtocolChangelogGenerator {
             );
             if (!field.target && !previous.target) {
                 const currentEnumValues = field.enumValues ?? [];
-                const enumChanges = this.compareEnumValues(currentEnumValues, previous.enumValues ?? []);
+                const enumChanges = this.compareEnumValues(
+                    currentEnumValues,
+                    previous.enumValues ?? [],
+                    field.enumBinaryValues,
+                    previous.enumBinaryValues
+                );
                 for (const change of enumChanges.added) {
                     changes.push({ fieldEnumValueAdded: { path: pathName, ...change } });
                 }
@@ -813,18 +823,31 @@ export class ProtocolChangelogGenerator {
         return changes;
     }
 
-    private compareEnumValues(current: string[], previous: string[]) {
-        const currentOrdinals = new Map(current.map((value, ordinal) => [value, ordinal]));
-        const previousOrdinals = new Map(previous.map((value, ordinal) => [value, ordinal]));
+    private compareEnumValues(
+        current: string[],
+        previous: string[],
+        currentBinaryValues?: number[],
+        previousBinaryValues?: number[]
+    ) {
+        const currentEntries = current.map((value, index) => ({
+            ordinal: currentBinaryValues?.[index] ?? index,
+            value,
+        }));
+        const previousEntries = previous.map((value, index) => ({
+            ordinal: previousBinaryValues?.[index] ?? index,
+            value,
+        }));
+        const currentOrdinals = new Map(currentEntries.map(({ ordinal, value }) => [value, ordinal]));
+        const previousOrdinals = new Map(previousEntries.map(({ ordinal, value }) => [value, ordinal]));
         return {
-            added: current.flatMap((value, ordinal) => (previousOrdinals.has(value) ? [] : [{ ordinal, value }])),
-            ordinalChanged: current.flatMap((value, ordinal) => {
+            added: currentEntries.filter(({ value }) => !previousOrdinals.has(value)),
+            ordinalChanged: currentEntries.flatMap(({ ordinal, value }) => {
                 const previousOrdinal = previousOrdinals.get(value);
                 return previousOrdinal !== undefined && previousOrdinal !== ordinal
                     ? [{ ordinal, previousOrdinal, value }]
                     : [];
             }),
-            removed: previous.flatMap((value, ordinal) => (currentOrdinals.has(value) ? [] : [{ ordinal, value }])),
+            removed: previousEntries.filter(({ value }) => !currentOrdinals.has(value)),
         };
     }
 
@@ -930,7 +953,8 @@ export class ProtocolChangelogGenerator {
             const previous = previousByTitle.get(type.title);
             if (!previous) {
                 const changes: ProtocolChange[] = [{ typeAdded: { category: type.category } }];
-                changes.push(...type.enumValues.map((value, ordinal) => ({ typeEnumValueAdded: { ordinal, value } })));
+                const enumChanges = this.compareEnumValues(type.enumValues, [], type.enumBinaryValues);
+                changes.push(...enumChanges.added.map(change => ({ typeEnumValueAdded: change })));
                 added.push({ changes, slug: type.slug, title: type.title });
                 continue;
             }
@@ -940,7 +964,12 @@ export class ProtocolChangelogGenerator {
                     typeCategoryChanged: { category: type.category, previousCategory: previous.category },
                 });
             }
-            const enumChanges = this.compareEnumValues(type.enumValues, previous.enumValues);
+            const enumChanges = this.compareEnumValues(
+                type.enumValues,
+                previous.enumValues,
+                type.enumBinaryValues,
+                previous.enumBinaryValues
+            );
             for (const change of enumChanges.added) {
                 changes.push({ typeEnumValueAdded: change });
             }

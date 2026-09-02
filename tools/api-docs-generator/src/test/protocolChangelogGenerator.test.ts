@@ -268,6 +268,36 @@ describe('ProtocolChangelogGenerator', () => {
         });
     });
 
+    it('uses explicit enum binary values for added, removed, and changed values', () => {
+        const expanded = createRelease('1.2.0', true);
+        const original = createRelease('1.1.0', false);
+        expanded.protocol_schemas[path.resolve('protocol', 'ExampleState.json')]['x-enum-binary-value'] = [0, 10];
+        original.protocol_schemas[path.resolve('protocol', 'ExampleState.json')]['x-enum-binary-value'] = [0];
+
+        const added = new ProtocolChangelogGenerator().generateChangelogs([expanded, original]);
+        const removed = new ProtocolChangelogGenerator().generateChangelogs([original, expanded]);
+
+        expect(added[0].packets.changed[0].changes).toContainEqual({
+            changedType: { slug: 'example-state', title: 'ExampleState' },
+            typeEnumValueAdded: { ordinal: 10, value: 'Ready' },
+        });
+        expect(removed[0].packets.changed[0].changes).toContainEqual({
+            changedType: { slug: 'example-state', title: 'ExampleState' },
+            typeEnumValueRemoved: { ordinal: 10, value: 'Ready' },
+        });
+
+        const changedBackingValue = createRelease('1.2.0', true);
+        changedBackingValue.protocol_schemas[path.resolve('protocol', 'ExampleState.json')]['x-enum-binary-value'] = [
+            0, 20,
+        ];
+        const changed = new ProtocolChangelogGenerator().generateChangelogs([changedBackingValue, expanded]);
+
+        expect(changed[0].packets.changed[0].changes).toContainEqual({
+            changedType: { slug: 'example-state', title: 'ExampleState' },
+            typeEnumValueOrdinalChanged: { ordinal: 20, previousOrdinal: 10, value: 'Ready' },
+        });
+    });
+
     it('includes enum ordinals when values are added or removed', () => {
         const expanded = createRelease('1.2.0', true);
         const original = createRelease('1.1.0', false);

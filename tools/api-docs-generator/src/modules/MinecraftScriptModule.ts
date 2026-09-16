@@ -382,6 +382,7 @@ export const MinecraftFunctionArgumentDetailsRecord = Record({
     default_value: Optional(Unknown.Or(Null)),
     min_value: Optional(Unknown.Or(Null)),
     max_value: Optional(Unknown.Or(Null)),
+    max_length: Optional(Number.Or(Null)),
     supported_values: Optional(Unknown.Or(Null)),
 });
 export type MinecraftFunctionArgumentDetails = Static<typeof MinecraftFunctionArgumentDetailsRecord>;

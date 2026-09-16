@@ -1762,30 +1762,38 @@ function boundValues(releases: MinecraftRelease[]) {
         for (const scriptModule of release.script_modules) {
             const classJson: MinecraftClass[] = scriptModule.classes ?? [];
             const interfaceJson: MinecraftInterface[] = scriptModule.interfaces ?? [];
-            const concatJsonArray: (MinecraftInterface | MinecraftClass)[] = classJson.concat(interfaceJson);
+            const classesAndInterfaces: (MinecraftInterface | MinecraftClass)[] = classJson.concat(interfaceJson);
 
-            for (const concatJson of concatJsonArray) {
-                for (const functionJson of concatJson.functions ?? []) {
-                    for (const argumentJson of functionJson.arguments) {
-                        if (!argumentJson.details) {
-                            continue;
-                        }
+            const moduleFunctions = scriptModule.functions ?? [];
+            const classAndInterfaceMethods = classesAndInterfaces.flatMap(container => container.functions ?? []);
+            const allFunctions = [...moduleFunctions, ...classAndInterfaceMethods];
 
-                        if (argumentJson.details.min_value !== undefined) {
-                            argumentJson.has_minimum = true;
-                        }
+            for (const functionJson of allFunctions) {
+                for (const argumentJson of functionJson.arguments) {
+                    if (!argumentJson.details) {
+                        continue;
+                    }
 
-                        if (argumentJson.details.max_value !== undefined) {
-                            argumentJson.has_maximum = true;
-                        }
+                    if (typeof argumentJson.details.max_length === 'number') {
+                        argumentJson.has_max_length = true;
+                    }
 
-                        if (argumentJson.has_minimum && argumentJson.has_maximum) {
-                            argumentJson.has_bounds = true;
-                        }
+                    if (argumentJson.details.min_value !== undefined) {
+                        argumentJson.has_minimum = true;
+                    }
+
+                    if (argumentJson.details.max_value !== undefined) {
+                        argumentJson.has_maximum = true;
+                    }
+
+                    if (argumentJson.has_minimum && argumentJson.has_maximum) {
+                        argumentJson.has_bounds = true;
                     }
                 }
+            }
 
-                for (const propertyJson of concatJson.properties ?? []) {
+            for (const containerJson of classesAndInterfaces) {
+                for (const propertyJson of containerJson.properties ?? []) {
                     if (typeof propertyJson.max_length === 'number') {
                         propertyJson.has_max_length = true;
                     }

@@ -222,6 +222,38 @@
             },
             "functions": [
                 {
+                    "name": "methodWithMaxLength",
+                    "is_constructor": false,
+                    "call_privilege": [
+                        {
+                            "name": "restricted_execution"
+                        }
+                    ],
+                    "arguments": [
+                        {
+                            "name": "values",
+                            "details": {
+                                "max_length": 10
+                            },
+                            "type": {
+                                "name": "array",
+                                "is_bind_type": false,
+                                "is_errorable": false,
+                                "element_type": {
+                                    "name": "string",
+                                    "is_bind_type": false,
+                                    "is_errorable": false
+                                }
+                            }
+                        }
+                    ],
+                    "return_type": {
+                        "name": "undefined",
+                        "is_bind_type": false,
+                        "is_errorable": false
+                    }
+                },
+                {
                     "arguments": [
                         {
                             "details": {
@@ -367,7 +399,85 @@
             ]
         }
     ],
-
+    "functions": [
+        {
+            "name": "functionWithMaxLength",
+            "is_constructor": false,
+            "call_privilege": [
+                {
+                    "name": "restricted_execution"
+                }
+            ],
+            "arguments": [
+                {
+                    "name": "values",
+                    "details": {
+                        "max_length": 10
+                    },
+                    "type": {
+                        "name": "array",
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "element_type": {
+                            "name": "string",
+                            "is_bind_type": false,
+                            "is_errorable": false
+                        }
+                    }
+                },
+                {
+                    "name": "emptyValues",
+                    "details": {
+                        "max_length": 0
+                    },
+                    "type": {
+                        "name": "array",
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "element_type": {
+                            "name": "string",
+                            "is_bind_type": false,
+                            "is_errorable": false
+                        }
+                    }
+                },
+                {
+                    "name": "nullLimit",
+                    "details": {
+                        "max_length": null
+                    },
+                    "type": {
+                        "name": "array",
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "element_type": {
+                            "name": "string",
+                            "is_bind_type": false,
+                            "is_errorable": false
+                        }
+                    }
+                },
+                {
+                    "name": "noLimit",
+                    "type": {
+                        "name": "array",
+                        "is_bind_type": false,
+                        "is_errorable": false,
+                        "element_type": {
+                            "name": "string",
+                            "is_bind_type": false,
+                            "is_errorable": false
+                        }
+                    }
+                }
+            ],
+            "return_type": {
+                "name": "undefined",
+                "is_bind_type": false,
+                "is_errorable": false
+            }
+        }
+    ],
     "minecraft_version": "1.0.0",
     "name": "bounds-module",
     "uuid": "d79b396f-dc7a-46e0-97c5-a14434ab8dcd",

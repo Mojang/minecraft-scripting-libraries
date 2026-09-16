@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Added documentation for max length function arguments (and other fixes)",
+  "packageName": "@minecraft/api-docs-generator",
+  "email": "jake@xbox.com",
+  "dependentChangeType": "patch"
+}

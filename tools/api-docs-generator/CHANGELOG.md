@@ -1,8 +1,16 @@
 # Change Log - @minecraft/api-docs-generator
 
-<!-- This log was last generated on Wed, 02 Sep 2026 20:57:07 GMT and should not be manually modified. -->
+<!-- This log was last generated on Wed, 16 Sep 2026 19:05:57 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.3.0
+
+Wed, 16 Sep 2026 19:05:57 GMT
+
+### Minor changes
+
+- Added documentation for max length function arguments (and other fixes) (jake@xbox.com)
 
 ## 2.2.0
 

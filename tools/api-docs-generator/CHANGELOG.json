@@ -2,6 +2,21 @@
   "name": "@minecraft/api-docs-generator",
   "entries": [
     {
+      "date": "Wed, 16 Sep 2026 19:05:57 GMT",
+      "version": "2.3.0",
+      "tag": "@minecraft/api-docs-generator_v2.3.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "jake@xbox.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "2dc0efce675d333d41736cbbbae35c27509b5853",
+            "comment": "Added documentation for max length function arguments (and other fixes)"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 02 Sep 2026 20:57:07 GMT",
       "version": "2.2.0",
       "tag": "@minecraft/api-docs-generator_v2.2.0",

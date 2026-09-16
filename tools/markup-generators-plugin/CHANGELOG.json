@@ -2,6 +2,27 @@
   "name": "@minecraft/markup-generators-plugin",
   "entries": [
     {
+      "date": "Wed, 16 Sep 2026 19:05:57 GMT",
+      "version": "2.2.0",
+      "tag": "@minecraft/markup-generators-plugin_v2.2.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "jake@xbox.com",
+            "package": "@minecraft/markup-generators-plugin",
+            "commit": "2dc0efce675d333d41736cbbbae35c27509b5853",
+            "comment": "Added documentation for max length function arguments (and other fixes)"
+          },
+          {
+            "author": "beachball",
+            "package": "@minecraft/markup-generators-plugin",
+            "comment": "Bump @minecraft/api-docs-generator to v2.3.0",
+            "commit": "not available"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 02 Sep 2026 20:57:07 GMT",
       "version": "2.1.0",
       "tag": "@minecraft/markup-generators-plugin_v2.1.0",

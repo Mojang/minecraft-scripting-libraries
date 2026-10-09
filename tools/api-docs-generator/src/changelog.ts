@@ -53,12 +53,39 @@ interface ArrayMetadataScope {
     type: 'array';
     key: string;
     submembers?: Record<string, MetadataScope>;
+    compareOnlyWhenGeneric?: boolean;
+    omitWhenEmpty?: boolean;
 }
 
 const TypeDataLayout: ValueMetadataScope = {
     type: 'value',
     ignoredSubmembers: ['from_module'],
 };
+
+const GenericDeclarationDataLayout: ValueMetadataScope = {
+    type: 'value',
+    ignoredSubmembers: ['from_module'],
+};
+
+function containsGenericApplication(value: unknown): boolean {
+    if (Array.isArray(value)) {
+        return value.some(containsGenericApplication);
+    }
+    if (!value || typeof value !== 'object') {
+        return false;
+    }
+
+    const record = value as Record<string, unknown>;
+    return record.generic_base !== undefined || Object.values(record).some(containsGenericApplication);
+}
+
+function functionHasGenericMetadata(functionJson: Record<string, unknown>): boolean {
+    return (
+        functionJson.generic_function_types !== undefined ||
+        containsGenericApplication(functionJson.arguments) ||
+        containsGenericApplication(functionJson.return_type)
+    );
+}
 
 const VersionDataLayout: ArrayMetadataScope = {
     type: 'array',
@@ -84,6 +111,7 @@ const scriptingDataLayout: RootMetadataScope = {
             type: 'array',
             key: 'name',
             submembers: {
+                generic_class_types: GenericDeclarationDataLayout,
                 properties: {
                     type: 'array',
                     key: 'name',
@@ -101,6 +129,7 @@ const scriptingDataLayout: RootMetadataScope = {
                     type: 'array',
                     key: 'name',
                     submembers: {
+                        generic_function_types: GenericDeclarationDataLayout,
                         arguments: {
                             type: 'array',
                             key: 'name',
@@ -127,10 +156,32 @@ const scriptingDataLayout: RootMetadataScope = {
             type: 'array',
             key: 'name',
             submembers: {
+                generic_class_types: GenericDeclarationDataLayout,
                 properties: {
                     type: 'array',
                     key: 'name',
                     submembers: { is_read_only: { type: 'value' }, type: TypeDataLayout },
+                },
+                functions: {
+                    type: 'array',
+                    key: 'name',
+                    compareOnlyWhenGeneric: true,
+                    omitWhenEmpty: true,
+                    submembers: {
+                        generic_function_types: GenericDeclarationDataLayout,
+                        arguments: {
+                            type: 'array',
+                            key: 'name',
+                            submembers: {
+                                type: TypeDataLayout,
+                                details: {
+                                    type: 'value',
+                                },
+                            },
+                        },
+                        call_privilege: { type: 'array', key: 'name' },
+                        return_type: TypeDataLayout,
+                    },
                 },
             },
         },
@@ -159,6 +210,7 @@ const scriptingDataLayout: RootMetadataScope = {
             type: 'array',
             key: 'name',
             submembers: {
+                generic_function_types: GenericDeclarationDataLayout,
                 arguments: {
                     type: 'array',
                     key: 'name',
@@ -437,20 +489,46 @@ export class ChangelogGenerator {
                 }
                 case 'object':
                 case 'array': {
-                    if (parentObjectChangelog[subObjectKey] === undefined) {
+                    if (!Array.isArray(parentObjectChangelog[subObjectKey])) {
                         parentObjectChangelog[subObjectKey] = [];
                     }
-                    const currentSubobjects = currentObjectData[subObjectKey] ?? [];
-                    const nextSubobjects = nextObjectData[subObjectKey] ?? [];
+                    let currentSubobjects = (currentObjectData[subObjectKey] ?? []) as Array<Record<string, unknown>>;
+                    let nextSubobjects = (nextObjectData[subObjectKey] ?? []) as Array<Record<string, unknown>>;
+                    const arrayLayout = subObjectDataLayout as ArrayMetadataScope;
+                    if (arrayLayout.compareOnlyWhenGeneric) {
+                        const parentHasGenericParameters =
+                            currentObjectData.generic_class_types !== undefined ||
+                            nextObjectData.generic_class_types !== undefined;
+                        const relevantKeys = new Set(
+                            [...currentSubobjects, ...nextSubobjects]
+                                .filter(
+                                    functionJson =>
+                                        parentHasGenericParameters || functionHasGenericMetadata(functionJson)
+                                )
+                                .map(functionJson => functionJson[arrayLayout.key])
+                        );
+                        currentSubobjects = currentSubobjects.filter(functionJson =>
+                            relevantKeys.has(functionJson[arrayLayout.key])
+                        );
+                        nextSubobjects = nextSubobjects.filter(functionJson =>
+                            relevantKeys.has(functionJson[arrayLayout.key])
+                        );
+                    }
 
                     this.compareArray(
                         parentObjectChangelog[subObjectKey] as Array<Record<string, unknown>>,
                         changeLogList,
                         dataLayout,
                         subObjectKey,
-                        currentSubobjects as Array<Record<string, unknown>>,
-                        nextSubobjects as Array<Record<string, unknown>>
+                        currentSubobjects,
+                        nextSubobjects
                     );
+                    if (
+                        (subObjectDataLayout as ArrayMetadataScope).omitWhenEmpty &&
+                        (parentObjectChangelog[subObjectKey] as Array<Record<string, unknown>>).length === 0
+                    ) {
+                        delete parentObjectChangelog[subObjectKey];
+                    }
                     break;
                 }
                 case 'array_deep_copy': {

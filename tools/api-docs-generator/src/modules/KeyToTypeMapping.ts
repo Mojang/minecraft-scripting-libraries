@@ -23,6 +23,7 @@ import {
     MinecraftFunction,
     MinecraftFunctionArgument,
     MinecraftFunctionArgumentDetails,
+    MinecraftGenericTypeParameter,
     MinecraftGeneratorType,
     MinecraftInterface,
     MinecraftModuleDescription,
@@ -50,6 +51,8 @@ export type KeyToTypeMapping = {
     enums: MinecraftEnum[];
     errors: MinecraftError[];
     functions: MinecraftFunction[];
+    generic_class_types: MinecraftGenericTypeParameter[];
+    generic_function_types: MinecraftGenericTypeParameter[];
     interfaces: MinecraftInterface[];
     properties: MinecraftProperty[];
     type_aliases: MinecraftTypeAlias[];
@@ -84,6 +87,10 @@ export type KeyToTypeMapping = {
     value_type: MinecraftType;
     variant_types: MinecraftType[];
     generator_type: MinecraftGeneratorType;
+    generic_base: MinecraftType;
+    generic_types: MinecraftType[];
+    constraint: MinecraftType;
+    default: MinecraftType;
     yield_type: MinecraftType;
     next_type: MinecraftType;
 

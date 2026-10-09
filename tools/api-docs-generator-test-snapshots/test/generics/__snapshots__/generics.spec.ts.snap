@@ -1,0 +1,1641 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`generic metadata > generates ordered declarations, applications, links, and NativeClass support > # Of Files Generated 1`] = `23`;
+
+exports[`generic metadata > generates ordered declarations, applications, links, and NativeClass support > changelog/@minecraft/generic-base.json 1`] = `
+"[
+  {
+    "version": "1.0.0",
+    "$added": true,
+    "name": "@minecraft/generic-base",
+    "uuid": "8f750c76-293d-4be3-a1fe-e3b802e63e70",
+    "minecraft_version": "1.0.0",
+    "module_type": "script",
+    "classes": [
+      {
+        "name": "GenericBase",
+        "type": {
+          "name": "GenericBase",
+          "is_errorable": false,
+          "is_bind_type": true
+        },
+        "generic_class_types": [
+          {
+            "name": "TLeft"
+          },
+          {
+            "name": "TRight"
+          }
+        ],
+        "base_types": [],
+        "properties": [],
+        "functions": []
+      }
+    ],
+    "interfaces": [
+      {
+        "name": "CrossModuleBase",
+        "type": {
+          "name": "CrossModuleBase",
+          "is_errorable": false,
+          "is_bind_type": true
+        },
+        "properties": [],
+        "functions": []
+      },
+      {
+        "name": "BasePair",
+        "type": {
+          "name": "BasePair",
+          "is_errorable": false,
+          "is_bind_type": true
+        },
+        "generic_class_types": [
+          {
+            "name": "TLeft"
+          },
+          {
+            "name": "TRight"
+          }
+        ],
+        "properties": [],
+        "functions": []
+      }
+    ]
+  }
+]"
+`;
+
+exports[`generic metadata > generates ordered declarations, applications, links, and NativeClass support > changelog/@minecraft/generic-fixtures.json 1`] = `
+"[
+  {
+    "version": "1.1.0",
+    "dependencies": [
+      {
+        "name": "@minecraft/generic-base",
+        "uuid": "8f750c76-293d-4be3-a1fe-e3b802e63e70",
+        "versions": []
+      }
+    ],
+    "peer_dependencies": [],
+    "classes": [
+      {
+        "name": "BaseFixture",
+        "type": {
+          "name": "BaseFixture",
+          "is_errorable": false,
+          "is_bind_type": true
+        },
+        "base_types": [],
+        "properties": [],
+        "functions": [],
+        "constants": []
+      },
+      {
+        "name": "DerivedFixture",
+        "type": {
+          "name": "DerivedFixture",
+          "is_errorable": false,
+          "is_bind_type": true
+        },
+        "base_types": [],
+        "properties": [],
+        "functions": [],
+        "constants": []
+      },
+      {
+        "name": "GenericFixture",
+        "type": {
+          "name": "GenericFixture",
+          "is_errorable": false,
+          "is_bind_type": true
+        },
+        "generic_class_types": {
+          "$old": [
+            {
+              "name": "TZebra",
+              "constraint": {
+                "name": "CrossModuleBase",
+                "is_errorable": false,
+                "is_bind_type": true,
+                "from_module": {
+                  "name": "@minecraft/generic-base",
+                  "uuid": "8f750c76-293d-4be3-a1fe-e3b802e63e70",
+                  "version": "1.0.0"
+                }
+              }
+            },
+            {
+              "name": "TAlpha",
+              "default": {
+                "name": "boolean",
+                "is_errorable": false,
+                "is_bind_type": false
+              }
+            }
+          ],
+          "$new": [
+            {
+              "name": "TZebra",
+              "constraint": {
+                "name": "CrossModuleBase",
+                "is_errorable": false,
+                "is_bind_type": true,
+                "from_module": {
+                  "name": "@minecraft/generic-base",
+                  "uuid": "8f750c76-293d-4be3-a1fe-e3b802e63e70",
+                  "version": "1.0.0"
+                }
+              }
+            },
+            {
+              "name": "TAlpha",
+              "default": {
+                "name": "string",
+                "is_errorable": false,
+                "is_bind_type": false
+              }
+            }
+          ],
+          "$changed": true
+        },
+        "base_types": [],
+        "properties": [
+          {
+            "name": "values",
+            "is_read_only": true,
+            "type": {
+              "name": "array",
+              "is_errorable": false,
+              "is_bind_type": false,
+              "element_type": {
+                "name": "TZebra",
+                "is_errorable": false,
+                "is_bind_type": false
+              }
+            },
+            "get_privilege": [],
+            "set_privilege": []
+          },
+          {
+            "name": "pair",
+            "is_read_only": true,
+            "type": {
+              "name": "BasePair<TAlpha, TZebra>",
+              "is_errorable": false,
+              "is_bind_type": false,
+              "generic_base": {
+                "name": "BasePair",
+                "is_errorable": false,
+                "is_bind_type": true,
+                "from_module": {
+                  "name": "@minecraft/generic-base",
+                  "uuid": "8f750c76-293d-4be3-a1fe-e3b802e63e70",
+                  "version": "1.0.0"
+                }
+              },
+              "generic_types": [
+                {
+                  "name": "TAlpha",
+                  "is_errorable": false,
+                  "is_bind_type": false
+                },
+                {
+                  "name": "TZebra",
+                  "is_errorable": false,
+                  "is_bind_type": false
+                }
+              ]
+            },
+            "get_privilege": [],
+            "set_privilege": []
+          }
+        ],
+        "functions": [],
+        "constants": []
+      },
+      {
+        "name": "FixtureRegistry",
+        "type": {
+          "name": "FixtureRegistry",
+          "is_errorable": false,
+          "is_bind_type": true
+        },
+        "base_types": [],
+        "properties": [],
+        "functions": [
+          {
+            "name": "get",
+            "is_constructor": false,
+            "is_static": true,
+            "generic_function_types": [
+              {
+                "name": "TFixture",
+                "constraint": {
+                  "name": "BaseFixture",
+                  "is_errorable": false,
+                  "is_bind_type": true
+                }
+              }
+            ],
+            "arguments": [],
+            "return_type": {
+              "name": "optional",
+              "is_errorable": false,
+              "is_bind_type": false,
+              "optional_type": {
+                "name": "TFixture",
+                "is_errorable": false,
+                "is_bind_type": false
+              }
+            },
+            "call_privilege": []
+          },
+          {
+            "name": "select",
+            "is_constructor": false,
+            "is_static": true,
+            "generic_function_types": {
+              "$old": [
+                {
+                  "name": "TItem",
+                  "constraint": {
+                    "name": "BaseFixture",
+                    "is_errorable": false,
+                    "is_bind_type": true
+                  }
+                }
+              ],
+              "$new": [
+                {
+                  "name": "TItem",
+                  "constraint": {
+                    "name": "CrossModuleBase",
+                    "is_errorable": false,
+                    "is_bind_type": true,
+                    "from_module": {
+                      "name": "@minecraft/generic-base",
+                      "uuid": "8f750c76-293d-4be3-a1fe-e3b802e63e70",
+                      "version": "1.0.0"
+                    }
+                  }
+                }
+              ],
+              "$changed": true
+            },
+            "arguments": [],
+            "return_type": {
+              "name": "TItem",
+              "is_errorable": false,
+              "is_bind_type": false
+            },
+            "call_privilege": []
+          }
+        ],
+        "constants": []
+      },
+      {
+        "name": "GenericDerived",
+        "type": {
+          "name": "GenericDerived",
+          "is_errorable": false,
+          "is_bind_type": true
+        },
+        "generic_class_types": {
+          "$old": [
+            {
+              "name": "TAlpha"
+            },
+            {
+              "name": "TZebra"
+            }
+          ],
+          "$new": [
+            {
+              "name": "TZebra"
+            },
+            {
+              "name": "TAlpha"
+            }
+          ],
+          "$changed": true
+        },
+        "base_types": [
+          {
+            "name": "GenericBase<TAlpha, TZebra>",
+            "$added": true,
+            "is_errorable": false,
+            "is_bind_type": false,
+            "generic_base": {
+              "name": "GenericBase",
+              "is_errorable": false,
+              "is_bind_type": true,
+              "from_module": {
+                "name": "@minecraft/generic-base",
+                "uuid": "8f750c76-293d-4be3-a1fe-e3b802e63e70",
+                "version": "1.0.0"
+              }
+            },
+            "generic_types": [
+              {
+                "name": "TAlpha",
+                "is_errorable": false,
+                "is_bind_type": false
+              },
+              {
+                "name": "TZebra",
+                "is_errorable": false,
+                "is_bind_type": false
+              }
+            ]
+          },
+          {
+            "name": "GenericBase<TZebra, TAlpha>",
+            "$removed": true,
+            "is_errorable": false,
+            "is_bind_type": false,
+            "generic_base": {
+              "name": "GenericBase",
+              "is_errorable": false,
+              "is_bind_type": true,
+              "from_module": {
+                "name": "@minecraft/generic-base",
+                "uuid": "8f750c76-293d-4be3-a1fe-e3b802e63e70",
+                "version": "1.0.0"
+              }
+            },
+            "generic_types": [
+              {
+                "name": "TZebra",
+                "is_errorable": false,
+                "is_bind_type": false
+              },
+              {
+                "name": "TAlpha",
+                "is_errorable": false,
+                "is_bind_type": false
+              }
+            ]
+          }
+        ],
+        "properties": [],
+        "functions": [],
+        "constants": []
+      }
+    ],
+    "interfaces": [
+      {
+        "name": "GenericInterface",
+        "type": {
+          "name": "GenericInterface",
+          "is_errorable": false,
+          "is_bind_type": true
+        },
+        "generic_class_types": {
+          "$old": [
+            {
+              "name": "TAlpha"
+            },
+            {
+              "name": "TZebra"
+            }
+          ],
+          "$new": [
+            {
+              "name": "TZebra"
+            },
+            {
+              "name": "TAlpha"
+            }
+          ],
+          "$changed": true
+        },
+        "properties": [],
+        "functions": [
+          {
+            "name": "convert",
+            "is_constructor": false,
+            "is_static": false,
+            "generic_function_types": {
+              "$old": [
+                {
+                  "name": "TAlpha"
+                },
+                {
+                  "name": "TZebra"
+                }
+              ],
+              "$new": [
+                {
+                  "name": "TZebra"
+                },
+                {
+                  "name": "TAlpha"
+                }
+              ],
+              "$changed": true
+            },
+            "arguments": [],
+            "return_type": {
+              "name": "TAlpha",
+              "is_errorable": false,
+              "is_bind_type": false
+            },
+            "call_privilege": []
+          },
+          {
+            "name": "getCurrent",
+            "is_constructor": false,
+            "is_static": false,
+            "arguments": [],
+            "return_type": {
+              "$old": {
+                "name": "TAlpha",
+                "is_errorable": false,
+                "is_bind_type": false
+              },
+              "$new": {
+                "name": "array",
+                "is_errorable": false,
+                "is_bind_type": false,
+                "element_type": {
+                  "name": "TAlpha",
+                  "is_errorable": false,
+                  "is_bind_type": false
+                }
+              },
+              "$changed": true
+            },
+            "call_privilege": []
+          }
+        ]
+      },
+      {
+        "name": "GenericApplicationInterface",
+        "$added": true,
+        "type": {
+          "name": "GenericApplicationInterface",
+          "is_errorable": false,
+          "is_bind_type": true
+        },
+        "properties": [],
+        "functions": [
+          {
+            "name": "getPair",
+            "is_constructor": false,
+            "is_static": false,
+            "arguments": [],
+            "return_type": {
+              "name": "BasePair<string, boolean>",
+              "is_errorable": false,
+              "is_bind_type": false,
+              "generic_base": {
+                "name": "BasePair",
+                "is_errorable": false,
+                "is_bind_type": true,
+                "from_module": {
+                  "name": "@minecraft/generic-base",
+                  "uuid": "8f750c76-293d-4be3-a1fe-e3b802e63e70",
+                  "version": "1.0.0"
+                }
+              },
+              "generic_types": [
+                {
+                  "name": "string",
+                  "is_errorable": false,
+                  "is_bind_type": false
+                },
+                {
+                  "name": "boolean",
+                  "is_errorable": false,
+                  "is_bind_type": false
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "GenericPropertyInterface",
+        "$added": true,
+        "type": {
+          "name": "GenericPropertyInterface",
+          "is_errorable": false,
+          "is_bind_type": true
+        },
+        "properties": [
+          {
+            "name": "pair",
+            "is_read_only": true,
+            "type": {
+              "name": "BasePair<string, boolean>",
+              "is_errorable": false,
+              "is_bind_type": false,
+              "generic_base": {
+                "name": "BasePair",
+                "is_errorable": false,
+                "is_bind_type": true,
+                "from_module": {
+                  "name": "@minecraft/generic-base",
+                  "uuid": "8f750c76-293d-4be3-a1fe-e3b802e63e70",
+                  "version": "1.0.0"
+                }
+              },
+              "generic_types": [
+                {
+                  "name": "string",
+                  "is_errorable": false,
+                  "is_bind_type": false
+                },
+                {
+                  "name": "boolean",
+                  "is_errorable": false,
+                  "is_bind_type": false
+                }
+              ]
+            }
+          }
+        ],
+        "functions": []
+      }
+    ],
+    "errors": [],
+    "objects": [],
+    "functions": [
+      {
+        "name": "pick",
+        "is_constructor": false,
+        "generic_function_types": {
+          "$old": [
+            {
+              "name": "TAlpha"
+            },
+            {
+              "name": "TZebra"
+            }
+          ],
+          "$new": [
+            {
+              "name": "TZebra"
+            },
+            {
+              "name": "TAlpha"
+            }
+          ],
+          "$changed": true
+        },
+        "arguments": [],
+        "return_type": {
+          "name": "TAlpha",
+          "is_errorable": false,
+          "is_bind_type": false
+        },
+        "call_privilege": []
+      }
+    ],
+    "constants": [],
+    "enums": [],
+    "type_aliases": []
+  },
+  {
+    "version": "1.0.0",
+    "$added": true,
+    "name": "@minecraft/generic-fixtures",
+    "uuid": "e740a8bd-246d-4b7c-87ca-2f381d6b4735",
+    "minecraft_version": "1.0.0",
+    "module_type": "script",
+    "dependencies": [
+      {
+        "name": "@minecraft/generic-base",
+        "uuid": "8f750c76-293d-4be3-a1fe-e3b802e63e70",
+        "versions": [
+          {
+            "version": "1.0.0"
+          }
+        ]
+      }
+    ],
+    "classes": [
+      {
+        "name": "BaseFixture",
+        "type": {
+          "name": "BaseFixture",
+          "is_errorable": false,
+          "is_bind_type": true
+        },
+        "base_types": [],
+        "properties": [],
+        "functions": []
+      },
+      {
+        "name": "DerivedFixture",
+        "type": {
+          "name": "DerivedFixture",
+          "is_errorable": false,
+          "is_bind_type": true
+        },
+        "base_types": [
+          {
+            "name": "BaseFixture",
+            "is_errorable": false,
+            "is_bind_type": true
+          }
+        ],
+        "properties": [],
+        "functions": []
+      },
+      {
+        "name": "GenericFixture",
+        "type": {
+          "name": "GenericFixture",
+          "is_errorable": false,
+          "is_bind_type": true
+        },
+        "generic_class_types": [
+          {
+            "name": "TZebra",
+            "constraint": {
+              "name": "CrossModuleBase",
+              "is_errorable": false,
+              "is_bind_type": true,
+              "from_module": {
+                "name": "@minecraft/generic-base",
+                "uuid": "8f750c76-293d-4be3-a1fe-e3b802e63e70",
+                "version": "1.0.0"
+              }
+            }
+          },
+          {
+            "name": "TAlpha",
+            "default": {
+              "name": "boolean",
+              "is_errorable": false,
+              "is_bind_type": false
+            }
+          }
+        ],
+        "base_types": [],
+        "properties": [
+          {
+            "name": "values",
+            "is_read_only": true,
+            "type": {
+              "name": "array",
+              "is_errorable": false,
+              "is_bind_type": false,
+              "element_type": {
+                "name": "TZebra",
+                "is_errorable": false,
+                "is_bind_type": false
+              }
+            }
+          },
+          {
+            "name": "pair",
+            "is_read_only": true,
+            "type": {
+              "name": "BasePair<TAlpha, TZebra>",
+              "is_errorable": false,
+              "is_bind_type": false,
+              "generic_base": {
+                "name": "BasePair",
+                "is_errorable": false,
+                "is_bind_type": true,
+                "from_module": {
+                  "name": "@minecraft/generic-base",
+                  "uuid": "8f750c76-293d-4be3-a1fe-e3b802e63e70",
+                  "version": "1.0.0"
+                }
+              },
+              "generic_types": [
+                {
+                  "name": "TAlpha",
+                  "is_errorable": false,
+                  "is_bind_type": false
+                },
+                {
+                  "name": "TZebra",
+                  "is_errorable": false,
+                  "is_bind_type": false
+                }
+              ]
+            }
+          }
+        ],
+        "functions": []
+      },
+      {
+        "name": "FixtureRegistry",
+        "type": {
+          "name": "FixtureRegistry",
+          "is_errorable": false,
+          "is_bind_type": true
+        },
+        "base_types": [],
+        "properties": [],
+        "functions": [
+          {
+            "name": "get",
+            "is_constructor": false,
+            "is_static": true,
+            "generic_function_types": [
+              {
+                "name": "TFixture",
+                "constraint": {
+                  "name": "BaseFixture",
+                  "is_errorable": false,
+                  "is_bind_type": true
+                }
+              }
+            ],
+            "arguments": [
+              {
+                "name": "classType",
+                "type": {
+                  "name": "NativeClass<TFixture>",
+                  "is_errorable": false,
+                  "is_bind_type": false,
+                  "generic_base": {
+                    "name": "NativeClass",
+                    "is_errorable": false,
+                    "is_bind_type": false
+                  },
+                  "generic_types": [
+                    {
+                      "name": "TFixture",
+                      "is_errorable": false,
+                      "is_bind_type": false
+                    }
+                  ]
+                }
+              }
+            ],
+            "return_type": {
+              "name": "optional",
+              "is_errorable": false,
+              "is_bind_type": false,
+              "optional_type": {
+                "name": "TFixture",
+                "is_errorable": false,
+                "is_bind_type": false
+              }
+            }
+          },
+          {
+            "name": "select",
+            "is_constructor": false,
+            "is_static": true,
+            "generic_function_types": [
+              {
+                "name": "TItem",
+                "constraint": {
+                  "name": "BaseFixture",
+                  "is_errorable": false,
+                  "is_bind_type": true
+                }
+              }
+            ],
+            "arguments": [
+              {
+                "name": "items",
+                "type": {
+                  "name": "array",
+                  "is_errorable": false,
+                  "is_bind_type": false,
+                  "element_type": {
+                    "name": "TItem",
+                    "is_errorable": false,
+                    "is_bind_type": false
+                  }
+                }
+              }
+            ],
+            "return_type": {
+              "name": "TItem",
+              "is_errorable": false,
+              "is_bind_type": false
+            }
+          }
+        ]
+      },
+      {
+        "name": "GenericDerived",
+        "type": {
+          "name": "GenericDerived",
+          "is_errorable": false,
+          "is_bind_type": true
+        },
+        "generic_class_types": [
+          {
+            "name": "TAlpha"
+          },
+          {
+            "name": "TZebra"
+          }
+        ],
+        "base_types": [
+          {
+            "name": "GenericBase<TZebra, TAlpha>",
+            "is_errorable": false,
+            "is_bind_type": false,
+            "generic_base": {
+              "name": "GenericBase",
+              "is_errorable": false,
+              "is_bind_type": true,
+              "from_module": {
+                "name": "@minecraft/generic-base",
+                "uuid": "8f750c76-293d-4be3-a1fe-e3b802e63e70",
+                "version": "1.0.0"
+              }
+            },
+            "generic_types": [
+              {
+                "name": "TZebra",
+                "is_errorable": false,
+                "is_bind_type": false
+              },
+              {
+                "name": "TAlpha",
+                "is_errorable": false,
+                "is_bind_type": false
+              }
+            ]
+          }
+        ],
+        "properties": [],
+        "functions": []
+      }
+    ],
+    "interfaces": [
+      {
+        "name": "GenericInterface",
+        "type": {
+          "name": "GenericInterface",
+          "is_errorable": false,
+          "is_bind_type": true
+        },
+        "generic_class_types": [
+          {
+            "name": "TAlpha"
+          },
+          {
+            "name": "TZebra"
+          }
+        ],
+        "properties": [],
+        "functions": [
+          {
+            "name": "convert",
+            "is_constructor": false,
+            "is_static": false,
+            "generic_function_types": [
+              {
+                "name": "TAlpha"
+              },
+              {
+                "name": "TZebra"
+              }
+            ],
+            "arguments": [
+              {
+                "name": "value",
+                "type": {
+                  "name": "TZebra",
+                  "is_errorable": false,
+                  "is_bind_type": false
+                }
+              }
+            ],
+            "return_type": {
+              "name": "TAlpha",
+              "is_errorable": false,
+              "is_bind_type": false
+            }
+          },
+          {
+            "name": "getCurrent",
+            "is_constructor": false,
+            "is_static": false,
+            "arguments": [],
+            "return_type": {
+              "name": "TAlpha",
+              "is_errorable": false,
+              "is_bind_type": false
+            }
+          }
+        ]
+      }
+    ],
+    "functions": [
+      {
+        "name": "pick",
+        "is_constructor": false,
+        "generic_function_types": [
+          {
+            "name": "TAlpha"
+          },
+          {
+            "name": "TZebra"
+          }
+        ],
+        "arguments": [
+          {
+            "name": "value",
+            "type": {
+              "name": "TZebra",
+              "is_errorable": false,
+              "is_bind_type": false
+            }
+          }
+        ],
+        "return_type": {
+          "name": "TAlpha",
+          "is_errorable": false,
+          "is_bind_type": false
+        }
+      }
+    ]
+  }
+]"
+`;
+
+exports[`generic metadata > generates ordered declarations, applications, links, and NativeClass support > msdocs/scriptapi/TOC.yml 1`] = `
+"  - name: minecraft/generic-base
+    items:
+    - name: minecraft/generic-base
+      href: minecraft/generic-base/minecraft-generic-base.md
+    - name: minecraft/generic-base Changelog
+      href: minecraft/generic-base/changelog.md
+    - name: GenericBase
+      href: minecraft/generic-base/GenericBase.md
+    - name: BasePair
+      href: minecraft/generic-base/BasePair.md
+    - name: CrossModuleBase
+      href: minecraft/generic-base/CrossModuleBase.md
+  - name: minecraft/generic-fixtures
+    items:
+    - name: minecraft/generic-fixtures
+      href: minecraft/generic-fixtures/minecraft-generic-fixtures.md
+    - name: minecraft/generic-fixtures Changelog
+      href: minecraft/generic-fixtures/changelog.md
+    - name: BaseFixture
+      href: minecraft/generic-fixtures/BaseFixture.md
+    - name: DerivedFixture
+      href: minecraft/generic-fixtures/DerivedFixture.md
+    - name: FixtureRegistry
+      href: minecraft/generic-fixtures/FixtureRegistry.md
+    - name: GenericDerived
+      href: minecraft/generic-fixtures/GenericDerived.md
+    - name: GenericFixture
+      href: minecraft/generic-fixtures/GenericFixture.md
+    - name: GenericApplicationInterface
+      href: minecraft/generic-fixtures/GenericApplicationInterface.md
+    - name: GenericInterface
+      href: minecraft/generic-fixtures/GenericInterface.md
+    - name: GenericPropertyInterface
+      href: minecraft/generic-fixtures/GenericPropertyInterface.md
+"
+`;
+
+exports[`generic metadata > generates ordered declarations, applications, links, and NativeClass support > msdocs/scriptapi/minecraft/generic-base/BasePair.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: minecraft/generic-base.BasePair Interface
+description: Contents of the @minecraft/generic-base.BasePair class.
+---
+# BasePair&lt;TLeft, TRight&gt; Interface
+"
+`;
+
+exports[`generic metadata > generates ordered declarations, applications, links, and NativeClass support > msdocs/scriptapi/minecraft/generic-base/CrossModuleBase.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: minecraft/generic-base.CrossModuleBase Interface
+description: Contents of the @minecraft/generic-base.CrossModuleBase class.
+---
+# CrossModuleBase Interface
+"
+`;
+
+exports[`generic metadata > generates ordered declarations, applications, links, and NativeClass support > msdocs/scriptapi/minecraft/generic-base/GenericBase.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: minecraft/generic-base.GenericBase Class
+description: Contents of the @minecraft/generic-base.GenericBase class.
+---
+# GenericBase&lt;TLeft, TRight&gt; Class
+
+## Classes that extend GenericBase
+- [*@minecraft/generic-fixtures.GenericDerived*](../../../scriptapi/minecraft/generic-fixtures/GenericDerived.md)
+"
+`;
+
+exports[`generic metadata > generates ordered declarations, applications, links, and NativeClass support > msdocs/scriptapi/minecraft/generic-base/changelog.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: minecraft/generic-base Changelog
+description: Changelog of the \`@minecraft/generic-base\` module
+---
+# \`@minecraft/generic-base\` Changelog
+
+## Version Changes
+- [1.0.0](#100)
+
+## 1.0.0
+#### Added \`@minecraft/generic-base\` Module
+"
+`;
+
+exports[`generic metadata > generates ordered declarations, applications, links, and NativeClass support > msdocs/scriptapi/minecraft/generic-base/minecraft-generic-base.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: minecraft/generic-base Module
+description: Contents of the @minecraft/generic-base module
+---
+# \`@minecraft/generic-base\` Module
+
+## [Changelog](changelog.md)
+
+## Manifest Details
+\`\`\`json
+{
+    "module_name": "@minecraft/generic-base",
+    "version": "1.0.0"
+}
+\`\`\`
+This is version 1.x.x of this module, which is the latest as of version 1.0.0 of Minecraft.
+
+## Available Versions
+- \`1.0.0\`
+
+## Classes
+- [GenericBase](GenericBase.md)
+
+## Interfaces
+- [BasePair](BasePair.md)
+- [CrossModuleBase](CrossModuleBase.md)
+"
+`;
+
+exports[`generic metadata > generates ordered declarations, applications, links, and NativeClass support > msdocs/scriptapi/minecraft/generic-fixtures/BaseFixture.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: minecraft/generic-fixtures.BaseFixture Class
+description: Contents of the @minecraft/generic-fixtures.BaseFixture class.
+---
+# BaseFixture Class
+
+## Classes that extend BaseFixture
+- [*DerivedFixture*](DerivedFixture.md)
+"
+`;
+
+exports[`generic metadata > generates ordered declarations, applications, links, and NativeClass support > msdocs/scriptapi/minecraft/generic-fixtures/DerivedFixture.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: minecraft/generic-fixtures.DerivedFixture Class
+description: Contents of the @minecraft/generic-fixtures.DerivedFixture class.
+---
+# DerivedFixture Class
+
+## Extends
+- [*BaseFixture*](BaseFixture.md)
+"
+`;
+
+exports[`generic metadata > generates ordered declarations, applications, links, and NativeClass support > msdocs/scriptapi/minecraft/generic-fixtures/FixtureRegistry.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: minecraft/generic-fixtures.FixtureRegistry Class
+description: Contents of the @minecraft/generic-fixtures.FixtureRegistry class.
+---
+# FixtureRegistry Class
+
+## Methods
+- [get](#get)
+- [select](#select)
+
+### **get**
+\`
+static get<TFixture extends BaseFixture>(classType: NativeClass<TFixture>): TFixture | undefined
+\`
+
+#### **Parameters**
+- **classType**: *NativeClass*&lt;*TFixture*&gt;
+
+**Returns** *TFixture* | *undefined*
+  
+Notes:
+- This function can't be called in restricted-execution mode.
+
+### **select**
+\`
+static select<TItem extends minecraftgenericbase.CrossModuleBase>(items: TItem[]): TItem
+\`
+
+#### **Parameters**
+- **items**: *TItem*[]
+
+**Returns** *TItem*
+  
+Notes:
+- This function can't be called in restricted-execution mode.
+"
+`;
+
+exports[`generic metadata > generates ordered declarations, applications, links, and NativeClass support > msdocs/scriptapi/minecraft/generic-fixtures/GenericApplicationInterface.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: minecraft/generic-fixtures.GenericApplicationInterface Interface
+description: Contents of the @minecraft/generic-fixtures.GenericApplicationInterface class.
+---
+# GenericApplicationInterface Interface
+
+## Methods
+- [getPair](#getpair)
+
+### **getPair**
+\`
+getPair(): minecraftgenericbase.BasePair<string, boolean>
+\`
+
+**Returns** [*@minecraft/generic-base.BasePair*](../../../scriptapi/minecraft/generic-base/BasePair.md)&lt;*string*, *boolean*&gt;
+"
+`;
+
+exports[`generic metadata > generates ordered declarations, applications, links, and NativeClass support > msdocs/scriptapi/minecraft/generic-fixtures/GenericDerived.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: minecraft/generic-fixtures.GenericDerived Class
+description: Contents of the @minecraft/generic-fixtures.GenericDerived class.
+---
+# GenericDerived&lt;TZebra, TAlpha&gt; Class
+
+## Extends
+- [*@minecraft/generic-base.GenericBase*](../../../scriptapi/minecraft/generic-base/GenericBase.md)&lt;*TAlpha*, *TZebra*&gt;
+"
+`;
+
+exports[`generic metadata > generates ordered declarations, applications, links, and NativeClass support > msdocs/scriptapi/minecraft/generic-fixtures/GenericFixture.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: minecraft/generic-fixtures.GenericFixture Class
+description: Contents of the @minecraft/generic-fixtures.GenericFixture class.
+---
+# GenericFixture&lt;TZebra extends [*@minecraft/generic-base.CrossModuleBase*](../../../scriptapi/minecraft/generic-base/CrossModuleBase.md), TAlpha = *string*&gt; Class
+
+## Properties
+
+### **pair**
+\`read-only pair: minecraftgenericbase.BasePair<TAlpha, TZebra>;\`
+
+Type: [*@minecraft/generic-base.BasePair*](../../../scriptapi/minecraft/generic-base/BasePair.md)&lt;*TAlpha*, *TZebra*&gt;
+
+### **values**
+\`read-only values: TZebra[];\`
+
+Type: *TZebra*[]
+"
+`;
+
+exports[`generic metadata > generates ordered declarations, applications, links, and NativeClass support > msdocs/scriptapi/minecraft/generic-fixtures/GenericInterface.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: minecraft/generic-fixtures.GenericInterface Interface
+description: Contents of the @minecraft/generic-fixtures.GenericInterface class.
+---
+# GenericInterface&lt;TZebra, TAlpha&gt; Interface
+
+## Methods
+- [convert](#convert)
+- [getCurrent](#getcurrent)
+
+### **convert**
+\`
+convert<TZebra, TAlpha>(value: TZebra): TAlpha
+\`
+
+#### **Parameters**
+- **value**: *TZebra*
+
+**Returns** *TAlpha*
+
+### **getCurrent**
+\`
+getCurrent(): TAlpha[]
+\`
+
+**Returns** *TAlpha*[]
+"
+`;
+
+exports[`generic metadata > generates ordered declarations, applications, links, and NativeClass support > msdocs/scriptapi/minecraft/generic-fixtures/GenericPropertyInterface.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: minecraft/generic-fixtures.GenericPropertyInterface Interface
+description: Contents of the @minecraft/generic-fixtures.GenericPropertyInterface class.
+---
+# GenericPropertyInterface Interface
+
+## Properties
+
+### **pair**
+\`read-only pair: minecraftgenericbase.BasePair<string, boolean>;\`
+
+Type: [*@minecraft/generic-base.BasePair*](../../../scriptapi/minecraft/generic-base/BasePair.md)&lt;*string*, *boolean*&gt;
+"
+`;
+
+exports[`generic metadata > generates ordered declarations, applications, links, and NativeClass support > msdocs/scriptapi/minecraft/generic-fixtures/changelog.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: minecraft/generic-fixtures Changelog
+description: Changelog of the \`@minecraft/generic-fixtures\` module
+---
+# \`@minecraft/generic-fixtures\` Changelog
+
+## Version Changes
+- [1.1.0](#110)
+- [1.0.0](#100)
+
+## 1.1.0
+#### Changed *[\`FixtureRegistry\`](FixtureRegistry.md)*
+- Changed function *[\`select\`](FixtureRegistry.md#select)*
+  - Changed generic type parameters from &lt;TItem extends [*BaseFixture*](BaseFixture.md)&gt; to &lt;TItem extends [*@minecraft/generic-base.CrossModuleBase*](../../../scriptapi/minecraft/generic-base/CrossModuleBase.md)&gt;
+#### Changed *[\`GenericDerived\`](GenericDerived.md)*
+- Changed generic type parameters from &lt;TAlpha, TZebra&gt; to &lt;TZebra, TAlpha&gt;
+- Added base class [*@minecraft/generic-base.GenericBase*](../../../scriptapi/minecraft/generic-base/GenericBase.md)&lt;*TAlpha*, *TZebra*&gt;
+- Removed base class *GenericBase<TZebra, TAlpha>*
+#### Changed *[\`GenericFixture\`](GenericFixture.md)*
+- Changed generic type parameters from &lt;TZebra extends [*@minecraft/generic-base.CrossModuleBase*](../../../scriptapi/minecraft/generic-base/CrossModuleBase.md), TAlpha = *boolean*&gt; to &lt;TZebra extends [*@minecraft/generic-base.CrossModuleBase*](../../../scriptapi/minecraft/generic-base/CrossModuleBase.md), TAlpha = *string*&gt;
+#### Added *[\`GenericApplicationInterface\`](GenericApplicationInterface.md)*
+#### Changed *[\`GenericInterface\`](GenericInterface.md)*
+- Changed generic type parameters from &lt;TAlpha, TZebra&gt; to &lt;TZebra, TAlpha&gt;
+#### Changed function *[\`convert\`](GenericInterface.md#convert)*
+- Changed generic type parameters from &lt;TAlpha, TZebra&gt; to &lt;TZebra, TAlpha&gt;
+#### Changed function *[\`getCurrent\`](GenericInterface.md#getcurrent)*
+- Changed return type from *TAlpha* to *TAlpha*[]
+#### Added *[\`GenericPropertyInterface\`](GenericPropertyInterface.md)*
+#### Changed function \`pick\`
+- Changed generic type parameters from &lt;TAlpha, TZebra&gt; to &lt;TZebra, TAlpha&gt;
+## 1.0.0
+#### Added \`@minecraft/generic-fixtures\` Module
+"
+`;
+
+exports[`generic metadata > generates ordered declarations, applications, links, and NativeClass support > msdocs/scriptapi/minecraft/generic-fixtures/minecraft-generic-fixtures.md 1`] = `
+"---
+# DO NOT TOUCH — This file was automatically generated by @minecraft/api-docs-generator, to report problems file an issue at https://github.com/Mojang/minecraft-scripting-libraries
+author: jakeshirley
+ms.author: jashir
+ms.service: minecraft-bedrock-edition
+ms.date: 02/10/2025
+title: minecraft/generic-fixtures Module
+description: Contents of the @minecraft/generic-fixtures module
+---
+# \`@minecraft/generic-fixtures\` Module
+
+## [Changelog](changelog.md)
+
+## Manifest Details
+\`\`\`json
+{
+    "module_name": "@minecraft/generic-fixtures",
+    "version": "1.1.0"
+}
+\`\`\`
+This is version 1.x.x of this module, which is the latest as of version 1.0.0 of Minecraft.
+
+## Available Versions
+- \`1.1.0\`
+- \`1.0.0\`
+
+## Classes
+- [BaseFixture](BaseFixture.md)
+- [DerivedFixture](DerivedFixture.md)
+- [FixtureRegistry](FixtureRegistry.md)
+- [GenericDerived](GenericDerived.md)
+- [GenericFixture](GenericFixture.md)
+
+## Interfaces
+- [GenericApplicationInterface](GenericApplicationInterface.md)
+- [GenericInterface](GenericInterface.md)
+- [GenericPropertyInterface](GenericPropertyInterface.md)
+
+## Functions
+
+### **pick**
+\`
+pick<TZebra, TAlpha>(value: TZebra): TAlpha
+\`
+
+#### **Parameters**
+- **value**: *TZebra*
+
+**Returns** *TAlpha*
+  
+Notes:
+- This function can't be called in restricted-execution mode.
+
+## Dependencies
+- [\`@minecraft/generic-base\`](../../../scriptapi/minecraft/generic-base/minecraft-generic-base.md)
+"
+`;
+
+exports[`generic metadata > generates ordered declarations, applications, links, and NativeClass support > txt/@minecraft/generic-base.txt 1`] = `
+"\`@minecraft/generic-base\`
+
+== Change Log ==
+=== 1.0.0 ===
+- Added \`@minecraft/generic-base\` module
+
+== /Change Log =="
+`;
+
+exports[`generic metadata > generates ordered declarations, applications, links, and NativeClass support > txt/@minecraft/generic-fixtures.txt 1`] = `
+"\`@minecraft/generic-fixtures\`
+
+== Change Log ==
+=== 1.1.0 ===
+- Changed class \`FixtureRegistry\`
+    - Changed function \`select\`
+      - Changed generic type parameters from \`<TItem extends BaseFixture>\` to \`<TItem extends minecraftgenericbase.CrossModuleBase>\`
+- Changed class \`GenericDerived\`
+    - Changed generic type parameters from \`<TAlpha, TZebra>\` to \`<TZebra, TAlpha>\`
+    - Added base class \`*minecraftgenericbase.GenericBase<TAlpha, TZebra>*\`
+    - Removed base class \`*GenericBase<TZebra, TAlpha>*\`
+- Changed class \`GenericFixture\`
+    - Changed generic type parameters from \`<TZebra extends minecraftgenericbase.CrossModuleBase, TAlpha = boolean>\` to \`<TZebra extends minecraftgenericbase.CrossModuleBase, TAlpha = string>\`
+- Added interface \`GenericApplicationInterface\`
+  \`\`\`ts
+  export interface GenericApplicationInterface {
+    getPair(): minecraftgenericbase.BasePair<string, boolean>;
+  }
+
+  \`\`\`
+- Changed interface \`GenericInterface\`
+    - Changed generic type parameters from \`<TAlpha, TZebra>\` to \`<TZebra, TAlpha>\`
+    - Changed function \`convert\`
+      - Changed generic type parameters from \`<TAlpha, TZebra>\` to \`<TZebra, TAlpha>\`
+    - Changed function \`getCurrent\`
+      - Changed return type from \`*TAlpha*\` to \`*TAlpha[]*\`
+- Added interface \`GenericPropertyInterface\`
+  \`\`\`ts
+  export interface GenericPropertyInterface {
+    readonly pair: minecraftgenericbase.BasePair<string, boolean>;
+  }
+
+  \`\`\`
+- Changed function \`pick\`
+  - Changed generic type parameters from \`<TAlpha, TZebra>\` to \`<TZebra, TAlpha>\`
+
+=== 1.0.0 ===
+- Added \`@minecraft/generic-fixtures\` module
+
+== /Change Log =="
+`;
+
+exports[`generic metadata > generates ordered declarations, applications, links, and NativeClass support > typescript/@minecraft/generic-base@1.0.0.d.ts 1`] = `
+"// Type definitions for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+/**
+ * @packageDocumentation
+ *
+ * Manifest Details
+ * \`\`\`json
+ * {
+ *   "module_name": "@minecraft/generic-base",
+ *   "version": "1.0.0"
+ * }
+ * \`\`\`
+ *
+ */
+export class GenericBase<TLeft, TRight> {
+    private constructor();
+}
+
+export interface BasePair<TLeft, TRight> {}
+
+export interface CrossModuleBase {}
+"
+`;
+
+exports[`generic metadata > generates ordered declarations, applications, links, and NativeClass support > typescript/@minecraft/generic-fixtures@1.0.0.d.ts 1`] = `
+"// Type definitions for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+/**
+ * @packageDocumentation
+ *
+ * Manifest Details
+ * \`\`\`json
+ * {
+ *   "module_name": "@minecraft/generic-fixtures",
+ *   "version": "1.0.0"
+ * }
+ * \`\`\`
+ *
+ */
+import * as minecraftgenericbase from '@minecraft/generic-base';
+export interface NativeClass<T> {
+    readonly prototype: T;
+}
+export class BaseFixture {
+    private constructor();
+}
+
+// @ts-ignore Class inheritance allowed for native defined classes
+export class DerivedFixture extends BaseFixture {
+    private constructor();
+}
+
+export class FixtureRegistry {
+    private constructor();
+    /**
+     * @remarks
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     */
+    static get<TFixture extends BaseFixture>(classType: NativeClass<TFixture>): TFixture | undefined;
+    /**
+     * @remarks
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     */
+    static select<TItem extends BaseFixture>(items: TItem[]): TItem;
+}
+
+// @ts-ignore Class inheritance allowed for native defined classes
+export class GenericDerived<TAlpha, TZebra> extends minecraftgenericbase.GenericBase<TZebra, TAlpha> {
+    private constructor();
+}
+
+export class GenericFixture<TZebra extends minecraftgenericbase.CrossModuleBase, TAlpha = boolean> {
+    private constructor();
+    readonly pair: minecraftgenericbase.BasePair<TAlpha, TZebra>;
+    readonly values: TZebra[];
+}
+
+export interface GenericInterface<TAlpha, TZebra> {
+    convert<TAlpha, TZebra>(value: TZebra): TAlpha;
+    getCurrent(): TAlpha;
+}
+
+/**
+ * @remarks
+ * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+ *
+ */
+export function pick<TAlpha, TZebra>(value: TZebra): TAlpha;
+"
+`;
+
+exports[`generic metadata > generates ordered declarations, applications, links, and NativeClass support > typescript/@minecraft/generic-fixtures@1.1.0.d.ts 1`] = `
+"// Type definitions for Minecraft Bedrock Edition script APIs
+// Project: https://docs.microsoft.com/minecraft/creator/
+// Definitions by: Jake Shirley <https://github.com/JakeShirley>
+//                 Mike Ammerlaan <https://github.com/mammerla>
+
+/* *****************************************************************************
+   Copyright (c) Microsoft Corporation.
+   ***************************************************************************** */
+/**
+ * @packageDocumentation
+ *
+ * Manifest Details
+ * \`\`\`json
+ * {
+ *   "module_name": "@minecraft/generic-fixtures",
+ *   "version": "1.1.0"
+ * }
+ * \`\`\`
+ *
+ */
+import * as minecraftgenericbase from '@minecraft/generic-base';
+export interface NativeClass<T> {
+    readonly prototype: T;
+}
+export class BaseFixture {
+    private constructor();
+}
+
+// @ts-ignore Class inheritance allowed for native defined classes
+export class DerivedFixture extends BaseFixture {
+    private constructor();
+}
+
+export class FixtureRegistry {
+    private constructor();
+    /**
+     * @remarks
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     */
+    static get<TFixture extends BaseFixture>(classType: NativeClass<TFixture>): TFixture | undefined;
+    /**
+     * @remarks
+     * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+     *
+     */
+    static select<TItem extends minecraftgenericbase.CrossModuleBase>(items: TItem[]): TItem;
+}
+
+// @ts-ignore Class inheritance allowed for native defined classes
+export class GenericDerived<TZebra, TAlpha> extends minecraftgenericbase.GenericBase<TAlpha, TZebra> {
+    private constructor();
+}
+
+export class GenericFixture<TZebra extends minecraftgenericbase.CrossModuleBase, TAlpha = string> {
+    private constructor();
+    readonly pair: minecraftgenericbase.BasePair<TAlpha, TZebra>;
+    readonly values: TZebra[];
+}
+
+export interface GenericApplicationInterface {
+    getPair(): minecraftgenericbase.BasePair<string, boolean>;
+}
+
+export interface GenericInterface<TZebra, TAlpha> {
+    convert<TZebra, TAlpha>(value: TZebra): TAlpha;
+    getCurrent(): TAlpha[];
+}
+
+export interface GenericPropertyInterface {
+    readonly pair: minecraftgenericbase.BasePair<string, boolean>;
+}
+
+/**
+ * @remarks
+ * @privilege no-restricted-execution - This function can't be called in restricted-execution mode.
+ *
+ */
+export function pick<TZebra, TAlpha>(value: TZebra): TAlpha;
+"
+`;

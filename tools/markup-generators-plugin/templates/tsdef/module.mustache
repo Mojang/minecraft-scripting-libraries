@@ -32,6 +32,10 @@ import * as {{{variable_name}}} from "{{{name}}}";
 import type * as {{{variable_name}}} from "{{{name}}}";
   {{/types_only}}
 {{/peer_dependencies}}
+{{#uses_native_class}}
+{{> native_class}}
+
+{{/uses_native_class}}
 {{#enums}}
 {{> enum}}
 

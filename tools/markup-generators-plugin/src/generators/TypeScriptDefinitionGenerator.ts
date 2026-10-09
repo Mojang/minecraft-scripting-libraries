@@ -45,7 +45,9 @@ export class TypeScriptDefinitionGenerator implements MarkupGenerator {
                 property_declaration: tsTemplateFiles.readFileAsString('property_declaration.mustache'),
                 class: tsTemplateFiles.readFileAsString('class.mustache'),
                 enum: tsTemplateFiles.readFileAsString('enum.mustache'),
+                generic_declaration: tsTemplateFiles.readFileAsString('generic_declaration.mustache').trimEnd(),
                 module_header: tsTemplateFiles.readFileAsString('module_header.mustache'),
+                native_class: tsTemplateFiles.readFileAsString('native_class.mustache').trimEnd(),
                 type_alias: tsTemplateFiles.readFileAsString('type_alias.mustache'),
                 function_argument_declaration: tsTemplateFiles.readFileAsString(
                     'function_argument_declaration.mustache'

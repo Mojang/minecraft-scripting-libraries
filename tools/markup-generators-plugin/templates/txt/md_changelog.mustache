@@ -20,6 +20,9 @@
   {{/$removed}}
   {{#has_changes}}{{^$added}}{{^$removed}}
 - Changed class `{{{name}}}`
+{{#generic_class_types}}{{#$changed}}
+    - Changed generic type parameters from `{{#$old.length}}<{{#$old}}{{> generic_declaration}}{{^is_last}}, {{/is_last}}{{/$old}}>{{/$old.length}}{{^$old.length}}none{{/$old.length}}` to `{{#$new.length}}<{{#$new}}{{> generic_declaration}}{{^is_last}}, {{/is_last}}{{/$new}}>{{/$new.length}}{{^$new.length}}none{{/$new.length}}`
+{{/$changed}}{{/generic_class_types}}
   {{#base_types}}
     {{#$added}}
     - Added base class `*{{> type}}*`
@@ -71,6 +74,9 @@
       {{/$removed}}
       {{#has_changes}}{{^$added}}{{^$removed}}
     - Changed function `{{{name}}}`
+{{#generic_function_types}}{{#$changed}}
+      - Changed generic type parameters from `{{#$old.length}}<{{#$old}}{{> generic_declaration}}{{^is_last}}, {{/is_last}}{{/$old}}>{{/$old.length}}{{^$old.length}}none{{/$old.length}}` to `{{#$new.length}}<{{#$new}}{{> generic_declaration}}{{^is_last}}, {{/is_last}}{{/$new}}>{{/$new.length}}{{^$new.length}}none{{/$new.length}}`
+{{/$changed}}{{/generic_function_types}}
         {{#return_type}}
           {{#$changed}}
       - Changed return type from {{#$old.return_type}}`*{{> type}}*`{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$old.return_type}} to {{#$new.return_type}}`*{{> type}}*`{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$new.return_type}}
@@ -107,6 +113,9 @@
   {{/$removed}}
   {{#has_changes}}{{^$added}}{{^$removed}}
 - Changed interface `{{{name}}}`
+{{#generic_class_types}}{{#$changed}}
+    - Changed generic type parameters from `{{#$old.length}}<{{#$old}}{{> generic_declaration}}{{^is_last}}, {{/is_last}}{{/$old}}>{{/$old.length}}{{^$old.length}}none{{/$old.length}}` to `{{#$new.length}}<{{#$new}}{{> generic_declaration}}{{^is_last}}, {{/is_last}}{{/$new}}>{{/$new.length}}{{^$new.length}}none{{/$new.length}}`
+{{/$changed}}{{/generic_class_types}}
   {{#properties}}
     {{#$added}}
     - Added property `{{{name}}}`
@@ -131,6 +140,40 @@
       {{/$changed}}
     {{/type}}
   {{/properties}}
+  {{#functions}}
+{{#has_generic_metadata}}
+    {{#$added}}
+    - Added function `{{{name}}}`
+    {{/$added}}
+    {{#$removed}}
+    - Removed function `{{{name}}}`
+    {{/$removed}}
+    {{#has_changes}}{{^$added}}{{^$removed}}
+    - Changed function `{{{name}}}`
+{{#generic_function_types}}{{#$changed}}
+      - Changed generic type parameters from `{{#$old.length}}<{{#$old}}{{> generic_declaration}}{{^is_last}}, {{/is_last}}{{/$old}}>{{/$old.length}}{{^$old.length}}none{{/$old.length}}` to `{{#$new.length}}<{{#$new}}{{> generic_declaration}}{{^is_last}}, {{/is_last}}{{/$new}}>{{/$new.length}}{{^$new.length}}none{{/$new.length}}`
+{{/$changed}}{{/generic_function_types}}
+      {{#return_type}}
+        {{#$changed}}
+      - Changed return type from {{#$old.return_type}}`*{{> type}}*`{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$old.return_type}} to {{#$new.return_type}}`*{{> type}}*`{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$new.return_type}}
+        {{/$changed}}
+      {{/return_type}}
+      {{#arguments}}
+        {{#$added}}
+      - Added argument `{{{name}}}`
+        {{/$added}}
+        {{#$removed}}
+      - Removed argument `{{{name}}}`
+        {{/$removed}}
+        {{#type}}{{^$added}}{{^$removed}}
+          {{#$changed}}
+      - Changed argument `{{{name}}}` type from {{#$old.type}}`*{{> type}}*`{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$old.type}} to {{#$new.type}}`*{{> type}}*`{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$new.type}}
+          {{/$changed}}
+        {{/$removed}}{{/$added}}{{/type}}
+      {{/arguments}}
+    {{/$removed}}{{/$added}}{{/has_changes}}
+{{/has_generic_metadata}}
+  {{/functions}}
   {{/$removed}}{{/$added}}{{/has_changes}}
 {{/interfaces}}
 {{#functions}}
@@ -142,6 +185,9 @@
   {{/$removed}}
   {{#has_changes}}{{^$added}}{{^$removed}}
 - Changed function `{{{name}}}`
+{{#generic_function_types}}{{#$changed}}
+  - Changed generic type parameters from `{{#$old.length}}<{{#$old}}{{> generic_declaration}}{{^is_last}}, {{/is_last}}{{/$old}}>{{/$old.length}}{{^$old.length}}none{{/$old.length}}` to `{{#$new.length}}<{{#$new}}{{> generic_declaration}}{{^is_last}}, {{/is_last}}{{/$new}}>{{/$new.length}}{{^$new.length}}none{{/$new.length}}`
+{{/$changed}}{{/generic_function_types}}
     {{#return_type}}
       {{#$changed}}
   - Changed return type from {{#$old.return_type}}`*{{> type}}*`{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$old.return_type}} to {{#$new.return_type}}`*{{> type}}*`{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$new.return_type}}

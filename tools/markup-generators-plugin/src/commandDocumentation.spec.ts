@@ -72,8 +72,10 @@ describe('Command documentation', () => {
                 overload: 1,
             })
         );
-        writeInfo(['command_types', 'target'], { description: 'Select a player using `@s`.' });
-        writeInfo(['command_types', 'int'], { description: 'An integer.' });
+        writeInfo(['command_types', 'target'], { description: 'Unused primitive metadata.' });
+        const typeExamplesDirectory = path.join(docsDirectory, 'test-commands', 'command_types', 'target', '_examples');
+        fs.mkdirSync(typeExamplesDirectory);
+        fs.writeFileSync(path.join(typeExamplesDirectory, 'ignored.json'), '{');
         const module: MinecraftCommandModule = {
             name: 'test-commands',
             module_type: 'commands',
@@ -173,18 +175,22 @@ describe('Command documentation', () => {
         expect(give).toContain('`/give <player: target> <itemName: Item> [amount: int] [components: json]`');
         expect(give).toContain('### Give items');
         expect(give).toContain('| Argument | Type | Required | Description |');
-        expect(give).toContain('| `player` | [target](../types/target.md) | Required | A **player** or `selector`. |');
-        expect(give).toContain('| `player` | [target](../types/target.md) | Optional | A **player** or `selector`. |');
+        expect(give).toContain(
+            '| `player` | [target](../../CommandTypes/target.md) | Required | A **player** or `selector`. |'
+        );
+        expect(give).toContain(
+            '| `player` | [target](../../CommandTypes/target.md) | Optional | A **player** or `selector`. |'
+        );
         expect(give.indexOf('| `player`')).toBeLessThan(give.indexOf('| `itemName`'));
         expect(give.indexOf('| `itemName`')).toBeLessThan(give.indexOf('| `amount`'));
     });
 
     it('documents every overload and escapes table descriptions without losing Markdown', () => {
         expect(give.match(/\| Optional \| Use `1\\\|2`\.<br>Default: `1`\. \|/g)).toHaveLength(2);
-        expect(give).toContain('| `amount` | [string](../types/string.md) | Required | A textual amount. |');
+        expect(give).toContain('| `amount` | [string](../../CommandTypes/string.md) | Required | A textual amount. |');
         const reference = give.slice(give.indexOf('## Arguments Reference'));
-        expect(reference).toContain('| `amount` | [int](../types/int.md) | Use `1\\|2`.<br>Default: `1`. |');
-        expect(reference).toContain('| `amount` | [string](../types/string.md) | A textual amount. |');
+        expect(reference).toContain('| `amount` | [int](../../CommandTypes/int.md) | Use `1\\|2`.<br>Default: `1`. |');
+        expect(reference).toContain('| `amount` | [string](../../CommandTypes/string.md) | A textual amount. |');
         expect(reference.indexOf('| `amount`')).toBeLessThan(reference.indexOf('| `player`'));
     });
 
@@ -214,24 +220,57 @@ describe('Command documentation', () => {
         expect(give).toContain('| `objective` | ScoreboardObjectives | Optional |  |');
     });
 
-    it('generates primitive type pages and keeps every argument link resolvable', () => {
+    it('keeps links to handwritten primitive docs and generates linked enum pages', () => {
         const commandDirectory = path.join(outputDirectory, 'commands', 'commands');
         for (const markdown of [give, other]) {
-            for (const match of markdown.matchAll(/\]\((\.\.\/(?:types|enums)\/[^)]+)\)/g)) {
+            for (const match of markdown.matchAll(/\]\((\.\.\/enums\/[^)]+)\)/g)) {
                 expect(fs.existsSync(path.resolve(commandDirectory, decodeURIComponent(match[1])))).toBe(true);
             }
         }
-        expect(fs.readFileSync(path.join(outputDirectory, 'commands', 'types', 'target.md'), 'utf8')).toContain(
-            'Select a player using `@s`.'
-        );
-        expect(other).toContain('[wildcard int](../types/wildcard%20int.md)');
-        expect(fs.readFileSync(path.join(outputDirectory, 'commands', 'commands.md'), 'utf8')).toContain(
-            '[wildcard int](./types/wildcard%20int.md)'
-        );
-        expect(fs.readFileSync(path.join(outputDirectory, 'commands', 'TOC.yml'), 'utf8')).toContain(
-            'href: types/target.md'
-        );
+        expect(give).toContain('[target](../../CommandTypes/target.md)');
+        expect(give).toContain('[int](../../CommandTypes/int.md)');
+        expect(other).toContain('[wildcard int](../../CommandTypes/wildcard%20int.md)');
+        expect(give).not.toContain('../types/');
+        expect(fs.existsSync(path.join(outputDirectory, 'CommandTypes'))).toBe(false);
+        expect(fs.existsSync(path.join(outputDirectory, 'commands', 'types'))).toBe(false);
+        const summary = fs.readFileSync(path.join(outputDirectory, 'commands', 'commands.md'), 'utf8');
+        expect(summary).not.toContain('./types/');
+        expect(summary).not.toContain('Unused primitive metadata.');
+        expect(summary).toContain('[`Item`](./enums/Item.md)');
+        const toc = fs.readFileSync(path.join(outputDirectory, 'commands', 'TOC.yml'), 'utf8');
+        expect(toc).not.toContain('types/');
+        expect(toc).toContain('href: commands/give.md');
     });
+
+    it('adds section navigation and a handwritten type index link to the command summary', () => {
+        const summary = fs
+            .readFileSync(path.join(outputDirectory, 'commands', 'commands.md'), 'utf8')
+            .replace(/\r\n/g, '\n');
+        expect(summary).toContain('# Minecraft Commands');
+        expect(summary).toContain('[Built-in command argument types](../CommandTypes/index.md)');
+        expect(summary.slice(summary.indexOf('## Contents'), summary.indexOf('## Commands'))).toBe(
+            '## Contents\n\n- [Commands](#commands)\n- [Command enums](#command-enums)\n\n'
+        );
+        expect(summary).toContain('## Command enums');
+        expect(summary).toContain('[`/give`](./commands/give.md)');
+        expect(summary).toContain('[`Item`](./enums/Item.md)');
+    });
+
+    it.each([{ commandEnums: undefined }, { commandEnums: [] }])(
+        'omits enum navigation from the summary when enums are $commandEnums',
+        ({ commandEnums }) => {
+            const template = fs.readFileSync(
+                path.join(__dirname, '..', 'templates', 'msdocs', 'commands', 'summary.mustache'),
+                'utf8'
+            );
+            const summary = mustache.render(template, { commands: [], command_enums: commandEnums });
+            expect(summary).toContain('- [Commands](#commands)');
+            expect(summary).toContain('## Commands');
+            expect(summary).toContain('[Built-in command argument types](../CommandTypes/index.md)');
+            expect(summary).not.toContain('[Command enums](#command-enums)');
+            expect(summary).not.toContain('## Command enums');
+        }
+    );
 
     it('adds a section TOC before enum values without listing individual values', () => {
         const markdown = fs

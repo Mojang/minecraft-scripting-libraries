@@ -7,6 +7,7 @@ export * from './DeepCopyJson';
 export * from './GetFiles';
 export * from './LongestCommonSubsequence';
 export * from './MergeArrays';
+export * from './NormalizeExampleText';
 export * from './RemoveProperty';
 export * from './ScanObject';
 export * from './SortComparers';

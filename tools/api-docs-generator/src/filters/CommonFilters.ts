@@ -671,14 +671,9 @@ function addExamples(
         for (const examplePath of exampleFilePaths) {
             const exampleName = path.basename(examplePath);
 
-            const exampleFileData = fileLoader.readFile(examplePath);
-            const exampleFileStrings: string[] = exampleFileData
-                .toString()
-                .split('\n')
-                .map(line => line.replace(/\n|\r/, ''));
-            if (exampleFileStrings.at(-1) === '') {
-                exampleFileStrings.splice(-1); // Remove newline at end of example file
-            }
+            const exampleFileData = fileLoader.readFileAsString(examplePath);
+            const exampleFileStrings =
+                exampleFileData.length === 0 ? [] : utils.normalizeExampleText(exampleFileData).split('\n');
 
             const escapedExampleFileStrings = exampleFileStrings.map(line =>
                 line.replace(/\/\*/g, `/\\*`).replace(/\*\//g, `*\\/`)

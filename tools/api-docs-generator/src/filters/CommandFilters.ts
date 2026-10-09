@@ -2,12 +2,7 @@
 // Licensed under the MIT License.
 
 import { MinecraftRelease } from '../MinecraftRelease';
-import {
-    MinecraftCommand,
-    MinecraftCommandModule,
-    MinecraftCommandArgument,
-    MinecraftCommandArgumentType,
-} from '../modules/MinecraftCommandModule';
+import { MinecraftCommand, MinecraftCommandModule, MinecraftCommandArgument } from '../modules/MinecraftCommandModule';
 import { Filter } from './Filters';
 
 const commandTypeNameMappings: Record<string, string> = {
@@ -96,10 +91,9 @@ function formatCommandEnums(moduleJson: MinecraftCommandModule) {
 }
 
 /**
- * Creates a list of unique types used in command overload arguments at the module level.
+ * Formats command argument type names, syntax, and links.
  */
 function formatCommandArgumentTypes(moduleJson: MinecraftCommandModule) {
-    const commandTypes = new Map<string, MinecraftCommandArgumentType>();
     for (const commandJson of moduleJson.commands ?? []) {
         for (const overloadJson of commandJson.overloads ?? []) {
             for (const paramJson of overloadJson.params) {
@@ -130,14 +124,10 @@ function formatCommandArgumentTypes(moduleJson: MinecraftCommandModule) {
                     if (mappedTypeSyntax) {
                         typeJson.syntax = mappedTypeSyntax;
                     }
-                    if (!commandTypes.has(typeJson.name)) {
-                        commandTypes.set(typeJson.name, typeJson);
-                    }
                 }
             }
         }
     }
-    moduleJson.command_types = Array.from(commandTypes.values());
 }
 
 /**

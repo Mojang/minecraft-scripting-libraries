@@ -12,35 +12,43 @@ description: Description and usage of the {{{command_name}}} command
 {{{description}}}
 
 {{/command_description}}
-<table>
+| | |
+| --- | --- |
 {{#aliases.length}}
-  <tr>
-    <th>Aliases</th>
-    <td>{{#aliases}}/{{{name}}}{{^is_last}}, {{/is_last}}{{/aliases}}</td>
-  </tr>
+| **Aliases** | {{#aliases}}`/{{{name}}}`{{^is_last}}, {{/is_last}}{{/aliases}} |
 {{/aliases.length}}
-  <tr>
-    <th>Permission Level</th>
-    <td>{{permission_level_name}}</td>
-  </tr>
-  <tr>
-    <th>Requires Cheats?</th>
-    <td>{{#requires_cheats}}Yes{{/requires_cheats}}{{^requires_cheats}}No{{/requires_cheats}}</td>
-  </tr>
-</table>
+| **Permission Level** | {{permission_level_name}} |
+| **Requires Cheats** | {{#requires_cheats}}Yes{{/requires_cheats}}{{^requires_cheats}}No{{/requires_cheats}} |
+{{#overloads.length}}
+
+## Syntax Overview
+{{#overloads}}
+
+`/{{{command_name}}}{{#params}} {{> parameter}}{{/params}}`
+{{/overloads}}
 
 ## Usage
 {{#overloads}}
 {{> overload}}
 {{/overloads}}
+{{/overloads.length}}
+{{#command_examples.length}}
+
+## Examples
+{{#command_examples}}
+
+### {{{title}}}
+{{> example}}
+{{/command_examples}}
+{{/command_examples.length}}
 {{#arguments.length}}
 
-## Arguments
+## Arguments Reference
+
+| Argument | Type | Description |
+| --- | --- | --- |
 {{#arguments}}
-- `{{{param_name}}}{{#type.syntax}}: {{{.}}}{{/type.syntax}}`: {{#type.has_link}}[{{{type.name}}}]{{#type.is_enum}}(../enums/{{{type.name}}}.md){{/type.is_enum}}{{^type.is_enum}}(../types/{{{type.name}}}.md){{/type.is_enum}}{{/type.has_link}}{{^type.has_link}}{{{type.name}}}{{/type.has_link}}
-{{#argument_description}}
-{{{.}}}
-{{/argument_description}}
+| `{{{param_name}}}{{#type.syntax}}: {{{.}}}{{/type.syntax}}` | {{{table_type}}} | {{{table_description}}} |
 {{/arguments}}
 {{/arguments.length}}
 {{#command_enums.length}}

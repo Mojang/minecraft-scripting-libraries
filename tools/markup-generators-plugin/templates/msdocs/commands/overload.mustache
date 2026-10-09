@@ -6,6 +6,23 @@
 {{#overload_description}}
 {{{.}}}
 {{/overload_description}}
+{{#usage_arguments.length}}
+
+| Argument | Type | Required | Description |
+| --- | --- | --- | --- |
+{{#usage_arguments}}
+| `{{{param_name}}}{{#type.syntax}}: {{{.}}}{{/type.syntax}}` | {{{table_type}}} | {{#is_optional}}Optional{{/is_optional}}{{^is_optional}}Required{{/is_optional}} | {{{table_description}}} |
+{{/usage_arguments}}
+{{/usage_arguments.length}}
+{{#overload_examples.length}}
+
+**Examples:**
+{{#overload_examples}}
+
+{{{title}}}
+{{> example}}
+{{/overload_examples}}
+{{/overload_examples.length}}
 {{^is_last}}
 
 {{/is_last}}

@@ -71,6 +71,13 @@ export const MinecraftCommandArgumentRecord = Record({
 });
 export type MinecraftCommandArgument = Static<typeof MinecraftCommandArgumentRecord>;
 
+export const MinecraftCommandExampleRecord = Record({
+    title: String,
+    code: String,
+    description: Optional(Array(String)),
+});
+export type MinecraftCommandExample = Static<typeof MinecraftCommandExampleRecord>;
+
 export const MinecraftCommandOverloadRecord = Record({
     name: String,
     params: Array(MinecraftCommandArgumentRecord),
@@ -79,6 +86,7 @@ export const MinecraftCommandOverloadRecord = Record({
     has_comments: Optional(Boolean),
     overload_description: Optional(Array(String)),
     overload_header: Optional(String),
+    overload_examples: Optional(Array(MinecraftCommandExampleRecord)),
 });
 export type MinecraftCommandOverload = Static<typeof MinecraftCommandOverloadRecord>;
 
@@ -100,6 +108,7 @@ export const MinecraftCommandRecord = Record({
 
     has_comments: Optional(Boolean),
     command_description: Optional(Array(String)),
+    command_examples: Optional(Array(MinecraftCommandExampleRecord)),
 });
 export type MinecraftCommand = Static<typeof MinecraftCommandRecord>;
 

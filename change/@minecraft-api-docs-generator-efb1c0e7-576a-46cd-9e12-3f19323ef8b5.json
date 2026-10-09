@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Updated MS Docs Commands documentation to support examples",
+  "packageName": "@minecraft/api-docs-generator",
+  "email": "jake@xbox.com",
+  "dependentChangeType": "patch"
+}

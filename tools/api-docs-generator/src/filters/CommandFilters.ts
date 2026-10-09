@@ -110,7 +110,7 @@ function formatCommandArgumentTypes(moduleJson: MinecraftCommandModule) {
                         typeJson.name = enumJson.name;
 
                         typeJson.is_enum = true;
-                        if (enumJson.command_references.length > 1) {
+                        if (enumJson.values.length > 1 && enumJson.command_references.length > 1) {
                             typeJson.has_link = true;
                         }
                         if (enumJson.values.length === 1) {
@@ -121,6 +121,7 @@ function formatCommandArgumentTypes(moduleJson: MinecraftCommandModule) {
                     }
                 }
                 if (!typeJson.is_enum) {
+                    typeJson.has_link = true;
                     const mappedTypeName = commandTypeNameMappings[typeJson.name];
                     if (mappedTypeName) {
                         typeJson.name = mappedTypeName;

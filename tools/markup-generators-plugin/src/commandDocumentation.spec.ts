@@ -40,7 +40,11 @@ describe('Command documentation', () => {
             fs.writeFileSync(filename, JSON.stringify(data));
         };
         writeInfo(['commands', 'give'], {
-            description: 'Give an item.',
+            description: [
+                'Give an item.',
+                "Keep `A|B` and the player's [guide](https://example.com/a/b?x=1&y=2).",
+                'Already escaped: A\\|B.\r\nSecond line.',
+            ],
             overloads: [
                 {
                     id: 1,
@@ -73,6 +77,10 @@ describe('Command documentation', () => {
             })
         );
         writeInfo(['command_types', 'target'], { description: 'Unused primitive metadata.' });
+        writeInfo(['command_enums', 'Item'], {
+            description: ["The player's `item`.", 'See [items](/creator/items) and choose A|B.'],
+        });
+        writeInfo(['commands', 'emptyinfo'], { description: [] });
         const typeExamplesDirectory = path.join(docsDirectory, 'test-commands', 'command_types', 'target', '_examples');
         fs.mkdirSync(typeExamplesDirectory);
         fs.writeFileSync(path.join(typeExamplesDirectory, 'ignored.json'), '{');
@@ -114,7 +122,7 @@ describe('Command documentation', () => {
                 },
                 {
                     name: 'other',
-                    description: 'Metadata-only command.',
+                    description: "Metadata-only command.\r\nUse `C|D` and the player's [guide](/creator/guide).",
                     permission_level: 0,
                     requires_cheats: false,
                     overloads: [
@@ -130,6 +138,19 @@ describe('Command documentation', () => {
                             ],
                         },
                     ],
+                },
+                {
+                    name: 'emptyinfo',
+                    description: 'Fallback `description`.',
+                    permission_level: 0,
+                    requires_cheats: false,
+                    overloads: [],
+                },
+                {
+                    name: 'undocumented',
+                    permission_level: 0,
+                    requires_cheats: false,
+                    overloads: [],
                 },
             ],
             command_enums: [
@@ -254,6 +275,23 @@ describe('Command documentation', () => {
         expect(summary).toContain('## Command enums');
         expect(summary).toContain('[`/give`](./commands/give.md)');
         expect(summary).toContain('[`Item`](./enums/Item.md)');
+    });
+
+    it('preserves summary Markdown without HTML escaping or malformed table cells', () => {
+        const summary = fs.readFileSync(path.join(outputDirectory, 'commands', 'commands.md'), 'utf8');
+        expect(summary).toContain(
+            "| [`/give`](./commands/give.md) | Give an item.<br>Keep `A\\|B` and the player's [guide](https://example.com/a/b?x=1&y=2).<br>Already escaped: A\\|B.<br>Second line. | Game Directors | Yes |"
+        );
+        expect(summary).toContain(
+            "| [`/other`](./commands/other.md) | Metadata-only command.<br>Use `C\\|D` and the player's [guide](/creator/guide). | Any | No |"
+        );
+        expect(summary).toContain(
+            "| [`Item`](./enums/Item.md) | The player's `item`.<br>See [items](/creator/items) and choose A\\|B. |"
+        );
+        expect(summary).toContain('| [`/emptyinfo`](./commands/emptyinfo.md) | Fallback `description`. | Any | No |');
+        expect(summary).toContain('| [`/undocumented`](./commands/undocumented.md) |  | Any | No |');
+        expect(summary).not.toContain('Raw description.');
+        expect(summary).not.toMatch(/&#(?:39|x60|x2F);|&amp;/);
     });
 
     it.each([{ commandEnums: undefined }, { commandEnums: [] }])(

@@ -19,7 +19,7 @@ For syntax and examples of built-in argument types, see [Built-in command argume
 |Command   |Description   |Required Permission Level  | Requires Cheats Enabled |
 |----------|-----------|-----------|-----------|
 {{#commands}}
-| [`/{{{name}}}`](./commands/{{{name}}}.md) | {{^command_description}}{{description}}{{/command_description}}{{#command_description}}{{.}}{{/command_description}} | {{permission_level_name}} | {{#requires_cheats}}Yes{{/requires_cheats}}{{^requires_cheats}}No{{/requires_cheats}} |
+| [`/{{{name}}}`](./commands/{{{name}}}.md) | {{{table_description}}} | {{permission_level_name}} | {{#requires_cheats}}Yes{{/requires_cheats}}{{^requires_cheats}}No{{/requires_cheats}} |
 {{/commands}}
 
 {{#command_enums.length}}
@@ -28,6 +28,6 @@ For syntax and examples of built-in argument types, see [Built-in command argume
 |Enum   |Description   |
 |----------|-----------|
 {{#command_enums}}
-| [`{{{name}}}`](./enums/{{{name}}}.md) | {{enum_description}} |
+| [`{{{name}}}`](./enums/{{{name}}}.md) | {{{table_description}}} |
 {{/command_enums}}
 {{/command_enums.length}}

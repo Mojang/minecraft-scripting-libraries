@@ -453,8 +453,18 @@ export class MSDocsMarkdownGenerator implements MarkupGenerator {
         const summaryProcessedData = mustache.render(
             summaryTemplateFileData,
             {
-                commands: moduleJson.commands,
-                command_enums: moduleJson.command_enums,
+                commands: moduleJson.commands?.map(command => ({
+                    ...command,
+                    table_description: Utils.formatMarkdownTableCell(
+                        command.command_description?.length
+                            ? command.command_description.join('\n')
+                            : (command.description ?? '')
+                    ),
+                })),
+                command_enums: moduleJson.command_enums?.map(commandEnum => ({
+                    ...commandEnum,
+                    table_description: Utils.formatMarkdownTableCell(commandEnum.enum_description?.join('\n') ?? ''),
+                })),
             },
             {
                 default_metadata: mdTemplateFiles.readFileAsString('commands/default_metadata.mustache'),

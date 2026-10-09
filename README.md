@@ -1,6 +1,8 @@
 # minecraft-scripting-libraries
 
-This repository contains a set of scripting libraries for use with the Minecraft Scripting modules in creating content for the game. The repository is structured as a javascript "monorepo" that contains multiple packages. These packages are fully javascript and are typically intended to server as helper libraries that can be commonly used when creating content. The libraries are provided both through NPM, but also in pre-bundled forms in cases where user workflows do not leverage techniques such as bundling for their own content creation.
+This repository contains a set of scripting libraries for use with the Minecraft Scripting modules in creating content for the game. The repository is structured as a javascript "monorepo" that contains multiple packages. These packages are fully javascript and are typically intended to serve as helper libraries that can be commonly used when creating content. The libraries are provided both through NPM, but also in pre-bundled forms in cases where user workflows do not leverage techniques such as bundling for their own content creation.
+
+The published NPM libraries for these are available at [@minecraft/gameplay-utilities](https://www.npmjs.com/package/@minecraft/gameplay-utilities) and [@minecraft/math](https://www.npmjs.com/package/@minecraft/math). 
 
 More details on each individual library are in the README files for individual packages. The packages are located generally within the libraries subfolder.
 

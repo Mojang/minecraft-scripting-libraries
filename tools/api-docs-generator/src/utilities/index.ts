@@ -4,6 +4,7 @@
 export * from './AppendVersion';
 export * from './Complete';
 export * from './DeepCopyJson';
+export * from './FormatMarkdownTableCell';
 export * from './GetFiles';
 export * from './LongestCommonSubsequence';
 export * from './MergeArrays';

@@ -291,7 +291,7 @@ export class GeneratorContext {
 
         if (config.documentationDirectory) {
             const docsPath = path.resolve(config.documentationDirectory);
-            const loader = new FileLoader(docsPath, ['.json', '.js', '.ts']);
+            const loader = new FileLoader(docsPath, ['.json', '.js', '.ts', '.mcfunction']);
             if (loader.loaded()) {
                 this.documentationFileLoader = loader;
             } else {

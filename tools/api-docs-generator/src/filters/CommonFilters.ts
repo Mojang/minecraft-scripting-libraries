@@ -32,6 +32,8 @@ import {
     BlockPropertyDocsValidator,
     CommandDocsValidator,
     CommandEnumDocsValidator,
+    CommandExampleDocsData,
+    CommandExampleDocsValidator,
     CommonDocsDescriptionValidator,
     ScriptCommonDocsValidator,
     ScriptFunctionDocsValidator,
@@ -1019,6 +1021,69 @@ function addCommandTypeDescriptions(
     }
 }
 
+function addCommandExamples(fileLoader: FileLoader, commandJson: MinecraftCommand, commandFolderPath: string): void {
+    commandJson.command_examples = [];
+    for (const overload of commandJson.overloads) {
+        overload.overload_examples = [];
+    }
+
+    const examplesDirectory = path.join(commandFolderPath, '_examples');
+    const exampleFiles = utils
+        .getFiles(fileLoader.joinToRoot(examplesDirectory))
+        .filter(filename => fileLoader.canLoadFile(path.join(examplesDirectory, filename)))
+        .sort();
+    const sourceFiles = exampleFiles.filter(filename => path.extname(filename) === '.mcfunction');
+    for (const filename of exampleFiles.filter(filename => path.extname(filename) === '.json')) {
+        const sourceName = `${path.basename(filename, '.json')}.mcfunction`;
+        if (!sourceFiles.includes(sourceName)) {
+            log.error(
+                `Command example metadata '${path.join(examplesDirectory, filename)}' has no matching '${sourceName}' file.`
+            );
+        }
+    }
+
+    for (const filename of sourceFiles) {
+        const examplePath = path.join(examplesDirectory, filename);
+        const infoPath = path.join(examplesDirectory, `${path.basename(filename, '.mcfunction')}.json`);
+        let info: CommandExampleDocsData = {};
+        if (fileLoader.canLoadFile(infoPath)) {
+            const parsedInfo = parseJsonSafe(fileLoader, infoPath, CommandExampleDocsValidator);
+            if (!parsedInfo) {
+                continue;
+            }
+            info = parsedInfo;
+        }
+        if (info.title !== undefined && !info.title.trim()) {
+            log.error(`Command example metadata '${infoPath}' has an empty title.`);
+            continue;
+        }
+        const overload =
+            info.overload === undefined
+                ? undefined
+                : commandJson.overloads.find(overload => Number(overload.name) === info.overload);
+        if (info.overload !== undefined && !overload) {
+            log.error(`Command example metadata '${infoPath}' references unknown overload '${info.overload}'.`);
+            continue;
+        }
+
+        const code = utils.normalizeExampleText(fileLoader.readFileAsString(examplePath));
+        if (!code.trim()) {
+            log.error(`Command example file '${examplePath}' is empty.`);
+            continue;
+        }
+        const examples = overload ? overload.overload_examples : commandJson.command_examples;
+        examples.push({
+            title: info.title ?? filename,
+            code,
+            description: info.description ? splitStringByNewline(info.description) : [],
+        });
+        commandJson.has_comments = true;
+        if (overload) {
+            overload.has_comments = true;
+        }
+    }
+}
+
 function addCommandDescriptions(fileLoader: FileLoader, commandJson: MinecraftCommand, moduleFolderPath: string) {
     commandJson.has_comments = false;
 
@@ -1035,17 +1100,21 @@ function addCommandDescriptions(fileLoader: FileLoader, commandJson: MinecraftCo
         if (infoJson.overloads) {
             for (const overloadJson of commandJson.overloads) {
                 const overloadInfoJson = infoJson.overloads.find(o => Number(overloadJson.name) === o.id);
-                if (overloadInfoJson && overloadInfoJson.description) {
-                    overloadJson.has_comments = true;
-                    overloadJson.overload_description = splitStringByNewline(overloadInfoJson.description);
-                    if (overloadInfoJson.header) {
-                        overloadJson.overload_header = overloadInfoJson.header;
+                if (overloadInfoJson) {
+                    overloadJson.overload_header = overloadInfoJson.header;
+                    if (overloadInfoJson.description) {
+                        overloadJson.has_comments = true;
+                        overloadJson.overload_description = splitStringByNewline(overloadInfoJson.description);
                     }
                 }
             }
         }
         if (infoJson.arguments) {
-            for (const argumentJson of commandJson.arguments) {
+            const argumentsToDocument = new Set([
+                ...commandJson.arguments,
+                ...commandJson.overloads.flatMap(overload => overload.params),
+            ]);
+            for (const argumentJson of argumentsToDocument) {
                 const argInfoJson = infoJson.arguments.find(a => argumentJson.directory_name === a.name);
                 if (argInfoJson && argInfoJson.description) {
                     argumentJson.has_comments = true;
@@ -1054,6 +1123,8 @@ function addCommandDescriptions(fileLoader: FileLoader, commandJson: MinecraftCo
             }
         }
     }
+
+    addCommandExamples(fileLoader, commandJson, commandFolderPath);
 
     if (commandJson.command_enums) {
         for (const enumJson of commandJson.command_enums) {

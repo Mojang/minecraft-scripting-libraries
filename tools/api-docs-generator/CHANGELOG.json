@@ -2,6 +2,27 @@
   "name": "@minecraft/api-docs-generator",
   "entries": [
     {
+      "date": "Tue, 13 Oct 2026 16:18:55 GMT",
+      "version": "2.4.0",
+      "tag": "@minecraft/api-docs-generator_v2.4.0",
+      "comments": {
+        "minor": [
+          {
+            "author": "jake@xbox.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "88f54aa2ecb5fff0f0698ee4b5465b9ea352cf3d",
+            "comment": "Removed auto-generated primitive type documentation"
+          },
+          {
+            "author": "jake@xbox.com",
+            "package": "@minecraft/api-docs-generator",
+            "commit": "b5d6199173100a7aeb164a1f3f46133ca247532c",
+            "comment": "Updated MS Docs Commands documentation to support examples"
+          }
+        ]
+      }
+    },
+    {
       "date": "Wed, 16 Sep 2026 19:05:57 GMT",
       "version": "2.3.0",
       "tag": "@minecraft/api-docs-generator_v2.3.0",

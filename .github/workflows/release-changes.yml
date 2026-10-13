@@ -18,6 +18,22 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+
+      # Fail before anything is published to npm if REPO_PAT can't be used for the git push / GitHub release.
+      # Otherwise npm and the repo drift apart (packages published but version bumps never pushed).
+      - name: Verify REPO_PAT
+        run: |
+          if ! can_push=$(gh api "repos/$GITHUB_REPOSITORY" --jq '.permissions.push'); then
+            echo "::error::REPO_PAT is invalid or expired. Rotate the REPO_PAT secret before releasing."
+            exit 1
+          fi
+          if [ "$can_push" != "true" ]; then
+            echo "::error::REPO_PAT does not have write access to $GITHUB_REPOSITORY."
+            exit 1
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.REPO_PAT }}
+
       - name: Use Node.js 24.x
         uses: actions/setup-node@v6
         with:

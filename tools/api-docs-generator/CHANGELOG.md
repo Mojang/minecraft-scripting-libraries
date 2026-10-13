@@ -1,8 +1,17 @@
 # Change Log - @minecraft/api-docs-generator
 
-<!-- This log was last generated on Wed, 16 Sep 2026 19:05:57 GMT and should not be manually modified. -->
+<!-- This log was last generated on Tue, 13 Oct 2026 16:18:55 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.4.0
+
+Tue, 13 Oct 2026 16:18:55 GMT
+
+### Minor changes
+
+- Removed auto-generated primitive type documentation (jake@xbox.com)
+- Updated MS Docs Commands documentation to support examples (jake@xbox.com)
 
 ## 2.3.0
 

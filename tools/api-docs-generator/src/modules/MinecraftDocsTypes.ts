@@ -83,6 +83,15 @@ export type ScriptNestedFunctionDocsData = Static<typeof ScriptNestedFunctionDoc
 export const ScriptFunctionDocsValidator = generatorValidatorFromNested(ScriptNestedFunctionDocsValidator);
 export type ScriptFunctionDocsData = Static<typeof ScriptFunctionDocsValidator>;
 
+export const CommandExampleDocsValidator = Intersect(
+    CommonDocsDescriptionValidator,
+    Record({
+        title: Optional(String),
+        overload: Optional(Number),
+    })
+);
+export type CommandExampleDocsData = Static<typeof CommandExampleDocsValidator>;
+
 export const CommandDocsValidator = Intersect(
     CommonDocsDescriptionValidator,
     Record({

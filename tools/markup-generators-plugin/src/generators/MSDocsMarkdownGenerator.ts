@@ -17,6 +17,10 @@ import {
     MinecraftBlock,
     MinecraftBlockProperty,
     MinecraftClass,
+    MinecraftCommand,
+    MinecraftCommandArgument,
+    MinecraftCommandEnum,
+    MinecraftCommandModule,
     MinecraftEnum,
     MinecraftFunction,
     MinecraftModuleDescription,
@@ -377,6 +381,100 @@ export class MSDocsMarkdownGenerator implements MarkupGenerator {
         }
     }
 
+    private generateCommandFiles(
+        commandJson: MinecraftCommand,
+        mdTemplateFiles: FileLoader,
+        outputDirectory: string
+    ): void {
+        const msdocsTemplateFileData = mdTemplateFiles.readFileAsString('commands/command.mustache');
+        const formatArgument = (argument: MinecraftCommandArgument) => ({
+            ...argument,
+            table_description: Utils.formatMarkdownTableCell((argument.argument_description ?? []).join('\n')),
+            table_type: argument.type.has_link
+                ? `[${argument.type.name}](${argument.type.is_enum ? '../enums/' : '../../CommandTypes/'}${encodeURIComponent(argument.type.name)}.md)`
+                : argument.type.name,
+        });
+        const commandView = {
+            ...commandJson,
+            arguments: commandJson.arguments?.map(formatArgument),
+            overloads: commandJson.overloads?.map(overload => ({
+                ...overload,
+                usage_arguments: overload.params
+                    .filter(argument => !argument.type.is_keyword || argument.is_optional)
+                    .map(formatArgument),
+            })),
+        };
+        const msdocsProcessedData = mustache.render(msdocsTemplateFileData, commandView, {
+            overload: mdTemplateFiles.readFileAsString('commands/overload.mustache'),
+            parameter: mdTemplateFiles.readFileAsString('commands/parameter.mustache'),
+            example: mdTemplateFiles.readFileAsString('commands/example.mustache'),
+            inline_enum: mdTemplateFiles.readFileAsString('commands/inline_enum.mustache'),
+            default_metadata: mdTemplateFiles.readFileAsString('commands/default_metadata.mustache'),
+        });
+        const msdocsCommandFilePath = path.join(outputDirectory, 'commands', `${commandJson.name}.md`);
+        fs.mkdirSync(path.dirname(msdocsCommandFilePath), { recursive: true });
+        fs.writeFileSync(msdocsCommandFilePath, msdocsProcessedData);
+    }
+
+    private generateCommandEnumFiles(
+        enumJson: MinecraftCommandEnum,
+        mdTemplateFiles: FileLoader,
+        outputDirectory: string
+    ): void {
+        const msdocsTemplateFileData = mdTemplateFiles.readFileAsString('commands/enum.mustache');
+        const msdocsProcessedData = mustache.render(msdocsTemplateFileData, enumJson, {
+            default_metadata: mdTemplateFiles.readFileAsString('commands/default_metadata.mustache'),
+        });
+        const msdocsEnumFilePath = path.join(outputDirectory, 'enums', `${enumJson.name}.md`);
+        fs.mkdirSync(path.dirname(msdocsEnumFilePath), { recursive: true });
+        fs.writeFileSync(msdocsEnumFilePath, msdocsProcessedData);
+    }
+
+    private generateCommandsTableOfContents(
+        moduleJson: MinecraftCommandModule,
+        mdTemplateFiles: FileLoader,
+        outputDirectory: string
+    ): void {
+        const msdocsTemplateFileData = mdTemplateFiles.readFileAsString('commands/toc.mustache');
+        const msdocsProcessedData = mustache.render(msdocsTemplateFileData, {
+            commands: moduleJson.commands,
+        });
+        const msdocsModuleFilePath = path.join(outputDirectory, `TOC.yml`);
+        fs.mkdirSync(path.dirname(msdocsModuleFilePath), { recursive: true });
+        fs.writeFileSync(msdocsModuleFilePath, msdocsProcessedData);
+    }
+
+    private generateCommandsSummaryFile(
+        moduleJson: MinecraftCommandModule,
+        mdTemplateFiles: FileLoader,
+        outputDirectory: string
+    ): void {
+        const summaryTemplateFileData = mdTemplateFiles.readFileAsString('commands/summary.mustache');
+        const summaryProcessedData = mustache.render(
+            summaryTemplateFileData,
+            {
+                commands: moduleJson.commands?.map(command => ({
+                    ...command,
+                    table_description: Utils.formatMarkdownTableCell(
+                        command.command_description?.length
+                            ? command.command_description.join('\n')
+                            : (command.description ?? '')
+                    ),
+                })),
+                command_enums: moduleJson.command_enums?.map(commandEnum => ({
+                    ...commandEnum,
+                    table_description: Utils.formatMarkdownTableCell(commandEnum.enum_description?.join('\n') ?? ''),
+                })),
+            },
+            {
+                default_metadata: mdTemplateFiles.readFileAsString('commands/default_metadata.mustache'),
+            }
+        );
+        const summaryOutputFilePath = path.join(outputDirectory, `commands.md`);
+        fs.mkdirSync(path.dirname(summaryOutputFilePath), { recursive: true });
+        fs.writeFileSync(summaryOutputFilePath, summaryProcessedData);
+    }
+
     private generateBlockFiles(blockJson: MinecraftBlock, mdTemplateFiles: FileLoader, outputDirectory: string): void {
         const msdocsTemplateFileData = mdTemplateFiles.readFileAsString('blocks/block.mustache');
         const msdocsProcessedData = mustache.render(msdocsTemplateFileData, blockJson, {
@@ -426,6 +524,7 @@ export class MSDocsMarkdownGenerator implements MarkupGenerator {
 
         const { msdocs: mdTemplateFiles, tsdef: tsTemplateFiles } = context.getTemplates(...this.templates);
 
+        const commandsMSDocsOutputPath = path.join(outputDirectory, 'commands');
         const blocksMSDocsOutputPath = path.join(outputDirectory, 'blocks');
 
         ///
@@ -482,6 +581,25 @@ export class MSDocsMarkdownGenerator implements MarkupGenerator {
         }
 
         this.generateScriptTableOfContents(releases[0], mdTemplateFiles, outputDirectory);
+
+        ///
+        // Commands
+        ///
+        if (releases[0].command_modules.length > 0) {
+            const moduleJson = releases[0].command_modules[0];
+
+            for (const commandJson of moduleJson.commands ?? []) {
+                this.generateCommandFiles(commandJson, mdTemplateFiles, commandsMSDocsOutputPath);
+            }
+
+            for (const enumJson of moduleJson.command_enums ?? []) {
+                this.generateCommandEnumFiles(enumJson, mdTemplateFiles, commandsMSDocsOutputPath);
+            }
+
+            this.generateCommandsSummaryFile(moduleJson, mdTemplateFiles, commandsMSDocsOutputPath);
+
+            this.generateCommandsTableOfContents(moduleJson, mdTemplateFiles, commandsMSDocsOutputPath);
+        }
 
         ///
         // Blocks

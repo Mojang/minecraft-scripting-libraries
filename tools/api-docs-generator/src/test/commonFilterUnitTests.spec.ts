@@ -3,7 +3,7 @@
 
 import { describe, expect, it } from 'vitest';
 
-import { MinecraftRelease, MinecraftScriptModule } from '..';
+import { MinecraftFunction, MinecraftRelease, MinecraftScriptModule } from '..';
 import * as Filters from '../filters/CommonFilters';
 import { getMergedScriptModules } from '../generator';
 
@@ -88,6 +88,63 @@ const makeScriptDependentModule = (version: string): MinecraftScriptModule => {
         ],
     };
 };
+
+describe('bound_values', () => {
+    it.each(['module', 'class', 'interface'])('marks argument bounds on %s functions', location => {
+        const release = new MinecraftRelease('0.1.0');
+        const module = makeScriptModule('1.0.0');
+        const functionJson: MinecraftFunction = {
+            name: 'boundedFunction',
+            is_constructor: false,
+            arguments: [
+                {
+                    name: 'bounded',
+                    type: { name: 'string', is_errorable: false, is_bind_type: false },
+                    details: { min_value: 0, max_value: 10, max_length: 0 },
+                },
+                {
+                    name: 'minimumOnly',
+                    type: { name: 'int32', is_errorable: false, is_bind_type: false },
+                    details: { min_value: 0 },
+                },
+                {
+                    name: 'unbounded',
+                    type: { name: 'string', is_errorable: false, is_bind_type: false },
+                },
+            ],
+            return_type: { name: 'undefined', is_errorable: false, is_bind_type: false },
+        };
+
+        if (location === 'module') {
+            module.functions = [functionJson];
+        } else {
+            module[location === 'class' ? 'classes' : 'interfaces'] = [
+                {
+                    name: 'Container',
+                    type: { name: 'Container', is_errorable: false, is_bind_type: false },
+                    functions: [functionJson],
+                },
+            ];
+        }
+        release.script_modules = [module];
+
+        callFilter('bound_values', [release]);
+
+        expect(functionJson.arguments[0]).toMatchObject({
+            has_minimum: true,
+            has_maximum: true,
+            has_bounds: true,
+            has_max_length: true,
+        });
+        expect(functionJson.arguments[1].has_minimum).toBe(true);
+        for (const argumentJson of functionJson.arguments.slice(1)) {
+            expect(argumentJson.has_maximum).toBeUndefined();
+            expect(argumentJson.has_bounds).toBeUndefined();
+            expect(argumentJson.has_max_length).toBeUndefined();
+        }
+        expect(functionJson.arguments[2].has_minimum).toBeUndefined();
+    });
+});
 
 describe('generate_available_module_lists', () => {
     it('does not crash on missing modules', () => {

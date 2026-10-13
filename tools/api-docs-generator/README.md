@@ -54,6 +54,22 @@ By default, `@minecraft/api-docs-generator` will assume you have imported `@mine
 
 The `plugin` argument allows importing additional markup generators from external plugin packages. See [ARCHITECTURE](./ARCHITECTURE.md#plugins) for more info on creating and using external plugins for custom functionality.
 
+### Generating Protocol Changelogs
+
+Custom generators can use `ProtocolChangelogGenerator` to compare protocol schemas without depending on a particular markup generator. Releases must be ordered from newest to oldest.
+
+```ts
+import { MinecraftRelease, ProtocolChangelogGenerator } from '@minecraft/api-docs-generator';
+
+const changelogGenerator = new ProtocolChangelogGenerator();
+const changelog = changelogGenerator.generateChangelogs([
+    { release: headRelease, releaseDate: '', version: 'pr-head' },
+    { release: baseRelease, releaseDate: '', version: 'pr-base' },
+]);
+```
+
+`MinecraftRelease` objects can also be passed directly when their `minecraft_version` values are sufficient as changelog labels. Call `generateReleaseMetadata(release)` to obtain the normalized protocol model used by the built-in protocol documentation generator.
+
 ## Generating API Types
 
 To generate API types using the most recent type metadata:

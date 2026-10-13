@@ -1,0 +1,23 @@
+{
+  "description": [
+    "A test command enum with some biomes"
+  ],
+  "values": [
+    {
+      "name": "forest",
+      "description": "The forest biome."
+    },
+    {
+      "name": "taiga",
+      "description": "The taiga biome."
+    },
+    {
+      "name": "desert",
+      "description": "The desert biome."
+    },
+    {
+      "name": "plains",
+      "description": "The plains biome."
+    }
+  ]
+}

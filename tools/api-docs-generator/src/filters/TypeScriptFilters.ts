@@ -370,6 +370,14 @@ function flagTSCommentsArray(obj: MarkupCommentFlags[]): void {
     }
 }
 
+function flagFunctionTSComments(functionJson: MinecraftFunction): void {
+    flagTSComments(functionJson);
+    flagTSCommentsArray(functionJson.arguments ?? []);
+    if (functionJson.arguments?.some(argument => argument.has_max_length)) {
+        functionJson.ts_has_comments = true;
+    }
+}
+
 /**
  * Flag objects that should have comments.
  */
@@ -391,8 +399,7 @@ function markObjectsWithComments(releases: MinecraftRelease[]) {
                 flagTSCommentsArray(classJson.constants ?? []);
 
                 for (const functionJson of classJson.functions ?? []) {
-                    flagTSComments(functionJson);
-                    flagTSCommentsArray(functionJson.arguments ?? []);
+                    flagFunctionTSComments(functionJson);
                 }
             }
 
@@ -401,14 +408,12 @@ function markObjectsWithComments(releases: MinecraftRelease[]) {
                 flagTSCommentsArray(interfaceJson.properties ?? []);
 
                 for (const functionJson of interfaceJson.functions ?? []) {
-                    flagTSComments(functionJson);
-                    flagTSCommentsArray(functionJson.arguments ?? []);
+                    flagFunctionTSComments(functionJson);
                 }
             }
 
             for (const functionJson of scriptModule.functions ?? []) {
-                flagTSComments(functionJson);
-                flagTSCommentsArray(functionJson.arguments ?? []);
+                flagFunctionTSComments(functionJson);
             }
 
             for (const errorJson of scriptModule.errors ?? []) {

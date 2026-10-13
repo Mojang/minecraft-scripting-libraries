@@ -16,6 +16,7 @@ export type MinecraftSchemaObject = SchemaObject & {
 export type MinecraftProtocolSchemaObject = MinecraftSchemaObject & {
     'x-protocol-version'?: string;
     'x-underlying-type'?: string;
+    'x-enum-binary-value'?: number[];
     'x-serialization-options'?: string;
     'x-ordinal-index'?: number;
     'x-control-value-type'?: string;

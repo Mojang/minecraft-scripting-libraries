@@ -1,0 +1,60 @@
+---
+{{ >default_metadata }}
+title: {{{command_name}}} Command
+description: Description and usage of the {{{command_name}}} command
+---
+# `/{{{command_name}}}` Command
+{{#command_description}}
+{{{.}}}
+
+{{/command_description}}
+{{^command_description}}
+{{{description}}}
+
+{{/command_description}}
+| | |
+| --- | --- |
+{{#aliases.length}}
+| **Aliases** | {{#aliases}}`/{{{name}}}`{{^is_last}}, {{/is_last}}{{/aliases}} |
+{{/aliases.length}}
+| **Permission Level** | {{permission_level_name}} |
+| **Requires Cheats** | {{#requires_cheats}}Yes{{/requires_cheats}}{{^requires_cheats}}No{{/requires_cheats}} |
+{{#overloads.length}}
+
+## Syntax Overview
+{{#overloads}}
+
+`/{{{command_name}}}{{#params}} {{> parameter}}{{/params}}`
+{{/overloads}}
+
+## Usage
+{{#overloads}}
+{{> overload}}
+{{/overloads}}
+{{/overloads.length}}
+{{#command_examples.length}}
+
+## Examples
+{{#command_examples}}
+
+### {{{title}}}
+{{> example}}
+{{/command_examples}}
+{{/command_examples.length}}
+{{#arguments.length}}
+
+## Arguments Reference
+
+| Argument | Type | Description |
+| --- | --- | --- |
+{{#arguments}}
+| `{{{param_name}}}{{#type.syntax}}: {{{.}}}{{/type.syntax}}` | {{{table_type}}} | {{{table_description}}} |
+{{/arguments}}
+{{/arguments.length}}
+{{#command_enums.length}}
+
+## Enums
+{{#command_enums}}
+{{> inline_enum}}
+{{/command_enums}}
+{{/command_enums.length}}

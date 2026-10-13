@@ -59,6 +59,9 @@
  * Maximum value: {{details.max_value}}
         {{/has_maximum}}      
       {{/has_bounds}}
+      {{#has_max_length}}
+ * Maximum Length: {{details.max_length}}
+      {{/has_max_length}}
     {{/ts_has_comments}}
   {{/arguments}}
   {{#returns_description_ts.length}}

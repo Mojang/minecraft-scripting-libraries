@@ -138,6 +138,7 @@ Notes:
 
 ## Methods
 - [methodThatTakesBoundedValue](#methodthattakesboundedvalue)
+- [methodWithMaxLength](#methodwithmaxlength)
 
 ### **methodThatTakesBoundedValue**
 \`
@@ -165,6 +166,15 @@ methodThatTakesBoundedValue(s: number, t: number, u: number, v: number, w: numbe
   
 Notes:
 - This function can't be called in restricted-execution mode.
+
+### **methodWithMaxLength**
+\`
+methodWithMaxLength(values: string[]): void
+\`
+
+#### **Parameters**
+- **values**: *string*[]
+  * Maximum Length: \`10\`
 "
 `;
 
@@ -226,6 +236,21 @@ description: Contents of the bounds-module module (Version 1.x.x)
 
 ## Interfaces
 - [InterfaceWithBounds](InterfaceWithBounds.md)
+
+## Functions
+
+### **functionWithMaxLength**
+\`
+functionWithMaxLength(values: string[], emptyValues: string[], nullLimit: string[], noLimit: string[]): void
+\`
+
+#### **Parameters**
+- **values**: *string*[]
+  * Maximum Length: \`10\`
+- **emptyValues**: *string*[]
+  * Maximum Length: \`0\`
+- **nullLimit**: *string*[]
+- **noLimit**: *string*[]
 "
 `;
 
@@ -364,6 +389,7 @@ Notes:
 
 ## Methods
 - [methodThatTakesBoundedValue](#methodthattakesboundedvalue)
+- [methodWithMaxLength](#methodwithmaxlength)
 
 ### **methodThatTakesBoundedValue**
 \`
@@ -391,6 +417,15 @@ methodThatTakesBoundedValue(s: number, t: number, u: number, v: number, w: numbe
   
 Notes:
 - This function can't be called in restricted-execution mode.
+
+### **methodWithMaxLength**
+\`
+methodWithMaxLength(values: string[]): void
+\`
+
+#### **Parameters**
+- **values**: *string*[]
+  * Maximum Length: \`10\`
 "
 `;
 
@@ -455,6 +490,21 @@ The following API versions are from a major version that is documented here: [*b
 
 ## Interfaces
 - [InterfaceWithBounds](InterfaceWithBounds.md)
+
+## Functions
+
+### **functionWithMaxLength**
+\`
+functionWithMaxLength(values: string[], emptyValues: string[], nullLimit: string[], noLimit: string[]): void
+\`
+
+#### **Parameters**
+- **values**: *string*[]
+  * Maximum Length: \`10\`
+- **emptyValues**: *string*[]
+  * Maximum Length: \`0\`
+- **nullLimit**: *string*[]
+- **noLimit**: *string*[]
 "
 `;
 
@@ -641,6 +691,11 @@ export class ClassWithBounds {
         z: number,
         null_details_to_no_details: number
     ): void;
+    /**
+     * @param values
+     * Maximum Length: 10
+     */
+    methodWithMaxLength(values: string[]): void;
 }
 
 export interface InterfaceWithBounds {
@@ -649,6 +704,19 @@ export interface InterfaceWithBounds {
      */
     boundedInterfaceProperty?: number[];
 }
+
+/**
+ * @param values
+ * Maximum Length: 10
+ * @param emptyValues
+ * Maximum Length: 0
+ */
+export function functionWithMaxLength(
+    values: string[],
+    emptyValues: string[],
+    nullLimit: string[],
+    noLimit: string[]
+): void;
 "
 `;
 
@@ -784,6 +852,11 @@ export class ClassWithBounds {
         z: number,
         null_details_to_no_details: number
     ): void;
+    /**
+     * @param values
+     * Maximum Length: 10
+     */
+    methodWithMaxLength(values: string[]): void;
 }
 
 export interface InterfaceWithBounds {
@@ -792,5 +865,18 @@ export interface InterfaceWithBounds {
      */
     boundedInterfaceProperty?: number[];
 }
+
+/**
+ * @param values
+ * Maximum Length: 10
+ * @param emptyValues
+ * Maximum Length: 0
+ */
+export function functionWithMaxLength(
+    values: string[],
+    emptyValues: string[],
+    nullLimit: string[],
+    noLimit: string[]
+): void;
 "
 `;

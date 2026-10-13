@@ -1,8 +1,42 @@
 # Change Log - @minecraft/markup-generators-plugin
 
-<!-- This log was last generated on Thu, 23 Jul 2026 16:29:49 GMT and should not be manually modified. -->
+<!-- This log was last generated on Wed, 16 Sep 2026 19:05:57 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 2.2.0
+
+Wed, 16 Sep 2026 19:05:57 GMT
+
+### Minor changes
+
+- Added documentation for max length function arguments (and other fixes) (jake@xbox.com)
+- Bump @minecraft/api-docs-generator to v2.3.0
+
+## 2.1.0
+
+Wed, 02 Sep 2026 20:57:07 GMT
+
+### Minor changes
+
+- Revert "Remove commands documentation generation (#137)" (zachary.campbell@skyboxlabs.com)
+- Bump @minecraft/api-docs-generator to v2.2.0
+
+## 2.0.7
+
+Mon, 24 Aug 2026 20:12:43 GMT
+
+### Patches
+
+- Bump @minecraft/api-docs-generator to v2.1.0
+
+## 2.0.6
+
+Wed, 19 Aug 2026 00:46:21 GMT
+
+### Patches
+
+- Fix protocol HTML documentation rendering and index layout (jake@xbox.com)
 
 ## 2.0.5
 

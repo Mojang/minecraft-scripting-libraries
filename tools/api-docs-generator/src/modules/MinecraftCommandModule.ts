@@ -41,19 +41,22 @@ export const MinecraftCommandAliasRecord = Record({
 });
 export type MinecraftCommandAlias = Static<typeof MinecraftCommandAliasRecord>;
 
+export const MinecraftCommandExampleRecord = Record({
+    title: String,
+    code: String,
+    description: Optional(Array(String)),
+});
+export type MinecraftCommandExample = Static<typeof MinecraftCommandExampleRecord>;
+
 export const MinecraftCommandArgumentTypeRecord = Record({
     name: String,
 
     // Runtime Markup
-    type_name: Optional(String),
     keyword_name: Optional(String),
     is_enum: Optional(Boolean),
     is_keyword: Optional(Boolean),
     has_link: Optional(Boolean),
     syntax: Optional(String),
-
-    has_comments: Optional(Boolean),
-    type_description: Optional(Array(String)),
 });
 export type MinecraftCommandArgumentType = Static<typeof MinecraftCommandArgumentTypeRecord>;
 
@@ -79,6 +82,7 @@ export const MinecraftCommandOverloadRecord = Record({
     has_comments: Optional(Boolean),
     overload_description: Optional(Array(String)),
     overload_header: Optional(String),
+    overload_examples: Optional(Array(MinecraftCommandExampleRecord)),
 });
 export type MinecraftCommandOverload = Static<typeof MinecraftCommandOverloadRecord>;
 
@@ -100,6 +104,7 @@ export const MinecraftCommandRecord = Record({
 
     has_comments: Optional(Boolean),
     command_description: Optional(Array(String)),
+    command_examples: Optional(Array(MinecraftCommandExampleRecord)),
 });
 export type MinecraftCommand = Static<typeof MinecraftCommandRecord>;
 
@@ -110,9 +115,6 @@ export const MinecraftCommandModuleRecord = Intersect(
 
         commands: Optional(Array(MinecraftCommandRecord)),
         command_enums: Optional(Array(MinecraftCommandEnumRecord)),
-
-        // Runtime Markup
-        command_types: Optional(Array(MinecraftCommandArgumentTypeRecord)),
     })
 );
 export type MinecraftCommandModule = Static<typeof MinecraftCommandModuleRecord>;

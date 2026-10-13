@@ -1,0 +1,7 @@
+{
+  "type": "minor",
+  "comment": "Updated MS Docs Commands documentation to support examples",
+  "packageName": "@minecraft/markup-generators-plugin",
+  "email": "jake@xbox.com",
+  "dependentChangeType": "patch"
+}

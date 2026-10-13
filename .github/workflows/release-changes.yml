@@ -39,3 +39,15 @@ jobs:
         run: npm run release -- --yes --new
         env:
           REPO_PAT: ${{ secrets.REPO_PAT }}
+          
+      # Handle failure and notify
+      - name: Handle failure
+        env:
+          webhook_secret: ${{ secrets.NOTIFICATION_WEBHOOK }}
+          server_url: ${{ github.server_url }}
+          repository: ${{ github.repository }}
+          sha: ${{ github.sha }}
+        if: failure()
+        run: |
+          echo "Release failed! Issues encountered"
+          bash .github/scripts/notify-on-error.sh

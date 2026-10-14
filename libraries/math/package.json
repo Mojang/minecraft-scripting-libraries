@@ -1,6 +1,6 @@
 {
   "name": "@minecraft/math",
-  "version": "2.4.0",
+  "version": "0.0.0-semantically-released",
   "author": "Raphael Landaverde (rlanda@microsoft.com)",
   "contributors": [
     {
@@ -24,8 +24,7 @@
     "build": "just build",
     "lint": "just lint",
     "test": "just test",
-    "clean": "just clean",
-    "postpublish": "just postpublish"
+    "clean": "just clean"
   },
   "license": "MIT",
   "files": [

@@ -3,6 +3,8 @@
 # Please see the documentation for all configuration options:
 # https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
 
+# Commit messages are Conventional Commits so semantic-release can act on them:
+# runtime dependency bumps ("fix") release a patch, devDependency bumps ("chore") don't release.
 version: 2
 updates:
   - package-ecosystem: "npm" # See documentation for possible values
@@ -10,4 +12,14 @@ updates:
     schedule:
       interval: "monthly"
     commit-message:
-      prefix: "build(dependabot): "
+      prefix: "fix"
+      prefix-development: "chore"
+      include: "scope"
+
+  # Release tooling (semantic-release); never published, so changes here don't release anything.
+  - package-ecosystem: "npm"
+    directory: "/.github/release"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "ci"

@@ -8,7 +8,6 @@ import {
     apiExtractorTask,
     cleanTask,
     coreLint,
-    publishReleaseTask,
     vitestTask,
 } from '@minecraft/core-build-tasks';
 import { copyFileSync, readFileSync } from 'node:fs';
@@ -44,12 +43,3 @@ task('test', series('api-extractor-validate', 'vitest'));
 
 // Clean
 task('clean', cleanTask(DEFAULT_CLEAN_DIRECTORIES));
-
-// Post-publish
-task('postpublish', () => {
-    return publishReleaseTask({
-        repoOwner: 'Mojang',
-        repoName: 'minecraft-scripting-libraries',
-        message: 'See attached zip for pre-built minecraft-gameplay-utilities bundle with type declarations.',
-    });
-});

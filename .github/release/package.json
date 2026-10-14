@@ -1,0 +1,18 @@
+{
+    "name": "minecraft-scripting-libraries-release",
+    "private": true,
+    "description": "Release tooling (semantic-release) for the minecraft-scripting-libraries monorepo. Kept separate from the root workspace so contributors do not need to install it.",
+    "type": "module",
+    "engines": {
+        "node": "^22.22.2 || >=24.15.0"
+    },
+    "scripts": {
+        "release": "node release.mjs",
+        "release:dry-run": "node release.mjs --dry-run"
+    },
+    "devDependencies": {
+        "@anolilab/multi-semantic-release": "^4.4.23",
+        "conventional-changelog-conventionalcommits": "^9.3.1",
+        "semantic-release": "^25.0.9"
+    }
+}

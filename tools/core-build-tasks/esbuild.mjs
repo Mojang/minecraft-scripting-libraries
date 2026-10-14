@@ -11,7 +11,7 @@ import { execSync } from 'node:child_process';
  * 3. ESM Bundle Creation
  *
  * Core build tasks is bundled because just.js can only truly function with CommonJS, as it imports dependencies
- * with require. However, some packages we use (such as octokit) are ESM only. To bridge this gap, we bundle
+ * with require. However, some dependencies may be ESM only. To bridge this gap, we bundle
  * core build tasks with both modes. However, to ensure we aren't fully locking in consumers to specific versions
  * of dependencies, the top level dependencies are treated as external (TS, ESLint, ESBuild, Prettier)
  */

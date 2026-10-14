@@ -1,0 +1,24 @@
+name: PR Title
+
+# PRs are squash-merged, and semantic-release derives versions from the squashed commit message,
+# so the PR title (or the sole commit message for single-commit PRs) must be a Conventional Commit.
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+    branches:
+      - main
+
+permissions:
+  pull-requests: read
+
+jobs:
+  conventional-title:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: amannn/action-semantic-pull-request@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          # With a single commit, GitHub uses the commit message (not the PR title) for the squash commit.
+          validateSingleCommit: true
+          validateSingleCommitMatchesPrTitle: true

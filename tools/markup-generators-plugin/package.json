@@ -1,6 +1,6 @@
 {
   "name": "@minecraft/markup-generators-plugin",
-  "version": "2.2.0",
+  "version": "0.0.0-semantically-released",
   "description": "Plugin for @minecraft/api-docs-generator containing core markup generators and template files",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -29,18 +29,16 @@
     "clean": "just clean",
     "lint": "just lint",
     "test": "just test",
-    "package": "just package",
-    "postpublish": "just postpublish"
+    "package": "just package"
   },
   "files": [
     "lib/",
     "!lib/**/*.{spec,test}.ts",
     "templates/",
-    "README.md",
-    "CHANGELOG.*"
+    "README.md"
   ],
   "devDependencies": {
-    "@minecraft/api-docs-generator": "^2.4.0",
+    "@minecraft/api-docs-generator": "*",
     "@minecraft/core-build-tasks": "*",
     "@types/mustache": "^4.2.2",
     "@types/node": "^22.0.0",
@@ -61,6 +59,6 @@
     "typescript": "~5.6.0"
   },
   "peerDependencies": {
-    "@minecraft/api-docs-generator": "^2.4.0"
+    "@minecraft/api-docs-generator": "*"
   }
 }

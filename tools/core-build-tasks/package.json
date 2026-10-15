@@ -1,6 +1,6 @@
 {
   "name": "@minecraft/core-build-tasks",
-  "version": "5.7.0",
+  "version": "0.0.0-semantically-released",
   "description": "Common build tasks used for minecraft-scripting-libraries",
   "exports": {
     "types": "./lib/index.d.ts",
@@ -28,8 +28,7 @@
   },
   "files": [
     "lib",
-    "lib-cjs",
-    "CHANGELOG.*"
+    "lib-cjs"
   ],
   "dependencies": {
     "@microsoft/api-extractor": "^7.38.3",
@@ -45,11 +44,8 @@
     "zip-lib": "^0.7.3"
   },
   "devDependencies": {
-    "@octokit/rest": "^21.0.2",
-    "@types/archiver": "^6.0.0",
     "@types/node": "^22.0.0",
     "@types/rimraf": "^3.0.2",
-    "archiver": "^7.0.1",
     "ts-node": "^10.9.1",
     "tsconfig": "*"
   }

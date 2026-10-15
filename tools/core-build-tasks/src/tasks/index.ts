@@ -8,7 +8,6 @@ export * from './cleanCollateral';
 export * from './copy';
 export * from './coreLint';
 export * from './helpers/index';
-export * from './publishRelease';
 export * from './vitest';
 export * from './updateWorld';
 export * from './watch';

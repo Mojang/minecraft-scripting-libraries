@@ -1,6 +1,6 @@
 {
   "name": "@minecraft/api-docs-generator",
-  "version": "2.4.0",
+  "version": "0.0.0-semantically-released",
   "description": "Core Minecraft API Docs Generator package for generating API markup and documentation",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -29,8 +29,7 @@
     "clean": "just clean",
     "lint": "just lint",
     "test": "just test",
-    "package": "just package",
-    "postpublish": "just postpublish"
+    "package": "just package"
   },
   "bin": {
     "minecraft-api-docs-generator": "lib/cli.js"
@@ -38,8 +37,7 @@
   "files": [
     "lib/",
     "!lib/**/*.{spec,test}.ts",
-    "README.md",
-    "CHANGELOG.*"
+    "README.md"
   ],
   "devDependencies": {
     "@minecraft/core-build-tasks": "*",

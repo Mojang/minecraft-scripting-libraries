@@ -18,9 +18,7 @@
         "test:update": "turbo run test -- --update",
         "lint": "turbo run lint",
         "lint:fix": "turbo run lint -- --fix",
-        "clean": "turbo run clean",
-        "change": "beachball change",
-        "release": "beachball publish --access public"
+        "clean": "turbo run clean"
     },
     "keywords": [
         "minecraft",
@@ -40,7 +38,6 @@
         "@rushstack/node-core-library": "^5.14.0",
         "@types/glob": "^8.0.0",
         "@types/node": "^22.0.0",
-        "beachball": "^2.54.0",
         "chalk": "^5.4.1",
         "eslint": "^9.17.0",
         "glob": "^8.0.3",

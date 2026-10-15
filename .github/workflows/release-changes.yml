@@ -1,61 +1,46 @@
 name: Release Changes
 
-on: 
+on:
   push:
     branches:
       - main
 
+# Never run two releases at once; a queued run will pick up the previous run's tags.
+concurrency:
+  group: release
+  cancel-in-progress: false
+
 jobs:
   build:
-    if: github.actor != 'mc-npm'
     environment: release
     runs-on: ubuntu-latest
     permissions:
       id-token: write # required for npm OIDC trusted publishing
-      contents: read # required for actions/checkout
+      contents: write # required to push release tags and create GitHub releases
 
     steps:
       - uses: actions/checkout@v4
         with:
+          fetch-depth: 0 # semantic-release needs full history and tags to compute versions
           persist-credentials: false
-
-      # Fail before anything is published to npm if REPO_PAT can't be used for the git push / GitHub release.
-      # Otherwise npm and the repo drift apart (packages published but version bumps never pushed).
-      - name: Verify REPO_PAT
-        run: |
-          if ! can_push=$(gh api "repos/$GITHUB_REPOSITORY" --jq '.permissions.push'); then
-            echo "::error::REPO_PAT is invalid or expired. Rotate the REPO_PAT secret before releasing."
-            exit 1
-          fi
-          if [ "$can_push" != "true" ]; then
-            echo "::error::REPO_PAT does not have write access to $GITHUB_REPOSITORY."
-            exit 1
-          fi
-        env:
-          GH_TOKEN: ${{ secrets.REPO_PAT }}
 
       - name: Use Node.js 24.x
         uses: actions/setup-node@v6
         with:
           node-version: 24
-          registry-url: 'https://registry.npmjs.org'
       - run: npm ci
       - run: npm run test:ci # Fully build the repo so we have artifacts available to create releases, include tests so we don't ship in a broken state
-      
-      - name: Set git credentials
-        run: |
-          git config --global user.name "Minecraft Bot"
-          git config --global user.email "mc-npm@microsoft.com"
-          git remote set-url origin "https://$REPO_PAT@github.com/mojang/minecraft-scripting-libraries"
+
+      # Release tooling lives in its own package so contributors never install it.
+      - name: Install release tooling
+        run: npm ci --prefix .github/release
+
+      # Publishes to npm, pushes release tags and creates GitHub releases. Nothing is committed back to the repo.
+      - name: Release
+        run: npm run --prefix .github/release release
         env:
-          REPO_PAT: ${{ secrets.REPO_PAT }}
-      
-      # Pass the token on the command line for publishing
-      - name: Publish
-        run: npm run release -- --yes --new
-        env:
-          REPO_PAT: ${{ secrets.REPO_PAT }}
-          
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       # Handle failure and notify
       - name: Handle failure
         env:

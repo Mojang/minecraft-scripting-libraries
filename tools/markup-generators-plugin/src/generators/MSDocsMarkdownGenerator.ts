@@ -221,10 +221,14 @@ export class MSDocsMarkdownGenerator implements MarkupGenerator {
             property: mdTemplateFiles.readFileAsString('script/property.mustache'),
             property_declaration: mdTemplateFiles.readFileAsString('script/property_declaration.mustache'),
             default_metadata: mdTemplateFiles.readFileAsString('script/default_metadata.mustache'),
+            generic_declaration_with_links: mdTemplateFiles
+                .readFileAsString('script/generic_declaration_with_links.mustache')
+                .trimEnd(),
 
             // TypeScript Partials
             function_declaration: mdTemplateFiles.readFileAsString('script/function_declaration.mustache'),
             function_argument_declaration: tsTemplateFiles.readFileAsString('function_argument_declaration.mustache'),
+            generic_declaration: tsTemplateFiles.readFileAsString('generic_declaration.mustache').trimEnd(),
             type: tsTemplateFiles.readFileAsString('type.mustache'),
         });
         const msdocsClassFilePath = path.join(outputDirectory, `${classJson.name}.md`);
@@ -250,10 +254,14 @@ export class MSDocsMarkdownGenerator implements MarkupGenerator {
             property: mdTemplateFiles.readFileAsString('script/property.mustache'),
             property_declaration: mdTemplateFiles.readFileAsString('script/property_declaration.mustache'),
             default_metadata: mdTemplateFiles.readFileAsString('script/default_metadata.mustache'),
+            generic_declaration_with_links: mdTemplateFiles
+                .readFileAsString('script/generic_declaration_with_links.mustache')
+                .trimEnd(),
 
             // TypeScript Partials
             function_declaration: mdTemplateFiles.readFileAsString('script/function_declaration.mustache'),
             function_argument_declaration: tsTemplateFiles.readFileAsString('function_argument_declaration.mustache'),
+            generic_declaration: tsTemplateFiles.readFileAsString('generic_declaration.mustache').trimEnd(),
             type: tsTemplateFiles.readFileAsString('type.mustache'),
         });
         const msdocsClassFilePath = path.join(outputDirectory, `${enumJson.name}.md`);
@@ -299,10 +307,14 @@ export class MSDocsMarkdownGenerator implements MarkupGenerator {
             property: mdTemplateFiles.readFileAsString('script/property.mustache'),
             property_declaration: mdTemplateFiles.readFileAsString('script/property_declaration.mustache'),
             default_metadata: mdTemplateFiles.readFileAsString('script/default_metadata.mustache'),
+            generic_declaration_with_links: mdTemplateFiles
+                .readFileAsString('script/generic_declaration_with_links.mustache')
+                .trimEnd(),
 
             // TypeScript Partials
             function_declaration: mdTemplateFiles.readFileAsString('script/function_declaration.mustache'),
             function_argument_declaration: tsTemplateFiles.readFileAsString('function_argument_declaration.mustache'),
+            generic_declaration: tsTemplateFiles.readFileAsString('generic_declaration.mustache').trimEnd(),
             type: tsTemplateFiles.readFileAsString('type.mustache'),
         });
         const msdocsModuleFilePath = path.join(outputDirectory, `${moduleJson.bookmark_name}.md`);
@@ -330,10 +342,14 @@ export class MSDocsMarkdownGenerator implements MarkupGenerator {
             property: mdTemplateFiles.readFileAsString('script/property.mustache'),
             property_declaration: mdTemplateFiles.readFileAsString('script/property_declaration.mustache'),
             default_metadata: mdTemplateFiles.readFileAsString('script/default_metadata.mustache'),
+            generic_declaration_with_links: mdTemplateFiles
+                .readFileAsString('script/generic_declaration_with_links.mustache')
+                .trimEnd(),
 
             // TypeScript Partials
             function_declaration: mdTemplateFiles.readFileAsString('script/function_declaration.mustache'),
             function_argument_declaration: tsTemplateFiles.readFileAsString('function_argument_declaration.mustache'),
+            generic_declaration: tsTemplateFiles.readFileAsString('generic_declaration.mustache').trimEnd(),
             type: tsTemplateFiles.readFileAsString('type.mustache'),
         });
         const msdocChangelogFilePath = path.join(outputDirectory, 'changelog.md');

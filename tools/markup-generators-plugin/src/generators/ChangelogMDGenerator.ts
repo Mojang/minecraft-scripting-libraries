@@ -42,6 +42,7 @@ export class ChangelogMDGenerator implements MarkupGenerator {
                 property: tsTemplateFiles.readFileAsString('property.mustache'),
                 enum: tsTemplateFiles.readFileAsString('enum.mustache'),
                 class: tsTemplateFiles.readFileAsString('class.mustache'),
+                generic_declaration: tsTemplateFiles.readFileAsString('generic_declaration.mustache').trimEnd(),
                 type_alias: tsTemplateFiles.readFileAsString('type_alias.mustache'),
                 module: tsTemplateFiles.readFileAsString('module.mustache'),
                 function_argument_declaration: tsTemplateFiles.readFileAsString(

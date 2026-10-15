@@ -1,0 +1,58 @@
+{
+    "name": "@minecraft/generic-base",
+    "uuid": "8f750c76-293d-4be3-a1fe-e3b802e63e70",
+    "version": "1.0.0",
+    "minecraft_version": "1.0.0",
+    "module_type": "script",
+    "classes": [
+        {
+            "name": "GenericBase",
+            "type": {
+                "name": "GenericBase",
+                "is_errorable": false,
+                "is_bind_type": true
+            },
+            "generic_class_types": [
+                {
+                    "name": "TLeft"
+                },
+                {
+                    "name": "TRight"
+                }
+            ],
+            "base_types": [],
+            "properties": [],
+            "functions": []
+        }
+    ],
+    "interfaces": [
+        {
+            "name": "CrossModuleBase",
+            "type": {
+                "name": "CrossModuleBase",
+                "is_errorable": false,
+                "is_bind_type": true
+            },
+            "properties": [],
+            "functions": []
+        },
+        {
+            "name": "BasePair",
+            "type": {
+                "name": "BasePair",
+                "is_errorable": false,
+                "is_bind_type": true
+            },
+            "generic_class_types": [
+                {
+                    "name": "TLeft"
+                },
+                {
+                    "name": "TRight"
+                }
+            ],
+            "properties": [],
+            "functions": []
+        }
+    ]
+}

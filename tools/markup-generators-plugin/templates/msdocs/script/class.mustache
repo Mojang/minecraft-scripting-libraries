@@ -6,7 +6,7 @@ description: Contents of the {{{from_module.name}}}.{{{name}}} class{{#from_modu
 monikerRange: "=minecraft-bedrock-experimental"
 {{/is_prerelease}}
 ---
-# {{{class_name}}} {{#is_interface}}Interface{{/is_interface}}{{^is_interface}}Class{{/is_interface}}{{#from_module.prior_version}} (Version {{.}}){{/from_module.prior_version}}
+# {{{class_name}}}{{#generic_class_types.length}}&lt;{{#generic_class_types}}{{> generic_declaration_with_links}}{{^is_last}}, {{/is_last}}{{/generic_class_types}}&gt;{{/generic_class_types.length}} {{#is_interface}}Interface{{/is_interface}}{{^is_interface}}Class{{/is_interface}}{{#from_module.prior_version}} (Version {{.}}){{/from_module.prior_version}}
 {{#show_prior_warning}}
 
 > [!IMPORTANT]

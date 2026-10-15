@@ -71,6 +71,11 @@ description: Changelog of the `{{{name}}}` module
     {{/$removed}}
     {{#has_changes}}{{^$added}}{{^$removed}}
 #### Changed *[`{{{name}}}`]({{class_name}}.md)*
+    {{#generic_class_types}}
+      {{#$changed}}
+- Changed generic type parameters from {{#$old.length}}&lt;{{#$old}}{{> generic_declaration_with_links}}{{^is_last}}, {{/is_last}}{{/$old}}&gt;{{/$old.length}}{{^$old.length}}none{{/$old.length}} to {{#$new.length}}&lt;{{#$new}}{{> generic_declaration_with_links}}{{^is_last}}, {{/is_last}}{{/$new}}&gt;{{/$new.length}}{{^$new.length}}none{{/$new.length}}
+      {{/$changed}}
+    {{/generic_class_types}}
     {{#base_types}}
      {{#$added}}
 - Added base class {{> type_with_links}}
@@ -149,6 +154,11 @@ description: Changelog of the `{{{name}}}` module
         {{/$removed}}
         {{#has_changes}}{{^$added}}{{^$removed}}
 - Changed function *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
+          {{#generic_function_types}}
+            {{#$changed}}
+  - Changed generic type parameters from {{#$old.length}}&lt;{{#$old}}{{> generic_declaration_with_links}}{{^is_last}}, {{/is_last}}{{/$old}}&gt;{{/$old.length}}{{^$old.length}}none{{/$old.length}} to {{#$new.length}}&lt;{{#$new}}{{> generic_declaration_with_links}}{{^is_last}}, {{/is_last}}{{/$new}}&gt;{{/$new.length}}{{^$new.length}}none{{/$new.length}}
+            {{/$changed}}
+          {{/generic_function_types}}
           {{#return_type}}
             {{#$changed}}
   - Changed return type from {{#$old.return_type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$old.return_type}} to {{#$new.return_type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$new.return_type}}
@@ -194,6 +204,75 @@ description: Changelog of the `{{{name}}}` module
     {{/has_member_functions}}
     {{/$removed}}{{/$added}}{{/has_changes}}
   {{/classes}}
+  {{#interfaces}}
+    {{#has_generic_metadata}}
+    {{#$added}}
+#### Added *[`{{{name}}}`]({{class_name}}.md)*
+    {{/$added}}
+    {{#$removed}}
+#### Removed *{{{name}}}*
+    {{/$removed}}
+    {{#has_changes}}{{^$added}}{{^$removed}}
+#### Changed *[`{{{name}}}`]({{class_name}}.md)*
+      {{#generic_class_types}}
+        {{#$changed}}
+- Changed generic type parameters from {{#$old.length}}&lt;{{#$old}}{{> generic_declaration_with_links}}{{^is_last}}, {{/is_last}}{{/$old}}&gt;{{/$old.length}}{{^$old.length}}none{{/$old.length}} to {{#$new.length}}&lt;{{#$new}}{{> generic_declaration_with_links}}{{^is_last}}, {{/is_last}}{{/$new}}&gt;{{/$new.length}}{{^$new.length}}none{{/$new.length}}
+        {{/$changed}}
+      {{/generic_class_types}}
+      {{#properties}}
+        {{#$added}}
+- Added property *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
+        {{/$added}}
+        {{#$removed}}
+- Removed property *{{{name}}}*
+        {{/$removed}}
+        {{#type}}
+          {{#$changed}}
+- Changed type for *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})* from {{#$old.type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$old.type}} to {{#$new.type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$new.type}}
+          {{/$changed}}
+        {{/type}}
+      {{/properties}}
+    {{/$removed}}{{/$added}}{{/has_changes}}
+    {{#functions}}
+      {{#has_generic_metadata}}
+      {{#$added}}
+- Added function *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
+      {{/$added}}
+      {{#$removed}}
+- Removed function *{{{name}}}*
+      {{/$removed}}
+      {{#has_changes}}{{^$added}}{{^$removed}}
+#### Changed function *[`{{{name}}}`]({{class_name}}.md#{{bookmark_name}})*
+        {{#generic_function_types}}
+          {{#$changed}}
+- Changed generic type parameters from {{#$old.length}}&lt;{{#$old}}{{> generic_declaration_with_links}}{{^is_last}}, {{/is_last}}{{/$old}}&gt;{{/$old.length}}{{^$old.length}}none{{/$old.length}} to {{#$new.length}}&lt;{{#$new}}{{> generic_declaration_with_links}}{{^is_last}}, {{/is_last}}{{/$new}}&gt;{{/$new.length}}{{^$new.length}}none{{/$new.length}}
+          {{/$changed}}
+        {{/generic_function_types}}
+        {{#return_type}}
+          {{#$changed}}
+- Changed return type from {{#$old.return_type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$old.return_type}} to {{#$new.return_type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$new.return_type}}
+          {{/$changed}}
+        {{/return_type}}
+        {{#arguments}}
+          {{#$added}}
+- Added argument `{{{name}}}`
+          {{/$added}}
+          {{#$removed}}
+- Removed argument `{{{name}}}`
+          {{/$removed}}
+          {{^$added}}{{^$removed}}
+            {{#type}}
+              {{#$changed}}
+- Changed argument `{{{name}}}` type from {{#$old.type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$old.type}} to {{#$new.type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$new.type}}
+              {{/$changed}}
+            {{/type}}
+          {{/$removed}}{{/$added}}
+        {{/arguments}}
+      {{/$removed}}{{/$added}}{{/has_changes}}
+      {{/has_generic_metadata}}
+    {{/functions}}
+    {{/has_generic_metadata}}
+  {{/interfaces}}
   {{#functions}}
     {{#$added}}
 #### Added function `{{{name}}}`
@@ -203,6 +282,11 @@ description: Changelog of the `{{{name}}}` module
     {{/$removed}}
     {{#has_changes}}{{^$added}}{{^$removed}}
 #### Changed function `{{{name}}}`
+      {{#generic_function_types}}
+        {{#$changed}}
+- Changed generic type parameters from {{#$old.length}}&lt;{{#$old}}{{> generic_declaration_with_links}}{{^is_last}}, {{/is_last}}{{/$old}}&gt;{{/$old.length}}{{^$old.length}}none{{/$old.length}} to {{#$new.length}}&lt;{{#$new}}{{> generic_declaration_with_links}}{{^is_last}}, {{/is_last}}{{/$new}}&gt;{{/$new.length}}{{^$new.length}}none{{/$new.length}}
+        {{/$changed}}
+      {{/generic_function_types}}
       {{#return_type}}
         {{#$changed}}
 - Changed return type from {{#$old.return_type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$old.return_type}} to {{#$new.return_type}}{{> type_with_links}}{{#is_errorable}} (throws exceptions){{/is_errorable}}{{/$new.return_type}}

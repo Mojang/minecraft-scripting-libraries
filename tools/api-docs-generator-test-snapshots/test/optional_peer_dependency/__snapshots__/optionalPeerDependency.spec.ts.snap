@@ -12,9 +12,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/dependant-module/d
 
 exports[`Optional Peer Dependency > Properly generates types for module that has an optional types-only peer dependency > npm/types/dependant-module@1.0.0/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -76,9 +76,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/peer-module/peer-m
 
 exports[`Optional Peer Dependency > Properly generates types for module that has an optional types-only peer dependency > npm/types/peer-module@1.1.0/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -128,9 +128,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/test-module/test-m
 
 exports[`Optional Peer Dependency > Properly generates types for module that has an optional types-only peer dependency > npm/types/test-module@1.0.0/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -171,9 +171,9 @@ exports[`Optional Peer Dependency > Properly generates types for module that has
 
 exports[`Optional Peer Dependency > Properly generates types for module that has an optional types-only peer dependency > typescript/dependant-module@1.0.0.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -202,9 +202,9 @@ export class ClassWithCrossModuleFunction {
 
 exports[`Optional Peer Dependency > Properly generates types for module that has an optional types-only peer dependency > typescript/peer-module@1.1.0.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -227,9 +227,9 @@ export type TypeAliasFromPeerDependency = boolean | string;
 
 exports[`Optional Peer Dependency > Properly generates types for module that has an optional types-only peer dependency > typescript/test-module@1.0.0.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.

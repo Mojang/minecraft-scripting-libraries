@@ -14,9 +14,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/example-
 
 exports[`NPM General > Properly generates documentation for the NPM > npm/types/@minecraft/example-module@1.0.0-beta/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -58,9 +58,9 @@ exports[`NPM General > Properly generates documentation for the NPM > npm/types/
 
 exports[`NPM General > Properly generates documentation for the NPM > typescript/@minecraft/example-module@1.0.0-beta.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.

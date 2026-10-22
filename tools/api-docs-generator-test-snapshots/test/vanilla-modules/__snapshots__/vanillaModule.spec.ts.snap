@@ -19,9 +19,8 @@ export * from './test-mynewdata-module';
 
 exports[`Vanilla Modules > Generates correct typescript source and npm modules for all vanilla modules > npm/@minecraft/vanilla-data/lib/index.js 1`] = `
 "// Vanilla Data for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
 //                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
@@ -142,9 +141,8 @@ export * from './test-mynewdata-module';
 
 exports[`Vanilla Modules > Generates correct typescript source and npm modules for all vanilla modules > npm/@minecraft/vanilla-data/src/test-blocks-module.ts 1`] = `
 "// Vanilla Data for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
 //                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
@@ -202,9 +200,8 @@ export type BlockStateMapping = {
 
 exports[`Vanilla Modules > Generates correct typescript source and npm modules for all vanilla modules > npm/@minecraft/vanilla-data/src/test-item-module.ts 1`] = `
 "// Vanilla Data for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
 //                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
@@ -231,9 +228,8 @@ export type MinecraftItemTypesUnion = keyof typeof MinecraftItemTypes;
 
 exports[`Vanilla Modules > Generates correct typescript source and npm modules for all vanilla modules > npm/@minecraft/vanilla-data/src/test-mynewdata-module.ts 1`] = `
 "// Vanilla Data for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
 //                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
@@ -257,9 +253,8 @@ export type MinecraftMyNewDataTypesUnion = keyof typeof MinecraftMyNewDataTypes;
 
 exports[`Vanilla Modules > Generates correct typescript source and npm modules for all vanilla modules > ts-source/1.19.80/test-blocks-module.ts 1`] = `
 "// Vanilla Data for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
 //                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
@@ -317,9 +312,8 @@ export type BlockStateMapping = {
 
 exports[`Vanilla Modules > Generates correct typescript source and npm modules for all vanilla modules > ts-source/1.19.80/test-item-module.ts 1`] = `
 "// Vanilla Data for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
 //                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
@@ -346,9 +340,8 @@ export type MinecraftItemTypesUnion = keyof typeof MinecraftItemTypes;
 
 exports[`Vanilla Modules > Generates correct typescript source and npm modules for all vanilla modules > ts-source/1.19.80/test-mynewdata-module.ts 1`] = `
 "// Vanilla Data for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
 //                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
@@ -389,9 +382,8 @@ export * from './test-mynewdata-module';
 
 exports[`Vanilla Modules > Generates correct typescript source and npm modules for vanilla modules in a pre-release version > npm/@minecraft/vanilla-data/lib/index.js 1`] = `
 "// Vanilla Data for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
 //                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
@@ -512,9 +504,8 @@ export * from './test-mynewdata-module';
 
 exports[`Vanilla Modules > Generates correct typescript source and npm modules for vanilla modules in a pre-release version > npm/@minecraft/vanilla-data/src/test-blocks-module.ts 1`] = `
 "// Vanilla Data for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
 //                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
@@ -572,9 +563,8 @@ export type BlockStateMapping = {
 
 exports[`Vanilla Modules > Generates correct typescript source and npm modules for vanilla modules in a pre-release version > npm/@minecraft/vanilla-data/src/test-item-module.ts 1`] = `
 "// Vanilla Data for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
 //                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
@@ -601,9 +591,8 @@ export type MinecraftItemTypesUnion = keyof typeof MinecraftItemTypes;
 
 exports[`Vanilla Modules > Generates correct typescript source and npm modules for vanilla modules in a pre-release version > npm/@minecraft/vanilla-data/src/test-mynewdata-module.ts 1`] = `
 "// Vanilla Data for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
 //                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
@@ -627,9 +616,8 @@ export type MinecraftMyNewDataTypesUnion = keyof typeof MinecraftMyNewDataTypes;
 
 exports[`Vanilla Modules > Generates correct typescript source and npm modules for vanilla modules in a pre-release version > ts-source/1.19.80-preview.5/test-blocks-module.ts 1`] = `
 "// Vanilla Data for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
 //                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
@@ -687,9 +675,8 @@ export type BlockStateMapping = {
 
 exports[`Vanilla Modules > Generates correct typescript source and npm modules for vanilla modules in a pre-release version > ts-source/1.19.80-preview.5/test-item-module.ts 1`] = `
 "// Vanilla Data for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
 //                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
@@ -716,9 +703,8 @@ export type MinecraftItemTypesUnion = keyof typeof MinecraftItemTypes;
 
 exports[`Vanilla Modules > Generates correct typescript source and npm modules for vanilla modules in a pre-release version > ts-source/1.19.80-preview.5/test-mynewdata-module.ts 1`] = `
 "// Vanilla Data for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
 //                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************

@@ -134,9 +134,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/beta-mod
 
 exports[`Minecraft Version Beta > Generates correct output for beta minecraft versions > npm/types/@minecraft/beta-module@1.0.0-beta.1.2.3-preview.5/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -188,9 +188,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/stable-m
 
 exports[`Minecraft Version Beta > Generates correct output for beta minecraft versions > npm/types/@minecraft/stable-module@1.0.0-rc.1.2.3-preview.5/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -232,9 +232,9 @@ exports[`Minecraft Version Beta > Generates correct output for beta minecraft ve
 
 exports[`Minecraft Version Beta > Generates correct output for beta minecraft versions > typescript/@minecraft/beta-module@1.0.0-beta.1.2.3-preview.5.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -257,9 +257,9 @@ exports[`Minecraft Version Beta > Generates correct output for beta minecraft ve
 
 exports[`Minecraft Version Beta > Generates correct output for beta minecraft versions > typescript/@minecraft/stable-module@1.0.0-rc.1.2.3-preview.5.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.

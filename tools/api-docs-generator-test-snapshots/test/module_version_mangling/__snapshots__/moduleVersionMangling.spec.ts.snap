@@ -14,9 +14,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/dependent-module/d
 
 exports[`Module Version Mangling > Preview Minecraft - No preexisting releases > npm/types/dependent-module@1.0.0-beta.1.2.3-preview.5/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -76,9 +76,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/dependent-module/d
 
 exports[`Module Version Mangling > Preview Minecraft - No preexisting releases > npm/types/dependent-module@1.0.0-rc.1.2.3-preview.5/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -138,9 +138,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/priorscriptapi/example-modul
 
 exports[`Module Version Mangling > Preview Minecraft - No preexisting releases > npm/types/example-module@1.0.0-beta.1.2.3-preview.5/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -192,9 +192,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/priorscriptapi/example-modul
 
 exports[`Module Version Mangling > Preview Minecraft - No preexisting releases > npm/types/example-module@1.0.0-rc.1.2.3-preview.5/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -246,9 +246,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/example-module/exa
 
 exports[`Module Version Mangling > Preview Minecraft - No preexisting releases > npm/types/example-module@2.0.0-rc.1.2.3-preview.5/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -290,9 +290,9 @@ exports[`Module Version Mangling > Preview Minecraft - No preexisting releases >
 
 exports[`Module Version Mangling > Preview Minecraft - No preexisting releases > typescript/dependent-module@1.0.0-beta.1.2.3-preview.5.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -317,9 +317,9 @@ import * as minecraftvanilladata from '@minecraft/vanilla-data';
 
 exports[`Module Version Mangling > Preview Minecraft - No preexisting releases > typescript/dependent-module@1.0.0-rc.1.2.3-preview.5.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -344,9 +344,9 @@ import * as minecraftvanilladata from '@minecraft/vanilla-data';
 
 exports[`Module Version Mangling > Preview Minecraft - No preexisting releases > typescript/example-module@1.0.0-beta.1.2.3-preview.5.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -369,9 +369,9 @@ exports[`Module Version Mangling > Preview Minecraft - No preexisting releases >
 
 exports[`Module Version Mangling > Preview Minecraft - No preexisting releases > typescript/example-module@1.0.0-rc.1.2.3-preview.5.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -394,9 +394,9 @@ exports[`Module Version Mangling > Preview Minecraft - No preexisting releases >
 
 exports[`Module Version Mangling > Preview Minecraft - No preexisting releases > typescript/example-module@2.0.0-rc.1.2.3-preview.5.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -431,9 +431,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/dependent-module/d
 
 exports[`Module Version Mangling > Preview Minecraft - Preexisting releases > npm/types/dependent-module@1.0.0-beta.1.2.3-preview.5/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -493,9 +493,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/dependent-module/d
 
 exports[`Module Version Mangling > Preview Minecraft - Preexisting releases > npm/types/dependent-module@1.0.0-rc.1.2.3-preview.5/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -553,9 +553,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/priorscriptapi/example-modul
 
 exports[`Module Version Mangling > Preview Minecraft - Preexisting releases > npm/types/example-module@1.0.0/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -606,9 +606,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/priorscriptapi/example-modul
 
 exports[`Module Version Mangling > Preview Minecraft - Preexisting releases > npm/types/example-module@1.0.0-beta.1.2.3-preview.5/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -660,9 +660,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/example-module/exa
 
 exports[`Module Version Mangling > Preview Minecraft - Preexisting releases > npm/types/example-module@2.0.0-rc.1.2.3-preview.5/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -704,9 +704,9 @@ exports[`Module Version Mangling > Preview Minecraft - Preexisting releases > np
 
 exports[`Module Version Mangling > Preview Minecraft - Preexisting releases > typescript/dependent-module@1.0.0-beta.1.2.3-preview.5.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -731,9 +731,9 @@ import * as minecraftvanilladata from '@minecraft/vanilla-data';
 
 exports[`Module Version Mangling > Preview Minecraft - Preexisting releases > typescript/dependent-module@1.0.0-rc.1.2.3-preview.5.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -758,9 +758,9 @@ import * as minecraftvanilladata from '@minecraft/vanilla-data';
 
 exports[`Module Version Mangling > Preview Minecraft - Preexisting releases > typescript/example-module@1.0.0.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -782,9 +782,9 @@ exports[`Module Version Mangling > Preview Minecraft - Preexisting releases > ty
 
 exports[`Module Version Mangling > Preview Minecraft - Preexisting releases > typescript/example-module@1.0.0-beta.1.2.3-preview.5.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -807,9 +807,9 @@ exports[`Module Version Mangling > Preview Minecraft - Preexisting releases > ty
 
 exports[`Module Version Mangling > Preview Minecraft - Preexisting releases > typescript/example-module@2.0.0-rc.1.2.3-preview.5.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -842,9 +842,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/dependent-module/d
 
 exports[`Module Version Mangling > Stable Minecraft - No preexisting releases > npm/types/dependent-module@1.0.0/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -903,9 +903,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/dependent-module/d
 
 exports[`Module Version Mangling > Stable Minecraft - No preexisting releases > npm/types/dependent-module@1.0.0-beta.1.2.3-stable/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -963,9 +963,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/priorscriptapi/example-modul
 
 exports[`Module Version Mangling > Stable Minecraft - No preexisting releases > npm/types/example-module@1.0.0/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -1016,9 +1016,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/priorscriptapi/example-modul
 
 exports[`Module Version Mangling > Stable Minecraft - No preexisting releases > npm/types/example-module@1.0.0-beta.1.2.3-stable/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -1068,9 +1068,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/example-module/exa
 
 exports[`Module Version Mangling > Stable Minecraft - No preexisting releases > npm/types/example-module@2.0.0/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -1111,9 +1111,9 @@ exports[`Module Version Mangling > Stable Minecraft - No preexisting releases > 
 
 exports[`Module Version Mangling > Stable Minecraft - No preexisting releases > typescript/dependent-module@1.0.0.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -1137,9 +1137,9 @@ import * as minecraftvanilladata from '@minecraft/vanilla-data';
 
 exports[`Module Version Mangling > Stable Minecraft - No preexisting releases > typescript/dependent-module@1.0.0-beta.1.2.3-stable.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -1164,9 +1164,9 @@ import * as minecraftvanilladata from '@minecraft/vanilla-data';
 
 exports[`Module Version Mangling > Stable Minecraft - No preexisting releases > typescript/example-module@1.0.0.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -1188,9 +1188,9 @@ exports[`Module Version Mangling > Stable Minecraft - No preexisting releases > 
 
 exports[`Module Version Mangling > Stable Minecraft - No preexisting releases > typescript/example-module@1.0.0-beta.1.2.3-stable.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -1213,9 +1213,9 @@ exports[`Module Version Mangling > Stable Minecraft - No preexisting releases > 
 
 exports[`Module Version Mangling > Stable Minecraft - No preexisting releases > typescript/example-module@2.0.0.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -1247,9 +1247,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/dependent-module/d
 
 exports[`Module Version Mangling > Stable Minecraft - Preexisting releases > npm/types/dependent-module@1.0.0/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -1308,9 +1308,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/dependent-module/d
 
 exports[`Module Version Mangling > Stable Minecraft - Preexisting releases > npm/types/dependent-module@1.0.0-beta.1.2.3-stable/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -1368,9 +1368,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/priorscriptapi/example-modul
 
 exports[`Module Version Mangling > Stable Minecraft - Preexisting releases > npm/types/example-module@1.0.0/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -1421,9 +1421,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/priorscriptapi/example-modul
 
 exports[`Module Version Mangling > Stable Minecraft - Preexisting releases > npm/types/example-module@1.0.0-beta.1.2.3-stable/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -1473,9 +1473,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/example-module/exa
 
 exports[`Module Version Mangling > Stable Minecraft - Preexisting releases > npm/types/example-module@2.0.0/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -1516,9 +1516,9 @@ exports[`Module Version Mangling > Stable Minecraft - Preexisting releases > npm
 
 exports[`Module Version Mangling > Stable Minecraft - Preexisting releases > typescript/dependent-module@1.0.0.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -1542,9 +1542,9 @@ import * as minecraftvanilladata from '@minecraft/vanilla-data';
 
 exports[`Module Version Mangling > Stable Minecraft - Preexisting releases > typescript/dependent-module@1.0.0-beta.1.2.3-stable.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -1569,9 +1569,9 @@ import * as minecraftvanilladata from '@minecraft/vanilla-data';
 
 exports[`Module Version Mangling > Stable Minecraft - Preexisting releases > typescript/example-module@1.0.0.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -1593,9 +1593,9 @@ exports[`Module Version Mangling > Stable Minecraft - Preexisting releases > typ
 
 exports[`Module Version Mangling > Stable Minecraft - Preexisting releases > typescript/example-module@1.0.0-beta.1.2.3-stable.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -1618,9 +1618,9 @@ exports[`Module Version Mangling > Stable Minecraft - Preexisting releases > typ
 
 exports[`Module Version Mangling > Stable Minecraft - Preexisting releases > typescript/example-module@2.0.0.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.

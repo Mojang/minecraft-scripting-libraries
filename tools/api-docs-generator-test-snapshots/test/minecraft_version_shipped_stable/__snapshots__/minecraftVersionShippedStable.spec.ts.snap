@@ -373,9 +373,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/priorscriptapi/minecraft/mod
 
 exports[`Minecraft Version Shipped Stable > Generates correct output for module with stable shipped version and beta in a new version in preview > npm/types/@minecraft/module@1.0.0-rc.1.2.3-preview.5/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -440,9 +440,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/module/m
 
 exports[`Minecraft Version Shipped Stable > Generates correct output for module with stable shipped version and beta in a new version in preview > npm/types/@minecraft/module@2.0.0-rc.1.2.3-preview.5/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -514,9 +514,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/module/m
 
 exports[`Minecraft Version Shipped Stable > Generates correct output for module with stable shipped version and beta in a new version in preview > npm/types/@minecraft/module@2.1.0-beta.1.2.3-preview.5/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -592,9 +592,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/module/m
 
 exports[`Minecraft Version Shipped Stable > Generates correct output for module with stable shipped version and beta in a new version in preview > npm/types/@minecraft/module@2.1.0-internal.1.2.3-preview.5/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -662,9 +662,9 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
 
 exports[`Minecraft Version Shipped Stable > Generates correct output for module with stable shipped version and beta in a new version in preview > typescript/@minecraft/module@1.0.0-rc.1.2.3-preview.5.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -698,9 +698,9 @@ export const GlobalConstantStable = 8;
 
 exports[`Minecraft Version Shipped Stable > Generates correct output for module with stable shipped version and beta in a new version in preview > typescript/@minecraft/module@2.0.0-rc.1.2.3-preview.5.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -741,9 +741,9 @@ export const GlobalConstantStable = 8;
 
 exports[`Minecraft Version Shipped Stable > Generates correct output for module with stable shipped version and beta in a new version in preview > typescript/@minecraft/module@2.1.0-beta.1.2.3-preview.5.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -788,9 +788,9 @@ export const GlobalConstantStable = 8;
 
 exports[`Minecraft Version Shipped Stable > Generates correct output for module with stable shipped version and beta in a new version in preview > typescript/@minecraft/module@2.1.0-internal.1.2.3-preview.5.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -1195,9 +1195,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/priorscriptapi/minecraft/mod
 
 exports[`Minecraft Version Shipped Stable > Generates correct output for module with stable shipped version and beta in a new version in stable > npm/types/@minecraft/module@1.0.0/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -1259,9 +1259,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/module/m
 
 exports[`Minecraft Version Shipped Stable > Generates correct output for module with stable shipped version and beta in a new version in stable > npm/types/@minecraft/module@2.0.0/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -1331,9 +1331,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/module/m
 
 exports[`Minecraft Version Shipped Stable > Generates correct output for module with stable shipped version and beta in a new version in stable > npm/types/@minecraft/module@2.1.0-beta.1.2.3-stable/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -1408,9 +1408,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/minecraft/module/m
 
 exports[`Minecraft Version Shipped Stable > Generates correct output for module with stable shipped version and beta in a new version in stable > npm/types/@minecraft/module@2.1.0-internal.1.2.3-stable/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -1477,9 +1477,9 @@ exports[`Minecraft Version Shipped Stable > Generates correct output for module 
 
 exports[`Minecraft Version Shipped Stable > Generates correct output for module with stable shipped version and beta in a new version in stable > typescript/@minecraft/module@1.0.0.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -1512,9 +1512,9 @@ export const GlobalConstantStable = 8;
 
 exports[`Minecraft Version Shipped Stable > Generates correct output for module with stable shipped version and beta in a new version in stable > typescript/@minecraft/module@2.0.0.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -1553,9 +1553,9 @@ export const GlobalConstantStable = 8;
 
 exports[`Minecraft Version Shipped Stable > Generates correct output for module with stable shipped version and beta in a new version in stable > typescript/@minecraft/module@2.1.0-beta.1.2.3-stable.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -1599,9 +1599,9 @@ export const GlobalConstantStable = 8;
 
 exports[`Minecraft Version Shipped Stable > Generates correct output for module with stable shipped version and beta in a new version in stable > typescript/@minecraft/module@2.1.0-internal.1.2.3-stable.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.

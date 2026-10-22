@@ -482,9 +482,8 @@ exports[`General > Properly generates documentation for the input > npm/@minecra
 
 exports[`General > Properly generates documentation for the input > npm/@minecraft/vanilla-data/lib/index.js 1`] = `
 "// Vanilla Data for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
 //                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
@@ -570,9 +569,8 @@ exports[`General > Properly generates documentation for the input > npm/@minecra
 
 exports[`General > Properly generates documentation for the input > npm/@minecraft/vanilla-data/src/test-blocks-module.ts 1`] = `
 "// Vanilla Data for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
 //                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
@@ -640,9 +638,9 @@ https://learn.microsoft.com/en-us/minecraft/creator/scriptapi/test-module2/test-
 
 exports[`General > Properly generates documentation for the input > npm/types/test-module2@1.0.0/index.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -755,9 +753,8 @@ exports[`General > Properly generates documentation for the input > npm/types/te
 
 exports[`General > Properly generates documentation for the input > ts-source/1.18.20/test-blocks-module.ts 1`] = `
 "// Vanilla Data for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
 //                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
@@ -2505,9 +2502,9 @@ exports[`General > Properly generates documentation for the input > typedoc/inte
 
 exports[`General > Properly generates documentation for the input > typescript/test-module2@1.0.0.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.

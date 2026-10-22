@@ -163,9 +163,9 @@ Notes:
 
 exports[`Additive Beta Change > Generates correct output when a stable API has an additive change in beta > typescript/@minecraft/module@1.0.0-rc.1.2.3-preview.5.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -202,9 +202,9 @@ export function ChangedFunctionArgument(arg: string): void;
 
 exports[`Additive Beta Change > Generates correct output when a stable API has an additive change in beta > typescript/@minecraft/module@1.1.0-beta.1.2.3-preview.5.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.

@@ -4,9 +4,9 @@ exports[`Skip Merging With Parent > Properly skips merging if skip merging is se
 
 exports[`Skip Merging With Parent > Properly skips merging if skip merging is set to true > typescript/@minecraft/server@2.2.0-beta.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.
@@ -35,9 +35,9 @@ export function ChildFunction(): number;
 
 exports[`Skip Merging With Parent > Properly skips merging if skip merging is set to true > typescript/@minecraft/server-bindings@2.2.0-beta.d.ts 1`] = `
 "// Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.

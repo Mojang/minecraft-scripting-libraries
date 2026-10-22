@@ -1,7 +1,7 @@
 // Type definitions for Minecraft Bedrock Edition script APIs
-// Project: https://docs.microsoft.com/minecraft/creator/
+// Project: https://learn.microsoft.com/minecraft/creator/
 // Definitions by: Jake Shirley <https://github.com/JakeShirley>
-//                 Mike Ammerlaan <https://github.com/mammerla>
+//                 Raphael Landaverde <https://github.com/rlandav>
 
 /* *****************************************************************************
    Copyright (c) Microsoft Corporation.

@@ -91,7 +91,7 @@ This is version 1.x.x of this module, which is the latest as of version 1.0.0 of
 ## Available Versions
 - \`1.0.0\`
 
-# Type Aliases
+## Type Aliases
 - [TestTypeMap](TestTypeMap.md)
 - [TestTypeMapUnion](TestTypeMapUnion.md)
 "
@@ -189,7 +189,7 @@ This is version 1.x.x of this module, which is the latest as of version 1.0.0 of
 ## Available Versions
 - \`1.0.0\`
 
-# Type Aliases
+## Type Aliases
 - [TestComponentTypeMap](TestComponentTypeMap.md)
 
 ## Classes

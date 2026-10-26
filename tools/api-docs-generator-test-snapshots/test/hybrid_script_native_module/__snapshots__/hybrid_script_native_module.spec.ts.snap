@@ -64,7 +64,7 @@ description: Contents of the hybrid-module module (Version 0.x.x)
 ## Available Versions
 - \`0.1.0\`
 
-# Type Aliases
+## Type Aliases
 - [TypeAliasWithTSDocComments](TypeAliasWithTSDocComments.md)
 
 ## Functions
@@ -317,7 +317,7 @@ This is version 1.x.x of this module, which is the latest as of version 1.0.0 of
 ## Enumerations
 - [ScriptGeneratedEnum](ScriptGeneratedEnum.md)
 
-# Type Aliases
+## Type Aliases
 - [TypeAliasWithInfoJsonComments](TypeAliasWithInfoJsonComments.md)
 - [TypeAliasWithTSDocComments](TypeAliasWithTSDocComments.md)
 
@@ -1357,7 +1357,7 @@ description: Contents of the hybrid-module module (Version 0.x.x)
 ## Available Versions
 - \`0.1.0\`
 
-# Type Aliases
+## Type Aliases
 - [TypeAliasWithTSDocComments](TypeAliasWithTSDocComments.md)
 
 ## Functions
@@ -1573,7 +1573,7 @@ This is version 1.x.x of this module, which is the latest as of version 1.0.0 of
 ## Enumerations
 - [ScriptGeneratedEnum](ScriptGeneratedEnum.md)
 
-# Type Aliases
+## Type Aliases
 - [TypeAliasWithInfoJsonComments](TypeAliasWithInfoJsonComments.md)
 - [TypeAliasWithTSDocComments](TypeAliasWithTSDocComments.md)
 

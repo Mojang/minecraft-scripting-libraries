@@ -2846,7 +2846,7 @@ const baz = \`Foo is "\${foo}"\`;
 ## Enumerations
 - [TestEnum](TestEnum.md)
 
-# Type Aliases
+## Type Aliases
 - [ChangedType](ChangedType.md)
 - [ChangedTypeMap](ChangedTypeMap.md)
 - [RemovedType](RemovedType.md)
@@ -3159,7 +3159,7 @@ This is version 1.x.x of this module, which is the latest as of version 1.0.0 of
 ## Available Versions
 - \`1.0.0\`
 
-# Type Aliases
+## Type Aliases
 - [TypeAliasFromPeerDependency](TypeAliasFromPeerDependency.md)
 "
 `;
@@ -3842,7 +3842,7 @@ The following API versions are from a major version that is documented here: [*t
 - [AddedEnum](AddedEnum.md)
 - [TestEnum](TestEnum.md)
 
-# Type Aliases
+## Type Aliases
 - [AddedType](AddedType.md)
 - [ChangedType](ChangedType.md)
 - [ChangedTypeMap](ChangedTypeMap.md)
